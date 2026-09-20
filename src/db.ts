@@ -40,13 +40,15 @@ export function initDb(): void {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
       dosage TEXT NOT NULL DEFAULT '',
-      times_per_day INTEGER NOT NULL DEFAULT 1
+      times_per_day INTEGER NOT NULL DEFAULT 1,
+      purpose TEXT NOT NULL DEFAULT ''
     );
     CREATE TABLE IF NOT EXISTS supplements (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
       dosage TEXT NOT NULL DEFAULT '',
-      times_per_day INTEGER NOT NULL DEFAULT 1
+      times_per_day INTEGER NOT NULL DEFAULT 1,
+      purpose TEXT NOT NULL DEFAULT ''
     );
     CREATE TABLE IF NOT EXISTS food_logs (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -79,6 +81,17 @@ export function initDb(): void {
   const existing = db.getFirstSync<{ id: number }>('SELECT id FROM profile WHERE id = 1');
   if (!existing) {
     db.runSync("INSERT INTO profile (id, diet_type, diet_nuances, goals) VALUES (1, 'carnivore', '', '')");
+  }
+  // Column migrations for tables that already existed before the column did.
+  addColumnIfMissing('medications', 'purpose', "TEXT NOT NULL DEFAULT ''");
+  addColumnIfMissing('supplements', 'purpose', "TEXT NOT NULL DEFAULT ''");
+}
+
+/** ALTER TABLE ... ADD COLUMN, but only when the column isn't there yet. */
+function addColumnIfMissing(table: string, column: string, definition: string): void {
+  const cols = db.getAllSync<{ name: string }>(`PRAGMA table_info(${table})`);
+  if (!cols.some((c) => c.name === column)) {
+    db.execSync(`ALTER TABLE ${table} ADD COLUMN ${column} ${definition}`);
   }
 }
 
@@ -158,11 +171,12 @@ export function listMedications(): Medication[] {
   return db.getAllSync<Medication>('SELECT * FROM medications ORDER BY name');
 }
 
-export function addMedication(name: string, dosage: string, timesPerDay: number): void {
-  db.runSync('INSERT INTO medications (name, dosage, times_per_day) VALUES (?, ?, ?)', [
+export function addMedication(name: string, dosage: string, timesPerDay: number, purpose: string): void {
+  db.runSync('INSERT INTO medications (name, dosage, times_per_day, purpose) VALUES (?, ?, ?, ?)', [
     name.trim(),
     dosage.trim(),
     timesPerDay,
+    purpose.trim(),
   ]);
 }
 
@@ -174,11 +188,12 @@ export function listSupplements(): Supplement[] {
   return db.getAllSync<Supplement>('SELECT * FROM supplements ORDER BY name');
 }
 
-export function addSupplement(name: string, dosage: string, timesPerDay: number): void {
-  db.runSync('INSERT INTO supplements (name, dosage, times_per_day) VALUES (?, ?, ?)', [
+export function addSupplement(name: string, dosage: string, timesPerDay: number, purpose: string): void {
+  db.runSync('INSERT INTO supplements (name, dosage, times_per_day, purpose) VALUES (?, ?, ?, ?)', [
     name.trim(),
     dosage.trim(),
     timesPerDay,
+    purpose.trim(),
   ]);
 }
 

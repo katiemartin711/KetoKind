@@ -50,6 +50,7 @@ export default function ProfileScreen() {
   const [medName, setMedName] = useState('');
   const [medDosage, setMedDosage] = useState('');
   const [medTimes, setMedTimes] = useState('1');
+  const [medPurpose, setMedPurpose] = useState('');
 
   const refresh = useCallback(() => {
     const p = getProfile();
@@ -91,19 +92,20 @@ export default function ProfileScreen() {
     const times = parseInt(medTimes, 10);
     if (isNaN(times) || times < 1) return Alert.alert('Invalid', 'Times per day must be at least 1.');
     if (isMed) {
-      addMedication(medName, medDosage, times);
+      addMedication(medName, medDosage, times, medPurpose);
       setMedications(listMedications());
     } else {
-      addSupplement(medName, medDosage, times);
+      addSupplement(medName, medDosage, times, medPurpose);
       setSupplements(listSupplements());
     }
     setMedName('');
     setMedDosage('');
     setMedTimes('1');
+    setMedPurpose('');
   };
 
-  const medSuppLabel = (m: { name: string; dosage: string; times_per_day: number }) =>
-    `${m.name}${m.dosage ? ` — ${m.dosage}` : ''} (${m.times_per_day}x/day)`;
+  const medSuppLabel = (m: { name: string; dosage: string; times_per_day: number; purpose: string }) =>
+    `${m.name}${m.dosage ? ` — ${m.dosage}` : ''} (${m.times_per_day}x/day)${m.purpose ? ` · for ${m.purpose}` : ''}`;
 
   return (
     <View style={common.screen}>
@@ -230,6 +232,13 @@ export default function ProfileScreen() {
             placeholder={medSuppTab === 'medication' ? 'e.g. Metformin' : 'e.g. Vitamin D3'}
             value={medName}
             onChangeText={setMedName}
+          />
+          <Text style={common.label}>What it's for</Text>
+          <TextInput
+            style={common.input}
+            placeholder={medSuppTab === 'medication' ? 'e.g. blood sugar' : 'e.g. immune support'}
+            value={medPurpose}
+            onChangeText={setMedPurpose}
           />
           <View style={styles.medRow}>
             <View style={styles.medHalf}>

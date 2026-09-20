@@ -35,10 +35,10 @@ function buildContextMarkdown(data: ExportData): string {
   lines.push(`- **Allergies:** ${allergies.map((a) => a.name).join(', ') || 'None recorded'}`);
   lines.push(`- **Health conditions:** ${conditions.map((c) => c.name).join(', ') || 'None recorded'}`);
   lines.push(
-    `- **Medications:** ${medications.map((m) => `${m.name}${m.dosage ? ` (${m.dosage})` : ''} — ${m.times_per_day}x/day`).join('; ') || 'None recorded'}`,
+    `- **Medications:** ${medications.map((m) => `${m.name}${m.dosage ? ` (${m.dosage})` : ''} — ${m.times_per_day}x/day${m.purpose ? `, for ${m.purpose}` : ''}`).join('; ') || 'None recorded'}`,
   );
   lines.push(
-    `- **Supplements:** ${supplements.map((s) => `${s.name}${s.dosage ? ` (${s.dosage})` : ''} — ${s.times_per_day}x/day`).join('; ') || 'None recorded'}`,
+    `- **Supplements:** ${supplements.map((s) => `${s.name}${s.dosage ? ` (${s.dosage})` : ''} — ${s.times_per_day}x/day${s.purpose ? `, for ${s.purpose}` : ''}`).join('; ') || 'None recorded'}`,
   );
   lines.push('');
   lines.push(`## Last 30 days (${rangeLabel})`);

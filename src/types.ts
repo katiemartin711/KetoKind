@@ -32,6 +32,7 @@ export interface Medication {
   name: string;
   dosage: string;
   times_per_day: number;
+  purpose: string; // what it's for, e.g. "blood sugar"
 }
 
 /** A recurring supplement from the Profile tab (e.g. Vitamin D3 daily). */
@@ -40,6 +41,7 @@ export interface Supplement {
   name: string;
   dosage: string;
   times_per_day: number;
+  purpose: string; // what it's for, e.g. "immune support"
 }
 
 export interface FoodLog {

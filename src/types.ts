@@ -15,6 +15,8 @@ export interface Profile {
   diet_type: DietType;
   diet_nuances: string;
   goals: string;
+  track_weight: number; // 0/1 — whether weight logging is enabled
+  starting_weight: number | null; // lbs
 }
 
 export interface Allergy {
@@ -78,14 +80,21 @@ export interface SupplementLog {
   notes: string;
 }
 
+export interface WeightLog {
+  id: number;
+  weight: number; // lbs
+  logged_at: string; // ISO string
+}
+
 /** A log entry of any kind, normalized for the "today" list on the Log tab. */
 export type AnyLog =
   | { kind: 'meal'; id: number; title: string; detail: string; logged_at: string }
   | { kind: 'medication'; id: number; title: string; detail: string; logged_at: string }
   | { kind: 'symptom'; id: number; title: string; detail: string; logged_at: string }
-  | { kind: 'supplement'; id: number; title: string; detail: string; logged_at: string };
+  | { kind: 'supplement'; id: number; title: string; detail: string; logged_at: string }
+  | { kind: 'weight'; id: number; title: string; detail: string; logged_at: string };
 
-export type LogSegment = 'meal' | 'medication' | 'symptom' | 'supplement';
+export type LogSegment = 'meal' | 'medication' | 'symptom' | 'supplement' | 'weight';
 
 /** Bottom-tab routes. The Log tab accepts an optional starting segment
  *  (used by the Dashboard quick-add buttons). */

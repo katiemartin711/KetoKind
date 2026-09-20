@@ -14,6 +14,7 @@ import type {
   Supplement,
   SupplementLog,
   SymptomLog,
+  WeightLog,
 } from './types';
 
 const db = SQLite.openDatabaseSync('dietcoach.db');
@@ -79,6 +80,11 @@ export function initDb(): void {
       logged_at TEXT NOT NULL,
       notes TEXT NOT NULL DEFAULT ''
     );
+    CREATE TABLE IF NOT EXISTS weight_logs (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      weight REAL NOT NULL,
+      logged_at TEXT NOT NULL
+    );
   `);
   // Guarantee the single profile row (id = 1) exists.
   const existing = db.getFirstSync<{ id: number }>('SELECT id FROM profile WHERE id = 1');
@@ -90,6 +96,8 @@ export function initDb(): void {
   addColumnIfMissing('supplements', 'purpose', "TEXT NOT NULL DEFAULT ''");
   addColumnIfMissing('medications', 'as_needed', 'INTEGER NOT NULL DEFAULT 0');
   addColumnIfMissing('supplements', 'as_needed', 'INTEGER NOT NULL DEFAULT 0');
+  addColumnIfMissing('profile', 'track_weight', 'INTEGER NOT NULL DEFAULT 0');
+  addColumnIfMissing('profile', 'starting_weight', 'REAL');
   addColumnIfMissing('supplement_logs', 'supplement_id', 'INTEGER');
   // Backfill supplement_id for logs saved before the tap-to-log picker existed.
   const legacySuppLogs = db.getAllSync<{ id: number; name: string }>(
@@ -155,6 +163,14 @@ export function saveProfile(dietType: DietType, nuances: string, goals: string):
     dietType,
     nuances,
     goals,
+  ]);
+}
+
+/** Weight-tracking preference + starting weight (lbs, null when unset). */
+export function setWeightTracking(trackWeight: boolean, startingWeight: number | null): void {
+  db.runSync('UPDATE profile SET track_weight = ?, starting_weight = ? WHERE id = 1', [
+    trackWeight ? 1 : 0,
+    startingWeight,
   ]);
 }
 
@@ -343,6 +359,27 @@ export function getSupplementLog(id: number): SupplementLog | null {
   return db.getFirstSync<SupplementLog>('SELECT * FROM supplement_logs WHERE id = ?', [id]);
 }
 
+export function addWeightLog(weight: number, loggedAt: string): void {
+  db.runSync('INSERT INTO weight_logs (weight, logged_at) VALUES (?, ?)', [weight, loggedAt]);
+}
+
+export function updateWeightLog(id: number, weight: number, loggedAt: string): void {
+  db.runSync('UPDATE weight_logs SET weight = ?, logged_at = ? WHERE id = ?', [
+    weight,
+    loggedAt,
+    id,
+  ]);
+}
+
+export function getWeightLog(id: number): WeightLog | null {
+  return db.getFirstSync<WeightLog>('SELECT * FROM weight_logs WHERE id = ?', [id]);
+}
+
+/** Most recent weigh-in, or null if none logged yet. */
+export function getLatestWeight(): WeightLog | null {
+  return db.getFirstSync<WeightLog>('SELECT * FROM weight_logs ORDER BY logged_at DESC LIMIT 1');
+}
+
 export function deleteLog(kind: AnyLog['kind'], id: number): void {
   const table =
     kind === 'meal'
@@ -351,7 +388,9 @@ export function deleteLog(kind: AnyLog['kind'], id: number): void {
         ? 'med_logs'
         : kind === 'symptom'
           ? 'symptom_logs'
-          : 'supplement_logs';
+          : kind === 'supplement'
+            ? 'supplement_logs'
+            : 'weight_logs';
   db.runSync(`DELETE FROM ${table} WHERE id = ?`, [id]);
 }
 
@@ -374,6 +413,10 @@ export function getLogsForDay(date: Date): AnyLog[] {
   );
   const supplements = db.getAllSync<SupplementLog>(
     'SELECT * FROM supplement_logs WHERE logged_at BETWEEN ? AND ? ORDER BY logged_at DESC',
+    [start, end],
+  );
+  const weights = db.getAllSync<WeightLog>(
+    'SELECT * FROM weight_logs WHERE logged_at BETWEEN ? AND ? ORDER BY logged_at DESC',
     [start, end],
   );
 
@@ -405,6 +448,13 @@ export function getLogsForDay(date: Date): AnyLog[] {
       title: s.name,
       detail: s.notes || 'Logged',
       logged_at: s.logged_at,
+    })),
+    ...weights.map((w) => ({
+      kind: 'weight' as const,
+      id: w.id,
+      title: `${w.weight} lbs`,
+      detail: 'Weigh-in',
+      logged_at: w.logged_at,
     })),
   ];
   return all.sort((a, b) => (a.logged_at < b.logged_at ? 1 : -1));
@@ -449,6 +499,7 @@ export function getStreak(): number {
     UNION SELECT DISTINCT date(taken_at, 'localtime') FROM med_logs
     UNION SELECT DISTINCT date(logged_at, 'localtime') FROM symptom_logs
     UNION SELECT DISTINCT date(logged_at, 'localtime') FROM supplement_logs
+    UNION SELECT DISTINCT date(logged_at, 'localtime') FROM weight_logs
     ORDER BY d DESC
   `);
   const days = new Set(rows.map((r) => r.d));

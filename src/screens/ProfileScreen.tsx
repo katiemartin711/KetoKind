@@ -27,6 +27,7 @@ import {
   listMedications,
   listSupplements,
   saveProfile,
+  setWeightTracking,
 } from '../db';
 import type { Allergy, Condition, DietType, Medication, Supplement } from '../types';
 import { DIET_LABELS, DIET_TYPES } from '../types';
@@ -52,6 +53,9 @@ export default function ProfileScreen() {
   const [medTimes, setMedTimes] = useState('1');
   const [medPurpose, setMedPurpose] = useState('');
   const [medAsNeeded, setMedAsNeeded] = useState(false);
+  const [trackWeight, setTrackWeight] = useState(false);
+  const [startingWeight, setStartingWeight] = useState('');
+  const [weightSavedFlash, setWeightSavedFlash] = useState(false);
 
   const refresh = useCallback(() => {
     const p = getProfile();
@@ -62,6 +66,8 @@ export default function ProfileScreen() {
     setConditions(listConditions());
     setMedications(listMedications());
     setSupplements(listSupplements());
+    setTrackWeight(!!p.track_weight);
+    setStartingWeight(p.starting_weight != null ? String(p.starting_weight) : '');
   }, []);
 
   useFocusEffect(refresh);
@@ -70,6 +76,20 @@ export default function ProfileScreen() {
     saveProfile(dietType, nuances, goals);
     setSavedFlash(true);
     setTimeout(() => setSavedFlash(false), 2000);
+  };
+
+  const saveWeightSettings = () => {
+    let sw: number | null = null;
+    if (trackWeight && startingWeight.trim() !== '') {
+      const n = parseFloat(startingWeight);
+      if (isNaN(n) || n <= 0) {
+        return Alert.alert('Invalid', 'Starting weight must be a positive number.');
+      }
+      sw = n;
+    }
+    setWeightTracking(trackWeight, sw);
+    setWeightSavedFlash(true);
+    setTimeout(() => setWeightSavedFlash(false), 2000);
   };
 
   const addAllergyRow = () => {
@@ -160,6 +180,41 @@ export default function ProfileScreen() {
           <TouchableOpacity style={common.primaryButton} onPress={onSave}>
             <Text style={common.primaryButtonText}>
               {savedFlash ? 'Saved ✓' : 'Save profile'}
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Weight tracking (optional) */}
+        <View style={common.card}>
+          <Text style={common.h2}>Weight tracking</Text>
+          <Text style={styles.weightHint}>
+            Optional — turn this on if you want to log your weight.
+          </Text>
+          <TouchableOpacity
+            style={styles.asNeededRow}
+            onPress={() => setTrackWeight(!trackWeight)}
+            activeOpacity={0.7}
+          >
+            <View style={[styles.checkbox, trackWeight && styles.checkboxActive]}>
+              {trackWeight && <Text style={styles.checkmark}>✓</Text>}
+            </View>
+            <Text style={styles.asNeededLabel}>Track my weight</Text>
+          </TouchableOpacity>
+          {trackWeight && (
+            <>
+              <Text style={common.label}>Starting weight (lbs)</Text>
+              <TextInput
+                style={common.input}
+                keyboardType="decimal-pad"
+                placeholder="e.g. 185"
+                value={startingWeight}
+                onChangeText={setStartingWeight}
+              />
+            </>
+          )}
+          <TouchableOpacity style={common.secondaryButton} onPress={saveWeightSettings}>
+            <Text style={common.secondaryButtonText}>
+              {weightSavedFlash ? 'Saved ✓' : 'Save weight settings'}
             </Text>
           </TouchableOpacity>
         </View>
@@ -359,6 +414,7 @@ const styles = StyleSheet.create({
   checkboxActive: { backgroundColor: COLORS.accent, borderColor: COLORS.accent },
   checkmark: { color: '#fff', fontWeight: '700', fontSize: 15 },
   asNeededLabel: { fontSize: 15, color: COLORS.text },
+  weightHint: { fontSize: 14, color: COLORS.muted, marginBottom: 4 },
   toggleRow: {
     flexDirection: 'row',
     backgroundColor: COLORS.border,

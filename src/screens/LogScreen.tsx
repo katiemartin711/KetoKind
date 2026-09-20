@@ -19,18 +19,22 @@ import {
   addMedLog,
   addSupplementLog,
   addSymptomLog,
+  addWeightLog,
   deleteLog,
   getFoodLog,
   getLogsForDay,
   getMedLog,
+  getProfile,
   getSupplementLog,
   getSymptomLog,
+  getWeightLog,
   listMedications,
   listSupplements,
   updateFoodLog,
   updateMedLog,
   updateSupplementLog,
   updateSymptomLog,
+  updateWeightLog,
 } from '../db';
 import type { AnyLog, LogSegment, Medication, RootTabParamList, Supplement } from '../types';
 import { COLORS, common } from '../theme';
@@ -52,6 +56,7 @@ const KIND_LABEL: Record<AnyLog['kind'], string> = {
   medication: 'Medication',
   symptom: 'Symptom',
   supplement: 'Supplement',
+  weight: 'Weight',
 };
 
 function fmtTime(iso: string): string {
@@ -122,6 +127,8 @@ export default function LogScreen() {
   const [symptomName, setSymptomName] = useState('');
   const [severity, setSeverity] = useState(3);
   const [symptomNotes, setSymptomNotes] = useState('');
+  const [weightInput, setWeightInput] = useState('');
+  const [trackWeightOn, setTrackWeightOn] = useState(false);
 
   // Timestamp for the entry being created/edited — defaults to right now.
   const [logDate, setLogDate] = useState<Date>(new Date());
@@ -140,6 +147,7 @@ export default function LogScreen() {
     if (selectedSuppId != null && !supps.some((s) => s.id === selectedSuppId)) {
       setSelectedSuppId(null);
     }
+    setTrackWeightOn(!!getProfile().track_weight);
   }, [selectedMedId, selectedSuppId]);
 
   useFocusEffect(refresh);
@@ -148,6 +156,15 @@ export default function LogScreen() {
   useEffect(() => {
     if (route.params?.segment) setSegment(route.params.segment);
   }, [route.params?.segment]);
+
+  // The Weight segment only exists while weight tracking is enabled.
+  const visibleSegments: { key: LogSegment; label: string }[] = trackWeightOn
+    ? [...SEGMENTS, { key: 'weight', label: 'Weight' }]
+    : SEGMENTS;
+
+  useEffect(() => {
+    if (!trackWeightOn && segment === 'weight') setSegment('meal');
+  }, [trackWeightOn, segment]);
 
   const saveMeal = () => {
     if (!mealName.trim()) return Alert.alert('Missing name', 'What did you eat?');
@@ -197,6 +214,19 @@ export default function LogScreen() {
     refresh();
   };
 
+  const saveWeight = () => {
+    const w = parseFloat(weightInput);
+    if (isNaN(w) || w <= 0) return Alert.alert('Invalid', 'Enter your weight in lbs.');
+    const at = logDate.toISOString();
+    if (editing?.kind === 'weight') {
+      updateWeightLog(editing.id, w, at);
+    } else {
+      addWeightLog(w, at);
+    }
+    resetForm();
+    refresh();
+  };
+
   /** Clear the form back to a fresh entry. */
   const resetForm = () => {
     setMealName('');
@@ -207,6 +237,7 @@ export default function LogScreen() {
     setSymptomName('');
     setSymptomNotes('');
     setSeverity(3);
+    setWeightInput('');
     setLogDate(new Date());
     setEditing(null);
   };
@@ -232,6 +263,12 @@ export default function LogScreen() {
       setSymptomName(row.name);
       setSeverity(row.severity);
       setSymptomNotes(row.notes);
+      setLogDate(new Date(row.logged_at));
+    } else if (log.kind === 'weight') {
+      if (!trackWeightOn) return; // tracking was turned off in Profile
+      const row = getWeightLog(log.id);
+      if (!row) return;
+      setWeightInput(String(row.weight));
       setLogDate(new Date(row.logged_at));
     } else {
       const row = getSupplementLog(log.id);
@@ -266,7 +303,7 @@ export default function LogScreen() {
 
         {/* Segmented control */}
         <View style={styles.segments}>
-          {SEGMENTS.map((s) => (
+          {visibleSegments.map((s) => (
             <TouchableOpacity
               key={s.key}
               style={[styles.segment, segment === s.key && styles.segmentActive]}
@@ -443,6 +480,30 @@ export default function LogScreen() {
               </Text>
             </TouchableOpacity>
             {editing?.kind === 'supplement' && (
+              <TouchableOpacity style={common.secondaryButton} onPress={resetForm}>
+                <Text style={common.secondaryButtonText}>Cancel editing</Text>
+              </TouchableOpacity>
+            )}
+          </View>
+        )}
+
+        {segment === 'weight' && (
+          <View style={common.card}>
+            <Text style={common.label}>Weight (lbs)</Text>
+            <TextInput
+              style={common.input}
+              keyboardType="decimal-pad"
+              placeholder="e.g. 182.5"
+              value={weightInput}
+              onChangeText={setWeightInput}
+            />
+            <DateTimeField value={logDate} onChange={setLogDate} />
+            <TouchableOpacity style={common.primaryButton} onPress={saveWeight}>
+              <Text style={common.primaryButtonText}>
+                {editing?.kind === 'weight' ? 'Save changes' : 'Save weight'}
+              </Text>
+            </TouchableOpacity>
+            {editing?.kind === 'weight' && (
               <TouchableOpacity style={common.secondaryButton} onPress={resetForm}>
                 <Text style={common.secondaryButtonText}>Cancel editing</Text>
               </TouchableOpacity>

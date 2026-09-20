@@ -98,6 +98,8 @@ function buildCoachPrompt(data: ExportData): string {
     `1. Suggest tweaks to my diet that fit my ${dietLabel} approach and restrictions.\n` +
     `2. Give me meal ideas I will actually enjoy.\n` +
     `3. Point out any patterns you notice between what I eat and how I feel.\n\n` +
+    `Keep your responses brief — no long lectures. Before diving into analysis, ask me whether ` +
+    `I want insights into my data or whether I have a specific question or concern I want to talk about.\n\n` +
     `Important: you are not a medical professional and this is not medical advice. ` +
     `Never tell me to start, stop, or change any medication — only my doctor can do that. ` +
     `If anything in my logs looks concerning, tell me to talk to my doctor.`

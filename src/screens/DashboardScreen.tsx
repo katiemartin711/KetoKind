@@ -7,7 +7,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-import { dismissMilestones, getDayCounts, getDismissedMilestones, getLatestWeight, getProfile, getStreak } from '../db';
+import { dismissMilestones, getDayCounts, getDismissedMilestones, getLatestWeight, getProfile, getStreak, isProfileSetup } from '../db';
 import type { LogSegment, RootTabParamList } from '../types';
 import { DIET_LABELS } from '../types';
 import { currentMilestone, reachedMilestones } from '../milestones';
@@ -39,6 +39,7 @@ export default function DashboardScreen() {
   const [weightCard, setWeightCard] = useState<{ latest: number | null; starting: number | null } | null>(null);
   const [milestone, setMilestone] = useState<Milestone | null>(null);
   const [dietLabel, setDietLabel] = useState('');
+  const [showProfileNudge, setShowProfileNudge] = useState(false);
 
   const refresh = useCallback(() => {
     setCounts(getDayCounts(new Date()));
@@ -46,6 +47,7 @@ export default function DashboardScreen() {
     const p = getProfile();
     setDietLabel(DIET_LABELS[p.diet_type]);
     setMilestone(currentMilestone(p.diet_start, getDismissedMilestones()));
+    setShowProfileNudge(!isProfileSetup(p));
     if (p.track_weight) {
       const latest = getLatestWeight();
       setWeightCard({ latest: latest?.weight ?? null, starting: p.starting_weight });
@@ -89,6 +91,24 @@ export default function DashboardScreen() {
       <ScrollView contentContainerStyle={common.scroll}>
         <Text style={common.h1}>Today</Text>
         <Text style={common.subtitle}>{todayLabel}</Text>
+
+        {showProfileNudge && (
+          <View style={[common.card, styles.nudgeCard]}>
+            <Ionicons name="person-outline" size={30} color={COLORS.accent} />
+            <View style={styles.nudgeText}>
+              <Text style={styles.nudgeTitle}>Set up your profile</Text>
+              <Text style={styles.nudgeSub}>
+                Add your diet start date, goals, and a bit about you so your AI coach can personalize its guidance.
+              </Text>
+              <TouchableOpacity
+                style={styles.nudgeButton}
+                onPress={() => navigation.navigate('Profile')}
+              >
+                <Text style={styles.nudgeButtonText}>Set up profile</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        )}
 
         {milestone && (
           <View style={[common.card, styles.milestoneCard]}>
@@ -185,6 +205,24 @@ const makeStyles = (C: Palette) =>
     milestoneTitle: { fontSize: 20, fontWeight: '700', color: C.text },
     milestoneSub: { fontSize: 13, color: C.muted, marginTop: 2 },
     milestoneClose: { padding: 4 },
+    nudgeCard: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: C.accentLight,
+      borderColor: C.accentLight,
+    },
+    nudgeText: { flex: 1, marginLeft: 12 },
+    nudgeTitle: { fontSize: 17, fontWeight: '700', color: C.text },
+    nudgeSub: { fontSize: 13, color: C.muted, marginTop: 2 },
+    nudgeButton: {
+      backgroundColor: C.accent,
+      borderRadius: 10,
+      paddingVertical: 9,
+      paddingHorizontal: 14,
+      alignSelf: 'flex-start',
+      marginTop: 10,
+    },
+    nudgeButtonText: { color: '#fff', fontWeight: '700', fontSize: 14 },
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',

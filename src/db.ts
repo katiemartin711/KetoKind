@@ -193,6 +193,20 @@ export function getDismissedMilestones(): string[] {
   return raw ? raw.split(',').filter(Boolean) : [];
 }
 
+/** True once the user has filled in anything meaningful on the Profile tab
+ *  (age, sex, bio, goals, nuances, or diet start date). Used to nudge brand-new
+ *  users toward setup on the Dashboard. */
+export function isProfileSetup(p: Profile): boolean {
+  return (
+    p.age != null ||
+    p.sex !== '' ||
+    p.bio.trim() !== '' ||
+    p.goals.trim() !== '' ||
+    p.diet_nuances.trim() !== '' ||
+    p.diet_start != null
+  );
+}
+
 /** Remember that the user dismissed milestone banners so they stay gone.
  *  Pass every reached milestone's key — dismissing the newest banner also
  *  clears older ones so they never pop back up. */

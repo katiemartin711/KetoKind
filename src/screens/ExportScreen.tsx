@@ -29,7 +29,8 @@ function buildContextMarkdown(data: ExportData): string {
   const list = (items: string[]) => (items.length > 0 ? items.map((i) => `- ${i}`).join('\n') : '- None recorded');
 
   lines.push('# Diet Coach — AI Context File');
-  lines.push(`_Exported ${new Date().toLocaleString()}_`);
+  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  lines.push(`_Exported ${new Date().toLocaleString()} (${tz})_`);
   lines.push('');
   lines.push('## Profile');
   lines.push(`- **Diet type:** ${DIET_LABELS[profile.diet_type]}`);
@@ -76,14 +77,17 @@ function buildContextMarkdown(data: ExportData): string {
   if (data.recentSupplements.length > 0) {
     lines.push('### Recent supplements');
     for (const s of data.recentSupplements) {
-      lines.push(`- ${fmtDateTime(s.logged_at)} — ${s.name}${s.notes ? ` (${s.notes})` : ''}`);
+      const qty = s.quantity > 1 ? ` (took ${s.quantity})` : '';
+      lines.push(`- ${fmtDateTime(s.logged_at)} — ${s.name}${qty}${s.notes ? ` (${s.notes})` : ''}`);
     }
     lines.push('');
   }
   if (data.recentMeds.length > 0) {
     lines.push('### Recent medication doses');
     for (const m of data.recentMeds) {
-      lines.push(`- ${fmtDateTime(m.taken_at)} — ${m.medication_name} taken`);
+      const name = m.medication_name ?? 'Deleted medication';
+      const qty = m.quantity > 1 ? ` (took ${m.quantity})` : '';
+      lines.push(`- ${fmtDateTime(m.taken_at)} — ${name} taken${qty}`);
     }
     lines.push('');
   }

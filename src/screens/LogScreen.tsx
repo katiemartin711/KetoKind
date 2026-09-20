@@ -338,9 +338,12 @@ export default function LogScreen() {
     } else if (log.kind === 'medication') {
       const row = getMedLog(log.id);
       if (!row) return;
-      setSelectedMedIds([row.medication_id]);
+      // The medication may have been deleted from the profile since — don't
+      // keep an invisible selection; the user picks a current one instead.
+      const stillExists = medications.some((m) => m.id === row.medication_id);
+      setSelectedMedIds(stillExists ? [row.medication_id] : []);
       setSelectedSuppIds([]);
-      setMedQty({ [row.medication_id]: row.quantity ?? 1 });
+      setMedQty(stillExists ? { [row.medication_id]: row.quantity ?? 1 } : {});
       setSuppQty({});
       setLogDate(new Date(row.taken_at));
     } else if (log.kind === 'symptom') {
@@ -418,6 +421,7 @@ export default function LogScreen() {
               placeholder="e.g. Ribeye steak, 3 eggs"
               value={mealName}
               onChangeText={setMealName}
+              maxLength={120}
             />
             <Text style={common.label}>Meal</Text>
             <View style={styles.chips}>
@@ -437,6 +441,7 @@ export default function LogScreen() {
               placeholder="How was it?"
               value={mealNotes}
               onChangeText={setMealNotes}
+              maxLength={200}
             />
             <DateTimeField value={logDate} onChange={setLogDate} />
             <TouchableOpacity style={common.primaryButton} onPress={saveMeal}>
@@ -557,6 +562,7 @@ export default function LogScreen() {
               placeholder="e.g. Bloating, headache, low energy"
               value={symptomName}
               onChangeText={setSymptomName}
+              maxLength={80}
             />
             <Text style={common.label}>Severity: {severity}/5</Text>
             <View style={styles.chips}>
@@ -576,6 +582,7 @@ export default function LogScreen() {
               placeholder="Anything notable?"
               value={symptomNotes}
               onChangeText={setSymptomNotes}
+              maxLength={200}
             />
             <DateTimeField value={logDate} onChange={setLogDate} />
             <TouchableOpacity style={common.primaryButton} onPress={saveSymptom}>
@@ -600,6 +607,7 @@ export default function LogScreen() {
               placeholder="e.g. 182.5"
               value={weightInput}
               onChangeText={setWeightInput}
+              maxLength={7}
             />
             <DateTimeField value={logDate} onChange={setLogDate} />
             <TouchableOpacity style={common.primaryButton} onPress={saveWeight}>
@@ -700,9 +708,9 @@ const makeStyles = (C: Palette) =>
   entryDetail: { fontSize: 13, color: C.muted, marginTop: 2 },
   deleteBtn: {
     backgroundColor: C.dangerLight,
-    borderRadius: 16,
-    width: 32,
-    height: 32,
+    borderRadius: 22,
+    width: 44,
+    height: 44,
     alignItems: 'center',
     justifyContent: 'center',
   },

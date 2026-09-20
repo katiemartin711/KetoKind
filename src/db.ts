@@ -16,8 +16,29 @@ import type {
   SymptomLog,
   WeightLog,
 } from './types';
+import type { ThemeMode } from './theme';
 
 const db = SQLite.openDatabaseSync('dietcoach.db');
+
+/**
+ * Schema version. Bump this and add an entry to MIGRATIONS whenever the
+ * schema changes — initDb() applies every migration newer than the stored
+ * PRAGMA user_version, in order.
+ */
+const SCHEMA_VERSION = 1;
+
+/** version -> SQL statements to run when upgrading TO that version. */
+const MIGRATIONS: Record<number, string[]> = {
+  // 2: ['ALTER TABLE ... ADD COLUMN ...'],
+};
+
+/** ALTER TABLE ... ADD COLUMN, but only when the column isn't there yet. */
+function addColumnIfMissing(table: string, column: string, definition: string): void {
+  const cols = db.getAllSync<{ name: string }>(`PRAGMA table_info(${table})`);
+  if (!cols.some((c) => c.name === column)) {
+    db.execSync(`ALTER TABLE ${table} ADD COLUMN ${column} ${definition}`);
+  }
+}
 
 /** Create tables on first launch and make sure the single profile row exists. */
 export function initDb(): void {
@@ -28,7 +49,14 @@ export function initDb(): void {
       diet_type TEXT NOT NULL DEFAULT 'carnivore',
       diet_nuances TEXT NOT NULL DEFAULT '',
       goals TEXT NOT NULL DEFAULT '',
-      theme_mode TEXT NOT NULL DEFAULT 'system'
+      theme_mode TEXT NOT NULL DEFAULT 'system',
+      track_weight INTEGER NOT NULL DEFAULT 0,
+      starting_weight REAL,
+      age INTEGER,
+      sex TEXT NOT NULL DEFAULT '',
+      bio TEXT NOT NULL DEFAULT '',
+      diet_start TEXT,
+      dismissed_milestones TEXT NOT NULL DEFAULT ''
     );
     CREATE TABLE IF NOT EXISTS allergies (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -65,8 +93,7 @@ export function initDb(): void {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       medication_id INTEGER NOT NULL,
       taken_at TEXT NOT NULL,
-      quantity INTEGER NOT NULL DEFAULT 1,
-      FOREIGN KEY (medication_id) REFERENCES medications(id)
+      quantity INTEGER NOT NULL DEFAULT 1
     );
     CREATE TABLE IF NOT EXISTS symptom_logs (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -94,43 +121,48 @@ export function initDb(): void {
   if (!existing) {
     db.runSync("INSERT INTO profile (id, diet_type, diet_nuances, goals) VALUES (1, 'carnivore', '', '')");
   }
-  // Column migrations for tables that already existed before the column did.
-  addColumnIfMissing('medications', 'purpose', "TEXT NOT NULL DEFAULT ''");
-  addColumnIfMissing('supplements', 'purpose', "TEXT NOT NULL DEFAULT ''");
-  addColumnIfMissing('medications', 'as_needed', 'INTEGER NOT NULL DEFAULT 0');
-  addColumnIfMissing('supplements', 'as_needed', 'INTEGER NOT NULL DEFAULT 0');
-  addColumnIfMissing('profile', 'track_weight', 'INTEGER NOT NULL DEFAULT 0');
-  addColumnIfMissing('profile', 'starting_weight', 'REAL');
-  addColumnIfMissing('med_logs', 'quantity', 'INTEGER NOT NULL DEFAULT 1');
-  addColumnIfMissing('supplement_logs', 'quantity', 'INTEGER NOT NULL DEFAULT 1');
-  addColumnIfMissing('profile', 'theme_mode', "TEXT NOT NULL DEFAULT 'system'");
-  addColumnIfMissing('profile', 'age', 'INTEGER');
-  addColumnIfMissing('profile', 'sex', "TEXT NOT NULL DEFAULT ''");
-  addColumnIfMissing('profile', 'bio', "TEXT NOT NULL DEFAULT ''");
-  addColumnIfMissing('profile', 'diet_start', 'TEXT');
-  addColumnIfMissing('profile', 'dismissed_milestones', "TEXT NOT NULL DEFAULT ''");
-  addColumnIfMissing('supplement_logs', 'supplement_id', 'INTEGER');
-  // Backfill supplement_id for logs saved before the tap-to-log picker existed.
-  const legacySuppLogs = db.getAllSync<{ id: number; name: string }>(
-    'SELECT id, name FROM supplement_logs WHERE supplement_id IS NULL',
-  );
-  for (const row of legacySuppLogs) {
-    const match = db.getFirstSync<{ id: number }>(
-      'SELECT id FROM supplements WHERE lower(trim(name)) = lower(trim(?))',
-      [row.name],
+
+  const stored = db.getFirstSync<{ v: number }>('PRAGMA user_version');
+  const currentVersion = stored?.v ?? 0;
+  if (currentVersion === 0) {
+    // Databases created before versioning existed: bring every table up to the
+    // v1 schema idempotently. Harmless on fresh installs (columns already there).
+    addColumnIfMissing('medications', 'purpose', "TEXT NOT NULL DEFAULT ''");
+    addColumnIfMissing('supplements', 'purpose', "TEXT NOT NULL DEFAULT ''");
+    addColumnIfMissing('medications', 'as_needed', 'INTEGER NOT NULL DEFAULT 0');
+    addColumnIfMissing('supplements', 'as_needed', 'INTEGER NOT NULL DEFAULT 0');
+    addColumnIfMissing('profile', 'track_weight', 'INTEGER NOT NULL DEFAULT 0');
+    addColumnIfMissing('profile', 'starting_weight', 'REAL');
+    addColumnIfMissing('med_logs', 'quantity', 'INTEGER NOT NULL DEFAULT 1');
+    addColumnIfMissing('supplement_logs', 'quantity', 'INTEGER NOT NULL DEFAULT 1');
+    addColumnIfMissing('profile', 'theme_mode', "TEXT NOT NULL DEFAULT 'system'");
+    addColumnIfMissing('profile', 'age', 'INTEGER');
+    addColumnIfMissing('profile', 'sex', "TEXT NOT NULL DEFAULT ''");
+    addColumnIfMissing('profile', 'bio', "TEXT NOT NULL DEFAULT ''");
+    addColumnIfMissing('profile', 'diet_start', 'TEXT');
+    addColumnIfMissing('profile', 'dismissed_milestones', "TEXT NOT NULL DEFAULT ''");
+    addColumnIfMissing('supplement_logs', 'supplement_id', 'INTEGER');
+    // Backfill supplement_id for logs saved before the tap-to-log picker existed.
+    const legacySuppLogs = db.getAllSync<{ id: number; name: string }>(
+      'SELECT id, name FROM supplement_logs WHERE supplement_id IS NULL',
     );
-    if (match) {
-      db.runSync('UPDATE supplement_logs SET supplement_id = ? WHERE id = ?', [match.id, row.id]);
+    for (const row of legacySuppLogs) {
+      const match = db.getFirstSync<{ id: number }>(
+        'SELECT id FROM supplements WHERE lower(trim(name)) = lower(trim(?))',
+        [row.name],
+      );
+      if (match) {
+        db.runSync('UPDATE supplement_logs SET supplement_id = ? WHERE id = ?', [match.id, row.id]);
+      }
     }
   }
-}
-
-/** ALTER TABLE ... ADD COLUMN, but only when the column isn't there yet. */
-function addColumnIfMissing(table: string, column: string, definition: string): void {
-  const cols = db.getAllSync<{ name: string }>(`PRAGMA table_info(${table})`);
-  if (!cols.some((c) => c.name === column)) {
-    db.execSync(`ALTER TABLE ${table} ADD COLUMN ${column} ${definition}`);
+  // Apply any newer migrations in order, then stamp the version.
+  for (let v = currentVersion + 1; v <= SCHEMA_VERSION; v++) {
+    for (const stmt of MIGRATIONS[v] ?? []) {
+      db.execSync(stmt);
+    }
   }
+  db.execSync(`PRAGMA user_version = ${SCHEMA_VERSION}`);
 }
 
 // ---------------------------------------------------------------------------
@@ -180,7 +212,7 @@ export function saveProfile(
 ): void {
   db.runSync(
     'UPDATE profile SET diet_type = ?, diet_nuances = ?, goals = ?, age = ?, sex = ?, bio = ?, diet_start = ? WHERE id = 1',
-    [dietType, nuances, goals, age, sex, bio, dietStart],
+    [dietType, nuances.trim(), goals.trim(), age, sex, bio, dietStart],
   );
 }
 
@@ -219,6 +251,10 @@ export function deleteAllData(): void {
       dismissed_milestones = ''
     WHERE id = 1;
   `);
+  // Actually purge the deleted rows from the file (DELETE alone leaves them
+  // in free pages) and reset id counters.
+  db.execSync('DELETE FROM sqlite_sequence;');
+  db.execSync('VACUUM;');
 }
 
 /** True once the user has filled in anything meaningful on the Profile tab
@@ -247,11 +283,6 @@ export function dismissMilestones(keys: string[]): void {
   db.runSync('UPDATE profile SET dismissed_milestones = ? WHERE id = 1', [merged.join(',')]);
 }
 
-/** Remember that the user dismissed a milestone banner so it stays gone. */
-export function dismissMilestone(key: string): void {
-  dismissMilestones([key]);
-}
-
 /** Persist just the diet type — auto-saved the moment the user taps an option. */
 export function persistDietType(dietType: DietType): void {
   db.runSync('UPDATE profile SET diet_type = ? WHERE id = 1', [dietType]);
@@ -264,8 +295,6 @@ export function setWeightTracking(trackWeight: boolean, startingWeight: number |
     startingWeight,
   ]);
 }
-
-import type { ThemeMode } from './theme';
 
 /** 'system' (default) follows the phone's light/dark setting. */
 export function getThemeMode(): ThemeMode {
@@ -544,9 +573,9 @@ export function getLogsForDay(date: Date): AnyLog[] {
     'SELECT * FROM food_logs WHERE logged_at BETWEEN ? AND ? ORDER BY logged_at DESC',
     [start, end],
   );
-  const meds = db.getAllSync<MedLog>(
+  const meds = db.getAllSync<Omit<MedLog, 'medication_name'> & { medication_name: string | null }>(
     `SELECT med_logs.id, med_logs.medication_id, medications.name AS medication_name, med_logs.taken_at, med_logs.quantity
-     FROM med_logs JOIN medications ON medications.id = med_logs.medication_id
+     FROM med_logs LEFT JOIN medications ON medications.id = med_logs.medication_id
      WHERE taken_at BETWEEN ? AND ? ORDER BY taken_at DESC`,
     [start, end],
   );
@@ -574,7 +603,9 @@ export function getLogsForDay(date: Date): AnyLog[] {
     ...meds.map((m) => ({
       kind: 'medication' as const,
       id: m.id,
-      title: m.medication_name,
+      // The medication may have been deleted from the profile since — the
+      // dose history is still real, so keep showing it.
+      title: m.medication_name ?? 'Deleted medication',
       detail: m.quantity > 1 ? `Took ${m.quantity}` : 'Taken',
       logged_at: m.taken_at,
     })),
@@ -724,9 +755,9 @@ export function getExportData(): ExportData {
       'SELECT * FROM supplement_logs WHERE logged_at BETWEEN ? AND ? ORDER BY logged_at DESC LIMIT 40',
       [startIso, endIso],
     ),
-    recentMeds: db.getAllSync<MedLog>(
-      `SELECT med_logs.id, med_logs.medication_id, medications.name AS medication_name, med_logs.taken_at
-       FROM med_logs JOIN medications ON medications.id = med_logs.medication_id
+    recentMeds: db.getAllSync<MedLog & { medication_name: string | null }>(
+      `SELECT med_logs.id, med_logs.medication_id, medications.name AS medication_name, med_logs.taken_at, med_logs.quantity
+       FROM med_logs LEFT JOIN medications ON medications.id = med_logs.medication_id
        WHERE taken_at BETWEEN ? AND ? ORDER BY taken_at DESC LIMIT 60`,
       [startIso, endIso],
     ),

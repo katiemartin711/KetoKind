@@ -41,3 +41,6 @@ yarn-error.*
 /android
 
 expo-go-qr.png
+
+# unit test output
+dist-test/

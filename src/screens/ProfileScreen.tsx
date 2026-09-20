@@ -41,6 +41,12 @@ import { useTheme } from '../ThemeContext';
 import type { Palette, ThemeMode } from '../theme';
 import KeyboardScrollView from '../components/KeyboardScrollView';
 
+/** parseInt that rejects junk like "12abc" — digits only, or null. */
+function parseIntStrict(s: string): number | null {
+  const t = s.trim();
+  return /^\d+$/.test(t) ? parseInt(t, 10) : null;
+}
+
 export default function ProfileScreen() {
   const { colors, common, mode: themeMode, setMode: setAppTheme } = useTheme();
   const styles = useMemo(() => makeStyles(colors), [colors]);
@@ -107,9 +113,9 @@ export default function ProfileScreen() {
   const onSave = () => {
     let ageNum: number | null = null;
     if (age.trim() !== '') {
-      const n = parseInt(age, 10);
-      if (isNaN(n) || n < 1 || n > 120) {
-        return Alert.alert('Invalid', 'Age must be a number between 1 and 120, or leave it blank.');
+      const n = parseIntStrict(age);
+      if (n == null || n < 1 || n > 120) {
+        return Alert.alert('Invalid', 'Age must be a whole number between 1 and 120, or leave it blank.');
       }
       ageNum = n;
     }
@@ -123,19 +129,19 @@ export default function ProfileScreen() {
       if (mStr === '' || yStr === '') {
         return Alert.alert('Invalid', 'Enter at least the month and year you started your diet, or leave all three blank.');
       }
-      const month = parseInt(mStr, 10);
-      const year = parseInt(yStr, 10);
-      if (isNaN(month) || month < 1 || month > 12) {
+      const month = parseIntStrict(mStr);
+      const year = parseIntStrict(yStr);
+      if (month == null || month < 1 || month > 12) {
         return Alert.alert('Invalid', 'Diet start month must be between 1 and 12.');
       }
-      if (isNaN(year) || year < 1990 || year > nowYear) {
+      if (year == null || year < 1990 || year > nowYear) {
         return Alert.alert('Invalid', `Diet start year must be between 1990 and ${nowYear}.`);
       }
       let day: number | null = null;
       if (dStr !== '') {
-        day = parseInt(dStr, 10);
+        day = parseIntStrict(dStr);
         const daysInMonth = new Date(year, month, 0).getDate();
-        if (isNaN(day) || day < 1 || day > daysInMonth) {
+        if (day == null || day < 1 || day > daysInMonth) {
           return Alert.alert('Invalid', `Diet start day must be between 1 and ${daysInMonth} for that month.`);
         }
       }
@@ -228,23 +234,24 @@ export default function ProfileScreen() {
     const isMed = medSuppTab === 'medication';
     const kind = isMed ? 'medication' : 'supplement';
     if (!medName.trim()) return Alert.alert('Missing name', `Give the ${kind} a name.`);
-    const times = parseInt(medTimes, 10);
-    if (!medAsNeeded && (isNaN(times) || times < 1)) {
-      return Alert.alert('Invalid', 'Times per day must be at least 1.');
+    const times = parseIntStrict(medTimes);
+    if (!medAsNeeded && (times == null || times < 1 || times > 24)) {
+      return Alert.alert('Invalid', 'Times per day must be a whole number between 1 and 24.');
     }
+    const timesPerDay = times ?? 1; // irrelevant for as-needed items
     if (editingEntry) {
       if (editingEntry.tab === 'medication') {
-        updateMedication(editingEntry.id, medName, medDosage, times, medPurpose, medAsNeeded);
+        updateMedication(editingEntry.id, medName, medDosage, timesPerDay, medPurpose, medAsNeeded);
         setMedications(listMedications());
       } else {
-        updateSupplement(editingEntry.id, medName, medDosage, times, medPurpose, medAsNeeded);
+        updateSupplement(editingEntry.id, medName, medDosage, timesPerDay, medPurpose, medAsNeeded);
         setSupplements(listSupplements());
       }
     } else if (isMed) {
-      addMedication(medName, medDosage, times, medPurpose, medAsNeeded);
+      addMedication(medName, medDosage, timesPerDay, medPurpose, medAsNeeded);
       setMedications(listMedications());
     } else {
-      addSupplement(medName, medDosage, times, medPurpose, medAsNeeded);
+      addSupplement(medName, medDosage, timesPerDay, medPurpose, medAsNeeded);
       setSupplements(listSupplements());
     }
     clearMedSuppForm();
@@ -294,6 +301,7 @@ export default function ProfileScreen() {
             value={nuances}
             onChangeText={setNuances}
             textAlignVertical="top"
+            maxLength={500}
           />
 
           <Text style={common.label}>Goals</Text>
@@ -305,6 +313,7 @@ export default function ProfileScreen() {
             value={goals}
             onChangeText={setGoals}
             textAlignVertical="top"
+            maxLength={300}
           />
 
           <Text style={common.label}>When did you start your diet?</Text>
@@ -320,6 +329,7 @@ export default function ProfileScreen() {
                 placeholder="e.g. 3"
                 value={dietStartMonth}
                 onChangeText={setDietStartMonth}
+                maxLength={2}
               />
             </View>
             <View style={styles.medHalf}>
@@ -330,6 +340,7 @@ export default function ProfileScreen() {
                 placeholder="e.g. 14"
                 value={dietStartDay}
                 onChangeText={setDietStartDay}
+                maxLength={2}
               />
             </View>
             <View style={styles.medHalf}>
@@ -340,6 +351,7 @@ export default function ProfileScreen() {
                 placeholder="e.g. 2024"
                 value={dietStartYear}
                 onChangeText={setDietStartYear}
+                maxLength={4}
               />
             </View>
           </View>
@@ -372,6 +384,7 @@ export default function ProfileScreen() {
             placeholder="e.g. 32"
             value={age}
             onChangeText={setAge}
+            maxLength={3}
           />
           <Text style={common.label}>Sex</Text>
           <View style={styles.toggleRow}>
@@ -401,12 +414,8 @@ export default function ProfileScreen() {
             value={bio}
             onChangeText={setBio}
             textAlignVertical="top"
+            maxLength={500}
           />
-          <TouchableOpacity style={common.secondaryButton} onPress={onSave}>
-            <Text style={common.secondaryButtonText}>
-              {savedFlash ? 'Saved ✓' : 'Save profile'}
-            </Text>
-          </TouchableOpacity>
         </View>
 
         {/* Weight tracking (optional) */}
@@ -434,6 +443,7 @@ export default function ProfileScreen() {
                 placeholder="e.g. 185"
                 value={startingWeight}
                 onChangeText={setStartingWeight}
+                maxLength={7}
               />
             </>
           )}
@@ -479,6 +489,7 @@ export default function ProfileScreen() {
               value={allergyInput}
               onChangeText={setAllergyInput}
               onSubmitEditing={addAllergyRow}
+              maxLength={80}
             />
             <TouchableOpacity style={styles.addButton} onPress={addAllergyRow}>
               <Text style={styles.addButtonText}>Add</Text>
@@ -499,6 +510,7 @@ export default function ProfileScreen() {
               value={conditionInput}
               onChangeText={setConditionInput}
               onSubmitEditing={addConditionRow}
+              maxLength={80}
             />
             <TouchableOpacity style={styles.addButton} onPress={addConditionRow}>
               <Text style={styles.addButtonText}>Add</Text>
@@ -560,6 +572,7 @@ export default function ProfileScreen() {
             placeholder={medSuppTab === 'medication' ? 'e.g. Metformin' : 'e.g. Vitamin D3'}
             value={medName}
             onChangeText={setMedName}
+            maxLength={80}
           />
           <Text style={common.label}>What it's for</Text>
           <TextInput
@@ -567,6 +580,7 @@ export default function ProfileScreen() {
             placeholder={medSuppTab === 'medication' ? 'e.g. blood sugar' : 'e.g. immune support'}
             value={medPurpose}
             onChangeText={setMedPurpose}
+            maxLength={120}
           />
           <View style={styles.medRow}>
             <View style={styles.medHalf}>
@@ -576,6 +590,7 @@ export default function ProfileScreen() {
                 placeholder={medSuppTab === 'medication' ? 'e.g. 500 mg' : 'e.g. 5000 IU'}
                 value={medDosage}
                 onChangeText={setMedDosage}
+                maxLength={40}
               />
             </View>
             <View style={styles.medHalf}>
@@ -586,6 +601,7 @@ export default function ProfileScreen() {
                 value={medTimes}
                 onChangeText={setMedTimes}
                 editable={!medAsNeeded}
+                maxLength={2}
               />
             </View>
           </View>
@@ -688,9 +704,9 @@ const makeStyles = (C: Palette) =>
   rowLabelWrap: { flex: 1 },
   rowDelete: {
     backgroundColor: C.dangerLight,
-    borderRadius: 14,
-    width: 28,
-    height: 28,
+    borderRadius: 22,
+    width: 44,
+    height: 44,
     alignItems: 'center',
     justifyContent: 'center',
   },

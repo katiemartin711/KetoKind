@@ -5,7 +5,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 import {
   Alert,
   Platform,
-  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
@@ -34,6 +33,7 @@ import {
 } from '../db';
 import type { AnyLog, LogSegment, Medication, RootTabParamList } from '../types';
 import { COLORS, common } from '../theme';
+import KeyboardScrollView from '../components/KeyboardScrollView';
 
 type LogRoute = RouteProp<RootTabParamList, 'Log'>;
 
@@ -254,10 +254,9 @@ export default function LogScreen() {
   };
 
   return (
-    <View style={common.screen}>
-      <ScrollView contentContainerStyle={common.scroll} keyboardShouldPersistTaps="handled">
-        <Text style={common.h1}>Log</Text>
-        <Text style={common.subtitle}>What did you eat, take, or feel?</Text>
+    <KeyboardScrollView>
+      <Text style={common.h1}>Log</Text>
+      <Text style={common.subtitle}>What did you eat, take, or feel?</Text>
 
         {/* Segmented control */}
         <View style={styles.segments}>
@@ -456,8 +455,7 @@ export default function LogScreen() {
             </TouchableOpacity>
           </View>
         ))}
-      </ScrollView>
-    </View>
+    </KeyboardScrollView>
   );
 }
 

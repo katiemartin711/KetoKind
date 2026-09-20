@@ -5,7 +5,6 @@
 import React, { useCallback, useState } from 'react';
 import {
   Alert,
-  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
@@ -32,6 +31,7 @@ import {
 import type { Allergy, Condition, DietType, Medication, Supplement } from '../types';
 import { DIET_LABELS, DIET_TYPES } from '../types';
 import { COLORS, SHADOW, common } from '../theme';
+import KeyboardScrollView from '../components/KeyboardScrollView';
 
 export default function ProfileScreen() {
   const [dietType, setDietType] = useState<DietType>('carnivore');
@@ -108,12 +108,11 @@ export default function ProfileScreen() {
     `${m.name}${m.dosage ? ` — ${m.dosage}` : ''} (${m.times_per_day}x/day)${m.purpose ? ` · for ${m.purpose}` : ''}`;
 
   return (
-    <View style={common.screen}>
-      <ScrollView contentContainerStyle={common.scroll} keyboardShouldPersistTaps="handled">
-        <Text style={common.h1}>Profile</Text>
-        <Text style={common.subtitle}>
-          This is what gets included in your AI coach context file.
-        </Text>
+    <KeyboardScrollView>
+      <Text style={common.h1}>Profile</Text>
+      <Text style={common.subtitle}>
+        This is what gets included in your AI coach context file.
+      </Text>
 
         <View style={common.card}>
           <Text style={common.h2}>Diet type</Text>
@@ -266,8 +265,7 @@ export default function ProfileScreen() {
             </Text>
           </TouchableOpacity>
         </View>
-      </ScrollView>
-    </View>
+    </KeyboardScrollView>
   );
 }
 

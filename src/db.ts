@@ -107,6 +107,8 @@ export function initDb(): void {
   addColumnIfMissing('profile', 'age', 'INTEGER');
   addColumnIfMissing('profile', 'sex', "TEXT NOT NULL DEFAULT ''");
   addColumnIfMissing('profile', 'bio', "TEXT NOT NULL DEFAULT ''");
+  addColumnIfMissing('profile', 'diet_start', 'TEXT');
+  addColumnIfMissing('profile', 'dismissed_milestones', "TEXT NOT NULL DEFAULT ''");
   addColumnIfMissing('supplement_logs', 'supplement_id', 'INTEGER');
   // Backfill supplement_id for logs saved before the tap-to-log picker existed.
   const legacySuppLogs = db.getAllSync<{ id: number; name: string }>(
@@ -174,11 +176,31 @@ export function saveProfile(
   age: number | null,
   sex: string,
   bio: string,
+  dietStart: string | null,
 ): void {
   db.runSync(
-    'UPDATE profile SET diet_type = ?, diet_nuances = ?, goals = ?, age = ?, sex = ?, bio = ? WHERE id = 1',
-    [dietType, nuances, goals, age, sex, bio],
+    'UPDATE profile SET diet_type = ?, diet_nuances = ?, goals = ?, age = ?, sex = ?, bio = ?, diet_start = ? WHERE id = 1',
+    [dietType, nuances, goals, age, sex, bio, dietStart],
   );
+}
+
+/** Milestone keys (e.g. 'd30', 'y1') the user already dismissed. */
+export function getDismissedMilestones(): string[] {
+  const row = db.getFirstSync<{ dismissed_milestones: string }>(
+    'SELECT dismissed_milestones FROM profile WHERE id = 1',
+  );
+  const raw = row?.dismissed_milestones ?? '';
+  return raw ? raw.split(',').filter(Boolean) : [];
+}
+
+/** Remember that the user dismissed a milestone banner so it stays gone. */
+export function dismissMilestone(key: string): void {
+  const current = getDismissedMilestones();
+  if (!current.includes(key)) {
+    db.runSync('UPDATE profile SET dismissed_milestones = ? WHERE id = 1', [
+      [...current, key].join(','),
+    ]);
+  }
 }
 
 /** Weight-tracking preference + starting weight (lbs, null when unset). */

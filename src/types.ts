@@ -23,6 +23,8 @@ export interface Profile {
   age: number | null; // null = not set
   sex: string; // '' = not set, otherwise 'female' | 'male'
   bio: string; // free-text: anything else the AI coach should know
+  diet_start: string | null; // 'YYYY-MM' or 'YYYY-MM-DD', null = not set
+  dismissed_milestones: string; // comma-separated milestone keys the user dismissed
 }
 
 export interface Allergy {

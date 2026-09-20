@@ -34,6 +34,7 @@ import {
 import type { Allergy, Condition, DietType, Medication, Supplement } from '../types';
 import { DIET_LABELS, DIET_TYPES } from '../types';
 import { SHADOW } from '../theme';
+import { toDietStartString, parseDietStart } from '../milestones';
 import { useTheme } from '../ThemeContext';
 import type { Palette, ThemeMode } from '../theme';
 import KeyboardScrollView from '../components/KeyboardScrollView';
@@ -44,6 +45,9 @@ export default function ProfileScreen() {
   const [dietType, setDietType] = useState<DietType>('carnivore');
   const [nuances, setNuances] = useState('');
   const [goals, setGoals] = useState('');
+  const [dietStartMonth, setDietStartMonth] = useState('');
+  const [dietStartDay, setDietStartDay] = useState('');
+  const [dietStartYear, setDietStartYear] = useState('');
   const [age, setAge] = useState('');
   const [sex, setSex] = useState<'female' | 'male' | ''>('');
   const [bio, setBio] = useState('');
@@ -76,6 +80,10 @@ export default function ProfileScreen() {
     setDietType(p.diet_type);
     setNuances(p.diet_nuances);
     setGoals(p.goals);
+    const ds = parseDietStart(p.diet_start);
+    setDietStartMonth(ds ? String(ds.month) : '');
+    setDietStartDay(ds?.day != null ? String(ds.day) : '');
+    setDietStartYear(ds ? String(ds.year) : '');
     setAge(p.age != null ? String(p.age) : '');
     setSex(p.sex === 'female' || p.sex === 'male' ? p.sex : '');
     setBio(p.bio || '');
@@ -98,7 +106,41 @@ export default function ProfileScreen() {
       }
       ageNum = n;
     }
-    saveProfile(dietType, nuances, goals, ageNum, sex, bio.trim());
+    // Diet start date: month + year required, day optional. Blank = not set.
+    let dietStart: string | null = null;
+    const mStr = dietStartMonth.trim();
+    const dStr = dietStartDay.trim();
+    const yStr = dietStartYear.trim();
+    if (mStr !== '' || dStr !== '' || yStr !== '') {
+      const nowYear = new Date().getFullYear();
+      if (mStr === '' || yStr === '') {
+        return Alert.alert('Invalid', 'Enter at least the month and year you started your diet, or leave all three blank.');
+      }
+      const month = parseInt(mStr, 10);
+      const year = parseInt(yStr, 10);
+      if (isNaN(month) || month < 1 || month > 12) {
+        return Alert.alert('Invalid', 'Diet start month must be between 1 and 12.');
+      }
+      if (isNaN(year) || year < 1990 || year > nowYear) {
+        return Alert.alert('Invalid', `Diet start year must be between 1990 and ${nowYear}.`);
+      }
+      let day: number | null = null;
+      if (dStr !== '') {
+        day = parseInt(dStr, 10);
+        const daysInMonth = new Date(year, month, 0).getDate();
+        if (isNaN(day) || day < 1 || day > daysInMonth) {
+          return Alert.alert('Invalid', `Diet start day must be between 1 and ${daysInMonth} for that month.`);
+        }
+      }
+      const start = new Date(year, month - 1, day ?? 1);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      if (start.getTime() > today.getTime()) {
+        return Alert.alert('Invalid', 'Your diet start date can’t be in the future.');
+      }
+      dietStart = toDietStartString(year, month, day);
+    }
+    saveProfile(dietType, nuances, goals, ageNum, sex, bio.trim(), dietStart);
     setSavedFlash(true);
     setTimeout(() => setSavedFlash(false), 2000);
   };
@@ -227,6 +269,43 @@ export default function ProfileScreen() {
             onChangeText={setGoals}
             textAlignVertical="top"
           />
+
+          <Text style={common.label}>When did you start your diet?</Text>
+          <Text style={styles.weightHint}>
+            Month and year are enough — add the day if you know it. Used for milestone celebrations.
+          </Text>
+          <View style={styles.medRow}>
+            <View style={styles.medHalf}>
+              <Text style={common.label}>Month</Text>
+              <TextInput
+                style={common.input}
+                keyboardType="number-pad"
+                placeholder="e.g. 3"
+                value={dietStartMonth}
+                onChangeText={setDietStartMonth}
+              />
+            </View>
+            <View style={styles.medHalf}>
+              <Text style={common.label}>Day (optional)</Text>
+              <TextInput
+                style={common.input}
+                keyboardType="number-pad"
+                placeholder="e.g. 14"
+                value={dietStartDay}
+                onChangeText={setDietStartDay}
+              />
+            </View>
+            <View style={styles.medHalf}>
+              <Text style={common.label}>Year</Text>
+              <TextInput
+                style={common.input}
+                keyboardType="number-pad"
+                placeholder="e.g. 2024"
+                value={dietStartYear}
+                onChangeText={setDietStartYear}
+              />
+            </View>
+          </View>
 
           <TouchableOpacity style={common.primaryButton} onPress={onSave}>
             <Text style={common.primaryButtonText}>

@@ -13,6 +13,7 @@ import { cacheDirectory, writeAsStringAsync } from 'expo-file-system/legacy';
 import { getExportData } from '../db';
 import type { ExportData } from '../db';
 import { DIET_LABELS } from '../types';
+import { dietDurationLabel, formatDietStart } from '../milestones';
 import { useTheme } from '../ThemeContext';
 import type { Palette } from '../theme';
 
@@ -32,6 +33,11 @@ function buildContextMarkdown(data: ExportData): string {
   lines.push('');
   lines.push('## Profile');
   lines.push(`- **Diet type:** ${DIET_LABELS[profile.diet_type]}`);
+  const dietStartFmt = formatDietStart(profile.diet_start);
+  const dietDuration = dietDurationLabel(profile.diet_start);
+  lines.push(
+    `- **Diet started:** ${dietStartFmt}${dietDuration ? ` (${dietDuration} on this diet)` : ''}`,
+  );
   lines.push(`- **Age:** ${profile.age != null ? profile.age : 'Not specified'}`);
   lines.push(`- **Sex:** ${profile.sex === 'female' ? 'Female' : profile.sex === 'male' ? 'Male' : 'Not specified'}`);
   lines.push(`- **About me:** ${profile.bio || 'Not specified'}`);

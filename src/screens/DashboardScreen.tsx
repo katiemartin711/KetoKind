@@ -7,8 +7,11 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-import { getDayCounts, getLatestWeight, getProfile, getStreak } from '../db';
+import { dismissMilestone, getDayCounts, getDismissedMilestones, getLatestWeight, getProfile, getStreak } from '../db';
 import type { LogSegment, RootTabParamList } from '../types';
+import { DIET_LABELS } from '../types';
+import { currentMilestone } from '../milestones';
+import type { Milestone } from '../milestones';
 import { useTheme } from '../ThemeContext';
 import type { Palette } from '../theme';
 
@@ -34,17 +37,28 @@ export default function DashboardScreen() {
   const [counts, setCounts] = useState({ meals: 0, medsTaken: 0, medDosesScheduled: 0, symptoms: 0, supplements: 0 });
   const [streak, setStreak] = useState(0);
   const [weightCard, setWeightCard] = useState<{ latest: number | null; starting: number | null } | null>(null);
+  const [milestone, setMilestone] = useState<Milestone | null>(null);
+  const [dietLabel, setDietLabel] = useState('');
 
   const refresh = useCallback(() => {
     setCounts(getDayCounts(new Date()));
     setStreak(getStreak());
     const p = getProfile();
+    setDietLabel(DIET_LABELS[p.diet_type]);
+    setMilestone(currentMilestone(p.diet_start, getDismissedMilestones()));
     if (p.track_weight) {
       const latest = getLatestWeight();
       setWeightCard({ latest: latest?.weight ?? null, starting: p.starting_weight });
     } else {
       setWeightCard(null);
     }
+  }, []);
+
+  const dismissBanner = useCallback(() => {
+    setMilestone((m) => {
+      if (m) dismissMilestone(m.key);
+      return null;
+    });
   }, []);
 
   useFocusEffect(refresh);
@@ -76,6 +90,21 @@ export default function DashboardScreen() {
       <ScrollView contentContainerStyle={common.scroll}>
         <Text style={common.h1}>Today</Text>
         <Text style={common.subtitle}>{todayLabel}</Text>
+
+        {milestone && (
+          <View style={[common.card, styles.milestoneCard]}>
+            <Ionicons name="trophy-outline" size={30} color={COLORS.accent} />
+            <View style={styles.milestoneText}>
+              <Text style={styles.milestoneTitle}>🎉 {milestone.label}!</Text>
+              <Text style={styles.milestoneSub}>
+                {milestone.label} on {dietLabel} — incredible consistency. Keep going!
+              </Text>
+            </View>
+            <TouchableOpacity onPress={dismissBanner} style={styles.milestoneClose} hitSlop={12}>
+              <Ionicons name="close-outline" size={20} color={COLORS.muted} />
+            </TouchableOpacity>
+          </View>
+        )}
 
         <View style={[common.card, styles.streakCard]}>
           <Ionicons name="flame-outline" size={28} color={COLORS.accent} />
@@ -147,6 +176,16 @@ const makeStyles = (C: Palette) =>
     streakText: { marginLeft: 12 },
     streakNumber: { fontSize: 20, fontWeight: '700', color: C.text },
     streakLabel: { fontSize: 13, color: C.muted },
+    milestoneCard: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: C.accentLight,
+      borderColor: C.accentLight,
+    },
+    milestoneText: { flex: 1, marginLeft: 12 },
+    milestoneTitle: { fontSize: 20, fontWeight: '700', color: C.text },
+    milestoneSub: { fontSize: 13, color: C.muted, marginTop: 2 },
+    milestoneClose: { padding: 4 },
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',

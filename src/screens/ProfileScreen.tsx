@@ -51,6 +51,7 @@ export default function ProfileScreen() {
   const [medDosage, setMedDosage] = useState('');
   const [medTimes, setMedTimes] = useState('1');
   const [medPurpose, setMedPurpose] = useState('');
+  const [medAsNeeded, setMedAsNeeded] = useState(false);
 
   const refresh = useCallback(() => {
     const p = getProfile();
@@ -90,22 +91,31 @@ export default function ProfileScreen() {
     const kind = isMed ? 'medication' : 'supplement';
     if (!medName.trim()) return Alert.alert('Missing name', `Give the ${kind} a name.`);
     const times = parseInt(medTimes, 10);
-    if (isNaN(times) || times < 1) return Alert.alert('Invalid', 'Times per day must be at least 1.');
+    if (!medAsNeeded && (isNaN(times) || times < 1)) {
+      return Alert.alert('Invalid', 'Times per day must be at least 1.');
+    }
     if (isMed) {
-      addMedication(medName, medDosage, times, medPurpose);
+      addMedication(medName, medDosage, times, medPurpose, medAsNeeded);
       setMedications(listMedications());
     } else {
-      addSupplement(medName, medDosage, times, medPurpose);
+      addSupplement(medName, medDosage, times, medPurpose, medAsNeeded);
       setSupplements(listSupplements());
     }
     setMedName('');
     setMedDosage('');
     setMedTimes('1');
     setMedPurpose('');
+    setMedAsNeeded(false);
   };
 
-  const medSuppLabel = (m: { name: string; dosage: string; times_per_day: number; purpose: string }) =>
-    `${m.name}${m.dosage ? ` — ${m.dosage}` : ''} (${m.times_per_day}x/day)${m.purpose ? ` · for ${m.purpose}` : ''}`;
+  const medSuppLabel = (m: {
+    name: string;
+    dosage: string;
+    times_per_day: number;
+    purpose: string;
+    as_needed: number;
+  }) =>
+    `${m.name}${m.dosage ? ` — ${m.dosage}` : ''} (${m.as_needed ? 'as needed' : `${m.times_per_day}x/day`})${m.purpose ? ` · for ${m.purpose}` : ''}`;
 
   return (
     <KeyboardScrollView>
@@ -252,13 +262,24 @@ export default function ProfileScreen() {
             <View style={styles.medHalf}>
               <Text style={common.label}>Times / day</Text>
               <TextInput
-                style={common.input}
+                style={[common.input, medAsNeeded && styles.disabledInput]}
                 keyboardType="number-pad"
                 value={medTimes}
                 onChangeText={setMedTimes}
+                editable={!medAsNeeded}
               />
             </View>
           </View>
+          <TouchableOpacity
+            style={styles.asNeededRow}
+            onPress={() => setMedAsNeeded(!medAsNeeded)}
+            activeOpacity={0.7}
+          >
+            <View style={[styles.checkbox, medAsNeeded && styles.checkboxActive]}>
+              {medAsNeeded && <Text style={styles.checkmark}>✓</Text>}
+            </View>
+            <Text style={styles.asNeededLabel}>As needed (not on a daily schedule)</Text>
+          </TouchableOpacity>
           <TouchableOpacity style={common.secondaryButton} onPress={addMedSuppRow}>
             <Text style={common.secondaryButtonText}>
               {medSuppTab === 'medication' ? 'Add medication' : 'Add supplement'}
@@ -323,6 +344,21 @@ const styles = StyleSheet.create({
   addButtonText: { color: '#fff', fontWeight: '700', fontSize: 15 },
   medRow: { flexDirection: 'row', gap: 12 },
   medHalf: { flex: 1 },
+  disabledInput: { opacity: 0.4 },
+  asNeededRow: { flexDirection: 'row', alignItems: 'center', marginTop: 12 },
+  checkbox: {
+    width: 24,
+    height: 24,
+    borderRadius: 7,
+    borderWidth: 2,
+    borderColor: COLORS.border,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 10,
+  },
+  checkboxActive: { backgroundColor: COLORS.accent, borderColor: COLORS.accent },
+  checkmark: { color: '#fff', fontWeight: '700', fontSize: 15 },
+  asNeededLabel: { fontSize: 15, color: COLORS.text },
   toggleRow: {
     flexDirection: 'row',
     backgroundColor: COLORS.border,

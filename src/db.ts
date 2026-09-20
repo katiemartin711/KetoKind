@@ -41,14 +41,16 @@ export function initDb(): void {
       name TEXT NOT NULL,
       dosage TEXT NOT NULL DEFAULT '',
       times_per_day INTEGER NOT NULL DEFAULT 1,
-      purpose TEXT NOT NULL DEFAULT ''
+      purpose TEXT NOT NULL DEFAULT '',
+      as_needed INTEGER NOT NULL DEFAULT 0
     );
     CREATE TABLE IF NOT EXISTS supplements (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
       dosage TEXT NOT NULL DEFAULT '',
       times_per_day INTEGER NOT NULL DEFAULT 1,
-      purpose TEXT NOT NULL DEFAULT ''
+      purpose TEXT NOT NULL DEFAULT '',
+      as_needed INTEGER NOT NULL DEFAULT 0
     );
     CREATE TABLE IF NOT EXISTS food_logs (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -86,6 +88,8 @@ export function initDb(): void {
   // Column migrations for tables that already existed before the column did.
   addColumnIfMissing('medications', 'purpose', "TEXT NOT NULL DEFAULT ''");
   addColumnIfMissing('supplements', 'purpose', "TEXT NOT NULL DEFAULT ''");
+  addColumnIfMissing('medications', 'as_needed', 'INTEGER NOT NULL DEFAULT 0');
+  addColumnIfMissing('supplements', 'as_needed', 'INTEGER NOT NULL DEFAULT 0');
   addColumnIfMissing('supplement_logs', 'supplement_id', 'INTEGER');
   // Backfill supplement_id for logs saved before the tap-to-log picker existed.
   const legacySuppLogs = db.getAllSync<{ id: number; name: string }>(
@@ -186,13 +190,17 @@ export function listMedications(): Medication[] {
   return db.getAllSync<Medication>('SELECT * FROM medications ORDER BY name');
 }
 
-export function addMedication(name: string, dosage: string, timesPerDay: number, purpose: string): void {
-  db.runSync('INSERT INTO medications (name, dosage, times_per_day, purpose) VALUES (?, ?, ?, ?)', [
-    name.trim(),
-    dosage.trim(),
-    timesPerDay,
-    purpose.trim(),
-  ]);
+export function addMedication(
+  name: string,
+  dosage: string,
+  timesPerDay: number,
+  purpose: string,
+  asNeeded: boolean,
+): void {
+  db.runSync(
+    'INSERT INTO medications (name, dosage, times_per_day, purpose, as_needed) VALUES (?, ?, ?, ?, ?)',
+    [name.trim(), dosage.trim(), timesPerDay, purpose.trim(), asNeeded ? 1 : 0],
+  );
 }
 
 export function deleteMedication(id: number): void {
@@ -203,13 +211,17 @@ export function listSupplements(): Supplement[] {
   return db.getAllSync<Supplement>('SELECT * FROM supplements ORDER BY name');
 }
 
-export function addSupplement(name: string, dosage: string, timesPerDay: number, purpose: string): void {
-  db.runSync('INSERT INTO supplements (name, dosage, times_per_day, purpose) VALUES (?, ?, ?, ?)', [
-    name.trim(),
-    dosage.trim(),
-    timesPerDay,
-    purpose.trim(),
-  ]);
+export function addSupplement(
+  name: string,
+  dosage: string,
+  timesPerDay: number,
+  purpose: string,
+  asNeeded: boolean,
+): void {
+  db.runSync(
+    'INSERT INTO supplements (name, dosage, times_per_day, purpose, as_needed) VALUES (?, ?, ?, ?, ?)',
+    [name.trim(), dosage.trim(), timesPerDay, purpose.trim(), asNeeded ? 1 : 0],
+  );
 }
 
 export function deleteSupplement(id: number): void {
@@ -413,7 +425,11 @@ export function getDayCounts(date: Date): {
       [start, end],
     )?.n ?? 0;
   const medsTaken = count('med_logs', 'taken_at');
-  const medDosesScheduled = listMedications().reduce((sum, m) => sum + m.times_per_day, 0);
+  // As-needed meds aren't on a daily schedule, so they don't count as
+  // scheduled doses (taking one still counts in medsTaken above).
+  const medDosesScheduled = listMedications()
+    .filter((m) => !m.as_needed)
+    .reduce((sum, m) => sum + m.times_per_day, 0);
   return {
     meals: count('food_logs', 'logged_at'),
     medsTaken,

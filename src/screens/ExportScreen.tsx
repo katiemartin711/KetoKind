@@ -34,6 +34,7 @@ function buildContextMarkdown(data: ExportData): string {
   lines.push(`- **Diet type:** ${DIET_LABELS[profile.diet_type]}`);
   lines.push(`- **Age:** ${profile.age != null ? profile.age : 'Not specified'}`);
   lines.push(`- **Sex:** ${profile.sex === 'female' ? 'Female' : profile.sex === 'male' ? 'Male' : 'Not specified'}`);
+  lines.push(`- **About me:** ${profile.bio || 'Not specified'}`);
   lines.push(`- **Diet nuances:** ${profile.diet_nuances || 'Not specified'}`);
   lines.push(`- **Goals:** ${profile.goals || 'Not specified'}`);
   lines.push(`- **Allergies:** ${allergies.map((a) => a.name).join(', ') || 'None recorded'}`);

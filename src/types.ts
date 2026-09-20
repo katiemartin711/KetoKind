@@ -22,6 +22,7 @@ export interface Profile {
   theme_mode: ThemeMode; // 'system' | 'light' | 'dark'
   age: number | null; // null = not set
   sex: string; // '' = not set, otherwise 'female' | 'male'
+  bio: string; // free-text: anything else the AI coach should know
 }
 
 export interface Allergy {

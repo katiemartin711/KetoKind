@@ -46,6 +46,7 @@ export default function ProfileScreen() {
   const [goals, setGoals] = useState('');
   const [age, setAge] = useState('');
   const [sex, setSex] = useState<'female' | 'male' | ''>('');
+  const [bio, setBio] = useState('');
   const [allergies, setAllergies] = useState<Allergy[]>([]);
   const [conditions, setConditions] = useState<Condition[]>([]);
   const [medications, setMedications] = useState<Medication[]>([]);
@@ -77,6 +78,7 @@ export default function ProfileScreen() {
     setGoals(p.goals);
     setAge(p.age != null ? String(p.age) : '');
     setSex(p.sex === 'female' || p.sex === 'male' ? p.sex : '');
+    setBio(p.bio || '');
     setAllergies(listAllergies());
     setConditions(listConditions());
     setMedications(listMedications());
@@ -96,7 +98,7 @@ export default function ProfileScreen() {
       }
       ageNum = n;
     }
-    saveProfile(dietType, nuances, goals, ageNum, sex);
+    saveProfile(dietType, nuances, goals, ageNum, sex, bio.trim());
     setSavedFlash(true);
     setTimeout(() => setSavedFlash(false), 2000);
   };
@@ -266,6 +268,16 @@ export default function ProfileScreen() {
               </TouchableOpacity>
             ))}
           </View>
+          <Text style={common.label}>Bio — anything else the coach should know</Text>
+          <TextInput
+            style={[common.input, styles.multiline]}
+            multiline
+            numberOfLines={4}
+            placeholder="e.g. New to keto. Lift weights 3x/week. Pregnant. Sleep poorly since switching shifts."
+            value={bio}
+            onChangeText={setBio}
+            textAlignVertical="top"
+          />
           <TouchableOpacity style={common.secondaryButton} onPress={onSave}>
             <Text style={common.secondaryButtonText}>
               {savedFlash ? 'Saved ✓' : 'Save profile'}

@@ -210,6 +210,11 @@ export function dismissMilestone(key: string): void {
   dismissMilestones([key]);
 }
 
+/** Persist just the diet type — auto-saved the moment the user taps an option. */
+export function persistDietType(dietType: DietType): void {
+  db.runSync('UPDATE profile SET diet_type = ? WHERE id = 1', [dietType]);
+}
+
 /** Weight-tracking preference + starting weight (lbs, null when unset). */
 export function setWeightTracking(trackWeight: boolean, startingWeight: number | null): void {
   db.runSync('UPDATE profile SET track_weight = ?, starting_weight = ? WHERE id = 1', [

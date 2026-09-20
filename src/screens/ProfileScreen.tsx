@@ -26,6 +26,7 @@ import {
   listConditions,
   listMedications,
   listSupplements,
+  persistDietType,
   saveProfile,
   setWeightTracking,
   updateMedication,
@@ -247,7 +248,15 @@ export default function ProfileScreen() {
         <View style={common.card}>
           <Text style={common.h2}>Diet type</Text>
           {DIET_TYPES.map((d) => (
-            <TouchableOpacity key={d} style={styles.radioRow} onPress={() => setDietType(d)}>
+            <TouchableOpacity
+              key={d}
+              style={styles.radioRow}
+              onPress={() => {
+                setDietType(d);
+                setSavedDietType(d);
+                persistDietType(d);
+              }}
+            >
               <View style={[styles.radio, dietType === d && styles.radioActive]}>
                 {dietType === d && <View style={styles.radioDot} />}
               </View>

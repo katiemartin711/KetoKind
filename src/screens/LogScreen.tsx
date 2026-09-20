@@ -44,9 +44,8 @@ type LogRoute = RouteProp<RootTabParamList, 'Log'>;
 
 const SEGMENTS: { key: LogSegment; label: string }[] = [
   { key: 'meal', label: 'Meal' },
-  { key: 'medication', label: 'Medication' },
+  { key: 'medsupp', label: 'Meds & Supps' },
   { key: 'symptom', label: 'Symptom' },
-  { key: 'supplement', label: 'Supplement' },
 ];
 
 const MEAL_TYPES = ['Breakfast', 'Lunch', 'Dinner', 'Snack'];
@@ -122,8 +121,8 @@ export default function LogScreen() {
   const [mealName, setMealName] = useState('');
   const [mealType, setMealType] = useState('Dinner');
   const [mealNotes, setMealNotes] = useState('');
-  const [selectedMedId, setSelectedMedId] = useState<number | null>(null);
-  const [selectedSuppId, setSelectedSuppId] = useState<number | null>(null);
+  const [selectedMedIds, setSelectedMedIds] = useState<number[]>([]);
+  const [selectedSuppIds, setSelectedSuppIds] = useState<number[]>([]);
   const [symptomName, setSymptomName] = useState('');
   const [severity, setSeverity] = useState(3);
   const [symptomNotes, setSymptomNotes] = useState('');
@@ -133,22 +132,19 @@ export default function LogScreen() {
   // Timestamp for the entry being created/edited — defaults to right now.
   const [logDate, setLogDate] = useState<Date>(new Date());
   // Non-null while an existing entry is loaded into the form for editing.
-  const [editing, setEditing] = useState<{ kind: LogSegment; id: number } | null>(null);
+  const [editing, setEditing] = useState<{ kind: AnyLog['kind']; id: number } | null>(null);
 
   const refresh = useCallback(() => {
     setTodayLogs(getLogsForDay(new Date()));
+    // Drop selections whose profile entry was deleted since.
     const meds = listMedications();
     setMedications(meds);
-    if (selectedMedId != null && !meds.some((m) => m.id === selectedMedId)) {
-      setSelectedMedId(null);
-    }
+    setSelectedMedIds((ids) => ids.filter((id) => meds.some((m) => m.id === id)));
     const supps = listSupplements();
     setProfileSupps(supps);
-    if (selectedSuppId != null && !supps.some((s) => s.id === selectedSuppId)) {
-      setSelectedSuppId(null);
-    }
+    setSelectedSuppIds((ids) => ids.filter((id) => supps.some((s) => s.id === id)));
     setTrackWeightOn(!!getProfile().track_weight);
-  }, [selectedMedId, selectedSuppId]);
+  }, []);
 
   useFocusEffect(refresh);
 
@@ -178,17 +174,45 @@ export default function LogScreen() {
     refresh();
   };
 
-  const saveMed = () => {
-    if (selectedMedId == null) return Alert.alert('Nothing selected', 'Pick a medication first.');
+  /** Toggle an id in a multi-select list. */
+  const toggleId = (ids: number[], id: number) =>
+    ids.includes(id) ? ids.filter((x) => x !== id) : [...ids, id];
+
+  /**
+   * Log every selected medication and supplement with one tap, sharing the
+   * same timestamp — for the after-a-meal handful of pills.
+   */
+  const saveMedSupp = () => {
+    if (selectedMedIds.length === 0 && selectedSuppIds.length === 0) {
+      return Alert.alert('Nothing selected', 'Pick at least one medication or supplement first.');
+    }
     const at = logDate.toISOString();
-    if (editing?.kind === 'medication') {
-      updateMedLog(editing.id, selectedMedId, at);
-    } else {
-      addMedLog(selectedMedId, at);
+    if (editing?.kind === 'medication' && selectedMedIds.length > 0) {
+      updateMedLog(editing.id, selectedMedIds[0], at);
+    } else if (editing?.kind === 'supplement' && selectedSuppIds.length > 0) {
+      updateSupplementLog(editing.id, selectedSuppIds[0], at);
+    } else if (!editing) {
+      selectedMedIds.forEach((id) => addMedLog(id, at));
+      selectedSuppIds.forEach((id) => addSupplementLog(id, at));
     }
     resetForm();
     refresh();
   };
+
+  /** In edit mode the other section is locked so a single entry stays single. */
+  const onToggleMed = (id: number) => {
+    if (editing?.kind === 'supplement') return;
+    setSelectedMedIds((ids) => (editing?.kind === 'medication' ? [id] : toggleId(ids, id)));
+  };
+
+  const onToggleSupp = (id: number) => {
+    if (editing?.kind === 'medication') return;
+    setSelectedSuppIds((ids) => (editing?.kind === 'supplement' ? [id] : toggleId(ids, id)));
+  };
+
+  const editingMedSupp =
+    editing?.kind === 'medication' || editing?.kind === 'supplement' ? editing.kind : null;
+  const medSuppSelected = selectedMedIds.length + selectedSuppIds.length > 0;
 
   const saveSymptom = () => {
     if (!symptomName.trim()) return Alert.alert('Missing name', 'What symptom are you logging?');
@@ -197,18 +221,6 @@ export default function LogScreen() {
       updateSymptomLog(editing.id, symptomName, severity, symptomNotes, at);
     } else {
       addSymptomLog(symptomName, severity, symptomNotes, at);
-    }
-    resetForm();
-    refresh();
-  };
-
-  const saveSupplement = () => {
-    if (selectedSuppId == null) return Alert.alert('Nothing selected', 'Pick a supplement first.');
-    const at = logDate.toISOString();
-    if (editing?.kind === 'supplement') {
-      updateSupplementLog(editing.id, selectedSuppId, at);
-    } else {
-      addSupplementLog(selectedSuppId, at);
     }
     resetForm();
     refresh();
@@ -232,8 +244,8 @@ export default function LogScreen() {
     setMealName('');
     setMealNotes('');
     setMealType('Dinner');
-    setSelectedMedId(null);
-    setSelectedSuppId(null);
+    setSelectedMedIds([]);
+    setSelectedSuppIds([]);
     setSymptomName('');
     setSymptomNotes('');
     setSeverity(3);
@@ -255,7 +267,8 @@ export default function LogScreen() {
     } else if (log.kind === 'medication') {
       const row = getMedLog(log.id);
       if (!row) return;
-      setSelectedMedId(row.medication_id);
+      setSelectedMedIds([row.medication_id]);
+      setSelectedSuppIds([]);
       setLogDate(new Date(row.taken_at));
     } else if (log.kind === 'symptom') {
       const row = getSymptomLog(log.id);
@@ -270,15 +283,16 @@ export default function LogScreen() {
       if (!row) return;
       setWeightInput(String(row.weight));
       setLogDate(new Date(row.logged_at));
-    } else {
+    } else if (log.kind === 'supplement') {
       const row = getSupplementLog(log.id);
       if (!row) return;
       // Legacy free-text logs (or ones whose supplement was deleted) have no
       // live profile entry — the user just picks again.
-      setSelectedSuppId(row.supplement_id);
+      setSelectedSuppIds(row.supplement_id != null ? [row.supplement_id] : []);
+      setSelectedMedIds([]);
       setLogDate(new Date(row.logged_at));
     }
-    setSegment(log.kind);
+    setSegment(log.kind === 'medication' || log.kind === 'supplement' ? 'medsupp' : log.kind);
     setEditing({ kind: log.kind, id: log.id });
   };
 
@@ -363,40 +377,73 @@ export default function LogScreen() {
           </View>
         )}
 
-        {segment === 'medication' && (
+        {segment === 'medsupp' && (
           <View style={common.card}>
-            <Text style={common.label}>Which medication?</Text>
+            <Text style={common.label}>Medications — tap all you took</Text>
             {medications.length === 0 ? (
               <Text style={styles.hint}>
                 No medications yet — add them on the Profile tab first.
               </Text>
             ) : (
               <View style={styles.chips}>
-                {medications.map((m) => (
-                  <TouchableOpacity
-                    key={m.id}
-                    style={[styles.chip, selectedMedId === m.id && styles.chipActive]}
-                    onPress={() => setSelectedMedId(m.id)}
-                  >
-                    <Text style={[styles.chipText, selectedMedId === m.id && styles.chipTextActive]}>
-                      {m.name}
-                      {m.dosage ? ` (${m.dosage})` : ''}
-                    </Text>
-                  </TouchableOpacity>
-                ))}
+                {medications.map((m) => {
+                  const selected = selectedMedIds.includes(m.id);
+                  const locked = editingMedSupp === 'supplement';
+                  return (
+                    <TouchableOpacity
+                      key={m.id}
+                      style={[styles.chip, selected && styles.chipActive, locked && styles.chipLocked]}
+                      onPress={() => onToggleMed(m.id)}
+                      disabled={locked}
+                    >
+                      <Text style={[styles.chipText, selected && styles.chipTextActive]}>
+                        {m.name}
+                        {m.dosage ? ` (${m.dosage})` : ''}
+                        {m.as_needed ? ' · as needed' : ''}
+                      </Text>
+                    </TouchableOpacity>
+                  );
+                })}
+              </View>
+            )}
+            <Text style={[common.label, { marginTop: 12 }]}>Supplements — tap all you took</Text>
+            {profileSupps.length === 0 ? (
+              <Text style={styles.hint}>
+                No supplements yet — add them on the Profile tab first.
+              </Text>
+            ) : (
+              <View style={styles.chips}>
+                {profileSupps.map((s) => {
+                  const selected = selectedSuppIds.includes(s.id);
+                  const locked = editingMedSupp === 'medication';
+                  return (
+                    <TouchableOpacity
+                      key={s.id}
+                      style={[styles.chip, selected && styles.chipActive, locked && styles.chipLocked]}
+                      onPress={() => onToggleSupp(s.id)}
+                      disabled={locked}
+                    >
+                      <Text style={[styles.chipText, selected && styles.chipTextActive]}>
+                        {s.name}
+                        {s.dosage ? ` (${s.dosage})` : ''}
+                        {s.as_needed ? ' · as needed' : ''}
+                      </Text>
+                    </TouchableOpacity>
+                  );
+                })}
               </View>
             )}
             <DateTimeField value={logDate} onChange={setLogDate} />
             <TouchableOpacity
-              style={[common.primaryButton, medications.length === 0 && styles.disabled]}
-              onPress={saveMed}
-              disabled={medications.length === 0}
+              style={[common.primaryButton, !medSuppSelected && styles.disabled]}
+              onPress={saveMedSupp}
+              disabled={!medSuppSelected}
             >
               <Text style={common.primaryButtonText}>
-                {editing?.kind === 'medication' ? 'Save changes' : 'Mark as taken'}
+                {editingMedSupp ? 'Save changes' : 'Mark selected as taken'}
               </Text>
             </TouchableOpacity>
-            {editing?.kind === 'medication' && (
+            {editingMedSupp && (
               <TouchableOpacity style={common.secondaryButton} onPress={resetForm}>
                 <Text style={common.secondaryButtonText}>Cancel editing</Text>
               </TouchableOpacity>
@@ -439,47 +486,6 @@ export default function LogScreen() {
               </Text>
             </TouchableOpacity>
             {editing?.kind === 'symptom' && (
-              <TouchableOpacity style={common.secondaryButton} onPress={resetForm}>
-                <Text style={common.secondaryButtonText}>Cancel editing</Text>
-              </TouchableOpacity>
-            )}
-          </View>
-        )}
-
-        {segment === 'supplement' && (
-          <View style={common.card}>
-            <Text style={common.label}>Which supplement?</Text>
-            {profileSupps.length === 0 ? (
-              <Text style={styles.hint}>
-                No supplements yet — add them on the Profile tab first.
-              </Text>
-            ) : (
-              <View style={styles.chips}>
-                {profileSupps.map((s) => (
-                  <TouchableOpacity
-                    key={s.id}
-                    style={[styles.chip, selectedSuppId === s.id && styles.chipActive]}
-                    onPress={() => setSelectedSuppId(s.id)}
-                  >
-                    <Text style={[styles.chipText, selectedSuppId === s.id && styles.chipTextActive]}>
-                      {s.name}
-                      {s.dosage ? ` (${s.dosage})` : ''}
-                    </Text>
-                  </TouchableOpacity>
-                ))}
-              </View>
-            )}
-            <DateTimeField value={logDate} onChange={setLogDate} />
-            <TouchableOpacity
-              style={[common.primaryButton, profileSupps.length === 0 && styles.disabled]}
-              onPress={saveSupplement}
-              disabled={profileSupps.length === 0}
-            >
-              <Text style={common.primaryButtonText}>
-                {editing?.kind === 'supplement' ? 'Save changes' : 'Mark as taken'}
-              </Text>
-            </TouchableOpacity>
-            {editing?.kind === 'supplement' && (
               <TouchableOpacity style={common.secondaryButton} onPress={resetForm}>
                 <Text style={common.secondaryButtonText}>Cancel editing</Text>
               </TouchableOpacity>
@@ -564,6 +570,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.card,
   },
   chipActive: { backgroundColor: COLORS.accent, borderColor: COLORS.accent },
+  chipLocked: { opacity: 0.4 },
   chipText: { fontSize: 14, color: COLORS.text },
   chipTextActive: { color: '#fff', fontWeight: '600' },
   hint: { fontSize: 14, color: COLORS.muted, marginVertical: 8 },

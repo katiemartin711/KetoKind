@@ -15,9 +15,8 @@ type Nav = BottomTabNavigationProp<RootTabParamList>;
 
 const QUICK_ADD: { label: string; icon: keyof typeof Ionicons.glyphMap; segment: LogSegment }[] = [
   { label: 'Meal', icon: 'restaurant-outline', segment: 'meal' },
-  { label: 'Med', icon: 'medkit-outline', segment: 'medication' },
+  { label: 'Meds & Supps', icon: 'medkit-outline', segment: 'medsupp' },
   { label: 'Symptom', icon: 'pulse-outline', segment: 'symptom' },
-  { label: 'Supplement', icon: 'leaf-outline', segment: 'supplement' },
 ];
 
 /** "+2.5 lbs" / "-1 lbs" / "no change" vs the starting weight. */

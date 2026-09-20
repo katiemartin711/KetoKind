@@ -94,7 +94,7 @@ export type AnyLog =
   | { kind: 'supplement'; id: number; title: string; detail: string; logged_at: string }
   | { kind: 'weight'; id: number; title: string; detail: string; logged_at: string };
 
-export type LogSegment = 'meal' | 'medication' | 'symptom' | 'supplement' | 'weight';
+export type LogSegment = 'meal' | 'medsupp' | 'symptom' | 'weight';
 
 /** Bottom-tab routes. The Log tab accepts an optional starting segment
  *  (used by the Dashboard quick-add buttons). */

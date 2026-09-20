@@ -28,6 +28,8 @@ import {
   listSupplements,
   saveProfile,
   setWeightTracking,
+  updateMedication,
+  updateSupplement,
 } from '../db';
 import type { Allergy, Condition, DietType, Medication, Supplement } from '../types';
 import { DIET_LABELS, DIET_TYPES } from '../types';
@@ -56,6 +58,11 @@ export default function ProfileScreen() {
   const [trackWeight, setTrackWeight] = useState(false);
   const [startingWeight, setStartingWeight] = useState('');
   const [weightSavedFlash, setWeightSavedFlash] = useState(false);
+  // Non-null while an existing medication/supplement is loaded into the form.
+  const [editingEntry, setEditingEntry] = useState<{
+    tab: 'medication' | 'supplement';
+    id: number;
+  } | null>(null);
 
   const refresh = useCallback(() => {
     const p = getProfile();
@@ -106,7 +113,29 @@ export default function ProfileScreen() {
     setConditions(listConditions());
   };
 
-  const addMedSuppRow = () => {
+  const clearMedSuppForm = () => {
+    setMedName('');
+    setMedDosage('');
+    setMedTimes('1');
+    setMedPurpose('');
+    setMedAsNeeded(false);
+    setEditingEntry(null);
+  };
+
+  const startEditMedSupp = (
+    tab: 'medication' | 'supplement',
+    m: { id: number; name: string; dosage: string; times_per_day: number; purpose: string; as_needed: number },
+  ) => {
+    setMedSuppTab(tab);
+    setMedName(m.name);
+    setMedDosage(m.dosage);
+    setMedTimes(String(m.times_per_day));
+    setMedPurpose(m.purpose);
+    setMedAsNeeded(!!m.as_needed);
+    setEditingEntry({ tab, id: m.id });
+  };
+
+  const saveMedSuppRow = () => {
     const isMed = medSuppTab === 'medication';
     const kind = isMed ? 'medication' : 'supplement';
     if (!medName.trim()) return Alert.alert('Missing name', `Give the ${kind} a name.`);
@@ -114,18 +143,22 @@ export default function ProfileScreen() {
     if (!medAsNeeded && (isNaN(times) || times < 1)) {
       return Alert.alert('Invalid', 'Times per day must be at least 1.');
     }
-    if (isMed) {
+    if (editingEntry) {
+      if (editingEntry.tab === 'medication') {
+        updateMedication(editingEntry.id, medName, medDosage, times, medPurpose, medAsNeeded);
+        setMedications(listMedications());
+      } else {
+        updateSupplement(editingEntry.id, medName, medDosage, times, medPurpose, medAsNeeded);
+        setSupplements(listSupplements());
+      }
+    } else if (isMed) {
       addMedication(medName, medDosage, times, medPurpose, medAsNeeded);
       setMedications(listMedications());
     } else {
       addSupplement(medName, medDosage, times, medPurpose, medAsNeeded);
       setSupplements(listSupplements());
     }
-    setMedName('');
-    setMedDosage('');
-    setMedTimes('1');
-    setMedPurpose('');
-    setMedAsNeeded(false);
+    clearMedSuppForm();
   };
 
   const medSuppLabel = (m: {
@@ -267,7 +300,10 @@ export default function ProfileScreen() {
               <TouchableOpacity
                 key={t}
                 style={[styles.toggleBtn, medSuppTab === t && styles.toggleBtnActive]}
-                onPress={() => setMedSuppTab(t)}
+                onPress={() => {
+                  setMedSuppTab(t);
+                  clearMedSuppForm();
+                }}
               >
                 <Text style={[styles.toggleText, medSuppTab === t && styles.toggleTextActive]}>
                   {t === 'medication' ? 'Medications' : 'Supplements'}
@@ -280,14 +316,28 @@ export default function ProfileScreen() {
                 <Row
                   key={m.id}
                   label={medSuppLabel(m)}
-                  onDelete={() => { deleteMedication(m.id); setMedications(listMedications()); }}
+                  onEdit={() => startEditMedSupp('medication', m)}
+                  onDelete={() => {
+                    deleteMedication(m.id);
+                    setMedications(listMedications());
+                    if (editingEntry?.tab === 'medication' && editingEntry.id === m.id) {
+                      clearMedSuppForm();
+                    }
+                  }}
                 />
               ))
             : supplements.map((s) => (
                 <Row
                   key={s.id}
                   label={medSuppLabel(s)}
-                  onDelete={() => { deleteSupplement(s.id); setSupplements(listSupplements()); }}
+                  onEdit={() => startEditMedSupp('supplement', s)}
+                  onDelete={() => {
+                    deleteSupplement(s.id);
+                    setSupplements(listSupplements());
+                    if (editingEntry?.tab === 'supplement' && editingEntry.id === s.id) {
+                      clearMedSuppForm();
+                    }
+                  }}
                 />
               ))}
           <Text style={common.label}>Name</Text>
@@ -335,20 +385,46 @@ export default function ProfileScreen() {
             </View>
             <Text style={styles.asNeededLabel}>As needed (not on a daily schedule)</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={common.secondaryButton} onPress={addMedSuppRow}>
+          <TouchableOpacity style={common.secondaryButton} onPress={saveMedSuppRow}>
             <Text style={common.secondaryButtonText}>
-              {medSuppTab === 'medication' ? 'Add medication' : 'Add supplement'}
+              {editingEntry
+                ? 'Save changes'
+                : medSuppTab === 'medication'
+                  ? 'Add medication'
+                  : 'Add supplement'}
             </Text>
           </TouchableOpacity>
+          {editingEntry && (
+            <TouchableOpacity
+              style={[common.secondaryButton, { marginTop: 8 }]}
+              onPress={clearMedSuppForm}
+            >
+              <Text style={common.secondaryButtonText}>Cancel editing</Text>
+            </TouchableOpacity>
+          )}
         </View>
     </KeyboardScrollView>
   );
 }
 
-function Row({ label, onDelete }: { label: string; onDelete: () => void }) {
+function Row({
+  label,
+  onEdit,
+  onDelete,
+}: {
+  label: string;
+  onEdit?: () => void;
+  onDelete: () => void;
+}) {
   return (
     <View style={styles.row}>
-      <Text style={styles.rowLabel}>{label}</Text>
+      {onEdit ? (
+        <TouchableOpacity style={styles.rowLabelWrap} onPress={onEdit}>
+          <Text style={styles.rowLabel}>{label}</Text>
+        </TouchableOpacity>
+      ) : (
+        <Text style={styles.rowLabel}>{label}</Text>
+      )}
       <TouchableOpacity onPress={onDelete} style={styles.rowDelete}>
         <Text style={styles.rowDeleteText}>✕</Text>
       </TouchableOpacity>
@@ -379,6 +455,7 @@ const styles = StyleSheet.create({
     borderBottomColor: COLORS.border,
   },
   rowLabel: { flex: 1, fontSize: 15, color: COLORS.text },
+  rowLabelWrap: { flex: 1 },
   rowDelete: {
     backgroundColor: COLORS.dangerLight,
     borderRadius: 14,

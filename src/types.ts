@@ -61,6 +61,7 @@ export interface MedLog {
   medication_id: number;
   medication_name: string; // joined from medications table
   taken_at: string; // ISO string
+  quantity: number; // how many taken (1 for scheduled doses)
 }
 
 export interface SymptomLog {
@@ -78,6 +79,7 @@ export interface SupplementLog {
   supplement_id: number | null;
   logged_at: string; // ISO string
   notes: string;
+  quantity: number; // how many taken (1 for scheduled doses)
 }
 
 export interface WeightLog {

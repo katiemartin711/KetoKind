@@ -64,6 +64,7 @@ export function initDb(): void {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       medication_id INTEGER NOT NULL,
       taken_at TEXT NOT NULL,
+      quantity INTEGER NOT NULL DEFAULT 1,
       FOREIGN KEY (medication_id) REFERENCES medications(id)
     );
     CREATE TABLE IF NOT EXISTS symptom_logs (
@@ -78,7 +79,8 @@ export function initDb(): void {
       name TEXT NOT NULL,
       supplement_id INTEGER,
       logged_at TEXT NOT NULL,
-      notes TEXT NOT NULL DEFAULT ''
+      notes TEXT NOT NULL DEFAULT '',
+      quantity INTEGER NOT NULL DEFAULT 1
     );
     CREATE TABLE IF NOT EXISTS weight_logs (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -98,6 +100,8 @@ export function initDb(): void {
   addColumnIfMissing('supplements', 'as_needed', 'INTEGER NOT NULL DEFAULT 0');
   addColumnIfMissing('profile', 'track_weight', 'INTEGER NOT NULL DEFAULT 0');
   addColumnIfMissing('profile', 'starting_weight', 'REAL');
+  addColumnIfMissing('med_logs', 'quantity', 'INTEGER NOT NULL DEFAULT 1');
+  addColumnIfMissing('supplement_logs', 'quantity', 'INTEGER NOT NULL DEFAULT 1');
   addColumnIfMissing('supplement_logs', 'supplement_id', 'INTEGER');
   // Backfill supplement_id for logs saved before the tap-to-log picker existed.
   const legacySuppLogs = db.getAllSync<{ id: number; name: string }>(
@@ -223,6 +227,20 @@ export function deleteMedication(id: number): void {
   db.runSync('DELETE FROM medications WHERE id = ?', [id]);
 }
 
+export function updateMedication(
+  id: number,
+  name: string,
+  dosage: string,
+  timesPerDay: number,
+  purpose: string,
+  asNeeded: boolean,
+): void {
+  db.runSync(
+    'UPDATE medications SET name = ?, dosage = ?, times_per_day = ?, purpose = ?, as_needed = ? WHERE id = ?',
+    [name.trim(), dosage.trim(), timesPerDay, purpose.trim(), asNeeded ? 1 : 0, id],
+  );
+}
+
 export function listSupplements(): Supplement[] {
   return db.getAllSync<Supplement>('SELECT * FROM supplements ORDER BY name');
 }
@@ -244,6 +262,20 @@ export function deleteSupplement(id: number): void {
   db.runSync('DELETE FROM supplements WHERE id = ?', [id]);
 }
 
+export function updateSupplement(
+  id: number,
+  name: string,
+  dosage: string,
+  timesPerDay: number,
+  purpose: string,
+  asNeeded: boolean,
+): void {
+  db.runSync(
+    'UPDATE supplements SET name = ?, dosage = ?, times_per_day = ?, purpose = ?, as_needed = ? WHERE id = ?',
+    [name.trim(), dosage.trim(), timesPerDay, purpose.trim(), asNeeded ? 1 : 0, id],
+  );
+}
+
 // ---------------------------------------------------------------------------
 // Logging
 // ---------------------------------------------------------------------------
@@ -257,8 +289,12 @@ export function addFoodLog(name: string, mealType: string, notes: string, logged
   ]);
 }
 
-export function addMedLog(medicationId: number, takenAt: string): void {
-  db.runSync('INSERT INTO med_logs (medication_id, taken_at) VALUES (?, ?)', [medicationId, takenAt]);
+export function addMedLog(medicationId: number, takenAt: string, quantity: number = 1): void {
+  db.runSync('INSERT INTO med_logs (medication_id, taken_at, quantity) VALUES (?, ?, ?)', [
+    medicationId,
+    takenAt,
+    quantity,
+  ]);
 }
 
 export function addSymptomLog(
@@ -275,16 +311,14 @@ export function addSymptomLog(
   ]);
 }
 
-export function addSupplementLog(supplementId: number, loggedAt: string): void {
+export function addSupplementLog(supplementId: number, loggedAt: string, quantity: number = 1): void {
   const s = db.getFirstSync<{ name: string }>('SELECT name FROM supplements WHERE id = ?', [
     supplementId,
   ]);
-  db.runSync('INSERT INTO supplement_logs (name, supplement_id, logged_at, notes) VALUES (?, ?, ?, ?)', [
-    s?.name ?? '',
-    supplementId,
-    loggedAt,
-    '',
-  ]);
+  db.runSync(
+    'INSERT INTO supplement_logs (name, supplement_id, logged_at, notes, quantity) VALUES (?, ?, ?, ?, ?)',
+    [s?.name ?? '', supplementId, loggedAt, '', quantity],
+  );
 }
 
 export function updateFoodLog(
@@ -303,10 +337,16 @@ export function updateFoodLog(
   ]);
 }
 
-export function updateMedLog(id: number, medicationId: number, takenAt: string): void {
-  db.runSync('UPDATE med_logs SET medication_id = ?, taken_at = ? WHERE id = ?', [
+export function updateMedLog(
+  id: number,
+  medicationId: number,
+  takenAt: string,
+  quantity: number = 1,
+): void {
+  db.runSync('UPDATE med_logs SET medication_id = ?, taken_at = ?, quantity = ? WHERE id = ?', [
     medicationId,
     takenAt,
+    quantity,
     id,
   ]);
 }
@@ -327,16 +367,19 @@ export function updateSymptomLog(
   ]);
 }
 
-export function updateSupplementLog(id: number, supplementId: number, loggedAt: string): void {
+export function updateSupplementLog(
+  id: number,
+  supplementId: number,
+  loggedAt: string,
+  quantity: number = 1,
+): void {
   const s = db.getFirstSync<{ name: string }>('SELECT name FROM supplements WHERE id = ?', [
     supplementId,
   ]);
-  db.runSync('UPDATE supplement_logs SET supplement_id = ?, name = ?, logged_at = ? WHERE id = ?', [
-    supplementId,
-    s?.name ?? '',
-    loggedAt,
-    id,
-  ]);
+  db.runSync(
+    'UPDATE supplement_logs SET supplement_id = ?, name = ?, logged_at = ?, quantity = ? WHERE id = ?',
+    [supplementId, s?.name ?? '', loggedAt, quantity, id],
+  );
 }
 
 /** Fetch single rows to pre-fill the edit form. */
@@ -344,9 +387,9 @@ export function getFoodLog(id: number): FoodLog | null {
   return db.getFirstSync<FoodLog>('SELECT * FROM food_logs WHERE id = ?', [id]);
 }
 
-export function getMedLog(id: number): Pick<MedLog, 'id' | 'medication_id' | 'taken_at'> | null {
-  return db.getFirstSync<Pick<MedLog, 'id' | 'medication_id' | 'taken_at'>>(
-    'SELECT id, medication_id, taken_at FROM med_logs WHERE id = ?',
+export function getMedLog(id: number): Pick<MedLog, 'id' | 'medication_id' | 'taken_at' | 'quantity'> | null {
+  return db.getFirstSync<Pick<MedLog, 'id' | 'medication_id' | 'taken_at' | 'quantity'>>(
+    'SELECT id, medication_id, taken_at, quantity FROM med_logs WHERE id = ?',
     [id],
   );
 }
@@ -402,7 +445,7 @@ export function getLogsForDay(date: Date): AnyLog[] {
     [start, end],
   );
   const meds = db.getAllSync<MedLog>(
-    `SELECT med_logs.id, med_logs.medication_id, medications.name AS medication_name, med_logs.taken_at
+    `SELECT med_logs.id, med_logs.medication_id, medications.name AS medication_name, med_logs.taken_at, med_logs.quantity
      FROM med_logs JOIN medications ON medications.id = med_logs.medication_id
      WHERE taken_at BETWEEN ? AND ? ORDER BY taken_at DESC`,
     [start, end],
@@ -432,7 +475,7 @@ export function getLogsForDay(date: Date): AnyLog[] {
       kind: 'medication' as const,
       id: m.id,
       title: m.medication_name,
-      detail: 'Taken',
+      detail: m.quantity > 1 ? `Took ${m.quantity}` : 'Taken',
       logged_at: m.taken_at,
     })),
     ...symptoms.map((s) => ({
@@ -446,7 +489,7 @@ export function getLogsForDay(date: Date): AnyLog[] {
       kind: 'supplement' as const,
       id: s.id,
       title: s.name,
-      detail: s.notes || 'Logged',
+      detail: s.quantity > 1 ? `Took ${s.quantity}` : s.notes || 'Logged',
       logged_at: s.logged_at,
     })),
     ...weights.map((w) => ({

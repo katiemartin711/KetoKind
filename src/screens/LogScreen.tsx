@@ -110,6 +110,34 @@ function DateTimeField({ value, onChange }: { value: Date; onChange: (d: Date) =
   );
 }
 
+/** Stepper row for "how many did you take" on an as-needed item. */
+function QtyRow({
+  name,
+  qty,
+  onDec,
+  onInc,
+}: {
+  name: string;
+  qty: number;
+  onDec: () => void;
+  onInc: () => void;
+}) {
+  return (
+    <View style={styles.qtyRow}>
+      <Text style={styles.qtyName}>{name}</Text>
+      <View style={styles.stepper}>
+        <TouchableOpacity style={styles.stepBtn} onPress={onDec}>
+          <Text style={styles.stepBtnText}>−</Text>
+        </TouchableOpacity>
+        <Text style={styles.qtyValue}>{qty}</Text>
+        <TouchableOpacity style={styles.stepBtn} onPress={onInc}>
+          <Text style={styles.stepBtnText}>+</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+
 export default function LogScreen() {
   const route = useRoute<LogRoute>();
   const [segment, setSegment] = useState<LogSegment>('meal');
@@ -123,6 +151,9 @@ export default function LogScreen() {
   const [mealNotes, setMealNotes] = useState('');
   const [selectedMedIds, setSelectedMedIds] = useState<number[]>([]);
   const [selectedSuppIds, setSelectedSuppIds] = useState<number[]>([]);
+  // "How many" per selected item (only used for as-needed items).
+  const [medQty, setMedQty] = useState<Record<number, number>>({});
+  const [suppQty, setSuppQty] = useState<Record<number, number>>({});
   const [symptomName, setSymptomName] = useState('');
   const [severity, setSeverity] = useState(3);
   const [symptomNotes, setSymptomNotes] = useState('');
@@ -188,12 +219,12 @@ export default function LogScreen() {
     }
     const at = logDate.toISOString();
     if (editing?.kind === 'medication' && selectedMedIds.length > 0) {
-      updateMedLog(editing.id, selectedMedIds[0], at);
+      updateMedLog(editing.id, selectedMedIds[0], at, medQty[selectedMedIds[0]] ?? 1);
     } else if (editing?.kind === 'supplement' && selectedSuppIds.length > 0) {
-      updateSupplementLog(editing.id, selectedSuppIds[0], at);
+      updateSupplementLog(editing.id, selectedSuppIds[0], at, suppQty[selectedSuppIds[0]] ?? 1);
     } else if (!editing) {
-      selectedMedIds.forEach((id) => addMedLog(id, at));
-      selectedSuppIds.forEach((id) => addSupplementLog(id, at));
+      selectedMedIds.forEach((id) => addMedLog(id, at, medQty[id] ?? 1));
+      selectedSuppIds.forEach((id) => addSupplementLog(id, at, suppQty[id] ?? 1));
     }
     resetForm();
     refresh();
@@ -202,17 +233,48 @@ export default function LogScreen() {
   /** In edit mode the other section is locked so a single entry stays single. */
   const onToggleMed = (id: number) => {
     if (editing?.kind === 'supplement') return;
-    setSelectedMedIds((ids) => (editing?.kind === 'medication' ? [id] : toggleId(ids, id)));
+    if (editing?.kind === 'medication') {
+      setSelectedMedIds([id]);
+      setMedQty((q) => ({ ...q, [id]: q[id] ?? 1 }));
+      return;
+    }
+    const isOn = selectedMedIds.includes(id);
+    setSelectedMedIds(toggleId(selectedMedIds, id));
+    setMedQty((q) => {
+      if (!isOn) return { ...q, [id]: q[id] ?? 1 };
+      const { [id]: _drop, ...rest } = q;
+      return rest;
+    });
   };
 
   const onToggleSupp = (id: number) => {
     if (editing?.kind === 'medication') return;
-    setSelectedSuppIds((ids) => (editing?.kind === 'supplement' ? [id] : toggleId(ids, id)));
+    if (editing?.kind === 'supplement') {
+      setSelectedSuppIds([id]);
+      setSuppQty((q) => ({ ...q, [id]: q[id] ?? 1 }));
+      return;
+    }
+    const isOn = selectedSuppIds.includes(id);
+    setSelectedSuppIds(toggleId(selectedSuppIds, id));
+    setSuppQty((q) => {
+      if (!isOn) return { ...q, [id]: q[id] ?? 1 };
+      const { [id]: _drop, ...rest } = q;
+      return rest;
+    });
+  };
+
+  /** Stepper for "how many did you take" on as-needed items. */
+  const bumpQty = (kind: 'med' | 'supp', id: number, delta: number) => {
+    const set = kind === 'med' ? setMedQty : setSuppQty;
+    set((q) => ({ ...q, [id]: Math.min(20, Math.max(1, (q[id] ?? 1) + delta)) }));
   };
 
   const editingMedSupp =
     editing?.kind === 'medication' || editing?.kind === 'supplement' ? editing.kind : null;
   const medSuppSelected = selectedMedIds.length + selectedSuppIds.length > 0;
+  // Selected as-needed items get a "how many" stepper below the chips.
+  const asNeededMedSel = medications.filter((m) => m.as_needed && selectedMedIds.includes(m.id));
+  const asNeededSuppSel = profileSupps.filter((s) => s.as_needed && selectedSuppIds.includes(s.id));
 
   const saveSymptom = () => {
     if (!symptomName.trim()) return Alert.alert('Missing name', 'What symptom are you logging?');
@@ -246,6 +308,8 @@ export default function LogScreen() {
     setMealType('Dinner');
     setSelectedMedIds([]);
     setSelectedSuppIds([]);
+    setMedQty({});
+    setSuppQty({});
     setSymptomName('');
     setSymptomNotes('');
     setSeverity(3);
@@ -269,6 +333,8 @@ export default function LogScreen() {
       if (!row) return;
       setSelectedMedIds([row.medication_id]);
       setSelectedSuppIds([]);
+      setMedQty({ [row.medication_id]: row.quantity ?? 1 });
+      setSuppQty({});
       setLogDate(new Date(row.taken_at));
     } else if (log.kind === 'symptom') {
       const row = getSymptomLog(log.id);
@@ -290,6 +356,8 @@ export default function LogScreen() {
       // live profile entry — the user just picks again.
       setSelectedSuppIds(row.supplement_id != null ? [row.supplement_id] : []);
       setSelectedMedIds([]);
+      setSuppQty(row.supplement_id != null ? { [row.supplement_id]: row.quantity ?? 1 } : {});
+      setMedQty({});
       setLogDate(new Date(row.logged_at));
     }
     setSegment(log.kind === 'medication' || log.kind === 'supplement' ? 'medsupp' : log.kind);
@@ -434,6 +502,29 @@ export default function LogScreen() {
               </View>
             )}
             <DateTimeField value={logDate} onChange={setLogDate} />
+            {(asNeededMedSel.length > 0 || asNeededSuppSel.length > 0) && (
+              <>
+                <Text style={[common.label, { marginTop: 4 }]}>How many?</Text>
+                {asNeededMedSel.map((m) => (
+                  <QtyRow
+                    key={`m${m.id}`}
+                    name={m.name}
+                    qty={medQty[m.id] ?? 1}
+                    onDec={() => bumpQty('med', m.id, -1)}
+                    onInc={() => bumpQty('med', m.id, 1)}
+                  />
+                ))}
+                {asNeededSuppSel.map((s) => (
+                  <QtyRow
+                    key={`s${s.id}`}
+                    name={s.name}
+                    qty={suppQty[s.id] ?? 1}
+                    onDec={() => bumpQty('supp', s.id, -1)}
+                    onInc={() => bumpQty('supp', s.id, 1)}
+                  />
+                ))}
+              </>
+            )}
             <TouchableOpacity
               style={[common.primaryButton, !medSuppSelected && styles.disabled]}
               onPress={saveMedSupp}
@@ -571,6 +662,24 @@ const styles = StyleSheet.create({
   },
   chipActive: { backgroundColor: COLORS.accent, borderColor: COLORS.accent },
   chipLocked: { opacity: 0.4 },
+  qtyRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 6,
+  },
+  qtyName: { flex: 1, fontSize: 15, color: COLORS.text },
+  stepper: { flexDirection: 'row', alignItems: 'center' },
+  stepBtn: {
+    width: 34,
+    height: 34,
+    borderRadius: 17,
+    backgroundColor: COLORS.accentLight,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  stepBtnText: { fontSize: 20, color: COLORS.accent, fontWeight: '700' },
+  qtyValue: { fontSize: 17, fontWeight: '600', minWidth: 34, textAlign: 'center', color: COLORS.text },
   chipText: { fontSize: 14, color: COLORS.text },
   chipTextActive: { color: '#fff', fontWeight: '600' },
   hint: { fontSize: 14, color: COLORS.muted, marginVertical: 8 },

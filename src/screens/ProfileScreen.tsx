@@ -18,6 +18,7 @@ import {
   addMedication,
   addSupplement,
   deleteAllergy,
+  deleteAllData,
   deleteCondition,
   deleteMedication,
   deleteSupplement,
@@ -165,6 +166,26 @@ export default function ProfileScreen() {
     setWeightTracking(trackWeight, sw);
     setWeightSavedFlash(true);
     setTimeout(() => setWeightSavedFlash(false), 2000);
+  };
+
+  const confirmDeleteAllData = () => {
+    Alert.alert(
+      'Delete all data?',
+      'This permanently deletes your profile, logs, medications, supplements, and weight history on this device. This cannot be undone.',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        {
+          text: 'Delete everything',
+          style: 'destructive',
+          onPress: () => {
+            deleteAllData();
+            clearMedSuppForm();
+            refresh();
+            Alert.alert('Done', 'All data has been deleted from this device.');
+          },
+        },
+      ],
+    );
   };
 
   const addAllergyRow = () => {
@@ -596,6 +617,18 @@ export default function ProfileScreen() {
             </TouchableOpacity>
           )}
         </View>
+
+        {/* Delete all data */}
+        <View style={common.card}>
+          <Text style={common.h2}>Delete all data</Text>
+          <Text style={styles.weightHint}>
+            Permanently wipes your profile, logs, medications, supplements, and weight
+            history from this device. Useful if you want to start fresh.
+          </Text>
+          <TouchableOpacity style={styles.deleteButton} onPress={confirmDeleteAllData}>
+            <Text style={styles.deleteButtonText}>Delete all data</Text>
+          </TouchableOpacity>
+        </View>
     </KeyboardScrollView>
   );
 }
@@ -697,6 +730,14 @@ const makeStyles = (C: Palette) =>
     marginTop: 12,
   },
   dietCalloutText: { fontSize: 14, color: C.text, fontWeight: '600' },
+  deleteButton: {
+    backgroundColor: C.danger,
+    borderRadius: 10,
+    paddingVertical: 12,
+    alignItems: 'center',
+    marginTop: 8,
+  },
+  deleteButtonText: { color: '#fff', fontWeight: '700', fontSize: 15 },
   toggleRow: {
     flexDirection: 'row',
     backgroundColor: C.border,

@@ -193,6 +193,34 @@ export function getDismissedMilestones(): string[] {
   return raw ? raw.split(',').filter(Boolean) : [];
 }
 
+/** Wipe everything on device: all logs, lists, and profile fields back to
+ *  defaults. Appearance/theme is left alone — it's a preference, not data. */
+export function deleteAllData(): void {
+  db.execSync(`
+    DELETE FROM allergies;
+    DELETE FROM conditions;
+    DELETE FROM medications;
+    DELETE FROM supplements;
+    DELETE FROM food_logs;
+    DELETE FROM med_logs;
+    DELETE FROM symptom_logs;
+    DELETE FROM supplement_logs;
+    DELETE FROM weight_logs;
+    UPDATE profile SET
+      diet_type = 'carnivore',
+      diet_nuances = '',
+      goals = '',
+      track_weight = 0,
+      starting_weight = NULL,
+      age = NULL,
+      sex = '',
+      bio = '',
+      diet_start = NULL,
+      dismissed_milestones = ''
+    WHERE id = 1;
+  `);
+}
+
 /** True once the user has filled in anything meaningful on the Profile tab
  *  (age, sex, bio, goals, nuances, or diet start date). Used to nudge brand-new
  *  users toward setup on the Dashboard. */

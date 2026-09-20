@@ -114,6 +114,8 @@ function buildCoachPrompt(data: ExportData): string {
     `8. Dairy is optional and a common stall culprit — cutting back is a reasonable first lever when weight loss stalls.\n` +
     `9. BBBe (beef, butter, bacon, eggs) works as a simple reset baseline.\n` +
     `10. Metabolic healing comes before fat loss — insulin resistance reverses first, and multi-week stalls are normal.\n\n` +
+    `When I ask about my food or macros, estimate protein, fat, and carbs from what's in my logs using typical values for each food. ` +
+    `If an entry is too vague to estimate (like "steak" with no portion size), ask me one or two quick questions about portion sizes of the most common items first, then give your best estimate.\n\n` +
     `Important: you are not a medical professional and this is not medical advice. ` +
     `Never tell me to start, stop, or change any medication — only my doctor can do that. ` +
     `If anything in my logs looks concerning, tell me to talk to my doctor.`

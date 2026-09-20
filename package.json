@@ -9,6 +9,7 @@
     "@react-navigation/native": "^7.4.1",
     "expo": "~57.0.24",
     "expo-clipboard": "~57.0.2",
+    "expo-document-picker": "~57.0.0",
     "expo-file-system": "~57.0.7",
     "expo-sharing": "~57.0.21",
     "expo-sqlite": "~57.0.3",

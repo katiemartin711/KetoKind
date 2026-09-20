@@ -257,6 +257,180 @@ export function deleteAllData(): void {
   db.execSync('VACUUM;');
 }
 
+// ---------------------------------------------------------------------------
+// Full backup / restore (device switching)
+// ---------------------------------------------------------------------------
+
+/** Everything stored on-device, in one JSON-serializable object. */
+export interface DatabaseBackup {
+  version: 1;
+  exportedAt: string; // ISO timestamp
+  profile: Profile;
+  allergies: Allergy[];
+  conditions: Condition[];
+  medications: Medication[];
+  supplements: Supplement[];
+  foodLogs: FoodLog[];
+  /** Raw med log rows (no joined medication name — the link is medication_id). */
+  medLogs: Array<{ id: number; medication_id: number; taken_at: string; quantity: number }>;
+  symptomLogs: SymptomLog[];
+  supplementLogs: SupplementLog[];
+  weightLogs: WeightLog[];
+}
+
+/** Snapshot every table for backup. */
+export function exportBackup(): DatabaseBackup {
+  return {
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    profile: getProfile(),
+    allergies: listAllergies(),
+    conditions: listConditions(),
+    medications: listMedications(),
+    supplements: listSupplements(),
+    foodLogs: db.getAllSync<FoodLog>('SELECT * FROM food_logs ORDER BY id'),
+    medLogs: db.getAllSync<DatabaseBackup['medLogs'][number]>(
+      'SELECT id, medication_id, taken_at, quantity FROM med_logs ORDER BY id',
+    ),
+    symptomLogs: db.getAllSync<SymptomLog>('SELECT * FROM symptom_logs ORDER BY id'),
+    supplementLogs: db.getAllSync<SupplementLog>('SELECT * FROM supplement_logs ORDER BY id'),
+    weightLogs: db.getAllSync<WeightLog>('SELECT * FROM weight_logs ORDER BY id'),
+  };
+}
+
+function isRecord(v: unknown): v is Record<string, unknown> {
+  return typeof v === 'object' && v !== null;
+}
+
+/**
+ * Structural check for an imported backup. Run BEFORE touching any data:
+ * a wrong or tampered file must abort the import, never wipe the device.
+ */
+export function isDatabaseBackup(value: unknown): value is DatabaseBackup {
+  if (!isRecord(value) || value.version !== 1) return false;
+  const lists = [
+    'allergies', 'conditions', 'medications', 'supplements',
+    'foodLogs', 'medLogs', 'symptomLogs', 'supplementLogs', 'weightLogs',
+  ];
+  for (const key of lists) {
+    const rows = (value as Record<string, unknown>)[key];
+    if (!Array.isArray(rows)) return false;
+    // Every row must be an object with a numeric id (ids are preserved on import).
+    if (!rows.every((r) => isRecord(r) && typeof r.id === 'number' && Number.isFinite(r.id))) {
+      return false;
+    }
+  }
+  const p = (value as Record<string, unknown>).profile;
+  return isRecord(p) && typeof p.diet_type === 'string';
+}
+
+/** Coerce helpers so a slightly-off backup file can't write junk into the db. */
+const str = (v: unknown, fallback = ''): string => (typeof v === 'string' ? v : fallback);
+const num = (v: unknown, fallback: number): number =>
+  typeof v === 'number' && Number.isFinite(v) ? v : fallback;
+const boolInt = (v: unknown): number => (v === 1 || v === true ? 1 : 0);
+
+/**
+ * Replace ALL on-device data with a validated backup. Runs in a transaction:
+ * any failure rolls everything back instead of leaving a half-imported db.
+ * Call isDatabaseBackup() first — this assumes the shape was checked.
+ */
+export function importBackup(b: DatabaseBackup): void {
+  db.withTransactionSync(() => {
+    db.execSync(`
+      DELETE FROM food_logs;
+      DELETE FROM med_logs;
+      DELETE FROM symptom_logs;
+      DELETE FROM supplement_logs;
+      DELETE FROM weight_logs;
+      DELETE FROM allergies;
+      DELETE FROM conditions;
+      DELETE FROM medications;
+      DELETE FROM supplements;
+    `);
+
+    const p = b.profile;
+    const dietType: DietType =
+      p.diet_type === 'keto' || p.diet_type === 'lion' ? p.diet_type : 'carnivore';
+    const themeMode: ThemeMode =
+      p.theme_mode === 'light' || p.theme_mode === 'dark' ? p.theme_mode : 'system';
+    const sex = p.sex === 'female' || p.sex === 'male' ? p.sex : '';
+    db.runSync(
+      `INSERT OR REPLACE INTO profile
+         (id, diet_type, diet_nuances, goals, theme_mode, track_weight, starting_weight,
+          age, sex, bio, diet_start, dismissed_milestones)
+       VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        dietType,
+        str(p.diet_nuances),
+        str(p.goals),
+        themeMode,
+        boolInt(p.track_weight),
+        typeof p.starting_weight === 'number' && Number.isFinite(p.starting_weight) ? p.starting_weight : null,
+        typeof p.age === 'number' && Number.isFinite(p.age) ? p.age : null,
+        sex,
+        str(p.bio),
+        typeof p.diet_start === 'string' ? p.diet_start : null,
+        str(p.dismissed_milestones),
+      ],
+    );
+
+    for (const a of b.allergies) {
+      db.runSync('INSERT INTO allergies (id, name) VALUES (?, ?)', [a.id, str(a.name)]);
+    }
+    for (const c of b.conditions) {
+      db.runSync('INSERT INTO conditions (id, name) VALUES (?, ?)', [c.id, str(c.name)]);
+    }
+    for (const m of b.medications) {
+      db.runSync(
+        'INSERT INTO medications (id, name, dosage, times_per_day, purpose, as_needed) VALUES (?, ?, ?, ?, ?, ?)',
+        [m.id, str(m.name), str(m.dosage), num(m.times_per_day, 1), str(m.purpose), boolInt(m.as_needed)],
+      );
+    }
+    for (const s of b.supplements) {
+      db.runSync(
+        'INSERT INTO supplements (id, name, dosage, times_per_day, purpose, as_needed) VALUES (?, ?, ?, ?, ?, ?)',
+        [s.id, str(s.name), str(s.dosage), num(s.times_per_day, 1), str(s.purpose), boolInt(s.as_needed)],
+      );
+    }
+    for (const f of b.foodLogs) {
+      db.runSync('INSERT INTO food_logs (id, name, meal_type, logged_at, notes) VALUES (?, ?, ?, ?, ?)', [
+        f.id, str(f.name), str(f.meal_type, 'Meal'), str(f.logged_at), str(f.notes),
+      ]);
+    }
+    for (const m of b.medLogs) {
+      db.runSync('INSERT INTO med_logs (id, medication_id, taken_at, quantity) VALUES (?, ?, ?, ?)', [
+        m.id, num(m.medication_id, 0), str(m.taken_at), num(m.quantity, 1),
+      ]);
+    }
+    for (const s of b.symptomLogs) {
+      db.runSync('INSERT INTO symptom_logs (id, name, severity, logged_at, notes) VALUES (?, ?, ?, ?, ?)', [
+        s.id, str(s.name), num(s.severity, 3), str(s.logged_at), str(s.notes),
+      ]);
+    }
+    for (const s of b.supplementLogs) {
+      db.runSync(
+        'INSERT INTO supplement_logs (id, name, supplement_id, logged_at, notes, quantity) VALUES (?, ?, ?, ?, ?, ?)',
+        [
+          s.id,
+          str(s.name),
+          typeof s.supplement_id === 'number' && Number.isFinite(s.supplement_id) ? s.supplement_id : null,
+          str(s.logged_at),
+          str(s.notes),
+          num(s.quantity, 1),
+        ],
+      );
+    }
+    for (const w of b.weightLogs) {
+      db.runSync('INSERT INTO weight_logs (id, weight, logged_at) VALUES (?, ?, ?)', [
+        w.id, num(w.weight, 0), str(w.logged_at),
+      ]);
+    }
+    // Id counters continue after the highest restored id.
+    db.execSync('DELETE FROM sqlite_sequence;');
+  });
+}
+
 /** True once the user has filled in anything meaningful on the Profile tab
  *  (age, sex, bio, goals, nuances, or diet start date). Used to nudge brand-new
  *  users toward setup on the Dashboard. */

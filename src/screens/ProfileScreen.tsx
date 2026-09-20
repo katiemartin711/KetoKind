@@ -12,6 +12,9 @@ import {
   StyleSheet,
 } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
+import * as DocumentPicker from 'expo-document-picker';
+import { documentDirectory, readAsStringAsync, writeAsStringAsync } from 'expo-file-system/legacy';
+import * as Sharing from 'expo-sharing';
 import {
   addAllergy,
   addCondition,
@@ -22,7 +25,10 @@ import {
   deleteCondition,
   deleteMedication,
   deleteSupplement,
+  exportBackup,
   getProfile,
+  importBackup,
+  isDatabaseBackup,
   listAllergies,
   listConditions,
   listMedications,
@@ -192,6 +198,67 @@ export default function ProfileScreen() {
         },
       ],
     );
+  };
+
+  const downloadBackup = async () => {
+    try {
+      const backup = exportBackup();
+      const now = new Date();
+      const stamp = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+      const uri = `${documentDirectory}diet-coach-backup-${stamp}.json`;
+      await writeAsStringAsync(uri, JSON.stringify(backup));
+      await Sharing.shareAsync(uri, { mimeType: 'application/json' });
+    } catch (e) {
+      Alert.alert('Backup failed', e instanceof Error ? e.message : 'Could not create the backup file.');
+    }
+  };
+
+  const importBackupFile = async () => {
+    try {
+      const result = await DocumentPicker.getDocumentAsync({
+        type: 'application/json',
+        copyToCacheDirectory: true,
+      });
+      if (result.canceled) return;
+      const uri = result.assets[0]?.uri;
+      if (!uri) return;
+      let parsed: unknown;
+      try {
+        parsed = JSON.parse(await readAsStringAsync(uri));
+      } catch {
+        parsed = null;
+      }
+      if (!isDatabaseBackup(parsed)) {
+        Alert.alert('Invalid file', 'That file is not a valid Diet Coach backup.');
+        return;
+      }
+      const backup = parsed;
+      Alert.alert(
+        'Replace all data?',
+        'Importing will replace everything currently on this device with the backup. This cannot be undone.',
+        [
+          { text: 'Cancel', style: 'cancel' },
+          {
+            text: 'Import',
+            style: 'destructive',
+            onPress: () => {
+              try {
+                importBackup(backup);
+                clearMedSuppForm();
+                refresh();
+                const mode = backup.profile.theme_mode;
+                setAppTheme(mode === 'light' || mode === 'dark' ? mode : 'system');
+                Alert.alert('Done', 'Backup imported successfully.');
+              } catch (e) {
+                Alert.alert('Import failed', e instanceof Error ? e.message : 'Could not import the backup.');
+              }
+            },
+          },
+        ],
+      );
+    } catch (e) {
+      Alert.alert('Import failed', e instanceof Error ? e.message : 'Could not read the file.');
+    }
   };
 
   const addAllergyRow = () => {
@@ -632,6 +699,21 @@ export default function ProfileScreen() {
               <Text style={common.secondaryButtonText}>Cancel editing</Text>
             </TouchableOpacity>
           )}
+        </View>
+
+        {/* Data backup */}
+        <View style={common.card}>
+          <Text style={common.h2}>Data backup</Text>
+          <Text style={styles.weightHint}>
+            Download a backup file with all your data, or restore from one — handy when
+            switching phones. Save the file somewhere safe; anyone with it can read your logs.
+          </Text>
+          <TouchableOpacity style={common.secondaryButton} onPress={downloadBackup}>
+            <Text style={common.secondaryButtonText}>Download all data</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={common.secondaryButton} onPress={importBackupFile}>
+            <Text style={common.secondaryButtonText}>Import data</Text>
+          </TouchableOpacity>
         </View>
 
         {/* Delete all data */}

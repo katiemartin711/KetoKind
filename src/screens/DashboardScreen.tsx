@@ -15,7 +15,7 @@ type Nav = BottomTabNavigationProp<RootTabParamList>;
 
 const QUICK_ADD: { label: string; icon: keyof typeof Ionicons.glyphMap; segment: LogSegment }[] = [
   { label: 'Meal', icon: 'restaurant-outline', segment: 'meal' },
-  { label: 'Meds & Supps', icon: 'medkit-outline', segment: 'medsupp' },
+  { label: 'Meds', icon: 'medkit-outline', segment: 'medsupp' },
   { label: 'Symptom', icon: 'pulse-outline', segment: 'symptom' },
 ];
 

@@ -44,6 +44,8 @@ export default function ProfileScreen() {
   const [dietType, setDietType] = useState<DietType>('carnivore');
   const [nuances, setNuances] = useState('');
   const [goals, setGoals] = useState('');
+  const [age, setAge] = useState('');
+  const [sex, setSex] = useState<'female' | 'male' | ''>('');
   const [allergies, setAllergies] = useState<Allergy[]>([]);
   const [conditions, setConditions] = useState<Condition[]>([]);
   const [medications, setMedications] = useState<Medication[]>([]);
@@ -73,6 +75,8 @@ export default function ProfileScreen() {
     setDietType(p.diet_type);
     setNuances(p.diet_nuances);
     setGoals(p.goals);
+    setAge(p.age != null ? String(p.age) : '');
+    setSex(p.sex === 'female' || p.sex === 'male' ? p.sex : '');
     setAllergies(listAllergies());
     setConditions(listConditions());
     setMedications(listMedications());
@@ -84,7 +88,15 @@ export default function ProfileScreen() {
   useFocusEffect(refresh);
 
   const onSave = () => {
-    saveProfile(dietType, nuances, goals);
+    let ageNum: number | null = null;
+    if (age.trim() !== '') {
+      const n = parseInt(age, 10);
+      if (isNaN(n) || n < 1 || n > 120) {
+        return Alert.alert('Invalid', 'Age must be a number between 1 and 120, or leave it blank.');
+      }
+      ageNum = n;
+    }
+    saveProfile(dietType, nuances, goals, ageNum, sex);
     setSavedFlash(true);
     setTimeout(() => setSavedFlash(false), 2000);
   };
@@ -216,6 +228,46 @@ export default function ProfileScreen() {
 
           <TouchableOpacity style={common.primaryButton} onPress={onSave}>
             <Text style={common.primaryButtonText}>
+              {savedFlash ? 'Saved ✓' : 'Save profile'}
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* About you */}
+        <View style={common.card}>
+          <Text style={common.h2}>About you</Text>
+          <Text style={styles.weightHint}>
+            Helps your AI coach give age-appropriate guidance.
+          </Text>
+          <Text style={common.label}>Age</Text>
+          <TextInput
+            style={common.input}
+            keyboardType="number-pad"
+            placeholder="e.g. 32"
+            value={age}
+            onChangeText={setAge}
+          />
+          <Text style={common.label}>Sex</Text>
+          <View style={styles.toggleRow}>
+            {(
+              [
+                { key: 'female', label: 'Female' },
+                { key: 'male', label: 'Male' },
+              ] as const
+            ).map((o) => (
+              <TouchableOpacity
+                key={o.key}
+                style={[styles.toggleBtn, sex === o.key && styles.toggleBtnActive]}
+                onPress={() => setSex(sex === o.key ? '' : o.key)}
+              >
+                <Text style={[styles.toggleText, sex === o.key && styles.toggleTextActive]}>
+                  {o.label}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+          <TouchableOpacity style={common.secondaryButton} onPress={onSave}>
+            <Text style={common.secondaryButtonText}>
               {savedFlash ? 'Saved ✓' : 'Save profile'}
             </Text>
           </TouchableOpacity>

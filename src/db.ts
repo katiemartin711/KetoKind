@@ -104,6 +104,8 @@ export function initDb(): void {
   addColumnIfMissing('med_logs', 'quantity', 'INTEGER NOT NULL DEFAULT 1');
   addColumnIfMissing('supplement_logs', 'quantity', 'INTEGER NOT NULL DEFAULT 1');
   addColumnIfMissing('profile', 'theme_mode', "TEXT NOT NULL DEFAULT 'system'");
+  addColumnIfMissing('profile', 'age', 'INTEGER');
+  addColumnIfMissing('profile', 'sex', "TEXT NOT NULL DEFAULT ''");
   addColumnIfMissing('supplement_logs', 'supplement_id', 'INTEGER');
   // Backfill supplement_id for logs saved before the tap-to-log picker existed.
   const legacySuppLogs = db.getAllSync<{ id: number; name: string }>(
@@ -164,11 +166,19 @@ export function getProfile(): Profile {
   return row;
 }
 
-export function saveProfile(dietType: DietType, nuances: string, goals: string): void {
-  db.runSync('UPDATE profile SET diet_type = ?, diet_nuances = ?, goals = ? WHERE id = 1', [
+export function saveProfile(
+  dietType: DietType,
+  nuances: string,
+  goals: string,
+  age: number | null,
+  sex: string,
+): void {
+  db.runSync('UPDATE profile SET diet_type = ?, diet_nuances = ?, goals = ?, age = ?, sex = ? WHERE id = 1', [
     dietType,
     nuances,
     goals,
+    age,
+    sex,
   ]);
 }
 

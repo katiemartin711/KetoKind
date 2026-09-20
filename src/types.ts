@@ -20,6 +20,8 @@ export interface Profile {
   track_weight: number; // 0/1 — whether weight logging is enabled
   starting_weight: number | null; // lbs
   theme_mode: ThemeMode; // 'system' | 'light' | 'dark'
+  age: number | null; // null = not set
+  sex: string; // '' = not set, otherwise 'female' | 'male'
 }
 
 export interface Allergy {

@@ -34,7 +34,7 @@ import {
 import type { Allergy, Condition, DietType, Medication, Supplement } from '../types';
 import { DIET_LABELS, DIET_TYPES } from '../types';
 import { SHADOW } from '../theme';
-import { toDietStartString, parseDietStart } from '../milestones';
+import { toDietStartString, parseDietStart, formatDietStart, dietDurationLabel } from '../milestones';
 import { useTheme } from '../ThemeContext';
 import type { Palette, ThemeMode } from '../theme';
 import KeyboardScrollView from '../components/KeyboardScrollView';
@@ -48,6 +48,9 @@ export default function ProfileScreen() {
   const [dietStartMonth, setDietStartMonth] = useState('');
   const [dietStartDay, setDietStartDay] = useState('');
   const [dietStartYear, setDietStartYear] = useState('');
+  // Last-saved values, powering the permanent "time on diet" callout.
+  const [savedDietStart, setSavedDietStart] = useState<string | null>(null);
+  const [savedDietType, setSavedDietType] = useState<DietType>('carnivore');
   const [age, setAge] = useState('');
   const [sex, setSex] = useState<'female' | 'male' | ''>('');
   const [bio, setBio] = useState('');
@@ -84,6 +87,8 @@ export default function ProfileScreen() {
     setDietStartMonth(ds ? String(ds.month) : '');
     setDietStartDay(ds?.day != null ? String(ds.day) : '');
     setDietStartYear(ds ? String(ds.year) : '');
+    setSavedDietStart(p.diet_start);
+    setSavedDietType(p.diet_type);
     setAge(p.age != null ? String(p.age) : '');
     setSex(p.sex === 'female' || p.sex === 'male' ? p.sex : '');
     setBio(p.bio || '');
@@ -141,6 +146,8 @@ export default function ProfileScreen() {
       dietStart = toDietStartString(year, month, day);
     }
     saveProfile(dietType, nuances, goals, ageNum, sex, bio.trim(), dietStart);
+    setSavedDietStart(dietStart);
+    setSavedDietType(dietType);
     setSavedFlash(true);
     setTimeout(() => setSavedFlash(false), 2000);
   };
@@ -306,6 +313,14 @@ export default function ProfileScreen() {
               />
             </View>
           </View>
+
+          {savedDietStart ? (
+            <View style={styles.dietCallout}>
+              <Text style={styles.dietCalloutText}>
+                🎉 {dietDurationLabel(savedDietStart)} on {DIET_LABELS[savedDietType]} — since {formatDietStart(savedDietStart)}
+              </Text>
+            </View>
+          ) : null}
 
           <TouchableOpacity style={common.primaryButton} onPress={onSave}>
             <Text style={common.primaryButtonText}>
@@ -665,6 +680,14 @@ const makeStyles = (C: Palette) =>
   checkmark: { color: '#fff', fontWeight: '700', fontSize: 15 },
   asNeededLabel: { fontSize: 15, color: C.text },
   weightHint: { fontSize: 14, color: C.muted, marginBottom: 4 },
+  dietCallout: {
+    backgroundColor: C.accentLight,
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    marginTop: 12,
+  },
+  dietCalloutText: { fontSize: 14, color: C.text, fontWeight: '600' },
   toggleRow: {
     flexDirection: 'row',
     backgroundColor: C.border,

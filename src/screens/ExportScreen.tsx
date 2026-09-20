@@ -94,12 +94,9 @@ function buildCoachPrompt(data: ExportData): string {
     `You are my ${dietLabel} diet coach. Below is my diet profile ` +
     `(diet type, personal nuances, allergies, health conditions, medications, supplements) and my food, symptom, ` +
     `supplement, and medication logs from the last 30 days.\n\n` +
-    `Use that context to:\n` +
-    `1. Suggest tweaks to my diet that fit my ${dietLabel} approach and restrictions.\n` +
-    `2. Give me meal ideas I will actually enjoy.\n` +
-    `3. Point out any patterns you notice between what I eat and how I feel.\n\n` +
-    `Keep your responses brief — no long lectures. Before diving into analysis, ask me whether ` +
-    `I want insights into my data or whether I have a specific question or concern I want to talk about.\n\n` +
+    `Start by greeting me by name (use my name if it appears in my profile; otherwise just say hello), ` +
+    `confirm you have my logs, and ask whether I want insights into my data or have a specific question or concern ` +
+    `I want to talk about. Keep every response brief — no long lectures, no unasked-for analysis.\n\n` +
     `Important: you are not a medical professional and this is not medical advice. ` +
     `Never tell me to start, stop, or change any medication — only my doctor can do that. ` +
     `If anything in my logs looks concerning, tell me to talk to my doctor.`

@@ -4,6 +4,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import {
   Alert,
+  Platform,
   ScrollView,
   Text,
   TextInput,
@@ -13,14 +14,23 @@ import {
 } from 'react-native';
 import { useFocusEffect, useRoute } from '@react-navigation/native';
 import type { RouteProp } from '@react-navigation/native';
+import DateTimePicker from '@expo/ui/community/datetime-picker';
 import {
   addFoodLog,
   addMedLog,
   addSupplementLog,
   addSymptomLog,
   deleteLog,
+  getFoodLog,
   getLogsForDay,
+  getMedLog,
+  getSupplementLog,
+  getSymptomLog,
   listMedications,
+  updateFoodLog,
+  updateMedLog,
+  updateSupplementLog,
+  updateSymptomLog,
 } from '../db';
 import type { AnyLog, LogSegment, Medication, RootTabParamList } from '../types';
 import { COLORS, common } from '../theme';
@@ -47,6 +57,54 @@ function fmtTime(iso: string): string {
   return new Date(iso).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
 }
 
+function fmtDateTime(date: Date): string {
+  const day = date.toLocaleDateString(undefined, {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+  });
+  const time = date.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
+  return `${day}, ${time}`;
+}
+
+/** A "Time" field for the log forms: shows the chosen date/time, taps open a
+ *  native picker (dialog on Android, inline on iOS). Future times are blocked. */
+function DateTimeField({ value, onChange }: { value: Date; onChange: (d: Date) => void }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <View>
+      <Text style={common.label}>Time</Text>
+      <TouchableOpacity style={common.input} onPress={() => setOpen(true)}>
+        <Text style={{ fontSize: 16, color: COLORS.text }}>{fmtDateTime(value)}</Text>
+      </TouchableOpacity>
+      {open && (
+        <View style={styles.pickerWrap}>
+          <DateTimePicker
+            mode="datetime"
+            value={value}
+            maximumDate={new Date()}
+            onChange={(event, date) => {
+              if (event.type === 'dismissed') {
+                setOpen(false);
+                return;
+              }
+              if (date) onChange(date);
+              // Android's dialog presentation: close once a value is picked.
+              if (Platform.OS === 'android') setOpen(false);
+            }}
+            onDismiss={() => setOpen(false)}
+          />
+          {Platform.OS === 'ios' && (
+            <TouchableOpacity style={common.secondaryButton} onPress={() => setOpen(false)}>
+              <Text style={common.secondaryButtonText}>Done</Text>
+            </TouchableOpacity>
+          )}
+        </View>
+      )}
+    </View>
+  );
+}
+
 export default function LogScreen() {
   const route = useRoute<LogRoute>();
   const [segment, setSegment] = useState<LogSegment>('meal');
@@ -63,6 +121,11 @@ export default function LogScreen() {
   const [symptomNotes, setSymptomNotes] = useState('');
   const [suppName, setSuppName] = useState('');
   const [suppNotes, setSuppNotes] = useState('');
+
+  // Timestamp for the entry being created/edited — defaults to right now.
+  const [logDate, setLogDate] = useState<Date>(new Date());
+  // Non-null while an existing entry is loaded into the form for editing.
+  const [editing, setEditing] = useState<{ kind: LogSegment; id: number } | null>(null);
 
   const refresh = useCallback(() => {
     setTodayLogs(getLogsForDay(new Date()));
@@ -82,33 +145,98 @@ export default function LogScreen() {
 
   const saveMeal = () => {
     if (!mealName.trim()) return Alert.alert('Missing name', 'What did you eat?');
-    addFoodLog(mealName, mealType, mealNotes);
-    setMealName('');
-    setMealNotes('');
+    const at = logDate.toISOString();
+    if (editing?.kind === 'meal') {
+      updateFoodLog(editing.id, mealName, mealType, mealNotes, at);
+    } else {
+      addFoodLog(mealName, mealType, mealNotes, at);
+    }
+    resetForm();
     refresh();
   };
 
   const saveMed = () => {
     if (selectedMedId == null) return Alert.alert('Nothing selected', 'Pick a medication first.');
-    addMedLog(selectedMedId);
+    const at = logDate.toISOString();
+    if (editing?.kind === 'medication') {
+      updateMedLog(editing.id, selectedMedId, at);
+    } else {
+      addMedLog(selectedMedId, at);
+    }
+    resetForm();
     refresh();
   };
 
   const saveSymptom = () => {
     if (!symptomName.trim()) return Alert.alert('Missing name', 'What symptom are you logging?');
-    addSymptomLog(symptomName, severity, symptomNotes);
-    setSymptomName('');
-    setSymptomNotes('');
-    setSeverity(3);
+    const at = logDate.toISOString();
+    if (editing?.kind === 'symptom') {
+      updateSymptomLog(editing.id, symptomName, severity, symptomNotes, at);
+    } else {
+      addSymptomLog(symptomName, severity, symptomNotes, at);
+    }
+    resetForm();
     refresh();
   };
 
   const saveSupplement = () => {
     if (!suppName.trim()) return Alert.alert('Missing name', 'Which supplement did you take?');
-    addSupplementLog(suppName, suppNotes);
+    const at = logDate.toISOString();
+    if (editing?.kind === 'supplement') {
+      updateSupplementLog(editing.id, suppName, suppNotes, at);
+    } else {
+      addSupplementLog(suppName, suppNotes, at);
+    }
+    resetForm();
+    refresh();
+  };
+
+  /** Clear the form back to a fresh entry. */
+  const resetForm = () => {
+    setMealName('');
+    setMealNotes('');
+    setMealType('Dinner');
+    setSelectedMedId(null);
+    setSymptomName('');
+    setSymptomNotes('');
+    setSeverity(3);
     setSuppName('');
     setSuppNotes('');
-    refresh();
+    setLogDate(new Date());
+    setEditing(null);
+  };
+
+  /** Load an existing entry into the form so it can be edited (time included). */
+  const startEdit = (log: AnyLog) => {
+    resetForm();
+    if (log.kind === 'meal') {
+      const row = getFoodLog(log.id);
+      if (!row) return;
+      setMealName(row.name);
+      setMealType(row.meal_type);
+      setMealNotes(row.notes);
+      setLogDate(new Date(row.logged_at));
+    } else if (log.kind === 'medication') {
+      const row = getMedLog(log.id);
+      if (!row) return;
+      setSelectedMedId(row.medication_id);
+      setLogDate(new Date(row.taken_at));
+    } else if (log.kind === 'symptom') {
+      const row = getSymptomLog(log.id);
+      if (!row) return;
+      setSymptomName(row.name);
+      setSeverity(row.severity);
+      setSymptomNotes(row.notes);
+      setLogDate(new Date(row.logged_at));
+    } else {
+      const row = getSupplementLog(log.id);
+      if (!row) return;
+      setSuppName(row.name);
+      setSuppNotes(row.notes);
+      setLogDate(new Date(row.logged_at));
+    }
+    setSegment(log.kind);
+    setEditing({ kind: log.kind, id: log.id });
   };
 
   const confirmDelete = (log: AnyLog) => {
@@ -137,7 +265,12 @@ export default function LogScreen() {
             <TouchableOpacity
               key={s.key}
               style={[styles.segment, segment === s.key && styles.segmentActive]}
-              onPress={() => setSegment(s.key)}
+              onPress={() => {
+                setSegment(s.key);
+                // Switching forms exits edit mode; the time resets to now.
+                setEditing(null);
+                setLogDate(new Date());
+              }}
             >
               <Text style={[styles.segmentText, segment === s.key && styles.segmentTextActive]}>
                 {s.label}
@@ -174,9 +307,17 @@ export default function LogScreen() {
               value={mealNotes}
               onChangeText={setMealNotes}
             />
+            <DateTimeField value={logDate} onChange={setLogDate} />
             <TouchableOpacity style={common.primaryButton} onPress={saveMeal}>
-              <Text style={common.primaryButtonText}>Save meal</Text>
+              <Text style={common.primaryButtonText}>
+                {editing?.kind === 'meal' ? 'Save changes' : 'Save meal'}
+              </Text>
             </TouchableOpacity>
+            {editing?.kind === 'meal' && (
+              <TouchableOpacity style={common.secondaryButton} onPress={resetForm}>
+                <Text style={common.secondaryButtonText}>Cancel editing</Text>
+              </TouchableOpacity>
+            )}
           </View>
         )}
 
@@ -203,13 +344,21 @@ export default function LogScreen() {
                 ))}
               </View>
             )}
+            <DateTimeField value={logDate} onChange={setLogDate} />
             <TouchableOpacity
               style={[common.primaryButton, medications.length === 0 && styles.disabled]}
               onPress={saveMed}
               disabled={medications.length === 0}
             >
-              <Text style={common.primaryButtonText}>Mark as taken</Text>
+              <Text style={common.primaryButtonText}>
+                {editing?.kind === 'medication' ? 'Save changes' : 'Mark as taken'}
+              </Text>
             </TouchableOpacity>
+            {editing?.kind === 'medication' && (
+              <TouchableOpacity style={common.secondaryButton} onPress={resetForm}>
+                <Text style={common.secondaryButtonText}>Cancel editing</Text>
+              </TouchableOpacity>
+            )}
           </View>
         )}
 
@@ -241,9 +390,17 @@ export default function LogScreen() {
               value={symptomNotes}
               onChangeText={setSymptomNotes}
             />
+            <DateTimeField value={logDate} onChange={setLogDate} />
             <TouchableOpacity style={common.primaryButton} onPress={saveSymptom}>
-              <Text style={common.primaryButtonText}>Save symptom</Text>
+              <Text style={common.primaryButtonText}>
+                {editing?.kind === 'symptom' ? 'Save changes' : 'Save symptom'}
+              </Text>
             </TouchableOpacity>
+            {editing?.kind === 'symptom' && (
+              <TouchableOpacity style={common.secondaryButton} onPress={resetForm}>
+                <Text style={common.secondaryButtonText}>Cancel editing</Text>
+              </TouchableOpacity>
+            )}
           </View>
         )}
 
@@ -263,17 +420,29 @@ export default function LogScreen() {
               value={suppNotes}
               onChangeText={setSuppNotes}
             />
+            <DateTimeField value={logDate} onChange={setLogDate} />
             <TouchableOpacity style={common.primaryButton} onPress={saveSupplement}>
-              <Text style={common.primaryButtonText}>Save supplement</Text>
+              <Text style={common.primaryButtonText}>
+                {editing?.kind === 'supplement' ? 'Save changes' : 'Save supplement'}
+              </Text>
             </TouchableOpacity>
+            {editing?.kind === 'supplement' && (
+              <TouchableOpacity style={common.secondaryButton} onPress={resetForm}>
+                <Text style={common.secondaryButtonText}>Cancel editing</Text>
+              </TouchableOpacity>
+            )}
           </View>
         )}
 
         <Text style={[common.h2, { marginTop: 12 }]}>Today's entries</Text>
-        {todayLogs.length === 0 && <Text style={styles.hint}>Nothing logged yet today.</Text>}
+        {todayLogs.length === 0 ? (
+          <Text style={styles.hint}>Nothing logged yet today.</Text>
+        ) : (
+          <Text style={styles.hint}>Tap an entry to edit it.</Text>
+        )}
         {todayLogs.map((log) => (
           <View key={`${log.kind}-${log.id}`} style={[common.card, styles.entryRow]}>
-            <View style={styles.entryText}>
+            <TouchableOpacity style={styles.entryText} onPress={() => startEdit(log)}>
               <Text style={styles.entryTitle}>
                 {log.title} <Text style={styles.entryKind}>· {KIND_LABEL[log.kind]}</Text>
               </Text>
@@ -281,7 +450,7 @@ export default function LogScreen() {
                 {fmtTime(log.logged_at)}
                 {log.detail ? ` — ${log.detail}` : ''}
               </Text>
-            </View>
+            </TouchableOpacity>
             <TouchableOpacity onPress={() => confirmDelete(log)} style={styles.deleteBtn}>
               <Text style={styles.deleteText}>✕</Text>
             </TouchableOpacity>
@@ -325,6 +494,7 @@ const styles = StyleSheet.create({
   disabled: { opacity: 0.5 },
   entryRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 12 },
   entryText: { flex: 1 },
+  pickerWrap: { marginTop: 8 },
   entryTitle: { fontSize: 15, fontWeight: '600', color: COLORS.text },
   entryKind: { fontWeight: '400', color: COLORS.muted, fontSize: 13 },
   entryDetail: { fontSize: 13, color: COLORS.muted, marginTop: 2 },

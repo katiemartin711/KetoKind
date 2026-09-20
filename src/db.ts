@@ -167,34 +167,108 @@ export function deleteMedication(id: number): void {
 // Logging
 // ---------------------------------------------------------------------------
 
-export function addFoodLog(name: string, mealType: string, notes: string): void {
+export function addFoodLog(name: string, mealType: string, notes: string, loggedAt: string): void {
   db.runSync('INSERT INTO food_logs (name, meal_type, logged_at, notes) VALUES (?, ?, ?, ?)', [
     name.trim(),
     mealType,
-    nowIso(),
+    loggedAt,
     notes.trim(),
   ]);
 }
 
-export function addMedLog(medicationId: number): void {
-  db.runSync('INSERT INTO med_logs (medication_id, taken_at) VALUES (?, ?)', [medicationId, nowIso()]);
+export function addMedLog(medicationId: number, takenAt: string): void {
+  db.runSync('INSERT INTO med_logs (medication_id, taken_at) VALUES (?, ?)', [medicationId, takenAt]);
 }
 
-export function addSymptomLog(name: string, severity: number, notes: string): void {
+export function addSymptomLog(
+  name: string,
+  severity: number,
+  notes: string,
+  loggedAt: string,
+): void {
   db.runSync('INSERT INTO symptom_logs (name, severity, logged_at, notes) VALUES (?, ?, ?, ?)', [
     name.trim(),
     severity,
-    nowIso(),
+    loggedAt,
     notes.trim(),
   ]);
 }
 
-export function addSupplementLog(name: string, notes: string): void {
+export function addSupplementLog(name: string, notes: string, loggedAt: string): void {
   db.runSync('INSERT INTO supplement_logs (name, logged_at, notes) VALUES (?, ?, ?)', [
     name.trim(),
-    nowIso(),
+    loggedAt,
     notes.trim(),
   ]);
+}
+
+export function updateFoodLog(
+  id: number,
+  name: string,
+  mealType: string,
+  notes: string,
+  loggedAt: string,
+): void {
+  db.runSync('UPDATE food_logs SET name = ?, meal_type = ?, notes = ?, logged_at = ? WHERE id = ?', [
+    name.trim(),
+    mealType,
+    notes.trim(),
+    loggedAt,
+    id,
+  ]);
+}
+
+export function updateMedLog(id: number, medicationId: number, takenAt: string): void {
+  db.runSync('UPDATE med_logs SET medication_id = ?, taken_at = ? WHERE id = ?', [
+    medicationId,
+    takenAt,
+    id,
+  ]);
+}
+
+export function updateSymptomLog(
+  id: number,
+  name: string,
+  severity: number,
+  notes: string,
+  loggedAt: string,
+): void {
+  db.runSync('UPDATE symptom_logs SET name = ?, severity = ?, notes = ?, logged_at = ? WHERE id = ?', [
+    name.trim(),
+    severity,
+    notes.trim(),
+    loggedAt,
+    id,
+  ]);
+}
+
+export function updateSupplementLog(id: number, name: string, notes: string, loggedAt: string): void {
+  db.runSync('UPDATE supplement_logs SET name = ?, notes = ?, logged_at = ? WHERE id = ?', [
+    name.trim(),
+    notes.trim(),
+    loggedAt,
+    id,
+  ]);
+}
+
+/** Fetch single rows to pre-fill the edit form. */
+export function getFoodLog(id: number): FoodLog | null {
+  return db.getFirstSync<FoodLog>('SELECT * FROM food_logs WHERE id = ?', [id]);
+}
+
+export function getMedLog(id: number): Pick<MedLog, 'id' | 'medication_id' | 'taken_at'> | null {
+  return db.getFirstSync<Pick<MedLog, 'id' | 'medication_id' | 'taken_at'>>(
+    'SELECT id, medication_id, taken_at FROM med_logs WHERE id = ?',
+    [id],
+  );
+}
+
+export function getSymptomLog(id: number): SymptomLog | null {
+  return db.getFirstSync<SymptomLog>('SELECT * FROM symptom_logs WHERE id = ?', [id]);
+}
+
+export function getSupplementLog(id: number): SupplementLog | null {
+  return db.getFirstSync<SupplementLog>('SELECT * FROM supplement_logs WHERE id = ?', [id]);
 }
 
 export function deleteLog(kind: AnyLog['kind'], id: number): void {

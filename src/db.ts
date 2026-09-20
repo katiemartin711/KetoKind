@@ -73,6 +73,7 @@ export function initDb(): void {
     CREATE TABLE IF NOT EXISTS supplement_logs (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
+      supplement_id INTEGER,
       logged_at TEXT NOT NULL,
       notes TEXT NOT NULL DEFAULT ''
     );
@@ -85,6 +86,20 @@ export function initDb(): void {
   // Column migrations for tables that already existed before the column did.
   addColumnIfMissing('medications', 'purpose', "TEXT NOT NULL DEFAULT ''");
   addColumnIfMissing('supplements', 'purpose', "TEXT NOT NULL DEFAULT ''");
+  addColumnIfMissing('supplement_logs', 'supplement_id', 'INTEGER');
+  // Backfill supplement_id for logs saved before the tap-to-log picker existed.
+  const legacySuppLogs = db.getAllSync<{ id: number; name: string }>(
+    'SELECT id, name FROM supplement_logs WHERE supplement_id IS NULL',
+  );
+  for (const row of legacySuppLogs) {
+    const match = db.getFirstSync<{ id: number }>(
+      'SELECT id FROM supplements WHERE lower(trim(name)) = lower(trim(?))',
+      [row.name],
+    );
+    if (match) {
+      db.runSync('UPDATE supplement_logs SET supplement_id = ? WHERE id = ?', [match.id, row.id]);
+    }
+  }
 }
 
 /** ALTER TABLE ... ADD COLUMN, but only when the column isn't there yet. */
@@ -232,11 +247,15 @@ export function addSymptomLog(
   ]);
 }
 
-export function addSupplementLog(name: string, notes: string, loggedAt: string): void {
-  db.runSync('INSERT INTO supplement_logs (name, logged_at, notes) VALUES (?, ?, ?)', [
-    name.trim(),
+export function addSupplementLog(supplementId: number, loggedAt: string): void {
+  const s = db.getFirstSync<{ name: string }>('SELECT name FROM supplements WHERE id = ?', [
+    supplementId,
+  ]);
+  db.runSync('INSERT INTO supplement_logs (name, supplement_id, logged_at, notes) VALUES (?, ?, ?, ?)', [
+    s?.name ?? '',
+    supplementId,
     loggedAt,
-    notes.trim(),
+    '',
   ]);
 }
 
@@ -280,10 +299,13 @@ export function updateSymptomLog(
   ]);
 }
 
-export function updateSupplementLog(id: number, name: string, notes: string, loggedAt: string): void {
-  db.runSync('UPDATE supplement_logs SET name = ?, notes = ?, logged_at = ? WHERE id = ?', [
-    name.trim(),
-    notes.trim(),
+export function updateSupplementLog(id: number, supplementId: number, loggedAt: string): void {
+  const s = db.getFirstSync<{ name: string }>('SELECT name FROM supplements WHERE id = ?', [
+    supplementId,
+  ]);
+  db.runSync('UPDATE supplement_logs SET supplement_id = ?, name = ?, logged_at = ? WHERE id = ?', [
+    supplementId,
+    s?.name ?? '',
     loggedAt,
     id,
   ]);

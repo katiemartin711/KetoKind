@@ -26,12 +26,13 @@ import {
   getSupplementLog,
   getSymptomLog,
   listMedications,
+  listSupplements,
   updateFoodLog,
   updateMedLog,
   updateSupplementLog,
   updateSymptomLog,
 } from '../db';
-import type { AnyLog, LogSegment, Medication, RootTabParamList } from '../types';
+import type { AnyLog, LogSegment, Medication, RootTabParamList, Supplement } from '../types';
 import { COLORS, common } from '../theme';
 import KeyboardScrollView from '../components/KeyboardScrollView';
 
@@ -110,17 +111,17 @@ export default function LogScreen() {
   const [segment, setSegment] = useState<LogSegment>('meal');
   const [todayLogs, setTodayLogs] = useState<AnyLog[]>([]);
   const [medications, setMedications] = useState<Medication[]>([]);
+  const [profileSupps, setProfileSupps] = useState<Supplement[]>([]);
 
   // Form state
   const [mealName, setMealName] = useState('');
   const [mealType, setMealType] = useState('Dinner');
   const [mealNotes, setMealNotes] = useState('');
   const [selectedMedId, setSelectedMedId] = useState<number | null>(null);
+  const [selectedSuppId, setSelectedSuppId] = useState<number | null>(null);
   const [symptomName, setSymptomName] = useState('');
   const [severity, setSeverity] = useState(3);
   const [symptomNotes, setSymptomNotes] = useState('');
-  const [suppName, setSuppName] = useState('');
-  const [suppNotes, setSuppNotes] = useState('');
 
   // Timestamp for the entry being created/edited — defaults to right now.
   const [logDate, setLogDate] = useState<Date>(new Date());
@@ -134,7 +135,12 @@ export default function LogScreen() {
     if (selectedMedId != null && !meds.some((m) => m.id === selectedMedId)) {
       setSelectedMedId(null);
     }
-  }, [selectedMedId]);
+    const supps = listSupplements();
+    setProfileSupps(supps);
+    if (selectedSuppId != null && !supps.some((s) => s.id === selectedSuppId)) {
+      setSelectedSuppId(null);
+    }
+  }, [selectedMedId, selectedSuppId]);
 
   useFocusEffect(refresh);
 
@@ -180,12 +186,12 @@ export default function LogScreen() {
   };
 
   const saveSupplement = () => {
-    if (!suppName.trim()) return Alert.alert('Missing name', 'Which supplement did you take?');
+    if (selectedSuppId == null) return Alert.alert('Nothing selected', 'Pick a supplement first.');
     const at = logDate.toISOString();
     if (editing?.kind === 'supplement') {
-      updateSupplementLog(editing.id, suppName, suppNotes, at);
+      updateSupplementLog(editing.id, selectedSuppId, at);
     } else {
-      addSupplementLog(suppName, suppNotes, at);
+      addSupplementLog(selectedSuppId, at);
     }
     resetForm();
     refresh();
@@ -197,11 +203,10 @@ export default function LogScreen() {
     setMealNotes('');
     setMealType('Dinner');
     setSelectedMedId(null);
+    setSelectedSuppId(null);
     setSymptomName('');
     setSymptomNotes('');
     setSeverity(3);
-    setSuppName('');
-    setSuppNotes('');
     setLogDate(new Date());
     setEditing(null);
   };
@@ -231,8 +236,9 @@ export default function LogScreen() {
     } else {
       const row = getSupplementLog(log.id);
       if (!row) return;
-      setSuppName(row.name);
-      setSuppNotes(row.notes);
+      // Legacy free-text logs (or ones whose supplement was deleted) have no
+      // live profile entry — the user just picks again.
+      setSelectedSuppId(row.supplement_id);
       setLogDate(new Date(row.logged_at));
     }
     setSegment(log.kind);
@@ -405,24 +411,35 @@ export default function LogScreen() {
 
         {segment === 'supplement' && (
           <View style={common.card}>
-            <Text style={common.label}>Supplement</Text>
-            <TextInput
-              style={common.input}
-              placeholder="e.g. Magnesium, beef liver capsules"
-              value={suppName}
-              onChangeText={setSuppName}
-            />
-            <Text style={common.label}>Notes (optional)</Text>
-            <TextInput
-              style={common.input}
-              placeholder="Dose, timing, ..."
-              value={suppNotes}
-              onChangeText={setSuppNotes}
-            />
+            <Text style={common.label}>Which supplement?</Text>
+            {profileSupps.length === 0 ? (
+              <Text style={styles.hint}>
+                No supplements yet — add them on the Profile tab first.
+              </Text>
+            ) : (
+              <View style={styles.chips}>
+                {profileSupps.map((s) => (
+                  <TouchableOpacity
+                    key={s.id}
+                    style={[styles.chip, selectedSuppId === s.id && styles.chipActive]}
+                    onPress={() => setSelectedSuppId(s.id)}
+                  >
+                    <Text style={[styles.chipText, selectedSuppId === s.id && styles.chipTextActive]}>
+                      {s.name}
+                      {s.dosage ? ` (${s.dosage})` : ''}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            )}
             <DateTimeField value={logDate} onChange={setLogDate} />
-            <TouchableOpacity style={common.primaryButton} onPress={saveSupplement}>
+            <TouchableOpacity
+              style={[common.primaryButton, profileSupps.length === 0 && styles.disabled]}
+              onPress={saveSupplement}
+              disabled={profileSupps.length === 0}
+            >
               <Text style={common.primaryButtonText}>
-                {editing?.kind === 'supplement' ? 'Save changes' : 'Save supplement'}
+                {editing?.kind === 'supplement' ? 'Save changes' : 'Mark as taken'}
               </Text>
             </TouchableOpacity>
             {editing?.kind === 'supplement' && (

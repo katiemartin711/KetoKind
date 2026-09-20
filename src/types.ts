@@ -69,7 +69,9 @@ export interface SymptomLog {
 
 export interface SupplementLog {
   id: number;
-  name: string;
+  name: string; // snapshot of the supplement's name when logged
+  /** Link to the profile supplements list; null for legacy free-text logs. */
+  supplement_id: number | null;
   logged_at: string; // ISO string
   notes: string;
 }

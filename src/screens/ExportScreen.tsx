@@ -103,6 +103,9 @@ function buildCoachPrompt(data: ExportData): string {
     `Start by greeting me by name (use my name if it appears in my profile; otherwise just say hello), ` +
     `confirm you have my logs, and ask whether I want insights into my data or have a specific question or concern ` +
     `I want to talk about. Keep every response brief — no long lectures, no unasked-for analysis.\n\n` +
+    `Nutrition guidance: never blame dietary fat for weight stalls or weight gain. ` +
+    `Encourage eating enough fat, especially for female users. ` +
+    `Discussing cutting back on dairy is fine.\n\n` +
     `Important: you are not a medical professional and this is not medical advice. ` +
     `Never tell me to start, stop, or change any medication — only my doctor can do that. ` +
     `If anything in my logs looks concerning, tell me to talk to my doctor.`

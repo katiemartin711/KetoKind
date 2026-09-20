@@ -193,14 +193,21 @@ export function getDismissedMilestones(): string[] {
   return raw ? raw.split(',').filter(Boolean) : [];
 }
 
+/** Remember that the user dismissed milestone banners so they stay gone.
+ *  Pass every reached milestone's key — dismissing the newest banner also
+ *  clears older ones so they never pop back up. */
+export function dismissMilestones(keys: string[]): void {
+  const current = getDismissedMilestones();
+  const merged = [...current];
+  for (const k of keys) {
+    if (!merged.includes(k)) merged.push(k);
+  }
+  db.runSync('UPDATE profile SET dismissed_milestones = ? WHERE id = 1', [merged.join(',')]);
+}
+
 /** Remember that the user dismissed a milestone banner so it stays gone. */
 export function dismissMilestone(key: string): void {
-  const current = getDismissedMilestones();
-  if (!current.includes(key)) {
-    db.runSync('UPDATE profile SET dismissed_milestones = ? WHERE id = 1', [
-      [...current, key].join(','),
-    ]);
-  }
+  dismissMilestones([key]);
 }
 
 /** Weight-tracking preference + starting weight (lbs, null when unset). */

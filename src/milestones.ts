@@ -89,22 +89,27 @@ const EARLY_MILESTONES: Milestone[] = [
 ];
 
 /**
- * The milestone being celebrated right now, if any. Each milestone shows for
- * 7 days after it lands so it isn't missed when the app isn't opened that day.
+ * Every milestone reached so far, newest first. Dismissing the banner marks
+ * all of these dismissed, so an older milestone never pops back up after the
+ * newest one is dismissed.
+ */
+export function reachedMilestones(dietStart: string | null | undefined): Milestone[] {
+  const days = daysSinceDietStart(dietStart);
+  if (days == null || days < 0) return [];
+  const all: Milestone[] = [...EARLY_MILESTONES];
+  for (let y = 1; y * 365 <= days; y++) {
+    all.push({ key: `y${y}`, days: y * 365, label: y === 1 ? '1 year' : `${y} years` });
+  }
+  return all.filter((m) => days >= m.days).sort((a, b) => b.days - a.days);
+}
+
+/**
+ * The most recent milestone reached, shown until the user dismisses it.
  * Dismissed milestones never come back.
  */
 export function currentMilestone(
   dietStart: string | null | undefined,
   dismissed: string[],
 ): Milestone | null {
-  const days = daysSinceDietStart(dietStart);
-  if (days == null || days < 0) return null;
-  const all: Milestone[] = [...EARLY_MILESTONES];
-  for (let y = 1; y * 365 <= days + 6; y++) {
-    all.push({ key: `y${y}`, days: y * 365, label: y === 1 ? '1 year' : `${y} years` });
-  }
-  const hit = all
-    .filter((m) => days >= m.days && days < m.days + 7 && !dismissed.includes(m.key))
-    .sort((a, b) => b.days - a.days)[0];
-  return hit ?? null;
+  return reachedMilestones(dietStart).find((m) => !dismissed.includes(m.key)) ?? null;
 }

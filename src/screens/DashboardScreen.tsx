@@ -7,10 +7,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-import { dismissMilestone, getDayCounts, getDismissedMilestones, getLatestWeight, getProfile, getStreak } from '../db';
+import { dismissMilestones, getDayCounts, getDismissedMilestones, getLatestWeight, getProfile, getStreak } from '../db';
 import type { LogSegment, RootTabParamList } from '../types';
 import { DIET_LABELS } from '../types';
-import { currentMilestone } from '../milestones';
+import { currentMilestone, reachedMilestones } from '../milestones';
 import type { Milestone } from '../milestones';
 import { useTheme } from '../ThemeContext';
 import type { Palette } from '../theme';
@@ -55,10 +55,9 @@ export default function DashboardScreen() {
   }, []);
 
   const dismissBanner = useCallback(() => {
-    setMilestone((m) => {
-      if (m) dismissMilestone(m.key);
-      return null;
-    });
+    const p = getProfile();
+    dismissMilestones(reachedMilestones(p.diet_start).map((m) => m.key));
+    setMilestone(null);
   }, []);
 
   useFocusEffect(refresh);

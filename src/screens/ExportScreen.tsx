@@ -21,7 +21,7 @@ function fmtDateTime(iso: string): string {
 
 /** The Markdown context file: profile + trailing-30-day summary. */
 function buildContextMarkdown(data: ExportData): string {
-  const { profile, allergies, conditions, medications, counts30, rangeLabel } = data;
+  const { profile, allergies, conditions, medications, supplements, counts30, rangeLabel } = data;
   const lines: string[] = [];
   const list = (items: string[]) => (items.length > 0 ? items.map((i) => `- ${i}`).join('\n') : '- None recorded');
 
@@ -36,6 +36,9 @@ function buildContextMarkdown(data: ExportData): string {
   lines.push(`- **Health conditions:** ${conditions.map((c) => c.name).join(', ') || 'None recorded'}`);
   lines.push(
     `- **Medications:** ${medications.map((m) => `${m.name}${m.dosage ? ` (${m.dosage})` : ''} — ${m.times_per_day}x/day`).join('; ') || 'None recorded'}`,
+  );
+  lines.push(
+    `- **Supplements:** ${supplements.map((s) => `${s.name}${s.dosage ? ` (${s.dosage})` : ''} — ${s.times_per_day}x/day`).join('; ') || 'None recorded'}`,
   );
   lines.push('');
   lines.push(`## Last 30 days (${rangeLabel})`);
@@ -84,7 +87,7 @@ function buildCoachPrompt(data: ExportData): string {
   const dietLabel = DIET_LABELS[data.profile.diet_type];
   return (
     `You are my ${dietLabel} diet coach. I am about to share a Markdown file with my diet profile ` +
-    `(diet type, personal nuances, allergies, health conditions, medications) and my food, symptom, ` +
+    `(diet type, personal nuances, allergies, health conditions, medications, supplements) and my food, symptom, ` +
     `supplement, and medication logs from the last 30 days.\n\n` +
     `Use that context to:\n` +
     `1. Suggest tweaks to my diet that fit my ${dietLabel} approach and restrictions.\n` +

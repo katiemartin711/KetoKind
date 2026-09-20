@@ -17,18 +17,21 @@ import {
   addAllergy,
   addCondition,
   addMedication,
+  addSupplement,
   deleteAllergy,
   deleteCondition,
   deleteMedication,
+  deleteSupplement,
   getProfile,
   listAllergies,
   listConditions,
   listMedications,
+  listSupplements,
   saveProfile,
 } from '../db';
-import type { Allergy, Condition, DietType, Medication } from '../types';
+import type { Allergy, Condition, DietType, Medication, Supplement } from '../types';
 import { DIET_LABELS, DIET_TYPES } from '../types';
-import { COLORS, common } from '../theme';
+import { COLORS, SHADOW, common } from '../theme';
 
 export default function ProfileScreen() {
   const [dietType, setDietType] = useState<DietType>('carnivore');
@@ -37,6 +40,8 @@ export default function ProfileScreen() {
   const [allergies, setAllergies] = useState<Allergy[]>([]);
   const [conditions, setConditions] = useState<Condition[]>([]);
   const [medications, setMedications] = useState<Medication[]>([]);
+  const [supplements, setSupplements] = useState<Supplement[]>([]);
+  const [medSuppTab, setMedSuppTab] = useState<'medication' | 'supplement'>('medication');
   const [savedFlash, setSavedFlash] = useState(false);
 
   // Add-row inputs
@@ -54,6 +59,7 @@ export default function ProfileScreen() {
     setAllergies(listAllergies());
     setConditions(listConditions());
     setMedications(listMedications());
+    setSupplements(listSupplements());
   }, []);
 
   useFocusEffect(refresh);
@@ -78,16 +84,26 @@ export default function ProfileScreen() {
     setConditions(listConditions());
   };
 
-  const addMedicationRow = () => {
-    if (!medName.trim()) return Alert.alert('Missing name', 'Give the medication a name.');
+  const addMedSuppRow = () => {
+    const isMed = medSuppTab === 'medication';
+    const kind = isMed ? 'medication' : 'supplement';
+    if (!medName.trim()) return Alert.alert('Missing name', `Give the ${kind} a name.`);
     const times = parseInt(medTimes, 10);
     if (isNaN(times) || times < 1) return Alert.alert('Invalid', 'Times per day must be at least 1.');
-    addMedication(medName, medDosage, times);
+    if (isMed) {
+      addMedication(medName, medDosage, times);
+      setMedications(listMedications());
+    } else {
+      addSupplement(medName, medDosage, times);
+      setSupplements(listSupplements());
+    }
     setMedName('');
     setMedDosage('');
     setMedTimes('1');
-    setMedications(listMedications());
   };
+
+  const medSuppLabel = (m: { name: string; dosage: string; times_per_day: number }) =>
+    `${m.name}${m.dosage ? ` — ${m.dosage}` : ''} (${m.times_per_day}x/day)`;
 
   return (
     <View style={common.screen}>
@@ -177,20 +193,41 @@ export default function ProfileScreen() {
           </View>
         </View>
 
-        {/* Medications */}
+        {/* Medications & supplements */}
         <View style={common.card}>
-          <Text style={common.h2}>Medications</Text>
-          {medications.map((m) => (
-            <Row
-              key={m.id}
-              label={`${m.name}${m.dosage ? ` — ${m.dosage}` : ''} (${m.times_per_day}x/day)`}
-              onDelete={() => { deleteMedication(m.id); setMedications(listMedications()); }}
-            />
-          ))}
+          <Text style={common.h2}>Medications & supplements</Text>
+          <View style={styles.toggleRow}>
+            {(['medication', 'supplement'] as const).map((t) => (
+              <TouchableOpacity
+                key={t}
+                style={[styles.toggleBtn, medSuppTab === t && styles.toggleBtnActive]}
+                onPress={() => setMedSuppTab(t)}
+              >
+                <Text style={[styles.toggleText, medSuppTab === t && styles.toggleTextActive]}>
+                  {t === 'medication' ? 'Medications' : 'Supplements'}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+          {medSuppTab === 'medication'
+            ? medications.map((m) => (
+                <Row
+                  key={m.id}
+                  label={medSuppLabel(m)}
+                  onDelete={() => { deleteMedication(m.id); setMedications(listMedications()); }}
+                />
+              ))
+            : supplements.map((s) => (
+                <Row
+                  key={s.id}
+                  label={medSuppLabel(s)}
+                  onDelete={() => { deleteSupplement(s.id); setSupplements(listSupplements()); }}
+                />
+              ))}
           <Text style={common.label}>Name</Text>
           <TextInput
             style={common.input}
-            placeholder="e.g. Vitamin D3"
+            placeholder={medSuppTab === 'medication' ? 'e.g. Metformin' : 'e.g. Vitamin D3'}
             value={medName}
             onChangeText={setMedName}
           />
@@ -199,7 +236,7 @@ export default function ProfileScreen() {
               <Text style={common.label}>Dosage</Text>
               <TextInput
                 style={common.input}
-                placeholder="e.g. 5000 IU"
+                placeholder={medSuppTab === 'medication' ? 'e.g. 500 mg' : 'e.g. 5000 IU'}
                 value={medDosage}
                 onChangeText={setMedDosage}
               />
@@ -214,8 +251,10 @@ export default function ProfileScreen() {
               />
             </View>
           </View>
-          <TouchableOpacity style={common.secondaryButton} onPress={addMedicationRow}>
-            <Text style={common.secondaryButtonText}>Add medication</Text>
+          <TouchableOpacity style={common.secondaryButton} onPress={addMedSuppRow}>
+            <Text style={common.secondaryButtonText}>
+              {medSuppTab === 'medication' ? 'Add medication' : 'Add supplement'}
+            </Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -277,4 +316,15 @@ const styles = StyleSheet.create({
   addButtonText: { color: '#fff', fontWeight: '700', fontSize: 15 },
   medRow: { flexDirection: 'row', gap: 12 },
   medHalf: { flex: 1 },
+  toggleRow: {
+    flexDirection: 'row',
+    backgroundColor: COLORS.border,
+    borderRadius: 12,
+    padding: 4,
+    marginBottom: 4,
+  },
+  toggleBtn: { flex: 1, borderRadius: 9, paddingVertical: 10, alignItems: 'center' },
+  toggleBtnActive: { backgroundColor: COLORS.card, ...SHADOW },
+  toggleText: { fontSize: 15, fontWeight: '600', color: COLORS.muted },
+  toggleTextActive: { color: COLORS.accent },
 });

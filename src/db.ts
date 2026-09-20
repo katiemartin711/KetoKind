@@ -11,6 +11,7 @@ import type {
   Medication,
   MedLog,
   Profile,
+  Supplement,
   SupplementLog,
   SymptomLog,
 } from './types';
@@ -36,6 +37,12 @@ export function initDb(): void {
       name TEXT NOT NULL
     );
     CREATE TABLE IF NOT EXISTS medications (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      dosage TEXT NOT NULL DEFAULT '',
+      times_per_day INTEGER NOT NULL DEFAULT 1
+    );
+    CREATE TABLE IF NOT EXISTS supplements (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
       dosage TEXT NOT NULL DEFAULT '',
@@ -120,7 +127,7 @@ export function saveProfile(dietType: DietType, nuances: string, goals: string):
 }
 
 // ---------------------------------------------------------------------------
-// Allergies / conditions / medications (profile lists)
+// Allergies / conditions / medications / supplements (profile lists)
 // ---------------------------------------------------------------------------
 
 export function listAllergies(): Allergy[] {
@@ -161,6 +168,22 @@ export function addMedication(name: string, dosage: string, timesPerDay: number)
 
 export function deleteMedication(id: number): void {
   db.runSync('DELETE FROM medications WHERE id = ?', [id]);
+}
+
+export function listSupplements(): Supplement[] {
+  return db.getAllSync<Supplement>('SELECT * FROM supplements ORDER BY name');
+}
+
+export function addSupplement(name: string, dosage: string, timesPerDay: number): void {
+  db.runSync('INSERT INTO supplements (name, dosage, times_per_day) VALUES (?, ?, ?)', [
+    name.trim(),
+    dosage.trim(),
+    timesPerDay,
+  ]);
+}
+
+export function deleteSupplement(id: number): void {
+  db.runSync('DELETE FROM supplements WHERE id = ?', [id]);
 }
 
 // ---------------------------------------------------------------------------
@@ -399,6 +422,7 @@ export interface ExportData {
   allergies: Allergy[];
   conditions: Condition[];
   medications: Medication[];
+  supplements: Supplement[];
   /** Per-type counts for the trailing 30 local days. */
   counts30: { meals: number; medsTaken: number; symptoms: number; supplements: number };
   recentMeals: FoodLog[];
@@ -434,6 +458,7 @@ export function getExportData(): ExportData {
     allergies,
     conditions,
     medications,
+    supplements: listSupplements(),
     counts30: {
       meals: countRange('food_logs', 'logged_at'),
       medsTaken: countRange('med_logs', 'taken_at'),

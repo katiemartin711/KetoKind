@@ -34,6 +34,14 @@ export interface Medication {
   times_per_day: number;
 }
 
+/** A recurring supplement from the Profile tab (e.g. Vitamin D3 daily). */
+export interface Supplement {
+  id: number;
+  name: string;
+  dosage: string;
+  times_per_day: number;
+}
+
 export interface FoodLog {
   id: number;
   name: string;

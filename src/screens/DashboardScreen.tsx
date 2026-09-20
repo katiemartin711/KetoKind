@@ -3,6 +3,7 @@
 
 import React, { useCallback, useState } from 'react';
 import { ScrollView, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
@@ -49,7 +50,7 @@ export default function DashboardScreen() {
   ];
 
   return (
-    <View style={common.screen}>
+    <SafeAreaView style={common.screen} edges={['top']}>
       <ScrollView contentContainerStyle={common.scroll}>
         <Text style={common.h1}>Today</Text>
         <Text style={common.subtitle}>{todayLabel}</Text>
@@ -86,7 +87,7 @@ export default function DashboardScreen() {
           ))}
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 

@@ -5,6 +5,7 @@
 
 import React, { useCallback, useState } from 'react';
 import { Alert, ScrollView, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 import * as Clipboard from 'expo-clipboard';
 import * as Sharing from 'expo-sharing';
@@ -141,7 +142,7 @@ export default function ExportScreen() {
   };
 
   return (
-    <View style={common.screen}>
+    <SafeAreaView style={common.screen} edges={['top']}>
       <ScrollView contentContainerStyle={common.scroll}>
         <Text style={common.h1}>AI Coach</Text>
         <Text style={common.subtitle}>
@@ -177,7 +178,7 @@ export default function ExportScreen() {
           with health conditions.
         </Text>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 

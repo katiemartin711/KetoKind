@@ -11,6 +11,7 @@ import {
   type ViewStyle,
 } from 'react-native';
 import { common } from '../theme';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function KeyboardScrollView({
   children,
@@ -20,19 +21,22 @@ export default function KeyboardScrollView({
   contentStyle?: StyleProp<ViewStyle>;
 }) {
   return (
-    <KeyboardAvoidingView
-      style={common.screen}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      // Account for the bottom tab bar between the view and the screen edge.
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 80 : 0}
-    >
-      <ScrollView
+    // Top edge only: the bottom tab bar already handles the bottom inset.
+    <SafeAreaView style={common.screen} edges={['top']}>
+      <KeyboardAvoidingView
         style={{ flex: 1 }}
-        contentContainerStyle={[common.scroll, contentStyle]}
-        keyboardShouldPersistTaps="handled"
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        // Account for the bottom tab bar between the view and the screen edge.
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 80 : 0}
       >
-        {children}
-      </ScrollView>
-    </KeyboardAvoidingView>
+        <ScrollView
+          style={{ flex: 1 }}
+          contentContainerStyle={[common.scroll, contentStyle]}
+          keyboardShouldPersistTaps="handled"
+        >
+          {children}
+        </ScrollView>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 }

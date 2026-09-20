@@ -1,7 +1,7 @@
 // Log tab: segmented forms for Meal / Medication / Symptom / Supplement,
 // plus today's entries across all types with delete on each.
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   Alert,
   Platform,
@@ -37,7 +37,8 @@ import {
   updateWeightLog,
 } from '../db';
 import type { AnyLog, LogSegment, Medication, RootTabParamList, Supplement } from '../types';
-import { COLORS, common } from '../theme';
+import { useTheme } from '../ThemeContext';
+import type { Palette } from '../theme';
 import KeyboardScrollView from '../components/KeyboardScrollView';
 
 type LogRoute = RouteProp<RootTabParamList, 'Log'>;
@@ -75,6 +76,8 @@ function fmtDateTime(date: Date): string {
 /** A "Time" field for the log forms: shows the chosen date/time, taps open a
  *  native picker (dialog on Android, inline on iOS). Future times are blocked. */
 function DateTimeField({ value, onChange }: { value: Date; onChange: (d: Date) => void }) {
+  const { colors: COLORS, common } = useTheme();
+  const styles = useMemo(() => makeStyles(COLORS), [COLORS]);
   const [open, setOpen] = useState(false);
   return (
     <View>
@@ -122,6 +125,8 @@ function QtyRow({
   onDec: () => void;
   onInc: () => void;
 }) {
+  const { colors: COLORS } = useTheme();
+  const styles = useMemo(() => makeStyles(COLORS), [COLORS]);
   return (
     <View style={styles.qtyRow}>
       <Text style={styles.qtyName}>{name}</Text>
@@ -140,6 +145,8 @@ function QtyRow({
 
 export default function LogScreen() {
   const route = useRoute<LogRoute>();
+  const { colors: COLORS, common } = useTheme();
+  const styles = useMemo(() => makeStyles(COLORS), [COLORS]);
   const [segment, setSegment] = useState<LogSegment>('meal');
   const [todayLogs, setTodayLogs] = useState<AnyLog[]>([]);
   const [medications, setMedications] = useState<Medication[]>([]);
@@ -634,10 +641,11 @@ export default function LogScreen() {
   );
 }
 
-const styles = StyleSheet.create({
+const makeStyles = (C: Palette) =>
+  StyleSheet.create({
   segments: {
     flexDirection: 'row',
-    backgroundColor: COLORS.border,
+    backgroundColor: C.border,
     borderRadius: 12,
     padding: 4,
     marginBottom: 12,
@@ -648,19 +656,19 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
   },
-  segmentActive: { backgroundColor: COLORS.card },
-  segmentText: { fontSize: 13, fontWeight: '600', color: COLORS.muted },
-  segmentTextActive: { color: COLORS.accent },
+  segmentActive: { backgroundColor: C.card },
+  segmentText: { fontSize: 13, fontWeight: '600', color: C.muted },
+  segmentTextActive: { color: C.accent },
   chips: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   chip: {
     borderWidth: 1,
-    borderColor: COLORS.border,
+    borderColor: C.border,
     borderRadius: 20,
     paddingHorizontal: 14,
     paddingVertical: 8,
-    backgroundColor: COLORS.card,
+    backgroundColor: C.card,
   },
-  chipActive: { backgroundColor: COLORS.accent, borderColor: COLORS.accent },
+  chipActive: { backgroundColor: C.accent, borderColor: C.accent },
   chipLocked: { opacity: 0.4 },
   qtyRow: {
     flexDirection: 'row',
@@ -668,35 +676,35 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 6,
   },
-  qtyName: { flex: 1, fontSize: 15, color: COLORS.text },
+  qtyName: { flex: 1, fontSize: 15, color: C.text },
   stepper: { flexDirection: 'row', alignItems: 'center' },
   stepBtn: {
     width: 34,
     height: 34,
     borderRadius: 17,
-    backgroundColor: COLORS.accentLight,
+    backgroundColor: C.accentLight,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  stepBtnText: { fontSize: 20, color: COLORS.accent, fontWeight: '700' },
-  qtyValue: { fontSize: 17, fontWeight: '600', minWidth: 34, textAlign: 'center', color: COLORS.text },
-  chipText: { fontSize: 14, color: COLORS.text },
+  stepBtnText: { fontSize: 20, color: C.accent, fontWeight: '700' },
+  qtyValue: { fontSize: 17, fontWeight: '600', minWidth: 34, textAlign: 'center', color: C.text },
+  chipText: { fontSize: 14, color: C.text },
   chipTextActive: { color: '#fff', fontWeight: '600' },
-  hint: { fontSize: 14, color: COLORS.muted, marginVertical: 8 },
+  hint: { fontSize: 14, color: C.muted, marginVertical: 8 },
   disabled: { opacity: 0.5 },
   entryRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 12 },
   entryText: { flex: 1 },
   pickerWrap: { marginTop: 8 },
-  entryTitle: { fontSize: 15, fontWeight: '600', color: COLORS.text },
-  entryKind: { fontWeight: '400', color: COLORS.muted, fontSize: 13 },
-  entryDetail: { fontSize: 13, color: COLORS.muted, marginTop: 2 },
+  entryTitle: { fontSize: 15, fontWeight: '600', color: C.text },
+  entryKind: { fontWeight: '400', color: C.muted, fontSize: 13 },
+  entryDetail: { fontSize: 13, color: C.muted, marginTop: 2 },
   deleteBtn: {
-    backgroundColor: COLORS.dangerLight,
+    backgroundColor: C.dangerLight,
     borderRadius: 16,
     width: 32,
     height: 32,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  deleteText: { color: COLORS.danger, fontSize: 14, fontWeight: '700' },
-});
+  deleteText: { color: C.danger, fontSize: 14, fontWeight: '700' },
+  });

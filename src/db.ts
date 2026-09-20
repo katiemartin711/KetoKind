@@ -27,7 +27,8 @@ export function initDb(): void {
       id INTEGER PRIMARY KEY CHECK (id = 1),
       diet_type TEXT NOT NULL DEFAULT 'carnivore',
       diet_nuances TEXT NOT NULL DEFAULT '',
-      goals TEXT NOT NULL DEFAULT ''
+      goals TEXT NOT NULL DEFAULT '',
+      theme_mode TEXT NOT NULL DEFAULT 'system'
     );
     CREATE TABLE IF NOT EXISTS allergies (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -102,6 +103,7 @@ export function initDb(): void {
   addColumnIfMissing('profile', 'starting_weight', 'REAL');
   addColumnIfMissing('med_logs', 'quantity', 'INTEGER NOT NULL DEFAULT 1');
   addColumnIfMissing('supplement_logs', 'quantity', 'INTEGER NOT NULL DEFAULT 1');
+  addColumnIfMissing('profile', 'theme_mode', "TEXT NOT NULL DEFAULT 'system'");
   addColumnIfMissing('supplement_logs', 'supplement_id', 'INTEGER');
   // Backfill supplement_id for logs saved before the tap-to-log picker existed.
   const legacySuppLogs = db.getAllSync<{ id: number; name: string }>(
@@ -176,6 +178,19 @@ export function setWeightTracking(trackWeight: boolean, startingWeight: number |
     trackWeight ? 1 : 0,
     startingWeight,
   ]);
+}
+
+import type { ThemeMode } from './theme';
+
+/** 'system' (default) follows the phone's light/dark setting. */
+export function getThemeMode(): ThemeMode {
+  const row = db.getFirstSync<{ theme_mode: string }>('SELECT theme_mode FROM profile WHERE id = 1');
+  const m = row?.theme_mode;
+  return m === 'light' || m === 'dark' ? m : 'system';
+}
+
+export function setThemeMode(mode: ThemeMode): void {
+  db.runSync('UPDATE profile SET theme_mode = ? WHERE id = 1', [mode]);
 }
 
 // ---------------------------------------------------------------------------

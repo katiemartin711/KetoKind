@@ -3,7 +3,7 @@
 // the file into the AI chat of their choice (ChatGPT, Claude, etc.).
 // Nothing AI-related runs inside this app — no API keys, no servers.
 
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { Alert, ScrollView, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
@@ -13,7 +13,8 @@ import { cacheDirectory, writeAsStringAsync } from 'expo-file-system/legacy';
 import { getExportData } from '../db';
 import type { ExportData } from '../db';
 import { DIET_LABELS } from '../types';
-import { COLORS, common } from '../theme';
+import { useTheme } from '../ThemeContext';
+import type { Palette } from '../theme';
 
 function fmtDateTime(iso: string): string {
   const d = new Date(iso);
@@ -101,6 +102,8 @@ function buildCoachPrompt(data: ExportData): string {
 }
 
 export default function ExportScreen() {
+  const { colors, common } = useTheme();
+  const styles = useMemo(() => makeStyles(colors), [colors]);
   const [markdown, setMarkdown] = useState('');
   const [prompt, setPrompt] = useState('');
   const [copied, setCopied] = useState(false);
@@ -182,17 +185,18 @@ export default function ExportScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  mono: {
-    fontFamily: 'monospace',
-    fontSize: 12,
-    color: COLORS.text,
-    lineHeight: 18,
-  },
-  disclaimer: {
-    fontSize: 12,
-    color: COLORS.muted,
-    marginTop: 8,
-    lineHeight: 17,
-  },
-});
+const makeStyles = (C: Palette) =>
+  StyleSheet.create({
+    mono: {
+      fontFamily: 'monospace',
+      fontSize: 12,
+      color: C.text,
+      lineHeight: 18,
+    },
+    disclaimer: {
+      fontSize: 12,
+      color: C.muted,
+      marginTop: 8,
+      lineHeight: 17,
+    },
+  });

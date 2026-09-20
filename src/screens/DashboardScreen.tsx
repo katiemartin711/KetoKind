@@ -1,7 +1,7 @@
 // Home tab: today's date, stat cards for today, daily streak,
 // and quick-add buttons that jump into the Log tab.
 
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { ScrollView, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
@@ -9,7 +9,8 @@ import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { getDayCounts, getLatestWeight, getProfile, getStreak } from '../db';
 import type { LogSegment, RootTabParamList } from '../types';
-import { COLORS, common } from '../theme';
+import { useTheme } from '../ThemeContext';
+import type { Palette } from '../theme';
 
 type Nav = BottomTabNavigationProp<RootTabParamList>;
 
@@ -28,6 +29,8 @@ function fmtWeightChange(latest: number, starting: number): string {
 
 export default function DashboardScreen() {
   const navigation = useNavigation<Nav>();
+  const { colors: COLORS, common } = useTheme();
+  const styles = useMemo(() => makeStyles(COLORS), [COLORS]);
   const [counts, setCounts] = useState({ meals: 0, medsTaken: 0, medDosesScheduled: 0, symptoms: 0, supplements: 0 });
   const [streak, setStreak] = useState(0);
   const [weightCard, setWeightCard] = useState<{ latest: number | null; starting: number | null } | null>(null);
@@ -133,16 +136,17 @@ export default function DashboardScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  streakCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: COLORS.accentLight,
-    borderColor: COLORS.accentLight,
-  },
-  streakText: { marginLeft: 12 },
-  streakNumber: { fontSize: 20, fontWeight: '700', color: COLORS.text },
-  streakLabel: { fontSize: 13, color: COLORS.muted },
+const makeStyles = (C: Palette) =>
+  StyleSheet.create({
+    streakCard: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: C.accentLight,
+      borderColor: C.accentLight,
+    },
+    streakText: { marginLeft: 12 },
+    streakNumber: { fontSize: 20, fontWeight: '700', color: C.text },
+    streakLabel: { fontSize: 13, color: C.muted },
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -152,14 +156,14 @@ const styles = StyleSheet.create({
     width: '48%',
     alignItems: 'flex-start',
   },
-  statValue: { fontSize: 26, fontWeight: '700', color: COLORS.text, marginTop: 8 },
-  statLabel: { fontSize: 13, color: COLORS.muted, marginTop: 2 },
+  statValue: { fontSize: 26, fontWeight: '700', color: C.text, marginTop: 8 },
+  statLabel: { fontSize: 13, color: C.muted, marginTop: 2 },
   quickRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   quickButton: {
-    backgroundColor: COLORS.accent,
+    backgroundColor: C.accent,
     borderRadius: 12,
     paddingVertical: 12,
     alignItems: 'center',
@@ -171,13 +175,13 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   weightText: { flex: 1 },
-  weightTitle: { fontSize: 17, fontWeight: '600', color: COLORS.text },
-  weightDetail: { fontSize: 14, color: COLORS.muted, marginTop: 4 },
+  weightTitle: { fontSize: 17, fontWeight: '600', color: C.text },
+  weightDetail: { fontSize: 14, color: C.muted, marginTop: 4 },
   weightButton: {
-    backgroundColor: COLORS.accentLight,
+    backgroundColor: C.accentLight,
     borderRadius: 10,
     paddingHorizontal: 16,
     paddingVertical: 10,
   },
-  weightButtonText: { color: COLORS.accent, fontWeight: '700', fontSize: 14 },
-});
+  weightButtonText: { color: C.accent, fontWeight: '700', fontSize: 14 },
+  });

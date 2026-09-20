@@ -1,5 +1,7 @@
 // Shared types for the Diet Coach app.
 
+import type { ThemeMode } from './theme';
+
 export type DietType = 'keto' | 'carnivore' | 'lion';
 
 export const DIET_LABELS: Record<DietType, string> = {
@@ -17,6 +19,7 @@ export interface Profile {
   goals: string;
   track_weight: number; // 0/1 — whether weight logging is enabled
   starting_weight: number | null; // lbs
+  theme_mode: ThemeMode; // 'system' | 'light' | 'dark'
 }
 
 export interface Allergy {

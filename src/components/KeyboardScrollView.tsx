@@ -10,7 +10,7 @@ import {
   type StyleProp,
   type ViewStyle,
 } from 'react-native';
-import { common } from '../theme';
+import { useTheme } from '../ThemeContext';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function KeyboardScrollView({
@@ -20,6 +20,7 @@ export default function KeyboardScrollView({
   children: React.ReactNode;
   contentStyle?: StyleProp<ViewStyle>;
 }) {
+  const { common } = useTheme();
   return (
     // Top edge only: the bottom tab bar already handles the bottom inset.
     <SafeAreaView style={common.screen} edges={['top']}>

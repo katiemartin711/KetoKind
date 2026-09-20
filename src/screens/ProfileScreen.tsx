@@ -2,7 +2,7 @@
 // for allergies, health conditions, and medications. Everything here feeds
 // the AI context file generated on the AI Coach tab.
 
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import {
   Alert,
   Text,
@@ -33,10 +33,14 @@ import {
 } from '../db';
 import type { Allergy, Condition, DietType, Medication, Supplement } from '../types';
 import { DIET_LABELS, DIET_TYPES } from '../types';
-import { COLORS, SHADOW, common } from '../theme';
+import { SHADOW } from '../theme';
+import { useTheme } from '../ThemeContext';
+import type { Palette, ThemeMode } from '../theme';
 import KeyboardScrollView from '../components/KeyboardScrollView';
 
 export default function ProfileScreen() {
+  const { colors, common, mode: themeMode, setMode: setAppTheme } = useTheme();
+  const styles = useMemo(() => makeStyles(colors), [colors]);
   const [dietType, setDietType] = useState<DietType>('carnivore');
   const [nuances, setNuances] = useState('');
   const [goals, setGoals] = useState('');
@@ -252,6 +256,28 @@ export default function ProfileScreen() {
           </TouchableOpacity>
         </View>
 
+        {/* Appearance */}
+        <View style={common.card}>
+          <Text style={common.h2}>Appearance</Text>
+          {(
+            [
+              { key: 'system', label: 'System default', hint: "Follows your phone's light / dark setting" },
+              { key: 'light', label: 'Light' },
+              { key: 'dark', label: 'Dark' },
+            ] as { key: ThemeMode; label: string; hint?: string }[]
+          ).map((o) => (
+            <TouchableOpacity key={o.key} style={styles.radioRow} onPress={() => setAppTheme(o.key)}>
+              <View style={[styles.radio, themeMode === o.key && styles.radioActive]}>
+                {themeMode === o.key && <View style={styles.radioDot} />}
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={styles.radioLabel}>{o.label}</Text>
+                {o.hint ? <Text style={styles.radioHint}>{o.hint}</Text> : null}
+              </View>
+            </TouchableOpacity>
+          ))}
+        </View>
+
         {/* Allergies */}
         <View style={common.card}>
           <Text style={common.h2}>Allergies</Text>
@@ -416,6 +442,8 @@ function Row({
   onEdit?: () => void;
   onDelete: () => void;
 }) {
+  const { colors } = useTheme();
+  const styles = useMemo(() => makeStyles(colors), [colors]);
   return (
     <View style={styles.row}>
       {onEdit ? (
@@ -432,43 +460,45 @@ function Row({
   );
 }
 
-const styles = StyleSheet.create({
+const makeStyles = (C: Palette) =>
+  StyleSheet.create({
   radioRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 8 },
   radio: {
     width: 22,
     height: 22,
     borderRadius: 11,
     borderWidth: 2,
-    borderColor: COLORS.border,
+    borderColor: C.border,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  radioActive: { borderColor: COLORS.accent },
-  radioDot: { width: 12, height: 12, borderRadius: 6, backgroundColor: COLORS.accent },
-  radioLabel: { fontSize: 16, color: COLORS.text, marginLeft: 10 },
+  radioActive: { borderColor: C.accent },
+  radioDot: { width: 12, height: 12, borderRadius: 6, backgroundColor: C.accent },
+  radioLabel: { fontSize: 16, color: C.text, marginLeft: 10 },
+  radioHint: { fontSize: 13, color: C.muted, marginLeft: 10, marginTop: 2 },
   multiline: { minHeight: 90 },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 8,
     borderBottomWidth: 1,
-    borderBottomColor: COLORS.border,
+    borderBottomColor: C.border,
   },
-  rowLabel: { flex: 1, fontSize: 15, color: COLORS.text },
+  rowLabel: { flex: 1, fontSize: 15, color: C.text },
   rowLabelWrap: { flex: 1 },
   rowDelete: {
-    backgroundColor: COLORS.dangerLight,
+    backgroundColor: C.dangerLight,
     borderRadius: 14,
     width: 28,
     height: 28,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  rowDeleteText: { color: COLORS.danger, fontWeight: '700' },
+  rowDeleteText: { color: C.danger, fontWeight: '700' },
   addRow: { flexDirection: 'row', marginTop: 10, gap: 8 },
   addInput: { flex: 1 },
   addButton: {
-    backgroundColor: COLORS.accent,
+    backgroundColor: C.accent,
     borderRadius: 10,
     paddingHorizontal: 18,
     justifyContent: 'center',
@@ -483,24 +513,24 @@ const styles = StyleSheet.create({
     height: 24,
     borderRadius: 7,
     borderWidth: 2,
-    borderColor: COLORS.border,
+    borderColor: C.border,
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 10,
   },
-  checkboxActive: { backgroundColor: COLORS.accent, borderColor: COLORS.accent },
+  checkboxActive: { backgroundColor: C.accent, borderColor: C.accent },
   checkmark: { color: '#fff', fontWeight: '700', fontSize: 15 },
-  asNeededLabel: { fontSize: 15, color: COLORS.text },
-  weightHint: { fontSize: 14, color: COLORS.muted, marginBottom: 4 },
+  asNeededLabel: { fontSize: 15, color: C.text },
+  weightHint: { fontSize: 14, color: C.muted, marginBottom: 4 },
   toggleRow: {
     flexDirection: 'row',
-    backgroundColor: COLORS.border,
+    backgroundColor: C.border,
     borderRadius: 12,
     padding: 4,
     marginBottom: 4,
   },
   toggleBtn: { flex: 1, borderRadius: 9, paddingVertical: 10, alignItems: 'center' },
-  toggleBtnActive: { backgroundColor: COLORS.card, ...SHADOW },
-  toggleText: { fontSize: 15, fontWeight: '600', color: COLORS.muted },
-  toggleTextActive: { color: COLORS.accent },
-});
+  toggleBtnActive: { backgroundColor: C.card, ...SHADOW },
+  toggleText: { fontSize: 15, fontWeight: '600', color: C.muted },
+  toggleTextActive: { color: C.accent },
+  });

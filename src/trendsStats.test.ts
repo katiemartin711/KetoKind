@@ -18,10 +18,13 @@ import {
   initDb,
 } from './db';
 import {
+  MIN_BASELINE_DAYS,
+  MIN_COMPARISON_DAYS,
   MIN_PATTERN_DAYS,
   average,
   bucketDays,
   comparePattern,
+  filterSymptomRange,
   filterWeightRange,
   localDayKey,
   rankPatterns,
@@ -127,20 +130,60 @@ check('comparePattern computes avgs, diff, and day counts at threshold', () => {
   eq(c.itemKind, 'supplement', 'kind carried through');
 });
 
-check('comparePattern withholds when either side is below 7 days', () => {
+check('comparePattern withholds when data is too thin', () => {
   const days = twoSidedSymptomDays(2, 4);
-  // Only 6 days taken.
-  const six = new Set([...itemDaysFor(true)].slice(0, 6));
-  eq(comparePattern('Headache', days, 'Magnesium', 'supplement', six), null, '6 taken days -> null');
-  // Only 6 days not taken.
-  const eight = new Set([...itemDaysFor(true), '2026-01-08']);
-  eq(comparePattern('Headache', days, 'Magnesium', 'supplement', eight), null, '6 not-taken days -> null');
+  // Only 1 missed day — not enough for a comparison.
+  const thirteenTaken = new Set<string>();
+  for (let d = 1; d <= 13; d++) thirteenTaken.add(`2026-01-${String(d).padStart(2, '0')}`);
+  eq(comparePattern('Headache', days, 'Magnesium', 'supplement', thirteenTaken), null, '1 not-taken day -> null');
+  // No baseline on either side (3 vs 3).
+  const threeTaken = new Set<string>();
+  for (let d = 1; d <= 3; d++) threeTaken.add(`2026-01-${String(d).padStart(2, '0')}`);
+  const sixDays = days.slice(0, 6);
+  eq(comparePattern('Headache', sixDays, 'Magnesium', 'supplement', threeTaken), null, '3/3, no 7-day baseline -> null');
   // No symptom days at all.
   eq(comparePattern('Headache', [], 'Magnesium', 'supplement', itemDaysFor(true)), null, 'empty -> null');
 });
 
-check('MIN_PATTERN_DAYS is 7', () => {
+check('comparePattern allows a regular taker with just a few missed days', () => {
+  // 12 days taken, 2 missed — the requested case.
+  const days: SymptomDay[] = [];
+  const itemDays = new Set<string>();
+  for (let d = 1; d <= 14; d++) {
+    const key = `2026-01-${String(d).padStart(2, '0')}`;
+    const taken = d <= 12;
+    if (taken) itemDays.add(key);
+    days.push({ day: key, severity: taken ? 2 : 4 });
+  }
+  const c = comparePattern('Headache', days, 'Magnesium', 'supplement', itemDays);
+  if (!c) throw new Error('expected a comparison at 12 taken / 2 not taken');
+  eq(c.daysTaken, 12, 'days taken');
+  eq(c.daysNotTaken, 2, 'days not taken');
+  eq(c.diff, -2, 'diff = taken - notTaken');
+});
+
+check('comparePattern allows the mirror: rarely-taken item with a solid baseline', () => {
+  const days: SymptomDay[] = [];
+  const itemDays = new Set<string>();
+  for (let d = 1; d <= 14; d++) {
+    const key = `2026-01-${String(d).padStart(2, '0')}`;
+    const taken = d > 12;
+    if (taken) itemDays.add(key);
+    days.push({ day: key, severity: taken ? 2 : 4 });
+  }
+  const c = comparePattern('Headache', days, 'Magnesium', 'supplement', itemDays);
+  if (!c) throw new Error('expected a comparison at 2 taken / 12 not taken');
+  eq(c.daysTaken, 2, 'days taken');
+  eq(c.daysNotTaken, 12, 'days not taken');
+});
+
+check('MIN_PATTERN_DAYS is 7 (deprecated alias)', () => {
   eq(MIN_PATTERN_DAYS, 7, 'threshold constant');
+});
+
+check('new pattern thresholds: 7-day baseline, 2-day minimum side', () => {
+  eq(MIN_BASELINE_DAYS, 7, 'baseline');
+  eq(MIN_COMPARISON_DAYS, 2, 'comparison minimum');
 });
 
 check('rankPatterns keeps top 3 by absolute diff, drops nulls', () => {
@@ -181,6 +224,24 @@ check('filterWeightRange keeps trailing windows; -1 keeps all', () => {
   eq(filterWeightRange(pts, 90).length, 2, '90d keeps 2');
   eq(filterWeightRange(pts, -1).length, 3, 'all keeps 3');
   eq(filterWeightRange([], 30).length, 0, 'empty stays empty');
+});
+
+check('filterSymptomRange keeps trailing windows; -1 keeps all', () => {
+  const dayMs = 24 * 60 * 60 * 1000;
+  const key = (daysAgo: number) => localDayKey(new Date(Date.now() - daysAgo * dayMs).toISOString());
+  const days: SymptomDay[] = [
+    { day: key(400), severity: 2 },
+    { day: key(200), severity: 3 },
+    { day: key(10), severity: 4 },
+    { day: key(0), severity: 5 },
+  ];
+  eq(filterSymptomRange(days, 7).map((d) => d.severity), [5], 'week keeps today only');
+  eq(filterSymptomRange(days, 30).map((d) => d.severity), [4, 5], 'month keeps 2');
+  eq(filterSymptomRange(days, 90).map((d) => d.severity), [4, 5], '90 days keeps 2');
+  eq(filterSymptomRange(days, 180).map((d) => d.severity), [4, 5], '6 months keeps 2');
+  eq(filterSymptomRange(days, 365).map((d) => d.severity), [3, 4, 5], 'year keeps 3');
+  eq(filterSymptomRange(days, -1).length, 4, 'all keeps everything');
+  eq(filterSymptomRange([], 30).length, 0, 'empty stays empty');
 });
 
 check('summarizeWeights: current/min/max/change; null on empty', () => {

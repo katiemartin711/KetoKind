@@ -9,8 +9,14 @@
 // item causes, improves, or worsens a symptom, and nothing suggests
 // starting, stopping, or changing any medication.
 
-/** Minimum days of data required on EACH side of a taken/not-taken
- *  comparison before a pattern is shown. Below this the data is noise. */
+/** Days needed on the baseline side of a taken/not-taken comparison.
+ *  Below this the baseline average is noise. */
+export const MIN_BASELINE_DAYS = 7;
+/** Days needed on the smaller side of a taken/not-taken comparison.
+ *  Lets regular takers see a pattern even when they've only missed a few
+ *  days (and vice versa for rarely-taken items). */
+export const MIN_COMPARISON_DAYS = 2;
+/** @deprecated use MIN_BASELINE_DAYS / MIN_COMPARISON_DAYS */
 export const MIN_PATTERN_DAYS = 7;
 
 /** 'YYYY-MM-DD' in the device's local timezone for an ISO timestamp. */
@@ -80,8 +86,10 @@ export interface PatternComparison {
 
 /**
  * Compare average symptom severity on days an item was taken vs. days it
- * wasn't. Returns null when either side has fewer than MIN_PATTERN_DAYS days
- * — the comparison is withheld rather than shown on thin data.
+ * wasn't. Returns null when the data is too thin: at least
+ * MIN_COMPARISON_DAYS on each side and MIN_BASELINE_DAYS on at least one
+ * side — the comparison is withheld rather than shown on thin data.
+ * This lets very regular takers see a pattern from just a few missed days.
  */
 export function comparePattern(
   symptomName: string,
@@ -91,7 +99,14 @@ export function comparePattern(
   itemDays: Set<string>,
 ): PatternComparison | null {
   const { taken, notTaken } = bucketDays(symptomDays, itemDays);
-  if (taken.length < MIN_PATTERN_DAYS || notTaken.length < MIN_PATTERN_DAYS) return null;
+  // Both sides need at least a couple of days, and at least one side needs
+  // a solid baseline — so a regular taker with just a few missed days still
+  // gets a pattern (and vice versa for rarely-taken items).
+  const eachSideEnough =
+    taken.length >= MIN_COMPARISON_DAYS && notTaken.length >= MIN_COMPARISON_DAYS;
+  const hasBaseline =
+    taken.length >= MIN_BASELINE_DAYS || notTaken.length >= MIN_BASELINE_DAYS;
+  if (!eachSideEnough || !hasBaseline) return null;
   const avgTaken = average(taken) as number;
   const avgNotTaken = average(notTaken) as number;
   return {
@@ -139,6 +154,17 @@ export function filterWeightRange(points: WeightPoint[], days: number): WeightPo
   if (days < 0) return points;
   const cutoff = Date.now() - days * 24 * 60 * 60 * 1000;
   return points.filter((p) => p.at >= cutoff);
+}
+
+/**
+ * Keep only symptom days within the trailing `daysBack` window.
+ * Pass daysBack < 0 for all time. Compares local day keys (YYYY-MM-DD),
+ * which sort chronologically.
+ */
+export function filterSymptomRange(days: SymptomDay[], daysBack: number): SymptomDay[] {
+  if (daysBack < 0) return days;
+  const cutoff = localDayKey(new Date(Date.now() - daysBack * 24 * 60 * 60 * 1000).toISOString());
+  return days.filter((d) => d.day >= cutoff);
 }
 
 export interface WeightSummary {

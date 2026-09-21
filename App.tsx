@@ -4,7 +4,7 @@
 // (corrupt file, disk full, failed migration), we show a recovery screen
 // instead of crashing — the user can wipe and start fresh.
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -12,6 +12,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { deleteDatabaseSync } from 'expo-sqlite';
+import * as SplashScreen from 'expo-splash-screen';
 import { initDb } from './src/db';
 import type { RootTabParamList } from './src/types';
 import { ThemeProvider, useTheme } from './src/ThemeContext';
@@ -21,6 +22,11 @@ import ProfileScreen from './src/screens/ProfileScreen';
 import ExportScreen from './src/screens/ExportScreen';
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
+
+// Keep the native splash screen visible until the app has rendered.
+// Must be called at module scope — inside a component it can run too late.
+SplashScreen.preventAutoHideAsync();
+SplashScreen.setOptions({ duration: 500, fade: true });
 
 const TAB_ICONS: Record<keyof RootTabParamList, keyof typeof Ionicons.glyphMap> = {
   Dashboard: 'home-outline',
@@ -71,6 +77,12 @@ export default function App() {
       return e instanceof Error ? e : new Error(String(e));
     }
   });
+
+  // initDb() above runs synchronously during first render, so once we're
+  // mounted the app is ready to show — hide the splash screen.
+  useEffect(() => {
+    SplashScreen.hideAsync();
+  }, []);
 
   const resetDb = () => {
     try {

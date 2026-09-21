@@ -186,3 +186,11 @@ export function summarizeWeights(points: WeightPoint[]): WeightSummary | null {
     change: weights[weights.length - 1] - weights[0],
   };
 }
+
+/** "0.8 lower on days taken" / "1.2 higher on days taken" — describes the
+ *  pattern in the logs without implying cause. */
+export function diffLabel(diff: number): string {
+  const v = round1(Math.abs(diff));
+  if (v === 0) return 'about the same on days taken vs. not taken';
+  return `${v} ${diff < 0 ? 'lower' : 'higher'} on days taken`;
+}

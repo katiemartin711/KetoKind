@@ -9,28 +9,28 @@
 // Copy discipline (App Store safety): everything is framed as "patterns in
 // your logs" — never causal, and nothing here suggests starting, stopping,
 // or changing any medication. The disclaimer at the bottom says so plainly.
+//
+// The tab is composed of focused components (src/components/trends/);
+// this file owns the state and the db-backed refresh.
 
 import React, { useCallback, useMemo, useState } from 'react';
 import {
-  Modal,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
-  useWindowDimensions,
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
-import Svg, { Circle, Polygon, Polyline, Text as SvgText } from 'react-native-svg';
-import {
-  getItemDayList,
-  getProStatus,
-  getSymptomDayMap,
-  getWeightSeries,
-} from '../db';
-import type { ItemDays } from '../db';
+import { getProStatus } from '../db/profile';
+import { getItemDayList, getSymptomDayMap, getWeightSeries } from '../db/trends';
+import type { ItemDays } from '../db/trends';
 import PaywallModal from '../components/PaywallModal';
+import Dropdown from '../components/trends/Dropdown';
+import PatternChip from '../components/trends/PatternChip';
+import SymptomHistoryChart from '../components/trends/SymptomHistoryChart';
+import WeightChart from '../components/trends/WeightChart';
 import { useTheme } from '../ThemeContext';
 import type { Palette } from '../theme';
 import {
@@ -38,11 +38,11 @@ import {
   MIN_COMPARISON_DAYS,
   bucketDays,
   comparePattern,
+  diffLabel,
   filterSymptomRange,
   filterWeightRange,
   rankPatterns,
   round1,
-  shortDayLabel,
   summarizeWeights,
 } from '../trendsStats';
 import type { RankedPattern, SymptomDay, WeightPoint } from '../trendsStats';
@@ -56,246 +56,6 @@ const TREND_RANGES: { key: number; label: string }[] = [
   { key: 365, label: 'Year' },
   { key: -1, label: 'All' },
 ];
-
-/** Minimal dropdown (button + modal list): pure JS, no native picker module
- *  needed, styled to match the app's inputs. */
-function Dropdown({
-  value,
-  options,
-  onChange,
-  a11yLabel,
-  styles,
-}: {
-  value: number;
-  options: { key: number; label: string }[];
-  onChange: (key: number) => void;
-  a11yLabel: string;
-  styles: ReturnType<typeof makeStyles>;
-}) {
-  const [open, setOpen] = useState(false);
-  const selected = options.find((o) => o.key === value);
-  return (
-    <View>
-      <TouchableOpacity
-        style={styles.dropdownButton}
-        onPress={() => setOpen((o) => !o)}
-        accessibilityRole="button"
-        accessibilityLabel={a11yLabel}
-        accessibilityState={{ expanded: open }}
-      >
-        <Text style={styles.dropdownButtonText}>{selected?.label ?? ''}</Text>
-        <Text style={styles.dropdownChevron}>▾</Text>
-      </TouchableOpacity>
-      <Modal
-        visible={open}
-        transparent
-        animationType="fade"
-        onRequestClose={() => setOpen(false)}
-      >
-        <TouchableOpacity
-          style={styles.dropdownOverlay}
-          activeOpacity={1}
-          onPress={() => setOpen(false)}
-          accessibilityRole="button"
-          accessibilityLabel={`Close ${a11yLabel}`}
-        >
-          <View style={styles.dropdownList}>
-            {options.map((o, i) => {
-              const active = o.key === value;
-              return (
-                <TouchableOpacity
-                  key={o.key}
-                  style={[
-                    styles.dropdownOption,
-                    i === options.length - 1 && styles.dropdownOptionLast,
-                  ]}
-                  onPress={() => {
-                    onChange(o.key);
-                    setOpen(false);
-                  }}
-                  accessibilityRole="menuitem"
-                  accessibilityState={{ selected: active }}
-                  accessibilityLabel={`${a11yLabel}: ${o.label}`}
-                >
-                  <Text
-                    style={[styles.dropdownOptionText, active && styles.dropdownOptionTextActive]}
-                  >
-                    {o.label}
-                  </Text>
-                </TouchableOpacity>
-              );
-            })}
-          </View>
-        </TouchableOpacity>
-      </Modal>
-    </View>
-  );
-}
-
-/** Hand-rolled SVG line chart (react-native-svg ships in Expo Go, so this
- *  adds no native risk — unlike chart libraries that need extra native
- *  modules). Min/max/current points are marked; themed via the palette. */
-function WeightChart({ points, colors }: { points: WeightPoint[]; colors: Palette }) {
-  const { width: windowWidth } = useWindowDimensions();
-  const width = Math.max(280, windowWidth - 64);
-  const height = 190;
-  const pad = { left: 12, right: 12, top: 20, bottom: 26 };
-  const innerW = width - pad.left - pad.right;
-  const innerH = height - pad.top - pad.bottom;
-
-  const weights = points.map((p) => p.weight);
-  let min = Math.min(...weights);
-  let max = Math.max(...weights);
-  if (min === max) {
-    min -= 1;
-    max += 1;
-  }
-  const n = points.length;
-  const x = (i: number) => pad.left + (n === 1 ? innerW / 2 : (i / (n - 1)) * innerW);
-  const y = (v: number) => pad.top + (1 - (v - min) / (max - min)) * innerH;
-
-  const linePts = points.map((p, i) => `${x(i).toFixed(1)},${y(p.weight).toFixed(1)}`).join(' ');
-  const areaPts =
-    `${pad.left},${(pad.top + innerH).toFixed(1)} ` +
-    linePts +
-    ` ${(pad.left + innerW).toFixed(1)},${(pad.top + innerH).toFixed(1)}`;
-
-  const minIdx = weights.indexOf(Math.min(...weights));
-  const maxIdx = weights.indexOf(Math.max(...weights));
-  const lastIdx = n - 1;
-
-  return (
-    <View>
-      <Svg width={width} height={height} accessibilityRole="image" accessibilityLabel="Weight trend graph">
-        <Polygon points={areaPts} fill={colors.accent} opacity={0.12} />
-        <Polyline points={linePts} fill="none" stroke={colors.accent} strokeWidth={2.5} />
-        {/* Dots only when the chart isn't crowded — the line carries it past ~30 points. */}
-        {points.length <= 30 &&
-          points.map((p, i) => (
-            <Circle key={i} cx={x(i)} cy={y(p.weight)} r={3} fill={colors.accent} />
-          ))}
-        {/* min / max markers */}
-        <Circle cx={x(minIdx)} cy={y(weights[minIdx])} r={5} fill="none" stroke={colors.muted} strokeWidth={2} />
-        <SvgText
-          x={x(minIdx)}
-          y={y(weights[minIdx]) - 10}
-          fontSize={10}
-          fill={colors.muted}
-          textAnchor="middle"
-        >
-          {`low ${round1(weights[minIdx])}`}
-        </SvgText>
-        <Circle cx={x(maxIdx)} cy={y(weights[maxIdx])} r={5} fill="none" stroke={colors.muted} strokeWidth={2} />
-        <SvgText
-          x={x(maxIdx)}
-          y={y(weights[maxIdx]) - 10}
-          fontSize={10}
-          fill={colors.muted}
-          textAnchor="middle"
-        >
-          {`high ${round1(weights[maxIdx])}`}
-        </SvgText>
-        {/* current marker */}
-        <Circle cx={x(lastIdx)} cy={y(weights[lastIdx])} r={5.5} fill={colors.accent} />
-        <SvgText
-          x={x(lastIdx)}
-          y={y(weights[lastIdx]) + 18}
-          fontSize={11}
-          fontWeight="700"
-          fill={colors.text}
-          textAnchor="middle"
-        >
-          {round1(weights[lastIdx])}
-        </SvgText>
-        {/* x-axis day labels */}
-        <SvgText x={pad.left} y={height - 8} fontSize={10} fill={colors.muted}>
-          {shortDayLabel(points[0].day)}
-        </SvgText>
-        {n > 1 && (
-          <SvgText
-            x={pad.left + innerW}
-            y={height - 8}
-            fontSize={10}
-            fill={colors.muted}
-            textAnchor="end"
-          >
-            {shortDayLabel(points[lastIdx].day)}
-          </SvgText>
-        )}
-      </Svg>
-    </View>
-  );
-}
-
-/** "0.8 lower on days taken" / "1.2 higher on days taken" — describes the
- *  pattern in the logs without implying cause. */
-function diffLabel(diff: number): string {
-  const v = round1(Math.abs(diff));
-  if (v === 0) return 'about the same on days taken vs. not taken';
-  return `${v} ${diff < 0 ? 'lower' : 'higher'} on days taken`;
-}
-
-/** Symptom severity over time: one dot per logged day (1–5), connected in
- *  time order. Hand-rolled SVG like WeightChart — no extra native modules. */
-function SymptomHistoryChart({ days, colors }: { days: SymptomDay[]; colors: Palette }) {
-  const { width: windowWidth } = useWindowDimensions();
-  const width = Math.max(280, windowWidth - 64);
-  const height = 180;
-  const pad = { left: 28, right: 12, top: 16, bottom: 26 };
-  const innerW = width - pad.left - pad.right;
-  const innerH = height - pad.top - pad.bottom;
-
-  const n = days.length;
-  const x = (i: number) => pad.left + (n === 1 ? innerW / 2 : (i / (n - 1)) * innerW);
-  // Severity 1 at the bottom, 5 at the top.
-  const y = (sev: number) => pad.top + (1 - (sev - 1) / 4) * innerH;
-
-  const linePts = days.map((d, i) => `${x(i).toFixed(1)},${y(d.severity).toFixed(1)}`).join(' ');
-
-  return (
-    <View>
-      <Svg width={width} height={height} accessibilityRole="image" accessibilityLabel="Symptom history chart">
-        {/* severity gridlines 1–5 */}
-        {[1, 2, 3, 4, 5].map((sev) => (
-          <React.Fragment key={sev}>
-            <Polyline
-              points={`${pad.left},${y(sev).toFixed(1)} ${(pad.left + innerW).toFixed(1)},${y(sev).toFixed(1)}`}
-              fill="none"
-              stroke={colors.border}
-              strokeWidth={sev === 3 ? 1 : 0.5}
-              opacity={0.6}
-            />
-            <SvgText x={pad.left - 6} y={y(sev) + 4} fontSize={10} fill={colors.muted} textAnchor="end">
-              {sev}
-            </SvgText>
-          </React.Fragment>
-        ))}
-        {n > 1 && (
-          <Polyline points={linePts} fill="none" stroke={colors.accent} strokeWidth={2} opacity={0.7} />
-        )}
-        {/* Dots only when the chart isn't crowded — the line carries it past ~30 points. */}
-        {n <= 30 &&
-          days.map((d, i) => (
-            <Circle key={`${d.day}-${i}`} cx={x(i)} cy={y(d.severity)} r={4} fill={colors.accent} />
-          ))}
-        <SvgText x={pad.left} y={height - 8} fontSize={10} fill={colors.muted}>
-          {shortDayLabel(days[0].day)}
-        </SvgText>
-        {n > 1 && (
-          <SvgText
-            x={pad.left + innerW}
-            y={height - 8}
-            fontSize={10}
-            fill={colors.muted}
-            textAnchor="end"
-          >
-            {shortDayLabel(days[n - 1].day)}
-          </SvgText>
-        )}
-      </Svg>
-    </View>
-  );
-}
 
 export default function TrendsScreen() {
   const { colors, common } = useTheme();
@@ -376,19 +136,6 @@ export default function TrendsScreen() {
     [histDays],
   );
 
-  const chip = (selected: boolean, label: string, onPress: () => void, a11y: string) => (
-    <TouchableOpacity
-      key={`${a11y}-${label}`}
-      style={[styles.chip, selected && styles.chipActive]}
-      onPress={onPress}
-      accessibilityRole="checkbox"
-      accessibilityState={{ selected }}
-      accessibilityLabel={a11y}
-    >
-      <Text style={[styles.chipText, selected && styles.chipTextActive]}>{label}</Text>
-    </TouchableOpacity>
-  );
-
   return (
     <>
       <SafeAreaView style={common.screen} edges={['top']}>
@@ -427,7 +174,6 @@ export default function TrendsScreen() {
                     options={TREND_RANGES}
                     onChange={setRange}
                     a11yLabel="Weight range"
-                    styles={styles}
                   />
                   {filteredWeights.length === 0 ? (
                     <Text style={[styles.body, { color: colors.muted, marginTop: 12 }]}>
@@ -463,18 +209,30 @@ export default function TrendsScreen() {
                   <View style={common.card}>
                     <Text style={styles.pickerLabel}>Symptom</Text>
                     <View style={styles.chips}>
-                      {symptomNames.map((s) => chip(selSymptom === s, s, () => setSelSymptom(s), `Symptom ${s}`))}
+                      {symptomNames.map((s) => (
+                        <PatternChip
+                          key={s}
+                          selected={selSymptom === s}
+                          label={s}
+                          onPress={() => setSelSymptom(s)}
+                          a11yLabel={`Symptom ${s}`}
+                        />
+                      ))}
                     </View>
                     <Text style={styles.pickerLabel}>Medication or supplement</Text>
                     <View style={styles.chips}>
-                      {items.map((it) =>
-                        chip(
-                          selItemKey === `${it.kind}:${it.name.toLowerCase()}`,
-                          `${it.name} · ${it.kind === 'medication' ? 'Med' : 'Supp'}`,
-                          () => setSelItemKey(`${it.kind}:${it.name.toLowerCase()}`),
-                          `${it.kind} ${it.name}`,
-                        ),
-                      )}
+                      {items.map((it) => {
+                        const key = `${it.kind}:${it.name.toLowerCase()}`;
+                        return (
+                          <PatternChip
+                            key={key}
+                            selected={selItemKey === key}
+                            label={`${it.name} · ${it.kind === 'medication' ? 'Med' : 'Supp'}`}
+                            onPress={() => setSelItemKey(key)}
+                            a11yLabel={`${it.kind} ${it.name}`}
+                          />
+                        );
+                      })}
                     </View>
                   </View>
 
@@ -542,14 +300,21 @@ export default function TrendsScreen() {
                   <View style={common.card}>
                     <Text style={styles.pickerLabel}>Symptom</Text>
                     <View style={styles.chips}>
-                      {symptomNames.map((s) => chip(histSymptom === s, s, () => setHistSymptom(s), `History symptom ${s}`))}
+                      {symptomNames.map((s) => (
+                        <PatternChip
+                          key={s}
+                          selected={histSymptom === s}
+                          label={s}
+                          onPress={() => setHistSymptom(s)}
+                          a11yLabel={`History symptom ${s}`}
+                        />
+                      ))}
                     </View>
                     <Dropdown
                       value={histRange}
                       options={TREND_RANGES}
                       onChange={setHistRange}
                       a11yLabel="Symptom history range"
-                      styles={styles}
                     />
                     {histAllDays.length === 0 ? (
                       <Text style={[styles.body, { color: colors.muted, marginTop: 8 }]}>
@@ -594,18 +359,6 @@ export default function TrendsScreen() {
 const makeStyles = (C: Palette) =>
   StyleSheet.create({
     chips: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 4 },
-    chip: {
-      borderWidth: 1,
-      borderColor: C.border,
-      borderRadius: 999,
-      paddingHorizontal: 12,
-      paddingVertical: 7,
-      backgroundColor: C.input,
-      marginBottom: 4,
-    },
-    chipActive: { backgroundColor: C.accent, borderColor: C.accent },
-    chipText: { fontSize: 14, color: C.text },
-    chipTextActive: { color: '#fff', fontWeight: '600' },
     pickerLabel: {
       fontSize: 13,
       fontWeight: '600',
@@ -622,45 +375,6 @@ const makeStyles = (C: Palette) =>
     statLabel: { fontSize: 11, textAlign: 'center', marginTop: 2, lineHeight: 15 },
     patternRow: { marginBottom: 12 },
     patternTitle: { fontSize: 15, fontWeight: '700', marginBottom: 2 },
-    dropdownButton: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      borderWidth: 1,
-      borderColor: C.border,
-      borderRadius: 10,
-      paddingHorizontal: 12,
-      paddingVertical: 9,
-      backgroundColor: C.input,
-      minWidth: 150,
-      marginBottom: 4,
-    },
-    dropdownButtonText: { fontSize: 14, color: C.text, fontWeight: '600' },
-    dropdownChevron: { fontSize: 14, color: C.muted, marginLeft: 8 },
-    dropdownOverlay: {
-      flex: 1,
-      backgroundColor: 'rgba(0,0,0,0.45)',
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: 32,
-    },
-    dropdownList: {
-      backgroundColor: C.input,
-      borderRadius: 12,
-      borderWidth: 1,
-      borderColor: C.border,
-      minWidth: 230,
-      overflow: 'hidden',
-    },
-    dropdownOption: {
-      paddingHorizontal: 16,
-      paddingVertical: 13,
-      borderBottomWidth: 1,
-      borderBottomColor: C.border,
-    },
-    dropdownOptionLast: { borderBottomWidth: 0 },
-    dropdownOptionText: { fontSize: 15, color: C.text },
-    dropdownOptionTextActive: { color: C.accent, fontWeight: '700' },
     disclaimer: {
       fontSize: 12,
       color: C.muted,

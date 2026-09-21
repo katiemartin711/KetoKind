@@ -23,7 +23,7 @@ export default function DateTimeField({
   value: Date;
   onChange: (d: Date) => void;
 }) {
-  const { colors: COLORS, common } = useTheme();
+  const { colors: COLORS, common, isDark } = useTheme();
   const styles = useMemo(() => makeStyles(COLORS), [COLORS]);
   const [open, setOpen] = useState(false);
   return (
@@ -38,6 +38,7 @@ export default function DateTimeField({
             mode="datetime"
             value={value}
             maximumDate={new Date()}
+            themeVariant={isDark ? 'dark' : 'light'}
             onChange={(event, date) => {
               if (event.type === 'dismissed') {
                 setOpen(false);

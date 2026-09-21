@@ -36,12 +36,14 @@ for (const diet of DIET_TYPES) {
   });
 }
 
-check('keto and carnivore share the base list', () => {
-  eq(dietPrinciples('keto'), dietPrinciples('carnivore'), 'identical');
-  ok(
-    dietPrinciples('keto')[7].includes('Dairy is optional'),
-    'base dairy principle intact',
-  );
+check('keto and carnivore are differentiated', () => {
+  const keto = dietPrinciples('keto');
+  const carn = dietPrinciples('carnivore');
+  ok(keto[0].includes('low-carb vegetables'), 'keto foundation includes plants');
+  ok(keto[7].includes('Dairy is optional'), 'keto dairy stays optional');
+  ok(carn[0].includes('Fatty red meat'), 'carnivore foundation is red meat');
+  ok(carn[2].includes('no plant foods'), 'carnivore excludes plants');
+  ok(carn[7].includes('cut dairy first'), 'carnivore dairy is stricter');
 });
 
 check('lion: no dairy, ruminant-meat foundation', () => {

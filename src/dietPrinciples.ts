@@ -1,5 +1,5 @@
 // Guiding principles for the AI coach prompt, adapted per diet type.
-// The base list is written for keto/carnivore; each diet overrides only the
+// The base list is written for keto; each diet overrides only the
 // principles that don't apply to it, so the exported prompt never contradicts
 // the user's chosen way of eating (e.g. "dairy is optional" must not appear
 // for Lion Diet or strict paleo).
@@ -7,7 +7,7 @@
 import type { DietType } from './types';
 
 const BASE_PRINCIPLES: string[] = [
-  'Fatty red meat is the foundation — beef, lamb, pork; nose-to-tail when possible. Eat the meat you can afford.',
+  'Fatty animal foods are the foundation — meat, fish, eggs, and butter, plus low-carb vegetables and nuts. Eat what you can afford.',
   'Fat is fuel, never the culprit — never blame dietary fat for stalls or gain. Eat fatty cuts, butter, and tallow freely.',
   'No sugar, no grains, no seed oils, no processed food.',
   'Eat when hungry, stop when comfortably full — no calorie counting or portion micromanaging.',
@@ -19,10 +19,14 @@ const BASE_PRINCIPLES: string[] = [
   'Metabolic healing comes before fat loss — insulin resistance reverses first, and multi-week stalls are normal.',
 ];
 
-/** 0-based index -> replacement principle, per diet. Keto/carnivore use the base list. */
+/** 0-based index -> replacement principle, per diet. Keto uses the base list. */
 const PRINCIPLE_OVERRIDES: Record<DietType, Record<number, string>> = {
   keto: {},
-  carnivore: {},
+  carnivore: {
+    0: 'Fatty red meat is the foundation — beef, lamb, pork; nose-to-tail when possible. Eat the meat you can afford.',
+    2: 'Animal foods only — no sugar, no grains, no seed oils, no processed food, and no plant foods at all.',
+    7: 'Dairy is the most common stall culprit on carnivore — if fat loss stalls, cut dairy first.',
+  },
   lion: {
     0: 'Ruminant meat — beef, lamb, goat — is the foundation; nose-to-tail when possible. Eat the meat you can afford.',
     1: 'Fat is fuel, never the culprit — never blame dietary fat for stalls or gain. Eat fatty cuts and tallow freely.',

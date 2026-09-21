@@ -9,7 +9,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 import * as Clipboard from 'expo-clipboard';
 import * as Sharing from 'expo-sharing';
-import { cacheDirectory, writeAsStringAsync } from 'expo-file-system/legacy';
+import { File, Paths } from 'expo-file-system';
 import { getExportData } from '../db';
 import type { ExportData } from '../db';
 import { DIET_LABELS } from '../types';
@@ -149,15 +149,12 @@ export default function ExportScreen() {
 
   const exportAndShare = async () => {
     try {
-      if (!cacheDirectory) {
-        return Alert.alert('Unavailable', 'File storage is not available on this device.');
-      }
       if (!(await Sharing.isAvailableAsync())) {
         return Alert.alert('Unavailable', 'Sharing is not available on this device.');
       }
-      const uri = `${cacheDirectory}ketokind-context.md`;
-      await writeAsStringAsync(uri, markdown);
-      await Sharing.shareAsync(uri, {
+      const file = new File(Paths.cache, 'ketokind-context.md');
+      file.write(markdown);
+      await Sharing.shareAsync(file.uri, {
         mimeType: 'text/markdown',
         dialogTitle: 'Share your AI context file',
       });

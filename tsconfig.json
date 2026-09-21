@@ -4,7 +4,8 @@
   },
   "exclude": [
     "src/*.test.ts",
-    "src/nodeSqliteAdapter.ts"
+    "src/nodeSqliteAdapter.ts",
+    "src/*.test.tsx"
   ],
   "extends": "expo/tsconfig.base"
 }

@@ -27,7 +27,7 @@ export interface ExportData {
   recentMeals: FoodLog[];
   recentSymptoms: SymptomLog[];
   recentSupplements: SupplementLog[];
-  /** Med doses with the name snapshot (aliased like the old join for display). */
+  /** Med doses with the name snapshot column (survives renames/deletes). */
   recentMeds: (Omit<MedLog, 'name'> & { medication_name: string })[];
   rangeLabel: string;
 }

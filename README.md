@@ -138,8 +138,12 @@ npm test   # tsc -p tsconfig.test.json, then node dist-test/*.test.js
 | `src/milestones.test.ts` | Diet-start parsing/formatting, duration labels, milestone detection, dismissed-milestone persistence | 14 passed |
 | `src/backup.test.ts` | Backup round-trip (export → wipe → import restores identical data), malformed-backup rejection, import validates-before-delete, mid-transaction rollback, v2 migration + med-name snapshots, legacy pre-v2 import backfill, delete-all resets theme + name | 38 passed |
 | `src/dietPrinciples.test.ts` | Every diet returns 10 non-empty principles; per-diet overrides never contradict the diet (e.g. no "dairy is optional" for Lion Diet or paleo); keto and carnivore are differentiated | 7 passed |
+| `src/numberParsing.test.ts` | Strict int/float parsers accept plain numbers and reject junk like "12abc", "1e3", "0x10" | 4 passed |
+| `src/medSuppSelection.test.ts` | Log-tab med/supp selection state machine: multi-select, qty init/drop, edit-mode single-select locking of the other section, qty clamping 1–20, prune, load, reset | 10 passed |
+| `src/profileValidation.test.ts` | Profile save validation: age 1–120, diet-start month+year required, month/year/day ranges, leap days, future dates rejected | 7 passed |
+| `src/medSuppForm.test.tsx` | MedSuppForm component (via @testing-library/react-native under plain node): chips render, save disabled until selection, tap callbacks, edit-mode section locking, as-needed qty stepper | 9 passed |
 
-**59 passed, 0 failed.** The app typecheck (`npx tsc --noEmit`) is clean.
+**89 passed, 0 failed.** The app typecheck (`npx tsc --noEmit`) is clean. CI (`.github/workflows/ci.yml`) runs `npm test` and the typecheck on every push to `main` and every pull request.
 
 ## Screenshots
 

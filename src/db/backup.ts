@@ -154,9 +154,9 @@ export function validateBackup(value: unknown): BackupIssue[] {
     const age = p.age;
     if (
       age !== null &&
-      !(typeof age === 'number' && Number.isInteger(age) && age >= 0 && age <= 130)
+      !(typeof age === 'number' && Number.isInteger(age) && age >= 1 && age <= 120)
     ) {
-      at('profile.age', 'must be null or an integer 0-130');
+      at('profile.age', 'must be null or an integer 1-120');
     }
     if (p.sex !== '' && p.sex !== 'female' && p.sex !== 'male') {
       at('profile.sex', "must be '', 'female', or 'male'");

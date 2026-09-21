@@ -4,7 +4,7 @@
 // The tab is composed of focused form components (src/components/log/);
 // this file owns the state and the db-backed handlers.
 
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import { Alert, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { useFocusEffect, useRoute } from '@react-navigation/native';
 import type { RouteProp } from '@react-navigation/native';
@@ -34,8 +34,14 @@ import type { AnyLog, LogSegment, Medication, RootTabParamList, Supplement } fro
 import { useTheme } from '../ThemeContext';
 import type { Palette } from '../theme';
 import KeyboardScrollView from '../components/KeyboardScrollView';
+import { parseFloatStrict } from '../numberParsing';
 import MealForm from '../components/log/MealForm';
 import MedSuppForm from '../components/log/MedSuppForm';
+import {
+  initialMedSuppSelection,
+  medSuppSelectionReducer,
+  type EditingKind,
+} from '../components/log/medSuppSelection';
 import SymptomForm from '../components/log/SymptomForm';
 import WeightForm from '../components/log/WeightForm';
 import TodayEntries from '../components/log/TodayEntries';
@@ -61,11 +67,9 @@ export default function LogScreen() {
   const [mealName, setMealName] = useState('');
   const [mealType, setMealType] = useState('Dinner');
   const [mealNotes, setMealNotes] = useState('');
-  const [selectedMedIds, setSelectedMedIds] = useState<number[]>([]);
-  const [selectedSuppIds, setSelectedSuppIds] = useState<number[]>([]);
-  // "How many" per selected item (only used for as-needed items).
-  const [medQty, setMedQty] = useState<Record<number, number>>({});
-  const [suppQty, setSuppQty] = useState<Record<number, number>>({});
+  // Med/supp chip selection + per-item quantities, as one state machine
+  // (edit-mode locking lives in the reducer).
+  const [sel, dispatchSel] = useReducer(medSuppSelectionReducer, initialMedSuppSelection);
   const [symptomName, setSymptomName] = useState('');
   const [severity, setSeverity] = useState(3);
   const [symptomNotes, setSymptomNotes] = useState('');
@@ -79,13 +83,16 @@ export default function LogScreen() {
 
   const refresh = useCallback(() => {
     setTodayLogs(getLogsForDay(new Date()));
-    // Drop selections whose profile entry was deleted since.
     const meds = listMedications();
     setMedications(meds);
-    setSelectedMedIds((ids) => ids.filter((id) => meds.some((m) => m.id === id)));
     const supps = listSupplements();
     setProfileSupps(supps);
-    setSelectedSuppIds((ids) => ids.filter((id) => supps.some((s) => s.id === id)));
+    // Drop selections whose profile entry was deleted since.
+    dispatchSel({
+      type: 'prune',
+      validMedIds: meds.map((m) => m.id),
+      validSuppIds: supps.map((s) => s.id),
+    });
     setTrackWeightOn(!!getProfile().track_weight);
   }, []);
 
@@ -117,15 +124,12 @@ export default function LogScreen() {
     refresh();
   };
 
-  /** Toggle an id in a multi-select list. */
-  const toggleId = (ids: number[], id: number) =>
-    ids.includes(id) ? ids.filter((x) => x !== id) : [...ids, id];
-
   /**
    * Log every selected medication and supplement with one tap, sharing the
    * same timestamp — for the after-a-meal handful of pills.
    */
   const saveMedSupp = () => {
+    const { selectedMedIds, selectedSuppIds, medQty, suppQty } = sel;
     if (selectedMedIds.length === 0 && selectedSuppIds.length === 0) {
       return Alert.alert('Nothing selected', 'Pick at least one medication or supplement first.');
     }
@@ -142,43 +146,19 @@ export default function LogScreen() {
     refresh();
   };
 
-  /** In edit mode the other section is locked so a single entry stays single. */
-  const onToggleMed = (id: number) => {
-    if (editing?.kind === 'supplement') return;
-    if (editing?.kind === 'medication') {
-      setSelectedMedIds([id]);
-      setMedQty((q) => ({ ...q, [id]: q[id] ?? 1 }));
-      return;
-    }
-    const isOn = selectedMedIds.includes(id);
-    setSelectedMedIds(toggleId(selectedMedIds, id));
-    setMedQty((q) => {
-      if (!isOn) return { ...q, [id]: q[id] ?? 1 };
-      const { [id]: _drop, ...rest } = q;
-      return rest;
-    });
-  };
+  /** Non-null while editing a single med/supplement entry (locks the other section). */
+  const editingKind: EditingKind =
+    editing?.kind === 'medication' || editing?.kind === 'supplement' ? editing.kind : null;
 
-  const onToggleSupp = (id: number) => {
-    if (editing?.kind === 'medication') return;
-    if (editing?.kind === 'supplement') {
-      setSelectedSuppIds([id]);
-      setSuppQty((q) => ({ ...q, [id]: q[id] ?? 1 }));
-      return;
-    }
-    const isOn = selectedSuppIds.includes(id);
-    setSelectedSuppIds(toggleId(selectedSuppIds, id));
-    setSuppQty((q) => {
-      if (!isOn) return { ...q, [id]: q[id] ?? 1 };
-      const { [id]: _drop, ...rest } = q;
-      return rest;
-    });
-  };
+  /** Toggle a medication chip (no-op while a supplement entry is being edited). */
+  const onToggleMed = (id: number) => dispatchSel({ type: 'toggle-med', id, editingKind });
+
+  /** Toggle a supplement chip (no-op while a medication entry is being edited). */
+  const onToggleSupp = (id: number) => dispatchSel({ type: 'toggle-supp', id, editingKind });
 
   /** Stepper for "how many did you take" on as-needed items. */
   const bumpQty = (kind: 'med' | 'supp', id: number, delta: number) => {
-    const set = kind === 'med' ? setMedQty : setSuppQty;
-    set((q) => ({ ...q, [id]: Math.min(20, Math.max(1, (q[id] ?? 1) + delta)) }));
+    dispatchSel({ type: 'bump-qty', kind, id, delta });
   };
 
   const saveSymptom = () => {
@@ -194,8 +174,8 @@ export default function LogScreen() {
   };
 
   const saveWeight = () => {
-    const w = parseFloat(weightInput);
-    if (isNaN(w) || w <= 0) return Alert.alert('Invalid', 'Enter your weight in lbs.');
+    const w = parseFloatStrict(weightInput);
+    if (w == null || w <= 0) return Alert.alert('Invalid', 'Enter your weight in lbs.');
     const at = logDate.toISOString();
     if (editing?.kind === 'weight') {
       updateWeightLog(editing.id, w, at);
@@ -211,10 +191,7 @@ export default function LogScreen() {
     setMealName('');
     setMealNotes('');
     setMealType('Dinner');
-    setSelectedMedIds([]);
-    setSelectedSuppIds([]);
-    setMedQty({});
-    setSuppQty({});
+    dispatchSel({ type: 'reset' });
     setSymptomName('');
     setSymptomNotes('');
     setSeverity(3);
@@ -239,10 +216,13 @@ export default function LogScreen() {
       // The medication may have been deleted from the profile since — don't
       // keep an invisible selection; the user picks a current one instead.
       const stillExists = medications.some((m) => m.id === row.medication_id);
-      setSelectedMedIds(stillExists ? [row.medication_id] : []);
-      setSelectedSuppIds([]);
-      setMedQty(stillExists ? { [row.medication_id]: row.quantity ?? 1 } : {});
-      setSuppQty({});
+      dispatchSel({
+        type: 'load-selection',
+        medIds: stillExists ? [row.medication_id] : [],
+        suppIds: [],
+        medQty: stillExists ? { [row.medication_id]: row.quantity ?? 1 } : {},
+        suppQty: {},
+      });
       setLogDate(new Date(row.taken_at));
     } else if (log.kind === 'symptom') {
       const row = getSymptomLog(log.id);
@@ -262,10 +242,13 @@ export default function LogScreen() {
       if (!row) return;
       // Legacy free-text logs (or ones whose supplement was deleted) have no
       // live profile entry — the user just picks again.
-      setSelectedSuppIds(row.supplement_id != null ? [row.supplement_id] : []);
-      setSelectedMedIds([]);
-      setSuppQty(row.supplement_id != null ? { [row.supplement_id]: row.quantity ?? 1 } : {});
-      setMedQty({});
+      dispatchSel({
+        type: 'load-selection',
+        medIds: [],
+        suppIds: row.supplement_id != null ? [row.supplement_id] : [],
+        medQty: {},
+        suppQty: row.supplement_id != null ? { [row.supplement_id]: row.quantity ?? 1 } : {},
+      });
       setLogDate(new Date(row.logged_at));
     }
     setSegment(log.kind === 'medication' || log.kind === 'supplement' ? 'medsupp' : log.kind);
@@ -331,18 +314,16 @@ export default function LogScreen() {
         <MedSuppForm
           medications={medications}
           profileSupps={profileSupps}
-          selectedMedIds={selectedMedIds}
-          selectedSuppIds={selectedSuppIds}
-          medQty={medQty}
-          suppQty={suppQty}
+          selectedMedIds={sel.selectedMedIds}
+          selectedSuppIds={sel.selectedSuppIds}
+          medQty={sel.medQty}
+          suppQty={sel.suppQty}
           onToggleMed={onToggleMed}
           onToggleSupp={onToggleSupp}
           onBumpQty={bumpQty}
           logDate={logDate}
           onLogDateChange={setLogDate}
-          editingKind={
-            editing?.kind === 'medication' || editing?.kind === 'supplement' ? editing.kind : null
-          }
+          editingKind={editingKind}
           onSave={saveMedSupp}
           onCancel={resetForm}
         />

@@ -21,8 +21,10 @@
     "react-native-screens": "~4.26.0"
   },
   "devDependencies": {
+    "@testing-library/react-native": "^13.3.3",
     "@types/node": "^26.6.2",
     "@types/react": "~19.2.2",
+    "react-test-renderer": "^19.2.3",
     "typescript": "~6.0.3"
   },
   "scripts": {
@@ -30,7 +32,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "test": "tsc -p tsconfig.test.json && node dist-test/milestones.test.js && node dist-test/backup.test.js && node dist-test/dietPrinciples.test.js"
+    "test": "tsc -p tsconfig.test.json && node dist-test/milestones.test.js && node dist-test/backup.test.js && node dist-test/dietPrinciples.test.js && node dist-test/numberParsing.test.js && node dist-test/medSuppSelection.test.js && node dist-test/profileValidation.test.js && node -r ./test/preload.js dist-test/medSuppForm.test.js"
   },
   "private": true
 }

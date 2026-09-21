@@ -35,36 +35,43 @@ export function getDismissedMilestones(): string[] {
 }
 
 /** Wipe everything on device: all logs, lists, and profile fields back to
- *  defaults — including the appearance theme, so a fresh start is truly fresh. */
+ *  defaults — including the appearance theme, so a fresh start is truly fresh.
+ *  The DELETEs + profile reset run in one transaction (a failure mid-batch
+ *  can't leave a half-wiped database); VACUUM stays outside because SQLite
+ *  forbids it inside a transaction. */
 export function deleteAllData(): void {
-  database().execSync(`
-    DELETE FROM allergies;
-    DELETE FROM conditions;
-    DELETE FROM medications;
-    DELETE FROM supplements;
-    DELETE FROM food_logs;
-    DELETE FROM med_logs;
-    DELETE FROM symptom_logs;
-    DELETE FROM supplement_logs;
-    DELETE FROM weight_logs;
-    UPDATE profile SET
-      name = '',
-      diet_type = 'carnivore',
-      diet_nuances = '',
-      goals = '',
-      theme_mode = 'system',
-      track_weight = 0,
-      starting_weight = NULL,
-      age = NULL,
-      sex = '',
-      bio = '',
-      diet_start = NULL,
-      dismissed_milestones = ''
-    WHERE id = 1;
-  `);
+  database().withTransactionSync(() => {
+    database().execSync(`
+      DELETE FROM allergies;
+      DELETE FROM conditions;
+      DELETE FROM medications;
+      DELETE FROM supplements;
+      DELETE FROM food_logs;
+      DELETE FROM med_logs;
+      DELETE FROM symptom_logs;
+      DELETE FROM supplement_logs;
+      DELETE FROM weight_logs;
+      UPDATE profile SET
+        name = '',
+        diet_type = 'carnivore',
+        diet_nuances = '',
+        goals = '',
+        theme_mode = 'system',
+        track_weight = 0,
+        starting_weight = NULL,
+        age = NULL,
+        sex = '',
+        bio = '',
+        diet_start = NULL,
+        dismissed_milestones = ''
+      WHERE id = 1;
+    `);
+    // Reset id counters (separate statement: sqlite_sequence is a system
+    // table, but deleting from it inside the transaction is fine).
+    database().execSync('DELETE FROM sqlite_sequence;');
+  });
   // Actually purge the deleted rows from the file (DELETE alone leaves them
-  // in free pages) and reset id counters.
-  database().execSync('DELETE FROM sqlite_sequence;');
+  // in free pages).
   database().execSync('VACUUM;');
 }
 

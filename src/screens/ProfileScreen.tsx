@@ -9,7 +9,7 @@ import React, { useCallback, useState } from 'react';
 import { Alert, Text } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import * as DocumentPicker from 'expo-document-picker';
-import { documentDirectory, readAsStringAsync, writeAsStringAsync } from 'expo-file-system/legacy';
+import { File, Paths } from 'expo-file-system';
 import * as Sharing from 'expo-sharing';
 import {
   addAllergy,
@@ -37,7 +37,8 @@ import {
   validateBackup,
 } from '../db';
 import type { Allergy, Condition, DietType, Medication, Supplement } from '../types';
-import { toDietStartString, parseDietStart } from '../milestones';
+import { parseDietStart } from '../milestones';
+import { validateProfileInputs } from '../profileValidation';
 import { useTheme } from '../ThemeContext';
 import KeyboardScrollView from '../components/KeyboardScrollView';
 import DietSection from '../components/profile/DietSection';
@@ -56,12 +57,7 @@ import type {
 } from '../components/profile/MedSuppSection';
 import BackupSection from '../components/profile/BackupSection';
 import DangerSection from '../components/profile/DangerSection';
-
-/** parseInt that rejects junk like "12abc" — digits only, or null. */
-function parseIntStrict(s: string): number | null {
-  const t = s.trim();
-  return /^\d+$/.test(t) ? parseInt(t, 10) : null;
-}
+import { parseFloatStrict, parseIntStrict } from '../numberParsing';
 
 const EMPTY_MED_SUPP_FORM: MedSuppFormState = {
   name: '',
@@ -130,50 +126,10 @@ export default function ProfileScreen() {
   useFocusEffect(refresh);
 
   const onSave = () => {
-    let ageNum: number | null = null;
-    if (age.trim() !== '') {
-      const n = parseIntStrict(age);
-      if (n == null || n < 1 || n > 120) {
-        return Alert.alert('Invalid', 'Age must be a whole number between 1 and 120, or leave it blank.');
-      }
-      ageNum = n;
-    }
-    // Diet start date: month + year required, day optional. Blank = not set.
-    let dietStartValue: string | null = null;
-    const mStr = dietStart.month.trim();
-    const dStr = dietStart.day.trim();
-    const yStr = dietStart.year.trim();
-    if (mStr !== '' || dStr !== '' || yStr !== '') {
-      const nowYear = new Date().getFullYear();
-      if (mStr === '' || yStr === '') {
-        return Alert.alert('Invalid', 'Enter at least the month and year you started your diet, or leave all three blank.');
-      }
-      const month = parseIntStrict(mStr);
-      const year = parseIntStrict(yStr);
-      if (month == null || month < 1 || month > 12) {
-        return Alert.alert('Invalid', 'Diet start month must be between 1 and 12.');
-      }
-      if (year == null || year < 1990 || year > nowYear) {
-        return Alert.alert('Invalid', `Diet start year must be between 1990 and ${nowYear}.`);
-      }
-      let day: number | null = null;
-      if (dStr !== '') {
-        day = parseIntStrict(dStr);
-        const daysInMonth = new Date(year, month, 0).getDate();
-        if (day == null || day < 1 || day > daysInMonth) {
-          return Alert.alert('Invalid', `Diet start day must be between 1 and ${daysInMonth} for that month.`);
-        }
-      }
-      const start = new Date(year, month - 1, day ?? 1);
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      if (start.getTime() > today.getTime()) {
-        return Alert.alert('Invalid', 'Your diet start date can’t be in the future.');
-      }
-      dietStartValue = toDietStartString(year, month, day);
-    }
-    saveProfile(dietType, nuances, goals, ageNum, sex, bio.trim(), dietStartValue, name);
-    setSavedDietStart(dietStartValue);
+    const v = validateProfileInputs(age, dietStart);
+    if (!v.ok) return Alert.alert('Invalid', v.message);
+    saveProfile(dietType, nuances, goals, v.age, sex, bio.trim(), v.dietStart, name);
+    setSavedDietStart(v.dietStart);
     setSavedDietType(dietType);
     setSavedFlash(true);
     setTimeout(() => setSavedFlash(false), 2000);
@@ -182,8 +138,8 @@ export default function ProfileScreen() {
   const saveWeightSettings = () => {
     let sw: number | null = null;
     if (trackWeight && startingWeight.trim() !== '') {
-      const n = parseFloat(startingWeight);
-      if (isNaN(n) || n <= 0) {
+      const n = parseFloatStrict(startingWeight);
+      if (n == null || n <= 0) {
         return Alert.alert('Invalid', 'Starting weight must be a positive number.');
       }
       sw = n;
@@ -219,9 +175,9 @@ export default function ProfileScreen() {
       const backup = exportBackup();
       const now = new Date();
       const stamp = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-      const uri = `${documentDirectory}ketokind-backup-${stamp}.json`;
-      await writeAsStringAsync(uri, JSON.stringify(backup));
-      await Sharing.shareAsync(uri, { mimeType: 'application/json' });
+      const file = new File(Paths.document, `ketokind-backup-${stamp}.json`);
+      file.write(JSON.stringify(backup));
+      await Sharing.shareAsync(file.uri, { mimeType: 'application/json' });
     } catch (e) {
       Alert.alert('Backup failed', e instanceof Error ? e.message : 'Could not create the backup file.');
     }
@@ -238,7 +194,7 @@ export default function ProfileScreen() {
       if (!uri) return;
       let parsed: unknown;
       try {
-        parsed = JSON.parse(await readAsStringAsync(uri));
+        parsed = JSON.parse(await new File(uri).text());
       } catch {
         parsed = null;
       }

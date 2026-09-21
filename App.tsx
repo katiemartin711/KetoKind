@@ -16,6 +16,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { initDb, closeDatabase } from './src/db';
 import type { RootTabParamList } from './src/types';
 import { ThemeProvider, useTheme } from './src/ThemeContext';
+import { TabErrorBoundary } from './src/ErrorBoundary';
 import DashboardScreen from './src/screens/DashboardScreen';
 import LogScreen from './src/screens/LogScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
@@ -91,10 +92,34 @@ function ThemedApp() {
             ),
           })}
         >
-          <Tab.Screen name="Dashboard" component={DashboardScreen} />
-          <Tab.Screen name="Log" component={LogScreen} />
-          <Tab.Screen name="Profile" component={ProfileScreen} />
-          <Tab.Screen name="AI Coach" component={ExportScreen} />
+          <Tab.Screen name="Dashboard">
+            {() => (
+              <TabErrorBoundary tabName="Dashboard">
+                <DashboardScreen />
+              </TabErrorBoundary>
+            )}
+          </Tab.Screen>
+          <Tab.Screen name="Log">
+            {() => (
+              <TabErrorBoundary tabName="Log">
+                <LogScreen />
+              </TabErrorBoundary>
+            )}
+          </Tab.Screen>
+          <Tab.Screen name="Profile">
+            {() => (
+              <TabErrorBoundary tabName="Profile">
+                <ProfileScreen />
+              </TabErrorBoundary>
+            )}
+          </Tab.Screen>
+          <Tab.Screen name="AI Coach">
+            {() => (
+              <TabErrorBoundary tabName="AI Coach">
+                <ExportScreen />
+              </TabErrorBoundary>
+            )}
+          </Tab.Screen>
         </Tab.Navigator>
       </NavigationContainer>
       <StatusBar style={isDark ? 'light' : 'dark'} />

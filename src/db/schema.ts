@@ -9,10 +9,25 @@ import { database } from './client';
  */
 const SCHEMA_VERSION = 2;
 
-/** version -> SQL statements to run when upgrading TO that version. */
-const MIGRATIONS: Record<number, string[]> = {
-  // v2 adds its columns idempotently in initDb() (fresh installs already get
-  // them from CREATE TABLE, so a raw ALTER would fail there).
+/** version -> migration function upgrading TO that version. Use
+ *  addColumnIfMissing() for column adds so migrations stay idempotent
+ *  (fresh installs already get new columns from CREATE TABLE above). */
+const MIGRATIONS: Record<number, () => void> = {
+  2: () => {
+    // v2: med-log name snapshots + the profile name field.
+    // A dose keeps the medication's name even if it's renamed or deleted on
+    // the Profile tab (supplement_logs already did this).
+    addColumnIfMissing('med_logs', 'name', "TEXT NOT NULL DEFAULT ''");
+    addColumnIfMissing('profile', 'name', "TEXT NOT NULL DEFAULT ''");
+    // Backfill the snapshot for doses logged before the column existed. Rows
+    // whose medication was already deleted keep name = '' (shown as
+    // "Deleted medication"); everything still in the profile gets its name.
+    database().execSync(`
+      UPDATE med_logs
+      SET name = COALESCE((SELECT name FROM medications WHERE medications.id = med_logs.medication_id), '')
+      WHERE name = '';
+    `);
+  },
 };
 
 /** ALTER TABLE ... ADD COLUMN, but only when the column isn't there yet. */
@@ -143,25 +158,7 @@ export function initDb(): void {
   }
   // Apply any newer migrations in order, then stamp the version.
   for (let v = currentVersion + 1; v <= SCHEMA_VERSION; v++) {
-    for (const stmt of MIGRATIONS[v] ?? []) {
-      database().execSync(stmt);
-    }
-  }
-  if (currentVersion < 2) {
-    // v2: med-log name snapshots + the profile name field. Idempotent —
-    // fresh installs already have the columns from CREATE TABLE above.
-    // A dose keeps the medication's name even if it's renamed or deleted on
-    // the Profile tab (supplement_logs already did this).
-    addColumnIfMissing('med_logs', 'name', "TEXT NOT NULL DEFAULT ''");
-    addColumnIfMissing('profile', 'name', "TEXT NOT NULL DEFAULT ''");
-    // Backfill the snapshot for doses logged before the column existed. Rows
-    // whose medication was already deleted keep name = '' (shown as
-    // "Deleted medication"); everything still in the profile gets its name.
-    database().execSync(`
-      UPDATE med_logs
-      SET name = COALESCE((SELECT name FROM medications WHERE medications.id = med_logs.medication_id), '')
-      WHERE name = '';
-    `);
+    MIGRATIONS[v]?.();
   }
   database().execSync(`PRAGMA user_version = ${SCHEMA_VERSION}`);
 }

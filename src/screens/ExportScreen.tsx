@@ -13,6 +13,7 @@ import { cacheDirectory, writeAsStringAsync } from 'expo-file-system/legacy';
 import { getExportData } from '../db';
 import type { ExportData } from '../db';
 import { DIET_LABELS } from '../types';
+import { dietPrinciples } from '../dietPrinciples';
 import { dietDurationLabel, formatDietStart } from '../milestones';
 import { useTheme } from '../ThemeContext';
 import type { Palette } from '../theme';
@@ -100,6 +101,9 @@ function buildContextMarkdown(data: ExportData): string {
 /** The ready-to-paste prompt that turns any AI chat into the user's coach. */
 function buildCoachPrompt(data: ExportData): string {
   const dietLabel = DIET_LABELS[data.profile.diet_type];
+  const principles = dietPrinciples(data.profile.diet_type)
+    .map((p, i) => `${i + 1}. ${p}`)
+    .join('\n');
   return (
     `You are my ${dietLabel} diet coach. Below is my diet profile ` +
     `(diet type, personal nuances, allergies, health conditions, medications, supplements) and my food, symptom, ` +
@@ -108,16 +112,8 @@ function buildCoachPrompt(data: ExportData): string {
     `confirm you have my logs, and ask whether I want insights into my data or have a specific question or concern ` +
     `I want to talk about. Keep every response brief — no long lectures, no unasked-for analysis.\n\n` +
     `Guiding principles:\n` +
-    `1. Fatty red meat is the foundation — beef, lamb, pork; nose-to-tail when possible. Eat the meat you can afford.\n` +
-    `2. Fat is fuel, never the culprit — never blame dietary fat for stalls or gain. Eat fatty cuts, butter, and tallow freely.\n` +
-    `3. No sugar, no grains, no seed oils, no processed food.\n` +
-    `4. Eat when hungry, stop when comfortably full — no calorie counting or portion micromanaging.\n` +
-    `5. Salt food to taste; electrolytes matter, especially during adaptation.\n` +
-    `6. For women: adequate fat supports hormone production, since cholesterol is the building block of estrogen, progesterone, and testosterone. Low-fat dieting can disrupt cycles, fertility, mood, and thyroid.\n` +
-    `7. Don't chronically undereat — aggressive restriction and excessive fasting backfire, especially for women.\n` +
-    `8. Dairy is optional and a common stall culprit — cutting back is a reasonable first lever when weight loss stalls.\n` +
-    `9. BBBe (beef, butter, bacon, eggs) works as a simple reset baseline.\n` +
-    `10. Metabolic healing comes before fat loss — insulin resistance reverses first, and multi-week stalls are normal.\n\n` +
+    principles +
+    `\n\n` +
     `When I ask about my food or macros, estimate protein, fat, and carbs from what's in my logs using typical values for each food. ` +
     `If an entry is too vague to estimate (like "steak" with no portion size), ask me one or two quick questions about portion sizes of the most common items first, then give your best estimate.\n\n` +
     `Important: you are not a medical professional and this is not medical advice. ` +

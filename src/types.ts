@@ -2,15 +2,16 @@
 
 import type { ThemeMode } from './theme';
 
-export type DietType = 'keto' | 'carnivore' | 'lion';
+export type DietType = 'keto' | 'carnivore' | 'lion' | 'paleo';
 
 export const DIET_LABELS: Record<DietType, string> = {
   keto: 'Keto',
   carnivore: 'Carnivore',
   lion: 'Lion Diet',
+  paleo: 'Paleo',
 };
 
-export const DIET_TYPES: DietType[] = ['keto', 'carnivore', 'lion'];
+export const DIET_TYPES: DietType[] = ['keto', 'carnivore', 'lion', 'paleo'];
 
 export interface Profile {
   id: number;

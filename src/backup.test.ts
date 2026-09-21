@@ -209,7 +209,7 @@ expectRejected('rejects null profile', (b) => {
   b.profile = null;
 });
 expectRejected('rejects unknown diet_type', (b) => {
-  (b.profile as Record<string, unknown>).diet_type = 'paleo';
+  (b.profile as Record<string, unknown>).diet_type = 'vegan';
 });
 
 // --- strengthened validation ------------------------------------------------
@@ -280,6 +280,21 @@ check('valid backup validates clean', () => {
     populateDb();
     eq(validateBackup(exportBackup()), [], 'no issues on real export');
     ok(isDatabaseBackup(JSON.parse(JSON.stringify(exportBackup()))), 'guard accepts');
+  } finally {
+    handle.close();
+  }
+});
+
+check('accepts paleo diet_type and preserves it through import', () => {
+  const handle = setup();
+  try {
+    populateDb();
+    const b = validBackup();
+    (b.profile as Record<string, unknown>).diet_type = 'paleo';
+    eq(validateBackup(b), [], 'no issues');
+    ok(isDatabaseBackup(b), 'guard accepts');
+    importBackup(b as unknown as DatabaseBackup);
+    eq(exportBackup().profile.diet_type, 'paleo', 'paleo survives round-trip');
   } finally {
     handle.close();
   }

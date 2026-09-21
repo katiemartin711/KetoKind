@@ -415,8 +415,8 @@ export function validateBackup(value: unknown): BackupIssue[] {
     at('profile', 'must be an object');
   } else {
     if (p.id !== 1) at('profile.id', 'must be 1');
-    if (p.diet_type !== 'keto' && p.diet_type !== 'carnivore' && p.diet_type !== 'lion') {
-      at('profile.diet_type', "must be 'keto', 'carnivore', or 'lion'");
+    if (p.diet_type !== 'keto' && p.diet_type !== 'carnivore' && p.diet_type !== 'lion' && p.diet_type !== 'paleo') {
+      at('profile.diet_type', "must be 'keto', 'carnivore', 'lion', or 'paleo'");
     }
     for (const key of ['diet_nuances', 'goals', 'bio', 'dismissed_milestones']) {
       expectString(p, key, 'profile');
@@ -577,7 +577,9 @@ export function importBackup(b: DatabaseBackup): void {
 
     const p = b.profile;
     const dietType: DietType =
-      p.diet_type === 'keto' || p.diet_type === 'lion' ? p.diet_type : 'carnivore';
+      p.diet_type === 'keto' || p.diet_type === 'lion' || p.diet_type === 'paleo'
+        ? p.diet_type
+        : 'carnivore';
     const themeMode: ThemeMode =
       p.theme_mode === 'light' || p.theme_mode === 'dark' ? p.theme_mode : 'system';
     const sex = p.sex === 'female' || p.sex === 'male' ? p.sex : '';

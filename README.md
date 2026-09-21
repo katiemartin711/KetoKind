@@ -17,7 +17,7 @@ maintain.
 |---|---|
 | **Dashboard** | Today's date, stat cards (meals, meds taken vs. scheduled, symptoms, supplements), diet-start milestones, daily logging streak, quick-add buttons, optional weight card |
 | **Log** | Segmented forms for Meal / Meds & Supps / Symptom / Weight + today's entries (tap to edit, ✕ to delete) |
-| **Trends** | **Pro:** weight trend graph (30/90 days/all) plus medication/supplement × symptom patterns with a "strongest patterns" ranking |
+| **Trends** | **Pro:** weight trend graph with range dropdown, medication/supplement × symptom patterns with a "strongest patterns" ranking, and a symptom-over-time severity chart |
 | **Profile** | "About You" (name, age, sex, bio), diet type (Keto / Carnivore / Lion Diet / Paleo) with per-diet principle info panels, diet nuances, goals, diet start date, weight tracking, appearance (theme), allergies, health conditions, medications, supplements, full backup / restore, delete-all |
 | **AI Coach** | Coach setup-prompt preview (profile + per-diet guiding principles + last 30 days of logs), "Copy prompt + logs" button, "Share context file only (.md)" button that writes `ketokind-context.md` and opens the share sheet |
 
@@ -151,19 +151,25 @@ in `src/pro.ts` (`requestPurchase()` / `restorePurchase()`).
 
 The Trends tab has two parts:
 
-- **Weight trend** — a line graph of weigh-ins with a 30-day / 90-day / all
-  time-range selector, marking the low, high, and current values plus the
-  change across the range. If weight isn't tracked, a friendly empty state
-  explains that weight logging is optional and points to the Log tab.
+- **Weight trend** — a line graph of weigh-ins with a range dropdown (Week /
+  Month / 90 days / 6 months / Year / All), marking the low, high, and
+  current values plus the change across the range. Dots are drawn only at 30
+  points or fewer — past that the line carries it. If weight isn't tracked, a
+  friendly empty state explains that weight logging is optional and points to
+  the Log tab.
 - **Symptom patterns** — pick a symptom and a medication/supplement to compare
   average symptom severity on days the item was taken vs. days it wasn't, plus
   a "strongest patterns" list ranking the top 3 symptom × item pairs by
   absolute difference.
+- **Symptom over time** — pick a symptom to see its severity (1–5) plotted day
+  by day over the same range options, with days logged, average, and worst
+  severity.
 
-**The 7-day rule:** a comparison is only shown when there are at least 7 days
-of data on *each* side (taken and not taken), counted on days the symptom was
-logged. Below that the UI says "not enough data yet" and shows the day counts
-so far — thin data is withheld, not charted. All bucketing is by local day.
+**When a comparison shows:** each side needs at least 2 days and at least one
+side needs 7+, counted on days the symptom was logged — so a very regular
+taker still gets a comparison from just a few missed days. Below that the UI
+says "not enough data yet" and shows the day counts so far — thin data is
+withheld, not charted. All bucketing is by local day.
 
 **Patterns, not advice:** every comparison is framed as "patterns in your
 logs" — never causal ("X causes/improves Y") and never suggesting starting,
@@ -173,6 +179,35 @@ not medical advice. Talk to your doctor about any medication changes."*
 The stats math lives in pure, well-tested `src/trendsStats.ts`; the queries in
 `src/db/trends.ts` are only called after the Pro check passes, so free users
 never trigger data loading for this tab.
+
+## Sample data
+
+Don't want to log for 90 days before seeing what Trends can do? Two synthetic
+datasets live in [`sample-data/`](sample-data/) — no real user data, and both
+pass the app's real backup validator:
+
+| File | What's inside | Best for |
+|---|---|---|
+| `ketokind-trends-sample-data.json` | 90 days: weight 152.4 → 143.3 lb, 320 symptom logs, 60 med logs, 174 supplement logs, 28 meals | The Trends tab: weight graph, symptom × item patterns, symptom-over-time chart |
+| `ketokind-sample-data.json` | ~2 weeks of everyday logging: 34 meals, meds, supplements, symptoms, weigh-ins | Touring the Dashboard, Log tab, and AI Coach export |
+
+The trends dataset is built to show the feature off: Congestion × Cetirizine,
+Headache × Magnesium Glycinate, and Muscle cramps × Electrolyte mix all have
+enough data to produce comparisons, while Vitamin D3 (logged every day, so
+there's no "not taken" side) and Melatonin (logged once) demonstrate the "not
+enough data yet" states. It imports as a **free** profile, so you can also try
+the Pro paywall from the Trends tab.
+
+**To import one:**
+
+1. Get the `.json` file onto your phone (download it from this repo, then
+   AirDrop / email it to yourself / save it to Files).
+2. Open KetoKind in Expo Go. Import is a Pro feature, so first go to the
+   **Profile** tab → **Testing** section and turn on **Simulate Pro user**.
+3. Profile → **Backup** → **Import data**, pick the file, and confirm.
+   Importing **replaces everything** currently on the device — export your own
+   data first if you want to keep it.
+4. Head to the **Trends** tab.
 
 ## Testing
 
@@ -194,9 +229,9 @@ npm test   # tsc -p tsconfig.test.json, then node dist-test/*.test.js
 | `src/profileValidation.test.ts` | Profile save validation: age 1–120, diet-start month+year required, month/year/day ranges, leap days, future dates rejected | 7 passed |
 | `src/medSuppForm.test.tsx` | MedSuppForm component (via @testing-library/react-native under plain node): chips render, save disabled until selection, tap callbacks, edit-mode section locking, as-needed qty stepper | 9 passed |
 | `src/pro.test.ts` | Pro flag persistence round-trip, v3 migration (adds `is_pro` default 0 to pre-v3 profiles, preserves an already-set flag, keeps profile data), delete-all resets Pro, simulated purchase/restore helpers | 8 passed |
-| `src/trendsStats.test.ts` | Trends stats: local-day bucketing, averaging, the 7-day threshold withholding thin comparisons, day bucketing, top-3 pattern ranking, weight range filtering/summaries, plus the db query helpers (weight series order, per-day symptom averaging, case-insensitive item-day grouping) | 13 passed |
+| `src/trendsStats.test.ts` | Trends stats: local-day bucketing, averaging, pattern-day thresholds (≥2 days per side, 7+ on one side) withholding thin comparisons, the regular-taker case, top-3 pattern ranking, weight/symptom range filtering and summaries, plus the db query helpers (weight series order, per-day symptom averaging, case-insensitive item-day grouping) | 17 passed |
 
-**110 passed, 0 failed.** The app typecheck (`npx tsc --noEmit`) is clean. CI (`.github/workflows/ci.yml`) runs `npm test` and the typecheck on every push to `main` and every pull request.
+**114 passed, 0 failed.** The app typecheck (`npx tsc --noEmit`) is clean. CI (`.github/workflows/ci.yml`) runs `npm test` and the typecheck on every push to `main` and every pull request.
 
 ## Screenshots
 

@@ -1,0 +1,606 @@
+{
+  "version": 1,
+  "exportedAt": "2026-09-21T02:00:00.000Z",
+  "profile": {
+    "id": 1,
+    "diet_type": "carnivore",
+    "diet_nuances": "No dairy except butter. Coffee in the morning.",
+    "goals": "Maintain weight, steady energy, clear skin.",
+    "track_weight": 1,
+    "starting_weight": 148.0,
+    "theme_mode": "system",
+    "age": 32,
+    "sex": "female",
+    "bio": "Carnivore for 2 years. Lifting 3x per week.",
+    "diet_start": "2024-06",
+    "dismissed_milestones": ""
+  },
+  "allergies": [
+    {
+      "id": 1,
+      "name": "Shellfish"
+    }
+  ],
+  "conditions": [
+    {
+      "id": 1,
+      "name": "Seasonal allergies"
+    },
+    {
+      "id": 2,
+      "name": "Mild eczema"
+    }
+  ],
+  "medications": [
+    {
+      "id": 1,
+      "name": "Cetirizine",
+      "dosage": "10 mg",
+      "times_per_day": 1,
+      "purpose": "allergies",
+      "as_needed": 0
+    }
+  ],
+  "supplements": [
+    {
+      "id": 1,
+      "name": "Vitamin D3",
+      "dosage": "5000 IU",
+      "times_per_day": 1,
+      "purpose": "immune support",
+      "as_needed": 0
+    },
+    {
+      "id": 2,
+      "name": "Electrolyte mix",
+      "dosage": "1 scoop",
+      "times_per_day": 1,
+      "purpose": "hydration",
+      "as_needed": 1
+    }
+  ],
+  "foodLogs": [
+    {
+      "id": 1,
+      "name": "Bacon and eggs (4 eggs, 4 strips)",
+      "meal_type": "Breakfast",
+      "logged_at": "2026-09-07T12:30:00.000Z",
+      "notes": "Ate to satiety"
+    },
+    {
+      "id": 2,
+      "name": "Ribeye steak (16 oz)",
+      "meal_type": "Dinner",
+      "logged_at": "2026-09-07T23:30:00.000Z",
+      "notes": "Grass-fed"
+    },
+    {
+      "id": 3,
+      "name": "Ground beef scramble with eggs",
+      "meal_type": "Breakfast",
+      "logged_at": "2026-09-08T12:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 4,
+      "name": "Burger patties (2, no bun)",
+      "meal_type": "Lunch",
+      "logged_at": "2026-09-08T17:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 5,
+      "name": "Ground beef patties (80/20, 12 oz)",
+      "meal_type": "Dinner",
+      "logged_at": "2026-09-08T23:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 6,
+      "name": "Steak and eggs (ribeye, 3 eggs)",
+      "meal_type": "Breakfast",
+      "logged_at": "2026-09-09T12:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 7,
+      "name": "Salmon fillet (8 oz)",
+      "meal_type": "Dinner",
+      "logged_at": "2026-09-09T23:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 8,
+      "name": "Pork belly and eggs",
+      "meal_type": "Breakfast",
+      "logged_at": "2026-09-10T12:30:00.000Z",
+      "notes": "Ate to satiety"
+    },
+    {
+      "id": 9,
+      "name": "Chicken thighs (4, skin-on)",
+      "meal_type": "Dinner",
+      "logged_at": "2026-09-10T23:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 10,
+      "name": "Bacon and eggs (4 eggs, 4 strips)",
+      "meal_type": "Breakfast",
+      "logged_at": "2026-09-11T12:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 11,
+      "name": "Tuna with mayo",
+      "meal_type": "Lunch",
+      "logged_at": "2026-09-11T17:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 12,
+      "name": "NY strip steak (14 oz)",
+      "meal_type": "Dinner",
+      "logged_at": "2026-09-11T23:30:00.000Z",
+      "notes": "Grass-fed"
+    },
+    {
+      "id": 13,
+      "name": "Ground beef scramble with eggs",
+      "meal_type": "Breakfast",
+      "logged_at": "2026-09-12T12:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 14,
+      "name": "Lamb chops (6)",
+      "meal_type": "Dinner",
+      "logged_at": "2026-09-12T23:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 15,
+      "name": "Steak and eggs (ribeye, 3 eggs)",
+      "meal_type": "Breakfast",
+      "logged_at": "2026-09-13T12:30:00.000Z",
+      "notes": "Ate to satiety"
+    },
+    {
+      "id": 16,
+      "name": "Beef liver (4 oz) with bacon",
+      "meal_type": "Dinner",
+      "logged_at": "2026-09-13T23:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 17,
+      "name": "Pork belly and eggs",
+      "meal_type": "Breakfast",
+      "logged_at": "2026-09-14T12:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 18,
+      "name": "Leftover steak (8 oz)",
+      "meal_type": "Lunch",
+      "logged_at": "2026-09-14T17:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 19,
+      "name": "Chuck roast (12 oz)",
+      "meal_type": "Dinner",
+      "logged_at": "2026-09-14T23:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 20,
+      "name": "Bacon and eggs (4 eggs, 4 strips)",
+      "meal_type": "Breakfast",
+      "logged_at": "2026-09-15T12:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 21,
+      "name": "Sardines (2 tins) with butter",
+      "meal_type": "Dinner",
+      "logged_at": "2026-09-15T23:30:00.000Z",
+      "notes": "Grass-fed"
+    },
+    {
+      "id": 22,
+      "name": "Ground beef scramble with eggs",
+      "meal_type": "Breakfast",
+      "logged_at": "2026-09-16T12:30:00.000Z",
+      "notes": "Ate to satiety"
+    },
+    {
+      "id": 23,
+      "name": "Pork ribs (full rack)",
+      "meal_type": "Dinner",
+      "logged_at": "2026-09-16T23:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 24,
+      "name": "Steak and eggs (ribeye, 3 eggs)",
+      "meal_type": "Breakfast",
+      "logged_at": "2026-09-17T12:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 25,
+      "name": "Burger patties (2, no bun)",
+      "meal_type": "Lunch",
+      "logged_at": "2026-09-17T17:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 26,
+      "name": "Ribeye steak (16 oz)",
+      "meal_type": "Dinner",
+      "logged_at": "2026-09-17T23:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 27,
+      "name": "Pork belly and eggs",
+      "meal_type": "Breakfast",
+      "logged_at": "2026-09-18T12:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 28,
+      "name": "Ground beef patties (80/20, 12 oz)",
+      "meal_type": "Dinner",
+      "logged_at": "2026-09-18T23:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 29,
+      "name": "Bacon and eggs (4 eggs, 4 strips)",
+      "meal_type": "Breakfast",
+      "logged_at": "2026-09-19T12:30:00.000Z",
+      "notes": "Ate to satiety"
+    },
+    {
+      "id": 30,
+      "name": "Salmon fillet (8 oz)",
+      "meal_type": "Dinner",
+      "logged_at": "2026-09-19T23:30:00.000Z",
+      "notes": "Grass-fed"
+    },
+    {
+      "id": 31,
+      "name": "Ground beef scramble with eggs",
+      "meal_type": "Breakfast",
+      "logged_at": "2026-09-20T12:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 32,
+      "name": "Tuna with mayo",
+      "meal_type": "Lunch",
+      "logged_at": "2026-09-20T17:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 33,
+      "name": "Chicken thighs (4, skin-on)",
+      "meal_type": "Dinner",
+      "logged_at": "2026-09-20T23:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 34,
+      "name": "Bacon and eggs (4 eggs, 4 strips)",
+      "meal_type": "Breakfast",
+      "logged_at": "2026-09-21T12:30:00.000Z",
+      "notes": ""
+    }
+  ],
+  "medLogs": [
+    {
+      "id": 1,
+      "medication_id": 1,
+      "taken_at": "2026-09-07T13:00:00.000Z",
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "medication_id": 1,
+      "taken_at": "2026-09-08T13:00:00.000Z",
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "medication_id": 1,
+      "taken_at": "2026-09-09T13:00:00.000Z",
+      "quantity": 1
+    },
+    {
+      "id": 4,
+      "medication_id": 1,
+      "taken_at": "2026-09-10T13:00:00.000Z",
+      "quantity": 1
+    },
+    {
+      "id": 5,
+      "medication_id": 1,
+      "taken_at": "2026-09-11T13:00:00.000Z",
+      "quantity": 1
+    },
+    {
+      "id": 6,
+      "medication_id": 1,
+      "taken_at": "2026-09-12T13:00:00.000Z",
+      "quantity": 1
+    },
+    {
+      "id": 7,
+      "medication_id": 1,
+      "taken_at": "2026-09-13T13:00:00.000Z",
+      "quantity": 1
+    },
+    {
+      "id": 8,
+      "medication_id": 1,
+      "taken_at": "2026-09-14T13:00:00.000Z",
+      "quantity": 1
+    },
+    {
+      "id": 9,
+      "medication_id": 1,
+      "taken_at": "2026-09-15T13:00:00.000Z",
+      "quantity": 1
+    },
+    {
+      "id": 10,
+      "medication_id": 1,
+      "taken_at": "2026-09-16T13:00:00.000Z",
+      "quantity": 1
+    },
+    {
+      "id": 11,
+      "medication_id": 1,
+      "taken_at": "2026-09-17T13:00:00.000Z",
+      "quantity": 1
+    },
+    {
+      "id": 12,
+      "medication_id": 1,
+      "taken_at": "2026-09-18T13:00:00.000Z",
+      "quantity": 1
+    },
+    {
+      "id": 13,
+      "medication_id": 1,
+      "taken_at": "2026-09-19T13:00:00.000Z",
+      "quantity": 1
+    },
+    {
+      "id": 14,
+      "medication_id": 1,
+      "taken_at": "2026-09-20T13:00:00.000Z",
+      "quantity": 1
+    }
+  ],
+  "symptomLogs": [
+    {
+      "id": 1,
+      "name": "Headache",
+      "severity": 2,
+      "logged_at": "2026-09-09T20:00:00.000Z",
+      "notes": "Mild, gone by afternoon"
+    },
+    {
+      "id": 2,
+      "name": "Bloating",
+      "severity": 1,
+      "logged_at": "2026-09-12T21:15:00.000Z",
+      "notes": "Ate too fast"
+    },
+    {
+      "id": 3,
+      "name": "Low energy",
+      "severity": 3,
+      "logged_at": "2026-09-15T15:45:00.000Z",
+      "notes": "Poor sleep last night"
+    },
+    {
+      "id": 4,
+      "name": "Headache",
+      "severity": 1,
+      "logged_at": "2026-09-18T20:30:00.000Z",
+      "notes": ""
+    },
+    {
+      "id": 5,
+      "name": "Sugar craving",
+      "severity": 2,
+      "logged_at": "2026-09-20T19:00:00.000Z",
+      "notes": "Passed after dinner"
+    }
+  ],
+  "supplementLogs": [
+    {
+      "id": 1,
+      "name": "Vitamin D3",
+      "supplement_id": 1,
+      "logged_at": "2026-09-07T12:35:00.000Z",
+      "notes": "",
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "name": "Vitamin D3",
+      "supplement_id": 1,
+      "logged_at": "2026-09-08T12:35:00.000Z",
+      "notes": "",
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "name": "Vitamin D3",
+      "supplement_id": 1,
+      "logged_at": "2026-09-09T12:35:00.000Z",
+      "notes": "",
+      "quantity": 1
+    },
+    {
+      "id": 4,
+      "name": "Vitamin D3",
+      "supplement_id": 1,
+      "logged_at": "2026-09-10T12:35:00.000Z",
+      "notes": "",
+      "quantity": 1
+    },
+    {
+      "id": 5,
+      "name": "Vitamin D3",
+      "supplement_id": 1,
+      "logged_at": "2026-09-11T12:35:00.000Z",
+      "notes": "",
+      "quantity": 1
+    },
+    {
+      "id": 6,
+      "name": "Vitamin D3",
+      "supplement_id": 1,
+      "logged_at": "2026-09-12T12:35:00.000Z",
+      "notes": "",
+      "quantity": 1
+    },
+    {
+      "id": 7,
+      "name": "Vitamin D3",
+      "supplement_id": 1,
+      "logged_at": "2026-09-13T12:35:00.000Z",
+      "notes": "",
+      "quantity": 1
+    },
+    {
+      "id": 8,
+      "name": "Vitamin D3",
+      "supplement_id": 1,
+      "logged_at": "2026-09-14T12:35:00.000Z",
+      "notes": "",
+      "quantity": 1
+    },
+    {
+      "id": 9,
+      "name": "Vitamin D3",
+      "supplement_id": 1,
+      "logged_at": "2026-09-15T12:35:00.000Z",
+      "notes": "",
+      "quantity": 1
+    },
+    {
+      "id": 10,
+      "name": "Vitamin D3",
+      "supplement_id": 1,
+      "logged_at": "2026-09-16T12:35:00.000Z",
+      "notes": "",
+      "quantity": 1
+    },
+    {
+      "id": 11,
+      "name": "Vitamin D3",
+      "supplement_id": 1,
+      "logged_at": "2026-09-17T12:35:00.000Z",
+      "notes": "",
+      "quantity": 1
+    },
+    {
+      "id": 12,
+      "name": "Vitamin D3",
+      "supplement_id": 1,
+      "logged_at": "2026-09-18T12:35:00.000Z",
+      "notes": "",
+      "quantity": 1
+    },
+    {
+      "id": 13,
+      "name": "Vitamin D3",
+      "supplement_id": 1,
+      "logged_at": "2026-09-19T12:35:00.000Z",
+      "notes": "",
+      "quantity": 1
+    },
+    {
+      "id": 14,
+      "name": "Vitamin D3",
+      "supplement_id": 1,
+      "logged_at": "2026-09-20T12:35:00.000Z",
+      "notes": "",
+      "quantity": 1
+    },
+    {
+      "id": 15,
+      "name": "Electrolyte mix",
+      "supplement_id": 2,
+      "logged_at": "2026-09-08T18:00:00.000Z",
+      "notes": "Post-workout",
+      "quantity": 1
+    },
+    {
+      "id": 16,
+      "name": "Electrolyte mix",
+      "supplement_id": 2,
+      "logged_at": "2026-09-11T18:00:00.000Z",
+      "notes": "Post-workout",
+      "quantity": 1
+    },
+    {
+      "id": 17,
+      "name": "Electrolyte mix",
+      "supplement_id": 2,
+      "logged_at": "2026-09-14T18:00:00.000Z",
+      "notes": "Post-workout",
+      "quantity": 1
+    },
+    {
+      "id": 18,
+      "name": "Electrolyte mix",
+      "supplement_id": 2,
+      "logged_at": "2026-09-17T18:00:00.000Z",
+      "notes": "Post-workout",
+      "quantity": 1
+    },
+    {
+      "id": 19,
+      "name": "Electrolyte mix",
+      "supplement_id": 2,
+      "logged_at": "2026-09-20T18:00:00.000Z",
+      "notes": "Post-workout",
+      "quantity": 1
+    }
+  ],
+  "weightLogs": [
+    {
+      "id": 1,
+      "weight": 148.0,
+      "logged_at": "2026-09-07T12:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "weight": 147.2,
+      "logged_at": "2026-09-10T12:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "weight": 146.8,
+      "logged_at": "2026-09-13T12:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "weight": 146.1,
+      "logged_at": "2026-09-16T12:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "weight": 145.5,
+      "logged_at": "2026-09-19T12:00:00.000Z"
+    }
+  ]
+}

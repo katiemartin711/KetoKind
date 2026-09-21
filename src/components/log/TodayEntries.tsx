@@ -46,7 +46,12 @@ export default function TodayEntries({ logs, onEdit, onDelete }: Props) {
               {log.detail ? ` — ${log.detail}` : ''}
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => onDelete(log)} style={styles.deleteBtn}>
+          <TouchableOpacity
+            onPress={() => onDelete(log)}
+            style={styles.deleteBtn}
+            accessibilityRole="button"
+            accessibilityLabel={`Delete ${KIND_LABEL[log.kind]} entry`}
+          >
             <Text style={styles.deleteText}>✕</Text>
           </TouchableOpacity>
         </View>

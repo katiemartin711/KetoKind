@@ -17,10 +17,11 @@ export function saveProfile(
   sex: string,
   bio: string,
   dietStart: string | null,
+  name: string,
 ): void {
   database().runSync(
-    'UPDATE profile SET diet_type = ?, diet_nuances = ?, goals = ?, age = ?, sex = ?, bio = ?, diet_start = ? WHERE id = 1',
-    [dietType, nuances.trim(), goals.trim(), age, sex, bio, dietStart],
+    'UPDATE profile SET diet_type = ?, diet_nuances = ?, goals = ?, age = ?, sex = ?, bio = ?, diet_start = ?, name = ? WHERE id = 1',
+    [dietType, nuances.trim(), goals.trim(), age, sex, bio, dietStart, name.trim()],
   );
 }
 
@@ -34,7 +35,7 @@ export function getDismissedMilestones(): string[] {
 }
 
 /** Wipe everything on device: all logs, lists, and profile fields back to
- *  defaults. Appearance/theme is left alone — it's a preference, not data. */
+ *  defaults — including the appearance theme, so a fresh start is truly fresh. */
 export function deleteAllData(): void {
   database().execSync(`
     DELETE FROM allergies;
@@ -47,9 +48,11 @@ export function deleteAllData(): void {
     DELETE FROM supplement_logs;
     DELETE FROM weight_logs;
     UPDATE profile SET
+      name = '',
       diet_type = 'carnivore',
       diet_nuances = '',
       goals = '',
+      theme_mode = 'system',
       track_weight = 0,
       starting_weight = NULL,
       age = NULL,
@@ -67,10 +70,11 @@ export function deleteAllData(): void {
 
 
 /** True once the user has filled in anything meaningful on the Profile tab
- *  (age, sex, bio, goals, nuances, or diet start date). Used to nudge brand-new
- *  users toward setup on the Dashboard. */
+ *  (name, age, sex, bio, goals, nuances, or diet start date). Used to nudge
+ *  brand-new users toward setup on the Dashboard. */
 export function isProfileSetup(p: Profile): boolean {
   return (
+    p.name.trim() !== '' ||
     p.age != null ||
     p.sex !== '' ||
     p.bio.trim() !== '' ||

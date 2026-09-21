@@ -81,6 +81,7 @@ export default function ProfileScreen() {
   // Last-saved values, powering the permanent "time on diet" callout.
   const [savedDietStart, setSavedDietStart] = useState<string | null>(null);
   const [savedDietType, setSavedDietType] = useState<DietType>('carnivore');
+  const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [sex, setSex] = useState<SexOption>('');
   const [bio, setBio] = useState('');
@@ -114,6 +115,7 @@ export default function ProfileScreen() {
     });
     setSavedDietStart(p.diet_start);
     setSavedDietType(p.diet_type);
+    setName(p.name || '');
     setAge(p.age != null ? String(p.age) : '');
     setSex(p.sex === 'female' || p.sex === 'male' ? p.sex : '');
     setBio(p.bio || '');
@@ -170,7 +172,7 @@ export default function ProfileScreen() {
       }
       dietStartValue = toDietStartString(year, month, day);
     }
-    saveProfile(dietType, nuances, goals, ageNum, sex, bio.trim(), dietStartValue);
+    saveProfile(dietType, nuances, goals, ageNum, sex, bio.trim(), dietStartValue, name);
     setSavedDietStart(dietStartValue);
     setSavedDietType(dietType);
     setSavedFlash(true);
@@ -203,6 +205,7 @@ export default function ProfileScreen() {
           onPress: () => {
             deleteAllData();
             clearMedSuppForm();
+            setAppTheme('system'); // delete-all resets the theme too
             refresh();
             Alert.alert('Done', 'All data has been deleted from this device.');
           },
@@ -381,6 +384,8 @@ export default function ProfileScreen() {
       />
 
       <AboutSection
+        name={name}
+        onNameChange={setName}
         age={age}
         onAgeChange={setAge}
         sex={sex}

@@ -18,7 +18,14 @@ export default function AppearanceSection() {
           { key: 'dark', label: 'Dark' },
         ] as { key: ThemeMode; label: string; hint?: string }[]
       ).map((o) => (
-        <TouchableOpacity key={o.key} style={styles.radioRow} onPress={() => setAppTheme(o.key)}>
+        <TouchableOpacity
+          key={o.key}
+          style={styles.radioRow}
+          onPress={() => setAppTheme(o.key)}
+          accessibilityRole="radio"
+          accessibilityState={{ selected: themeMode === o.key }}
+          accessibilityLabel={o.label}
+        >
           <View style={[styles.radio, themeMode === o.key && styles.radioActive]}>
             {themeMode === o.key && <View style={styles.radioDot} />}
           </View>

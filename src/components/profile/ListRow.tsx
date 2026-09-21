@@ -18,7 +18,12 @@ export default function ListRow({
   return (
     <View style={styles.row}>
       {onEdit ? (
-        <TouchableOpacity style={styles.rowLabelWrap} onPress={onEdit}>
+        <TouchableOpacity
+          style={styles.rowLabelWrap}
+          onPress={onEdit}
+          accessibilityRole="button"
+          accessibilityLabel={`Edit ${label}`}
+        >
           <Text style={styles.rowLabel}>{label}</Text>
         </TouchableOpacity>
       ) : (

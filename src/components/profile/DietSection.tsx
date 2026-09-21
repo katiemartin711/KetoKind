@@ -57,7 +57,13 @@ export default function DietSection(props: Props) {
       <Text style={common.h2}>Diet type</Text>
       {DIET_TYPES.map((d) => (
         <React.Fragment key={d}>
-          <TouchableOpacity style={styles.radioRow} onPress={() => onSelectDiet(d)}>
+          <TouchableOpacity
+            style={styles.radioRow}
+            onPress={() => onSelectDiet(d)}
+            accessibilityRole="radio"
+            accessibilityState={{ selected: dietType === d }}
+            accessibilityLabel={`Diet type: ${DIET_LABELS[d]}`}
+          >
             <View style={[styles.radio, dietType === d && styles.radioActive]}>
               {dietType === d && <View style={styles.radioDot} />}
             </View>

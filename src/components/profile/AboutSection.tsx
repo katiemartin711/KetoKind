@@ -7,6 +7,8 @@ import type { Palette } from '../../theme';
 export type SexOption = 'female' | 'male' | '';
 
 interface Props {
+  name: string;
+  onNameChange: (s: string) => void;
   age: string;
   onAgeChange: (s: string) => void;
   sex: SexOption;
@@ -15,8 +17,8 @@ interface Props {
   onBioChange: (s: string) => void;
 }
 
-/** Age, sex, and free-text bio — context for the AI coach. */
-export default function AboutSection({ age, onAgeChange, sex, onSexChange, bio, onBioChange }: Props) {
+/** Name, age, sex, and free-text bio — context for the AI coach. */
+export default function AboutSection({ name, onNameChange, age, onAgeChange, sex, onSexChange, bio, onBioChange }: Props) {
   const { colors, common } = useTheme();
   const styles = useMemo(() => makeStyles(colors), [colors]);
 
@@ -24,6 +26,14 @@ export default function AboutSection({ age, onAgeChange, sex, onSexChange, bio, 
     <View style={common.card}>
       <Text style={common.h2}>About you</Text>
       <Text style={styles.hint}>Helps your AI coach give age-appropriate guidance.</Text>
+      <Text style={common.label}>Name</Text>
+      <TextInput
+        style={common.input}
+        placeholder="e.g. Katie"
+        value={name}
+        onChangeText={onNameChange}
+        maxLength={60}
+      />
       <Text style={common.label}>Age</Text>
       <TextInput
         style={common.input}
@@ -45,6 +55,9 @@ export default function AboutSection({ age, onAgeChange, sex, onSexChange, bio, 
             key={o.key}
             style={[styles.toggleBtn, sex === o.key && styles.toggleBtnActive]}
             onPress={() => onSexChange(sex === o.key ? '' : o.key)}
+            accessibilityRole="button"
+            accessibilityState={{ selected: sex === o.key }}
+            accessibilityLabel={`Sex: ${o.label}`}
           >
             <Text style={[styles.toggleText, sex === o.key && styles.toggleTextActive]}>
               {o.label}

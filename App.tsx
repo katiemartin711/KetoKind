@@ -13,7 +13,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { deleteDatabaseSync } from 'expo-sqlite';
 import * as SplashScreen from 'expo-splash-screen';
-import { initDb } from './src/db';
+import { initDb, closeDatabase } from './src/db';
 import type { RootTabParamList } from './src/types';
 import { ThemeProvider, useTheme } from './src/ThemeContext';
 import DashboardScreen from './src/screens/DashboardScreen';
@@ -123,6 +123,9 @@ export default function App() {
 
   const resetDb = () => {
     try {
+      // Close the open handle first: the file can't be deleted while it's
+      // open, and the stale handle would keep writing to the deleted file.
+      closeDatabase();
       deleteDatabaseSync('ketokind.db');
       initDb();
       setDbError(null);

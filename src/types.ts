@@ -15,6 +15,7 @@ export const DIET_TYPES: DietType[] = ['keto', 'carnivore', 'lion', 'paleo'];
 
 export interface Profile {
   id: number;
+  name: string; // '' = not set — what the AI coach should call the user
   diet_type: DietType;
   diet_nuances: string;
   goals: string;
@@ -68,7 +69,9 @@ export interface FoodLog {
 export interface MedLog {
   id: number;
   medication_id: number;
-  medication_name: string; // joined from medications table
+  name: string; // snapshot of the medication's name when the dose was logged —
+  // history survives renames/deletes on the Profile tab ('' for rows logged
+  // before the v2 migration whose medication was already gone)
   taken_at: string; // ISO string
   quantity: number; // how many taken (1 for scheduled doses)
 }

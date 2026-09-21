@@ -43,8 +43,13 @@ export function addFoodLog(name: string, mealType: string, notes: string, logged
 }
 
 export function addMedLog(medicationId: number, takenAt: string, quantity: number = 1): void {
-  database().runSync('INSERT INTO med_logs (medication_id, taken_at, quantity) VALUES (?, ?, ?)', [
+  // Snapshot the name so the dose history survives later renames/deletes.
+  const m = database().getFirstSync<{ name: string }>('SELECT name FROM medications WHERE id = ?', [
     medicationId,
+  ]);
+  database().runSync('INSERT INTO med_logs (medication_id, name, taken_at, quantity) VALUES (?, ?, ?, ?)', [
+    medicationId,
+    m?.name ?? '',
     takenAt,
     quantity,
   ]);
@@ -96,8 +101,13 @@ export function updateMedLog(
   takenAt: string,
   quantity: number = 1,
 ): void {
-  database().runSync('UPDATE med_logs SET medication_id = ?, taken_at = ?, quantity = ? WHERE id = ?', [
+  // Re-snapshot the name — the dose now refers to this medication's current name.
+  const m = database().getFirstSync<{ name: string }>('SELECT name FROM medications WHERE id = ?', [
     medicationId,
+  ]);
+  database().runSync('UPDATE med_logs SET medication_id = ?, name = ?, taken_at = ?, quantity = ? WHERE id = ?', [
+    medicationId,
+    m?.name ?? '',
     takenAt,
     quantity,
     id,
@@ -140,9 +150,9 @@ export function getFoodLog(id: number): FoodLog | null {
   return database().getFirstSync<FoodLog>('SELECT * FROM food_logs WHERE id = ?', [id]);
 }
 
-export function getMedLog(id: number): Pick<MedLog, 'id' | 'medication_id' | 'taken_at' | 'quantity'> | null {
-  return database().getFirstSync<Pick<MedLog, 'id' | 'medication_id' | 'taken_at' | 'quantity'>>(
-    'SELECT id, medication_id, taken_at, quantity FROM med_logs WHERE id = ?',
+export function getMedLog(id: number): Pick<MedLog, 'id' | 'medication_id' | 'name' | 'taken_at' | 'quantity'> | null {
+  return database().getFirstSync<Pick<MedLog, 'id' | 'medication_id' | 'name' | 'taken_at' | 'quantity'>>(
+    'SELECT id, medication_id, name, taken_at, quantity FROM med_logs WHERE id = ?',
     [id],
   );
 }
@@ -197,9 +207,9 @@ export function getLogsForDay(date: Date): AnyLog[] {
     'SELECT * FROM food_logs WHERE logged_at BETWEEN ? AND ? ORDER BY logged_at DESC',
     [start, end],
   );
-  const meds = database().getAllSync<Omit<MedLog, 'medication_name'> & { medication_name: string | null }>(
-    `SELECT med_logs.id, med_logs.medication_id, medications.name AS medication_name, med_logs.taken_at, med_logs.quantity
-     FROM med_logs LEFT JOIN medications ON medications.id = med_logs.medication_id
+  const meds = database().getAllSync<MedLog>(
+    `SELECT id, medication_id, name, taken_at, quantity
+     FROM med_logs
      WHERE taken_at BETWEEN ? AND ? ORDER BY taken_at DESC`,
     [start, end],
   );
@@ -227,9 +237,10 @@ export function getLogsForDay(date: Date): AnyLog[] {
     ...meds.map((m) => ({
       kind: 'medication' as const,
       id: m.id,
-      // The medication may have been deleted from the profile since — the
-      // dose history is still real, so keep showing it.
-      title: m.medication_name ?? 'Deleted medication',
+      // The snapshot keeps the dose's name even if the medication was renamed
+      // or deleted from the profile since; rows from before the v2 migration
+      // whose medication was already gone have an empty name.
+      title: m.name || 'Deleted medication',
       detail: m.quantity > 1 ? `Took ${m.quantity}` : 'Taken',
       logged_at: m.taken_at,
     })),

@@ -27,7 +27,8 @@ export interface ExportData {
   recentMeals: FoodLog[];
   recentSymptoms: SymptomLog[];
   recentSupplements: SupplementLog[];
-  recentMeds: MedLog[];
+  /** Med doses with the name snapshot (aliased like the old join for display). */
+  recentMeds: (Omit<MedLog, 'name'> & { medication_name: string })[];
   rangeLabel: string;
 }
 
@@ -76,9 +77,9 @@ export function getExportData(): ExportData {
       'SELECT * FROM supplement_logs WHERE logged_at BETWEEN ? AND ? ORDER BY logged_at DESC LIMIT 40',
       [startIso, endIso],
     ),
-    recentMeds: database().getAllSync<MedLog & { medication_name: string | null }>(
-      `SELECT med_logs.id, med_logs.medication_id, medications.name AS medication_name, med_logs.taken_at, med_logs.quantity
-       FROM med_logs LEFT JOIN medications ON medications.id = med_logs.medication_id
+    recentMeds: database().getAllSync<Omit<MedLog, 'name'> & { medication_name: string }>(
+      `SELECT med_logs.id, med_logs.medication_id, med_logs.name AS medication_name, med_logs.taken_at, med_logs.quantity
+       FROM med_logs
        WHERE taken_at BETWEEN ? AND ? ORDER BY taken_at DESC LIMIT 60`,
       [startIso, endIso],
     ),

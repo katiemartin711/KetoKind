@@ -7,11 +7,12 @@ import { database } from './client';
  * schema changes — initDb() applies every migration newer than the stored
  * PRAGMA user_version, in order.
  */
-const SCHEMA_VERSION = 1;
+const SCHEMA_VERSION = 2;
 
 /** version -> SQL statements to run when upgrading TO that version. */
 const MIGRATIONS: Record<number, string[]> = {
-  // 2: ['ALTER TABLE ... ADD COLUMN ...'],
+  // v2 adds its columns idempotently in initDb() (fresh installs already get
+  // them from CREATE TABLE, so a raw ALTER would fail there).
 };
 
 /** ALTER TABLE ... ADD COLUMN, but only when the column isn't there yet. */
@@ -28,6 +29,7 @@ export function initDb(): void {
     PRAGMA journal_mode = WAL;
     CREATE TABLE IF NOT EXISTS profile (
       id INTEGER PRIMARY KEY CHECK (id = 1),
+      name TEXT NOT NULL DEFAULT '',
       diet_type TEXT NOT NULL DEFAULT 'carnivore',
       diet_nuances TEXT NOT NULL DEFAULT '',
       goals TEXT NOT NULL DEFAULT '',
@@ -74,6 +76,7 @@ export function initDb(): void {
     CREATE TABLE IF NOT EXISTS med_logs (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       medication_id INTEGER NOT NULL,
+      name TEXT NOT NULL DEFAULT '',
       taken_at TEXT NOT NULL,
       quantity INTEGER NOT NULL DEFAULT 1
     );
@@ -104,8 +107,8 @@ export function initDb(): void {
     database().runSync("INSERT INTO profile (id, diet_type, diet_nuances, goals) VALUES (1, 'carnivore', '', '')");
   }
 
-  const stored = database().getFirstSync<{ v: number }>('PRAGMA user_version');
-  const currentVersion = stored?.v ?? 0;
+  const stored = database().getFirstSync<{ user_version: number }>('PRAGMA user_version');
+  const currentVersion = stored?.user_version ?? 0;
   if (currentVersion === 0) {
     // Databases created before versioning existed: bring every table up to the
     // v1 schema idempotently. Harmless on fresh installs (columns already there).
@@ -143,6 +146,22 @@ export function initDb(): void {
     for (const stmt of MIGRATIONS[v] ?? []) {
       database().execSync(stmt);
     }
+  }
+  if (currentVersion < 2) {
+    // v2: med-log name snapshots + the profile name field. Idempotent —
+    // fresh installs already have the columns from CREATE TABLE above.
+    // A dose keeps the medication's name even if it's renamed or deleted on
+    // the Profile tab (supplement_logs already did this).
+    addColumnIfMissing('med_logs', 'name', "TEXT NOT NULL DEFAULT ''");
+    addColumnIfMissing('profile', 'name', "TEXT NOT NULL DEFAULT ''");
+    // Backfill the snapshot for doses logged before the column existed. Rows
+    // whose medication was already deleted keep name = '' (shown as
+    // "Deleted medication"); everything still in the profile gets its name.
+    database().execSync(`
+      UPDATE med_logs
+      SET name = COALESCE((SELECT name FROM medications WHERE medications.id = med_logs.medication_id), '')
+      WHERE name = '';
+    `);
   }
   database().execSync(`PRAGMA user_version = ${SCHEMA_VERSION}`);
 }

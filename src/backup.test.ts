@@ -17,8 +17,10 @@ import {
   addSymptomLog,
   addWeightLog,
   deleteAllData,
+  deleteMedication,
   dismissMilestones,
   exportBackup,
+  getLogsForDay,
   importBackup,
   initDb,
   isDatabaseBackup,
@@ -27,6 +29,8 @@ import {
   saveProfile,
   setThemeMode,
   setWeightTracking,
+  updateMedication,
+  updateMedLog,
   validateBackup,
   type DatabaseBackup,
 } from './db';
@@ -79,7 +83,7 @@ function setup(): NodeSqliteHandle {
 
 /** Representative data across every table the backup covers. */
 function populateDb(): void {
-  saveProfile('keto', 'No dairy', 'Lose 20 lbs', 32, 'female', 'Test bio', '2024-03-14');
+  saveProfile('keto', 'No dairy', 'Lose 20 lbs', 32, 'female', 'Test bio', '2024-03-14', 'Katie');
   setWeightTracking(true, 180);
   setThemeMode('dark');
   dismissMilestones(['d7']);
@@ -359,5 +363,172 @@ check('withTransactionSync commits on success, rolls back on throw', () => {
   }
 });
 
-console.log(`\n${passed} passed, ${failed} failed`);
+// --- v2 migration & data integrity -------------------------------------------
+/**
+ * A database in the exact v1 shape (no name columns), as if created by the
+ * app before the v2 migration existed. initDb() must migrate it for real.
+ */
+function setupV1(): NodeSqliteHandle {
+  const handle = new NodeSqliteHandle();
+  __setDbForTests(handle);
+  handle.execSync(`
+    CREATE TABLE profile (
+      id INTEGER PRIMARY KEY CHECK (id = 1),
+      diet_type TEXT NOT NULL DEFAULT 'carnivore',
+      diet_nuances TEXT NOT NULL DEFAULT '',
+      goals TEXT NOT NULL DEFAULT '',
+      theme_mode TEXT NOT NULL DEFAULT 'system',
+      track_weight INTEGER NOT NULL DEFAULT 0,
+      starting_weight REAL,
+      age INTEGER,
+      sex TEXT NOT NULL DEFAULT '',
+      bio TEXT NOT NULL DEFAULT '',
+      diet_start TEXT,
+      dismissed_milestones TEXT NOT NULL DEFAULT ''
+    );
+    CREATE TABLE medications (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      dosage TEXT NOT NULL DEFAULT '',
+      times_per_day INTEGER NOT NULL DEFAULT 1,
+      purpose TEXT NOT NULL DEFAULT '',
+      as_needed INTEGER NOT NULL DEFAULT 0
+    );
+    CREATE TABLE med_logs (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      medication_id INTEGER NOT NULL,
+      taken_at TEXT NOT NULL,
+      quantity INTEGER NOT NULL DEFAULT 1
+    );
+  `);
+  handle.runSync('INSERT INTO profile (id) VALUES (1)');
+  handle.execSync('PRAGMA user_version = 1;');
+  return handle;
+}
+
+check('v2 migration adds name columns and backfills med-log names', () => {
+  const handle = setupV1();
+  try {
+    handle.runSync(
+      "INSERT INTO medications (name, dosage, times_per_day, purpose, as_needed) VALUES ('Metformin', '500mg', 2, 'blood sugar', 0)",
+    );
+    handle.runSync(
+      "INSERT INTO med_logs (medication_id, taken_at, quantity) VALUES (1, '2026-09-10T08:00:00.000Z', 2)",
+    );
+    // A dose whose medication was deleted before v2 — nothing to backfill from.
+    handle.runSync(
+      "INSERT INTO med_logs (medication_id, taken_at, quantity) VALUES (999, '2026-09-11T08:00:00.000Z', 1)",
+    );
+    initDb(); // runs the real v2 migration
+    const rows = handle.getAllSync<{ id: number; name: string }>(
+      'SELECT id, name FROM med_logs ORDER BY id',
+    );
+    eq(
+      rows,
+      [
+        { id: 1, name: 'Metformin' },
+        { id: 2, name: '' },
+      ],
+      'names backfilled from medications; orphan stays empty',
+    );
+    eq(
+      handle.getFirstSync<{ user_version: number }>('PRAGMA user_version')?.user_version,
+      2,
+      'version stamped at 2',
+    );
+    const profileCols = handle.getAllSync<{ name: string }>('PRAGMA table_info(profile)');
+    ok(
+      profileCols.some((c) => c.name === 'name'),
+      'profile.name column exists after migration',
+    );
+  } finally {
+    handle.close();
+  }
+});
+
+check('med-log name snapshot survives medication rename and delete', () => {
+  const handle = setup();
+  try {
+    addMedication('Metformin', '500mg', 2, 'blood sugar', false);
+    const medId = mustFind(listMedications(), (m) => m.name === 'Metformin', 'Metformin').id;
+    addMedLog(medId, '2026-09-15T08:00:00.000Z', 1);
+    const day = new Date('2026-09-15T12:00:00');
+    updateMedication(medId, 'Metformin ER', '500mg', 2, 'blood sugar', false);
+    eq(getLogsForDay(day)[0].title, 'Metformin', 'history keeps the name from log time');
+    deleteMedication(medId);
+    eq(getLogsForDay(day)[0].title, 'Metformin', 'history keeps the name after delete');
+  } finally {
+    handle.close();
+  }
+});
+
+check('updateMedLog re-snapshots the medication name', () => {
+  const handle = setup();
+  try {
+    addMedication('Metformin', '500mg', 2, 'blood sugar', false);
+    addMedication('Melatonin', '3mg', 1, 'sleep', true);
+    const metId = mustFind(listMedications(), (m) => m.name === 'Metformin', 'm1').id;
+    const melId = mustFind(listMedications(), (m) => m.name === 'Melatonin', 'm2').id;
+    addMedLog(metId, '2026-09-15T08:00:00.000Z', 1);
+    const day = new Date('2026-09-15T12:00:00');
+    const logId = getLogsForDay(day)[0].id;
+    updateMedication(metId, 'Metformin ER', '500mg', 2, 'blood sugar', false);
+    updateMedLog(logId, melId, '2026-09-15T09:00:00.000Z', 1);
+    eq(getLogsForDay(day)[0].title, 'Melatonin', 'edit points the dose at the new medication');
+  } finally {
+    handle.close();
+  }
+});
+
+check('legacy (pre-v2) backup without med names imports and backfills', () => {
+  const handle = setup();
+  try {
+    populateDb();
+    const b = validBackup();
+    // Strip the v2 fields, exactly like a backup exported by the old app.
+    delete (b.profile as Record<string, unknown>).name;
+    for (const r of rowsOf(b, 'medLogs')) delete r.name;
+    eq(validateBackup(b), [], 'legacy backup still validates');
+    ok(isDatabaseBackup(b), 'guard accepts legacy backup');
+    importBackup(b as unknown as DatabaseBackup);
+    ok(
+      exportBackup().medLogs.every((m) => m.name !== ''),
+      'med names backfilled from restored medications',
+    );
+    eq(exportBackup().profile.name, '', 'missing profile name defaults to empty');
+  } finally {
+    handle.close();
+  }
+});
+
+check('deleteAllData resets theme_mode and name', () => {
+  const handle = setup();
+  try {
+    populateDb(); // sets theme dark and name Katie
+    deleteAllData();
+    const p = exportBackup().profile;
+    eq(p.theme_mode, 'system', 'theme reset to system');
+    eq(p.name, '', 'name cleared');
+    eq(p.diet_type, 'carnivore', 'other fields still reset');
+  } finally {
+    handle.close();
+  }
+});
+
+check('profile name survives backup round-trip', () => {
+  const handle = setup();
+  try {
+    populateDb();
+    const before = snapshot();
+    const parsed: unknown = JSON.parse(JSON.stringify(exportBackup()));
+    ok(isDatabaseBackup(parsed), 'validates');
+    if (isDatabaseBackup(parsed)) importBackup(parsed);
+    eq(snapshot(), before, 'restored data identical, name included');
+  } finally {
+    handle.close();
+  }
+});
+
+console.log(`
+${passed} passed, ${failed} failed`);
 if (failed > 0) throw new Error(`${failed} test(s) failed`);

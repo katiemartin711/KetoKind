@@ -28,8 +28,8 @@ export interface DatabaseBackup {
   medications: Medication[];
   supplements: Supplement[];
   foodLogs: FoodLog[];
-  /** Raw med log rows (no joined medication name — the link is medication_id). */
-  medLogs: Array<{ id: number; medication_id: number; taken_at: string; quantity: number }>;
+  /** Med log rows carry the name snapshot taken when the dose was logged. */
+  medLogs: Array<{ id: number; medication_id: number; name: string; taken_at: string; quantity: number }>;
   symptomLogs: SymptomLog[];
   supplementLogs: SupplementLog[];
   weightLogs: WeightLog[];
@@ -47,7 +47,7 @@ export function exportBackup(): DatabaseBackup {
     supplements: listSupplements(),
     foodLogs: database().getAllSync<FoodLog>('SELECT * FROM food_logs ORDER BY id'),
     medLogs: database().getAllSync<DatabaseBackup['medLogs'][number]>(
-      'SELECT id, medication_id, taken_at, quantity FROM med_logs ORDER BY id',
+      'SELECT id, medication_id, name, taken_at, quantity FROM med_logs ORDER BY id',
     ),
     symptomLogs: database().getAllSync<SymptomLog>('SELECT * FROM symptom_logs ORDER BY id'),
     supplementLogs: database().getAllSync<SupplementLog>('SELECT * FROM supplement_logs ORDER BY id'),
@@ -143,6 +143,10 @@ export function validateBackup(value: unknown): BackupIssue[] {
     if (p.theme_mode !== 'system' && p.theme_mode !== 'light' && p.theme_mode !== 'dark') {
       at('profile.theme_mode', "must be 'system', 'light', or 'dark'");
     }
+    // 'name' is optional: pre-v2 backups don't have it, '' is the default.
+    if (p.name !== undefined && typeof p.name !== 'string') {
+      at('profile.name', 'must be a string');
+    }
     if (!isFlag(p.track_weight)) at('profile.track_weight', 'must be 0 or 1');
     if (p.starting_weight !== null && !isWeight(p.starting_weight)) {
       at('profile.starting_weight', 'must be null or a plausible weight in lbs');
@@ -218,6 +222,10 @@ export function validateBackup(value: unknown): BackupIssue[] {
       at(`${path}.medication_id`, 'must be a positive integer');
     } else if (!medicationIds.has(mid)) {
       at(`${path}.medication_id`, `no medication with id ${mid} in this backup`);
+    }
+    // 'name' is optional: pre-v2 backups don't have it (import backfills it).
+    if (row.name !== undefined && typeof row.name !== 'string') {
+      at(`${path}.name`, 'must be a string');
     }
     expectTimestamp(row, 'taken_at', path);
     expectQuantity(row, 'quantity', path);
@@ -304,10 +312,11 @@ export function importBackup(b: DatabaseBackup): void {
     const sex = p.sex === 'female' || p.sex === 'male' ? p.sex : '';
     database().runSync(
       `INSERT OR REPLACE INTO profile
-         (id, diet_type, diet_nuances, goals, theme_mode, track_weight, starting_weight,
+         (id, name, diet_type, diet_nuances, goals, theme_mode, track_weight, starting_weight,
           age, sex, bio, diet_start, dismissed_milestones)
-       VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+       VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
+        str(p.name),
         dietType,
         str(p.diet_nuances),
         str(p.goals),
@@ -346,10 +355,17 @@ export function importBackup(b: DatabaseBackup): void {
       ]);
     }
     for (const m of b.medLogs) {
-      database().runSync('INSERT INTO med_logs (id, medication_id, taken_at, quantity) VALUES (?, ?, ?, ?)', [
-        m.id, num(m.medication_id, 0), str(m.taken_at), num(m.quantity, 1),
+      database().runSync('INSERT INTO med_logs (id, medication_id, name, taken_at, quantity) VALUES (?, ?, ?, ?, ?)', [
+        m.id, num(m.medication_id, 0), str(m.name), str(m.taken_at), num(m.quantity, 1),
       ]);
     }
+    // Pre-v2 backups carry no med-log name snapshots — fill them from the
+    // restored medications so history keeps its names.
+    database().execSync(`
+      UPDATE med_logs
+      SET name = COALESCE((SELECT name FROM medications WHERE medications.id = med_logs.medication_id), '')
+      WHERE name = '';
+    `);
     for (const s of b.symptomLogs) {
       database().runSync('INSERT INTO symptom_logs (id, name, severity, logged_at, notes) VALUES (?, ?, ?, ?, ?)', [
         s.id, str(s.name), num(s.severity, 3), str(s.logged_at), str(s.notes),

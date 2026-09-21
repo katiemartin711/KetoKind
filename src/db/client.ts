@@ -42,3 +42,18 @@ export function database(): DbHandle {
 export function __setDbForTests(handle: DbHandle): void {
   db = handle;
 }
+
+/**
+ * Close the live handle (if the underlying driver supports it) and forget it,
+ * so the next database() call re-opens. Required before deleting the database
+ * file (expo-sqlite's deleteDatabaseSync): the file can't be removed while an
+ * open handle points at it, and a stale handle would keep writing to the
+ * deleted file afterwards.
+ */
+export function closeDatabase(): void {
+  try {
+    (db as unknown as { closeSync?: () => void } | null)?.closeSync?.();
+  } finally {
+    db = null;
+  }
+}

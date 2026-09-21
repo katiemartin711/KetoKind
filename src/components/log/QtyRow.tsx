@@ -21,11 +21,21 @@ export default function QtyRow({
     <View style={styles.qtyRow}>
       <Text style={styles.qtyName}>{name}</Text>
       <View style={styles.stepper}>
-        <TouchableOpacity style={styles.stepBtn} onPress={onDec}>
+        <TouchableOpacity
+          style={styles.stepBtn}
+          onPress={onDec}
+          accessibilityRole="button"
+          accessibilityLabel={`Take one fewer ${name}`}
+        >
           <Text style={styles.stepBtnText}>−</Text>
         </TouchableOpacity>
         <Text style={styles.qtyValue}>{qty}</Text>
-        <TouchableOpacity style={styles.stepBtn} onPress={onInc}>
+        <TouchableOpacity
+          style={styles.stepBtn}
+          onPress={onInc}
+          accessibilityRole="button"
+          accessibilityLabel={`Take one more ${name}`}
+        >
           <Text style={styles.stepBtnText}>+</Text>
         </TouchableOpacity>
       </View>

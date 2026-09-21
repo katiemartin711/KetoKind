@@ -78,6 +78,9 @@ export default function MedSuppSection(props: Props) {
             key={t}
             style={[styles.toggleBtn, tab === t && styles.toggleBtnActive]}
             onPress={() => onTabChange(t)}
+            accessibilityRole="button"
+            accessibilityState={{ selected: tab === t }}
+            accessibilityLabel={t === 'medication' ? 'Medications' : 'Supplements'}
           >
             <Text style={[styles.toggleText, tab === t && styles.toggleTextActive]}>
               {t === 'medication' ? 'Medications' : 'Supplements'}
@@ -145,6 +148,9 @@ export default function MedSuppSection(props: Props) {
         style={styles.asNeededRow}
         onPress={() => onFormChange({ asNeeded: !form.asNeeded })}
         activeOpacity={0.7}
+        accessibilityRole="checkbox"
+        accessibilityState={{ checked: form.asNeeded }}
+        accessibilityLabel="As needed (not on a daily schedule)"
       >
         <View style={[styles.checkbox, form.asNeeded && styles.checkboxActive]}>
           {form.asNeeded && <Text style={styles.checkmark}>✓</Text>}

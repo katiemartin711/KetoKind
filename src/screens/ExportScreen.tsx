@@ -34,6 +34,7 @@ function buildContextMarkdown(data: ExportData): string {
   lines.push(`_Exported ${new Date().toLocaleString()} (${tz})_`);
   lines.push('');
   lines.push('## Profile');
+  lines.push(`- **Name:** ${profile.name || 'Not specified'}`);
   lines.push(`- **Diet type:** ${DIET_LABELS[profile.diet_type]}`);
   const dietStartFmt = formatDietStart(profile.diet_start);
   const dietDuration = dietDurationLabel(profile.diet_start);
@@ -86,7 +87,7 @@ function buildContextMarkdown(data: ExportData): string {
   if (data.recentMeds.length > 0) {
     lines.push('### Recent medication doses');
     for (const m of data.recentMeds) {
-      const name = m.medication_name ?? 'Deleted medication';
+      const name = m.medication_name || 'Deleted medication';
       const qty = m.quantity > 1 ? ` (took ${m.quantity})` : '';
       lines.push(`- ${fmtDateTime(m.taken_at)} — ${name} taken${qty}`);
     }

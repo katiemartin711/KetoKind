@@ -32,6 +32,9 @@ export default function WeightSection({
         style={styles.asNeededRow}
         onPress={() => onTrackWeightChange(!trackWeight)}
         activeOpacity={0.7}
+        accessibilityRole="checkbox"
+        accessibilityState={{ checked: trackWeight }}
+        accessibilityLabel="Track my weight"
       >
         <View style={[styles.checkbox, trackWeight && styles.checkboxActive]}>
           {trackWeight && <Text style={styles.checkmark}>✓</Text>}

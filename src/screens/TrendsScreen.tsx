@@ -345,7 +345,7 @@ export default function TrendsScreen() {
                   {mode === 'food' && foodKeyword === '' && (
                     <View style={common.card}>
                       <Text style={[styles.body, { color: colors.muted }]}>
-                        {`Type a food above — e.g. eggs or dairy — to compare your ${selSymptom || 'symptom'} severity on days you logged it vs. days you didn't.`}
+                        {`Type a food above — e.g. eggs or dairy — to compare your ${selSymptom || 'symptom'} severity on days you consumed it vs. days you didn't.`}
                       </Text>
                     </View>
                   )}
@@ -353,7 +353,7 @@ export default function TrendsScreen() {
                     <PatternDetailCard
                       symptomName={selSymptom}
                       itemLabel={foodKeyword}
-                      onDaysWord="logged"
+                      onDaysWord="consumed"
                       comparison={foodComparison}
                       buckets={foodBuckets}
                     />
@@ -373,7 +373,7 @@ export default function TrendsScreen() {
                             {`${p.symptomName} × ${p.itemName}`}
                           </Text>
                           <Text style={[styles.body, { color: colors.muted }]}>
-                            {`Severity averaged ${diffLabel(p.diff)} (${p.daysTaken} vs. ${p.daysNotTaken} days)`}
+                            {`Severity averaged ${diffLabel(p.diff, p.itemKind === 'food' ? 'consumed' : 'taken')} (${p.daysTaken} vs. ${p.daysNotTaken} days)`}
                           </Text>
                         </View>
                       ))

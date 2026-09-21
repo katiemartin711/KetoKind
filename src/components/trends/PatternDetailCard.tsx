@@ -8,8 +8,8 @@ import type { DayBuckets, PatternComparison } from '../../trendsStats';
 interface Props {
   symptomName: string;
   itemLabel: string;
-  /** 'taken' for meds/supplements, 'logged' for foods — wording variant. */
-  onDaysWord: 'taken' | 'logged';
+  /** 'taken' for meds/supplements, 'consumed' for foods — wording variant. */
+  onDaysWord: 'taken' | 'consumed';
   comparison: PatternComparison | null;
   buckets: DayBuckets;
 }
@@ -28,12 +28,13 @@ export default function PatternDetailCard({
 }: Props) {
   const { colors, common } = useTheme();
   const styles = useMemo(() => makeStyles(colors), [colors]);
-  const withLabel = onDaysWord === 'taken' ? 'days taken' : 'days with';
-  const withoutLabel = onDaysWord === 'taken' ? 'days not taken' : 'days without';
+  const withLabel = onDaysWord === 'taken' ? 'days taken' : 'days consumed';
+  const withoutLabel = onDaysWord === 'taken' ? 'days not taken' : 'days not consumed';
+  const headerVerb = onDaysWord === 'taken' ? 'logged' : 'consumed';
   return (
     <View style={common.card}>
       <Text style={common.h2}>
-        {symptomName} — on days you logged {itemLabel}
+        {symptomName} — on days you {headerVerb} {itemLabel}
       </Text>
       <View style={styles.statRow}>
         <View style={styles.stat}>
@@ -55,11 +56,11 @@ export default function PatternDetailCard({
       </View>
       {comparison ? (
         <Text style={[styles.body, { color: colors.text }]}>
-          {`Severity averaged ${diffLabel(comparison.diff, onDaysWord)} — ${comparison.daysTaken} days with vs. ${comparison.daysNotTaken} days without ${itemLabel}, on days you logged ${symptomName}.`}
+          {`Severity averaged ${diffLabel(comparison.diff, onDaysWord)} — ${comparison.daysTaken} ${withLabel} vs. ${comparison.daysNotTaken} ${withoutLabel} ${itemLabel}, on days you logged ${symptomName}.`}
         </Text>
       ) : (
         <Text style={[styles.body, { color: colors.muted }]}>
-          {`Not enough data yet — patterns need at least ${MIN_COMPARISON_DAYS} days on each side and ${MIN_BASELINE_DAYS}+ days on one side, on days you logged ${symptomName}. So far: ${buckets.taken.length} days with, ${buckets.notTaken.length} days without ${itemLabel}.`}
+          {`Not enough data yet — patterns need at least ${MIN_COMPARISON_DAYS} days on each side and ${MIN_BASELINE_DAYS}+ days on one side, on days you logged ${symptomName}. So far: ${buckets.taken.length} ${withLabel}, ${buckets.notTaken.length} ${withoutLabel} ${itemLabel}.`}
         </Text>
       )}
     </View>

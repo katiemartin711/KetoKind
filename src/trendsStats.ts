@@ -187,10 +187,10 @@ export function summarizeWeights(points: WeightPoint[]): WeightSummary | null {
   };
 }
 
-/** "0.8 lower on days taken" / "1.2 higher on days logged" — describes the
+/** "0.8 lower on days taken" / "1.2 higher on days consumed" — describes the
  *  pattern in the logs without implying cause. The onDays word is "taken"
- *  for meds/supplements, "logged" for foods. */
-export function diffLabel(diff: number, onDays: 'taken' | 'logged' = 'taken'): string {
+ *  for meds/supplements, "consumed" for foods. */
+export function diffLabel(diff: number, onDays: 'taken' | 'consumed' = 'taken'): string {
   const v = round1(Math.abs(diff));
   if (v === 0) return `about the same on days ${onDays} vs. not ${onDays}`;
   return `${v} ${diff < 0 ? 'lower' : 'higher'} on days ${onDays}`;

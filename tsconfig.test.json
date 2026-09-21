@@ -31,6 +31,7 @@
     "src/pro.ts",
     "src/pro.test.ts",
     "src/trendsStats.ts",
-    "src/trendsStats.test.ts"
+    "src/trendsStats.test.ts",
+    "src/logs.test.ts"
   ]
 }

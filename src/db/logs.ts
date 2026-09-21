@@ -227,46 +227,83 @@ export function getLogsForDay(date: Date): AnyLog[] {
   );
 
   const all: AnyLog[] = [
-    ...meals.map((m) => ({
-      kind: 'meal' as const,
-      id: m.id,
-      title: m.name,
-      detail: m.meal_type + (m.notes ? ` — ${m.notes}` : ''),
-      logged_at: m.logged_at,
-    })),
-    ...meds.map((m) => ({
-      kind: 'medication' as const,
-      id: m.id,
-      // The snapshot keeps the dose's name even if the medication was renamed
-      // or deleted from the profile since; rows from before the v2 migration
-      // whose medication was already gone have an empty name.
-      title: m.name || 'Deleted medication',
-      detail: m.quantity > 1 ? `Took ${m.quantity}` : 'Taken',
-      logged_at: m.taken_at,
-    })),
-    ...symptoms.map((s) => ({
-      kind: 'symptom' as const,
-      id: s.id,
-      title: s.name,
-      detail: `Severity ${s.severity}/5` + (s.notes ? ` — ${s.notes}` : ''),
-      logged_at: s.logged_at,
-    })),
-    ...supplements.map((s) => ({
-      kind: 'supplement' as const,
-      id: s.id,
-      title: s.name,
-      detail: s.quantity > 1 ? `Took ${s.quantity}` : s.notes || 'Logged',
-      logged_at: s.logged_at,
-    })),
-    ...weights.map((w) => ({
-      kind: 'weight' as const,
-      id: w.id,
-      title: `${w.weight} lbs`,
-      detail: 'Weigh-in',
-      logged_at: w.logged_at,
-    })),
+    ...meals.map(mapMeal),
+    ...meds.map(mapMed),
+    ...symptoms.map(mapSymptom),
+    ...supplements.map(mapSupplement),
+    ...weights.map(mapWeight),
   ];
   return all.sort((a, b) => (a.logged_at < b.logged_at ? 1 : -1));
+}
+
+function mapMeal(m: FoodLog): AnyLog {
+  return {
+    kind: 'meal',
+    id: m.id,
+    title: m.name,
+    detail: m.meal_type + (m.notes ? ` — ${m.notes}` : ''),
+    logged_at: m.logged_at,
+  };
+}
+
+function mapMed(m: MedLog): AnyLog {
+  return {
+    kind: 'medication',
+    id: m.id,
+    // The snapshot keeps the dose's name even if the medication was renamed
+    // or deleted from the profile since; rows from before the v2 migration
+    // whose medication was already gone have an empty name.
+    title: m.name || 'Deleted medication',
+    detail: m.quantity > 1 ? `Took ${m.quantity}` : 'Taken',
+    logged_at: m.taken_at,
+  };
+}
+
+function mapSymptom(s: SymptomLog): AnyLog {
+  return {
+    kind: 'symptom',
+    id: s.id,
+    title: s.name,
+    detail: `Severity ${s.severity}/5` + (s.notes ? ` — ${s.notes}` : ''),
+    logged_at: s.logged_at,
+  };
+}
+
+function mapSupplement(s: SupplementLog): AnyLog {
+  return {
+    kind: 'supplement',
+    id: s.id,
+    title: s.name,
+    detail: s.quantity > 1 ? `Took ${s.quantity}` : s.notes || 'Logged',
+    logged_at: s.logged_at,
+  };
+}
+
+function mapWeight(w: WeightLog): AnyLog {
+  return {
+    kind: 'weight',
+    id: w.id,
+    title: `${w.weight} lbs`,
+    detail: 'Weigh-in',
+    logged_at: w.logged_at,
+  };
+}
+
+const KIND_QUERIES: Record<AnyLog['kind'], { sql: string; map: (row: any) => AnyLog }> = {
+  meal: { sql: 'SELECT * FROM food_logs ORDER BY logged_at DESC', map: mapMeal },
+  medication: {
+    sql: 'SELECT id, medication_id, name, taken_at, quantity FROM med_logs ORDER BY taken_at DESC',
+    map: mapMed,
+  },
+  symptom: { sql: 'SELECT * FROM symptom_logs ORDER BY logged_at DESC', map: mapSymptom },
+  supplement: { sql: 'SELECT * FROM supplement_logs ORDER BY logged_at DESC', map: mapSupplement },
+  weight: { sql: 'SELECT * FROM weight_logs ORDER BY logged_at DESC', map: mapWeight },
+};
+
+/** Every log of one kind, newest first, normalized for display. */
+export function getLogsOfKind(kind: AnyLog['kind']): AnyLog[] {
+  const q = KIND_QUERIES[kind];
+  return (database().getAllSync(q.sql) as any[]).map(q.map);
 }
 
 /** Counts per log type for one local day — feeds the Dashboard cards. */

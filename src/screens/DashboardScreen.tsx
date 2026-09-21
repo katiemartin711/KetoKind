@@ -5,17 +5,22 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { ScrollView, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import type { CompositeNavigationProp } from '@react-navigation/native';
 import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
 import { dismissMilestones, getDayCounts, getDismissedMilestones, getLatestWeight, getProfile, getStreak, isProfileSetup } from '../db';
-import type { LogSegment, RootTabParamList } from '../types';
+import type { AnyLog, LogSegment, RootStackParamList, RootTabParamList } from '../types';
 import { DIET_LABELS } from '../types';
 import { currentMilestone, reachedMilestones } from '../milestones';
 import type { Milestone } from '../milestones';
 import { useTheme } from '../ThemeContext';
 import type { Palette } from '../theme';
 
-type Nav = BottomTabNavigationProp<RootTabParamList>;
+type Nav = CompositeNavigationProp<
+  BottomTabNavigationProp<RootTabParamList>,
+  NativeStackNavigationProp<RootStackParamList>
+>;
 
 const QUICK_ADD: { label: string; icon: keyof typeof Ionicons.glyphMap; segment: LogSegment }[] = [
   { label: 'Meal', icon: 'restaurant-outline', segment: 'meal' },
@@ -70,15 +75,17 @@ export default function DashboardScreen() {
     day: 'numeric',
   });
 
-  const cards = [
-    { label: 'Meals logged', value: String(counts.meals), icon: 'restaurant-outline' as const },
+  const cards: { label: string; plural: string; value: string; icon: 'restaurant-outline' | 'medkit-outline' | 'pulse-outline' | 'leaf-outline'; kind: AnyLog['kind'] }[] = [
+    { label: 'Meals logged', plural: 'meals', value: String(counts.meals), icon: 'restaurant-outline', kind: 'meal' },
     {
       label: 'Medications',
+      plural: 'medications',
       value: counts.medDosesScheduled > 0 ? `${counts.medsTaken}/${counts.medDosesScheduled}` : String(counts.medsTaken),
-      icon: 'medkit-outline' as const,
+      icon: 'medkit-outline',
+      kind: 'medication',
     },
-    { label: 'Symptoms', value: String(counts.symptoms), icon: 'pulse-outline' as const },
-    { label: 'Supplements', value: String(counts.supplements), icon: 'leaf-outline' as const },
+    { label: 'Symptoms', plural: 'symptoms', value: String(counts.symptoms), icon: 'pulse-outline', kind: 'symptom' },
+    { label: 'Supplements', plural: 'supplements', value: String(counts.supplements), icon: 'leaf-outline', kind: 'supplement' },
   ];
 
   // Weight appears as a fifth quick-add button only while tracking is on.
@@ -135,11 +142,20 @@ export default function DashboardScreen() {
 
         <View style={styles.grid}>
           {cards.map((c) => (
-            <View key={c.label} style={[common.card, styles.statCard]}>
-              <Ionicons name={c.icon} size={22} color={COLORS.accent} />
+            <TouchableOpacity
+              key={c.label}
+              style={[common.card, styles.statCard]}
+              onPress={() => navigation.navigate('LogList', { logType: c.kind })}
+              accessibilityRole="button"
+              accessibilityLabel={`View all ${c.plural}`}
+            >
+              <View style={styles.statTopRow}>
+                <Ionicons name={c.icon} size={22} color={COLORS.accent} />
+                <Ionicons name="chevron-forward-outline" size={18} color={COLORS.muted} />
+              </View>
               <Text style={styles.statValue}>{c.value}</Text>
               <Text style={styles.statLabel}>{c.label}</Text>
-            </View>
+            </TouchableOpacity>
           ))}
         </View>
 
@@ -159,7 +175,12 @@ export default function DashboardScreen() {
 
         {weightCard && (
           <View style={[common.card, styles.weightCard]}>
-            <View style={styles.weightText}>
+            <TouchableOpacity
+              style={styles.weightText}
+              onPress={() => navigation.navigate('LogList', { logType: 'weight' })}
+              accessibilityRole="button"
+              accessibilityLabel="View all weigh-ins"
+            >
               <Text style={styles.weightTitle}>Weight</Text>
               <Text style={styles.weightDetail}>
                 {weightCard.latest != null
@@ -170,7 +191,7 @@ export default function DashboardScreen() {
                   weightCard.starting != null &&
                   ` (${fmtWeightChange(weightCard.latest, weightCard.starting)})`}
               </Text>
-            </View>
+            </TouchableOpacity>
             <TouchableOpacity
               style={styles.weightButton}
               onPress={() => navigation.navigate('Log', { segment: 'weight' })}
@@ -231,6 +252,12 @@ const makeStyles = (C: Palette) =>
   statCard: {
     width: '48%',
     alignItems: 'flex-start',
+  },
+  statTopRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
   },
   statValue: { fontSize: 26, fontWeight: '700', color: C.text, marginTop: 8 },
   statLabel: { fontSize: 13, color: C.muted, marginTop: 2 },

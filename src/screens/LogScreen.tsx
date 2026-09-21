@@ -6,8 +6,9 @@
 
 import React, { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import { Alert, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
-import { useFocusEffect, useRoute } from '@react-navigation/native';
+import { useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
 import type { RouteProp } from '@react-navigation/native';
+import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import {
   addFoodLog,
   addMedLog,
@@ -56,6 +57,7 @@ const SEGMENTS: { key: LogSegment; label: string }[] = [
 
 export default function LogScreen() {
   const route = useRoute<LogRoute>();
+  const tabNavigation = useNavigation<BottomTabNavigationProp<RootTabParamList>>();
   const { colors: COLORS, common } = useTheme();
   const styles = useMemo(() => makeStyles(COLORS), [COLORS]);
   const [segment, setSegment] = useState<LogSegment>('meal');
@@ -103,13 +105,29 @@ export default function LogScreen() {
   // mode and resets the time to now. Without the setEditing(null), arriving
   // here mid-edit would leave a stale `editing` that matches no branch of
   // the save handler, silently discarding the new selections.
+  //
+  // The all-logs list screen navigates here with editEntry instead: the
+  // entry is loaded into the form for editing. The param is consumed
+  // immediately so returning to the tab later doesn't re-enter edit mode.
+  // Fresh db reads (not possibly-stale state) feed startEdit, since the tab
+  // may never have been focused in this session.
+  const editEntryParam = route.params?.editEntry;
+  const segmentParam = route.params?.segment;
   useEffect(() => {
-    if (route.params?.segment) {
-      setSegment(route.params.segment);
+    if (editEntryParam) {
+      tabNavigation.setParams({ editEntry: undefined });
+      startEdit(editEntryParam, {
+        medications: listMedications(),
+        trackWeight: !!getProfile().track_weight,
+      });
+    } else if (segmentParam) {
+      setSegment(segmentParam);
       setEditing(null);
       setLogDate(new Date());
     }
-  }, [route.params?.segment]);
+    // startEdit intentionally omitted: this effect answers param changes only.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [editEntryParam, segmentParam]);
 
   // The Weight segment only exists while weight tracking is enabled.
   const visibleSegments: { key: LogSegment; label: string }[] = trackWeightOn
@@ -208,8 +226,15 @@ export default function LogScreen() {
     setEditing(null);
   };
 
-  /** Load an existing entry into the form so it can be edited (time included). */
-  const startEdit = (log: AnyLog) => {
+  /** Load an existing entry into the form so it can be edited (time included).
+   *  `ctx` lets callers pass fresh db reads instead of possibly-stale state —
+   *  used when arriving from the all-logs screen before this tab was focused. */
+  const startEdit = (
+    log: { kind: AnyLog['kind']; id: number },
+    ctx?: { medications?: Medication[]; trackWeight?: boolean },
+  ) => {
+    const meds = ctx?.medications ?? medications;
+    const weightOn = ctx?.trackWeight ?? trackWeightOn;
     resetForm();
     if (log.kind === 'meal') {
       const row = getFoodLog(log.id);
@@ -223,7 +248,7 @@ export default function LogScreen() {
       if (!row) return;
       // The medication may have been deleted from the profile since — don't
       // keep an invisible selection; the user picks a current one instead.
-      const stillExists = medications.some((m) => m.id === row.medication_id);
+      const stillExists = meds.some((m) => m.id === row.medication_id);
       dispatchSel({
         type: 'load-selection',
         medIds: stillExists ? [row.medication_id] : [],
@@ -240,7 +265,7 @@ export default function LogScreen() {
       setSymptomNotes(row.notes);
       setLogDate(new Date(row.logged_at));
     } else if (log.kind === 'weight') {
-      if (!trackWeightOn) return; // tracking was turned off in Profile
+      if (!weightOn) return; // tracking was turned off in Profile
       const row = getWeightLog(log.id);
       if (!row) return;
       setWeightInput(String(row.weight));

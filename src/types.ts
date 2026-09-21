@@ -1,5 +1,6 @@
 // Shared types for the KetoKind app.
 
+import type { NavigatorScreenParams } from '@react-navigation/native';
 import type { ThemeMode } from './theme';
 
 export type DietType = 'keto' | 'carnivore' | 'lion' | 'paleo';
@@ -112,11 +113,20 @@ export type AnyLog =
 export type LogSegment = 'meal' | 'medsupp' | 'symptom' | 'weight';
 
 /** Bottom-tab routes. The Log tab accepts an optional starting segment
- *  (used by the Dashboard quick-add buttons). */
+ *  (used by the Dashboard quick-add buttons) or an entry to load for
+ *  editing (used by the all-logs list screen). */
 export type RootTabParamList = {
   Dashboard: undefined;
-  Log: { segment?: LogSegment } | undefined;
+  Log: { segment?: LogSegment; editEntry?: { kind: AnyLog['kind']; id: number } } | undefined;
   Trends: undefined;
   Profile: undefined;
   'AI Coach': undefined;
+};
+
+export type LogListKind = AnyLog['kind'];
+
+/** Root stack: the tab navigator plus push-on-top screens. */
+export type RootStackParamList = {
+  Tabs: NavigatorScreenParams<RootTabParamList>;
+  LogList: { logType: LogListKind };
 };

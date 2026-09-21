@@ -10,20 +10,23 @@ import { Alert, Animated, StyleSheet, Text, TouchableOpacity, View, useColorSche
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
 import { deleteDatabaseSync } from 'expo-sqlite';
 import * as SplashScreen from 'expo-splash-screen';
 import { initDb, closeDatabase } from './src/db';
-import type { RootTabParamList } from './src/types';
+import type { RootStackParamList, RootTabParamList } from './src/types';
 import { ThemeProvider, useTheme } from './src/ThemeContext';
 import { TabErrorBoundary } from './src/ErrorBoundary';
 import DashboardScreen from './src/screens/DashboardScreen';
 import LogScreen from './src/screens/LogScreen';
+import LogListScreen from './src/screens/LogListScreen';
 import TrendsScreen from './src/screens/TrendsScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import ExportScreen from './src/screens/ExportScreen';
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 // Keep the native splash from auto-hiding before JS loads (matters for
 // production builds; in Expo Go the plugin config isn't displayed, so the
@@ -72,64 +75,80 @@ const TAB_ICONS: Record<keyof RootTabParamList, keyof typeof Ionicons.glyphMap> 
   'AI Coach': 'chatbubble-ellipses-outline',
 };
 
+function TabNavigator() {
+  const { colors } = useTheme();
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        headerShown: false,
+        tabBarActiveTintColor: colors.accent,
+        tabBarInactiveTintColor: colors.muted,
+        tabBarStyle: {
+          backgroundColor: colors.card,
+          borderTopColor: colors.border,
+        },
+        tabBarIcon: ({ color, size }) => (
+          <Ionicons name={TAB_ICONS[route.name]} size={size} color={color} />
+        ),
+      })}
+    >
+      <Tab.Screen name="Dashboard">
+        {() => (
+          <TabErrorBoundary tabName="Dashboard">
+            <DashboardScreen />
+          </TabErrorBoundary>
+        )}
+      </Tab.Screen>
+      <Tab.Screen name="Log">
+        {() => (
+          <TabErrorBoundary tabName="Log">
+            <LogScreen />
+          </TabErrorBoundary>
+        )}
+      </Tab.Screen>
+      <Tab.Screen name="Trends">
+        {() => (
+          <TabErrorBoundary tabName="Trends">
+            <TrendsScreen />
+          </TabErrorBoundary>
+        )}
+      </Tab.Screen>
+      <Tab.Screen name="Profile">
+        {() => (
+          <TabErrorBoundary tabName="Profile">
+            <ProfileScreen />
+          </TabErrorBoundary>
+        )}
+      </Tab.Screen>
+      <Tab.Screen name="AI Coach">
+        {() => (
+          <TabErrorBoundary tabName="AI Coach">
+            <ExportScreen />
+          </TabErrorBoundary>
+        )}
+      </Tab.Screen>
+    </Tab.Navigator>
+  );
+}
+
 function ThemedApp() {
-  const { colors, isDark } = useTheme();
+  const { isDark } = useTheme();
   const [splashDone, setSplashDone] = useState(false);
   const hideSplash = useCallback(() => setSplashDone(true), []);
 
   return (
     <>
       <NavigationContainer>
-        <Tab.Navigator
-          screenOptions={({ route }) => ({
-            headerShown: false,
-            tabBarActiveTintColor: colors.accent,
-            tabBarInactiveTintColor: colors.muted,
-            tabBarStyle: {
-              backgroundColor: colors.card,
-              borderTopColor: colors.border,
-            },
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name={TAB_ICONS[route.name]} size={size} color={color} />
-            ),
-          })}
-        >
-          <Tab.Screen name="Dashboard">
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Tabs" component={TabNavigator} />
+          <Stack.Screen name="LogList">
             {() => (
-              <TabErrorBoundary tabName="Dashboard">
-                <DashboardScreen />
+              <TabErrorBoundary tabName="LogList">
+                <LogListScreen />
               </TabErrorBoundary>
             )}
-          </Tab.Screen>
-          <Tab.Screen name="Log">
-            {() => (
-              <TabErrorBoundary tabName="Log">
-                <LogScreen />
-              </TabErrorBoundary>
-            )}
-          </Tab.Screen>
-          <Tab.Screen name="Trends">
-            {() => (
-              <TabErrorBoundary tabName="Trends">
-                <TrendsScreen />
-              </TabErrorBoundary>
-            )}
-          </Tab.Screen>
-          <Tab.Screen name="Profile">
-            {() => (
-              <TabErrorBoundary tabName="Profile">
-                <ProfileScreen />
-              </TabErrorBoundary>
-            )}
-          </Tab.Screen>
-          <Tab.Screen name="AI Coach">
-            {() => (
-              <TabErrorBoundary tabName="AI Coach">
-                <ExportScreen />
-              </TabErrorBoundary>
-            )}
-          </Tab.Screen>
-        </Tab.Navigator>
+          </Stack.Screen>
+        </Stack.Navigator>
       </NavigationContainer>
       <StatusBar style={isDark ? 'light' : 'dark'} />
       {!splashDone && <BrandedSplash onHidden={hideSplash} />}

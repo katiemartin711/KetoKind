@@ -7,6 +7,7 @@
     "@expo/vector-icons": "^15.0.2",
     "@react-navigation/bottom-tabs": "^7.19.2",
     "@react-navigation/native": "^7.4.1",
+    "buffer": "^6.0.3",
     "expo": "~57.0.24",
     "expo-clipboard": "~57.0.2",
     "expo-document-picker": "~57.0.0",

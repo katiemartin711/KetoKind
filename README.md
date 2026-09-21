@@ -123,6 +123,28 @@ npx expo start --tunnel --clear   # clear the Metro bundler cache if something l
 npx tsc --noEmit                  # typecheck the app (excludes tests)
 ```
 
+## KetoKind Pro
+
+**Free forever:** all logging (meals, medications, supplements, symptoms,
+weight), the dashboard, streaks, and milestones.
+
+**Pro — $9.99 one-time:** the AI Coach context export (copy prompt + logs, or
+share the `.md` file) and backup export/import.
+
+Free users see a Pro upsell instead of the AI Coach export UI, and tapping the
+backup buttons opens the paywall. A "KetoKind Pro" row on the Profile tab shows
+the current status (Free / Pro ✓). Entitlement is stored as `is_pro` on the
+profile row (schema v3); delete-all-data resets it.
+
+**Test mode:** real Apple in-app purchases can't run in Expo Go — they need a
+paid Apple Developer account, App Store Connect products, and a development
+build. So the paywall's Upgrade and Restore buttons *simulate* success for now
+(the paywall is clearly labeled "TEST MODE — no real charge"). The Testing
+section at the bottom of the Profile tab has a "Simulate Pro user" switch that
+flips the Pro flag instantly, so the app can be previewed as both a free and a
+paid user. The IAP hook-in points are marked with `★★★ IAP HOOK-IN POINT ★★★`
+in `src/pro.ts` (`requestPurchase()` / `restorePurchase()`).
+
 ## Testing
 
 Tests run the real `src/db/*` code against an in-memory SQLite
@@ -142,8 +164,9 @@ npm test   # tsc -p tsconfig.test.json, then node dist-test/*.test.js
 | `src/medSuppSelection.test.ts` | Log-tab med/supp selection state machine: multi-select, qty init/drop, edit-mode single-select locking of the other section, qty clamping 1–20, prune, load, reset | 10 passed |
 | `src/profileValidation.test.ts` | Profile save validation: age 1–120, diet-start month+year required, month/year/day ranges, leap days, future dates rejected | 7 passed |
 | `src/medSuppForm.test.tsx` | MedSuppForm component (via @testing-library/react-native under plain node): chips render, save disabled until selection, tap callbacks, edit-mode section locking, as-needed qty stepper | 9 passed |
+| `src/pro.test.ts` | Pro flag persistence round-trip, v3 migration (adds `is_pro` default 0 to pre-v3 profiles, preserves an already-set flag, keeps profile data), delete-all resets Pro, simulated purchase/restore helpers | 8 passed |
 
-**89 passed, 0 failed.** The app typecheck (`npx tsc --noEmit`) is clean. CI (`.github/workflows/ci.yml`) runs `npm test` and the typecheck on every push to `main` and every pull request.
+**97 passed, 0 failed.** The app typecheck (`npx tsc --noEmit`) is clean. CI (`.github/workflows/ci.yml`) runs `npm test` and the typecheck on every push to `main` and every pull request.
 
 ## Screenshots
 
@@ -160,7 +183,7 @@ Release assets (captured on iPhone via Expo Go, light and dark mode):
 ## Key dependencies (Expo SDK 57)
 
 - `expo-sqlite` — on-device database (synchronous API)
-- `expo-file-system/legacy` — writes the `.md` context file and backups
+- `expo-file-system` — writes the `.md` context file and backups (v2 `File`/`Directory` API)
 - `expo-sharing` — opens the native share sheet for the file
 - `expo-clipboard` — copies the coach setup prompt
 - `@expo/ui` — native date/time picker (color scheme follows the app theme)

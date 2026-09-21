@@ -7,7 +7,7 @@ import { database } from './client';
  * schema changes — initDb() applies every migration newer than the stored
  * PRAGMA user_version, in order.
  */
-const SCHEMA_VERSION = 2;
+const SCHEMA_VERSION = 3;
 
 /** version -> migration function upgrading TO that version. Use
  *  addColumnIfMissing() for column adds so migrations stay idempotent
@@ -27,6 +27,12 @@ const MIGRATIONS: Record<number, () => void> = {
       SET name = COALESCE((SELECT name FROM medications WHERE medications.id = med_logs.medication_id), '')
       WHERE name = '';
     `);
+  },
+  3: () => {
+    // v3: KetoKind Pro flag on the profile row (0 = free, 1 = Pro).
+    // Existing profiles get 0 via the column default — nobody is
+    // grandfathered into Pro by the migration.
+    addColumnIfMissing('profile', 'is_pro', 'INTEGER NOT NULL DEFAULT 0');
   },
 };
 
@@ -55,7 +61,8 @@ export function initDb(): void {
       sex TEXT NOT NULL DEFAULT '',
       bio TEXT NOT NULL DEFAULT '',
       diet_start TEXT,
-      dismissed_milestones TEXT NOT NULL DEFAULT ''
+      dismissed_milestones TEXT NOT NULL DEFAULT '',
+      is_pro INTEGER NOT NULL DEFAULT 0
     );
     CREATE TABLE IF NOT EXISTS allergies (
       id INTEGER PRIMARY KEY AUTOINCREMENT,

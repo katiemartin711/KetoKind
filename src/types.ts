@@ -27,6 +27,7 @@ export interface Profile {
   bio: string; // free-text: anything else the AI coach should know
   diet_start: string | null; // 'YYYY-MM' or 'YYYY-MM-DD', null = not set
   dismissed_milestones: string; // comma-separated milestone keys the user dismissed
+  is_pro: number; // 0/1 — KetoKind Pro unlock (AI Coach export + backups)
 }
 
 export interface Allergy {

@@ -63,7 +63,8 @@ export function deleteAllData(): void {
         sex = '',
         bio = '',
         diet_start = NULL,
-        dismissed_milestones = ''
+        dismissed_milestones = '',
+        is_pro = 0
       WHERE id = 1;
     `);
     // Reset id counters (separate statement: sqlite_sequence is a system
@@ -125,4 +126,14 @@ export function getThemeMode(): ThemeMode {
 
 export function setThemeMode(mode: ThemeMode): void {
   database().runSync('UPDATE profile SET theme_mode = ? WHERE id = 1', [mode]);
+}
+
+/** KetoKind Pro unlock: AI Coach context export + backup export/import. */
+export function getProStatus(): boolean {
+  const row = database().getFirstSync<{ is_pro: number }>('SELECT is_pro FROM profile WHERE id = 1');
+  return (row?.is_pro ?? 0) === 1;
+}
+
+export function setProStatus(pro: boolean): void {
+  database().runSync('UPDATE profile SET is_pro = ? WHERE id = 1', [pro ? 1 : 0]);
 }

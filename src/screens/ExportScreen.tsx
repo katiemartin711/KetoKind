@@ -10,8 +10,9 @@ import { useFocusEffect } from '@react-navigation/native';
 import * as Clipboard from 'expo-clipboard';
 import * as Sharing from 'expo-sharing';
 import { File, Paths } from 'expo-file-system';
-import { getExportData } from '../db';
+import { getExportData, getProStatus } from '../db';
 import type { ExportData } from '../db';
+import PaywallModal from '../components/PaywallModal';
 import { DIET_LABELS } from '../types';
 import { dietPrinciples } from '../dietPrinciples';
 import { dietDurationLabel, formatDietStart } from '../milestones';
@@ -130,8 +131,13 @@ export default function ExportScreen() {
   const [prompt, setPrompt] = useState('');
   const [copied, setCopied] = useState(false);
   const [shared, setShared] = useState(false);
+  const [isPro, setIsPro] = useState(false);
+  const [paywallVisible, setPaywallVisible] = useState(false);
 
   const refresh = useCallback(() => {
+    const pro = getProStatus();
+    setIsPro(pro);
+    if (!pro) return; // free users see the Pro upsell, not the export UI
     const data = getExportData();
     setMarkdown(buildContextMarkdown(data));
     setPrompt(buildCoachPrompt(data));
@@ -166,44 +172,70 @@ export default function ExportScreen() {
   };
 
   return (
-    <SafeAreaView style={common.screen} edges={['top']}>
-      <ScrollView contentContainerStyle={common.scroll}>
-        <Text style={common.h1}>AI Coach</Text>
-        <Text style={common.subtitle}>
-          Copy your setup prompt plus your profile and last 30 days of logs as one block, then
-          paste it into the AI chat of your choice. Your data stays on your device until you
-          choose to share it.
-        </Text>
+    <>
+      <SafeAreaView style={common.screen} edges={['top']}>
+        <ScrollView contentContainerStyle={common.scroll}>
+          <Text style={common.h1}>AI Coach</Text>
+          {!isPro ? (
+            <View style={common.card}>
+              <Text style={common.h2}>KetoKind Pro</Text>
+              <Text style={common.subtitle}>
+                The AI Coach export — your coach prompt plus 30 days of logs, ready to
+                paste into the AI chat of your choice — is a Pro feature.
+              </Text>
+              <TouchableOpacity
+                style={common.primaryButton}
+                onPress={() => setPaywallVisible(true)}
+                accessibilityRole="button"
+              >
+                <Text style={common.primaryButtonText}>See KetoKind Pro — $9.99</Text>
+              </TouchableOpacity>
+            </View>
+          ) : (
+            <>
+              <Text style={common.subtitle}>
+                Copy your setup prompt plus your profile and last 30 days of logs as one block, then
+                paste it into the AI chat of your choice. Your data stays on your device until you
+                choose to share it.
+              </Text>
 
-        <TouchableOpacity style={common.primaryButton} onPress={copyAll}>
-          <Text style={common.primaryButtonText}>
-            {copied ? 'Copied ✓ — paste it into your AI chat' : 'Copy prompt + logs'}
+              <TouchableOpacity style={common.primaryButton} onPress={copyAll}>
+                <Text style={common.primaryButtonText}>
+                  {copied ? 'Copied ✓ — paste it into your AI chat' : 'Copy prompt + logs'}
+                </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={common.secondaryButton} onPress={exportAndShare}>
+                <Text style={common.secondaryButtonText}>
+                  {shared ? 'Shared ✓' : 'Share context file only (.md)'}
+                </Text>
+              </TouchableOpacity>
+
+              <Text style={[common.h2, { marginTop: 20 }]}>Coach prompt preview</Text>
+              <View style={common.card}>
+                <Text style={styles.mono}>{prompt}</Text>
+              </View>
+
+              <Text style={[common.h2, { marginTop: 8 }]}>Context file preview</Text>
+              <View style={common.card}>
+                <Text style={styles.mono}>{markdown}</Text>
+              </View>
+            </>
+          )}
+
+          <Text style={styles.disclaimer}>
+            KetoKind is a logging tool, not a medical professional. Nothing here is medical advice.
+            Talk to your doctor before changing medications, supplements, or your diet — especially
+            with health conditions.
           </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={common.secondaryButton} onPress={exportAndShare}>
-          <Text style={common.secondaryButtonText}>
-            {shared ? 'Shared ✓' : 'Share context file only (.md)'}
-          </Text>
-        </TouchableOpacity>
-
-        <Text style={[common.h2, { marginTop: 20 }]}>Coach prompt preview</Text>
-        <View style={common.card}>
-          <Text style={styles.mono}>{prompt}</Text>
-        </View>
-
-        <Text style={[common.h2, { marginTop: 8 }]}>Context file preview</Text>
-        <View style={common.card}>
-          <Text style={styles.mono}>{markdown}</Text>
-        </View>
-
-        <Text style={styles.disclaimer}>
-          KetoKind is a logging tool, not a medical professional. Nothing here is medical advice.
-          Talk to your doctor before changing medications, supplements, or your diet — especially
-          with health conditions.
-        </Text>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+      <PaywallModal
+        visible={paywallVisible}
+        onClose={() => setPaywallVisible(false)}
+        onUnlocked={refresh}
+      />
+    </>
   );
 }
 

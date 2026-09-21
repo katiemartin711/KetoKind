@@ -23,6 +23,7 @@ import {
   deleteSupplement,
   exportBackup,
   getProfile,
+  getProStatus,
   importBackup,
   isDatabaseBackup,
   listAllergies,
@@ -31,6 +32,7 @@ import {
   listSupplements,
   persistDietType,
   saveProfile,
+  setProStatus,
   setWeightTracking,
   updateMedication,
   updateSupplement,
@@ -57,6 +59,9 @@ import type {
 } from '../components/profile/MedSuppSection';
 import BackupSection from '../components/profile/BackupSection';
 import DangerSection from '../components/profile/DangerSection';
+import ProSection from '../components/profile/ProSection';
+import TestingSection from '../components/profile/TestingSection';
+import PaywallModal from '../components/PaywallModal';
 import { parseFloatStrict, parseIntStrict } from '../numberParsing';
 
 const EMPTY_MED_SUPP_FORM: MedSuppFormState = {
@@ -97,6 +102,8 @@ export default function ProfileScreen() {
   const [trackWeight, setTrackWeight] = useState(false);
   const [startingWeight, setStartingWeight] = useState('');
   const [weightSavedFlash, setWeightSavedFlash] = useState(false);
+  const [isPro, setIsPro] = useState(false);
+  const [paywallVisible, setPaywallVisible] = useState(false);
 
   const refresh = useCallback(() => {
     const p = getProfile();
@@ -121,9 +128,16 @@ export default function ProfileScreen() {
     setSupplements(listSupplements());
     setTrackWeight(!!p.track_weight);
     setStartingWeight(p.starting_weight != null ? String(p.starting_weight) : '');
+    setIsPro(getProStatus());
   }, []);
 
   useFocusEffect(refresh);
+
+  /** Testing toggle: flip the Pro flag instantly, no purchase. */
+  const togglePro = (value: boolean) => {
+    setProStatus(value);
+    setIsPro(value);
+  };
 
   const onSave = () => {
     const v = validateProfileInputs(age, dietStart);
@@ -312,13 +326,16 @@ export default function ProfileScreen() {
   };
 
   return (
-    <KeyboardScrollView>
-      <Text style={common.h1}>Profile</Text>
-      <Text style={common.subtitle}>
-        This is what gets included in your AI coach context file.
-      </Text>
+    <>
+      <KeyboardScrollView>
+        <Text style={common.h1}>Profile</Text>
+        <Text style={common.subtitle}>
+          This is what gets included in your AI coach context file.
+        </Text>
 
-      <AboutSection
+        <ProSection isPro={isPro} onPress={() => setPaywallVisible(true)} />
+
+        <AboutSection
         name={name}
         onNameChange={setName}
         age={age}
@@ -405,9 +422,21 @@ export default function ProfileScreen() {
         onDeleteSupplement={deleteSupplementRow}
       />
 
-      <BackupSection onDownload={downloadBackup} onImport={importBackupFile} />
+      <BackupSection
+        onDownload={isPro ? downloadBackup : () => setPaywallVisible(true)}
+        onImport={isPro ? importBackupFile : () => setPaywallVisible(true)}
+        locked={!isPro}
+      />
 
       <DangerSection onDelete={confirmDeleteAllData} />
-    </KeyboardScrollView>
+
+      <TestingSection isPro={isPro} onToggle={togglePro} />
+      </KeyboardScrollView>
+      <PaywallModal
+        visible={paywallVisible}
+        onClose={() => setPaywallVisible(false)}
+        onUnlocked={() => setIsPro(getProStatus())}
+      />
+    </>
   );
 }

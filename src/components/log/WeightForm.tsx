@@ -34,6 +34,7 @@ export default function WeightForm({
         value={weightInput}
         onChangeText={onWeightInputChange}
         maxLength={7}
+        accessibilityLabel="Weight in pounds"
       />
       <DateTimeField value={logDate} onChange={onLogDateChange} />
       <TouchableOpacity style={common.primaryButton} onPress={onSave}>

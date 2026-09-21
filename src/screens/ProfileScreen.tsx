@@ -430,7 +430,9 @@ export default function ProfileScreen() {
 
       <DangerSection onDelete={confirmDeleteAllData} />
 
-      <TestingSection isPro={isPro} onToggle={togglePro} />
+      {/* Dev-only: __DEV__ is false in release builds, so this testing
+          switch can never ship to the App Store. */}
+      {__DEV__ && <TestingSection isPro={isPro} onToggle={togglePro} />}
       </KeyboardScrollView>
       <PaywallModal
         visible={paywallVisible}

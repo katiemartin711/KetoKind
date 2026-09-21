@@ -67,6 +67,8 @@ export default function MedSuppForm(props: Props) {
                 style={[styles.chip, selected && styles.chipActive, locked && styles.chipLocked]}
                 onPress={() => onToggleMed(m.id)}
                 disabled={locked}
+                accessibilityRole="checkbox"
+                accessibilityState={{ selected }}
               >
                 <Text style={[styles.chipText, selected && styles.chipTextActive]}>
                   {m.name}
@@ -92,6 +94,8 @@ export default function MedSuppForm(props: Props) {
                 style={[styles.chip, selected && styles.chipActive, locked && styles.chipLocked]}
                 onPress={() => onToggleSupp(s.id)}
                 disabled={locked}
+                accessibilityRole="checkbox"
+                accessibilityState={{ selected }}
               >
                 <Text style={[styles.chipText, selected && styles.chipTextActive]}>
                   {s.name}

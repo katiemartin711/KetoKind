@@ -99,8 +99,16 @@ export default function LogScreen() {
   useFocusEffect(refresh);
 
   // Dashboard quick-add buttons navigate here with a segment param.
+  // Mirrors tapping the segmented control below: switching forms exits edit
+  // mode and resets the time to now. Without the setEditing(null), arriving
+  // here mid-edit would leave a stale `editing` that matches no branch of
+  // the save handler, silently discarding the new selections.
   useEffect(() => {
-    if (route.params?.segment) setSegment(route.params.segment);
+    if (route.params?.segment) {
+      setSegment(route.params.segment);
+      setEditing(null);
+      setLogDate(new Date());
+    }
   }, [route.params?.segment]);
 
   // The Weight segment only exists while weight tracking is enabled.
@@ -275,7 +283,7 @@ export default function LogScreen() {
       <Text style={common.subtitle}>What did you eat, take, or feel?</Text>
 
       {/* Segmented control */}
-      <View style={styles.segments}>
+      <View style={styles.segments} accessibilityRole="tablist">
         {visibleSegments.map((s) => (
           <TouchableOpacity
             key={s.key}
@@ -286,6 +294,8 @@ export default function LogScreen() {
               setEditing(null);
               setLogDate(new Date());
             }}
+            accessibilityRole="tab"
+            accessibilityState={{ selected: segment === s.key }}
           >
             <Text style={[styles.segmentText, segment === s.key && styles.segmentTextActive]}>
               {s.label}

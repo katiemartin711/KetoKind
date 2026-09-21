@@ -44,6 +44,7 @@ export default function SymptomForm(props: Props) {
         value={symptomName}
         onChangeText={onSymptomNameChange}
         maxLength={80}
+        accessibilityLabel="Symptom"
       />
       <Text style={common.label}>Severity: {severity}/5</Text>
       <View style={styles.chips}>
@@ -52,6 +53,9 @@ export default function SymptomForm(props: Props) {
             key={n}
             style={[styles.chip, severity === n && styles.chipActive]}
             onPress={() => onSeverityChange(n)}
+            accessibilityRole="checkbox"
+            accessibilityState={{ selected: severity === n }}
+            accessibilityLabel={`Severity ${n} of 5`}
           >
             <Text style={[styles.chipText, severity === n && styles.chipTextActive]}>{n}</Text>
           </TouchableOpacity>
@@ -64,6 +68,7 @@ export default function SymptomForm(props: Props) {
         value={symptomNotes}
         onChangeText={onSymptomNotesChange}
         maxLength={200}
+        accessibilityLabel="Notes, optional"
       />
       <DateTimeField value={logDate} onChange={onLogDateChange} />
       <TouchableOpacity style={common.primaryButton} onPress={onSave}>

@@ -5,7 +5,7 @@
 // pattern as the startup dbError screen in App.tsx).
 
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { deleteDatabaseSync } from 'expo-sqlite';
 import { closeDatabase, initDb } from './db';
 import { useTheme } from './ThemeContext';
@@ -47,13 +47,25 @@ export class TabErrorBoundary extends React.Component<BoundaryProps, BoundarySta
     }
   };
 
+  /** Wiping is one-way — make the user confirm before anything is deleted. */
+  private confirmResetAppData = (): void => {
+    Alert.alert(
+      'Reset app data?',
+      'This deletes every meal, log, and setting on this device. It cannot be undone.',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        { text: 'Reset', style: 'destructive', onPress: this.resetAppData },
+      ],
+    );
+  };
+
   render(): React.ReactNode {
     if (this.state.error) {
       return (
         <TabErrorFallback
           error={this.state.error}
           onRetry={this.retry}
-          onResetAppData={this.resetAppData}
+          onResetAppData={this.confirmResetAppData}
         />
       );
     }

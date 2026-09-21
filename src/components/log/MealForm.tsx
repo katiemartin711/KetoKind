@@ -46,6 +46,7 @@ export default function MealForm(props: Props) {
         value={mealName}
         onChangeText={onMealNameChange}
         maxLength={120}
+        accessibilityLabel="What did you eat?"
       />
       <Text style={common.label}>Meal</Text>
       <View style={styles.chips}>
@@ -54,6 +55,8 @@ export default function MealForm(props: Props) {
             key={m}
             style={[styles.chip, mealType === m && styles.chipActive]}
             onPress={() => onMealTypeChange(m)}
+            accessibilityRole="checkbox"
+            accessibilityState={{ selected: mealType === m }}
           >
             <Text style={[styles.chipText, mealType === m && styles.chipTextActive]}>{m}</Text>
           </TouchableOpacity>
@@ -66,6 +69,7 @@ export default function MealForm(props: Props) {
         value={mealNotes}
         onChangeText={onMealNotesChange}
         maxLength={200}
+        accessibilityLabel="Notes, optional"
       />
       <DateTimeField value={logDate} onChange={onLogDateChange} />
       <TouchableOpacity style={common.primaryButton} onPress={onSave}>

@@ -29,7 +29,12 @@ export default function DateTimeField({
   return (
     <View>
       <Text style={common.label}>Time</Text>
-      <TouchableOpacity style={common.input} onPress={() => setOpen(true)}>
+      <TouchableOpacity
+        style={common.input}
+        onPress={() => setOpen(true)}
+        accessibilityRole="button"
+        accessibilityLabel={`Change time, currently ${fmtDateTime(value)}`}
+      >
         <Text style={{ fontSize: 16, color: COLORS.text }}>{fmtDateTime(value)}</Text>
       </TouchableOpacity>
       {open && (
@@ -39,12 +44,8 @@ export default function DateTimeField({
             value={value}
             maximumDate={new Date()}
             themeVariant={isDark ? 'dark' : 'light'}
-            onChange={(event, date) => {
-              if (event.type === 'dismissed') {
-                setOpen(false);
-                return;
-              }
-              if (date) onChange(date);
+            onValueChange={(_event, date) => {
+              onChange(date);
               // Android's dialog presentation: close once a value is picked.
               if (Platform.OS === 'android') setOpen(false);
             }}

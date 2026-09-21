@@ -6,7 +6,7 @@
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Animated, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, Animated, StyleSheet, Text, TouchableOpacity, View, useColorScheme } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -128,6 +128,38 @@ function ThemedApp() {
   );
 }
 
+// Startup recovery screen when the database can't be opened. Rendered
+// outside the ThemeProvider (the theme lives with the db-backed app), so it
+// reads the OS color scheme directly — no bright flash on dark-mode phones.
+function DbErrorScreen({ error, onReset }: { error: Error; onReset: () => void }) {
+  const dark = useColorScheme() === 'dark';
+  const C = {
+    background: dark ? '#121615' : '#FAFAF7',
+    text: dark ? '#E9EDEB' : '#1F2937',
+    muted: dark ? '#9BA6A1' : '#6B7280',
+  };
+  return (
+    <SafeAreaProvider>
+      <View style={[errStyles.container, { backgroundColor: C.background }]}>
+        <Text style={[errStyles.title, { color: C.text }]}>Something went wrong</Text>
+        <Text style={[errStyles.body, { color: C.muted }]}>
+          KetoKind couldn't open its on-device database
+          {error.message ? ` (${error.message})` : ''}. You can reset the
+          app's data and start fresh — this deletes everything stored on this device.
+        </Text>
+        <TouchableOpacity
+          style={errStyles.button}
+          onPress={onReset}
+          accessibilityRole="button"
+          accessibilityLabel="Reset app data"
+        >
+          <Text style={errStyles.buttonText}>Reset app data</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaProvider>
+  );
+}
+
 export default function App() {
   // initDb() runs here (not at module level) so a failure can be caught and
   // shown instead of crashing the app during import.
@@ -159,22 +191,20 @@ export default function App() {
     }
   };
 
-  if (dbError) {
-    return (
-      <SafeAreaProvider>
-        <View style={errStyles.container}>
-          <Text style={errStyles.title}>Something went wrong</Text>
-          <Text style={errStyles.body}>
-            KetoKind couldn't open its on-device database
-            {dbError.message ? ` (${dbError.message})` : ''}. You can reset the
-            app's data and start fresh — this deletes everything stored on this device.
-          </Text>
-          <TouchableOpacity style={errStyles.button} onPress={resetDb}>
-            <Text style={errStyles.buttonText}>Reset app data</Text>
-          </TouchableOpacity>
-        </View>
-      </SafeAreaProvider>
+  /** Wiping is one-way — make the user confirm before anything is deleted. */
+  const confirmResetDb = () => {
+    Alert.alert(
+      'Reset app data?',
+      'This deletes every meal, log, and setting on this device. It cannot be undone.',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        { text: 'Reset', style: 'destructive', onPress: resetDb },
+      ],
     );
+  };
+
+  if (dbError) {
+    return <DbErrorScreen error={dbError} onReset={confirmResetDb} />;
   }
 
   return (
@@ -222,10 +252,9 @@ const errStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 32,
-    backgroundColor: '#FAFAF7',
   },
-  title: { fontSize: 22, fontWeight: '700', color: '#1F2937', marginBottom: 12 },
-  body: { fontSize: 15, color: '#6B7280', textAlign: 'center', lineHeight: 22, marginBottom: 24 },
+  title: { fontSize: 22, fontWeight: '700', marginBottom: 12 },
+  body: { fontSize: 15, textAlign: 'center', lineHeight: 22, marginBottom: 24 },
   button: { backgroundColor: '#C62828', borderRadius: 10, paddingVertical: 12, paddingHorizontal: 24 },
   buttonText: { color: '#fff', fontWeight: '700', fontSize: 15 },
 });

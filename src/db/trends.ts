@@ -64,6 +64,26 @@ export function getSymptomDayMap(): Map<string, SymptomDay[]> {
   return out;
 }
 
+/**
+ * Meal text per local day (food name + notes combined), for food × symptom
+ * pattern matching. The Trends tab is Pro-gated — only call this behind
+ * the Pro check, like the other helpers in this module.
+ */
+export function getMealDayMap(): Map<string, string[]> {
+  const rows = database().getAllSync<{ name: string; notes: string; logged_at: string }>(
+    'SELECT name, notes, logged_at FROM food_logs ORDER BY logged_at ASC',
+  );
+  const byDay = new Map<string, string[]>();
+  for (const r of rows) {
+    const text = [r.name?.trim(), r.notes?.trim()].filter(Boolean).join(' — ');
+    if (!text) continue;
+    const day = localDayKey(r.logged_at);
+    const arr = byDay.get(day);
+    if (arr) arr.push(text);
+    else byDay.set(day, [text]);
+  }
+  return byDay;
+}
 export interface ItemDays {
   kind: 'medication' | 'supplement';
   /** Display name (first-seen casing); grouping is case-insensitive. */

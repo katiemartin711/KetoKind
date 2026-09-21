@@ -32,6 +32,8 @@
     "src/pro.test.ts",
     "src/trendsStats.ts",
     "src/trendsStats.test.ts",
+    "src/foodGroups.ts",
+    "src/foodGroups.test.ts",
     "src/logs.test.ts"
   ]
 }

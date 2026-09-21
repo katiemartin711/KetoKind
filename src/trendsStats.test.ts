@@ -5,9 +5,9 @@
 import { NodeSqliteHandle } from './nodeSqliteAdapter';
 import { addMedication, addSupplement } from './db/catalog';
 import { __setDbForTests, database } from './db/client';
-import { addMedLog, addSupplementLog, addSymptomLog, addWeightLog } from './db/logs';
+import { addFoodLog, addMedLog, addSupplementLog, addSymptomLog, addWeightLog } from './db/logs';
 import { initDb } from './db/schema';
-import { getItemDayList, getSymptomDayMap, getWeightSeries } from './db/trends';
+import { getItemDayList, getMealDayMap, getSymptomDayMap, getWeightSeries } from './db/trends';
 import {
   MIN_BASELINE_DAYS,
   MIN_COMPARISON_DAYS,
@@ -303,6 +303,17 @@ check('getItemDayList groups med/supplement days by name, case-insensitive', () 
   const fish = list.find((i) => i.kind === 'supplement');
   eq(fish?.name, 'Fish Oil', 'supplement kind + name');
   eq(fish?.days.size, 1, 'fish oil one day');
+});
+
+check('getMealDayMap groups meal text by local day, name + notes', () => {
+  setup();
+  addFoodLog('ground beef and eggs', 'Dinner', '', iso(2026, 9, 1, 19));
+  addFoodLog('bacon', 'Breakfast', 'with extra butter', iso(2026, 9, 2, 8));
+  addFoodLog('ribeye', 'Dinner', '', iso(2026, 9, 2, 19));
+  const m = getMealDayMap();
+  eq(m.get('2026-09-01'), ['ground beef and eggs'], 'day one meal text');
+  eq(m.get('2026-09-02'), ['bacon — with extra butter', 'ribeye'], 'day two, notes combined');
+  eq(m.size, 2, 'two days');
 });
 
 console.log(`\n${passed} passed, ${failed} failed`);

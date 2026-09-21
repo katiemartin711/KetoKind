@@ -1,5 +1,5 @@
-// Trends tab (Pro): weight trend graph + medication/supplement × symptom
-// patterns.
+// Trends tab (Pro): weight trend graph + symptom patterns across
+// medications, supplements, and foods (plain-English meal text matching).
 //
 // PRO GATING (same pattern as the AI Coach tab): refresh() checks
 // getProStatus() first and returns before any query for free users — the
@@ -13,7 +13,7 @@
 // The tab is composed of focused components (src/components/trends/);
 // this file owns the state and the db-backed refresh.
 
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   ScrollView,
   StyleSheet,
@@ -24,18 +24,19 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 import { getProStatus } from '../db/profile';
-import { getItemDayList, getSymptomDayMap, getWeightSeries } from '../db/trends';
+import { getItemDayList, getMealDayMap, getSymptomDayMap, getWeightSeries } from '../db/trends';
 import type { ItemDays } from '../db/trends';
 import PaywallModal from '../components/PaywallModal';
 import Dropdown from '../components/trends/Dropdown';
+import FoodSearchInput from '../components/trends/FoodSearchInput';
 import PatternChip from '../components/trends/PatternChip';
+import PatternDetailCard from '../components/trends/PatternDetailCard';
 import SymptomHistoryChart from '../components/trends/SymptomHistoryChart';
 import WeightChart from '../components/trends/WeightChart';
 import { useTheme } from '../ThemeContext';
 import type { Palette } from '../theme';
+import { matchFoodDays } from '../foodGroups';
 import {
-  MIN_BASELINE_DAYS,
-  MIN_COMPARISON_DAYS,
   bucketDays,
   comparePattern,
   diffLabel,
@@ -45,7 +46,7 @@ import {
   round1,
   summarizeWeights,
 } from '../trendsStats';
-import type { RankedPattern, SymptomDay, WeightPoint } from '../trendsStats';
+import type { PatternComparison, RankedPattern, SymptomDay, WeightPoint } from '../trendsStats';
 
 /** Shared range options for the weight trend and symptom history charts. */
 const TREND_RANGES: { key: number; label: string }[] = [
@@ -71,6 +72,10 @@ export default function TrendsScreen() {
   const [selSymptom, setSelSymptom] = useState<string>('');
   const [selItemKey, setSelItemKey] = useState<string>('');
   const [strongest, setStrongest] = useState<RankedPattern[]>([]);
+  const [itemMode, setItemMode] = useState<'medication' | 'supplement' | 'food' | null>(null);
+  const [foodInput, setFoodInput] = useState('');
+  const [foodKeyword, setFoodKeyword] = useState('');
+  const [mealDayMap, setMealDayMap] = useState<Map<string, string[]>>(new Map());
   const [histSymptom, setHistSymptom] = useState<string>('');
   const [histRange, setHistRange] = useState<number>(90);
 
@@ -86,11 +91,13 @@ export default function TrendsScreen() {
     setSymptomNames(names);
     const itemList = getItemDayList();
     setItems(itemList);
+    setMealDayMap(getMealDayMap());
     const symptom = names[0] ?? '';
-    const item = itemList[0];
+    const firstItem =
+      itemList.find((i) => i.kind === 'medication') ?? itemList[0];
     setSelSymptom(symptom);
     setHistSymptom(symptom);
-    setSelItemKey(item ? `${item.kind}:${item.name.toLowerCase()}` : '');
+    setSelItemKey(firstItem ? `${firstItem.kind}:${firstItem.name.toLowerCase()}` : '');
     // Strongest patterns across every symptom × item pair.
     const all = [];
     for (const sName of names) {
@@ -103,6 +110,12 @@ export default function TrendsScreen() {
   }, []);
 
   useFocusEffect(refresh);
+
+  // Debounce the food keyword so the pattern recomputes ~300ms after typing stops.
+  useEffect(() => {
+    const t = setTimeout(() => setFoodKeyword(foodInput.trim()), 300);
+    return () => clearTimeout(t);
+  }, [foodInput]);
 
   const filteredWeights = useMemo(() => filterWeightRange(weightSeries, range), [weightSeries, range]);
   const weightSummary = useMemo(() => summarizeWeights(filteredWeights), [filteredWeights]);
@@ -120,6 +133,46 @@ export default function TrendsScreen() {
     () => (selItem ? bucketDays(selSymptomDays, selItem.days) : { taken: [], notTaken: [] }),
     [selSymptomDays, selItem],
   );
+  const medItems = useMemo(() => items.filter((it) => it.kind === 'medication'), [items]);
+  const suppItems = useMemo(() => items.filter((it) => it.kind === 'supplement'), [items]);
+  // Default tab prefers the first kind with data; the user's pick wins after that.
+  const mode = useMemo<'medication' | 'supplement' | 'food'>(() => {
+    if (itemMode) return itemMode;
+    if (medItems.length > 0) return 'medication';
+    if (suppItems.length > 0) return 'supplement';
+    return 'food';
+  }, [itemMode, medItems, suppItems]);
+  const foodMatch = useMemo(
+    () => (foodKeyword ? matchFoodDays(foodKeyword, mealDayMap) : null),
+    [foodKeyword, mealDayMap],
+  );
+  const foodComparison = useMemo(() => {
+    if (!selSymptom || !foodMatch || selSymptomDays.length === 0) return null;
+    return comparePattern(selSymptom, selSymptomDays, foodKeyword, 'food', foodMatch.daysWith);
+  }, [selSymptom, selSymptomDays, foodMatch, foodKeyword]);
+  const foodBuckets = useMemo(
+    () =>
+      foodMatch ? bucketDays(selSymptomDays, foodMatch.daysWith) : { taken: [], notTaken: [] },
+    [selSymptomDays, foodMatch],
+  );
+  const foodHint = foodMatch?.isGroup ? `matching: ${foodMatch.matchedFoods.join(', ')}…` : null;
+  // The typed food joins the top-3 strongest patterns alongside med/supplement pairs.
+  const strongestWithFood = useMemo(() => {
+    if (!foodMatch) return strongest;
+    const extra: (PatternComparison | null)[] = [];
+    for (const sName of symptomNames) {
+      extra.push(
+        comparePattern(
+          sName,
+          symptomDayMap.get(sName) ?? [],
+          foodKeyword,
+          'food',
+          foodMatch.daysWith,
+        ),
+      );
+    }
+    return rankPatterns([...strongest, ...extra], 3);
+  }, [strongest, foodMatch, foodKeyword, symptomNames, symptomDayMap]);
   const histAllDays = useMemo(
     () => symptomDayMap.get(histSymptom) ?? [],
     [symptomDayMap, histSymptom],
@@ -145,8 +198,9 @@ export default function TrendsScreen() {
             <View style={common.card}>
               <Text style={common.h2}>KetoKind Pro</Text>
               <Text style={common.subtitle}>
-                Weight trends and medication/supplement × symptom patterns are a Pro
-                feature — free users see this upsell instead of the charts.
+                Weight trends and symptom patterns (medications, supplements, and
+                foods) are a Pro feature — free users see this upsell instead of
+                the charts.
               </Text>
               <TouchableOpacity
                 style={common.primaryButton}
@@ -195,13 +249,13 @@ export default function TrendsScreen() {
               )}
 
               <Text style={[common.h2, { marginTop: 8 }]}>Symptom patterns</Text>
-              {symptomNames.length === 0 || items.length === 0 ? (
+              {symptomNames.length === 0 || (items.length === 0 && mealDayMap.size === 0) ? (
                 <View style={common.card}>
                   <Text style={styles.emptyTitle}>Not enough logs yet</Text>
                   <Text style={[styles.body, { color: colors.muted }]}>
-                    Patterns compare your symptom severity on days you took something
-                    vs. days you didn't. Log symptoms and medications/supplements on
-                    the Log tab to unlock this.
+                    Patterns compare your symptom severity on days you logged
+                    something vs. days you didn't. Log symptoms, meals, and
+                    medications/supplements on the Log tab to unlock this.
                   </Text>
                 </View>
               ) : (
@@ -219,67 +273,101 @@ export default function TrendsScreen() {
                         />
                       ))}
                     </View>
-                    <Text style={styles.pickerLabel}>Medication or supplement</Text>
+                    <Text style={styles.pickerLabel}>Compare with</Text>
                     <View style={styles.chips}>
-                      {items.map((it) => {
-                        const key = `${it.kind}:${it.name.toLowerCase()}`;
-                        return (
-                          <PatternChip
-                            key={key}
-                            selected={selItemKey === key}
-                            label={`${it.name} · ${it.kind === 'medication' ? 'Med' : 'Supp'}`}
-                            onPress={() => setSelItemKey(key)}
-                            a11yLabel={`${it.kind} ${it.name}`}
-                          />
-                        );
-                      })}
+                      <PatternChip
+                        selected={mode === 'medication'}
+                        label="Medications"
+                        onPress={() => setItemMode('medication')}
+                        a11yLabel="Compare with medications"
+                      />
+                      <PatternChip
+                        selected={mode === 'supplement'}
+                        label="Supplements"
+                        onPress={() => setItemMode('supplement')}
+                        a11yLabel="Compare with supplements"
+                      />
+                      <PatternChip
+                        selected={mode === 'food'}
+                        label="Food"
+                        onPress={() => setItemMode('food')}
+                        a11yLabel="Compare with foods"
+                      />
                     </View>
+                    {mode === 'food' ? (
+                      <>
+                        <FoodSearchInput
+                          value={foodInput}
+                          onChange={setFoodInput}
+                          matchHint={foodHint}
+                        />
+                        {mealDayMap.size === 0 && (
+                          <Text style={[styles.body, { color: colors.muted, marginTop: 6 }]}>
+                            No meals logged yet — add meals on the Log tab, then type a
+                            food above.
+                          </Text>
+                        )}
+                      </>
+                    ) : (
+                      <View style={styles.chips}>
+                        {(mode === 'medication' ? medItems : suppItems).map((it) => {
+                          const key = `${it.kind}:${it.name.toLowerCase()}`;
+                          return (
+                            <PatternChip
+                              key={key}
+                              selected={selItemKey === key}
+                              label={it.name}
+                              onPress={() => setSelItemKey(key)}
+                              a11yLabel={`${it.kind} ${it.name}`}
+                            />
+                          );
+                        })}
+                        {(mode === 'medication' ? medItems : suppItems).length === 0 && (
+                          <Text style={[styles.body, { color: colors.muted }]}>
+                            {mode === 'medication'
+                              ? 'No medications logged yet — log some on the Log tab, or try the Food tab.'
+                              : 'No supplements logged yet — log some on the Log tab, or try the Food tab.'}
+                          </Text>
+                        )}
+                      </View>
+                    )}
                   </View>
 
-                  {selItem && (
+                  {mode !== 'food' && selItem && selItem.kind === mode && (
+                    <PatternDetailCard
+                      symptomName={selSymptom}
+                      itemLabel={selItem.name}
+                      onDaysWord="taken"
+                      comparison={comparison}
+                      buckets={buckets}
+                    />
+                  )}
+                  {mode === 'food' && foodKeyword === '' && (
                     <View style={common.card}>
-                      <Text style={common.h2}>
-                        {selSymptom} — on days you logged {selItem.name}
+                      <Text style={[styles.body, { color: colors.muted }]}>
+                        {`Type a food above — e.g. eggs or dairy — to compare your ${selSymptom || 'symptom'} severity on days you logged it vs. days you didn't.`}
                       </Text>
-                      <View style={styles.statRow}>
-                        <View style={styles.stat}>
-                          <Text style={[styles.statValue, { color: colors.accent }]}>
-                            {comparison ? round1(comparison.avgTaken).toFixed(1) : '—'}
-                          </Text>
-                          <Text style={[styles.statLabel, { color: colors.muted }]}>
-                            {`avg severity · days taken (${buckets.taken.length})`}
-                          </Text>
-                        </View>
-                        <View style={styles.stat}>
-                          <Text style={[styles.statValue, { color: colors.text }]}>
-                            {comparison ? round1(comparison.avgNotTaken).toFixed(1) : '—'}
-                          </Text>
-                          <Text style={[styles.statLabel, { color: colors.muted }]}>
-                            {`avg severity · days not taken (${buckets.notTaken.length})`}
-                          </Text>
-                        </View>
-                      </View>
-                      {comparison ? (
-                        <Text style={[styles.body, { color: colors.text }]}>
-                          {`Severity averaged ${diffLabel(comparison.diff)} — ${comparison.daysTaken} days with vs. ${comparison.daysNotTaken} days without ${selItem.name}, on days you logged ${selSymptom}.`}
-                        </Text>
-                      ) : (
-                        <Text style={[styles.body, { color: colors.muted }]}>
-                          {`Not enough data yet — patterns need at least ${MIN_COMPARISON_DAYS} days on each side and ${MIN_BASELINE_DAYS}+ days on one side, on days you logged ${selSymptom}. So far: ${buckets.taken.length} days with, ${buckets.notTaken.length} days without ${selItem.name}.`}
-                        </Text>
-                      )}
                     </View>
+                  )}
+                  {mode === 'food' && foodKeyword !== '' && (
+                    <PatternDetailCard
+                      symptomName={selSymptom}
+                      itemLabel={foodKeyword}
+                      onDaysWord="logged"
+                      comparison={foodComparison}
+                      buckets={foodBuckets}
+                    />
                   )}
 
                   <Text style={[common.h2, { marginTop: 8 }]}>Strongest patterns</Text>
                   <View style={common.card}>
-                    {strongest.length === 0 ? (
+                    {strongestWithFood.length === 0 ? (
                       <Text style={[styles.body, { color: colors.muted }]}>
                         No symptom × item pair has enough data yet — keep logging and
                         check back.
                       </Text>
                     ) : (
-                      strongest.map((p) => (
+                      strongestWithFood.map((p) => (
                         <View key={`${p.symptomName}|${p.itemKind}|${p.itemName}`} style={styles.patternRow}>
                           <Text style={[styles.patternTitle, { color: colors.text }]}>
                             {`${p.symptomName} × ${p.itemName}`}
@@ -369,10 +457,6 @@ const makeStyles = (C: Palette) =>
     emptyTitle: { fontSize: 16, fontWeight: '700', color: C.text, marginBottom: 6 },
     body: { fontSize: 14, lineHeight: 20 },
     summary: { fontSize: 13, fontWeight: '600', marginBottom: 8, marginTop: 10 },
-    statRow: { flexDirection: 'row', gap: 12, marginBottom: 12, marginTop: 4 },
-    stat: { flex: 1, alignItems: 'center' },
-    statValue: { fontSize: 28, fontWeight: '700' },
-    statLabel: { fontSize: 11, textAlign: 'center', marginTop: 2, lineHeight: 15 },
     patternRow: { marginBottom: 12 },
     patternTitle: { fontSize: 15, fontWeight: '700', marginBottom: 2 },
     disclaimer: {

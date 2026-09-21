@@ -37,7 +37,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "test": "tsc -p tsconfig.test.json && node dist-test/milestones.test.js && node dist-test/backup.test.js && node dist-test/dietPrinciples.test.js && node dist-test/numberParsing.test.js && node dist-test/medSuppSelection.test.js && node dist-test/profileValidation.test.js && node -r ./test/preload.js dist-test/medSuppForm.test.js && node dist-test/pro.test.js && node dist-test/trendsStats.test.js && node dist-test/logs.test.js"
+    "test": "tsc -p tsconfig.test.json && node dist-test/milestones.test.js && node dist-test/backup.test.js && node dist-test/dietPrinciples.test.js && node dist-test/numberParsing.test.js && node dist-test/medSuppSelection.test.js && node dist-test/profileValidation.test.js && node -r ./test/preload.js dist-test/medSuppForm.test.js && node dist-test/pro.test.js && node dist-test/trendsStats.test.js && node dist-test/foodGroups.test.js && node dist-test/logs.test.js"
   },
   "private": true
 }

@@ -75,7 +75,7 @@ export function bucketDays(symptomDays: SymptomDay[], itemDays: Set<string>): Da
 export interface PatternComparison {
   symptomName: string;
   itemName: string;
-  itemKind: 'medication' | 'supplement';
+  itemKind: 'medication' | 'supplement' | 'food';
   avgTaken: number;
   avgNotTaken: number;
   /** avgTaken - avgNotTaken. Negative = lower average severity on days taken. */
@@ -95,7 +95,7 @@ export function comparePattern(
   symptomName: string,
   symptomDays: SymptomDay[],
   itemName: string,
-  itemKind: 'medication' | 'supplement',
+  itemKind: 'medication' | 'supplement' | 'food',
   itemDays: Set<string>,
 ): PatternComparison | null {
   const { taken, notTaken } = bucketDays(symptomDays, itemDays);
@@ -187,10 +187,11 @@ export function summarizeWeights(points: WeightPoint[]): WeightSummary | null {
   };
 }
 
-/** "0.8 lower on days taken" / "1.2 higher on days taken" — describes the
- *  pattern in the logs without implying cause. */
-export function diffLabel(diff: number): string {
+/** "0.8 lower on days taken" / "1.2 higher on days logged" — describes the
+ *  pattern in the logs without implying cause. The onDays word is "taken"
+ *  for meds/supplements, "logged" for foods. */
+export function diffLabel(diff: number, onDays: 'taken' | 'logged' = 'taken'): string {
   const v = round1(Math.abs(diff));
-  if (v === 0) return 'about the same on days taken vs. not taken';
-  return `${v} ${diff < 0 ? 'lower' : 'higher'} on days taken`;
+  if (v === 0) return `about the same on days ${onDays} vs. not ${onDays}`;
+  return `${v} ${diff < 0 ? 'lower' : 'higher'} on days ${onDays}`;
 }

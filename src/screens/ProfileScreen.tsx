@@ -205,7 +205,7 @@ export default function ProfileScreen() {
       const backup = exportBackup();
       const now = new Date();
       const stamp = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-      const uri = `${documentDirectory}diet-coach-backup-${stamp}.json`;
+      const uri = `${documentDirectory}ketokind-backup-${stamp}.json`;
       await writeAsStringAsync(uri, JSON.stringify(backup));
       await Sharing.shareAsync(uri, { mimeType: 'application/json' });
     } catch (e) {
@@ -229,7 +229,7 @@ export default function ProfileScreen() {
         parsed = null;
       }
       if (!isDatabaseBackup(parsed)) {
-        Alert.alert('Invalid file', 'That file is not a valid Diet Coach backup.');
+        Alert.alert('Invalid file', 'That file is not a valid KetoKind backup.');
         return;
       }
       const backup = parsed;

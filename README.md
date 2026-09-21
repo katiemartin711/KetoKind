@@ -1,4 +1,4 @@
-# Diet Coach
+# KetoKind
 
 A private diet-logging app for keto / carnivore / lion-diet eaters. Log meals,
 medications, symptoms, and supplements — then export a Markdown **context file**
@@ -21,7 +21,7 @@ file. That's the whole privacy model — and why there's nothing to maintain.
 ## Project structure
 
 ```
-diet-coach/
+ketokind/
   App.tsx                  # Bottom-tab navigator (Dashboard / Log / Profile / AI Coach)
   index.ts                 # Expo entry
   src/
@@ -35,7 +35,7 @@ diet-coach/
       ExportScreen.tsx     # "AI Coach" tab: context file builder + share
 ```
 
-The database (`dietcoach.db`) is created on first launch via `initDb()` in
+The database (`ketokind.db`) is created on first launch via `initDb()` in
 `src/db.ts`. Tables: `profile` (single row), `allergies`, `conditions`,
 `medications`, `food_logs`, `med_logs`, `symptom_logs`, `supplement_logs`.
 
@@ -70,7 +70,7 @@ npx tsc --noEmit                  # typecheck without starting the server
 
 ## Notes
 
-- Diet Coach is a logging tool, not a medical professional. The app and the
+- KetoKind is a logging tool, not a medical professional. The app and the
   coach prompt both carry "not medical advice" language, and the prompt
   explicitly tells the AI never to advise on medications.
 - Free vs. Pro tiers (free logging → one-time Pro unlock for insights/export)

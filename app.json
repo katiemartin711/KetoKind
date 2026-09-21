@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "diet-coach",
-    "slug": "diet-coach",
+    "name": "KetoKind",
+    "slug": "ketokind",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

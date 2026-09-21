@@ -1,4 +1,4 @@
-// Diet Coach — app entry point.
+// KetoKind — app entry point.
 // Bottom-tab navigation: Dashboard, Log, Profile, AI Coach.
 // SQLite is initialized once at startup. If the database can't be opened
 // (corrupt file, disk full, failed migration), we show a recovery screen
@@ -86,7 +86,7 @@ export default function App() {
 
   const resetDb = () => {
     try {
-      deleteDatabaseSync('dietcoach.db');
+      deleteDatabaseSync('ketokind.db');
       initDb();
       setDbError(null);
     } catch (e) {
@@ -100,7 +100,7 @@ export default function App() {
         <View style={errStyles.container}>
           <Text style={errStyles.title}>Something went wrong</Text>
           <Text style={errStyles.body}>
-            Diet Coach couldn't open its on-device database
+            KetoKind couldn't open its on-device database
             {dbError.message ? ` (${dbError.message})` : ''}. You can reset the
             app's data and start fresh — this deletes everything stored on this device.
           </Text>

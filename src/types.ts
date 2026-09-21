@@ -1,4 +1,4 @@
-// Shared types for the Diet Coach app.
+// Shared types for the KetoKind app.
 
 import type { ThemeMode } from './theme';
 

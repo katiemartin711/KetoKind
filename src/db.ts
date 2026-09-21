@@ -1,4 +1,4 @@
-// All SQLite access for the Diet Coach app lives here.
+// All SQLite access for the KetoKind app lives here.
 // Uses expo-sqlite's synchronous API. Call initDb() once at startup.
 
 import * as SQLite from 'expo-sqlite';
@@ -18,7 +18,7 @@ import type {
 } from './types';
 import type { ThemeMode } from './theme';
 
-const db = SQLite.openDatabaseSync('dietcoach.db');
+const db = SQLite.openDatabaseSync('ketokind.db');
 
 /**
  * Schema version. Bump this and add an entry to MIGRATIONS whenever the

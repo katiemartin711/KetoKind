@@ -1,1 +1,1 @@
-{"compilerOptions":{"module":"commonjs","outDir":"dist-test","rootDir":"src","skipLibCheck":true,"strict":true,"target":"ES2020"},"include":["src/milestones.ts","src/milestones.test.ts"]}
+{"compilerOptions":{"module":"commonjs","outDir":"dist-test","rootDir":"src","skipLibCheck":true,"strict":true,"target":"ES2020","types":["node"]},"include":["src/db.ts","src/types.ts","src/theme.ts","src/milestones.ts","src/nodeSqliteAdapter.ts","src/milestones.test.ts","src/backup.test.ts"]}

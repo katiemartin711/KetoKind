@@ -1,6 +1,10 @@
 {
-  "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true
-  }
+  },
+  "exclude": [
+    "src/*.test.ts",
+    "src/nodeSqliteAdapter.ts"
+  ],
+  "extends": "expo/tsconfig.base"
 }

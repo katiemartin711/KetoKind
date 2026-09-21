@@ -38,6 +38,7 @@ import {
   setWeightTracking,
   updateMedication,
   updateSupplement,
+  validateBackup,
 } from '../db';
 import type { Allergy, Condition, DietType, Medication, Supplement } from '../types';
 import { DIET_LABELS, DIET_TYPES } from '../types';
@@ -229,7 +230,13 @@ export default function ProfileScreen() {
         parsed = null;
       }
       if (!isDatabaseBackup(parsed)) {
-        Alert.alert('Invalid file', 'That file is not a valid KetoKind backup.');
+        const [firstIssue] = validateBackup(parsed);
+        Alert.alert(
+          'Invalid file',
+          firstIssue
+            ? `That file is not a valid KetoKind backup: ${firstIssue.path} — ${firstIssue.message}`
+            : 'That file is not a valid KetoKind backup.',
+        );
         return;
       }
       const backup = parsed;

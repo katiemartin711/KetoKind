@@ -12,7 +12,8 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
 import { NodeSqliteHandle } from './nodeSqliteAdapter';
-import { __setDbForTests, initDb } from './db';
+import { __setDbForTests } from './db/client';
+import { initDb } from './db/schema';
 import { ThemeProvider } from './ThemeContext';
 import MedSuppForm from './components/log/MedSuppForm';
 import type { Medication, Supplement } from './types';

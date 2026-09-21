@@ -5,35 +5,13 @@
 // (tsc compiles src/ to dist-test/, node runs dist-test/backup.test.js.)
 
 import { NodeSqliteHandle } from './nodeSqliteAdapter';
-import {
-  __setDbForTests,
-  addAllergy,
-  addCondition,
-  addFoodLog,
-  addMedication,
-  addMedLog,
-  addSupplement,
-  addSupplementLog,
-  addSymptomLog,
-  addWeightLog,
-  deleteAllData,
-  deleteMedication,
-  dismissMilestones,
-  exportBackup,
-  getLogsForDay,
-  importBackup,
-  initDb,
-  isDatabaseBackup,
-  listMedications,
-  listSupplements,
-  saveProfile,
-  setThemeMode,
-  setWeightTracking,
-  updateMedication,
-  updateMedLog,
-  validateBackup,
-  type DatabaseBackup,
-} from './db';
+import { exportBackup, importBackup, isDatabaseBackup, validateBackup } from './db/backup';
+import type { DatabaseBackup } from './db/backup';
+import { addAllergy, addCondition, addMedication, addSupplement, deleteMedication, listMedications, listSupplements, updateMedication } from './db/catalog';
+import { __setDbForTests } from './db/client';
+import { addFoodLog, addMedLog, addSupplementLog, addSymptomLog, addWeightLog, getLogsForDay, updateMedLog } from './db/logs';
+import { deleteAllData, dismissMilestones, saveProfile, setThemeMode, setWeightTracking } from './db/profile';
+import { initDb } from './db/schema';
 
 let passed = 0;
 let failed = 0;

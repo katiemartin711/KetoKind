@@ -4,15 +4,9 @@
 // injectable DbHandle. Run with: npm test
 
 import { NodeSqliteHandle } from './nodeSqliteAdapter';
-import {
-  __setDbForTests,
-  database,
-  deleteAllData,
-  getProStatus,
-  initDb,
-  saveProfile,
-  setProStatus,
-} from './db';
+import { __setDbForTests, database } from './db/client';
+import { deleteAllData, getProStatus, saveProfile, setProStatus } from './db/profile';
+import { initDb } from './db/schema';
 import {
   grantPro,
   isProUser,

@@ -3,20 +3,11 @@
 // injectable DbHandle, like pro.test.ts). Run with: npm test
 
 import { NodeSqliteHandle } from './nodeSqliteAdapter';
-import {
-  __setDbForTests,
-  addMedication,
-  addMedLog,
-  addSupplement,
-  addSupplementLog,
-  addSymptomLog,
-  addWeightLog,
-  database,
-  getItemDayList,
-  getSymptomDayMap,
-  getWeightSeries,
-  initDb,
-} from './db';
+import { addMedication, addSupplement } from './db/catalog';
+import { __setDbForTests, database } from './db/client';
+import { addMedLog, addSupplementLog, addSymptomLog, addWeightLog } from './db/logs';
+import { initDb } from './db/schema';
+import { getItemDayList, getSymptomDayMap, getWeightSeries } from './db/trends';
 import {
   MIN_BASELINE_DAYS,
   MIN_COMPARISON_DAYS,

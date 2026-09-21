@@ -1,9 +1,9 @@
 // Test-only SQLite handle backed by node:sqlite (in-memory). Implements the
-// DbHandle surface db.ts needs, so backup/restore tests run the REAL db.ts
-// code paths against a real SQL engine under Node. Never imported by the app.
+// DbHandle surface the src/db modules need, so backup/restore tests run the
+// REAL db code paths against a real SQL engine under Node. Never imported by the app.
 
 import { DatabaseSync, type SQLInputValue } from 'node:sqlite';
-import type { DbHandle } from './db';
+import type { DbHandle } from './db/client';
 
 export class NodeSqliteHandle implements DbHandle {
   private db = new DatabaseSync(':memory:');

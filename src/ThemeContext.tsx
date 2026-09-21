@@ -10,7 +10,7 @@ import {
   type Palette,
   type ThemeMode,
 } from './theme';
-import { getThemeMode, setThemeMode } from './db';
+import { getThemeMode, setThemeMode } from './db/profile';
 
 interface ThemeCtx {
   colors: Palette;

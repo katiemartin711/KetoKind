@@ -9,7 +9,7 @@ import { useFocusEffect, useNavigation, useRoute } from '@react-navigation/nativ
 import type { RouteProp } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
-import { deleteLog, getLogsOfKind } from '../db';
+import { deleteLog, getLogsOfKind } from '../db/logs';
 import type { AnyLog, RootStackParamList } from '../types';
 import { useTheme } from '../ThemeContext';
 import type { Palette } from '../theme';

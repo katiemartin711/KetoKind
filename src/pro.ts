@@ -8,7 +8,7 @@
 // purchases are SIMULATED for now. The UI is complete; only the bodies of
 // requestPurchase()/restorePurchase() need replacing when real IAP lands.
 
-import { getProStatus, setProStatus } from './db';
+import { getProStatus, setProStatus } from './db/profile';
 
 export const PRO_PRICE = '$9.99';
 

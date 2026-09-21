@@ -2,19 +2,10 @@
 // screens. Runs against in-memory SQLite via the injectable DbHandle.
 
 import { NodeSqliteHandle } from './nodeSqliteAdapter';
-import {
-  __setDbForTests,
-  addFoodLog,
-  addMedication,
-  addMedLog,
-  addSupplement,
-  addSupplementLog,
-  addSymptomLog,
-  addWeightLog,
-  deleteLog,
-  getLogsOfKind,
-  initDb,
-} from './db';
+import { addMedication, addSupplement } from './db/catalog';
+import { __setDbForTests } from './db/client';
+import { addFoodLog, addMedLog, addSupplementLog, addSymptomLog, addWeightLog, deleteLog, getLogsOfKind } from './db/logs';
+import { initDb } from './db/schema';
 
 let passed = 0;
 let failed = 0;

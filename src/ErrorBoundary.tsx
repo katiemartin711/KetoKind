@@ -7,7 +7,8 @@
 import React from 'react';
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { deleteDatabaseSync } from 'expo-sqlite';
-import { closeDatabase, initDb } from './db';
+import { closeDatabase } from './db/client';
+import { initDb } from './db/schema';
 import { useTheme } from './ThemeContext';
 
 interface BoundaryProps {

@@ -12,7 +12,7 @@ const BASE_PRINCIPLES: string[] = [
   'No sugar, no grains, no seed oils, no processed food.',
   'Eat when hungry, stop when comfortably full — no calorie counting or portion micromanaging.',
   'Salt food to taste; electrolytes matter, especially during adaptation.',
-  'For women: adequate fat supports hormone production, since cholesterol is the building block of estrogen, progesterone, and testosterone. Low-fat dieting can disrupt cycles, fertility, mood, and thyroid.',
+  'For women: adequate fat supports hormone production — cholesterol builds estrogen, progesterone, and testosterone. Low-fat dieting can disrupt cycles, fertility, mood, and thyroid.',
   "Don't chronically undereat — aggressive restriction and excessive fasting backfire, especially for women.",
   'Dairy is optional and a common stall culprit — cutting back is a reasonable first lever when weight loss stalls.',
   'BBBe (beef, butter, bacon, eggs) works as a simple reset baseline.',

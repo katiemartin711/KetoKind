@@ -79,9 +79,13 @@ export default function App() {
   });
 
   // initDb() above runs synchronously during first render, so once we're
-  // mounted the app is ready to show — hide the splash screen.
+  // mounted the app is ready to show — hold the splash briefly so the
+  // branding is actually seen, then fade out.
   useEffect(() => {
-    SplashScreen.hideAsync();
+    const t = setTimeout(() => {
+      SplashScreen.hideAsync();
+    }, 2000);
+    return () => clearTimeout(t);
   }, []);
 
   const resetDb = () => {

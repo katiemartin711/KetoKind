@@ -4,9 +4,9 @@
 // (corrupt file, disk full, failed migration), we show a recovery screen
 // instead of crashing — the user can wipe and start fresh.
 
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Animated, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -23,10 +23,44 @@ import ExportScreen from './src/screens/ExportScreen';
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
-// Keep the native splash screen visible until the app has rendered.
+// Keep the native splash from auto-hiding before JS loads (matters for
+// production builds; in Expo Go the plugin config isn't displayed, so the
+// BrandedSplash overlay below is what the user actually sees).
 // Must be called at module scope — inside a component it can run too late.
 SplashScreen.preventAutoHideAsync();
 SplashScreen.setOptions({ duration: 500, fade: true });
+
+const SPLASH_HOLD_MS = 2500;
+const SPLASH_FADE_MS = 500;
+
+// Branded launch moment, rendered in JS so it shows identically in Expo Go
+// and in production builds: holds the KetoKind mark for a beat, then fades.
+function BrandedSplash({ onHidden }: { onHidden: () => void }) {
+  const { colors } = useTheme();
+  const opacity = useRef(new Animated.Value(1)).current;
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      Animated.timing(opacity, {
+        toValue: 0,
+        duration: SPLASH_FADE_MS,
+        useNativeDriver: true,
+      }).start(() => onHidden());
+    }, SPLASH_HOLD_MS);
+    return () => clearTimeout(t);
+  }, [opacity, onHidden]);
+
+  return (
+    <Animated.View
+      style={[splashStyles.container, { opacity, backgroundColor: colors.background }]}
+    >
+      <View style={[splashStyles.emblem, { backgroundColor: colors.accent }]}>
+        <Text style={[splashStyles.emblemText, { color: colors.background }]}>K</Text>
+      </View>
+      <Text style={[splashStyles.wordmark, { color: colors.text }]}>KetoKind</Text>
+    </Animated.View>
+  );
+}
 
 const TAB_ICONS: Record<keyof RootTabParamList, keyof typeof Ionicons.glyphMap> = {
   Dashboard: 'home-outline',
@@ -37,6 +71,8 @@ const TAB_ICONS: Record<keyof RootTabParamList, keyof typeof Ionicons.glyphMap> 
 
 function ThemedApp() {
   const { colors, isDark } = useTheme();
+  const [splashDone, setSplashDone] = useState(false);
+  const hideSplash = useCallback(() => setSplashDone(true), []);
 
   return (
     <>
@@ -62,6 +98,7 @@ function ThemedApp() {
         </Tab.Navigator>
       </NavigationContainer>
       <StatusBar style={isDark ? 'light' : 'dark'} />
+      {!splashDone && <BrandedSplash onHidden={hideSplash} />}
     </>
   );
 }
@@ -78,14 +115,10 @@ export default function App() {
     }
   });
 
-  // initDb() above runs synchronously during first render, so once we're
-  // mounted the app is ready to show — hold the splash briefly so the
-  // branding is actually seen, then fade out.
+  // Release the native splash as soon as JS is up — the BrandedSplash
+  // overlay above carries the visible branding from here.
   useEffect(() => {
-    const t = setTimeout(() => {
-      SplashScreen.hideAsync();
-    }, 2000);
-    return () => clearTimeout(t);
+    SplashScreen.hideAsync();
   }, []);
 
   const resetDb = () => {
@@ -124,6 +157,36 @@ export default function App() {
     </SafeAreaProvider>
   );
 }
+
+const splashStyles = StyleSheet.create({
+  container: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 10,
+    elevation: 10,
+  },
+  emblem: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 20,
+  },
+  emblemText: {
+    fontSize: 64,
+    fontWeight: '700',
+  },
+  wordmark: {
+    fontSize: 40,
+    fontWeight: '700',
+  },
+});
 
 const errStyles = StyleSheet.create({
   container: {

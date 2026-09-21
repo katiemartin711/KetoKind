@@ -362,6 +362,17 @@ export default function ProfileScreen() {
         This is what gets included in your AI coach context file.
       </Text>
 
+      <AboutSection
+        name={name}
+        onNameChange={setName}
+        age={age}
+        onAgeChange={setAge}
+        sex={sex}
+        onSexChange={setSex}
+        bio={bio}
+        onBioChange={setBio}
+      />
+
       <DietSection
         dietType={dietType}
         infoDiet={infoDiet}
@@ -381,17 +392,6 @@ export default function ProfileScreen() {
         savedDietType={savedDietType}
         savedFlash={savedFlash}
         onSave={onSave}
-      />
-
-      <AboutSection
-        name={name}
-        onNameChange={setName}
-        age={age}
-        onAgeChange={setAge}
-        sex={sex}
-        onSexChange={setSex}
-        bio={bio}
-        onBioChange={setBio}
       />
 
       <WeightSection

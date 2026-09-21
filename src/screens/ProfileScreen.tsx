@@ -42,6 +42,7 @@ import {
 } from '../db';
 import type { Allergy, Condition, DietType, Medication, Supplement } from '../types';
 import { DIET_LABELS, DIET_TYPES } from '../types';
+import { dietPrinciples } from '../dietPrinciples';
 import { SHADOW } from '../theme';
 import { toDietStartString, parseDietStart, formatDietStart, dietDurationLabel } from '../milestones';
 import { useTheme } from '../ThemeContext';
@@ -58,6 +59,7 @@ export default function ProfileScreen() {
   const { colors, common, mode: themeMode, setMode: setAppTheme } = useTheme();
   const styles = useMemo(() => makeStyles(colors), [colors]);
   const [dietType, setDietType] = useState<DietType>('carnivore');
+  const [infoDiet, setInfoDiet] = useState<DietType | null>(null);
   const [nuances, setNuances] = useState('');
   const [goals, setGoals] = useState('');
   const [dietStartMonth, setDietStartMonth] = useState('');
@@ -350,20 +352,40 @@ export default function ProfileScreen() {
         <View style={common.card}>
           <Text style={common.h2}>Diet type</Text>
           {DIET_TYPES.map((d) => (
-            <TouchableOpacity
-              key={d}
-              style={styles.radioRow}
-              onPress={() => {
-                setDietType(d);
-                setSavedDietType(d);
-                persistDietType(d);
-              }}
-            >
-              <View style={[styles.radio, dietType === d && styles.radioActive]}>
-                {dietType === d && <View style={styles.radioDot} />}
-              </View>
-              <Text style={styles.radioLabel}>{DIET_LABELS[d]}</Text>
-            </TouchableOpacity>
+            <React.Fragment key={d}>
+              <TouchableOpacity
+                style={styles.radioRow}
+                onPress={() => {
+                  setDietType(d);
+                  setSavedDietType(d);
+                  persistDietType(d);
+                }}
+              >
+                <View style={[styles.radio, dietType === d && styles.radioActive]}>
+                  {dietType === d && <View style={styles.radioDot} />}
+                </View>
+                <Text style={[styles.radioLabel, styles.dietLabelFlex]}>{DIET_LABELS[d]}</Text>
+                <TouchableOpacity
+                  style={styles.infoButton}
+                  hitSlop={10}
+                  accessibilityRole="button"
+                  accessibilityLabel={`${DIET_LABELS[d]} principles`}
+                  onPress={() => setInfoDiet(infoDiet === d ? null : d)}
+                >
+                  <Text style={styles.infoText}>i</Text>
+                </TouchableOpacity>
+              </TouchableOpacity>
+              {infoDiet === d && (
+                <View style={styles.principlesBox}>
+                  {dietPrinciples(d).map((p, i) => (
+                    <Text key={i} style={styles.principleText}>
+                      <Text style={styles.principleNum}>{`${i + 1}. `}</Text>
+                      {p}
+                    </Text>
+                  ))}
+                </View>
+              )}
+            </React.Fragment>
           ))}
 
           <Text style={common.label}>Diet nuances — what do you / don't you include?</Text>
@@ -780,6 +802,25 @@ const makeStyles = (C: Palette) =>
   radioActive: { borderColor: C.accent },
   radioDot: { width: 12, height: 12, borderRadius: 6, backgroundColor: C.accent },
   radioLabel: { fontSize: 16, color: C.text, marginLeft: 10 },
+  dietLabelFlex: { flex: 1 },
+  infoButton: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    borderWidth: 1.5,
+    borderColor: C.muted,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  infoText: { fontSize: 13, fontWeight: '700', color: C.muted },
+  principlesBox: {
+    backgroundColor: C.accentLight,
+    borderRadius: 10,
+    padding: 12,
+    marginBottom: 8,
+  },
+  principleText: { fontSize: 13, color: C.text, lineHeight: 19, marginBottom: 6 },
+  principleNum: { fontWeight: '700', color: C.accent },
   radioHint: { fontSize: 13, color: C.muted, marginLeft: 10, marginTop: 2 },
   multiline: { minHeight: 90 },
   row: {

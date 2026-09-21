@@ -1,19 +1,13 @@
-// Log tab: segmented forms for Meal / Medication / Symptom / Supplement,
-// plus today's entries across all types with delete on each.
+// Log tab: segmented forms for Meal / Meds & Supps / Symptom / Weight,
+// plus today's entries across all types with edit and delete on each.
+//
+// The tab is composed of focused form components (src/components/log/);
+// this file owns the state and the db-backed handlers.
 
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import {
-  Alert,
-  Platform,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-  StyleSheet,
-} from 'react-native';
+import { Alert, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { useFocusEffect, useRoute } from '@react-navigation/native';
 import type { RouteProp } from '@react-navigation/native';
-import DateTimePicker from '@expo/ui/community/datetime-picker';
 import {
   addFoodLog,
   addMedLog,
@@ -40,6 +34,11 @@ import type { AnyLog, LogSegment, Medication, RootTabParamList, Supplement } fro
 import { useTheme } from '../ThemeContext';
 import type { Palette } from '../theme';
 import KeyboardScrollView from '../components/KeyboardScrollView';
+import MealForm from '../components/log/MealForm';
+import MedSuppForm from '../components/log/MedSuppForm';
+import SymptomForm from '../components/log/SymptomForm';
+import WeightForm from '../components/log/WeightForm';
+import TodayEntries from '../components/log/TodayEntries';
 
 type LogRoute = RouteProp<RootTabParamList, 'Log'>;
 
@@ -48,100 +47,6 @@ const SEGMENTS: { key: LogSegment; label: string }[] = [
   { key: 'medsupp', label: 'Meds & Supps' },
   { key: 'symptom', label: 'Symptom' },
 ];
-
-const MEAL_TYPES = ['Breakfast', 'Lunch', 'Dinner', 'Snack'];
-
-const KIND_LABEL: Record<AnyLog['kind'], string> = {
-  meal: 'Meal',
-  medication: 'Medication',
-  symptom: 'Symptom',
-  supplement: 'Supplement',
-  weight: 'Weight',
-};
-
-function fmtTime(iso: string): string {
-  return new Date(iso).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
-}
-
-function fmtDateTime(date: Date): string {
-  const day = date.toLocaleDateString(undefined, {
-    weekday: 'short',
-    month: 'short',
-    day: 'numeric',
-  });
-  const time = date.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
-  return `${day}, ${time}`;
-}
-
-/** A "Time" field for the log forms: shows the chosen date/time, taps open a
- *  native picker (dialog on Android, inline on iOS). Future times are blocked. */
-function DateTimeField({ value, onChange }: { value: Date; onChange: (d: Date) => void }) {
-  const { colors: COLORS, common } = useTheme();
-  const styles = useMemo(() => makeStyles(COLORS), [COLORS]);
-  const [open, setOpen] = useState(false);
-  return (
-    <View>
-      <Text style={common.label}>Time</Text>
-      <TouchableOpacity style={common.input} onPress={() => setOpen(true)}>
-        <Text style={{ fontSize: 16, color: COLORS.text }}>{fmtDateTime(value)}</Text>
-      </TouchableOpacity>
-      {open && (
-        <View style={styles.pickerWrap}>
-          <DateTimePicker
-            mode="datetime"
-            value={value}
-            maximumDate={new Date()}
-            onChange={(event, date) => {
-              if (event.type === 'dismissed') {
-                setOpen(false);
-                return;
-              }
-              if (date) onChange(date);
-              // Android's dialog presentation: close once a value is picked.
-              if (Platform.OS === 'android') setOpen(false);
-            }}
-            onDismiss={() => setOpen(false)}
-          />
-          {Platform.OS === 'ios' && (
-            <TouchableOpacity style={common.secondaryButton} onPress={() => setOpen(false)}>
-              <Text style={common.secondaryButtonText}>Done</Text>
-            </TouchableOpacity>
-          )}
-        </View>
-      )}
-    </View>
-  );
-}
-
-/** Stepper row for "how many did you take" on an as-needed item. */
-function QtyRow({
-  name,
-  qty,
-  onDec,
-  onInc,
-}: {
-  name: string;
-  qty: number;
-  onDec: () => void;
-  onInc: () => void;
-}) {
-  const { colors: COLORS } = useTheme();
-  const styles = useMemo(() => makeStyles(COLORS), [COLORS]);
-  return (
-    <View style={styles.qtyRow}>
-      <Text style={styles.qtyName}>{name}</Text>
-      <View style={styles.stepper}>
-        <TouchableOpacity style={styles.stepBtn} onPress={onDec}>
-          <Text style={styles.stepBtnText}>−</Text>
-        </TouchableOpacity>
-        <Text style={styles.qtyValue}>{qty}</Text>
-        <TouchableOpacity style={styles.stepBtn} onPress={onInc}>
-          <Text style={styles.stepBtnText}>+</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
-}
 
 export default function LogScreen() {
   const route = useRoute<LogRoute>();
@@ -276,13 +181,6 @@ export default function LogScreen() {
     set((q) => ({ ...q, [id]: Math.min(20, Math.max(1, (q[id] ?? 1) + delta)) }));
   };
 
-  const editingMedSupp =
-    editing?.kind === 'medication' || editing?.kind === 'supplement' ? editing.kind : null;
-  const medSuppSelected = selectedMedIds.length + selectedSuppIds.length > 0;
-  // Selected as-needed items get a "how many" stepper below the chips.
-  const asNeededMedSel = medications.filter((m) => m.as_needed && selectedMedIds.includes(m.id));
-  const asNeededSuppSel = profileSupps.filter((s) => s.as_needed && selectedSuppIds.includes(s.id));
-
   const saveSymptom = () => {
     if (!symptomName.trim()) return Alert.alert('Missing name', 'What symptom are you logging?');
     const at = logDate.toISOString();
@@ -393,326 +291,112 @@ export default function LogScreen() {
       <Text style={common.h1}>Log</Text>
       <Text style={common.subtitle}>What did you eat, take, or feel?</Text>
 
-        {/* Segmented control */}
-        <View style={styles.segments}>
-          {visibleSegments.map((s) => (
-            <TouchableOpacity
-              key={s.key}
-              style={[styles.segment, segment === s.key && styles.segmentActive]}
-              onPress={() => {
-                setSegment(s.key);
-                // Switching forms exits edit mode; the time resets to now.
-                setEditing(null);
-                setLogDate(new Date());
-              }}
-            >
-              <Text style={[styles.segmentText, segment === s.key && styles.segmentTextActive]}>
-                {s.label}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-
-        {segment === 'meal' && (
-          <View style={common.card}>
-            <Text style={common.label}>What did you eat?</Text>
-            <TextInput
-              style={common.input}
-              placeholder="e.g. Ribeye steak, 3 eggs"
-              value={mealName}
-              onChangeText={setMealName}
-              maxLength={120}
-            />
-            <Text style={common.label}>Meal</Text>
-            <View style={styles.chips}>
-              {MEAL_TYPES.map((m) => (
-                <TouchableOpacity
-                  key={m}
-                  style={[styles.chip, mealType === m && styles.chipActive]}
-                  onPress={() => setMealType(m)}
-                >
-                  <Text style={[styles.chipText, mealType === m && styles.chipTextActive]}>{m}</Text>
-                </TouchableOpacity>
-              ))}
-            </View>
-            <Text style={common.label}>Notes (optional)</Text>
-            <TextInput
-              style={common.input}
-              placeholder="How was it?"
-              value={mealNotes}
-              onChangeText={setMealNotes}
-              maxLength={200}
-            />
-            <DateTimeField value={logDate} onChange={setLogDate} />
-            <TouchableOpacity style={common.primaryButton} onPress={saveMeal}>
-              <Text style={common.primaryButtonText}>
-                {editing?.kind === 'meal' ? 'Save changes' : 'Save meal'}
-              </Text>
-            </TouchableOpacity>
-            {editing?.kind === 'meal' && (
-              <TouchableOpacity style={common.secondaryButton} onPress={resetForm}>
-                <Text style={common.secondaryButtonText}>Cancel editing</Text>
-              </TouchableOpacity>
-            )}
-          </View>
-        )}
-
-        {segment === 'medsupp' && (
-          <View style={common.card}>
-            <Text style={common.label}>Medications — tap all you took</Text>
-            {medications.length === 0 ? (
-              <Text style={styles.hint}>
-                No medications yet — add them on the Profile tab first.
-              </Text>
-            ) : (
-              <View style={styles.chips}>
-                {medications.map((m) => {
-                  const selected = selectedMedIds.includes(m.id);
-                  const locked = editingMedSupp === 'supplement';
-                  return (
-                    <TouchableOpacity
-                      key={m.id}
-                      style={[styles.chip, selected && styles.chipActive, locked && styles.chipLocked]}
-                      onPress={() => onToggleMed(m.id)}
-                      disabled={locked}
-                    >
-                      <Text style={[styles.chipText, selected && styles.chipTextActive]}>
-                        {m.name}
-                        {m.dosage ? ` (${m.dosage})` : ''}
-                        {m.as_needed ? ' · as needed' : ''}
-                      </Text>
-                    </TouchableOpacity>
-                  );
-                })}
-              </View>
-            )}
-            <Text style={[common.label, { marginTop: 12 }]}>Supplements — tap all you took</Text>
-            {profileSupps.length === 0 ? (
-              <Text style={styles.hint}>
-                No supplements yet — add them on the Profile tab first.
-              </Text>
-            ) : (
-              <View style={styles.chips}>
-                {profileSupps.map((s) => {
-                  const selected = selectedSuppIds.includes(s.id);
-                  const locked = editingMedSupp === 'medication';
-                  return (
-                    <TouchableOpacity
-                      key={s.id}
-                      style={[styles.chip, selected && styles.chipActive, locked && styles.chipLocked]}
-                      onPress={() => onToggleSupp(s.id)}
-                      disabled={locked}
-                    >
-                      <Text style={[styles.chipText, selected && styles.chipTextActive]}>
-                        {s.name}
-                        {s.dosage ? ` (${s.dosage})` : ''}
-                        {s.as_needed ? ' · as needed' : ''}
-                      </Text>
-                    </TouchableOpacity>
-                  );
-                })}
-              </View>
-            )}
-            <DateTimeField value={logDate} onChange={setLogDate} />
-            {(asNeededMedSel.length > 0 || asNeededSuppSel.length > 0) && (
-              <>
-                <Text style={[common.label, { marginTop: 4 }]}>How many?</Text>
-                {asNeededMedSel.map((m) => (
-                  <QtyRow
-                    key={`m${m.id}`}
-                    name={m.name}
-                    qty={medQty[m.id] ?? 1}
-                    onDec={() => bumpQty('med', m.id, -1)}
-                    onInc={() => bumpQty('med', m.id, 1)}
-                  />
-                ))}
-                {asNeededSuppSel.map((s) => (
-                  <QtyRow
-                    key={`s${s.id}`}
-                    name={s.name}
-                    qty={suppQty[s.id] ?? 1}
-                    onDec={() => bumpQty('supp', s.id, -1)}
-                    onInc={() => bumpQty('supp', s.id, 1)}
-                  />
-                ))}
-              </>
-            )}
-            <TouchableOpacity
-              style={[common.primaryButton, !medSuppSelected && styles.disabled]}
-              onPress={saveMedSupp}
-              disabled={!medSuppSelected}
-            >
-              <Text style={common.primaryButtonText}>
-                {editingMedSupp ? 'Save changes' : 'Mark selected as taken'}
-              </Text>
-            </TouchableOpacity>
-            {editingMedSupp && (
-              <TouchableOpacity style={common.secondaryButton} onPress={resetForm}>
-                <Text style={common.secondaryButtonText}>Cancel editing</Text>
-              </TouchableOpacity>
-            )}
-          </View>
-        )}
-
-        {segment === 'symptom' && (
-          <View style={common.card}>
-            <Text style={common.label}>Symptom</Text>
-            <TextInput
-              style={common.input}
-              placeholder="e.g. Bloating, headache, low energy"
-              value={symptomName}
-              onChangeText={setSymptomName}
-              maxLength={80}
-            />
-            <Text style={common.label}>Severity: {severity}/5</Text>
-            <View style={styles.chips}>
-              {[1, 2, 3, 4, 5].map((n) => (
-                <TouchableOpacity
-                  key={n}
-                  style={[styles.chip, severity === n && styles.chipActive]}
-                  onPress={() => setSeverity(n)}
-                >
-                  <Text style={[styles.chipText, severity === n && styles.chipTextActive]}>{n}</Text>
-                </TouchableOpacity>
-              ))}
-            </View>
-            <Text style={common.label}>Notes (optional)</Text>
-            <TextInput
-              style={common.input}
-              placeholder="Anything notable?"
-              value={symptomNotes}
-              onChangeText={setSymptomNotes}
-              maxLength={200}
-            />
-            <DateTimeField value={logDate} onChange={setLogDate} />
-            <TouchableOpacity style={common.primaryButton} onPress={saveSymptom}>
-              <Text style={common.primaryButtonText}>
-                {editing?.kind === 'symptom' ? 'Save changes' : 'Save symptom'}
-              </Text>
-            </TouchableOpacity>
-            {editing?.kind === 'symptom' && (
-              <TouchableOpacity style={common.secondaryButton} onPress={resetForm}>
-                <Text style={common.secondaryButtonText}>Cancel editing</Text>
-              </TouchableOpacity>
-            )}
-          </View>
-        )}
-
-        {segment === 'weight' && (
-          <View style={common.card}>
-            <Text style={common.label}>Weight (lbs)</Text>
-            <TextInput
-              style={common.input}
-              keyboardType="decimal-pad"
-              placeholder="e.g. 182.5"
-              value={weightInput}
-              onChangeText={setWeightInput}
-              maxLength={7}
-            />
-            <DateTimeField value={logDate} onChange={setLogDate} />
-            <TouchableOpacity style={common.primaryButton} onPress={saveWeight}>
-              <Text style={common.primaryButtonText}>
-                {editing?.kind === 'weight' ? 'Save changes' : 'Save weight'}
-              </Text>
-            </TouchableOpacity>
-            {editing?.kind === 'weight' && (
-              <TouchableOpacity style={common.secondaryButton} onPress={resetForm}>
-                <Text style={common.secondaryButtonText}>Cancel editing</Text>
-              </TouchableOpacity>
-            )}
-          </View>
-        )}
-
-        <Text style={[common.h2, { marginTop: 12 }]}>Today's entries</Text>
-        {todayLogs.length === 0 ? (
-          <Text style={styles.hint}>Nothing logged yet today.</Text>
-        ) : (
-          <Text style={styles.hint}>Tap an entry to edit it.</Text>
-        )}
-        {todayLogs.map((log) => (
-          <View key={`${log.kind}-${log.id}`} style={[common.card, styles.entryRow]}>
-            <TouchableOpacity style={styles.entryText} onPress={() => startEdit(log)}>
-              <Text style={styles.entryTitle}>
-                {log.title} <Text style={styles.entryKind}>· {KIND_LABEL[log.kind]}</Text>
-              </Text>
-              <Text style={styles.entryDetail}>
-                {fmtTime(log.logged_at)}
-                {log.detail ? ` — ${log.detail}` : ''}
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => confirmDelete(log)} style={styles.deleteBtn}>
-              <Text style={styles.deleteText}>✕</Text>
-            </TouchableOpacity>
-          </View>
+      {/* Segmented control */}
+      <View style={styles.segments}>
+        {visibleSegments.map((s) => (
+          <TouchableOpacity
+            key={s.key}
+            style={[styles.segment, segment === s.key && styles.segmentActive]}
+            onPress={() => {
+              setSegment(s.key);
+              // Switching forms exits edit mode; the time resets to now.
+              setEditing(null);
+              setLogDate(new Date());
+            }}
+          >
+            <Text style={[styles.segmentText, segment === s.key && styles.segmentTextActive]}>
+              {s.label}
+            </Text>
+          </TouchableOpacity>
         ))}
+      </View>
+
+      {segment === 'meal' && (
+        <MealForm
+          mealName={mealName}
+          onMealNameChange={setMealName}
+          mealType={mealType}
+          onMealTypeChange={setMealType}
+          mealNotes={mealNotes}
+          onMealNotesChange={setMealNotes}
+          logDate={logDate}
+          onLogDateChange={setLogDate}
+          editing={editing?.kind === 'meal'}
+          onSave={saveMeal}
+          onCancel={resetForm}
+        />
+      )}
+
+      {segment === 'medsupp' && (
+        <MedSuppForm
+          medications={medications}
+          profileSupps={profileSupps}
+          selectedMedIds={selectedMedIds}
+          selectedSuppIds={selectedSuppIds}
+          medQty={medQty}
+          suppQty={suppQty}
+          onToggleMed={onToggleMed}
+          onToggleSupp={onToggleSupp}
+          onBumpQty={bumpQty}
+          logDate={logDate}
+          onLogDateChange={setLogDate}
+          editingKind={
+            editing?.kind === 'medication' || editing?.kind === 'supplement' ? editing.kind : null
+          }
+          onSave={saveMedSupp}
+          onCancel={resetForm}
+        />
+      )}
+
+      {segment === 'symptom' && (
+        <SymptomForm
+          symptomName={symptomName}
+          onSymptomNameChange={setSymptomName}
+          severity={severity}
+          onSeverityChange={setSeverity}
+          symptomNotes={symptomNotes}
+          onSymptomNotesChange={setSymptomNotes}
+          logDate={logDate}
+          onLogDateChange={setLogDate}
+          editing={editing?.kind === 'symptom'}
+          onSave={saveSymptom}
+          onCancel={resetForm}
+        />
+      )}
+
+      {segment === 'weight' && (
+        <WeightForm
+          weightInput={weightInput}
+          onWeightInputChange={setWeightInput}
+          logDate={logDate}
+          onLogDateChange={setLogDate}
+          editing={editing?.kind === 'weight'}
+          onSave={saveWeight}
+          onCancel={resetForm}
+        />
+      )}
+
+      <TodayEntries logs={todayLogs} onEdit={startEdit} onDelete={confirmDelete} />
     </KeyboardScrollView>
   );
 }
 
 const makeStyles = (C: Palette) =>
   StyleSheet.create({
-  segments: {
-    flexDirection: 'row',
-    backgroundColor: C.border,
-    borderRadius: 12,
-    padding: 4,
-    marginBottom: 12,
-  },
-  segment: {
-    flex: 1,
-    paddingVertical: 8,
-    borderRadius: 8,
-    alignItems: 'center',
-  },
-  segmentActive: { backgroundColor: C.card },
-  segmentText: { fontSize: 13, fontWeight: '600', color: C.muted },
-  segmentTextActive: { color: C.accent },
-  chips: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
-  chip: {
-    borderWidth: 1,
-    borderColor: C.border,
-    borderRadius: 20,
-    paddingHorizontal: 14,
-    paddingVertical: 8,
-    backgroundColor: C.card,
-  },
-  chipActive: { backgroundColor: C.accent, borderColor: C.accent },
-  chipLocked: { opacity: 0.4 },
-  qtyRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: 6,
-  },
-  qtyName: { flex: 1, fontSize: 15, color: C.text },
-  stepper: { flexDirection: 'row', alignItems: 'center' },
-  stepBtn: {
-    width: 34,
-    height: 34,
-    borderRadius: 17,
-    backgroundColor: C.accentLight,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  stepBtnText: { fontSize: 20, color: C.accent, fontWeight: '700' },
-  qtyValue: { fontSize: 17, fontWeight: '600', minWidth: 34, textAlign: 'center', color: C.text },
-  chipText: { fontSize: 14, color: C.text },
-  chipTextActive: { color: '#fff', fontWeight: '600' },
-  hint: { fontSize: 14, color: C.muted, marginVertical: 8 },
-  disabled: { opacity: 0.5 },
-  entryRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 12 },
-  entryText: { flex: 1 },
-  pickerWrap: { marginTop: 8 },
-  entryTitle: { fontSize: 15, fontWeight: '600', color: C.text },
-  entryKind: { fontWeight: '400', color: C.muted, fontSize: 13 },
-  entryDetail: { fontSize: 13, color: C.muted, marginTop: 2 },
-  deleteBtn: {
-    backgroundColor: C.dangerLight,
-    borderRadius: 22,
-    width: 44,
-    height: 44,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  deleteText: { color: C.danger, fontSize: 14, fontWeight: '700' },
+    segments: {
+      flexDirection: 'row',
+      backgroundColor: C.border,
+      borderRadius: 12,
+      padding: 4,
+      marginBottom: 12,
+    },
+    segment: {
+      flex: 1,
+      paddingVertical: 8,
+      borderRadius: 8,
+      alignItems: 'center',
+    },
+    segmentActive: { backgroundColor: C.card },
+    segmentText: { fontSize: 13, fontWeight: '600', color: C.muted },
+    segmentTextActive: { color: C.accent },
   });

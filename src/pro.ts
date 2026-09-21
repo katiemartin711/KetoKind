@@ -1,7 +1,7 @@
 // KetoKind Pro: the one-time paid unlock.
 // Free: all logging (meals, meds, supplements, symptoms, weight), dashboard,
-// streaks, milestones. Pro ($9.99 one-time): AI Coach context export +
-// backup export/import.
+// streaks, milestones. Pro ($9.99 one-time): AI Coach context export,
+// Trends (weight graph and log patterns), and backup export/import.
 //
 // Real Apple in-app purchases can't run in Expo Go (they need a paid Apple
 // Developer account, App Store Connect products, and a development build), so
@@ -14,6 +14,7 @@ export const PRO_PRICE = '$9.99';
 
 export const PRO_FEATURES: string[] = [
   'AI Coach context export — copy your coach prompt + 30 days of logs',
+  'Trends — weight graph and medication/supplement × symptom patterns',
   'Backup export & import — move your data between phones',
 ];
 

@@ -29,6 +29,8 @@
     "src/profileValidation.test.ts",
     "src/medSuppForm.test.tsx",
     "src/pro.ts",
-    "src/pro.test.ts"
+    "src/pro.test.ts",
+    "src/trendsStats.ts",
+    "src/trendsStats.test.ts"
   ]
 }

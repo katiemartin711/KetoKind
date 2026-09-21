@@ -11,3 +11,4 @@ export * from './db/catalog';
 export * from './db/logs';
 export * from './db/backup';
 export * from './db/exportData';
+export * from './db/trends';

@@ -116,6 +116,7 @@ export type LogSegment = 'meal' | 'medsupp' | 'symptom' | 'weight';
 export type RootTabParamList = {
   Dashboard: undefined;
   Log: { segment?: LogSegment } | undefined;
+  Trends: undefined;
   Profile: undefined;
   'AI Coach': undefined;
 };

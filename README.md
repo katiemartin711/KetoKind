@@ -17,6 +17,7 @@ maintain.
 |---|---|
 | **Dashboard** | Today's date, stat cards (meals, meds taken vs. scheduled, symptoms, supplements), diet-start milestones, daily logging streak, quick-add buttons, optional weight card |
 | **Log** | Segmented forms for Meal / Meds & Supps / Symptom / Weight + today's entries (tap to edit, ✕ to delete) |
+| **Trends** | **Pro:** weight trend graph (30/90 days/all) plus medication/supplement × symptom patterns with a "strongest patterns" ranking |
 | **Profile** | "About You" (name, age, sex, bio), diet type (Keto / Carnivore / Lion Diet / Paleo) with per-diet principle info panels, diet nuances, goals, diet start date, weight tracking, appearance (theme), allergies, health conditions, medications, supplements, full backup / restore, delete-all |
 | **AI Coach** | Coach setup-prompt preview (profile + per-diet guiding principles + last 30 days of logs), "Copy prompt + logs" button, "Share context file only (.md)" button that writes `ketokind-context.md` and opens the share sheet |
 
@@ -129,10 +130,11 @@ npx tsc --noEmit                  # typecheck the app (excludes tests)
 weight), the dashboard, streaks, and milestones.
 
 **Pro — $9.99 one-time:** the AI Coach context export (copy prompt + logs, or
-share the `.md` file) and backup export/import.
+share the `.md` file), the Trends tab (weight graph + log patterns), and backup
+export/import.
 
-Free users see a Pro upsell instead of the AI Coach export UI, and tapping the
-backup buttons opens the paywall. A "KetoKind Pro" row on the Profile tab shows
+Free users see a Pro upsell instead of the AI Coach export UI and the Trends
+charts, and tapping the backup buttons opens the paywall. A "KetoKind Pro" row on the Profile tab shows
 the current status (Free / Pro ✓). Entitlement is stored as `is_pro` on the
 profile row (schema v3); delete-all-data resets it.
 
@@ -144,6 +146,33 @@ section at the bottom of the Profile tab has a "Simulate Pro user" switch that
 flips the Pro flag instantly, so the app can be previewed as both a free and a
 paid user. The IAP hook-in points are marked with `★★★ IAP HOOK-IN POINT ★★★`
 in `src/pro.ts` (`requestPurchase()` / `restorePurchase()`).
+
+## Trends (Pro)
+
+The Trends tab has two parts:
+
+- **Weight trend** — a line graph of weigh-ins with a 30-day / 90-day / all
+  time-range selector, marking the low, high, and current values plus the
+  change across the range. If weight isn't tracked, a friendly empty state
+  explains that weight logging is optional and points to the Log tab.
+- **Symptom patterns** — pick a symptom and a medication/supplement to compare
+  average symptom severity on days the item was taken vs. days it wasn't, plus
+  a "strongest patterns" list ranking the top 3 symptom × item pairs by
+  absolute difference.
+
+**The 7-day rule:** a comparison is only shown when there are at least 7 days
+of data on *each* side (taken and not taken), counted on days the symptom was
+logged. Below that the UI says "not enough data yet" and shows the day counts
+so far — thin data is withheld, not charted. All bucketing is by local day.
+
+**Patterns, not advice:** every comparison is framed as "patterns in your
+logs" — never causal ("X causes/improves Y") and never suggesting starting,
+stopping, or changing anything. The tab carries the disclaimer: *"Patterns,
+not medical advice. Talk to your doctor about any medication changes."*
+
+The stats math lives in pure, well-tested `src/trendsStats.ts`; the queries in
+`src/db/trends.ts` are only called after the Pro check passes, so free users
+never trigger data loading for this tab.
 
 ## Testing
 
@@ -165,8 +194,9 @@ npm test   # tsc -p tsconfig.test.json, then node dist-test/*.test.js
 | `src/profileValidation.test.ts` | Profile save validation: age 1–120, diet-start month+year required, month/year/day ranges, leap days, future dates rejected | 7 passed |
 | `src/medSuppForm.test.tsx` | MedSuppForm component (via @testing-library/react-native under plain node): chips render, save disabled until selection, tap callbacks, edit-mode section locking, as-needed qty stepper | 9 passed |
 | `src/pro.test.ts` | Pro flag persistence round-trip, v3 migration (adds `is_pro` default 0 to pre-v3 profiles, preserves an already-set flag, keeps profile data), delete-all resets Pro, simulated purchase/restore helpers | 8 passed |
+| `src/trendsStats.test.ts` | Trends stats: local-day bucketing, averaging, the 7-day threshold withholding thin comparisons, day bucketing, top-3 pattern ranking, weight range filtering/summaries, plus the db query helpers (weight series order, per-day symptom averaging, case-insensitive item-day grouping) | 13 passed |
 
-**97 passed, 0 failed.** The app typecheck (`npx tsc --noEmit`) is clean. CI (`.github/workflows/ci.yml`) runs `npm test` and the typecheck on every push to `main` and every pull request.
+**110 passed, 0 failed.** The app typecheck (`npx tsc --noEmit`) is clean. CI (`.github/workflows/ci.yml`) runs `npm test` and the typecheck on every push to `main` and every pull request.
 
 ## Screenshots
 

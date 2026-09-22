@@ -147,6 +147,10 @@ export function validateBackup(value: unknown): BackupIssue[] {
     if (p.name !== undefined && typeof p.name !== 'string') {
       at('profile.name', 'must be a string');
     }
+    // 'reminder_settings' is optional: pre-v4 backups don't have it, '' (defaults) is the default.
+    if (p.reminder_settings !== undefined && typeof p.reminder_settings !== 'string') {
+      at('profile.reminder_settings', 'must be a string');
+    }
     if (!isFlag(p.track_weight)) at('profile.track_weight', 'must be 0 or 1');
     if (p.starting_weight !== null && !isWeight(p.starting_weight)) {
       at('profile.starting_weight', 'must be null or a plausible weight in lbs');
@@ -310,11 +314,15 @@ export function importBackup(b: DatabaseBackup): void {
     const themeMode: ThemeMode =
       p.theme_mode === 'light' || p.theme_mode === 'dark' ? p.theme_mode : 'system';
     const sex = p.sex === 'female' || p.sex === 'male' ? p.sex : '';
+    // Reminder settings ride along verbatim ('' = never configured). The
+    // tolerant parser in getReminderSettings() handles malformed JSON at
+    // read time, so the import must not rewrite the value.
+    const reminderSettings = typeof p.reminder_settings === 'string' ? p.reminder_settings : '';
     database().runSync(
       `INSERT OR REPLACE INTO profile
          (id, name, diet_type, diet_nuances, goals, theme_mode, track_weight, starting_weight,
-          age, sex, bio, diet_start, dismissed_milestones)
-       VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          age, sex, bio, diet_start, dismissed_milestones, reminder_settings)
+       VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         str(p.name),
         dietType,
@@ -328,6 +336,7 @@ export function importBackup(b: DatabaseBackup): void {
         str(p.bio),
         typeof p.diet_start === 'string' ? p.diet_start : null,
         str(p.dismissed_milestones),
+        reminderSettings,
       ],
     );
 

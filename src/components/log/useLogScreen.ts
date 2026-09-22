@@ -29,6 +29,7 @@ import {
 } from '../../db/logs';
 import { getProfile } from '../../db/profile';
 import { listMedications, listSupplements } from '../../db/catalog';
+import { reconcileReminders } from '../../reminders';
 import type { AnyLog, LogSegment, Medication, RootTabParamList, Supplement } from '../../types';
 import { parseFloatStrict } from '../../numberParsing';
 import {
@@ -85,6 +86,9 @@ export function useLogScreen() {
       validSuppIds: supps.map((s) => s.id),
     });
     setTrackWeightOn(!!getProfile().track_weight);
+    // Keep the "only remind if you haven't logged" schedule truthful: any
+    // add/edit/delete changes whether today's nudge should fire.
+    reconcileReminders();
   }, []);
 
   useFocusEffect(refresh);

@@ -7,7 +7,7 @@ import { database } from './client';
  * schema changes — initDb() applies every migration newer than the stored
  * PRAGMA user_version, in order.
  */
-const SCHEMA_VERSION = 3;
+const SCHEMA_VERSION = 4;
 
 /** version -> migration function upgrading TO that version. Use
  *  addColumnIfMissing() for column adds so migrations stay idempotent
@@ -33,6 +33,11 @@ const MIGRATIONS: Record<number, () => void> = {
     // Existing profiles get 0 via the column default — nobody is
     // grandfathered into Pro by the migration.
     addColumnIfMissing('profile', 'is_pro', 'INTEGER NOT NULL DEFAULT 0');
+  },
+  4: () => {
+    // v4: reminder settings JSON on the profile row ('' = defaults:
+    // daily 8pm log nudge, only when nothing was logged that day).
+    addColumnIfMissing('profile', 'reminder_settings', "TEXT NOT NULL DEFAULT ''");
   },
 };
 
@@ -62,7 +67,8 @@ export function initDb(): void {
       bio TEXT NOT NULL DEFAULT '',
       diet_start TEXT,
       dismissed_milestones TEXT NOT NULL DEFAULT '',
-      is_pro INTEGER NOT NULL DEFAULT 0
+      is_pro INTEGER NOT NULL DEFAULT 0,
+      reminder_settings TEXT NOT NULL DEFAULT ''
     );
     CREATE TABLE IF NOT EXISTS allergies (
       id INTEGER PRIMARY KEY AUTOINCREMENT,

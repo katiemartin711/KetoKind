@@ -2,6 +2,7 @@
 import { database } from './client';
 import type { DietType, Profile } from '../types';
 import type { ThemeMode } from '../theme';
+import { parseReminderSettings, type ReminderSettings } from '../reminderLogic';
 
 export function getProfile(): Profile {
   const row = database().getFirstSync<Profile>('SELECT * FROM profile WHERE id = 1');
@@ -64,7 +65,8 @@ export function deleteAllData(): void {
         bio = '',
         diet_start = NULL,
         dismissed_milestones = '',
-        is_pro = 0
+        is_pro = 0,
+        reminder_settings = ''
       WHERE id = 1;
     `);
     // Reset id counters (separate statement: sqlite_sequence is a system
@@ -136,4 +138,26 @@ export function getProStatus(): boolean {
 
 export function setProStatus(pro: boolean): void {
   database().runSync('UPDATE profile SET is_pro = ? WHERE id = 1', [pro ? 1 : 0]);
+}
+
+/** True once reminder settings were explicitly written (defaults or custom).
+ *  Distinguishes "never configured" from "configured to the defaults". */
+export function hasReminderSettings(): boolean {
+  const row = database().getFirstSync<{ reminder_settings: string }>(
+    'SELECT reminder_settings FROM profile WHERE id = 1',
+  );
+  return !!row?.reminder_settings;
+}
+
+/** Reminder preferences (daily nudge time, extra reminders, sound/badge).
+ *  Stored as JSON; '' means "never configured" and parses to the defaults. */
+export function getReminderSettings(): ReminderSettings {
+  const row = database().getFirstSync<{ reminder_settings: string }>(
+    'SELECT reminder_settings FROM profile WHERE id = 1',
+  );
+  return parseReminderSettings(row?.reminder_settings);
+}
+
+export function saveReminderSettings(s: ReminderSettings): void {
+  database().runSync('UPDATE profile SET reminder_settings = ? WHERE id = 1', [JSON.stringify(s)]);
 }

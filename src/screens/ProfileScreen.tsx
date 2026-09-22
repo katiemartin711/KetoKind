@@ -18,6 +18,7 @@ import DietSection from '../components/profile/DietSection';
 import AboutSection from '../components/profile/AboutSection';
 import WeightSection from '../components/profile/WeightSection';
 import AppearanceSection from '../components/profile/AppearanceSection';
+import NotificationSection from '../components/profile/NotificationSection';
 import SimpleListSection from '../components/profile/SimpleListSection';
 import MedSuppSection from '../components/profile/MedSuppSection';
 import BackupSection from '../components/profile/BackupSection';
@@ -137,6 +138,8 @@ export default function ProfileScreen() {
         />
 
         <AppearanceSection />
+
+        <NotificationSection />
 
         <SimpleListSection
           title="Allergies"

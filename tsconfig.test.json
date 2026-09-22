@@ -34,6 +34,8 @@
     "src/trendsStats.test.ts",
     "src/foodGroups.ts",
     "src/foodGroups.test.ts",
-    "src/logs.test.ts"
+    "src/logs.test.ts",
+    "src/reminderLogic.ts",
+    "src/reminderLogic.test.ts"
   ]
 }

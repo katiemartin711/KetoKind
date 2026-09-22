@@ -6,16 +6,18 @@
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Alert, Animated, StyleSheet, Text, TouchableOpacity, View, useColorScheme } from 'react-native';
+import { Alert, Animated, AppState, StyleSheet, Text, TouchableOpacity, View, useColorScheme } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
 import { deleteDatabaseSync } from 'expo-sqlite';
 import * as SplashScreen from 'expo-splash-screen';
+import * as Notifications from 'expo-notifications';
 import { closeDatabase } from './src/db/client';
 import { initDb } from './src/db/schema';
+import { ensureReminderSetup, reconcileReminders } from './src/reminders';
 import type { RootStackParamList, RootTabParamList } from './src/types';
 import { ThemeProvider, useTheme } from './src/ThemeContext';
 import { TabErrorBoundary } from './src/ErrorBoundary';
@@ -136,10 +138,35 @@ function ThemedApp() {
   const { isDark } = useTheme();
   const [splashDone, setSplashDone] = useState(false);
   const hideSplash = useCallback(() => setSplashDone(true), []);
+  const navigationRef = useNavigationContainerRef<RootStackParamList>();
+
+  // Local reminder notifications (on-device only, no network):
+  // - first launch writes the default 8pm-nudge settings and asks for
+  //   permission once; every launch re-reconciles the schedule;
+  // - re-check whenever the app comes back from the background, so the
+  //   "only if you haven't logged" condition stays accurate;
+  // - tapping a reminder opens the Log tab.
+  useEffect(() => {
+    ensureReminderSetup();
+    const appStateSub = AppState.addEventListener('change', (s) => {
+      if (s === 'active') reconcileReminders();
+    });
+    const openLogTab = () => {
+      if (navigationRef.isReady()) navigationRef.navigate('Tabs', { screen: 'Log' });
+    };
+    const notifSub = Notifications.addNotificationResponseReceivedListener(openLogTab);
+    Notifications.getLastNotificationResponseAsync().then((r) => {
+      if (r) openLogTab();
+    });
+    return () => {
+      appStateSub.remove();
+      notifSub.remove();
+    };
+  }, [navigationRef]);
 
   return (
     <>
-      <NavigationContainer>
+      <NavigationContainer ref={navigationRef}>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Tabs" component={TabNavigator} />
           <Stack.Screen name="LogList">

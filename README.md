@@ -16,7 +16,7 @@ maintain.
 | Tab | What it does |
 |---|---|
 | **Dashboard** | Today's date, stat cards (meals, meds taken vs. scheduled, symptoms, supplements) — tapping a tile opens a full list of that log type — diet-start milestones, daily logging streak, quick-add buttons, optional weight card (tappable too) |
-| **Log** | Segmented forms for Meal / Meds & Supps / Symptom / Weight + today's entries (tap to edit, ✕ to delete) |
+| **Log** | Segmented forms for Meal / Meds & Supps / Symptom / Weight + today's entries (tap to edit, ✕ to delete). Symptom names suggest previously logged labels for consistency |
 | **Trends** | **Pro:** weight trend graph with range dropdown, medication/supplement × symptom patterns with a "strongest patterns" ranking, and a symptom-over-time severity chart |
 | **Profile** | "About You" (name, age, sex, bio), diet type (Keto / Carnivore / Lion Diet / Paleo) with per-diet principle info panels, diet nuances, goals, diet start date, weight tracking, appearance (theme), allergies, health conditions, medications, supplements, full backup / restore, delete-all |
 | **AI Coach** | Coach setup-prompt preview (profile + per-diet guiding principles + last 30 days of logs), "Copy prompt + logs" button, "Share context file only (.md)" button that writes `ketokind-context.md` and opens the share sheet |
@@ -242,9 +242,11 @@ npm test   # tsc -p tsconfig.test.json, then node dist-test/*.test.js
 | `src/medSuppForm.test.tsx` | MedSuppForm component (via @testing-library/react-native under plain node): chips render, save disabled until selection, tap callbacks, edit-mode section locking, as-needed qty stepper | 9 passed |
 | `src/pro.test.ts` | Pro flag persistence round-trip, v3 migration (adds `is_pro` default 0 to pre-v3 profiles, preserves an already-set flag, keeps profile data), delete-all resets Pro, simulated purchase/restore helpers | 8 passed |
 | `src/trendsStats.test.ts` | Trends stats: local-day bucketing, averaging, pattern-day thresholds (≥2 days per side, 7+ on one side) withholding thin comparisons, the regular-taker case, top-3 pattern ranking, weight/symptom range filtering and summaries, plus the db query helpers (weight series order, per-day symptom averaging, case-insensitive item-day grouping) | 17 passed |
-| `src/logs.test.ts` | `getLogsOfKind` ordering/normalization/pagination, `deleteLog`, streak day-walking | 6 passed |
+| `src/logs.test.ts` | `getLogsOfKind` ordering/normalization/pagination, `deleteLog`, streak day-walking, distinct prior symptom names | 7 passed |
 | `src/reminderLogic.test.ts` | Reminder occurrence math (daily nudge, only-if-no-logs, custom times) | 12 passed |
 | `src/foodGroups.test.ts` | Food-group expansion for Trends food × symptom matching | 12 passed |
+| `src/symptomSuggestions.test.ts` | Symptom name suggestion filter (substring, exact-match hide, limit) | 5 passed |
+| `src/symptomForm.test.tsx` | SymptomForm prior-name chips: show/filter/tap-to-fill | 5 passed |
 
 `npm test` auto-discovers `*.test.js` under `dist-test/` via `test/run.js`. The app typecheck (`npx tsc --noEmit`) is clean. CI (`.github/workflows/ci.yml`) runs `npm test` and the typecheck on every push to `main` and every pull request.
 

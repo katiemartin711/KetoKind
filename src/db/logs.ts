@@ -153,6 +153,25 @@ export function getSymptomLog(id: number): SymptomLog | null {
   return database().getFirstSync<SymptomLog>('SELECT * FROM symptom_logs WHERE id = ?', [id]);
 }
 
+/**
+ * Distinct symptom names from past logs, most recently logged first.
+ * Case-insensitive dedupe keeps the newest casing so suggestions match what
+ * the user typed last — encourages consistent labels on the Log form.
+ */
+export function listLoggedSymptomNames(): string[] {
+  const rows = database().getAllSync<{ name: string }>(
+    'SELECT name FROM symptom_logs ORDER BY logged_at DESC',
+  );
+  const seen = new Map<string, string>();
+  for (const r of rows) {
+    const trimmed = r.name.trim();
+    if (!trimmed) continue;
+    const key = trimmed.toLowerCase();
+    if (!seen.has(key)) seen.set(key, trimmed);
+  }
+  return [...seen.values()];
+}
+
 export function getSupplementLog(id: number): SupplementLog | null {
   return database().getFirstSync<SupplementLog>('SELECT * FROM supplement_logs WHERE id = ?', [id]);
 }

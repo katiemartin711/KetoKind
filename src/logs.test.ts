@@ -4,7 +4,7 @@
 import { NodeSqliteHandle } from './nodeSqliteAdapter';
 import { addMedication, addSupplement } from './db/catalog';
 import { __setDbForTests } from './db/client';
-import { addFoodLog, addMedLog, addSupplementLog, addSymptomLog, addWeightLog, deleteLog, getLogsOfKind, getStreak } from './db/logs';
+import { addFoodLog, addMedLog, addSupplementLog, addSymptomLog, addWeightLog, deleteLog, getLogsOfKind, getStreak, listLoggedSymptomNames } from './db/logs';
 import { initDb } from './db/schema';
 
 let passed = 0;
@@ -117,6 +117,17 @@ check('getStreak counts consecutive local days ending today or yesterday', () =>
   eq(getStreak(), 1, 'today alone = 1');
   addSymptomLog('Ache', 2, '', yesterday.toISOString());
   eq(getStreak(), 2, 'today + yesterday = 2');
+});
+
+check('listLoggedSymptomNames is distinct, recent-first, case-insensitive', () => {
+  setup();
+  eq(listLoggedSymptomNames(), [], 'empty → []');
+  addSymptomLog('Headache', 3, '', iso(2026, 3, 1, 10));
+  addSymptomLog('bloating', 2, '', iso(2026, 3, 2, 10));
+  addSymptomLog('Headache', 4, '', iso(2026, 3, 3, 10)); // newer Headache
+  addSymptomLog('Bloating', 1, '', iso(2026, 3, 4, 10)); // newer casing wins
+  addSymptomLog('  ', 2, '', iso(2026, 3, 5, 10)); // blank ignored
+  eq(listLoggedSymptomNames(), ['Bloating', 'Headache'], 'recent first + newest casing');
 });
 
 console.log(`logs.test: ${passed} passed, ${failed} failed`);

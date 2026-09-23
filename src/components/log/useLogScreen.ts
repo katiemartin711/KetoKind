@@ -21,6 +21,7 @@ import {
   getSupplementLog,
   getSymptomLog,
   getWeightLog,
+  listLoggedSymptomNames,
   updateFoodLog,
   updateMedLog,
   updateSupplementLog,
@@ -70,6 +71,7 @@ export function useLogScreen() {
   // (edit-mode locking lives in the reducer).
   const [sel, dispatchSel] = useReducer(medSuppSelectionReducer, initialMedSuppSelection);
   const [symptomName, setSymptomName] = useState('');
+  const [priorSymptomNames, setPriorSymptomNames] = useState<string[]>([]);
   const [severity, setSeverity] = useState(3);
   const [symptomNotes, setSymptomNotes] = useState('');
   const [weightInput, setWeightInput] = useState('');
@@ -82,6 +84,7 @@ export function useLogScreen() {
 
   const refresh = useCallback(() => {
     setTodayLogs(getLogsForDay(new Date()));
+    setPriorSymptomNames(listLoggedSymptomNames());
     const meds = listMedications();
     setMedications(meds);
     const supps = listSupplements();
@@ -346,6 +349,7 @@ export function useLogScreen() {
     bumpQty,
     symptomName,
     setSymptomName,
+    priorSymptomNames,
     severity,
     setSeverity,
     symptomNotes,

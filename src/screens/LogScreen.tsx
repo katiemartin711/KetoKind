@@ -67,6 +67,7 @@ export default function LogScreen() {
         <SymptomForm
           symptomName={s.symptomName}
           onSymptomNameChange={s.setSymptomName}
+          priorNames={s.priorSymptomNames}
           severity={s.severity}
           onSeverityChange={s.setSeverity}
           symptomNotes={s.symptomNotes}

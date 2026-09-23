@@ -18,8 +18,9 @@
 //      null-rendering component; the component tests never exercise the
 //      native picker UI.
 //
-// This harness is intentionally narrow: it covers MedSuppForm and its direct
-// children. Components pulling in more native modules need their own stubs.
+// This harness is intentionally narrow: it covers MedSuppForm, SymptomForm,
+// and their direct children. Components pulling in more native modules need
+// their own stubs.
 
 'use strict';
 

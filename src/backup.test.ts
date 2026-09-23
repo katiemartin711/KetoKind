@@ -10,8 +10,9 @@ import type { DatabaseBackup } from './db/backup';
 import { addAllergy, addCondition, addMedication, addSupplement, deleteMedication, listMedications, listSupplements, updateMedication } from './db/catalog';
 import { __setDbForTests } from './db/client';
 import { addFoodLog, addMedLog, addSupplementLog, addSymptomLog, addWeightLog, getLogsForDay, updateMedLog } from './db/logs';
-import { deleteAllData, dismissMilestones, saveProfile, setThemeMode, setWeightTracking } from './db/profile';
+import { deleteAllData, dismissMilestones, getProStatus, saveProfile, setProStatus, setThemeMode, setWeightTracking } from './db/profile';
 import { initDb } from './db/schema';
+import { database } from './db/client';
 
 let passed = 0;
 let failed = 0;
@@ -411,8 +412,8 @@ check('v2 migration adds name columns and backfills med-log names', () => {
     );
     eq(
       handle.getFirstSync<{ user_version: number }>('PRAGMA user_version')?.user_version,
-      4,
-      'version stamped at 4',
+      5,
+      'version stamped at 5',
     );
     const profileCols = handle.getAllSync<{ name: string }>('PRAGMA table_info(profile)');
     ok(
@@ -502,6 +503,61 @@ check('profile name survives backup round-trip', () => {
     ok(isDatabaseBackup(parsed), 'validates');
     if (isDatabaseBackup(parsed)) importBackup(parsed);
     eq(snapshot(), before, 'restored data identical, name included');
+  } finally {
+    handle.close();
+  }
+});
+
+check('export omits is_pro — Pro is restored via the store, not backups', () => {
+  const handle = setup();
+  try {
+    populateDb();
+    setProStatus(true);
+    const raw = JSON.parse(JSON.stringify(exportBackup())) as Record<string, unknown>;
+    const profile = raw.profile as Record<string, unknown>;
+    eq('is_pro' in profile, false, 'is_pro not in exported profile');
+    ok(isDatabaseBackup(raw), 'backup without is_pro still validates');
+  } finally {
+    handle.close();
+  }
+});
+
+check('import preserves this device is_pro and ignores a stale backup flag', () => {
+  const handle = setup();
+  try {
+    populateDb();
+    setProStatus(true);
+    const file = JSON.parse(JSON.stringify(exportBackup())) as Record<string, unknown>;
+    // Older backups may still carry is_pro — treat it as noise.
+    (file.profile as Record<string, unknown>).is_pro = 0;
+    ok(isDatabaseBackup(file), 'legacy is_pro field does not invalidate');
+    // Wipe resets Pro; import must keep the wiped device's flag (0), not
+    // invent entitlement from the file.
+    deleteAllData();
+    eq(getProStatus(), false, 'wipe cleared Pro');
+    if (isDatabaseBackup(file)) importBackup(file);
+    eq(getProStatus(), false, 'import did not grant Pro from file');
+    // Grant on-device, re-import: flag must survive.
+    setProStatus(true);
+    if (isDatabaseBackup(file)) importBackup(file);
+    eq(getProStatus(), true, 'import kept device Pro status');
+  } finally {
+    handle.close();
+  }
+});
+
+check('schema v5 creates log timestamp indexes', () => {
+  const handle = setup();
+  try {
+    const indexes = database().getAllSync<{ name: string }>(
+      `SELECT name FROM sqlite_master WHERE type = 'index' AND name LIKE 'idx_%_logs_%'`,
+    );
+    const names = indexes.map((r) => r.name).sort();
+    ok(names.includes('idx_food_logs_logged_at'), 'food index');
+    ok(names.includes('idx_med_logs_taken_at'), 'med index');
+    ok(names.includes('idx_symptom_logs_logged_at'), 'symptom index');
+    ok(names.includes('idx_supplement_logs_logged_at'), 'supplement index');
+    ok(names.includes('idx_weight_logs_logged_at'), 'weight index');
   } finally {
     handle.close();
   }

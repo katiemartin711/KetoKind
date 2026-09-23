@@ -27,37 +27,43 @@ maintain.
 
 ```
 ketokind/
-  App.tsx                        # Bottom-tab navigator (Dashboard / Log / Profile / AI Coach)
+  App.tsx                        # Stack + tabs (Dashboard / Log / Trends / Profile / AI Coach)
   index.ts                       # Expo entry
   src/
     types.ts                     # Shared TypeScript types + diet types
     theme.ts                     # Light/dark palettes, shared styles, ThemeMode
     ThemeContext.tsx             # App-wide theme (system / light / dark, persisted in profile)
+    datetime.ts                  # Shared local date/time formatters
+    confirmDelete.ts             # Shared delete-confirm Alert for log entries
     dietPrinciples.ts            # 10 per-diet AI-coach guiding principles (keto base + overrides)
     milestones.ts                # Diet-start parsing + anniversary-milestone logic
+    reminderLogic.ts             # Pure reminder schedule math
+    reminders.ts                 # Local notification permission + scheduling
+    pro.ts                       # Pro entitlement helpers (IAP hook-in points)
     nodeSqliteAdapter.ts         # TEST-ONLY in-memory SQLite (excluded from the app bundle)
-    db.ts                        # Thin barrel: re-exports everything under db/
     db/
       client.ts                  # Lazy expo-sqlite singleton, closeDatabase(), test hook
-      schema.ts                  # CREATE TABLE + versioned migrations (SCHEMA_VERSION 2)
+      schema.ts                  # CREATE TABLE + versioned migrations (SCHEMA_VERSION 5)
+      reset.ts                   # Shared wipe+reinit for recovery screens
       profile.ts                 # Profile row CRUD (single row, id = 1)
       catalog.ts                 # Allergies, conditions, medications, supplements
       logs.ts                    # Food / med / supplement / symptom / weight logs
+      trends.ts                  # Bounded Trends queries (Pro-gated callers)
       backup.ts                  # exportBackup / validateBackup / importBackup
       exportData.ts              # AI-coach payload: profile + trailing-30-day summary
     screens/
       DashboardScreen.tsx        # Today view: stats, milestones, streak, quick add
       LogScreen.tsx              # Tab composer: owns state, renders log/* form components
-      LogListScreen.tsx          # All entries of one log type, newest-first (Dashboard tile drill-down)
+      LogListScreen.tsx          # Paginated all-logs list (Dashboard tile drill-down)
+      TrendsScreen.tsx           # Pro: weight graph + symptom patterns
       ProfileScreen.tsx          # Tab composer: owns state, renders profile/* sections
       ExportScreen.tsx           # "AI Coach" tab: prompt preview + copy + share
     components/
       KeyboardScrollView.tsx     # ScrollView that dodges the keyboard
-      log/                       # Log tab: DateTimeField, MealForm, MedSuppForm,
-                                 #   SymptomForm, WeightForm, QtyRow, TodayEntries
-      profile/                   # Profile tab: AboutSection, DietSection, WeightSection,
-                                 #   AppearanceSection, SimpleListSection, MedSuppSection,
-                                 #   BackupSection, DangerSection, ListRow
+      PaywallModal.tsx           # Pro upsell
+      log/                       # Log tab forms + TodayEntries + useLogScreen
+      profile/                   # Profile sections (incl. Backup, Notifications, Testing)
+      trends/                    # Charts, dropdowns, pattern chips
 ```
 
 Screens are thin composers: all state, validation, and persistence live in the
@@ -82,25 +88,28 @@ Tables: `profile` (single row, `id = 1`), `allergies`, `conditions`,
 `medications`, `supplements`, `food_logs`, `med_logs`, `symptom_logs`,
 `supplement_logs`, `weight_logs`.
 
-**v2 migration** (`SCHEMA_VERSION = 2`, applied idempotently via
-`PRAGMA user_version` + `addColumnIfMissing`):
+**Migrations** (`SCHEMA_VERSION = 5`, applied in order via
+`PRAGMA user_version` + `addColumnIfMissing` / index helpers):
 
-- `med_logs.name` — a snapshot of the medication's name taken when the dose
-  is logged, so history survives medication renames and deletes (orphaned
-  rows display as "Deleted medication"). Written by `addMedLog` /
-  `updateMedLog`; backfilled from `medications` for pre-v2 rows.
-- `profile.name` — "What should your coach call you?"; feeds the AI-coach
-  greeting and is cleared by delete-all.
+- **v2:** `med_logs.name` snapshot (history survives renames/deletes) +
+  `profile.name` for the AI coach greeting.
+- **v3:** `profile.is_pro` (local Pro cache; not included in backups).
+- **v4:** `profile.reminder_settings` JSON for local log reminders.
+- **v5:** indexes on log timestamp columns for day queries, LogList,
+  Trends, and streak checks.
 
 ### Backup format
 
 `exportBackup()` snapshots every table into one JSON object
-(`ketokind-backup-*.json`), `version: 1`. `validateBackup()` is pure and runs
+(`ketokind-backup-*.json`), `version: 1`. Pro entitlement (`is_pro`) is
+**not** included — restore purchases through the App Store / Play Store after
+switching devices. `validateBackup()` is pure and runs
 *before* any data is touched: it checks structure, duplicate ids, ISO-8601
 timestamps, numeric ranges, and cross-list references (e.g. every
 `medLogs[].medication_id` must exist in `medications`). `importBackup()`
 refuses invalid files before deleting anything and restores inside a single
-transaction — a mid-import failure rolls everything back. Pre-v2 backups
+transaction — a mid-import failure rolls everything back. Import preserves
+this device's Pro flag (never grants Pro from a file). Pre-v2 backups
 (without med-log name snapshots) still import; names are backfilled from the
 restored medications. Delete-all also resets `theme_mode` to `system` and
 clears the profile name.
@@ -137,7 +146,9 @@ export/import.
 Free users see a Pro upsell instead of the AI Coach export UI and the Trends
 charts, and tapping the backup buttons opens the paywall. A "KetoKind Pro" row on the Profile tab shows
 the current status (Free / Pro ✓). Entitlement is stored as `is_pro` on the
-profile row (schema v3); delete-all-data resets it.
+profile row (schema v3); delete-all-data resets it. Backups never carry
+`is_pro` — after a phone switch, use Restore Purchases (or the Testing
+toggle in `__DEV__`) rather than expecting a backup file to unlock Pro.
 
 **Test mode:** real Apple in-app purchases can't run in Expo Go — they need a
 paid Apple Developer account, App Store Connect products, and a development
@@ -223,7 +234,7 @@ npm test   # tsc -p tsconfig.test.json, then node dist-test/*.test.js
 | Suite | Covers | Current |
 |---|---|---|
 | `src/milestones.test.ts` | Diet-start parsing/formatting, duration labels, milestone detection, dismissed-milestone persistence | 14 passed |
-| `src/backup.test.ts` | Backup round-trip (export → wipe → import restores identical data), malformed-backup rejection, import validates-before-delete, mid-transaction rollback, v2 migration + med-name snapshots, legacy pre-v2 import backfill, delete-all resets theme + name | 38 passed |
+| `src/backup.test.ts` | Backup round-trip, malformed rejection, rollback, migrations, Pro omitted from export / preserved on import, timestamp indexes | 41 passed |
 | `src/dietPrinciples.test.ts` | Every diet returns 10 non-empty principles; per-diet overrides never contradict the diet (e.g. no "dairy is optional" for Lion Diet or paleo); keto and carnivore are differentiated | 7 passed |
 | `src/numberParsing.test.ts` | Strict int/float parsers accept plain numbers and reject junk like "12abc", "1e3", "0x10" | 4 passed |
 | `src/medSuppSelection.test.ts` | Log-tab med/supp selection state machine: multi-select, qty init/drop, edit-mode single-select locking of the other section, qty clamping 1–20, prune, load, reset | 10 passed |
@@ -231,9 +242,11 @@ npm test   # tsc -p tsconfig.test.json, then node dist-test/*.test.js
 | `src/medSuppForm.test.tsx` | MedSuppForm component (via @testing-library/react-native under plain node): chips render, save disabled until selection, tap callbacks, edit-mode section locking, as-needed qty stepper | 9 passed |
 | `src/pro.test.ts` | Pro flag persistence round-trip, v3 migration (adds `is_pro` default 0 to pre-v3 profiles, preserves an already-set flag, keeps profile data), delete-all resets Pro, simulated purchase/restore helpers | 8 passed |
 | `src/trendsStats.test.ts` | Trends stats: local-day bucketing, averaging, pattern-day thresholds (≥2 days per side, 7+ on one side) withholding thin comparisons, the regular-taker case, top-3 pattern ranking, weight/symptom range filtering and summaries, plus the db query helpers (weight series order, per-day symptom averaging, case-insensitive item-day grouping) | 17 passed |
-| `src/logs.test.ts` | `getLogsOfKind`: per-kind newest-first ordering, display normalization matches the day list, empty kind → `[]`, `deleteLog` removes the entry | 4 passed |
+| `src/logs.test.ts` | `getLogsOfKind` ordering/normalization/pagination, `deleteLog`, streak day-walking | 6 passed |
+| `src/reminderLogic.test.ts` | Reminder occurrence math (daily nudge, only-if-no-logs, custom times) | 12 passed |
+| `src/foodGroups.test.ts` | Food-group expansion for Trends food × symptom matching | 12 passed |
 
-**118 passed, 0 failed.** The app typecheck (`npx tsc --noEmit`) is clean. CI (`.github/workflows/ci.yml`) runs `npm test` and the typecheck on every push to `main` and every pull request.
+`npm test` auto-discovers `*.test.js` under `dist-test/` via `test/run.js`. The app typecheck (`npx tsc --noEmit`) is clean. CI (`.github/workflows/ci.yml`) runs `npm test` and the typecheck on every push to `main` and every pull request.
 
 ## Screenshots
 
@@ -263,7 +276,8 @@ Release assets (captured on iPhone via Expo Go, light and dark mode):
   coach prompt both carry "not medical advice" language, and the prompt
   explicitly tells the AI never to advise starting, stopping, or changing
   medication.
-- Free vs. Pro tiers (free logging → one-time Pro unlock) are a product
-  decision for later; the app has no paywall yet.
+- Free vs. Pro tiers (free logging → one-time Pro unlock) ship with a
+  paywall UI; real StoreKit / Play Billing still needs to be wired before
+  release builds (see `src/pro.ts`).
 - KetoKind is proprietary software. Copyright (c) 2026 Katie Martin. All
   rights reserved — see `LICENSE`.

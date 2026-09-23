@@ -26,10 +26,15 @@ export default function SymptomHistoryChart({ days, colors }: Props) {
   const y = (sev: number) => pad.top + (1 - (sev - 1) / 4) * innerH;
 
   const linePts = days.map((d, i) => `${x(i).toFixed(1)},${y(d.severity).toFixed(1)}`).join(' ');
+  const sevs = days.map((d) => d.severity);
+  const low = Math.min(...sevs);
+  const high = Math.max(...sevs);
+  const latest = sevs[n - 1];
+  const a11yLabel = `Symptom history chart: ${n} days, severity low ${low}, high ${high}, latest ${latest}`;
 
   return (
     <View>
-      <Svg width={width} height={height} accessibilityRole="image" accessibilityLabel="Symptom history chart">
+      <Svg width={width} height={height} accessibilityRole="image" accessibilityLabel={a11yLabel}>
         {/* severity gridlines 1–5 */}
         {[1, 2, 3, 4, 5].map((sev) => (
           <Fragment key={sev}>

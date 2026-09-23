@@ -92,12 +92,16 @@ export default function TrendsScreen() {
     const itemList = getItemDayList();
     setItems(itemList);
     setMealDayMap(getMealDayMap());
-    const symptom = names[0] ?? '';
-    const firstItem =
-      itemList.find((i) => i.kind === 'medication') ?? itemList[0];
-    setSelSymptom(symptom);
-    setHistSymptom(symptom);
-    setSelItemKey(firstItem ? `${firstItem.kind}:${firstItem.name.toLowerCase()}` : '');
+    // Preserve the user's picks across focus; only fill defaults when empty
+    // or when the previous name/item disappeared from the data set.
+    setSelSymptom((prev) => (prev && names.includes(prev) ? prev : names[0] ?? ''));
+    setHistSymptom((prev) => (prev && names.includes(prev) ? prev : names[0] ?? ''));
+    setSelItemKey((prev) => {
+      const stillThere = itemList.some((i) => `${i.kind}:${i.name.toLowerCase()}` === prev);
+      if (prev && stillThere) return prev;
+      const firstItem = itemList.find((i) => i.kind === 'medication') ?? itemList[0];
+      return firstItem ? `${firstItem.kind}:${firstItem.name.toLowerCase()}` : '';
+    });
     // Strongest patterns across every symptom × item pair.
     const all = [];
     for (const sName of names) {

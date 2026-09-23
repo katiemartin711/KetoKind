@@ -3,6 +3,7 @@ import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { useTheme } from '../../ThemeContext';
 import type { Palette } from '../../theme';
 import type { AnyLog } from '../../types';
+import { fmtTime } from '../../datetime';
 
 const KIND_LABEL: Record<AnyLog['kind'], string> = {
   meal: 'Meal',
@@ -11,10 +12,6 @@ const KIND_LABEL: Record<AnyLog['kind'], string> = {
   symptom: 'Symptom',
   weight: 'Weight',
 };
-
-function fmtTime(iso: string): string {
-  return new Date(iso).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
-}
 
 interface Props {
   logs: AnyLog[];
@@ -37,7 +34,12 @@ export default function TodayEntries({ logs, onEdit, onDelete }: Props) {
       )}
       {logs.map((log) => (
         <View key={`${log.kind}-${log.id}`} style={[common.card, styles.entryRow]}>
-          <TouchableOpacity style={styles.entryText} onPress={() => onEdit(log)}>
+          <TouchableOpacity
+            style={styles.entryText}
+            onPress={() => onEdit(log)}
+            accessibilityRole="button"
+            accessibilityLabel={`Edit ${KIND_LABEL[log.kind]} entry ${log.title}`}
+          >
             <Text style={styles.entryTitle}>
               {log.title} <Text style={styles.entryKind}>· {KIND_LABEL[log.kind]}</Text>
             </Text>

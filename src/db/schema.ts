@@ -7,7 +7,7 @@ import { database } from './client';
  * schema changes — initDb() applies every migration newer than the stored
  * PRAGMA user_version, in order.
  */
-const SCHEMA_VERSION = 4;
+const SCHEMA_VERSION = 5;
 
 /** version -> migration function upgrading TO that version. Use
  *  addColumnIfMissing() for column adds so migrations stay idempotent
@@ -39,7 +39,23 @@ const MIGRATIONS: Record<number, () => void> = {
     // daily 8pm log nudge, only when nothing was logged that day).
     addColumnIfMissing('profile', 'reminder_settings', "TEXT NOT NULL DEFAULT ''");
   },
+  5: () => {
+    // v5: indexes on log timestamps so day queries, LogList, Trends, and
+    // streak checks stay fast as history grows.
+    ensureLogIndexes();
+  },
 };
+
+/** Timestamp indexes used by day bounds, LogList pagination, and Trends. */
+function ensureLogIndexes(): void {
+  database().execSync(`
+    CREATE INDEX IF NOT EXISTS idx_food_logs_logged_at ON food_logs(logged_at);
+    CREATE INDEX IF NOT EXISTS idx_med_logs_taken_at ON med_logs(taken_at);
+    CREATE INDEX IF NOT EXISTS idx_symptom_logs_logged_at ON symptom_logs(logged_at);
+    CREATE INDEX IF NOT EXISTS idx_supplement_logs_logged_at ON supplement_logs(logged_at);
+    CREATE INDEX IF NOT EXISTS idx_weight_logs_logged_at ON weight_logs(logged_at);
+  `);
+}
 
 /** ALTER TABLE ... ADD COLUMN, but only when the column isn't there yet. */
 function addColumnIfMissing(table: string, column: string, definition: string): void {
@@ -129,6 +145,8 @@ export function initDb(): void {
       logged_at TEXT NOT NULL
     );
   `);
+  // Fresh installs get indexes immediately; upgrades apply them via v5.
+  ensureLogIndexes();
   // Guarantee the single profile row (id = 1) exists.
   const existing = database().getFirstSync<{ id: number }>('SELECT id FROM profile WHERE id = 1');
   if (!existing) {
@@ -169,9 +187,15 @@ export function initDb(): void {
       }
     }
   }
-  // Apply any newer migrations in order, then stamp the version.
+  // Apply any newer migrations in order (each in a transaction so a crash
+  // mid-migration can't leave a half-applied schema), then stamp the version.
   for (let v = currentVersion + 1; v <= SCHEMA_VERSION; v++) {
-    MIGRATIONS[v]?.();
+    const migrate = MIGRATIONS[v];
+    if (migrate) {
+      database().withTransactionSync(() => {
+        migrate();
+      });
+    }
   }
   database().execSync(`PRAGMA user_version = ${SCHEMA_VERSION}`);
 }

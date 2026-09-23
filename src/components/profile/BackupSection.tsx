@@ -22,8 +22,10 @@ export default function BackupSection({ onDownload, onImport, locked = false }: 
         {locked && <Text style={styles.proBadge}>PRO</Text>}
       </View>
       <Text style={styles.hint}>
-        Download a backup file with all your data, or restore from one — handy when
-        switching phones. Save the file somewhere safe; anyone with it can read your logs.
+        Download a backup file with all your logs and profile settings, or restore from one —
+        handy when switching phones. Pro purchase status is not included (restore purchases
+        through the App Store or Play Store). Save the file somewhere safe; it contains health
+        data anyone with the file can read.
       </Text>
       <TouchableOpacity style={common.secondaryButton} onPress={onDownload}>
         <Text style={common.secondaryButtonText}>Download all data</Text>

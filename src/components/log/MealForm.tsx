@@ -55,7 +55,7 @@ export default function MealForm(props: Props) {
             key={m}
             style={[styles.chip, mealType === m && styles.chipActive]}
             onPress={() => onMealTypeChange(m)}
-            accessibilityRole="checkbox"
+            accessibilityRole="radio"
             accessibilityState={{ selected: mealType === m }}
           >
             <Text style={[styles.chipText, mealType === m && styles.chipTextActive]}>{m}</Text>

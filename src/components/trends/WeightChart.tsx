@@ -41,10 +41,11 @@ export default function WeightChart({ points, colors }: Props) {
   const minIdx = weights.indexOf(Math.min(...weights));
   const maxIdx = weights.indexOf(Math.max(...weights));
   const lastIdx = n - 1;
+  const a11yLabel = `Weight trend graph: ${n} weigh-ins, low ${round1(weights[minIdx])}, high ${round1(weights[maxIdx])}, latest ${round1(weights[lastIdx])}`;
 
   return (
     <View>
-      <Svg width={width} height={height} accessibilityRole="image" accessibilityLabel="Weight trend graph">
+      <Svg width={width} height={height} accessibilityRole="image" accessibilityLabel={a11yLabel}>
         <Polygon points={areaPts} fill={colors.accent} opacity={0.12} />
         <Polyline points={linePts} fill="none" stroke={colors.accent} strokeWidth={2.5} />
         {/* Dots only when the chart isn't crowded — the line carries it past ~30 points. */}

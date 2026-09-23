@@ -3,16 +3,7 @@ import { Platform, Text, TouchableOpacity, View, StyleSheet } from 'react-native
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useTheme } from '../../ThemeContext';
 import type { Palette } from '../../theme';
-
-function fmtDateTime(date: Date): string {
-  const day = date.toLocaleDateString(undefined, {
-    weekday: 'short',
-    month: 'short',
-    day: 'numeric',
-  });
-  const time = date.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
-  return `${day}, ${time}`;
-}
+import { fmtDateTimeFromDate } from '../../datetime';
 
 /** A "Time" field for the log forms: shows the chosen date/time, taps open a
  *  native picker (dialog on Android, inline on iOS). Future times are blocked. */
@@ -33,9 +24,9 @@ export default function DateTimeField({
         style={common.input}
         onPress={() => setOpen(true)}
         accessibilityRole="button"
-        accessibilityLabel={`Change time, currently ${fmtDateTime(value)}`}
+        accessibilityLabel={`Change time, currently ${fmtDateTimeFromDate(value)}`}
       >
-        <Text style={{ fontSize: 16, color: COLORS.text }}>{fmtDateTime(value)}</Text>
+        <Text style={{ fontSize: 16, color: COLORS.text }}>{fmtDateTimeFromDate(value)}</Text>
       </TouchableOpacity>
       {open && (
         <View style={styles.pickerWrap}>

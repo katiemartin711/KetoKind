@@ -4,7 +4,7 @@
 import { NodeSqliteHandle } from './nodeSqliteAdapter';
 import { addMedication, addSupplement } from './db/catalog';
 import { __setDbForTests } from './db/client';
-import { addFoodLog, addMedLog, addSupplementLog, addSymptomLog, addWeightLog, deleteLog, getLogsOfKind } from './db/logs';
+import { addFoodLog, addMedLog, addSupplementLog, addSymptomLog, addWeightLog, deleteLog, getLogsOfKind, getStreak } from './db/logs';
 import { initDb } from './db/schema';
 
 let passed = 0;
@@ -93,6 +93,30 @@ check('deleteLog removes the entry from getLogsOfKind', () => {
   deleteLog('weight', before[0].id);
   const after = getLogsOfKind('weight');
   eq(after.map((l) => l.title), ['150.5 lbs'], 'newest weigh-in deleted');
+});
+
+check('getLogsOfKind respects limit and offset', () => {
+  seed();
+  const page1 = getLogsOfKind('meal', { limit: 1, offset: 0 });
+  eq(page1.map((l) => l.title), ['Eggs'], 'first page newest');
+  const page2 = getLogsOfKind('meal', { limit: 1, offset: 1 });
+  eq(page2.map((l) => l.title), ['Steak'], 'second page');
+  eq(getLogsOfKind('meal', { limit: 10 }).length, 2, 'limit above count returns all');
+});
+
+check('getStreak counts consecutive local days ending today or yesterday', () => {
+  setup();
+  // Two days ago only — streak not alive (gap through yesterday/today).
+  addFoodLog('Old', 'Dinner', '', iso(2020, 1, 1, 12));
+  eq(getStreak(), 0, 'ancient log alone is not a streak');
+
+  const today = new Date();
+  const yesterday = new Date(today);
+  yesterday.setDate(today.getDate() - 1);
+  addFoodLog('Today meal', 'Lunch', '', today.toISOString());
+  eq(getStreak(), 1, 'today alone = 1');
+  addSymptomLog('Ache', 2, '', yesterday.toISOString());
+  eq(getStreak(), 2, 'today + yesterday = 2');
 });
 
 console.log(`logs.test: ${passed} passed, ${failed} failed`);

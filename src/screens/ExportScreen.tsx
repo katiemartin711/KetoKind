@@ -19,11 +19,7 @@ import { dietPrinciples } from '../dietPrinciples';
 import { dietDurationLabel, formatDietStart } from '../milestones';
 import { useTheme } from '../ThemeContext';
 import type { Palette } from '../theme';
-
-function fmtDateTime(iso: string): string {
-  const d = new Date(iso);
-  return `${d.toLocaleDateString()} ${d.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' })}`;
-}
+import { fmtDateTime } from '../datetime';
 
 /** The Markdown context file: profile + trailing-30-day summary. */
 function buildContextMarkdown(data: ExportData): string {

@@ -18,11 +18,18 @@ import type {
 import type { ThemeMode } from '../theme';
 import { parseDietStart } from '../milestones';
 
+/**
+ * Profile fields that travel in a backup. `is_pro` is intentionally omitted:
+ * Pro entitlement lives with the App Store / Play Store purchase and is
+ * restored via StoreKit / Play Billing — never via a backup file.
+ */
+export type BackupProfile = Omit<Profile, 'is_pro'>;
+
 /** Everything stored on-device, in one JSON-serializable object. */
 export interface DatabaseBackup {
   version: 1;
   exportedAt: string; // ISO timestamp
-  profile: Profile;
+  profile: BackupProfile;
   allergies: Allergy[];
   conditions: Condition[];
   medications: Medication[];
@@ -35,12 +42,13 @@ export interface DatabaseBackup {
   weightLogs: WeightLog[];
 }
 
-/** Snapshot every table for backup. */
+/** Snapshot every table for backup (Pro status is never included). */
 export function exportBackup(): DatabaseBackup {
+  const { is_pro: _ignored, ...profile } = getProfile();
   return {
     version: 1,
     exportedAt: new Date().toISOString(),
-    profile: getProfile(),
+    profile,
     allergies: listAllergies(),
     conditions: listConditions(),
     medications: listMedications(),
@@ -318,11 +326,15 @@ export function importBackup(b: DatabaseBackup): void {
     // tolerant parser in getReminderSettings() handles malformed JSON at
     // read time, so the import must not rewrite the value.
     const reminderSettings = typeof p.reminder_settings === 'string' ? p.reminder_settings : '';
+    // Keep this device's Pro flag. Backups never carry entitlement — restore
+    // purchases through the App Store / Play Store instead.
+    const keepPro =
+      database().getFirstSync<{ is_pro: number }>('SELECT is_pro FROM profile WHERE id = 1')?.is_pro ?? 0;
     database().runSync(
       `INSERT OR REPLACE INTO profile
          (id, name, diet_type, diet_nuances, goals, theme_mode, track_weight, starting_weight,
-          age, sex, bio, diet_start, dismissed_milestones, reminder_settings)
-       VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          age, sex, bio, diet_start, dismissed_milestones, reminder_settings, is_pro)
+       VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         str(p.name),
         dietType,
@@ -337,6 +349,7 @@ export function importBackup(b: DatabaseBackup): void {
         typeof p.diet_start === 'string' ? p.diet_start : null,
         str(p.dismissed_milestones),
         reminderSettings,
+        keepPro,
       ],
     );
 

@@ -1,22 +1,27 @@
 // All-logs screen: every entry of one log type, newest first, grouped by
 // day. Reached by tapping a Dashboard stat tile or the weight card. Tap an
-// entry to edit it on the Log tab; the ✕ deletes it.
+// entry to edit it on the Log tab; the ✕ deletes it. Loads in pages so
+// multi-year histories don't hitch on open.
 
 import React, { useCallback, useMemo, useState } from 'react';
-import { Alert, SectionList, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
+import { SectionList, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
 import type { RouteProp } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
 import { deleteLog, getLogsOfKind } from '../db/logs';
-import { reconcileReminders } from '../reminders';
+import { requestReconcileReminders } from '../reminders';
+import { confirmDeleteEntry } from '../confirmDelete';
+import { dayKey, dayLabel, fmtTime } from '../datetime';
 import type { AnyLog, RootStackParamList } from '../types';
 import { useTheme } from '../ThemeContext';
 import type { Palette } from '../theme';
 
 type Nav = NativeStackNavigationProp<RootStackParamList, 'LogList'>;
 type LogListRoute = RouteProp<RootStackParamList, 'LogList'>;
+
+const PAGE_SIZE = 100;
 
 const TITLES: Record<AnyLog['kind'], string> = {
   meal: 'Meals',
@@ -34,33 +39,6 @@ const EMPTY_HINTS: Record<AnyLog['kind'], string> = {
   weight: 'No weigh-ins yet.',
 };
 
-function sameDay(a: Date, b: Date): boolean {
-  return (
-    a.getFullYear() === b.getFullYear() &&
-    a.getMonth() === b.getMonth() &&
-    a.getDate() === b.getDate()
-  );
-}
-
-function dayLabel(iso: string): string {
-  const d = new Date(iso);
-  const now = new Date();
-  if (sameDay(d, now)) return 'Today';
-  const yesterday = new Date(now);
-  yesterday.setDate(now.getDate() - 1);
-  if (sameDay(d, yesterday)) return 'Yesterday';
-  return d.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
-}
-
-function dayKey(iso: string): string {
-  const d = new Date(iso);
-  return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
-}
-
-function fmtTime(iso: string): string {
-  return new Date(iso).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
-}
-
 export default function LogListScreen() {
   const navigation = useNavigation<Nav>();
   const route = useRoute<LogListRoute>();
@@ -68,13 +46,27 @@ export default function LogListScreen() {
   const { colors: COLORS, common } = useTheme();
   const styles = useMemo(() => makeStyles(COLORS), [COLORS]);
   const [logs, setLogs] = useState<AnyLog[]>([]);
+  const [hasMore, setHasMore] = useState(true);
 
   const refresh = useCallback(() => {
-    setLogs(getLogsOfKind(logType));
-    reconcileReminders();
+    const page = getLogsOfKind(logType, { limit: PAGE_SIZE, offset: 0 });
+    setLogs(page);
+    setHasMore(page.length === PAGE_SIZE);
+    requestReconcileReminders();
   }, [logType]);
 
   useFocusEffect(refresh);
+
+  const loadMore = useCallback(() => {
+    if (!hasMore) return;
+    const page = getLogsOfKind(logType, { limit: PAGE_SIZE, offset: logs.length });
+    if (page.length === 0) {
+      setHasMore(false);
+      return;
+    }
+    setLogs((prev) => [...prev, ...page]);
+    setHasMore(page.length === PAGE_SIZE);
+  }, [hasMore, logType, logs.length]);
 
   const sections = useMemo(() => {
     const groups = new Map<string, AnyLog[]>();
@@ -101,19 +93,16 @@ export default function LogListScreen() {
     [navigation],
   );
 
-  const confirmDelete = useCallback((log: AnyLog) => {
-    Alert.alert('Delete entry?', `"${log.title}" will be removed.`, [
-      { text: 'Cancel', style: 'cancel' },
-      {
-        text: 'Delete',
-        style: 'destructive',
-        onPress: () => {
-          deleteLog(log.kind, log.id);
-          setLogs(getLogsOfKind(logType));
-        },
-      },
-    ]);
-  }, [logType]);
+  const confirmDelete = useCallback(
+    (log: AnyLog) => {
+      confirmDeleteEntry(log.title, () => {
+        deleteLog(log.kind, log.id);
+        setLogs((prev) => prev.filter((l) => !(l.kind === log.kind && l.id === log.id)));
+        requestReconcileReminders();
+      });
+    },
+    [],
+  );
 
   return (
     <SafeAreaView style={common.screen} edges={['top']}>
@@ -139,6 +128,8 @@ export default function LogListScreen() {
         ListHeaderComponent={
           logs.length > 0 ? <Text style={styles.hint}>Tap an entry to edit it.</Text> : null
         }
+        onEndReached={loadMore}
+        onEndReachedThreshold={0.4}
         renderSectionHeader={({ section }) => (
           <Text style={styles.sectionTitle}>{section.title}</Text>
         )}

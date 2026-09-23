@@ -12,11 +12,10 @@ import { NavigationContainer, useNavigationContainerRef } from '@react-navigatio
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
-import { deleteDatabaseSync } from 'expo-sqlite';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Notifications from 'expo-notifications';
-import { closeDatabase } from './src/db/client';
 import { initDb } from './src/db/schema';
+import { resetLocalDatabase } from './src/db/reset';
 import { ensureReminderSetup, reconcileReminders } from './src/reminders';
 import type { RootStackParamList, RootTabParamList } from './src/types';
 import { ThemeProvider, useTheme } from './src/ThemeContext';
@@ -38,7 +37,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 SplashScreen.preventAutoHideAsync();
 SplashScreen.setOptions({ duration: 500, fade: true });
 
-const SPLASH_HOLD_MS = 2500;
+const SPLASH_HOLD_MS = 400;
 const SPLASH_FADE_MS = 500;
 
 // Branded launch moment, rendered in JS so it shows identically in Expo Go
@@ -236,11 +235,7 @@ export default function App() {
 
   const resetDb = () => {
     try {
-      // Close the open handle first: the file can't be deleted while it's
-      // open, and the stale handle would keep writing to the deleted file.
-      closeDatabase();
-      deleteDatabaseSync('ketokind.db');
-      initDb();
+      resetLocalDatabase();
       setDbError(null);
     } catch (e) {
       setDbError(e instanceof Error ? e : new Error(String(e)));

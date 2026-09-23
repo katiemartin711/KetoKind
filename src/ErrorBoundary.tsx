@@ -6,9 +6,7 @@
 
 import React from 'react';
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { deleteDatabaseSync } from 'expo-sqlite';
-import { closeDatabase } from './db/client';
-import { initDb } from './db/schema';
+import { resetLocalDatabase } from './db/reset';
 import { useTheme } from './ThemeContext';
 
 interface BoundaryProps {
@@ -36,12 +34,10 @@ export class TabErrorBoundary extends React.Component<BoundaryProps, BoundarySta
     this.setState({ error: null });
   };
 
-  /** Last-resort recovery: close the handle, delete the db file, re-init. */
+  /** Last-resort recovery: wipe the on-device database and start fresh. */
   private resetAppData = (): void => {
     try {
-      closeDatabase();
-      deleteDatabaseSync('ketokind.db');
-      initDb();
+      resetLocalDatabase();
       this.retry();
     } catch (e) {
       this.setState({ error: e instanceof Error ? e : new Error(String(e)) });

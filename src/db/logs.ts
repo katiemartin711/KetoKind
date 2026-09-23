@@ -25,14 +25,6 @@ export function nowIso(): string {
   return new Date().toISOString();
 }
 
-/** 'YYYY-MM-DD' for a local date — used for streak math. */
-function localDayKey(date: Date): string {
-  const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, '0');
-  const d = String(date.getDate()).padStart(2, '0');
-  return `${y}-${m}-${d}`;
-}
-
 export function addFoodLog(name: string, mealType: string, notes: string, loggedAt: string): void {
   database().runSync('INSERT INTO food_logs (name, meal_type, logged_at, notes) VALUES (?, ?, ?, ?)', [
     name.trim(),
@@ -186,17 +178,17 @@ export function getLatestWeight(): WeightLog | null {
   return database().getFirstSync<WeightLog>('SELECT * FROM weight_logs ORDER BY logged_at DESC LIMIT 1');
 }
 
+/** Kind → table + timestamp column — single source of truth for delete/list. */
+const KIND_TABLES: Record<AnyLog['kind'], { table: string; timeCol: string }> = {
+  meal: { table: 'food_logs', timeCol: 'logged_at' },
+  medication: { table: 'med_logs', timeCol: 'taken_at' },
+  symptom: { table: 'symptom_logs', timeCol: 'logged_at' },
+  supplement: { table: 'supplement_logs', timeCol: 'logged_at' },
+  weight: { table: 'weight_logs', timeCol: 'logged_at' },
+};
+
 export function deleteLog(kind: AnyLog['kind'], id: number): void {
-  const table =
-    kind === 'meal'
-      ? 'food_logs'
-      : kind === 'medication'
-        ? 'med_logs'
-        : kind === 'symptom'
-          ? 'symptom_logs'
-          : kind === 'supplement'
-            ? 'supplement_logs'
-            : 'weight_logs';
+  const { table } = KIND_TABLES[kind];
   database().runSync(`DELETE FROM ${table} WHERE id = ?`, [id]);
 }
 
@@ -300,10 +292,27 @@ const KIND_QUERIES: Record<AnyLog['kind'], { sql: string; map: (row: any) => Any
   weight: { sql: 'SELECT * FROM weight_logs ORDER BY logged_at DESC', map: mapWeight },
 };
 
+export interface LogPageOpts {
+  /** Max rows to return (omit for all — prefer a limit on long histories). */
+  limit?: number;
+  /** Rows to skip (for pagination with limit). */
+  offset?: number;
+}
+
 /** Every log of one kind, newest first, normalized for display. */
-export function getLogsOfKind(kind: AnyLog['kind']): AnyLog[] {
+export function getLogsOfKind(kind: AnyLog['kind'], opts: LogPageOpts = {}): AnyLog[] {
   const q = KIND_QUERIES[kind];
-  return (database().getAllSync(q.sql) as any[]).map(q.map);
+  let sql = q.sql;
+  const params: number[] = [];
+  if (opts.limit != null) {
+    sql += ' LIMIT ?';
+    params.push(opts.limit);
+    if (opts.offset != null) {
+      sql += ' OFFSET ?';
+      params.push(opts.offset);
+    }
+  }
+  return (database().getAllSync(sql, params) as any[]).map(q.map);
 }
 
 /** Counts per log type for one local day — feeds the Dashboard cards. */
@@ -335,28 +344,33 @@ export function getDayCounts(date: Date): {
   };
 }
 
+/** True when any log table has a row on the local day containing `date`. */
+function hasAnyLogOnDay(date: Date): boolean {
+  const { start, end } = getDayBounds(date);
+  for (const { table, timeCol } of Object.values(KIND_TABLES)) {
+    const row = database().getFirstSync<{ n: number }>(
+      `SELECT 1 AS n FROM ${table} WHERE ${timeCol} BETWEEN ? AND ? LIMIT 1`,
+      [start, end],
+    );
+    if (row) return true;
+  }
+  return false;
+}
+
 /**
  * Consecutive-day streak: number of back-to-back local days (ending today or
- * yesterday) that contain at least one log entry of any kind.
+ * yesterday) that contain at least one log entry of any kind. Walks day-by-day
+ * with indexed range checks instead of loading every distinct day.
  */
 export function getStreak(): number {
-  const rows = database().getAllSync<{ d: string }>(`
-    SELECT DISTINCT date(logged_at, 'localtime') AS d FROM food_logs
-    UNION SELECT DISTINCT date(taken_at, 'localtime') FROM med_logs
-    UNION SELECT DISTINCT date(logged_at, 'localtime') FROM symptom_logs
-    UNION SELECT DISTINCT date(logged_at, 'localtime') FROM supplement_logs
-    UNION SELECT DISTINCT date(logged_at, 'localtime') FROM weight_logs
-    ORDER BY d DESC
-  `);
-  const days = new Set(rows.map((r) => r.d));
   let streak = 0;
   const cursor = new Date();
   // A streak stays alive if the most recent logged day is today or yesterday.
-  if (!days.has(localDayKey(cursor))) {
+  if (!hasAnyLogOnDay(cursor)) {
     cursor.setDate(cursor.getDate() - 1);
-    if (!days.has(localDayKey(cursor))) return 0;
+    if (!hasAnyLogOnDay(cursor)) return 0;
   }
-  while (days.has(localDayKey(cursor))) {
+  while (hasAnyLogOnDay(cursor)) {
     streak += 1;
     cursor.setDate(cursor.getDate() - 1);
   }

@@ -27,9 +27,11 @@ import {
   updateSymptomLog,
   updateWeightLog,
 } from '../../db/logs';
+import { database } from '../../db/client';
 import { getProfile } from '../../db/profile';
 import { listMedications, listSupplements } from '../../db/catalog';
-import { reconcileReminders } from '../../reminders';
+import { requestReconcileReminders } from '../../reminders';
+import { confirmDeleteEntry } from '../../confirmDelete';
 import type { AnyLog, LogSegment, Medication, RootTabParamList, Supplement } from '../../types';
 import { parseFloatStrict } from '../../numberParsing';
 import {
@@ -46,6 +48,11 @@ const SEGMENTS: SegmentOption[] = [
   { key: 'medsupp', label: 'Meds & Supps' },
   { key: 'symptom', label: 'Symptom' },
 ];
+
+function alertSaveFailed(err: unknown): void {
+  const message = err instanceof Error ? err.message : String(err);
+  Alert.alert("Couldn't save", message || 'Something went wrong while saving. Please try again.');
+}
 
 export function useLogScreen() {
   const route = useRoute<LogRoute>();
@@ -88,7 +95,7 @@ export function useLogScreen() {
     setTrackWeightOn(!!getProfile().track_weight);
     // Keep the "only remind if you haven't logged" schedule truthful: any
     // add/edit/delete changes whether today's nudge should fire.
-    reconcileReminders();
+    requestReconcileReminders();
   }, []);
 
   useFocusEffect(refresh);
@@ -140,14 +147,18 @@ export function useLogScreen() {
 
   const saveMeal = () => {
     if (!mealName.trim()) return Alert.alert('Missing name', 'What did you eat?');
-    const at = logDate.toISOString();
-    if (editing?.kind === 'meal') {
-      updateFoodLog(editing.id, mealName, mealType, mealNotes, at);
-    } else {
-      addFoodLog(mealName, mealType, mealNotes, at);
+    try {
+      const at = logDate.toISOString();
+      if (editing?.kind === 'meal') {
+        updateFoodLog(editing.id, mealName, mealType, mealNotes, at);
+      } else {
+        addFoodLog(mealName, mealType, mealNotes, at);
+      }
+      resetForm();
+      refresh();
+    } catch (e) {
+      alertSaveFailed(e);
     }
-    resetForm();
-    refresh();
   };
 
   /**
@@ -159,17 +170,25 @@ export function useLogScreen() {
     if (selectedMedIds.length === 0 && selectedSuppIds.length === 0) {
       return Alert.alert('Nothing selected', 'Pick at least one medication or supplement first.');
     }
-    const at = logDate.toISOString();
-    if (editing?.kind === 'medication' && selectedMedIds.length > 0) {
-      updateMedLog(editing.id, selectedMedIds[0], at, medQty[selectedMedIds[0]] ?? 1);
-    } else if (editing?.kind === 'supplement' && selectedSuppIds.length > 0) {
-      updateSupplementLog(editing.id, selectedSuppIds[0], at, suppQty[selectedSuppIds[0]] ?? 1);
-    } else if (!editing) {
-      selectedMedIds.forEach((id) => addMedLog(id, at, medQty[id] ?? 1));
-      selectedSuppIds.forEach((id) => addSupplementLog(id, at, suppQty[id] ?? 1));
+    try {
+      const at = logDate.toISOString();
+      if (editing?.kind === 'medication' && selectedMedIds.length > 0) {
+        updateMedLog(editing.id, selectedMedIds[0], at, medQty[selectedMedIds[0]] ?? 1);
+      } else if (editing?.kind === 'supplement' && selectedSuppIds.length > 0) {
+        updateSupplementLog(editing.id, selectedSuppIds[0], at, suppQty[selectedSuppIds[0]] ?? 1);
+      } else if (!editing) {
+        // Multi-insert must be atomic so a crash mid-handful doesn't leave a
+        // half-logged set of pills.
+        database().withTransactionSync(() => {
+          selectedMedIds.forEach((id) => addMedLog(id, at, medQty[id] ?? 1));
+          selectedSuppIds.forEach((id) => addSupplementLog(id, at, suppQty[id] ?? 1));
+        });
+      }
+      resetForm();
+      refresh();
+    } catch (e) {
+      alertSaveFailed(e);
     }
-    resetForm();
-    refresh();
   };
 
   /** Non-null while editing a single med/supplement entry (locks the other section). */
@@ -189,27 +208,35 @@ export function useLogScreen() {
 
   const saveSymptom = () => {
     if (!symptomName.trim()) return Alert.alert('Missing name', 'What symptom are you logging?');
-    const at = logDate.toISOString();
-    if (editing?.kind === 'symptom') {
-      updateSymptomLog(editing.id, symptomName, severity, symptomNotes, at);
-    } else {
-      addSymptomLog(symptomName, severity, symptomNotes, at);
+    try {
+      const at = logDate.toISOString();
+      if (editing?.kind === 'symptom') {
+        updateSymptomLog(editing.id, symptomName, severity, symptomNotes, at);
+      } else {
+        addSymptomLog(symptomName, severity, symptomNotes, at);
+      }
+      resetForm();
+      refresh();
+    } catch (e) {
+      alertSaveFailed(e);
     }
-    resetForm();
-    refresh();
   };
 
   const saveWeight = () => {
     const w = parseFloatStrict(weightInput);
     if (w == null || w <= 0) return Alert.alert('Invalid', 'Enter your weight in lbs.');
-    const at = logDate.toISOString();
-    if (editing?.kind === 'weight') {
-      updateWeightLog(editing.id, w, at);
-    } else {
-      addWeightLog(w, at);
+    try {
+      const at = logDate.toISOString();
+      if (editing?.kind === 'weight') {
+        updateWeightLog(editing.id, w, at);
+      } else {
+        addWeightLog(w, at);
+      }
+      resetForm();
+      refresh();
+    } catch (e) {
+      alertSaveFailed(e);
     }
-    resetForm();
-    refresh();
   };
 
   /** Clear the form back to a fresh entry. */
@@ -289,17 +316,14 @@ export function useLogScreen() {
   };
 
   const confirmDelete = (log: AnyLog) => {
-    Alert.alert('Delete entry?', `"${log.title}" will be removed.`, [
-      { text: 'Cancel', style: 'cancel' },
-      {
-        text: 'Delete',
-        style: 'destructive',
-        onPress: () => {
-          deleteLog(log.kind, log.id);
-          refresh();
-        },
-      },
-    ]);
+    confirmDeleteEntry(log.title, () => {
+      try {
+        deleteLog(log.kind, log.id);
+        refresh();
+      } catch (e) {
+        alertSaveFailed(e);
+      }
+    });
   };
 
   return {

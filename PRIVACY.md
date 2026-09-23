@@ -22,7 +22,7 @@ The app makes no network requests of its own.
 
 Two features move data off your device, and both require you to do it deliberately:
 
-- **Backup export:** you can export your complete logged history as a JSON file. The file is created on your device; what you do with it afterward (save, email, upload) is up to you. Importing a backup **replaces** all data currently on the device.
+- **Backup export:** you can export your complete logged history as a JSON file (without Pro purchase status — restore purchases through the App Store or Google Play after switching devices). The file is created on your device; what you do with it afterward (save, email, upload) is up to you. Importing a backup **replaces** all logged data currently on the device while leaving this device's Pro entitlement unchanged.
 - **AI Coach context export:** the app generates a text summary of your logs that you can copy. If you paste it into a third-party AI chat service, that service's own privacy policy applies from that point on — KetoKind has no relationship with those providers and sends them nothing directly.
 
 ## Purchases

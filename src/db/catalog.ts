@@ -26,6 +26,37 @@ export function deleteCondition(id: number): void {
   database().runSync('DELETE FROM conditions WHERE id = ?', [id]);
 }
 
+type SchedulableTable = 'medications' | 'supplements';
+
+function addSchedulable(
+  table: SchedulableTable,
+  name: string,
+  dosage: string,
+  timesPerDay: number,
+  purpose: string,
+  asNeeded: boolean,
+): void {
+  database().runSync(
+    `INSERT INTO ${table} (name, dosage, times_per_day, purpose, as_needed) VALUES (?, ?, ?, ?, ?)`,
+    [name.trim(), dosage.trim(), timesPerDay, purpose.trim(), asNeeded ? 1 : 0],
+  );
+}
+
+function updateSchedulable(
+  table: SchedulableTable,
+  id: number,
+  name: string,
+  dosage: string,
+  timesPerDay: number,
+  purpose: string,
+  asNeeded: boolean,
+): void {
+  database().runSync(
+    `UPDATE ${table} SET name = ?, dosage = ?, times_per_day = ?, purpose = ?, as_needed = ? WHERE id = ?`,
+    [name.trim(), dosage.trim(), timesPerDay, purpose.trim(), asNeeded ? 1 : 0, id],
+  );
+}
+
 export function listMedications(): Medication[] {
   return database().getAllSync<Medication>('SELECT * FROM medications ORDER BY name');
 }
@@ -37,10 +68,7 @@ export function addMedication(
   purpose: string,
   asNeeded: boolean,
 ): void {
-  database().runSync(
-    'INSERT INTO medications (name, dosage, times_per_day, purpose, as_needed) VALUES (?, ?, ?, ?, ?)',
-    [name.trim(), dosage.trim(), timesPerDay, purpose.trim(), asNeeded ? 1 : 0],
-  );
+  addSchedulable('medications', name, dosage, timesPerDay, purpose, asNeeded);
 }
 
 export function deleteMedication(id: number): void {
@@ -55,10 +83,7 @@ export function updateMedication(
   purpose: string,
   asNeeded: boolean,
 ): void {
-  database().runSync(
-    'UPDATE medications SET name = ?, dosage = ?, times_per_day = ?, purpose = ?, as_needed = ? WHERE id = ?',
-    [name.trim(), dosage.trim(), timesPerDay, purpose.trim(), asNeeded ? 1 : 0, id],
-  );
+  updateSchedulable('medications', id, name, dosage, timesPerDay, purpose, asNeeded);
 }
 
 export function listSupplements(): Supplement[] {
@@ -72,10 +97,7 @@ export function addSupplement(
   purpose: string,
   asNeeded: boolean,
 ): void {
-  database().runSync(
-    'INSERT INTO supplements (name, dosage, times_per_day, purpose, as_needed) VALUES (?, ?, ?, ?, ?)',
-    [name.trim(), dosage.trim(), timesPerDay, purpose.trim(), asNeeded ? 1 : 0],
-  );
+  addSchedulable('supplements', name, dosage, timesPerDay, purpose, asNeeded);
 }
 
 export function deleteSupplement(id: number): void {
@@ -90,8 +112,5 @@ export function updateSupplement(
   purpose: string,
   asNeeded: boolean,
 ): void {
-  database().runSync(
-    'UPDATE supplements SET name = ?, dosage = ?, times_per_day = ?, purpose = ?, as_needed = ? WHERE id = ?',
-    [name.trim(), dosage.trim(), timesPerDay, purpose.trim(), asNeeded ? 1 : 0, id],
-  );
+  updateSchedulable('supplements', id, name, dosage, timesPerDay, purpose, asNeeded);
 }

@@ -66,20 +66,45 @@ async function cancelOurScheduled(): Promise<void> {
   }
 }
 
+/** Fingerprint of inputs that affect the scheduled notification set. */
+function scheduleKey(settings: ReminderSettings, hasLogsToday: boolean): string {
+  return JSON.stringify({
+    enabled: settings.enabled,
+    time: settings.time,
+    onlyIfNoLogs: settings.onlyIfNoLogs,
+    hasLogsToday: settings.onlyIfNoLogs ? hasLogsToday : false,
+    sound: settings.sound,
+    badge: settings.badge,
+    custom: settings.custom,
+  });
+}
+
+let lastScheduleKey = '';
+let reconcileTimer: ReturnType<typeof setTimeout> | null = null;
+
 /**
- * Re-evaluate and re-schedule all reminders. Safe to call often: it first
- * cancels everything we previously scheduled, then schedules fresh.
+ * Re-evaluate and re-schedule all reminders. Skips cancel/reschedule when
+ * the schedule inputs haven't changed since the last successful run.
  */
-export async function reconcileReminders(): Promise<void> {
+export async function reconcileReminders(force: boolean = false): Promise<void> {
   try {
     const settings = getReminderSettings();
+    const now = new Date();
+    const hasLogsToday = getLogsForDay(now).length > 0;
+    const key = scheduleKey(settings, hasLogsToday);
+    if (!force && key === lastScheduleKey) return;
+
     await cancelOurScheduled();
     if (!settings.enabled) {
       await Notifications.setBadgeCountAsync(0).catch(() => {});
+      lastScheduleKey = key;
       return;
     }
     const { status } = await Notifications.getPermissionsAsync();
-    if (status !== 'granted') return;
+    if (status !== 'granted') {
+      lastScheduleKey = key;
+      return;
+    }
     await Notifications.setBadgeCountAsync(0).catch(() => {});
 
     if (Platform.OS === 'android') {
@@ -89,8 +114,6 @@ export async function reconcileReminders(): Promise<void> {
       }).catch(() => {});
     }
 
-    const now = new Date();
-    const hasLogsToday = getLogsForDay(now).length > 0;
     const occurrences = computeOccurrences(settings, now, hasLogsToday, DAYS_AHEAD);
 
     for (const occ of occurrences) {
@@ -115,9 +138,22 @@ export async function reconcileReminders(): Promise<void> {
         },
       });
     }
+    lastScheduleKey = key;
   } catch {
     // Reminders are best-effort; never break the app over them.
   }
+}
+
+/**
+ * Debounced reconcile for hot paths (log save/focus). Coalesces rapid calls
+ * so we don't cancel/reschedule the OS queue on every keystroke-adjacent save.
+ */
+export function requestReconcileReminders(delayMs: number = 600): void {
+  if (reconcileTimer) clearTimeout(reconcileTimer);
+  reconcileTimer = setTimeout(() => {
+    reconcileTimer = null;
+    void reconcileReminders();
+  }, delayMs);
 }
 
 /**
@@ -141,13 +177,13 @@ export async function ensureReminderSetup(): Promise<void> {
   } catch {
     // Fall through to reconcile regardless.
   }
-  await reconcileReminders();
+  await reconcileReminders(true);
 }
 
 /** Update one settings field, persist, and re-schedule. */
 export async function updateReminderSettings(patch: Partial<ReminderSettings>): Promise<ReminderSettings> {
   const next: ReminderSettings = { ...getReminderSettings(), ...patch };
   saveReminderSettings(next);
-  await reconcileReminders();
+  await reconcileReminders(true);
   return next;
 }

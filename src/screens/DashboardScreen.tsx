@@ -17,6 +17,7 @@ import { currentMilestone, reachedMilestones } from '../milestones';
 import type { Milestone } from '../milestones';
 import { useTheme } from '../ThemeContext';
 import type { Palette } from '../theme';
+import { fmtLongDate } from '../datetime';
 
 type Nav = CompositeNavigationProp<
   BottomTabNavigationProp<RootTabParamList>,
@@ -70,11 +71,7 @@ export default function DashboardScreen() {
 
   useFocusEffect(refresh);
 
-  const todayLabel = new Date().toLocaleDateString(undefined, {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-  });
+  const todayLabel = fmtLongDate(new Date());
 
   const cards: { label: string; plural: string; value: string; icon: 'restaurant-outline' | 'medkit-outline' | 'pulse-outline' | 'leaf-outline'; kind: AnyLog['kind'] }[] = [
     { label: 'Meals logged', plural: 'meals', value: String(counts.meals), icon: 'restaurant-outline', kind: 'meal' },
@@ -127,7 +124,10 @@ export default function DashboardScreen() {
                 {milestone.label} on {dietLabel} — incredible consistency. Keep going!
               </Text>
             </View>
-            <TouchableOpacity onPress={dismissBanner} style={styles.milestoneClose} hitSlop={12}>
+            <TouchableOpacity onPress={dismissBanner} style={styles.milestoneClose} hitSlop={12}
+              accessibilityRole="button"
+              accessibilityLabel="Dismiss milestone"
+            >
               <Ionicons name="close-outline" size={20} color={COLORS.muted} />
             </TouchableOpacity>
           </View>
@@ -167,6 +167,8 @@ export default function DashboardScreen() {
               key={q.segment}
               style={[styles.quickButton, { width: `${Math.floor(92 / quickAdd.length)}%` }]}
               onPress={() => navigation.navigate('Log', { segment: q.segment })}
+              accessibilityRole="button"
+              accessibilityLabel={`Quick add ${q.label}`}
             >
               <Ionicons name={q.icon} size={24} color="#fff" />
               <Text style={styles.quickLabel}>{q.label}</Text>
@@ -196,6 +198,8 @@ export default function DashboardScreen() {
             <TouchableOpacity
               style={styles.weightButton}
               onPress={() => navigation.navigate('Log', { segment: 'weight' })}
+              accessibilityRole="button"
+              accessibilityLabel="Log weight"
             >
               <Text style={styles.weightButtonText}>Log weight</Text>
             </TouchableOpacity>

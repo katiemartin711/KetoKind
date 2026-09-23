@@ -12,30 +12,22 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src/db.ts",
-    "src/db/*.ts",
+    "src/db/**/*.ts",
     "src/types.ts",
     "src/theme.ts",
+    "src/datetime.ts",
+    "src/confirmDelete.ts",
     "src/milestones.ts",
     "src/dietPrinciples.ts",
     "src/nodeSqliteAdapter.ts",
-    "src/milestones.test.ts",
-    "src/backup.test.ts",
-    "src/dietPrinciples.test.ts",
     "src/profileValidation.ts",
-    "src/components/log/medSuppSelection.ts",
-    "src/numberParsing.test.ts",
-    "src/medSuppSelection.test.ts",
-    "src/profileValidation.test.ts",
-    "src/medSuppForm.test.tsx",
+    "src/numberParsing.ts",
     "src/pro.ts",
-    "src/pro.test.ts",
     "src/trendsStats.ts",
-    "src/trendsStats.test.ts",
     "src/foodGroups.ts",
-    "src/foodGroups.test.ts",
-    "src/logs.test.ts",
     "src/reminderLogic.ts",
-    "src/reminderLogic.test.ts"
+    "src/components/log/medSuppSelection.ts",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx"
   ]
 }

@@ -5,15 +5,31 @@
 // getProStatus() is true (it returns before any query for free users), so a
 // free user's data is never loaded for this tab. Keep it that way: do not
 // call these from anywhere that isn't behind the Pro check.
+//
+// Queries are bounded to a recent window (default 180 days) so long histories
+// don't load every row into JS on tab focus.
 
 import { database } from './client';
 import { localDayKey } from '../trendsStats';
 import type { SymptomDay, WeightPoint } from '../trendsStats';
 
+/** Default lookback for Trends queries (days). */
+export const TRENDS_LOOKBACK_DAYS = 180;
+
+/** ISO lower bound for "logs since N days ago". */
+function sinceIso(days: number): string {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  d.setDate(d.getDate() - days);
+  return d.toISOString();
+}
+
 /** Weight entries oldest-first, for the trend graph. */
-export function getWeightSeries(): WeightPoint[] {
+export function getWeightSeries(lookbackDays: number = TRENDS_LOOKBACK_DAYS): WeightPoint[] {
+  const since = sinceIso(lookbackDays);
   const rows = database().getAllSync<{ weight: number; logged_at: string }>(
-    'SELECT weight, logged_at FROM weight_logs ORDER BY logged_at ASC',
+    'SELECT weight, logged_at FROM weight_logs WHERE logged_at >= ? ORDER BY logged_at ASC',
+    [since],
   );
   return rows.map((r) => ({
     day: localDayKey(r.logged_at),
@@ -31,9 +47,11 @@ function normName(name: string): string {
  * Every symptom's per-day average severity (a symptom logged twice in one
  * day counts once, averaged), keyed by symptom name. Days oldest-first.
  */
-export function getSymptomDayMap(): Map<string, SymptomDay[]> {
+export function getSymptomDayMap(lookbackDays: number = TRENDS_LOOKBACK_DAYS): Map<string, SymptomDay[]> {
+  const since = sinceIso(lookbackDays);
   const rows = database().getAllSync<{ name: string; logged_at: string; severity: number }>(
-    'SELECT name, logged_at, severity FROM symptom_logs ORDER BY logged_at ASC',
+    'SELECT name, logged_at, severity FROM symptom_logs WHERE logged_at >= ? ORDER BY logged_at ASC',
+    [since],
   );
   const byNameDay = new Map<string, Map<string, number[]>>();
   for (const r of rows) {
@@ -69,9 +87,11 @@ export function getSymptomDayMap(): Map<string, SymptomDay[]> {
  * pattern matching. The Trends tab is Pro-gated — only call this behind
  * the Pro check, like the other helpers in this module.
  */
-export function getMealDayMap(): Map<string, string[]> {
+export function getMealDayMap(lookbackDays: number = TRENDS_LOOKBACK_DAYS): Map<string, string[]> {
+  const since = sinceIso(lookbackDays);
   const rows = database().getAllSync<{ name: string; notes: string; logged_at: string }>(
-    'SELECT name, notes, logged_at FROM food_logs ORDER BY logged_at ASC',
+    'SELECT name, notes, logged_at FROM food_logs WHERE logged_at >= ? ORDER BY logged_at ASC',
+    [since],
   );
   const byDay = new Map<string, string[]>();
   for (const r of rows) {
@@ -96,12 +116,15 @@ export interface ItemDays {
  * Local days each med/supplement was taken, grouped by snapshot name
  * (case-insensitive). Legacy rows with an empty name snapshot are skipped.
  */
-export function getItemDayList(): ItemDays[] {
+export function getItemDayList(lookbackDays: number = TRENDS_LOOKBACK_DAYS): ItemDays[] {
+  const since = sinceIso(lookbackDays);
   const meds = database().getAllSync<{ name: string; taken_at: string }>(
-    'SELECT name, taken_at FROM med_logs',
+    'SELECT name, taken_at FROM med_logs WHERE taken_at >= ?',
+    [since],
   );
   const supps = database().getAllSync<{ name: string; logged_at: string }>(
-    'SELECT name, logged_at FROM supplement_logs',
+    'SELECT name, logged_at FROM supplement_logs WHERE logged_at >= ?',
+    [since],
   );
   const byKey = new Map<string, ItemDays>();
   const add = (kind: 'medication' | 'supplement', name: string, iso: string) => {

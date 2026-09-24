@@ -119,27 +119,35 @@ this device's Pro flag (never grants Pro from a file). Pre-v2 backups
 restored medications. Delete-all also resets `theme_mode` to `system` and
 clears the profile name.
 
-## Run it
+## Run it on a phone
 
-Prerequisites: Node 18+. Logging works in the **Expo Go** app. The on-device
-model needs a custom build (Expo dev client): `npx expo run:ios` or
-`npx expo run:android`. Expo Go can still save meals; it just cannot download
-or run the model.
+The on-device model is a native module, so the phone needs a **KetoKind development build**, not Expo Go. You install that build once. After that, `npm run phone` loads your latest JS over a tunnel.
+
+One-time setup (needs an [Expo account](https://expo.dev/signup); iOS also needs an Apple Developer account so EAS can sign the install):
 
 ```bash
 npm install
-npx expo start --tunnel
+npx eas-cli login
+npm run build:phone
 ```
 
-Then scan the QR code with Expo Go (iOS: Camera app; Android: inside Expo Go).
-The `--tunnel` flag makes the dev server reachable from your phone even on a
-different network.
+`build:phone` builds Android and iOS in the cloud (`eas.json` profile `development`). Android is an APK you can install from the link or QR on the build page. iOS is an internal install: EAS will ask you to register the phone, then the link installs KetoKind. To build one platform only: `npm run build:phone:android` or `npm run build:phone:ios`.
+
+Each time you want to use the app:
+
+```bash
+npm run phone
+```
+
+That starts Metro with a tunnel. Open the **KetoKind** app you installed (not Expo Go) and connect to the URL it shows. The tunnel works when the phone is not on the same Wi-Fi as the computer.
+
+Expo Go can still open a JS-only session (`npx expo start --tunnel`) for logging, but it cannot download or run the model.
 
 Useful extras:
 
 ```bash
-npx expo start --tunnel --clear   # clear the Metro bundler cache if something looks stale
-npx tsc --noEmit                  # typecheck the app (excludes tests)
+npx expo start --dev-client --tunnel --clear   # clear the Metro cache if the phone looks stale
+npx tsc --noEmit                               # typecheck the app (excludes tests)
 ```
 
 ## KetoKind Pro

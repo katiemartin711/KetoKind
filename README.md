@@ -6,18 +6,19 @@ weight — then export a Markdown **context file** plus a ready-made **coach
 setup prompt** and paste them into the AI chat of your choice (ChatGPT,
 Claude, etc.). That AI becomes your personal diet coach.
 
-**No AI runs inside this app.** No API keys, no servers, no accounts. Your
-health data stays in an on-device SQLite database until *you* choose to share
-the export file. That's the whole privacy model — and why there's nothing to
-maintain.
+Meal macro estimates and the Trends summary run **on this phone** after you
+download a small model. That download is the only network request the app
+makes, and it does not upload your logs. There is still no account and no
+server. The AI Coach tab does not call an API — it builds a file you can
+paste into a chat app if you want.
 
 ## Screens
 
 | Tab | What it does |
 |---|---|
 | **Dashboard** | Today's date, stat cards (meals, meds taken vs. scheduled, symptoms, supplements) — tapping a tile opens a full list of that log type — diet-start milestones, daily logging streak, quick-add buttons, optional weight card (tappable too) |
-| **Log** | Segmented forms for Meal / Meds & Supps / Symptom / Weight + today's entries (tap to edit, ✕ to delete). Symptom names suggest previously logged labels for consistency |
-| **Trends** | **Pro:** weight trend graph with range dropdown, medication/supplement × symptom patterns with a "strongest patterns" ranking, and a symptom-over-time severity chart |
+| **Log** | Segmented forms for Meal / Meds & Supps / Symptom / Weight + today's entries (tap to edit, ✕ to delete). Meals can carry estimated or edited macros (protein, fat, total and net carbs, and calories when that setting is on). Symptom names suggest previously logged labels for consistency |
+| **Trends** | **Pro:** weight trend graph with range dropdown, medication/supplement × symptom patterns with a "strongest patterns" ranking, a symptom-over-time severity chart, and macro-balance × symptom comparisons with an on-demand on-device summary |
 | **Profile** | "About You" (name, age, sex, bio), diet type (Keto / Carnivore / Lion Diet / Paleo) with per-diet principle info panels, diet nuances, goals, diet start date, weight tracking, appearance (theme), allergies, health conditions, medications, supplements, full backup / restore, delete-all |
 | **AI Coach** | Coach setup-prompt preview (profile + per-diet guiding principles + last 30 days of logs), "Copy prompt + logs" button, "Share context file only (.md)" button that writes `ketokind-context.md` and opens the share sheet |
 
@@ -88,7 +89,7 @@ Tables: `profile` (single row, `id = 1`), `allergies`, `conditions`,
 `medications`, `supplements`, `food_logs`, `med_logs`, `symptom_logs`,
 `supplement_logs`, `weight_logs`.
 
-**Migrations** (`SCHEMA_VERSION = 5`, applied in order via
+**Migrations** (`SCHEMA_VERSION = 6`, applied in order via
 `PRAGMA user_version` + `addColumnIfMissing` / index helpers):
 
 - **v2:** `med_logs.name` snapshot (history survives renames/deletes) +
@@ -97,6 +98,10 @@ Tables: `profile` (single row, `id = 1`), `allergies`, `conditions`,
 - **v4:** `profile.reminder_settings` JSON for local log reminders.
 - **v5:** indexes on log timestamp columns for day queries, LogList,
   Trends, and streak checks.
+- **v6:** optional meal macros (`protein_g`, `fat_g`, `carbs_g`, `fiber_g`,
+  `net_carbs_g`, `calories`, `macro_source`), `profile.track_calories`,
+  `profile.llm_offer` (declined the model download — not included in backups),
+  and a `trend_insights` cache for the on-device Trends summary.
 
 ### Backup format
 
@@ -116,7 +121,10 @@ clears the profile name.
 
 ## Run it
 
-Prerequisites: Node 18+, and the **Expo Go** app on your phone.
+Prerequisites: Node 18+. Logging works in the **Expo Go** app. The on-device
+model needs a custom build (Expo dev client): `npx expo run:ios` or
+`npx expo run:android`. Expo Go can still save meals; it just cannot download
+or run the model.
 
 ```bash
 npm install
@@ -137,10 +145,11 @@ npx tsc --noEmit                  # typecheck the app (excludes tests)
 ## KetoKind Pro
 
 **Free forever:** all logging (meals, medications, supplements, symptoms,
-weight), the dashboard, streaks, and milestones.
+weight), on-device macro estimates, the dashboard, streaks, and milestones.
 
 **Pro — $9.99 one-time:** the AI Coach context export (copy prompt + logs, or
-share the `.md` file), the Trends tab (weight graph + log patterns), and backup
+share the `.md` file), the Trends tab (weight graph, log patterns, and
+macro × symptom correlations with an on-device written summary), and backup
 export/import.
 
 Free users see a Pro upsell instead of the AI Coach export UI and the Trends
@@ -188,6 +197,17 @@ logs" — never causal ("X causes/improves Y") and never suggesting starting,
 stopping, or changing anything. The tab carries the disclaimer: *"Patterns,
 not medical advice. Talk to your doctor about any medication changes."*
 
+**Macro balance (Pro):** days are split at the median of protein, fat, or net
+carbs (and calories, only if calorie tracking is on in Profile). Average
+symptom severity is compared with the same day floors as other patterns.
+A **Write a summary** button runs the on-device model once and caches the
+text until the comparisons change. Estimates are labeled approximate.
+
+The model file (about 500 MB, Qwen2.5 0.5B Instruct Q4) downloads the first
+time you save a meal, or later from Profile → On-device meal estimates.
+Declining the prompt still saves the meal. You can type macros yourself and
+skip the model. Net carbs are total carbs minus fiber, computed in the app.
+
 The stats math lives in pure, well-tested `src/trendsStats.ts`; the queries in
 `src/db/trends.ts` are only called after the Pro check passes, so free users
 never trigger data loading for this tab.
@@ -234,7 +254,7 @@ npm test   # tsc -p tsconfig.test.json, then node dist-test/*.test.js
 | Suite | Covers | Current |
 |---|---|---|
 | `src/milestones.test.ts` | Diet-start parsing/formatting, duration labels, milestone detection, dismissed-milestone persistence | 14 passed |
-| `src/backup.test.ts` | Backup round-trip, malformed rejection, rollback, migrations, Pro omitted from export / preserved on import, timestamp indexes | 41 passed |
+| `src/backup.test.ts` | Backup round-trip, malformed rejection, rollback, migrations, Pro omitted from export / preserved on import, timestamp indexes, meal-macro round-trip | 42 passed |
 | `src/dietPrinciples.test.ts` | Every diet returns 10 non-empty principles; per-diet overrides never contradict the diet (e.g. no "dairy is optional" for Lion Diet or paleo); keto and carnivore are differentiated | 7 passed |
 | `src/numberParsing.test.ts` | Strict int/float parsers accept plain numbers and reject junk like "12abc", "1e3", "0x10" | 4 passed |
 | `src/medSuppSelection.test.ts` | Log-tab med/supp selection state machine: multi-select, qty init/drop, edit-mode single-select locking of the other section, qty clamping 1–20, prune, load, reset | 10 passed |
@@ -247,6 +267,7 @@ npm test   # tsc -p tsconfig.test.json, then node dist-test/*.test.js
 | `src/foodGroups.test.ts` | Food-group expansion for Trends food × symptom matching | 12 passed |
 | `src/symptomSuggestions.test.ts` | Symptom name suggestion filter (substring, exact-match hide, limit) | 5 passed |
 | `src/symptomForm.test.tsx` | SymptomForm prior-name chips: show/filter/tap-to-fill | 5 passed |
+| `src/macros.test.ts` | Macro JSON parsing, user edits, meal-save download plan, macro × symptom median splits, narrative safety filter | 7 passed |
 
 `npm test` auto-discovers `*.test.js` under `dist-test/` via `test/run.js`. The app typecheck (`npx tsc --noEmit`) is clean. CI (`.github/workflows/ci.yml`) runs `npm test` and the typecheck on every push to `main` and every pull request.
 

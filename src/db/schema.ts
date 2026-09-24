@@ -7,7 +7,7 @@ import { database } from './client';
  * schema changes — initDb() applies every migration newer than the stored
  * PRAGMA user_version, in order.
  */
-const SCHEMA_VERSION = 5;
+const SCHEMA_VERSION = 6;
 
 /** version -> migration function upgrading TO that version. Use
  *  addColumnIfMissing() for column adds so migrations stay idempotent
@@ -44,7 +44,33 @@ const MIGRATIONS: Record<number, () => void> = {
     // streak checks stay fast as history grows.
     ensureLogIndexes();
   },
+  6: () => {
+    // v6: optional per-meal macros (on-device estimates or user edits),
+    // a calorie-tracking toggle, and whether the user declined the model.
+    addColumnIfMissing('food_logs', 'protein_g', 'REAL');
+    addColumnIfMissing('food_logs', 'fat_g', 'REAL');
+    addColumnIfMissing('food_logs', 'carbs_g', 'REAL');
+    addColumnIfMissing('food_logs', 'fiber_g', 'REAL');
+    addColumnIfMissing('food_logs', 'net_carbs_g', 'REAL');
+    addColumnIfMissing('food_logs', 'calories', 'REAL');
+    addColumnIfMissing('food_logs', 'macro_source', "TEXT NOT NULL DEFAULT ''");
+    addColumnIfMissing('profile', 'track_calories', 'INTEGER NOT NULL DEFAULT 0');
+    addColumnIfMissing('profile', 'llm_offer', "TEXT NOT NULL DEFAULT ''");
+    ensureInsightTable();
+  },
 };
+
+/** Cached on-device Trends narrative (one row). Not part of backups. */
+function ensureInsightTable(): void {
+  database().execSync(`
+    CREATE TABLE IF NOT EXISTS trend_insights (
+      id INTEGER PRIMARY KEY CHECK (id = 1),
+      fingerprint TEXT NOT NULL DEFAULT '',
+      narrative TEXT NOT NULL DEFAULT '',
+      generated_at TEXT NOT NULL DEFAULT ''
+    );
+  `);
+}
 
 /** Timestamp indexes used by day bounds, LogList pagination, and Trends. */
 function ensureLogIndexes(): void {
@@ -84,7 +110,9 @@ export function initDb(): void {
       diet_start TEXT,
       dismissed_milestones TEXT NOT NULL DEFAULT '',
       is_pro INTEGER NOT NULL DEFAULT 0,
-      reminder_settings TEXT NOT NULL DEFAULT ''
+      reminder_settings TEXT NOT NULL DEFAULT '',
+      track_calories INTEGER NOT NULL DEFAULT 0,
+      llm_offer TEXT NOT NULL DEFAULT ''
     );
     CREATE TABLE IF NOT EXISTS allergies (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -115,7 +143,14 @@ export function initDb(): void {
       name TEXT NOT NULL,
       meal_type TEXT NOT NULL DEFAULT 'Meal',
       logged_at TEXT NOT NULL,
-      notes TEXT NOT NULL DEFAULT ''
+      notes TEXT NOT NULL DEFAULT '',
+      protein_g REAL,
+      fat_g REAL,
+      carbs_g REAL,
+      fiber_g REAL,
+      net_carbs_g REAL,
+      calories REAL,
+      macro_source TEXT NOT NULL DEFAULT ''
     );
     CREATE TABLE IF NOT EXISTS med_logs (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -145,8 +180,9 @@ export function initDb(): void {
       logged_at TEXT NOT NULL
     );
   `);
-  // Fresh installs get indexes immediately; upgrades apply them via v5.
+  // Fresh installs get indexes and the insight cache immediately.
   ensureLogIndexes();
+  ensureInsightTable();
   // Guarantee the single profile row (id = 1) exists.
   const existing = database().getFirstSync<{ id: number }>('SELECT id FROM profile WHERE id = 1');
   if (!existing) {

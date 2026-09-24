@@ -18,6 +18,18 @@ interface Props {
   editing: boolean;
   onSave: () => void;
   onCancel: () => void;
+  trackCalories: boolean;
+  protein: string;
+  fat: string;
+  carbs: string;
+  fiber: string;
+  calories: string;
+  onProteinChange: (s: string) => void;
+  onFatChange: (s: string) => void;
+  onCarbsChange: (s: string) => void;
+  onFiberChange: (s: string) => void;
+  onCaloriesChange: (s: string) => void;
+  estimating: boolean;
 }
 
 export default function MealForm(props: Props) {
@@ -33,6 +45,18 @@ export default function MealForm(props: Props) {
     editing,
     onSave,
     onCancel,
+    trackCalories,
+    protein,
+    fat,
+    carbs,
+    fiber,
+    calories,
+    onProteinChange,
+    onFatChange,
+    onCarbsChange,
+    onFiberChange,
+    onCaloriesChange,
+    estimating,
   } = props;
   const { colors, common } = useTheme();
   const styles = useMemo(() => makeStyles(colors), [colors]);
@@ -71,6 +95,23 @@ export default function MealForm(props: Props) {
         maxLength={200}
         accessibilityLabel="Notes, optional"
       />
+      <Text style={common.label}>Macros (optional)</Text>
+      <Text style={styles.hint}>
+        Leave these blank to estimate protein, fat, and carbs on this phone after you save.
+        Fill them in if you already know the numbers.
+      </Text>
+      <View style={styles.macroRow}>
+        <MacroField label="Protein (g)" value={protein} onChange={onProteinChange} />
+        <MacroField label="Fat (g)" value={fat} onChange={onFatChange} />
+      </View>
+      <View style={styles.macroRow}>
+        <MacroField label="Total carbs (g)" value={carbs} onChange={onCarbsChange} />
+        <MacroField label="Fiber (g)" value={fiber} onChange={onFiberChange} />
+      </View>
+      {trackCalories && (
+        <MacroField label="Calories" value={calories} onChange={onCaloriesChange} />
+      )}
+      {estimating && <Text style={styles.hint}>Estimating macros on this phone…</Text>}
       <DateTimeField value={logDate} onChange={onLogDateChange} />
       <TouchableOpacity style={common.primaryButton} onPress={onSave}>
         <Text style={common.primaryButtonText}>{editing ? 'Save changes' : 'Save meal'}</Text>
@@ -84,8 +125,36 @@ export default function MealForm(props: Props) {
   );
 }
 
+function MacroField({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  onChange: (s: string) => void;
+}) {
+  const { common } = useTheme();
+  return (
+    <View style={{ flex: 1 }}>
+      <Text style={common.label}>{label}</Text>
+      <TextInput
+        style={common.input}
+        keyboardType="decimal-pad"
+        placeholder="—"
+        value={value}
+        onChangeText={onChange}
+        maxLength={7}
+        accessibilityLabel={label}
+      />
+    </View>
+  );
+}
+
 const makeStyles = (C: Palette) =>
   StyleSheet.create({
+    hint: { fontSize: 13, color: C.muted, marginBottom: 8, lineHeight: 18 },
+    macroRow: { flexDirection: 'row', gap: 10 },
     chips: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
     chip: {
       borderWidth: 1,

@@ -28,6 +28,22 @@
       "expo-sharing",
       "expo-notifications",
       [
+        "expo-build-properties",
+        {
+          "ios": { "newArchEnabled": true },
+          "android": { "newArchEnabled": true }
+        }
+      ],
+      [
+        "llama.rn",
+        {
+          "enableEntitlements": true,
+          "entitlementsProfile": "production",
+          "forceCxx20": true,
+          "enableOpenCLAndHexagon": true
+        }
+      ],
+      [
         "expo-splash-screen",
         {
           "image": "./assets/splash.png",

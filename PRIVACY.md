@@ -1,6 +1,6 @@
 # KetoKind Privacy Policy
 
-**Effective date:** September 21, 2026
+**Effective date:** September 24, 2026
 
 KetoKind ("the app") is a personal diet-logging app. This policy explains what happens to your information when you use it. The short version: **your data stays on your device. We don't collect it, see it, or sell it.**
 
@@ -16,7 +16,11 @@ Everything you log in KetoKind — meals, medications, supplements, symptoms, we
 - No location data
 - No contact lists, photos, or other device data
 
-The app makes no network requests of its own.
+## On-device meal model
+
+If you choose to download it, the app fetches one model file (about 500 MB) from Hugging Face and stores it on your device. That download does not include your meals, symptoms, or profile. Macro estimates and the Trends summary are computed on the phone. If you skip the download, logging still works, and you can download later from Profile.
+
+The AI Coach export is separate: it only leaves the device when you copy or share it.
 
 ## When your data leaves your device (only by your action)
 

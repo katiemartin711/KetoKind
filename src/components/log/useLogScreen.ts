@@ -25,16 +25,22 @@ import {
   updateFoodLog,
   updateMedLog,
   updateSupplementLog,
+  setFoodMacros,
   updateSymptomLog,
   updateWeightLog,
 } from '../../db/logs';
 import { database } from '../../db/client';
-import { getProfile } from '../../db/profile';
+import { getLlmOffer, getProfile, getTrackCalories, setLlmOffer } from '../../db/profile';
 import { listMedications, listSupplements } from '../../db/catalog';
 import { requestReconcileReminders } from '../../reminders';
 import { confirmDeleteEntry } from '../../confirmDelete';
 import type { AnyLog, LogSegment, Medication, RootTabParamList, Supplement } from '../../types';
 import { parseFloatStrict } from '../../numberParsing';
+import { macroFieldsBlank, parseUserMacros } from '../../macros';
+import { planMealSave } from '../../llmOffer';
+import { ON_DEVICE_MODEL_MB } from '../../llm/model';
+import { downloadOnDeviceModel, isModelReady, isNativeLlmLinked } from '../../llm/engine';
+import { estimateSavedMeal } from '../../llm/tasks';
 import {
   initialMedSuppSelection,
   medSuppSelectionReducer,
@@ -67,6 +73,13 @@ export function useLogScreen() {
   const [mealName, setMealName] = useState('');
   const [mealType, setMealType] = useState('Dinner');
   const [mealNotes, setMealNotes] = useState('');
+  const [macroProtein, setMacroProtein] = useState('');
+  const [macroFat, setMacroFat] = useState('');
+  const [macroCarbs, setMacroCarbs] = useState('');
+  const [macroFiber, setMacroFiber] = useState('');
+  const [macroCalories, setMacroCalories] = useState('');
+  const [trackCalories, setTrackCalories] = useState(false);
+  const [estimating, setEstimating] = useState(false);
   // Med/supp chip selection + per-item quantities, as one state machine
   // (edit-mode locking lives in the reducer).
   const [sel, dispatchSel] = useReducer(medSuppSelectionReducer, initialMedSuppSelection);
@@ -96,6 +109,7 @@ export function useLogScreen() {
       validSuppIds: supps.map((s) => s.id),
     });
     setTrackWeightOn(!!getProfile().track_weight);
+    setTrackCalories(getTrackCalories());
     // Keep the "only remind if you haven't logged" schedule truthful: any
     // add/edit/delete changes whether today's nudge should fire.
     requestReconcileReminders();
@@ -148,19 +162,91 @@ export function useLogScreen() {
     setLogDate(new Date());
   };
 
+  const macroInput = {
+    protein: macroProtein,
+    fat: macroFat,
+    carbs: macroCarbs,
+    fiber: macroFiber,
+    calories: macroCalories,
+  };
+
   const saveMeal = () => {
     if (!mealName.trim()) return Alert.alert('Missing name', 'What did you eat?');
+    const userEdited = !macroFieldsBlank(macroInput, trackCalories);
+    let userMacros = null;
+    if (userEdited) {
+      const parsed = parseUserMacros(macroInput, trackCalories);
+      if (!parsed.ok) return Alert.alert('Check macros', parsed.message);
+      userMacros = parsed.macros;
+    }
+    let mealId = 0;
     try {
       const at = logDate.toISOString();
       if (editing?.kind === 'meal') {
         updateFoodLog(editing.id, mealName, mealType, mealNotes, at);
+        mealId = editing.id;
       } else {
-        addFoodLog(mealName, mealType, mealNotes, at);
+        mealId = addFoodLog(mealName, mealType, mealNotes, at);
       }
-      resetForm();
-      refresh();
+      if (userMacros) {
+        const previous = editing?.kind === 'meal' ? getFoodLog(editing.id) : null;
+        const sameAsSaved =
+          previous != null &&
+          previous.protein_g === userMacros.proteinG &&
+          previous.fat_g === userMacros.fatG &&
+          previous.carbs_g === userMacros.carbsG &&
+          previous.fiber_g === userMacros.fiberG &&
+          (previous.calories ?? null) === userMacros.calories;
+        if (!sameAsSaved) setFoodMacros(mealId, userMacros, 'edited');
+      }
     } catch (e) {
       alertSaveFailed(e);
+      return;
+    }
+    const savedName = mealName;
+    const savedNotes = mealNotes;
+    const plan = planMealSave({
+      modelReady: isModelReady(),
+      nativeAvailable: isNativeLlmLinked(),
+      offer: getLlmOffer(),
+      userEditedMacros: userEdited,
+    });
+    resetForm();
+    refresh();
+    if (plan === 'estimate') {
+      setEstimating(true);
+      void estimateSavedMeal(mealId, savedName, savedNotes)
+        .catch(() => false)
+        .finally(() => {
+          setEstimating(false);
+          refresh();
+        });
+    } else if (plan === 'prompt-download') {
+      Alert.alert(
+        'Estimate macros on this phone?',
+        `A small model (about ${ON_DEVICE_MODEL_MB} MB) downloads once and stays on your device. Your meal is already saved. You can download later from Profile.`,
+        [
+          { text: 'Not now', onPress: () => setLlmOffer('declined') },
+          {
+            text: 'Download',
+            onPress: () => {
+              setEstimating(true);
+              void downloadOnDeviceModel()
+                .then(() => estimateSavedMeal(mealId, savedName, savedNotes))
+                .catch(() => {
+                  Alert.alert(
+                    "Couldn't download",
+                    'The meal is saved. You can try the download again from Profile.',
+                  );
+                })
+                .finally(() => {
+                  setEstimating(false);
+                  refresh();
+                });
+            },
+          },
+        ],
+      );
     }
   };
 
@@ -247,6 +333,11 @@ export function useLogScreen() {
     setMealName('');
     setMealNotes('');
     setMealType('Dinner');
+    setMacroProtein('');
+    setMacroFat('');
+    setMacroCarbs('');
+    setMacroFiber('');
+    setMacroCalories('');
     dispatchSel({ type: 'reset' });
     setSymptomName('');
     setSymptomNotes('');
@@ -272,6 +363,11 @@ export function useLogScreen() {
       setMealName(row.name);
       setMealType(row.meal_type);
       setMealNotes(row.notes);
+      setMacroProtein(row.protein_g == null ? '' : String(row.protein_g));
+      setMacroFat(row.fat_g == null ? '' : String(row.fat_g));
+      setMacroCarbs(row.carbs_g == null ? '' : String(row.carbs_g));
+      setMacroFiber(row.fiber_g == null ? '' : String(row.fiber_g));
+      setMacroCalories(row.calories == null ? '' : String(row.calories));
       setLogDate(new Date(row.logged_at));
     } else if (log.kind === 'medication') {
       const row = getMedLog(log.id);
@@ -342,6 +438,18 @@ export function useLogScreen() {
     setMealType,
     mealNotes,
     setMealNotes,
+    trackCalories,
+    macroProtein,
+    setMacroProtein,
+    macroFat,
+    setMacroFat,
+    macroCarbs,
+    setMacroCarbs,
+    macroFiber,
+    setMacroFiber,
+    macroCalories,
+    setMacroCalories,
+    estimating,
     sel,
     editingKind,
     onToggleMed,

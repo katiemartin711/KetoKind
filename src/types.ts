@@ -30,6 +30,8 @@ export interface Profile {
   dismissed_milestones: string; // comma-separated milestone keys the user dismissed
   is_pro: number; // 0/1 — KetoKind Pro unlock (AI Coach export + backups)
   reminder_settings: string; // JSON ReminderSettings ('' = defaults)
+  track_calories: number; // 0/1 — show and correlate calories (off by default)
+  llm_offer: string; // '' = not decided, 'declined' = skipped the model download
 }
 
 export interface Allergy {
@@ -67,6 +69,14 @@ export interface FoodLog {
   meal_type: string;
   logged_at: string; // ISO string
   notes: string;
+  protein_g: number | null;
+  fat_g: number | null;
+  carbs_g: number | null; // total carbohydrates
+  fiber_g: number | null;
+  net_carbs_g: number | null; // total carbs − fiber, computed in the app
+  calories: number | null;
+  /** '' = none, 'estimated' = on-device model, 'edited' = user override */
+  macro_source: string;
 }
 
 export interface MedLog {

@@ -88,7 +88,10 @@ check('duration labels', () => {
   eq(dietDurationLabel(daysAgoStr(0)), 'started today', 'started today');
   eq(dietDurationLabel(daysAgoStr(1)), '1 day', '1 day');
   eq(dietDurationLabel(daysAgoStr(10)), '10 days', '10 days');
+  eq(dietDurationLabel(daysAgoStr(30)), '30 days', 'day 30');
   eq(dietDurationLabel(daysAgoStr(45)), '1 month', '45 days');
+  eq(dietDurationLabel(daysAgoStr(180)), '6 months', 'day 180');
+  eq(dietDurationLabel(daysAgoStr(365)), '1 year', 'day 365');
   eq(dietDurationLabel(daysAgoStr(400)), '1 year 1 month', '400 days');
   eq(dietDurationLabel(null), null, 'null');
 });

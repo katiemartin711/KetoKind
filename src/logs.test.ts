@@ -4,7 +4,7 @@
 import { NodeSqliteHandle } from './nodeSqliteAdapter';
 import { addMedication, addSupplement } from './db/catalog';
 import { __setDbForTests } from './db/client';
-import { addFoodLog, addMedLog, addSupplementLog, addSymptomLog, addWeightLog, deleteLog, getLogsOfKind, getStreak, listLoggedSymptomNames } from './db/logs';
+import { addFoodLog, addMedLog, addSupplementLog, addSymptomLog, addWeightLog, deleteLog, getLogsForDay, getLogsOfKind, getStreak, listLoggedSymptomNames } from './db/logs';
 import { initDb } from './db/schema';
 
 let passed = 0;
@@ -102,6 +102,20 @@ check('getLogsOfKind respects limit and offset', () => {
   const page2 = getLogsOfKind('meal', { limit: 1, offset: 1 });
   eq(page2.map((l) => l.title), ['Steak'], 'second page');
   eq(getLogsOfKind('meal', { limit: 10 }).length, 2, 'limit above count returns all');
+});
+
+check('same-timestamp meals page by id descending', () => {
+  setup();
+  const at = new Date(2026, 2, 3, 12, 0, 0);
+  const stamp = at.toISOString();
+  addFoodLog('First', 'Lunch', '', stamp);
+  addFoodLog('Second', 'Lunch', '', stamp);
+  const page0 = getLogsOfKind('meal', { limit: 1, offset: 0 });
+  const page1 = getLogsOfKind('meal', { limit: 1, offset: 1 });
+  eq(page0.map((l) => l.id), [2], 'first page is higher id');
+  eq(page1.map((l) => l.id), [1], 'second page is lower id');
+  const day = getLogsForDay(at);
+  eq(day.map((l) => l.id), [2, 1], 'day list higher id first, both rows');
 });
 
 check('getStreak counts consecutive local days ending today or yesterday', () => {

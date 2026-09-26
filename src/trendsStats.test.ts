@@ -8,6 +8,7 @@ import { __setDbForTests, database } from './db/client';
 import { addFoodLog, addMedLog, addSupplementLog, addSymptomLog, addWeightLog } from './db/logs';
 import { initDb } from './db/schema';
 import { getItemDayList, getMealDayMap, getSymptomDayMap, getWeightSeries } from './db/trends';
+import type { SymptomSeries } from './db/trends';
 import {
   MIN_BASELINE_DAYS,
   MIN_COMPARISON_DAYS,
@@ -296,12 +297,32 @@ check('getSymptomDayMap averages multiple same-day entries', () => {
   addSymptomLog('Headache', 4, '', iso(2026, 9, 1, 18));
   addSymptomLog('Headache', 5, '', iso(2026, 9, 2, 9));
   addSymptomLog('Fatigue', 3, '', iso(2026, 9, 1, 9));
-  const m = getSymptomDayMap();
-  eq(m.get('Headache'), [
+  const series = getSymptomDayMap();
+  const headache = series.find((s) => s.name === 'Headache');
+  const fatigue = series.find((s) => s.name === 'Fatigue');
+  eq(headache?.days, [
     { day: '2026-09-01', severity: 3 },
     { day: '2026-09-02', severity: 5 },
   ], 'headache days averaged, oldest first');
-  eq(m.get('Fatigue'), [{ day: '2026-09-01', severity: 3 }], 'fatigue separate');
+  eq(fatigue?.days, [{ day: '2026-09-01', severity: 3 }], 'fatigue separate');
+});
+
+check('getSymptomDayMap merges names that differ only by case', () => {
+  setup();
+  addSymptomLog('Headache', 2, '', iso(2026, 9, 1, 9));
+  addSymptomLog('headache', 4, '', iso(2026, 9, 2, 9));
+  const series: SymptomSeries[] = getSymptomDayMap(null);
+  eq(series.length, 1, 'one series');
+  eq(series.map((s) => s.name.toLowerCase()), ['headache'], 'one normalized key');
+  eq(series[0].name, 'Headache', 'first-seen display casing');
+  eq(
+    series[0].days,
+    [
+      { day: '2026-09-01', severity: 2 },
+      { day: '2026-09-02', severity: 4 },
+    ],
+    'two days merged, oldest first',
+  );
 });
 
 check('getItemDayList groups med/supplement days by name, case-insensitive', () => {

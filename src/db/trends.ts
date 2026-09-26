@@ -36,11 +36,18 @@ function normName(name: string): string {
   return name.trim().toLowerCase();
 }
 
+export interface SymptomSeries {
+  /** Display name (first-seen casing); grouping is case-insensitive. */
+  name: string;
+  /** Per-day average severity, oldest-first. A symptom logged twice in one day counts once, averaged. */
+  days: SymptomDay[];
+}
+
 /**
- * Every symptom's per-day average severity (a symptom logged twice in one
- * day counts once, averaged), keyed by symptom name. Days oldest-first.
+ * Every symptom's per-day average severity. Names that differ only by case
+ * are one series; `name` keeps the first-seen casing. Days oldest-first.
  */
-export function getSymptomDayMap(lookbackDays: number | null = null): Map<string, SymptomDay[]> {
+export function getSymptomDayMap(lookbackDays: number | null = null): SymptomSeries[] {
   const since = sinceIsoForRange(lookbackDays);
   const sql = since
     ? 'SELECT name, logged_at, severity FROM symptom_logs WHERE logged_at >= ? ORDER BY logged_at ASC'
@@ -48,33 +55,32 @@ export function getSymptomDayMap(lookbackDays: number | null = null): Map<string
   const rows = since
     ? database().getAllSync<{ name: string; logged_at: string; severity: number }>(sql, [since])
     : database().getAllSync<{ name: string; logged_at: string; severity: number }>(sql);
-  const byNameDay = new Map<string, Map<string, number[]>>();
+  const byKey = new Map<string, { name: string; byDay: Map<string, number[]> }>();
   for (const r of rows) {
-    const name = r.name.trim();
-    if (!name) continue;
+    const trimmed = r.name.trim();
+    if (!trimmed) continue;
+    const key = normName(trimmed);
     const day = localDayKey(r.logged_at);
-    let byDay = byNameDay.get(name);
-    if (!byDay) {
-      byDay = new Map();
-      byNameDay.set(name, byDay);
+    let entry = byKey.get(key);
+    if (!entry) {
+      entry = { name: trimmed, byDay: new Map() };
+      byKey.set(key, entry);
     }
-    const arr = byDay.get(day);
+    const arr = entry.byDay.get(day);
     if (arr) arr.push(r.severity);
-    else byDay.set(day, [r.severity]);
+    else entry.byDay.set(day, [r.severity]);
   }
-  const out = new Map<string, SymptomDay[]>();
-  for (const [name, byDay] of byNameDay) {
-    out.set(
-      name,
-      [...byDay.entries()]
+  return [...byKey.values()]
+    .map((entry) => ({
+      name: entry.name,
+      days: [...entry.byDay.entries()]
         .map(([day, sevs]) => ({
           day,
           severity: sevs.reduce((a, b) => a + b, 0) / sevs.length,
         }))
         .sort((a, b) => (a.day < b.day ? -1 : 1)),
-    );
-  }
-  return out;
+    }))
+    .sort((a, b) => (a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1));
 }
 
 /**

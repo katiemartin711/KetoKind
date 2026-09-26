@@ -27,7 +27,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import { getProStatus, getTrackCalories } from '../db/profile';
 import { getCachedNarrative, listDailyMacros, saveNarrative } from '../db/insights';
 import { getItemDayList, getMealDayMap, getSymptomDayMap, getWeightSeries } from '../db/trends';
-import type { ItemDays } from '../db/trends';
+import type { ItemDays, SymptomSeries } from '../db/trends';
 import PaywallModal from '../components/PaywallModal';
 import Dropdown from '../components/trends/Dropdown';
 import FoodSearchInput from '../components/trends/FoodSearchInput';
@@ -49,7 +49,7 @@ import {
   round1,
   summarizeWeights,
 } from '../trendsStats';
-import type { PatternComparison, RankedPattern, SymptomDay, WeightPoint } from '../trendsStats';
+import type { PatternComparison, RankedPattern, WeightPoint } from '../trendsStats';
 import { compareMacroBalance, macroAxes, macroFingerprint } from '../macroCorrelations';
 import type { MacroComparison } from '../macroCorrelations';
 import { isModelReady, isNativeLlmLinked } from '../llm/engine';
@@ -75,7 +75,7 @@ export default function TrendsScreen() {
   const [hasWeighIns, setHasWeighIns] = useState(false);
   const [range, setRange] = useState<number>(90);
   const [symptomNames, setSymptomNames] = useState<string[]>([]);
-  const [symptomDayMap, setSymptomDayMap] = useState<Map<string, SymptomDay[]>>(new Map());
+  const [symptomSeries, setSymptomSeries] = useState<SymptomSeries[]>([]);
   const [items, setItems] = useState<ItemDays[]>([]);
   const [selSymptom, setSelSymptom] = useState<string>('');
   const [selItemKey, setSelItemKey] = useState<string>('');
@@ -86,7 +86,7 @@ export default function TrendsScreen() {
   const [mealDayMap, setMealDayMap] = useState<Map<string, string[]>>(new Map());
   const [histSymptom, setHistSymptom] = useState<string>('');
   const [histRange, setHistRange] = useState<number>(90);
-  const [histDayMap, setHistDayMap] = useState<Map<string, SymptomDay[]>>(new Map());
+  const [histSeries, setHistSeries] = useState<SymptomSeries[]>([]);
   const [macroComparisons, setMacroComparisons] = useState<MacroComparison[]>([]);
   const [macroDayCount, setMacroDayCount] = useState(0);
   const [narrative, setNarrative] = useState<string | null>(null);
@@ -100,12 +100,12 @@ export default function TrendsScreen() {
       // Free users see the Pro upsell — loaded series stay empty.
       setWeightSeries([]);
       setHasWeighIns(false);
-      setSymptomDayMap(new Map());
+      setSymptomSeries([]);
       setSymptomNames([]);
       setItems([]);
       setMealDayMap(new Map());
       setStrongest([]);
-      setHistDayMap(new Map());
+      setHistSeries([]);
       setMacroComparisons([]);
       setMacroDayCount(0);
       setNarrative(null);
@@ -117,14 +117,14 @@ export default function TrendsScreen() {
     // the dropdown when older weigh-ins exist outside it.
     setHasWeighIns(series.length > 0 || (range >= 0 && getWeightSeries(null).length > 0));
     // Patterns have no range control, so they are not capped at 180 days.
-    const sMap = getSymptomDayMap(null);
-    const names = [...sMap.keys()].sort((a, b) => (a.toLowerCase() < b.toLowerCase() ? -1 : 1));
-    setSymptomDayMap(sMap);
+    const symptomRows = getSymptomDayMap(null);
+    const names = symptomRows.map((s) => s.name);
+    setSymptomSeries(symptomRows);
     setSymptomNames(names);
     const itemList = getItemDayList(null);
     setItems(itemList);
     setMealDayMap(getMealDayMap(null));
-    setHistDayMap(getSymptomDayMap(histRange < 0 ? null : histRange));
+    setHistSeries(getSymptomDayMap(histRange < 0 ? null : histRange));
     // Preserve the user's picks across focus; only fill defaults when empty
     // or when the previous name/item disappeared from the data set.
     setSelSymptom((prev) => (prev && names.includes(prev) ? prev : names[0] ?? ''));
@@ -138,7 +138,8 @@ export default function TrendsScreen() {
     // Strongest patterns across every symptom × item pair.
     const all = [];
     for (const sName of names) {
-      const sDays = sMap.get(sName) ?? [];
+      const sDays =
+        symptomRows.find((s) => s.name.toLowerCase() === sName.toLowerCase())?.days ?? [];
       for (const it of itemList) {
         all.push(comparePattern(sName, sDays, it.name, it.kind, it.days));
       }
@@ -149,7 +150,8 @@ export default function TrendsScreen() {
     setModelReady(isModelReady());
     const comps: MacroComparison[] = [];
     for (const sName of names) {
-      const sDays = sMap.get(sName) ?? [];
+      const sDays =
+        symptomRows.find((s) => s.name.toLowerCase() === sName.toLowerCase())?.days ?? [];
       for (const axis of macroAxes(getTrackCalories())) {
         const compared = compareMacroBalance(sName, sDays, macros, axis);
         if (compared) comps.push(compared);
@@ -180,7 +182,11 @@ export default function TrendsScreen() {
     () => items.find((it) => `${it.kind}:${it.name.toLowerCase()}` === selItemKey) ?? null,
     [items, selItemKey],
   );
-  const selSymptomDays = useMemo(() => symptomDayMap.get(selSymptom) ?? [], [symptomDayMap, selSymptom]);
+  const selSymptomDays = useMemo(
+    () =>
+      symptomSeries.find((s) => s.name.toLowerCase() === selSymptom.toLowerCase())?.days ?? [],
+    [symptomSeries, selSymptom],
+  );
   const comparison = useMemo(() => {
     if (!selSymptom || !selItem || selSymptomDays.length === 0) return null;
     return comparePattern(selSymptom, selSymptomDays, selItem.name, selItem.kind, selItem.days);
@@ -220,7 +226,7 @@ export default function TrendsScreen() {
       extra.push(
         comparePattern(
           sName,
-          symptomDayMap.get(sName) ?? [],
+          symptomSeries.find((s) => s.name.toLowerCase() === sName.toLowerCase())?.days ?? [],
           foodKeyword,
           'food',
           foodMatch.daysWith,
@@ -228,14 +234,19 @@ export default function TrendsScreen() {
       );
     }
     return rankPatterns([...strongest, ...extra], 3);
-  }, [strongest, foodMatch, foodKeyword, symptomNames, symptomDayMap]);
+  }, [strongest, foodMatch, foodKeyword, symptomNames, symptomSeries]);
   const histAllDays = useMemo(
-    () => symptomDayMap.get(histSymptom) ?? [],
-    [symptomDayMap, histSymptom],
+    () =>
+      symptomSeries.find((s) => s.name.toLowerCase() === histSymptom.toLowerCase())?.days ?? [],
+    [symptomSeries, histSymptom],
   );
   const histDays = useMemo(
-    () => filterSymptomRange(histDayMap.get(histSymptom) ?? [], histRange),
-    [histDayMap, histSymptom, histRange],
+    () =>
+      filterSymptomRange(
+        histSeries.find((s) => s.name.toLowerCase() === histSymptom.toLowerCase())?.days ?? [],
+        histRange,
+      ),
+    [histSeries, histSymptom, histRange],
   );
   const histAvg = useMemo(
     () =>

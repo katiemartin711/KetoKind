@@ -84,6 +84,12 @@ check('parseReminderSettings keeps valid custom reminders, drops bad ones', () =
   eq(s.custom, [{ id: 'a', hour: 7, minute: 0 }], 'only valid custom kept');
 });
 
+check('parseReminderSettings caps custom reminders at 12', () => {
+  const custom = Array.from({ length: 13 }, (_, i) => ({ id: `c${i}`, hour: i % 24, minute: 0 }));
+  const s = parseReminderSettings(JSON.stringify({ custom }));
+  eq(s.custom.length, 12, 'custom.length === 12');
+});
+
 check('main reminder scheduled today when time is still ahead and no logs', () => {
   const occ = computeOccurrences(settings(), NOW, false);
   eq(occ.length, 7, '7 daily occurrences');

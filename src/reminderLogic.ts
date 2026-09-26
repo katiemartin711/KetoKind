@@ -71,7 +71,8 @@ export function parseReminderSettings(raw: string | null | undefined): ReminderS
       (c): c is CustomReminder =>
         typeof c === 'object' && c !== null && typeof (c as CustomReminder).id === 'string' && isValidTime(c),
     )
-    .map((c) => ({ id: c.id, hour: c.hour, minute: c.minute }));
+    .map((c) => ({ id: c.id, hour: c.hour, minute: c.minute }))
+    .slice(0, 12);
   return {
     enabled: typeof p.enabled === 'boolean' ? p.enabled : DEFAULT_REMINDER_SETTINGS.enabled,
     time: isValidTime(p.time) ? { hour: p.time.hour, minute: p.time.minute } : { ...DEFAULT_REMINDER_SETTINGS.time },

@@ -11,6 +11,7 @@ import {
   exportBackup,
   importBackup,
   isDatabaseBackup,
+  MAX_BACKUP_BYTES,
   validateBackup,
 } from '../../db/backup';
 import type { DatabaseBackup } from '../../db/backup';
@@ -42,9 +43,14 @@ export function useBackupActions() {
       if (result.canceled) return;
       const uri = result.assets[0]?.uri;
       if (!uri) return;
+      const file = new File(uri);
+      if (file.size > MAX_BACKUP_BYTES) {
+        Alert.alert('Invalid file', 'That backup is too large to import.');
+        return;
+      }
       let parsed: unknown;
       try {
-        parsed = JSON.parse(await new File(uri).text());
+        parsed = JSON.parse(await file.text());
       } catch {
         parsed = null;
       }

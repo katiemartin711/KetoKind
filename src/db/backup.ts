@@ -27,6 +27,13 @@ import { parseDietStart } from '../milestones';
 /** `is_pro` and `llm_offer` stay on the device (purchase + download choice). */
 export type BackupProfile = Omit<Profile, 'is_pro' | 'llm_offer'>;
 
+/** Refuse a backup file larger than this before reading or parsing it. */
+export const MAX_BACKUP_BYTES = 8 * 1024 * 1024;
+/** Refuse a single table longer than this during validateBackup. */
+export const MAX_BACKUP_ROWS = 20000;
+/** Refuse a string field longer than this during validateBackup. */
+export const MAX_BACKUP_STRING = 4000;
+
 /** Everything stored on-device, in one JSON-serializable object. */
 export interface DatabaseBackup {
   version: 1;
@@ -146,13 +153,18 @@ export function validateBackup(value: unknown): BackupIssue[] {
     issues.push({ path, message });
   };
   const expectString = (row: Record<string, unknown>, key: string, path: string): void => {
-    if (typeof row[key] !== 'string') at(`${path}.${key}`, 'must be a string');
+    const value = row[key];
+    if (typeof value !== 'string') {
+      at(`${path}.${key}`, 'must be a string');
+      return;
+    }
+    if (value.length > MAX_BACKUP_STRING) at(`${path}.${key}`, 'must be at most 4000 characters');
   };
   const expectTimestamp = (row: Record<string, unknown>, key: string, path: string): void => {
     if (!isIsoDateTime(row[key])) at(`${path}.${key}`, 'must be an ISO-8601 timestamp');
   };
   const expectQuantity = (row: Record<string, unknown>, key: string, path: string): void => {
-    if (!isPositiveInt(row[key])) at(`${path}.${key}`, 'must be a positive integer');
+    if (!isPositiveInt(row[key]) || row[key] > 20) at(`${path}.${key}`, 'must be an integer 1-20');
   };
 
   if (!isRecord(value)) {
@@ -220,6 +232,10 @@ export function validateBackup(value: unknown): BackupIssue[] {
       at(key, 'must be an array');
       return ids;
     }
+    if (rows.length > MAX_BACKUP_ROWS) {
+      at(key, 'has too many rows');
+      return ids;
+    }
     rows.forEach((r, i) => {
       const path = `${key}[${i}]`;
       if (!isRecord(r)) {
@@ -241,8 +257,8 @@ export function validateBackup(value: unknown): BackupIssue[] {
     expectString(row, 'name', path);
     expectString(row, 'dosage', path);
     expectString(row, 'purpose', path);
-    if (!isPositiveInt(row.times_per_day)) {
-      at(`${path}.times_per_day`, 'must be a positive integer');
+    if (!isPositiveInt(row.times_per_day) || row.times_per_day > 24) {
+      at(`${path}.times_per_day`, 'must be an integer 1-24');
     }
     if (!isFlag(row.as_needed)) at(`${path}.as_needed`, 'must be 0 or 1');
   };

@@ -244,6 +244,37 @@ expectRejected('rejects implausible age', (b) => {
 expectRejected('rejects zero times_per_day', (b) => {
   rowsOf(b, 'medications')[0].times_per_day = 0;
 });
+expectRejected('rejects times_per_day above 24', (b) => {
+  rowsOf(b, 'medications')[0].times_per_day = 25;
+});
+expectRejected('rejects quantity above 20', (b) => {
+  rowsOf(b, 'medLogs')[0].quantity = 21;
+});
+
+check('rejects a list longer than MAX_BACKUP_ROWS', () => {
+  const handle = setup();
+  try {
+    populateDb();
+    const backup = exportBackup();
+    const row = backup.allergies[0];
+    backup.allergies = Array.from({ length: 20001 }, (_, i) => ({ ...row, id: i + 1 }));
+    ok(validateBackup(backup).some((i) => i.path === 'allergies'), 'row cap');
+  } finally {
+    handle.close();
+  }
+});
+
+check('rejects an oversized string field', () => {
+  const handle = setup();
+  try {
+    populateDb();
+    const backup = exportBackup();
+    backup.foodLogs[0].name = 'x'.repeat(4001);
+    ok(validateBackup(backup).some((i) => i.path.endsWith('.name')), 'string cap');
+  } finally {
+    handle.close();
+  }
+});
 expectRejected('rejects bad diet_start', (b) => {
   (b.profile as Record<string, unknown>).diet_start = '2024-13-45';
 });

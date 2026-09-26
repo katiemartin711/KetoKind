@@ -133,6 +133,27 @@ check('getStreak counts consecutive local days ending today or yesterday', () =>
   eq(getStreak(), 2, 'today + yesterday = 2');
 });
 
+check('getStreak counts 40 consecutive local days ending today', () => {
+  setup();
+  const today = new Date();
+  for (let i = 0; i < 40; i++) {
+    const day = new Date(today);
+    day.setDate(today.getDate() - i);
+    addFoodLog(`Day ${i}`, 'Lunch', '', day.toISOString());
+  }
+  eq(getStreak(), 40, 'one food log on each of the last 40 local days');
+});
+
+check('getStreak stops at a gap before yesterday', () => {
+  setup();
+  const today = new Date();
+  const threeDaysAgo = new Date(today);
+  threeDaysAgo.setDate(today.getDate() - 3);
+  addFoodLog('Today meal', 'Lunch', '', today.toISOString());
+  addFoodLog('Three days ago', 'Lunch', '', threeDaysAgo.toISOString());
+  eq(getStreak(), 1, 'today counts; the gap through yesterday breaks the streak');
+});
+
 check('listLoggedSymptomNames is distinct, recent-first, case-insensitive', () => {
   setup();
   eq(listLoggedSymptomNames(), [], 'empty → []');

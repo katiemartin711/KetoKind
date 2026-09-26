@@ -5,7 +5,9 @@ import {
   DEFAULT_REMINDER_SETTINGS,
   computeOccurrences,
   formatTime,
+  occurrencesToSchedule,
   parseReminderSettings,
+  scheduleKey,
   type ReminderSettings,
 } from './reminderLogic';
 
@@ -138,6 +140,22 @@ check('occurrences are sorted chronologically', () => {
   for (let i = 1; i < occ.length; i++) {
     ok(occ[i].date.getTime() >= occ[i - 1].date.getTime(), 'sorted');
   }
+});
+
+check('schedule key changes when the local date changes', () => {
+  const s = settings();
+  ok(scheduleKey(s, true, '2026-09-21') !== scheduleKey(s, true, '2026-09-22'), 'date is part of the key');
+});
+
+check('disabling the daily nudge keeps custom alarms', () => {
+  const s = settings({
+    enabled: false,
+    custom: [{ id: 'c1', hour: 7, minute: 0 }],
+  });
+  const now = new Date(2026, 8, 21, 6, 0, 0, 0);
+  const occ = occurrencesToSchedule(s, now, true, 2);
+  eq(occ.some((o) => o.kind === 'main'), false, 'no daily nudge');
+  eq(occ.filter((o) => o.kind === 'custom').length, 2, 'today and tomorrow custom');
 });
 
 console.log(`\n${passed} passed, ${failed} failed`);

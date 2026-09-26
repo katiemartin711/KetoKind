@@ -6,16 +6,18 @@
 //
 // Scheduling strategy: reconcile() cancels our previously scheduled
 // notifications and re-schedules concrete one-shot fire times for the next
-// 7 days (see computeOccurrences in reminderLogic.ts). It runs on app start,
+// 7 days (see occurrencesToSchedule in reminderLogic.ts). It runs on app start,
 // every foreground, and after any log add/edit/delete, so the
 // "only remind when nothing was logged today" condition is always evaluated
-// against fresh data.
+// against fresh data. The schedule key includes the local calendar date, so a
+// stable "already logged today" flag does not skip the next day's nudge.
 
 import { Platform } from 'react-native';
 import * as Notifications from 'expo-notifications';
 import { getLogsForDay } from './db/logs';
 import { getReminderSettings, hasReminderSettings, saveReminderSettings } from './db/profile';
-import { computeOccurrences, type ReminderSettings } from './reminderLogic';
+import { occurrencesToSchedule, scheduleKey, type ReminderSettings } from './reminderLogic';
+import { localDayKey } from './trendsStats';
 
 export type { ReminderSettings };
 
@@ -66,19 +68,6 @@ async function cancelOurScheduled(): Promise<void> {
   }
 }
 
-/** Fingerprint of inputs that affect the scheduled notification set. */
-function scheduleKey(settings: ReminderSettings, hasLogsToday: boolean): string {
-  return JSON.stringify({
-    enabled: settings.enabled,
-    time: settings.time,
-    onlyIfNoLogs: settings.onlyIfNoLogs,
-    hasLogsToday: settings.onlyIfNoLogs ? hasLogsToday : false,
-    sound: settings.sound,
-    badge: settings.badge,
-    custom: settings.custom,
-  });
-}
-
 let lastScheduleKey = '';
 let reconcileTimer: ReturnType<typeof setTimeout> | null = null;
 
@@ -91,11 +80,11 @@ export async function reconcileReminders(force: boolean = false): Promise<void> 
     const settings = getReminderSettings();
     const now = new Date();
     const hasLogsToday = getLogsForDay(now).length > 0;
-    const key = scheduleKey(settings, hasLogsToday);
+    const key = scheduleKey(settings, hasLogsToday, localDayKey(now.toISOString()));
     if (!force && key === lastScheduleKey) return;
 
     await cancelOurScheduled();
-    if (!settings.enabled) {
+    if (!settings.enabled && settings.custom.length === 0) {
       await Notifications.setBadgeCountAsync(0).catch(() => {});
       lastScheduleKey = key;
       return;
@@ -114,7 +103,7 @@ export async function reconcileReminders(force: boolean = false): Promise<void> 
       }).catch(() => {});
     }
 
-    const occurrences = computeOccurrences(settings, now, hasLogsToday, DAYS_AHEAD);
+    const occurrences = occurrencesToSchedule(settings, now, hasLogsToday, DAYS_AHEAD);
 
     for (const occ of occurrences) {
       const isMain = occ.kind === 'main';

@@ -9,8 +9,8 @@ import { exportBackup, importBackup, isDatabaseBackup, validateBackup } from './
 import type { DatabaseBackup } from './db/backup';
 import { addAllergy, addCondition, addMedication, addSupplement, deleteMedication, listMedications, listSupplements, updateMedication } from './db/catalog';
 import { __setDbForTests } from './db/client';
-import { addFoodLog, addMedLog, addSupplementLog, addSymptomLog, addWeightLog, getLogsForDay, updateMedLog } from './db/logs';
-import { deleteAllData, dismissMilestones, getProStatus, saveProfile, setProStatus, setThemeMode, setWeightTracking } from './db/profile';
+import { addFoodLog, addMedLog, addSupplementLog, addSymptomLog, addWeightLog, getFoodLog, getLogsForDay, setFoodMacros, updateMedLog } from './db/logs';
+import { deleteAllData, dismissMilestones, getLlmOffer, getProStatus, getTrackCalories, saveProfile, setLlmOffer, setProStatus, setThemeMode, setTrackCalories, setWeightTracking } from './db/profile';
 import { initDb } from './db/schema';
 import { database } from './db/client';
 
@@ -412,8 +412,8 @@ check('v2 migration adds name columns and backfills med-log names', () => {
     );
     eq(
       handle.getFirstSync<{ user_version: number }>('PRAGMA user_version')?.user_version,
-      5,
-      'version stamped at 5',
+      8,
+      'version stamped at 8',
     );
     const profileCols = handle.getAllSync<{ name: string }>('PRAGMA table_info(profile)');
     ok(
@@ -541,6 +541,36 @@ check('import preserves this device is_pro and ignores a stale backup flag', () 
     setProStatus(true);
     if (isDatabaseBackup(file)) importBackup(file);
     eq(getProStatus(), true, 'import kept device Pro status');
+  } finally {
+    handle.close();
+  }
+});
+
+check('meal macros round-trip and llm_offer stays on this device', () => {
+  const handle = setup();
+  try {
+    populateDb();
+    const id = addFoodLog('Eggs and steak', 'Breakfast', '', '2026-09-17T08:00:00.000Z');
+    setFoodMacros(id, { proteinG: 40, fatG: 30, carbsG: 2, fiberG: 0, netCarbsG: 2, calories: 450 }, 'estimated');
+    setTrackCalories(true);
+    setLlmOffer('declined');
+    const file = JSON.parse(JSON.stringify(exportBackup())) as Record<string, unknown>;
+    const profile = file.profile as Record<string, unknown>;
+    eq(profile.track_calories, 1, 'calorie toggle is in the backup');
+    eq('llm_offer' in profile, false, 'download choice is not in the backup');
+    ok(isDatabaseBackup(file), 'macros backup validates');
+    setLlmOffer('');
+    setTrackCalories(false);
+    if (isDatabaseBackup(file)) importBackup(file);
+    const row = getFoodLog(id);
+    eq(row?.protein_g, 40, 'protein restored');
+    eq(row?.net_carbs_g, 2, 'net carbs restored');
+    eq(row?.macro_source, 'estimated', 'source restored');
+    eq(getTrackCalories(), true, 'calorie toggle restored');
+    eq(getLlmOffer(), '', 'declined choice on the device was cleared before import and not revived');
+    setLlmOffer('declined');
+    if (isDatabaseBackup(file)) importBackup(file);
+    eq(getLlmOffer(), 'declined', 'import keeps this device download choice');
   } finally {
     handle.close();
   }

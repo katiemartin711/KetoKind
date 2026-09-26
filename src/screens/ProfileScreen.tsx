@@ -10,13 +10,16 @@
 import React, { useCallback, useState } from 'react';
 import { Alert, Text } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
-import { deleteAllData, getProfile, getProStatus, setProStatus } from '../db/profile';
+import { deleteAllData, getProfile, getProStatus, getTrackCalories, setProStatus, setTrackCalories } from '../db/profile';
+import { TEST_MODE_PURCHASE } from '../pro';
+import { deleteOnDeviceModel, downloadOnDeviceModel, isModelReady, isNativeLlmLinked } from '../llm/engine';
 import type { DatabaseBackup } from '../db/backup';
 import { useTheme } from '../ThemeContext';
 import KeyboardScrollView from '../components/KeyboardScrollView';
 import DietSection from '../components/profile/DietSection';
 import AboutSection from '../components/profile/AboutSection';
 import WeightSection from '../components/profile/WeightSection';
+import OnDeviceSection from '../components/profile/OnDeviceSection';
 import AppearanceSection from '../components/profile/AppearanceSection';
 import NotificationSection from '../components/profile/NotificationSection';
 import SimpleListSection from '../components/profile/SimpleListSection';
@@ -41,6 +44,10 @@ export default function ProfileScreen() {
   const backup = useBackupActions();
   const [isPro, setIsPro] = useState(false);
   const [paywallVisible, setPaywallVisible] = useState(false);
+  const [trackCalories, setTrackCaloriesOn] = useState(false);
+  const [modelReady, setModelReady] = useState(false);
+  const [downloading, setDownloading] = useState(false);
+  const [downloadProgress, setDownloadProgress] = useState<number | null>(null);
 
   const refresh = useCallback(() => {
     const p = getProfile();
@@ -49,6 +56,8 @@ export default function ProfileScreen() {
     lists.load();
     medSupp.load();
     setIsPro(getProStatus());
+    setTrackCaloriesOn(getTrackCalories());
+    setModelReady(isModelReady());
   }, [dietAbout.load, weightSettings.load, lists.load, medSupp.load]);
 
   useFocusEffect(refresh);
@@ -128,6 +137,44 @@ export default function ProfileScreen() {
           onSave={dietAbout.onSave}
         />
 
+        <OnDeviceSection
+          trackCalories={trackCalories}
+          onTrackCaloriesChange={(on) => {
+            setTrackCalories(on);
+            setTrackCaloriesOn(on);
+          }}
+          nativeAvailable={isNativeLlmLinked()}
+          modelReady={modelReady}
+          downloading={downloading}
+          progress={downloadProgress}
+          onDownload={() => {
+            if (downloading) return;
+            setDownloading(true);
+            setDownloadProgress(0);
+            void downloadOnDeviceModel((fraction) => setDownloadProgress(fraction))
+              .then(() => setModelReady(isModelReady()))
+              .catch(() => {
+                Alert.alert("Couldn't download", 'Check your connection and try again. Logging still works without the model.');
+              })
+              .finally(() => {
+                setDownloading(false);
+                setDownloadProgress(null);
+              });
+          }}
+          onDeleteModel={() => {
+            Alert.alert('Remove the on-device model?', 'Meal estimates stop until you download it again. Meals you already saved stay.', [
+              { text: 'Cancel', style: 'cancel' },
+              {
+                text: 'Remove',
+                style: 'destructive',
+                onPress: () => {
+                  void deleteOnDeviceModel().then(() => setModelReady(false));
+                },
+              },
+            ]);
+          }}
+        />
+
         <WeightSection
           trackWeight={weightSettings.trackWeight}
           onTrackWeightChange={weightSettings.setTrackWeight}
@@ -184,9 +231,8 @@ export default function ProfileScreen() {
 
         <DangerSection onDelete={confirmDeleteAllData} />
 
-        {/* Dev-only: __DEV__ is false in release builds, so this testing
-            switch can never ship to the App Store. */}
-        {__DEV__ && <TestingSection isPro={isPro} onToggle={togglePro} />}
+        {/* Hidden on production builds, where TEST_MODE_PURCHASE is false. */}
+        {TEST_MODE_PURCHASE && <TestingSection isPro={isPro} onToggle={togglePro} />}
       </KeyboardScrollView>
       <PaywallModal
         visible={paywallVisible}

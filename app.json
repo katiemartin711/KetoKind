@@ -3,12 +3,15 @@
     "name": "KetoKind",
     "slug": "ketokind",
     "version": "1.0.0",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.katiemartin.ketokind"
+      "bundleIdentifier": "com.polygrok.ketokind"
     },
     "android": {
       "package": "com.katiemartin.ketokind",
@@ -24,9 +27,35 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
+      [
+        "expo-dev-client",
+        {
+          "launchMode": "most-recent"
+        }
+      ],
       "expo-sqlite",
       "expo-sharing",
       "expo-notifications",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "newArchEnabled": true
+          },
+          "android": {
+            "newArchEnabled": true
+          }
+        }
+      ],
+      [
+        "llama.rn",
+        {
+          "enableEntitlements": true,
+          "entitlementsProfile": "production",
+          "forceCxx20": true,
+          "enableOpenCLAndHexagon": true
+        }
+      ],
       [
         "expo-splash-screen",
         {
@@ -40,6 +69,15 @@
           }
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "62c7a471-044a-4dfb-9b36-8ab4030ebad8"
+      }
+    },
+    "owner": "compoundboar",
+    "updates": {
+      "url": "https://u.expo.dev/62c7a471-044a-4dfb-9b36-8ab4030ebad8"
+    }
   }
 }

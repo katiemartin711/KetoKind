@@ -10,6 +10,7 @@ import { initDb } from './db/schema';
 import {
   grantPro,
   isProUser,
+  purchaseTestModeEnabled,
   requestPurchase,
   restorePurchase,
   revokePro,
@@ -104,6 +105,14 @@ check('delete-all resets the Pro flag', () => {
   setProStatus(true);
   deleteAllData();
   eq(getProStatus(), false, 'is_pro after deleteAllData');
+});
+
+check('preview builds can simulate Pro; production builds cannot', () => {
+  eq(purchaseTestModeEnabled(undefined, undefined), true, 'node tests stay in test mode');
+  eq(purchaseTestModeEnabled(true, undefined), true, 'dev build');
+  eq(purchaseTestModeEnabled(false, '1'), true, 'preview demo build');
+  eq(purchaseTestModeEnabled(false, undefined), false, 'production build');
+  eq(purchaseTestModeEnabled(false, '0'), false, 'explicitly off');
 });
 
 check('grantPro/revokePro flip the entitlement', () => {

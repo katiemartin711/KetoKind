@@ -2,6 +2,9 @@
 // Plus day-bound helpers, per-day rollups, and the logging streak.
 import { database } from './client';
 import { listMedications } from './catalog';
+import { formatMacroSummary } from '../macros';
+import type { MacroGrams, MacroSource } from '../macros';
+import { getTrackCalories } from './profile';
 import type {
   AnyLog,
   FoodLog,
@@ -25,13 +28,34 @@ export function nowIso(): string {
   return new Date().toISOString();
 }
 
-export function addFoodLog(name: string, mealType: string, notes: string, loggedAt: string): void {
+export function addFoodLog(name: string, mealType: string, notes: string, loggedAt: string): number {
   database().runSync('INSERT INTO food_logs (name, meal_type, logged_at, notes) VALUES (?, ?, ?, ?)', [
     name.trim(),
     mealType,
     loggedAt,
     notes.trim(),
   ]);
+  const row = database().getFirstSync<{ id: number }>('SELECT last_insert_rowid() AS id');
+  return row?.id ?? 0;
+}
+
+/** Write estimated or user-edited macros onto an existing meal. */
+export function setFoodMacros(id: number, macros: MacroGrams, source: MacroSource): void {
+  database().runSync(
+    `UPDATE food_logs
+     SET protein_g = ?, fat_g = ?, carbs_g = ?, fiber_g = ?, net_carbs_g = ?, calories = ?, macro_source = ?
+     WHERE id = ?`,
+    [
+      macros.proteinG,
+      macros.fatG,
+      macros.carbsG,
+      macros.fiberG,
+      macros.netCarbsG,
+      macros.calories,
+      source,
+      id,
+    ],
+  );
 }
 
 export function addMedLog(medicationId: number, takenAt: string, quantity: number = 1): void {
@@ -237,8 +261,9 @@ export function getLogsForDay(date: Date): AnyLog[] {
     [start, end],
   );
 
+  const trackCalories = getTrackCalories();
   const all: AnyLog[] = [
-    ...meals.map(mapMeal),
+    ...meals.map((m) => mapMeal(m, trackCalories)),
     ...meds.map(mapMed),
     ...symptoms.map(mapSymptom),
     ...supplements.map(mapSupplement),
@@ -247,12 +272,21 @@ export function getLogsForDay(date: Date): AnyLog[] {
   return all.sort((a, b) => (a.logged_at < b.logged_at ? 1 : -1));
 }
 
-function mapMeal(m: FoodLog): AnyLog {
+function mapMeal(m: FoodLog, trackCalories: boolean): AnyLog {
+  const macros = formatMacroSummary(
+    m.protein_g,
+    m.fat_g,
+    m.net_carbs_g,
+    m.calories,
+    m.macro_source,
+    trackCalories,
+  );
+  const base = m.meal_type + (m.notes ? ` — ${m.notes}` : '');
   return {
     kind: 'meal',
     id: m.id,
     title: m.name,
-    detail: m.meal_type + (m.notes ? ` — ${m.notes}` : ''),
+    detail: macros ? `${base} — ${macros}` : base,
     logged_at: m.logged_at,
   };
 }
@@ -301,7 +335,10 @@ function mapWeight(w: WeightLog): AnyLog {
 }
 
 const KIND_QUERIES: Record<AnyLog['kind'], { sql: string; map: (row: any) => AnyLog }> = {
-  meal: { sql: 'SELECT * FROM food_logs ORDER BY logged_at DESC', map: mapMeal },
+  meal: {
+    sql: 'SELECT * FROM food_logs ORDER BY logged_at DESC',
+    map: (row: FoodLog) => mapMeal(row, getTrackCalories()),
+  },
   medication: {
     sql: 'SELECT id, medication_id, name, taken_at, quantity FROM med_logs ORDER BY taken_at DESC',
     map: mapMed,

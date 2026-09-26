@@ -8,6 +8,7 @@ import type {
   Condition,
   DietType,
   FoodLog,
+  MealFavorite,
   Medication,
   Profile,
   Supplement,
@@ -23,7 +24,8 @@ import { parseDietStart } from '../milestones';
  * Pro entitlement lives with the App Store / Play Store purchase and is
  * restored via StoreKit / Play Billing — never via a backup file.
  */
-export type BackupProfile = Omit<Profile, 'is_pro'>;
+/** `is_pro` and `llm_offer` stay on the device (purchase + download choice). */
+export type BackupProfile = Omit<Profile, 'is_pro' | 'llm_offer'>;
 
 /** Everything stored on-device, in one JSON-serializable object. */
 export interface DatabaseBackup {
@@ -35,6 +37,8 @@ export interface DatabaseBackup {
   medications: Medication[];
   supplements: Supplement[];
   foodLogs: FoodLog[];
+  /** Absent on backups exported before favorites existed. */
+  mealFavorites?: MealFavorite[];
   /** Med log rows carry the name snapshot taken when the dose was logged. */
   medLogs: Array<{ id: number; medication_id: number; name: string; taken_at: string; quantity: number }>;
   symptomLogs: SymptomLog[];
@@ -44,7 +48,7 @@ export interface DatabaseBackup {
 
 /** Snapshot every table for backup (Pro status is never included). */
 export function exportBackup(): DatabaseBackup {
-  const { is_pro: _ignored, ...profile } = getProfile();
+  const { is_pro: _ignored, llm_offer: _offer, ...profile } = getProfile();
   return {
     version: 1,
     exportedAt: new Date().toISOString(),
@@ -54,6 +58,7 @@ export function exportBackup(): DatabaseBackup {
     medications: listMedications(),
     supplements: listSupplements(),
     foodLogs: database().getAllSync<FoodLog>('SELECT * FROM food_logs ORDER BY id'),
+    mealFavorites: database().getAllSync<MealFavorite>('SELECT * FROM meal_favorites ORDER BY id'),
     medLogs: database().getAllSync<DatabaseBackup['medLogs'][number]>(
       'SELECT id, medication_id, name, taken_at, quantity FROM med_logs ORDER BY id',
     ),
@@ -160,6 +165,10 @@ export function validateBackup(value: unknown): BackupIssue[] {
       at('profile.reminder_settings', 'must be a string');
     }
     if (!isFlag(p.track_weight)) at('profile.track_weight', 'must be 0 or 1');
+    // Optional: backups from before calorie tracking omit it (defaults off).
+    if (p.track_calories !== undefined && !isFlag(p.track_calories)) {
+      at('profile.track_calories', 'must be 0 or 1');
+    }
     if (p.starting_weight !== null && !isWeight(p.starting_weight)) {
       at('profile.starting_weight', 'must be null or a plausible weight in lbs');
     }
@@ -222,11 +231,30 @@ export function validateBackup(value: unknown): BackupIssue[] {
   const medicationIds = checkList('medications', checkSchedulable);
   const supplementIds = checkList('supplements', checkSchedulable);
 
+  const expectOptionalMacro = (row: Record<string, unknown>, key: string, path: string): void => {
+    const v = row[key];
+    if (v === undefined || v === null) return;
+    if (!(typeof v === 'number' && Number.isFinite(v) && v >= 0 && v <= 10000)) {
+      at(`${path}.${key}`, 'must be null or a non-negative number');
+    }
+  };
   checkList('foodLogs', (row, path) => {
     expectString(row, 'name', path);
     expectString(row, 'meal_type', path);
     expectString(row, 'notes', path);
     expectTimestamp(row, 'logged_at', path);
+    // Macro columns are optional so backups from before estimates still import.
+    for (const key of ['protein_g', 'fat_g', 'carbs_g', 'fiber_g', 'net_carbs_g', 'calories']) {
+      expectOptionalMacro(row, key, path);
+    }
+    if (
+      row.macro_source !== undefined &&
+      row.macro_source !== '' &&
+      row.macro_source !== 'estimated' &&
+      row.macro_source !== 'edited'
+    ) {
+      at(`${path}.macro_source`, "must be '', 'estimated', or 'edited'");
+    }
   });
   checkList('medLogs', (row, path) => {
     const mid = row.medication_id;
@@ -270,6 +298,29 @@ export function validateBackup(value: unknown): BackupIssue[] {
     expectTimestamp(row, 'logged_at', path);
   });
 
+  // Optional so backups from before favorites still import.
+  if ((value as Record<string, unknown>).mealFavorites !== undefined) {
+    checkList('mealFavorites', (row, path) => {
+      expectString(row, 'name', path);
+      expectString(row, 'meal_type', path);
+      expectString(row, 'notes', path);
+      for (const key of ['protein_g', 'fat_g', 'carbs_g', 'fiber_g', 'net_carbs_g', 'calories']) {
+        expectOptionalMacro(row, key, path);
+      }
+      if (
+        row.macro_source !== undefined &&
+        row.macro_source !== '' &&
+        row.macro_source !== 'estimated' &&
+        row.macro_source !== 'edited'
+      ) {
+        at(`${path}.macro_source`, "must be '', 'estimated', or 'edited'");
+      }
+      if (row.label !== undefined && typeof row.label !== 'string') {
+        at(`${path}.label`, 'must be a string');
+      }
+    });
+  }
+
   return issues;
 }
 
@@ -304,6 +355,7 @@ export function importBackup(b: DatabaseBackup): void {
   database().withTransactionSync(() => {
     database().execSync(`
       DELETE FROM food_logs;
+      DELETE FROM meal_favorites;
       DELETE FROM med_logs;
       DELETE FROM symptom_logs;
       DELETE FROM supplement_logs;
@@ -326,15 +378,20 @@ export function importBackup(b: DatabaseBackup): void {
     // tolerant parser in getReminderSettings() handles malformed JSON at
     // read time, so the import must not rewrite the value.
     const reminderSettings = typeof p.reminder_settings === 'string' ? p.reminder_settings : '';
-    // Keep this device's Pro flag. Backups never carry entitlement — restore
-    // purchases through the App Store / Play Store instead.
-    const keepPro =
-      database().getFirstSync<{ is_pro: number }>('SELECT is_pro FROM profile WHERE id = 1')?.is_pro ?? 0;
+    // Keep this device's Pro flag and model-download choice. Backups never
+    // carry entitlement — restore purchases through the store instead.
+    const kept = database().getFirstSync<{ is_pro: number; llm_offer: string }>(
+      'SELECT is_pro, llm_offer FROM profile WHERE id = 1',
+    );
+    const keepPro = kept?.is_pro ?? 0;
+    const keepOffer = kept?.llm_offer === 'declined' ? 'declined' : '';
+    const trackCalories = boolInt((p as { track_calories?: unknown }).track_calories);
     database().runSync(
       `INSERT OR REPLACE INTO profile
          (id, name, diet_type, diet_nuances, goals, theme_mode, track_weight, starting_weight,
-          age, sex, bio, diet_start, dismissed_milestones, reminder_settings, is_pro)
-       VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          age, sex, bio, diet_start, dismissed_milestones, reminder_settings, is_pro,
+          track_calories, llm_offer)
+       VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         str(p.name),
         dietType,
@@ -350,6 +407,8 @@ export function importBackup(b: DatabaseBackup): void {
         str(p.dismissed_milestones),
         reminderSettings,
         keepPro,
+        trackCalories,
+        keepOffer,
       ],
     );
 
@@ -371,10 +430,30 @@ export function importBackup(b: DatabaseBackup): void {
         [s.id, str(s.name), str(s.dosage), num(s.times_per_day, 1), str(s.purpose), boolInt(s.as_needed)],
       );
     }
+    const macroNum = (v: unknown): number | null =>
+      typeof v === 'number' && Number.isFinite(v) ? v : null;
+    const macroSource = (v: unknown): string =>
+      v === 'estimated' || v === 'edited' ? v : '';
     for (const f of b.foodLogs) {
-      database().runSync('INSERT INTO food_logs (id, name, meal_type, logged_at, notes) VALUES (?, ?, ?, ?, ?)', [
-        f.id, str(f.name), str(f.meal_type, 'Meal'), str(f.logged_at), str(f.notes),
-      ]);
+      database().runSync(
+        `INSERT INTO food_logs
+           (id, name, meal_type, logged_at, notes, protein_g, fat_g, carbs_g, fiber_g, net_carbs_g, calories, macro_source)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          f.id,
+          str(f.name),
+          str(f.meal_type, 'Meal'),
+          str(f.logged_at),
+          str(f.notes),
+          macroNum(f.protein_g),
+          macroNum(f.fat_g),
+          macroNum(f.carbs_g),
+          macroNum(f.fiber_g),
+          macroNum(f.net_carbs_g),
+          macroNum(f.calories),
+          macroSource(f.macro_source),
+        ],
+      );
     }
     for (const m of b.medLogs) {
       database().runSync('INSERT INTO med_logs (id, medication_id, name, taken_at, quantity) VALUES (?, ?, ?, ?, ?)', [
@@ -403,6 +482,27 @@ export function importBackup(b: DatabaseBackup): void {
           str(s.logged_at),
           str(s.notes),
           num(s.quantity, 1),
+        ],
+      );
+    }
+    for (const f of b.mealFavorites ?? []) {
+      database().runSync(
+        `INSERT INTO meal_favorites
+           (id, name, meal_type, notes, protein_g, fat_g, carbs_g, fiber_g, net_carbs_g, calories, macro_source, label)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          f.id,
+          str(f.name),
+          str(f.meal_type, 'Meal'),
+          str(f.notes),
+          macroNum(f.protein_g),
+          macroNum(f.fat_g),
+          macroNum(f.carbs_g),
+          macroNum(f.fiber_g),
+          macroNum(f.net_carbs_g),
+          macroNum(f.calories),
+          macroSource(f.macro_source),
+          str(f.label),
         ],
       );
     }

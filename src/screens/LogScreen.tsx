@@ -41,6 +41,25 @@ export default function LogScreen() {
           editing={s.editing?.kind === 'meal'}
           onSave={s.saveMeal}
           onCancel={s.resetForm}
+          trackCalories={s.trackCalories}
+          protein={s.macroProtein}
+          fat={s.macroFat}
+          carbs={s.macroCarbs}
+          fiber={s.macroFiber}
+          calories={s.macroCalories}
+          onProteinChange={s.setMacroProtein}
+          onFatChange={s.setMacroFat}
+          onCarbsChange={s.setMacroCarbs}
+          onFiberChange={s.setMacroFiber}
+          onCaloriesChange={s.setMacroCalories}
+          estimating={s.estimating}
+          favorite={s.favorite}
+          onFavoriteChange={s.setFavorite}
+          favoriteLabel={s.favoriteLabel}
+          onFavoriteLabelChange={s.setFavoriteLabel}
+          favorites={s.favorites}
+          onUseFavorite={s.useFavorite}
+          onRemoveFavorite={s.removeFavorite}
         />
       )}
 

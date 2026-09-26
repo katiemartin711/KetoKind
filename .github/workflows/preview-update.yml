@@ -1,0 +1,83 @@
+# Publishes a JavaScript update for the installed preview app.
+# EXPO_TOKEN is a repository secret. This workflow does not print it.
+
+name: Publish phone update
+
+on:
+  push:
+    branches:
+      - cursor/on-device-llm-macros-bf07
+      - main
+  workflow_dispatch:
+
+jobs:
+  update:
+    if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip update]') }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Link the existing EAS project
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          node <<'EOF'
+          const accounts = ["compoundboar", "athletic-insights"];
+          const query = `query ($accountName: String!) {
+            account { byName(accountName: $accountName) { apps(offset: 0, limit: 50) { id slug fullName } } }
+          }`;
+          (async () => {
+            const found = [];
+            for (const accountName of accounts) {
+              const response = await fetch("https://api.expo.dev/graphql", {
+                method: "POST",
+                headers: {
+                  "content-type": "application/json",
+                  authorization: `Bearer ${process.env.EXPO_TOKEN}`,
+                },
+                body: JSON.stringify({ query, variables: { accountName } }),
+              });
+              const body = await response.json();
+              if (body.errors) {
+                console.log(accountName, JSON.stringify(body.errors.map((error) => error.message)));
+                continue;
+              }
+              const apps = body.data?.account?.byName?.apps ?? [];
+              for (const app of apps) {
+                console.log(`${app.fullName} ${app.id}`);
+                if (app.slug === "ketokind") found.push(app.id);
+              }
+            }
+            if (found.length !== 1) {
+              console.error(`Expected one ketokind project, found ${found.length}.`);
+              process.exit(1);
+            }
+            const fs = require("fs");
+            fs.writeFileSync("eas-project-id.txt", found[0]);
+          })();
+          EOF
+          npx eas-cli init --id "$(cat eas-project-id.txt)" --non-interactive --force
+          rm -f eas-project-id.txt
+          npx eas-cli update:configure --non-interactive --environment preview
+      - name: Publish update
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          EXPO_PUBLIC_DEMO_PRO: "1"
+          UPDATE_MESSAGE: ${{ github.event.head_commit.message || 'Phone update' }}
+        run: npx eas-cli update --channel preview --environment preview --non-interactive --platform ios --message "$UPDATE_MESSAGE"
+      - name: Save EAS Update config
+        run: |
+          if git diff --quiet -- app.json package.json package-lock.json; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app.json package.json package-lock.json
+          git commit -m "[skip update] Save EAS Update project config"
+          git push

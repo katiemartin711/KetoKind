@@ -15,6 +15,7 @@
 
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
+  Alert,
   ScrollView,
   StyleSheet,
   Text,
@@ -23,7 +24,8 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
-import { getProStatus } from '../db/profile';
+import { getProStatus, getTrackCalories } from '../db/profile';
+import { getCachedNarrative, listDailyMacros, saveNarrative } from '../db/insights';
 import { getItemDayList, getMealDayMap, getSymptomDayMap, getWeightSeries } from '../db/trends';
 import type { ItemDays } from '../db/trends';
 import PaywallModal from '../components/PaywallModal';
@@ -33,6 +35,7 @@ import PatternChip from '../components/trends/PatternChip';
 import PatternDetailCard from '../components/trends/PatternDetailCard';
 import SymptomHistoryChart from '../components/trends/SymptomHistoryChart';
 import WeightChart from '../components/trends/WeightChart';
+import MacroInsightSection from '../components/trends/MacroInsightSection';
 import { useTheme } from '../ThemeContext';
 import type { Palette } from '../theme';
 import { matchFoodDays } from '../foodGroups';
@@ -47,6 +50,10 @@ import {
   summarizeWeights,
 } from '../trendsStats';
 import type { PatternComparison, RankedPattern, SymptomDay, WeightPoint } from '../trendsStats';
+import { compareMacroBalance, macroAxes, macroFingerprint } from '../macroCorrelations';
+import type { MacroComparison } from '../macroCorrelations';
+import { isModelReady, isNativeLlmLinked } from '../llm/engine';
+import { writeTrendNarrative } from '../llm/tasks';
 
 /** Shared range options for the weight trend and symptom history charts. */
 const TREND_RANGES: { key: number; label: string }[] = [
@@ -78,6 +85,11 @@ export default function TrendsScreen() {
   const [mealDayMap, setMealDayMap] = useState<Map<string, string[]>>(new Map());
   const [histSymptom, setHistSymptom] = useState<string>('');
   const [histRange, setHistRange] = useState<number>(90);
+  const [macroComparisons, setMacroComparisons] = useState<MacroComparison[]>([]);
+  const [macroDayCount, setMacroDayCount] = useState(0);
+  const [narrative, setNarrative] = useState<string | null>(null);
+  const [narrativeBusy, setNarrativeBusy] = useState(false);
+  const [modelReady, setModelReady] = useState(false);
 
   const refresh = useCallback(() => {
     const pro = getProStatus();
@@ -111,6 +123,21 @@ export default function TrendsScreen() {
       }
     }
     setStrongest(rankPatterns(all, 3));
+    const macros = listDailyMacros();
+    setMacroDayCount(macros.size);
+    setModelReady(isModelReady());
+    const comps: MacroComparison[] = [];
+    for (const sName of names) {
+      const sDays = sMap.get(sName) ?? [];
+      for (const axis of macroAxes(getTrackCalories())) {
+        const compared = compareMacroBalance(sName, sDays, macros, axis);
+        if (compared) comps.push(compared);
+      }
+    }
+    comps.sort((a, b) => Math.abs(b.diff) - Math.abs(a.diff));
+    const top = comps.slice(0, 6);
+    setMacroComparisons(top);
+    setNarrative(getCachedNarrative(macroFingerprint(top)));
   }, []);
 
   useFocusEffect(refresh);
@@ -202,9 +229,8 @@ export default function TrendsScreen() {
             <View style={common.card}>
               <Text style={common.h2}>KetoKind Pro</Text>
               <Text style={common.subtitle}>
-                Weight trends and symptom patterns (medications, supplements, and
-                foods) are a Pro feature — free users see this upsell instead of
-                the charts.
+                Weight trends, symptom patterns, and macro × symptom correlations
+                are a Pro feature. Macro estimates on meals stay free.
               </Text>
               <TouchableOpacity
                 style={common.primaryButton}
@@ -430,6 +456,35 @@ export default function TrendsScreen() {
                   </View>
                 </>
               )}
+
+              <MacroInsightSection
+                comparisons={macroComparisons}
+                mealDaysWithMacros={macroDayCount}
+                narrative={narrative}
+                busy={narrativeBusy}
+                modelReady={modelReady}
+                nativeAvailable={isNativeLlmLinked()}
+                onWrite={() => {
+                  if (narrativeBusy || macroComparisons.length === 0) return;
+                  setNarrativeBusy(true);
+                  void writeTrendNarrative(macroComparisons)
+                    .then((text) => {
+                      if (!text) {
+                        Alert.alert(
+                          'No summary',
+                          'The model did not return a usable summary. The comparisons above are still the patterns in your logs.',
+                        );
+                        return;
+                      }
+                      saveNarrative(macroFingerprint(macroComparisons), text);
+                      setNarrative(text);
+                    })
+                    .catch(() => {
+                      Alert.alert('Could not write a summary', 'Try again in a moment.');
+                    })
+                    .finally(() => setNarrativeBusy(false));
+                }}
+              />
 
               <Text style={styles.disclaimer}>
                 Patterns, not medical advice. Talk to your doctor about any medication

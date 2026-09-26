@@ -48,6 +48,7 @@ export function deleteAllData(): void {
       DELETE FROM medications;
       DELETE FROM supplements;
       DELETE FROM food_logs;
+      DELETE FROM meal_favorites;
       DELETE FROM med_logs;
       DELETE FROM symptom_logs;
       DELETE FROM supplement_logs;
@@ -66,8 +67,11 @@ export function deleteAllData(): void {
         diet_start = NULL,
         dismissed_milestones = '',
         is_pro = 0,
-        reminder_settings = ''
+        reminder_settings = '',
+        track_calories = 0,
+        llm_offer = ''
       WHERE id = 1;
+      DELETE FROM trend_insights;
     `);
     // Reset id counters (separate statement: sqlite_sequence is a system
     // table, but deleting from it inside the transaction is fine).
@@ -138,6 +142,28 @@ export function getProStatus(): boolean {
 
 export function setProStatus(pro: boolean): void {
   database().runSync('UPDATE profile SET is_pro = ? WHERE id = 1', [pro ? 1 : 0]);
+}
+
+/** Calories stay hidden (and out of Trends correlations) until this is on. */
+export function getTrackCalories(): boolean {
+  const row = database().getFirstSync<{ track_calories: number }>(
+    'SELECT track_calories FROM profile WHERE id = 1',
+  );
+  return (row?.track_calories ?? 0) === 1;
+}
+
+export function setTrackCalories(on: boolean): void {
+  database().runSync('UPDATE profile SET track_calories = ? WHERE id = 1', [on ? 1 : 0]);
+}
+
+/** '' until the user answers the download prompt; 'declined' skips future prompts. */
+export function getLlmOffer(): '' | 'declined' {
+  const row = database().getFirstSync<{ llm_offer: string }>('SELECT llm_offer FROM profile WHERE id = 1');
+  return row?.llm_offer === 'declined' ? 'declined' : '';
+}
+
+export function setLlmOffer(offer: '' | 'declined'): void {
+  database().runSync('UPDATE profile SET llm_offer = ? WHERE id = 1', [offer]);
 }
 
 /** True once reminder settings were explicitly written (defaults or custom).

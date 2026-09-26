@@ -37,7 +37,9 @@ let failed = 0;
 for (const file of tests) {
   const rel = path.relative(root, file);
   const needsPreload =
-    path.basename(file) === 'medSuppForm.test.js' || path.basename(file) === 'symptomForm.test.js';
+    path.basename(file) === 'medSuppForm.test.js' ||
+    path.basename(file) === 'symptomForm.test.js' ||
+    path.basename(file) === 'mealForm.test.js';
   const args = needsPreload ? ['-r', preload, file] : [file];
   const result = spawnSync(process.execPath, args, { cwd: root, stdio: 'inherit' });
   if (result.status !== 0) {

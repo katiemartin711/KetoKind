@@ -1,7 +1,7 @@
 // AI Coach tab: builds one copy-paste block — a ready-made coach prompt followed by
 // the user's profile + last-30-day logs in Markdown — for the AI chat of their choice
 // (ChatGPT, Claude, etc.). A separate share-file option exports just the context file.
-// Nothing AI-related runs inside this app — no API keys, no servers.
+// This tab does not call a model. On-device estimates live on the Log and Trends tabs.
 
 import React, { useCallback, useMemo, useState } from 'react';
 import { Alert, ScrollView, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
@@ -63,7 +63,15 @@ function buildContextMarkdown(data: ExportData): string {
   if (data.recentMeals.length > 0) {
     lines.push('### Recent meals');
     for (const m of data.recentMeals) {
-      lines.push(`- ${fmtDateTime(m.logged_at)} — ${m.meal_type}: ${m.name}${m.notes ? ` (${m.notes})` : ''}`);
+      const macros =
+        m.protein_g == null
+          ? ''
+          : ` [P ${m.protein_g}g, F ${m.fat_g}g, total C ${m.carbs_g}g, net C ${m.net_carbs_g}g${
+              profile.track_calories && m.calories != null ? `, ${m.calories} kcal` : ''
+            }${m.macro_source === 'estimated' ? ', estimate' : ''}]`;
+      lines.push(
+        `- ${fmtDateTime(m.logged_at)} — ${m.meal_type}: ${m.name}${m.notes ? ` (${m.notes})` : ''}${macros}`,
+      );
     }
     lines.push('');
   }

@@ -1,4 +1,5 @@
-import { finalizeMacros, formatMacroSummary, macroFieldsBlank, parseMacroJson, parseUserMacros } from './macros';
+import { estimateMealMacros } from './foodEstimate';
+import { finalizeMacros, formatMacroSummary, macroFieldsBlank, parseMacroJson, parseUserMacros, plausibleMacroEstimate } from './macros';
 import { planMealSave } from './llmOffer';
 import { acceptNarrative, compareMacroBalance, macroFingerprint } from './macroCorrelations';
 import type { SymptomDay } from './trendsStats';
@@ -51,6 +52,15 @@ check('user macros: blank vs partial vs complete', () => {
   eq(partial.ok, false, 'partial rejected');
   const full = parseUserMacros({ protein: '25', fat: '15', carbs: '8', fiber: '3', calories: '' }, false);
   ok(full.ok && full.macros.netCarbsG === 5, 'net from user carbs and fiber');
+});
+
+check('portion table totals eggs, thick bacon, and a fraction of a cup', () => {
+  const meal = estimateMealMacros('6 eggs, 3 strips of thick cut bacon, 1/3 cup butter', '');
+  ok(meal != null && meal.proteinG > 45 && meal.proteinG < 55, 'protein near 50g');
+  ok(meal != null && meal.fatG > 100, 'fat includes the butter');
+  eq(estimateMealMacros('something unlisted', ''), null, 'unknown food skips the table');
+  const tiny = { proteinG: 1.5, fatG: 0.5, carbsG: 1.5, fiberG: 0.5, netCarbsG: 1, calories: 20 };
+  eq(plausibleMacroEstimate(tiny, '6 eggs, 3 strips of thick cut bacon'), false, 'placeholder grams rejected');
 });
 
 check('formatMacroSummary hides calories until tracking is on', () => {

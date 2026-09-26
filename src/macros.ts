@@ -164,6 +164,17 @@ export const MACRO_JSON_SCHEMA = {
   required: ['protein_g', 'fat_g', 'carbs_g', 'fiber_g', 'calories'],
 } as const;
 
+/**
+ * A tiny model often emits ~1g placeholders for a real plate of food.
+ * Reject those so they are not stored as an estimate.
+ */
+export function plausibleMacroEstimate(macros: MacroGrams, meal: string): boolean {
+  const biggest = Math.max(macros.proteinG, macros.fatG, macros.carbsG);
+  const words = meal.trim().split(/\s+/).filter(Boolean).length;
+  if (words >= 4 && biggest < 5) return false;
+  return biggest > 0;
+}
+
 export function macroEstimatePrompt(name: string, notes: string): { system: string; user: string } {
   const meal = notes.trim() ? `${name.trim()} (${notes.trim()})` : name.trim();
   return {

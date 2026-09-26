@@ -40,6 +40,7 @@ import { macroFieldsBlank, parseUserMacros } from '../../macros';
 import { planMealSave } from '../../llmOffer';
 import { ON_DEVICE_MODEL_MB } from '../../llm/model';
 import { downloadOnDeviceModel, isModelReady, isNativeLlmLinked } from '../../llm/engine';
+import { estimateMealMacros } from '../../foodEstimate';
 import { estimateSavedMeal } from '../../llm/tasks';
 import {
   initialMedSuppSelection,
@@ -172,13 +173,24 @@ export function useLogScreen() {
 
   const saveMeal = () => {
     if (!mealName.trim()) return Alert.alert('Missing name', 'What did you eat?');
-    const userEdited = !macroFieldsBlank(macroInput, trackCalories);
+    const fieldsBlank = macroFieldsBlank(macroInput, trackCalories);
     let userMacros = null;
-    if (userEdited) {
+    if (!fieldsBlank) {
       const parsed = parseUserMacros(macroInput, trackCalories);
       if (!parsed.ok) return Alert.alert('Check macros', parsed.message);
       userMacros = parsed.macros;
     }
+    const previous = editing?.kind === 'meal' ? getFoodLog(editing.id) : null;
+    const sameAsSaved =
+      previous != null &&
+      userMacros != null &&
+      previous.protein_g === userMacros.proteinG &&
+      previous.fat_g === userMacros.fatG &&
+      previous.carbs_g === userMacros.carbsG &&
+      previous.fiber_g === userMacros.fiberG &&
+      (!trackCalories || (previous.calories ?? null) === userMacros.calories);
+    // An untouched estimate should be recalculated. Typed numbers are kept.
+    const userEdited = !fieldsBlank && !(sameAsSaved && previous?.macro_source === 'estimated');
     let mealId = 0;
     try {
       const at = logDate.toISOString();
@@ -188,29 +200,23 @@ export function useLogScreen() {
       } else {
         mealId = addFoodLog(mealName, mealType, mealNotes, at);
       }
-      if (userMacros) {
-        const previous = editing?.kind === 'meal' ? getFoodLog(editing.id) : null;
-        const sameAsSaved =
-          previous != null &&
-          previous.protein_g === userMacros.proteinG &&
-          previous.fat_g === userMacros.fatG &&
-          previous.carbs_g === userMacros.carbsG &&
-          previous.fiber_g === userMacros.fiberG &&
-          (previous.calories ?? null) === userMacros.calories;
-        if (!sameAsSaved) setFoodMacros(mealId, userMacros, 'edited');
-      }
+      if (userMacros && userEdited && !sameAsSaved) setFoodMacros(mealId, userMacros, 'edited');
     } catch (e) {
       alertSaveFailed(e);
       return;
     }
     const savedName = mealName;
     const savedNotes = mealNotes;
-    const plan = planMealSave({
-      modelReady: isModelReady(),
-      nativeAvailable: isNativeLlmLinked(),
-      offer: getLlmOffer(),
-      userEditedMacros: userEdited,
-    });
+    const plan = estimateMealMacros(savedName, savedNotes)
+      ? userEdited
+        ? 'save-only'
+        : 'estimate'
+      : planMealSave({
+          modelReady: isModelReady(),
+          nativeAvailable: isNativeLlmLinked(),
+          offer: getLlmOffer(),
+          userEditedMacros: userEdited,
+        });
     resetForm();
     refresh();
     if (plan === 'estimate') {

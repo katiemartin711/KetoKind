@@ -76,6 +76,18 @@ export default function MealForm(props: Props) {
   } = props;
   const { colors, common } = useTheme();
   const styles = useMemo(() => makeStyles(colors), [colors]);
+  const canClear =
+    !editing &&
+    (mealName.trim() !== '' ||
+      mealNotes.trim() !== '' ||
+      favoriteLabel.trim() !== '' ||
+      favorite ||
+      mealType !== 'Dinner' ||
+      protein !== '' ||
+      fat !== '' ||
+      carbs !== '' ||
+      fiber !== '' ||
+      calories !== '');
 
   return (
     <View style={common.card}>
@@ -193,6 +205,16 @@ export default function MealForm(props: Props) {
       <TouchableOpacity style={common.primaryButton} onPress={onSave}>
         <Text style={common.primaryButtonText}>{editing ? 'Save changes' : 'Save meal'}</Text>
       </TouchableOpacity>
+      {canClear && (
+        <TouchableOpacity
+          style={common.secondaryButton}
+          onPress={onCancel}
+          accessibilityRole="button"
+          accessibilityLabel="Clear form"
+        >
+          <Text style={common.secondaryButtonText}>Clear form</Text>
+        </TouchableOpacity>
+      )}
       {editing && (
         <TouchableOpacity style={common.secondaryButton} onPress={onCancel}>
           <Text style={common.secondaryButtonText}>Cancel editing</Text>

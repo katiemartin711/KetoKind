@@ -42,6 +42,7 @@
     "build:phone": "npx eas-cli build --platform all --profile development",
     "build:phone:android": "npx eas-cli build --platform android --profile development",
     "build:phone:ios": "npx eas-cli build --platform ios --profile development",
+    "update:phone": "EXPO_PUBLIC_DEMO_PRO=1 npx eas-cli update --channel preview --environment preview --message \"Phone update\"",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",

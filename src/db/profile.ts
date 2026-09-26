@@ -48,6 +48,7 @@ export function deleteAllData(): void {
       DELETE FROM medications;
       DELETE FROM supplements;
       DELETE FROM food_logs;
+      DELETE FROM meal_favorites;
       DELETE FROM med_logs;
       DELETE FROM symptom_logs;
       DELETE FROM supplement_logs;

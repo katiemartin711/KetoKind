@@ -53,6 +53,11 @@ export default function LogScreen() {
           onFiberChange={s.setMacroFiber}
           onCaloriesChange={s.setMacroCalories}
           estimating={s.estimating}
+          favorite={s.favorite}
+          onFavoriteChange={s.setFavorite}
+          favorites={s.favorites}
+          onUseFavorite={s.useFavorite}
+          onRemoveFavorite={s.removeFavorite}
         />
       )}
 

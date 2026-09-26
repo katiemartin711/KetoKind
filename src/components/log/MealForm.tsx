@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react';
-import { Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
+import { Switch, Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
 import DateTimeField from './DateTimeField';
 import { useTheme } from '../../ThemeContext';
 import type { Palette } from '../../theme';
+import type { MealFavorite } from '../../types';
 
 const MEAL_TYPES = ['Breakfast', 'Lunch', 'Dinner', 'Snack'];
 
@@ -30,6 +31,11 @@ interface Props {
   onFiberChange: (s: string) => void;
   onCaloriesChange: (s: string) => void;
   estimating: boolean;
+  favorite: boolean;
+  onFavoriteChange: (value: boolean) => void;
+  favorites: MealFavorite[];
+  onUseFavorite: (id: number) => void;
+  onRemoveFavorite: (id: number) => void;
 }
 
 export default function MealForm(props: Props) {
@@ -57,12 +63,43 @@ export default function MealForm(props: Props) {
     onFiberChange,
     onCaloriesChange,
     estimating,
+    favorite,
+    onFavoriteChange,
+    favorites,
+    onUseFavorite,
+    onRemoveFavorite,
   } = props;
   const { colors, common } = useTheme();
   const styles = useMemo(() => makeStyles(colors), [colors]);
 
   return (
     <View style={common.card}>
+      {favorites.length > 0 && (
+        <View style={styles.favorites}>
+          <Text style={common.label}>Favorites</Text>
+          {favorites.map((fav) => (
+            <View key={fav.id} style={styles.favoriteRow}>
+              <TouchableOpacity
+                style={styles.favoriteMain}
+                onPress={() => onUseFavorite(fav.id)}
+                accessibilityRole="button"
+                accessibilityLabel={`Log ${fav.name}`}
+              >
+                <Text style={[styles.favoriteName, { color: colors.text }]}>{fav.name}</Text>
+                <Text style={styles.hint}>{fav.meal_type}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => onRemoveFavorite(fav.id)}
+                accessibilityRole="button"
+                accessibilityLabel={`Remove ${fav.name} from favorites`}
+                hitSlop={8}
+              >
+                <Text style={[styles.remove, { color: colors.muted }]}>×</Text>
+              </TouchableOpacity>
+            </View>
+          ))}
+        </View>
+      )}
       <Text style={common.label}>What did you eat?</Text>
       <Text style={styles.hint}>
         More detail, including amounts, makes the macro estimate and insights more accurate.
@@ -98,6 +135,19 @@ export default function MealForm(props: Props) {
         maxLength={200}
         accessibilityLabel="Notes, optional"
       />
+      <View style={styles.favoriteToggle}>
+        <View style={styles.favoriteCopy}>
+          <Text style={[styles.favoriteName, { color: colors.text }]}>Save as favorite</Text>
+          <Text style={styles.hint}>Keep this meal in the list above so you can log it again.</Text>
+        </View>
+        <Switch
+          value={favorite}
+          onValueChange={onFavoriteChange}
+          trackColor={{ true: colors.accent }}
+          accessibilityLabel="Save as favorite"
+          accessibilityRole="switch"
+        />
+      </View>
       <Text style={common.label}>Macros (optional)</Text>
       <Text style={styles.hint}>
         Leave these blank to estimate protein, fat, and carbs on this phone after you save.
@@ -157,6 +207,22 @@ function MacroField({
 const makeStyles = (C: Palette) =>
   StyleSheet.create({
     hint: { fontSize: 13, color: C.muted, marginBottom: 8, lineHeight: 18 },
+    favorites: { marginBottom: 8 },
+    favoriteRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      borderWidth: 1,
+      borderColor: C.border,
+      borderRadius: 12,
+      paddingHorizontal: 12,
+      paddingVertical: 8,
+      marginBottom: 8,
+    },
+    favoriteMain: { flex: 1 },
+    favoriteName: { fontSize: 16, fontWeight: '600' },
+    remove: { fontSize: 22, paddingHorizontal: 8 },
+    favoriteToggle: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 8 },
+    favoriteCopy: { flex: 1 },
     macroRow: { flexDirection: 'row', gap: 10 },
     chips: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
     chip: {

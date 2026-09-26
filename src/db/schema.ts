@@ -7,7 +7,7 @@ import { database } from './client';
  * schema changes — initDb() applies every migration newer than the stored
  * PRAGMA user_version, in order.
  */
-const SCHEMA_VERSION = 6;
+const SCHEMA_VERSION = 7;
 
 /** version -> migration function upgrading TO that version. Use
  *  addColumnIfMissing() for column adds so migrations stay idempotent
@@ -58,7 +58,30 @@ const MIGRATIONS: Record<number, () => void> = {
     addColumnIfMissing('profile', 'llm_offer', "TEXT NOT NULL DEFAULT ''");
     ensureInsightTable();
   },
+  7: () => {
+    // v7: meals the user marked as favorites, so they can log them again.
+    ensureMealFavoritesTable();
+  },
 };
+
+/** Saved meals for one-tap logging. Included in backups. */
+function ensureMealFavoritesTable(): void {
+  database().execSync(`
+    CREATE TABLE IF NOT EXISTS meal_favorites (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      meal_type TEXT NOT NULL DEFAULT 'Meal',
+      notes TEXT NOT NULL DEFAULT '',
+      protein_g REAL,
+      fat_g REAL,
+      carbs_g REAL,
+      fiber_g REAL,
+      net_carbs_g REAL,
+      calories REAL,
+      macro_source TEXT NOT NULL DEFAULT ''
+    );
+  `);
+}
 
 /** Cached on-device Trends narrative (one row). Not part of backups. */
 function ensureInsightTable(): void {
@@ -143,6 +166,19 @@ export function initDb(): void {
       name TEXT NOT NULL,
       meal_type TEXT NOT NULL DEFAULT 'Meal',
       logged_at TEXT NOT NULL,
+      notes TEXT NOT NULL DEFAULT '',
+      protein_g REAL,
+      fat_g REAL,
+      carbs_g REAL,
+      fiber_g REAL,
+      net_carbs_g REAL,
+      calories REAL,
+      macro_source TEXT NOT NULL DEFAULT ''
+    );
+    CREATE TABLE IF NOT EXISTS meal_favorites (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      meal_type TEXT NOT NULL DEFAULT 'Meal',
       notes TEXT NOT NULL DEFAULT '',
       protein_g REAL,
       fat_g REAL,

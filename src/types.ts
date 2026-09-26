@@ -63,6 +63,21 @@ export interface Supplement {
   as_needed: number; // 1 = taken as needed, not on a daily schedule
 }
 
+/** A meal saved for one-tap logging. Macros are copied when they are known. */
+export interface MealFavorite {
+  id: number;
+  name: string;
+  meal_type: string;
+  notes: string;
+  protein_g: number | null;
+  fat_g: number | null;
+  carbs_g: number | null;
+  fiber_g: number | null;
+  net_carbs_g: number | null;
+  calories: number | null;
+  macro_source: string;
+}
+
 export interface FoodLog {
   id: number;
   name: string;

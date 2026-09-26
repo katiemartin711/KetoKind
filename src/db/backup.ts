@@ -8,6 +8,7 @@ import type {
   Condition,
   DietType,
   FoodLog,
+  MealFavorite,
   Medication,
   Profile,
   Supplement,
@@ -36,6 +37,8 @@ export interface DatabaseBackup {
   medications: Medication[];
   supplements: Supplement[];
   foodLogs: FoodLog[];
+  /** Absent on backups exported before favorites existed. */
+  mealFavorites?: MealFavorite[];
   /** Med log rows carry the name snapshot taken when the dose was logged. */
   medLogs: Array<{ id: number; medication_id: number; name: string; taken_at: string; quantity: number }>;
   symptomLogs: SymptomLog[];
@@ -55,6 +58,7 @@ export function exportBackup(): DatabaseBackup {
     medications: listMedications(),
     supplements: listSupplements(),
     foodLogs: database().getAllSync<FoodLog>('SELECT * FROM food_logs ORDER BY id'),
+    mealFavorites: database().getAllSync<MealFavorite>('SELECT * FROM meal_favorites ORDER BY id'),
     medLogs: database().getAllSync<DatabaseBackup['medLogs'][number]>(
       'SELECT id, medication_id, name, taken_at, quantity FROM med_logs ORDER BY id',
     ),
@@ -294,6 +298,26 @@ export function validateBackup(value: unknown): BackupIssue[] {
     expectTimestamp(row, 'logged_at', path);
   });
 
+  // Optional so backups from before favorites still import.
+  if ((value as Record<string, unknown>).mealFavorites !== undefined) {
+    checkList('mealFavorites', (row, path) => {
+      expectString(row, 'name', path);
+      expectString(row, 'meal_type', path);
+      expectString(row, 'notes', path);
+      for (const key of ['protein_g', 'fat_g', 'carbs_g', 'fiber_g', 'net_carbs_g', 'calories']) {
+        expectOptionalMacro(row, key, path);
+      }
+      if (
+        row.macro_source !== undefined &&
+        row.macro_source !== '' &&
+        row.macro_source !== 'estimated' &&
+        row.macro_source !== 'edited'
+      ) {
+        at(`${path}.macro_source`, "must be '', 'estimated', or 'edited'");
+      }
+    });
+  }
+
   return issues;
 }
 
@@ -328,6 +352,7 @@ export function importBackup(b: DatabaseBackup): void {
   database().withTransactionSync(() => {
     database().execSync(`
       DELETE FROM food_logs;
+      DELETE FROM meal_favorites;
       DELETE FROM med_logs;
       DELETE FROM symptom_logs;
       DELETE FROM supplement_logs;
@@ -454,6 +479,26 @@ export function importBackup(b: DatabaseBackup): void {
           str(s.logged_at),
           str(s.notes),
           num(s.quantity, 1),
+        ],
+      );
+    }
+    for (const f of b.mealFavorites ?? []) {
+      database().runSync(
+        `INSERT INTO meal_favorites
+           (id, name, meal_type, notes, protein_g, fat_g, carbs_g, fiber_g, net_carbs_g, calories, macro_source)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          f.id,
+          str(f.name),
+          str(f.meal_type, 'Meal'),
+          str(f.notes),
+          macroNum(f.protein_g),
+          macroNum(f.fat_g),
+          macroNum(f.carbs_g),
+          macroNum(f.fiber_g),
+          macroNum(f.net_carbs_g),
+          macroNum(f.calories),
+          macroSource(f.macro_source),
         ],
       );
     }

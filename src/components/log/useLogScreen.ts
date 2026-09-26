@@ -34,7 +34,7 @@ import { getLlmOffer, getProfile, getTrackCalories, setLlmOffer } from '../../db
 import { listMedications, listSupplements } from '../../db/catalog';
 import { requestReconcileReminders } from '../../reminders';
 import { confirmDeleteEntry } from '../../confirmDelete';
-import type { AnyLog, LogSegment, Medication, RootTabParamList, Supplement } from '../../types';
+import type { AnyLog, LogSegment, MealFavorite, Medication, RootTabParamList, Supplement } from '../../types';
 import { parseFloatStrict } from '../../numberParsing';
 import { macroFieldsBlank, parseUserMacros } from '../../macros';
 import { planMealSave } from '../../llmOffer';
@@ -42,6 +42,14 @@ import { ON_DEVICE_MODEL_MB } from '../../llm/model';
 import { downloadOnDeviceModel, isModelReady, isNativeLlmLinked } from '../../llm/engine';
 import { estimateMealMacros } from '../../foodEstimate';
 import { estimateSavedMeal } from '../../llm/tasks';
+import {
+  deleteMealFavorite,
+  deleteMealFavoriteByName,
+  findMealFavorite,
+  listMealFavorites,
+  saveMealFavorite,
+  saveMealFavoriteFromLog,
+} from '../../db/favorites';
 import {
   initialMedSuppSelection,
   medSuppSelectionReducer,
@@ -81,6 +89,8 @@ export function useLogScreen() {
   const [macroCalories, setMacroCalories] = useState('');
   const [trackCalories, setTrackCalories] = useState(false);
   const [estimating, setEstimating] = useState(false);
+  const [favorite, setFavorite] = useState(false);
+  const [favorites, setFavorites] = useState<MealFavorite[]>([]);
   // Med/supp chip selection + per-item quantities, as one state machine
   // (edit-mode locking lives in the reducer).
   const [sel, dispatchSel] = useReducer(medSuppSelectionReducer, initialMedSuppSelection);
@@ -111,6 +121,7 @@ export function useLogScreen() {
     });
     setTrackWeightOn(!!getProfile().track_weight);
     setTrackCalories(getTrackCalories());
+    setFavorites(listMealFavorites());
     // Keep the "only remind if you haven't logged" schedule truthful: any
     // add/edit/delete changes whether today's nudge should fire.
     requestReconcileReminders();
@@ -201,12 +212,24 @@ export function useLogScreen() {
         mealId = addFoodLog(mealName, mealType, mealNotes, at);
       }
       if (userMacros && userEdited && !sameAsSaved) setFoodMacros(mealId, userMacros, 'edited');
+      if (favorite) {
+        saveMealFavorite({
+          name: mealName,
+          mealType,
+          notes: mealNotes,
+          macros: userMacros,
+          source: userMacros && userEdited ? 'edited' : '',
+        });
+      } else {
+        deleteMealFavoriteByName(mealName);
+      }
     } catch (e) {
       alertSaveFailed(e);
       return;
     }
     const savedName = mealName;
     const savedNotes = mealNotes;
+    const keepFavorite = favorite;
     const plan = estimateMealMacros(savedName, savedNotes)
       ? userEdited
         ? 'save-only'
@@ -222,6 +245,12 @@ export function useLogScreen() {
     if (plan === 'estimate') {
       setEstimating(true);
       void estimateSavedMeal(mealId, savedName, savedNotes)
+        .then((ok) => {
+          if (keepFavorite && ok) {
+            const row = getFoodLog(mealId);
+            if (row) saveMealFavoriteFromLog(row);
+          }
+        })
         .catch(() => false)
         .finally(() => {
           setEstimating(false);
@@ -239,6 +268,12 @@ export function useLogScreen() {
               setEstimating(true);
               void downloadOnDeviceModel()
                 .then(() => estimateSavedMeal(mealId, savedName, savedNotes))
+                .then((ok) => {
+                  if (keepFavorite && ok) {
+                    const row = getFoodLog(mealId);
+                    if (row) saveMealFavoriteFromLog(row);
+                  }
+                })
                 .catch(() => {
                   Alert.alert(
                     "Couldn't download",
@@ -344,6 +379,7 @@ export function useLogScreen() {
     setMacroCarbs('');
     setMacroFiber('');
     setMacroCalories('');
+    setFavorite(false);
     dispatchSel({ type: 'reset' });
     setSymptomName('');
     setSymptomNotes('');
@@ -374,6 +410,7 @@ export function useLogScreen() {
       setMacroCarbs(row.carbs_g == null ? '' : String(row.carbs_g));
       setMacroFiber(row.fiber_g == null ? '' : String(row.fiber_g));
       setMacroCalories(row.calories == null ? '' : String(row.calories));
+      setFavorite(findMealFavorite(row.name) != null);
       setLogDate(new Date(row.logged_at));
     } else if (log.kind === 'medication') {
       const row = getMedLog(log.id);
@@ -431,6 +468,30 @@ export function useLogScreen() {
     });
   };
 
+  const useFavorite = (id: number) => {
+    const fav = favorites.find((row) => row.id === id);
+    if (!fav) return;
+    setSegment('meal');
+    setEditing(null);
+    setMealName(fav.name);
+    setMealType(fav.meal_type);
+    setMealNotes(fav.notes);
+    setMacroProtein(fav.protein_g == null ? '' : String(fav.protein_g));
+    setMacroFat(fav.fat_g == null ? '' : String(fav.fat_g));
+    setMacroCarbs(fav.carbs_g == null ? '' : String(fav.carbs_g));
+    setMacroFiber(fav.fiber_g == null ? '' : String(fav.fiber_g));
+    setMacroCalories(fav.calories == null ? '' : String(fav.calories));
+    setFavorite(true);
+    setLogDate(new Date());
+  };
+
+  const removeFavorite = (id: number) => {
+    const fav = favorites.find((row) => row.id === id);
+    deleteMealFavorite(id);
+    if (fav && fav.name.trim().toLowerCase() === mealName.trim().toLowerCase()) setFavorite(false);
+    setFavorites(listMealFavorites());
+  };
+
   return {
     segment,
     visibleSegments,
@@ -456,6 +517,11 @@ export function useLogScreen() {
     macroCalories,
     setMacroCalories,
     estimating,
+    favorite,
+    setFavorite,
+    favorites,
+    useFavorite,
+    removeFavorite,
     sel,
     editingKind,
     onToggleMed,

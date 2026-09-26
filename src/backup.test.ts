@@ -688,6 +688,14 @@ check('rejects hour 24 timestamps', () => {
   }
 });
 
+check('initDb does not downgrade a newer user_version', () => {
+  const handle = setup();
+  handle.execSync('PRAGMA user_version = 9');
+  initDb();
+  const stored = handle.getFirstSync<{ user_version: number }>('PRAGMA user_version');
+  eq(stored?.user_version, 9, 'newer version kept');
+});
+
 console.log(`
 ${passed} passed, ${failed} failed`);
 if (failed > 0) throw new Error(`${failed} test(s) failed`);

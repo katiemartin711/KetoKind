@@ -11,6 +11,7 @@ import React, { useCallback, useState } from 'react';
 import { Alert, Text } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { deleteAllData, getProfile, getProStatus, getTrackCalories, setProStatus, setTrackCalories } from '../db/profile';
+import { TEST_MODE_PURCHASE } from '../pro';
 import { deleteOnDeviceModel, downloadOnDeviceModel, isModelReady, isNativeLlmLinked } from '../llm/engine';
 import type { DatabaseBackup } from '../db/backup';
 import { useTheme } from '../ThemeContext';
@@ -230,9 +231,8 @@ export default function ProfileScreen() {
 
         <DangerSection onDelete={confirmDeleteAllData} />
 
-        {/* Dev-only: __DEV__ is false in release builds, so this testing
-            switch can never ship to the App Store. */}
-        {__DEV__ && <TestingSection isPro={isPro} onToggle={togglePro} />}
+        {/* Hidden on production builds, where TEST_MODE_PURCHASE is false. */}
+        {TEST_MODE_PURCHASE && <TestingSection isPro={isPro} onToggle={togglePro} />}
       </KeyboardScrollView>
       <PaywallModal
         visible={paywallVisible}

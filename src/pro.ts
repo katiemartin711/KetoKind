@@ -41,12 +41,22 @@ export function revokePro(): void {
 // build, e.g. expo-iap, or RevenueCat), replace the body of requestPurchase()
 // below with the real purchase flow.
 //
-// Gated on __DEV__: dev builds (Expo Go, simulators, TestFlight-internal
-// testing) simulate the purchase; release builds ALWAYS take the real-IAP
-// path, which throws "not wired up yet" until StoreKit is integrated. This
-// makes it impossible to accidentally ship a fake $9.99 purchase button.
-export const TEST_MODE_PURCHASE: boolean =
-  typeof __DEV__ !== 'undefined' ? __DEV__ : true;
+// Dev builds simulate the purchase. Preview installs do too, via
+// EXPO_PUBLIC_DEMO_PRO=1 in eas.json, so a phone demo can unlock Pro.
+// A production build leaves the flag unset and takes the real-IAP path,
+// which throws "not wired up yet" until StoreKit is integrated.
+export function purchaseTestModeEnabled(
+  dev: boolean | undefined,
+  demoFlag: string | undefined,
+): boolean {
+  const devBuild = dev === undefined ? true : dev;
+  return devBuild || demoFlag === '1';
+}
+
+export const TEST_MODE_PURCHASE: boolean = purchaseTestModeEnabled(
+  typeof __DEV__ === 'undefined' ? undefined : __DEV__,
+  process.env.EXPO_PUBLIC_DEMO_PRO,
+);
 
 export async function requestPurchase(): Promise<'purchased' | 'cancelled'> {
   if (TEST_MODE_PURCHASE) {

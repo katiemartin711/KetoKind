@@ -28,10 +28,11 @@ const PRINCIPLE_OVERRIDES: Record<DietType, Record<number, string>> = {
     7: 'Dairy is the most common stall culprit on carnivore — if fat loss stalls, cut dairy first.',
   },
   lion: {
-    0: 'Ruminant meat — beef, lamb, goat — is the foundation; nose-to-tail when possible. Eat the meat you can afford.',
-    1: 'Fat is fuel, never the culprit — never blame dietary fat for stalls or gain. Eat fatty cuts and tallow freely.',
+    0: 'Ruminant meat only — beef, lamb, bison, and goat. No pork, poultry, fish, eggs, or plants.',
+    1: 'Fat is fuel, never the culprit — never blame dietary fat for stalls or gain. Eat fatty ruminant cuts and tallow freely.',
+    2: 'Ruminant meat, salt, and water only — no plants, no eggs, no dairy, no pork, no poultry, and no fish.',
     7: 'No dairy at all — the Lion Diet excludes all dairy, including butter and cheese.',
-    8: 'When in doubt, simplify back to the basics: ruminant meat, salt, and water.',
+    8: 'When in doubt, simplify back to ruminant meat, salt, and water.',
   },
   paleo: {
     0: 'Quality animal protein is the foundation — meat, fish, and eggs; nose-to-tail when possible. Eat what you can afford.',

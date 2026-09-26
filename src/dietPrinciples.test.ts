@@ -46,6 +46,14 @@ check('keto and carnivore are differentiated', () => {
   ok(carn[7].includes('cut dairy first'), 'carnivore dairy is stricter');
 });
 
+check('lion principles exclude plants, eggs, and non-ruminant meat', () => {
+  const text = dietPrinciples('lion').join('\n').toLowerCase();
+  ok(text.includes('no plants'), 'plants excluded');
+  ok(text.includes('eggs'), 'eggs named as excluded');
+  ok(!text.includes('low-carb vegetables'), 'keto vegetable line removed');
+  ok(!text.includes('fish, eggs, and butter'), 'keto foundation line removed');
+});
+
 check('lion: no dairy, ruminant-meat foundation', () => {
   const ps = dietPrinciples('lion');
   const all = ps.join('\n');

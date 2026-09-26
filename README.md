@@ -194,17 +194,20 @@ The Trends tab has two parts:
 
 - **Weight trend** — a line graph of weigh-ins with a range dropdown (Week /
   Month / 90 days / 6 months / Year / All), marking the low, high, and
-  current values plus the change across the range. Dots are drawn only at 30
-  points or fewer — past that the line carries it. If weight isn't tracked, a
-  friendly empty state explains that weight logging is optional and points to
+  current values plus the change across the range. Week is 7 local dates
+  inclusive. Year and All are not clipped at 180 days. Dots are drawn only at
+  30 points or fewer — past that the line carries it. If weight isn't tracked,
+  a friendly empty state explains that weight logging is optional and points to
   the Log tab.
 - **Symptom patterns** — pick a symptom and a medication/supplement to compare
   average symptom severity on days the item was taken vs. days it wasn't, plus
   a "strongest patterns" list ranking the top 3 symptom × item pairs by
   absolute difference.
 - **Symptom over time** — pick a symptom to see its severity (1–5) plotted day
-  by day over the same range options, with days logged, average, and worst
-  severity.
+  by day over the same range options (Week is 7 local dates inclusive; Year and
+  All are not clipped at 180 days), with days logged, average, and worst
+  severity. Symptom patterns and macro correlations are not limited by those
+  dropdowns.
 
 **When a comparison shows:** each side needs at least 2 days and at least one
 side needs 7+, counted on days the symptom was logged — so a very regular

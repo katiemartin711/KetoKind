@@ -217,6 +217,20 @@ check('filterWeightRange keeps trailing windows; -1 keeps all', () => {
   eq(filterWeightRange([], 30).length, 0, 'empty stays empty');
 });
 
+check('week window is seven local dates inclusive', () => {
+  const now = Date.now();
+  const day = 24 * 60 * 60 * 1000;
+  const points = [0, 6, 7].map((ago) => ({
+    day: localDayKey(new Date(now - ago * day).toISOString()),
+    weight: 150,
+    at: new Date(now - ago * day).setHours(12, 0, 0, 0),
+  }));
+  const kept = filterWeightRange(points, 7).map((p) => p.day);
+  eq(kept.includes(points[0].day), true, 'today');
+  eq(kept.includes(points[1].day), true, 'six days ago');
+  eq(kept.includes(points[2].day), false, 'seven days ago is outside a 7-date week');
+});
+
 check('filterSymptomRange keeps trailing windows; -1 keeps all', () => {
   const dayMs = 24 * 60 * 60 * 1000;
   const key = (daysAgo: number) => localDayKey(new Date(Date.now() - daysAgo * dayMs).toISOString());
@@ -262,6 +276,17 @@ check('getWeightSeries returns oldest-first with local day keys', () => {
   eq(series.map((p) => p.weight), [185, 190, 187], 'oldest first');
   eq(series[0].day, '2026-09-01', 'local day key');
   ok(series.every((p) => p.at > 0), 'epochs present');
+});
+
+check('getWeightSeries(null) includes a weigh-in 400 days ago; 180 does not', () => {
+  setup();
+  const old = new Date();
+  old.setDate(old.getDate() - 400);
+  addWeightLog(210, old.toISOString());
+  const allTime = getWeightSeries(null);
+  const halfYear = getWeightSeries(180);
+  ok(allTime.some((p) => p.weight === 210), 'null includes the 400-day weigh-in');
+  ok(!halfYear.some((p) => p.weight === 210), '180 excludes the 400-day weigh-in');
 });
 
 check('getSymptomDayMap averages multiple same-day entries', () => {

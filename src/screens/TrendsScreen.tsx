@@ -72,6 +72,7 @@ export default function TrendsScreen() {
   const [paywallVisible, setPaywallVisible] = useState(false);
 
   const [weightSeries, setWeightSeries] = useState<WeightPoint[]>([]);
+  const [hasWeighIns, setHasWeighIns] = useState(false);
   const [range, setRange] = useState<number>(90);
   const [symptomNames, setSymptomNames] = useState<string[]>([]);
   const [symptomDayMap, setSymptomDayMap] = useState<Map<string, SymptomDay[]>>(new Map());
@@ -85,6 +86,7 @@ export default function TrendsScreen() {
   const [mealDayMap, setMealDayMap] = useState<Map<string, string[]>>(new Map());
   const [histSymptom, setHistSymptom] = useState<string>('');
   const [histRange, setHistRange] = useState<number>(90);
+  const [histDayMap, setHistDayMap] = useState<Map<string, SymptomDay[]>>(new Map());
   const [macroComparisons, setMacroComparisons] = useState<MacroComparison[]>([]);
   const [macroDayCount, setMacroDayCount] = useState(0);
   const [narrative, setNarrative] = useState<string | null>(null);
@@ -94,16 +96,35 @@ export default function TrendsScreen() {
   const refresh = useCallback(() => {
     const pro = getProStatus();
     setIsPro(pro);
-    if (!pro) return; // free users see the Pro upsell — data is never loaded
-    const series = getWeightSeries();
+    if (!pro) {
+      // Free users see the Pro upsell — loaded series stay empty.
+      setWeightSeries([]);
+      setHasWeighIns(false);
+      setSymptomDayMap(new Map());
+      setSymptomNames([]);
+      setItems([]);
+      setMealDayMap(new Map());
+      setStrongest([]);
+      setHistDayMap(new Map());
+      setMacroComparisons([]);
+      setMacroDayCount(0);
+      setNarrative(null);
+      return;
+    }
+    const series = getWeightSeries(range < 0 ? null : range);
     setWeightSeries(series);
-    const sMap = getSymptomDayMap();
+    // The chart query is the selected window. An empty window must not hide
+    // the dropdown when older weigh-ins exist outside it.
+    setHasWeighIns(series.length > 0 || (range >= 0 && getWeightSeries(null).length > 0));
+    // Patterns have no range control, so they are not capped at 180 days.
+    const sMap = getSymptomDayMap(null);
     const names = [...sMap.keys()].sort((a, b) => (a.toLowerCase() < b.toLowerCase() ? -1 : 1));
     setSymptomDayMap(sMap);
     setSymptomNames(names);
-    const itemList = getItemDayList();
+    const itemList = getItemDayList(null);
     setItems(itemList);
-    setMealDayMap(getMealDayMap());
+    setMealDayMap(getMealDayMap(null));
+    setHistDayMap(getSymptomDayMap(histRange < 0 ? null : histRange));
     // Preserve the user's picks across focus; only fill defaults when empty
     // or when the previous name/item disappeared from the data set.
     setSelSymptom((prev) => (prev && names.includes(prev) ? prev : names[0] ?? ''));
@@ -123,7 +144,7 @@ export default function TrendsScreen() {
       }
     }
     setStrongest(rankPatterns(all, 3));
-    const macros = listDailyMacros();
+    const macros = listDailyMacros(null);
     setMacroDayCount(macros.size);
     setModelReady(isModelReady());
     const comps: MacroComparison[] = [];
@@ -138,9 +159,13 @@ export default function TrendsScreen() {
     const top = comps.slice(0, 6);
     setMacroComparisons(top);
     setNarrative(getCachedNarrative(macroFingerprint(top)));
-  }, []);
+  }, [range, histRange]);
 
   useFocusEffect(refresh);
+
+  useEffect(() => {
+    refresh();
+  }, [range, histRange, refresh]);
 
   // Debounce the food keyword so the pattern recomputes ~300ms after typing stops.
   useEffect(() => {
@@ -209,8 +234,8 @@ export default function TrendsScreen() {
     [symptomDayMap, histSymptom],
   );
   const histDays = useMemo(
-    () => filterSymptomRange(histAllDays, histRange),
-    [histAllDays, histRange],
+    () => filterSymptomRange(histDayMap.get(histSymptom) ?? [], histRange),
+    [histDayMap, histSymptom, histRange],
   );
   const histAvg = useMemo(
     () =>
@@ -243,7 +268,7 @@ export default function TrendsScreen() {
           ) : (
             <>
               <Text style={common.h2}>Weight trend</Text>
-              {weightSeries.length === 0 ? (
+              {!hasWeighIns ? (
                 <View style={common.card}>
                   <Text style={styles.emptyTitle}>No weigh-ins yet</Text>
                   <Text style={[styles.body, { color: colors.muted }]}>

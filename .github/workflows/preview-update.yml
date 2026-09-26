@@ -30,7 +30,7 @@ jobs:
           node <<'EOF'
           const accounts = ["compoundboar", "athletic-insights"];
           const query = `query ($accountName: String!) {
-            account { byName(accountName: $accountName) { apps(offset: 0, limit: 100) { id slug fullName } } }
+            account { byName(accountName: $accountName) { apps(offset: 0, limit: 50) { id slug fullName } } }
           }`;
           (async () => {
             const found = [];

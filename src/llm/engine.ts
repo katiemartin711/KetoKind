@@ -65,6 +65,8 @@ export async function downloadOnDeviceModel(onProgress?: (fraction: number) => v
   const dir = modelsDirectory();
   if (!dir.exists) dir.create({ intermediates: true, idempotent: true });
   const partial = new File(dir, `${ON_DEVICE_MODEL_FILE}.partial`);
+  // File.move retargets this handle at dest, so the catch must not delete `partial`.
+  const partialPath = partial.uri;
   const dest = onDeviceModelFile();
   try {
     await File.downloadFileAsync(ON_DEVICE_MODEL_URL, partial, {
@@ -85,7 +87,8 @@ export async function downloadOnDeviceModel(onProgress?: (fraction: number) => v
     await partial.move(dest);
     await releaseContext();
   } catch (err) {
-    if (partial.exists) partial.delete();
+    const leftover = new File(partialPath);
+    if (leftover.exists) leftover.delete();
     throw err;
   }
 }

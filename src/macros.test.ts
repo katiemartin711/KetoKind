@@ -147,6 +147,11 @@ check('narrative acceptance drops advice and fingerprints change with the stats'
     'causal wording',
   );
   eq(
+    acceptNarrative('In your logs, this pattern is not a diagnosis of any condition today.'),
+    null,
+    'diagnosis wording',
+  );
+  eq(
     acceptNarrative('Averaged across your logs, headache severity was lower on higher-fat days.'),
     'Averaged across your logs, headache severity was lower on higher-fat days.',
     'descriptive wording stays',

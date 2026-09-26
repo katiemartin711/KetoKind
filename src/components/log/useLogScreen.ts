@@ -90,6 +90,7 @@ export function useLogScreen() {
   const [trackCalories, setTrackCalories] = useState(false);
   const [estimating, setEstimating] = useState(false);
   const [favorite, setFavorite] = useState(false);
+  const [favoriteLabel, setFavoriteLabel] = useState('');
   const [favorites, setFavorites] = useState<MealFavorite[]>([]);
   // Med/supp chip selection + per-item quantities, as one state machine
   // (edit-mode locking lives in the reducer).
@@ -219,6 +220,7 @@ export function useLogScreen() {
           notes: mealNotes,
           macros: userMacros,
           source: userMacros && userEdited ? 'edited' : '',
+          label: favoriteLabel,
         });
       } else {
         deleteMealFavoriteByName(mealName);
@@ -380,6 +382,7 @@ export function useLogScreen() {
     setMacroFiber('');
     setMacroCalories('');
     setFavorite(false);
+    setFavoriteLabel('');
     dispatchSel({ type: 'reset' });
     setSymptomName('');
     setSymptomNotes('');
@@ -410,7 +413,9 @@ export function useLogScreen() {
       setMacroCarbs(row.carbs_g == null ? '' : String(row.carbs_g));
       setMacroFiber(row.fiber_g == null ? '' : String(row.fiber_g));
       setMacroCalories(row.calories == null ? '' : String(row.calories));
-      setFavorite(findMealFavorite(row.name) != null);
+      const savedFavorite = findMealFavorite(row.name);
+      setFavorite(savedFavorite != null);
+      setFavoriteLabel(savedFavorite?.label ?? '');
       setLogDate(new Date(row.logged_at));
     } else if (log.kind === 'medication') {
       const row = getMedLog(log.id);
@@ -482,6 +487,7 @@ export function useLogScreen() {
     setMacroFiber(fav.fiber_g == null ? '' : String(fav.fiber_g));
     setMacroCalories(fav.calories == null ? '' : String(fav.calories));
     setFavorite(true);
+    setFavoriteLabel(fav.label);
     setLogDate(new Date());
   };
 
@@ -519,6 +525,8 @@ export function useLogScreen() {
     estimating,
     favorite,
     setFavorite,
+    favoriteLabel,
+    setFavoriteLabel,
     favorites,
     useFavorite,
     removeFavorite,

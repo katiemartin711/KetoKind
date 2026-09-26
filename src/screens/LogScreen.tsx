@@ -55,6 +55,8 @@ export default function LogScreen() {
           estimating={s.estimating}
           favorite={s.favorite}
           onFavoriteChange={s.setFavorite}
+          favoriteLabel={s.favoriteLabel}
+          onFavoriteLabelChange={s.setFavoriteLabel}
           favorites={s.favorites}
           onUseFavorite={s.useFavorite}
           onRemoveFavorite={s.removeFavorite}

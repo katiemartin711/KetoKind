@@ -7,7 +7,7 @@ import { database } from './client';
  * schema changes — initDb() applies every migration newer than the stored
  * PRAGMA user_version, in order.
  */
-const SCHEMA_VERSION = 7;
+const SCHEMA_VERSION = 8;
 
 /** version -> migration function upgrading TO that version. Use
  *  addColumnIfMissing() for column adds so migrations stay idempotent
@@ -62,6 +62,10 @@ const MIGRATIONS: Record<number, () => void> = {
     // v7: meals the user marked as favorites, so they can log them again.
     ensureMealFavoritesTable();
   },
+  8: () => {
+    // v8: optional short name for a favorite. Blank keeps the meal description.
+    addColumnIfMissing('meal_favorites', 'label', "TEXT NOT NULL DEFAULT ''");
+  },
 };
 
 /** Saved meals for one-tap logging. Included in backups. */
@@ -78,7 +82,8 @@ function ensureMealFavoritesTable(): void {
       fiber_g REAL,
       net_carbs_g REAL,
       calories REAL,
-      macro_source TEXT NOT NULL DEFAULT ''
+      macro_source TEXT NOT NULL DEFAULT '',
+      label TEXT NOT NULL DEFAULT ''
     );
   `);
 }
@@ -186,7 +191,8 @@ export function initDb(): void {
       fiber_g REAL,
       net_carbs_g REAL,
       calories REAL,
-      macro_source TEXT NOT NULL DEFAULT ''
+      macro_source TEXT NOT NULL DEFAULT '',
+      label TEXT NOT NULL DEFAULT ''
     );
     CREATE TABLE IF NOT EXISTS med_logs (
       id INTEGER PRIMARY KEY AUTOINCREMENT,

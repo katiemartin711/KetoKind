@@ -7,7 +7,8 @@ import type { FoodLog, MealFavorite } from '../types';
 
 export function listMealFavorites(): MealFavorite[] {
   return database().getAllSync<MealFavorite>(
-    'SELECT * FROM meal_favorites ORDER BY name COLLATE NOCASE, id',
+    `SELECT * FROM meal_favorites
+     ORDER BY lower(CASE WHEN trim(label) != '' THEN label ELSE name END), id`,
   );
 }
 
@@ -33,11 +34,14 @@ export function saveMealFavorite(input: {
   notes: string;
   macros: MacroGrams | null;
   source: MacroSource | '';
+  /** Omit to keep the label already stored on this favorite. */
+  label?: string;
 }): void {
   const name = input.name.trim();
   if (!name) return;
   const macros = input.macros;
   const existing = findMealFavorite(name);
+  const label = (input.label !== undefined ? input.label : existing?.label ?? '').trim();
   const values = [
     name,
     input.mealType,
@@ -49,12 +53,13 @@ export function saveMealFavorite(input: {
     macros?.netCarbsG ?? null,
     macros?.calories ?? null,
     input.source,
+    label,
   ];
   if (existing) {
     database().runSync(
       `UPDATE meal_favorites
        SET name = ?, meal_type = ?, notes = ?, protein_g = ?, fat_g = ?, carbs_g = ?,
-           fiber_g = ?, net_carbs_g = ?, calories = ?, macro_source = ?
+           fiber_g = ?, net_carbs_g = ?, calories = ?, macro_source = ?, label = ?
        WHERE id = ?`,
       [...values, existing.id],
     );
@@ -62,8 +67,8 @@ export function saveMealFavorite(input: {
   }
   database().runSync(
     `INSERT INTO meal_favorites
-       (name, meal_type, notes, protein_g, fat_g, carbs_g, fiber_g, net_carbs_g, calories, macro_source)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+       (name, meal_type, notes, protein_g, fat_g, carbs_g, fiber_g, net_carbs_g, calories, macro_source, label)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     values,
   );
 }

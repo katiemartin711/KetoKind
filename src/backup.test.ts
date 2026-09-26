@@ -412,8 +412,8 @@ check('v2 migration adds name columns and backfills med-log names', () => {
     );
     eq(
       handle.getFirstSync<{ user_version: number }>('PRAGMA user_version')?.user_version,
-      7,
-      'version stamped at 7',
+      8,
+      'version stamped at 8',
     );
     const profileCols = handle.getAllSync<{ name: string }>('PRAGMA table_info(profile)');
     ok(

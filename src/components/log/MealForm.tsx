@@ -33,6 +33,8 @@ interface Props {
   estimating: boolean;
   favorite: boolean;
   onFavoriteChange: (value: boolean) => void;
+  favoriteLabel: string;
+  onFavoriteLabelChange: (s: string) => void;
   favorites: MealFavorite[];
   onUseFavorite: (id: number) => void;
   onRemoveFavorite: (id: number) => void;
@@ -65,6 +67,8 @@ export default function MealForm(props: Props) {
     estimating,
     favorite,
     onFavoriteChange,
+    favoriteLabel,
+    onFavoriteLabelChange,
     favorites,
     onUseFavorite,
     onRemoveFavorite,
@@ -77,27 +81,32 @@ export default function MealForm(props: Props) {
       {favorites.length > 0 && (
         <View style={styles.favorites}>
           <Text style={common.label}>Favorites</Text>
-          {favorites.map((fav) => (
-            <View key={fav.id} style={styles.favoriteRow}>
-              <TouchableOpacity
-                style={styles.favoriteMain}
-                onPress={() => onUseFavorite(fav.id)}
-                accessibilityRole="button"
-                accessibilityLabel={`Log ${fav.name}`}
-              >
-                <Text style={[styles.favoriteName, { color: colors.text }]}>{fav.name}</Text>
-                <Text style={styles.hint}>{fav.meal_type}</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => onRemoveFavorite(fav.id)}
-                accessibilityRole="button"
-                accessibilityLabel={`Remove ${fav.name} from favorites`}
-                hitSlop={8}
-              >
-                <Text style={[styles.remove, { color: colors.muted }]}>×</Text>
-              </TouchableOpacity>
-            </View>
-          ))}
+          {favorites.map((fav) => {
+            const title = fav.label.trim() || fav.name;
+            return (
+              <View key={fav.id} style={styles.favoriteRow}>
+                <TouchableOpacity
+                  style={styles.favoriteMain}
+                  onPress={() => onUseFavorite(fav.id)}
+                  accessibilityRole="button"
+                  accessibilityLabel={`Log ${title}`}
+                >
+                  <Text style={[styles.favoriteName, { color: colors.text }]}>{title}</Text>
+                  <Text style={styles.hint}>
+                    {fav.label.trim() ? `${fav.meal_type} · ${fav.name}` : fav.meal_type}
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => onRemoveFavorite(fav.id)}
+                  accessibilityRole="button"
+                  accessibilityLabel={`Remove ${title} from favorites`}
+                  hitSlop={8}
+                >
+                  <Text style={[styles.remove, { color: colors.muted }]}>×</Text>
+                </TouchableOpacity>
+              </View>
+            );
+          })}
         </View>
       )}
       <Text style={common.label}>What did you eat?</Text>
@@ -148,6 +157,19 @@ export default function MealForm(props: Props) {
           accessibilityRole="switch"
         />
       </View>
+      {favorite && (
+        <>
+          <Text style={common.label}>Favorite name (optional)</Text>
+          <TextInput
+            style={common.input}
+            placeholder="e.g. Usual breakfast"
+            value={favoriteLabel}
+            onChangeText={onFavoriteLabelChange}
+            maxLength={80}
+            accessibilityLabel="Favorite name, optional"
+          />
+        </>
+      )}
       <Text style={common.label}>Macros (optional)</Text>
       <Text style={styles.hint}>
         Leave these blank to estimate protein, fat, and carbs on this phone after you save.

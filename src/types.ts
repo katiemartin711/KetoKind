@@ -67,6 +67,8 @@ export interface Supplement {
 export interface MealFavorite {
   id: number;
   name: string;
+  /** Short name shown in the favorites list. '' uses `name`. */
+  label: string;
   meal_type: string;
   notes: string;
   protein_g: number | null;

@@ -315,6 +315,9 @@ export function validateBackup(value: unknown): BackupIssue[] {
       ) {
         at(`${path}.macro_source`, "must be '', 'estimated', or 'edited'");
       }
+      if (row.label !== undefined && typeof row.label !== 'string') {
+        at(`${path}.label`, 'must be a string');
+      }
     });
   }
 
@@ -485,8 +488,8 @@ export function importBackup(b: DatabaseBackup): void {
     for (const f of b.mealFavorites ?? []) {
       database().runSync(
         `INSERT INTO meal_favorites
-           (id, name, meal_type, notes, protein_g, fat_g, carbs_g, fiber_g, net_carbs_g, calories, macro_source)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+           (id, name, meal_type, notes, protein_g, fat_g, carbs_g, fiber_g, net_carbs_g, calories, macro_source, label)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           f.id,
           str(f.name),
@@ -499,6 +502,7 @@ export function importBackup(b: DatabaseBackup): void {
           macroNum(f.net_carbs_g),
           macroNum(f.calories),
           macroSource(f.macro_source),
+          str(f.label),
         ],
       );
     }

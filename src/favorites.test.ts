@@ -59,6 +59,39 @@ check('saving the same meal name updates one favorite', () => {
   eq(findMealFavorite('6 eggs')?.id, rows[0].id, 'lookup ignores case');
 });
 
+check('an optional name is stored and kept when a later save omits it', () => {
+  setup();
+  saveMealFavorite({
+    name: '6 eggs, 3 strips of thick cut bacon',
+    mealType: 'Breakfast',
+    notes: '',
+    macros: null,
+    source: '',
+    label: '  Usual breakfast  ',
+  });
+  eq(listMealFavorites()[0].label, 'Usual breakfast', 'label trimmed');
+  saveMealFavorite({
+    name: '6 eggs, 3 strips of thick cut bacon',
+    mealType: 'Breakfast',
+    notes: 'extra',
+    macros: { proteinG: 50, fatG: 54, carbsG: 2, fiberG: 0, netCarbsG: 2, calories: 700 },
+    source: 'estimated',
+  });
+  const row = listMealFavorites()[0];
+  eq(row.label, 'Usual breakfast', 'omitted label is kept');
+  eq(row.notes, 'extra', 'notes still update');
+  eq(row.protein_g, 50, 'macros update');
+  saveMealFavorite({
+    name: '6 eggs, 3 strips of thick cut bacon',
+    mealType: 'Breakfast',
+    notes: '',
+    macros: null,
+    source: '',
+    label: '',
+  });
+  eq(listMealFavorites()[0].label, '', 'blank label clears the name');
+});
+
 check('removing a favorite and delete-all clear the list', () => {
   setup();
   saveMealFavorite({ name: 'Ribeye', mealType: 'Dinner', notes: '', macros: null, source: '' });
@@ -78,12 +111,15 @@ check('favorites survive backup and an older file still imports', () => {
     notes: '',
     macros: { proteinG: 50, fatG: 40, carbsG: 0, fiberG: 0, netCarbsG: 0, calories: 560 },
     source: 'edited',
+    label: 'Steak night',
   });
   const backup = exportBackup();
   eq(backup.mealFavorites?.length, 1, 'export includes the favorite');
+  eq(backup.mealFavorites?.[0].label, 'Steak night', 'export includes the name');
   deleteAllData();
   importBackup(backup);
   eq(listMealFavorites()[0]?.name, 'Ribeye', 'import restores the favorite');
+  eq(listMealFavorites()[0]?.label, 'Steak night', 'import restores the name');
   const older = exportBackup();
   delete older.mealFavorites;
   deleteAllData();

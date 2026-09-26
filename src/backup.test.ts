@@ -7,7 +7,7 @@
 import { NodeSqliteHandle } from './nodeSqliteAdapter';
 import { exportBackup, importBackup, isDatabaseBackup, validateBackup } from './db/backup';
 import type { DatabaseBackup } from './db/backup';
-import { addAllergy, addCondition, addMedication, addSupplement, deleteMedication, listMedications, listSupplements, updateMedication } from './db/catalog';
+import { addAllergy, addCondition, addMedication, addSupplement, deleteMedication, deleteSupplement, listMedications, listSupplements, updateMedication } from './db/catalog';
 import { __setDbForTests } from './db/client';
 import { addFoodLog, addMedLog, addSupplementLog, addSymptomLog, addWeightLog, getFoodLog, getLogsForDay, setFoodMacros, updateMedLog } from './db/logs';
 import { deleteAllData, dismissMilestones, getLlmOffer, getProStatus, getTrackCalories, saveProfile, setLlmOffer, setProStatus, setThemeMode, setTrackCalories, setWeightTracking } from './db/profile';
@@ -213,11 +213,15 @@ expectRejected('rejects non-ISO timestamp', (b) => {
 expectRejected('rejects non-string timestamp', (b) => {
   rowsOf(b, 'weightLogs')[0].logged_at = 1726400000000;
 });
+// A dangling catalog id is valid when name is a string, including ''.
+// These fixtures keep proving a non-string name is rejected.
 expectRejected('rejects dangling medication reference', (b) => {
   rowsOf(b, 'medLogs')[0].medication_id = 9999;
+  rowsOf(b, 'medLogs')[0].name = 1;
 });
 expectRejected('rejects dangling supplement reference', (b) => {
   rowsOf(b, 'supplementLogs')[0].supplement_id = 9999;
+  rowsOf(b, 'supplementLogs')[0].name = 1;
 });
 expectRejected('rejects negative quantity', (b) => {
   rowsOf(b, 'medLogs')[0].quantity = -1;
@@ -588,6 +592,34 @@ check('schema v5 creates log timestamp indexes', () => {
     ok(names.includes('idx_symptom_logs_logged_at'), 'symptom index');
     ok(names.includes('idx_supplement_logs_logged_at'), 'supplement index');
     ok(names.includes('idx_weight_logs_logged_at'), 'weight index');
+  } finally {
+    handle.close();
+  }
+});
+
+check('export after deleting a medication and supplement still imports', () => {
+  const handle = setup();
+  try {
+    populateDb();
+    const med = mustFind(listMedications(), (m) => m.name === 'Metformin', 'Metformin');
+    const supp = mustFind(listSupplements(), (s) => s.name === 'Magnesium', 'Magnesium');
+    deleteMedication(med.id);
+    deleteSupplement(supp.id);
+    const backup = exportBackup();
+    eq(validateBackup(backup), [], 'own backup after catalog delete');
+    deleteAllData();
+    importBackup(backup);
+    // populateDb logs Metformin at t1 and Magnesium at t2, not the same instant.
+    const medDay = getLogsForDay(new Date('2026-09-15T12:00:00.000Z'));
+    ok(
+      medDay.some((l) => l.kind === 'medication' && l.title === 'Metformin'),
+      'med name snapshot restored',
+    );
+    const suppDay = getLogsForDay(new Date('2026-09-16T08:30:00.000Z'));
+    ok(
+      suppDay.some((l) => l.kind === 'supplement' && l.title === 'Magnesium'),
+      'supplement name snapshot restored',
+    );
   } finally {
     handle.close();
   }

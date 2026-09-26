@@ -115,7 +115,8 @@ function isIsoDateTime(v: unknown): v is string {
 
 /**
  * Deep validation of a parsed backup: structure, duplicate ids, dates,
- * dangling relationships, and numeric ranges. Pure — run it BEFORE touching
+ * and numeric ranges. A dose may outlive its catalog row; the name snapshot
+ * is the source of truth. Pure — run it BEFORE touching
  * any data: a wrong or tampered file must abort the import, never wipe the
  * device. Returns every issue found ([] means the backup is valid).
  */
@@ -188,8 +189,7 @@ export function validateBackup(value: unknown): BackupIssue[] {
   }
 
   // -- lists ---------------------------------------------------------------
-  // checkList validates structure + ids and returns the rows' ids so later
-  // lists can check their references (medLogs -> medications, ...).
+  // checkList validates structure + ids and rejects duplicate ids within a list.
   const checkList = (
     key: string,
     checkRow: (row: Record<string, unknown>, path: string) => void,
@@ -228,8 +228,8 @@ export function validateBackup(value: unknown): BackupIssue[] {
   };
   checkList('allergies', (row, path) => expectString(row, 'name', path));
   checkList('conditions', (row, path) => expectString(row, 'name', path));
-  const medicationIds = checkList('medications', checkSchedulable);
-  const supplementIds = checkList('supplements', checkSchedulable);
+  checkList('medications', checkSchedulable);
+  checkList('supplements', checkSchedulable);
 
   const expectOptionalMacro = (row: Record<string, unknown>, key: string, path: string): void => {
     const v = row[key];
@@ -260,10 +260,9 @@ export function validateBackup(value: unknown): BackupIssue[] {
     const mid = row.medication_id;
     if (!isPositiveInt(mid)) {
       at(`${path}.medication_id`, 'must be a positive integer');
-    } else if (!medicationIds.has(mid)) {
-      at(`${path}.medication_id`, `no medication with id ${mid} in this backup`);
     }
-    // 'name' is optional: pre-v2 backups don't have it (import backfills it).
+    // Name snapshot is the source of truth. '' is the pre-v2 "Deleted medication" row.
+    // A missing catalog id is allowed.
     if (row.name !== undefined && typeof row.name !== 'string') {
       at(`${path}.name`, 'must be a string');
     }
@@ -285,12 +284,8 @@ export function validateBackup(value: unknown): BackupIssue[] {
     expectTimestamp(row, 'logged_at', path);
     expectQuantity(row, 'quantity', path);
     const sid = row.supplement_id;
-    if (sid !== null) {
-      if (!isPositiveInt(sid)) {
-        at(`${path}.supplement_id`, 'must be null or a positive integer');
-      } else if (!supplementIds.has(sid)) {
-        at(`${path}.supplement_id`, `no supplement with id ${sid} in this backup`);
-      }
+    if (sid !== null && !isPositiveInt(sid)) {
+      at(`${path}.supplement_id`, 'must be null or a positive integer');
     }
   });
   checkList('weightLogs', (row, path) => {

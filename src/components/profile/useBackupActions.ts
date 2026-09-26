@@ -19,6 +19,10 @@ export function useBackupActions() {
   const downloadBackup = async () => {
     try {
       const backup = exportBackup();
+      if (validateBackup(backup).length > 0) {
+        Alert.alert('Backup failed');
+        return;
+      }
       const now = new Date();
       const stamp = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
       const file = new File(Paths.document, `ketokind-backup-${stamp}.json`);

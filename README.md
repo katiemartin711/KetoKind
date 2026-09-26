@@ -120,8 +120,9 @@ Pro entitlement (`is_pro`) and the model-download choice (`llm_offer`) are
 **not** included — restore purchases through the App Store / Play Store after
 switching devices. `validateBackup()` is pure and runs
 *before* any data is touched: it checks structure, duplicate ids, ISO-8601
-timestamps, numeric ranges, and cross-list references (e.g. every
-`medLogs[].medication_id` must exist in `medications`). `importBackup()`
+timestamps, and numeric ranges. A dose may outlive its catalog row; the
+name snapshot is the source of truth, so a `medLogs[].medication_id` or
+`supplementLogs[].supplement_id` need not exist in the catalog. `importBackup()`
 refuses invalid files before deleting anything and restores inside a single
 transaction — a mid-import failure rolls everything back. Import preserves
 this device's Pro flag and download choice (never grants Pro from a file).

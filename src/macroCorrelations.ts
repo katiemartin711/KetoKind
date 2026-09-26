@@ -127,8 +127,9 @@ export function narrativePrompt(comparisons: MacroComparison[]): { system: strin
   };
 }
 
+// Whole words. The -ing forms drop the silent e (causing, improving), so causes? is not enough.
 const UNSAFE_NARRATIVE =
-  /\b(you should|stop taking|start taking|increase your|decrease your|diagnos\w*|causes?|improves?|worsens?|avoid|cut out|don't eat|do not eat|quit|discontinue)\b/i;
+  /\b(you should|stop taking|start taking|increase your|decrease your|diagnos\w*|caus(?:e|es|ed|ing)|improv(?:e|es|ed|ing)|worsen(?:s|ed|ing)?|avoid|cut out|don't eat|do not eat|quit|discontinue)\b/i;
 
 /** Drop model text that slips into advice. Empty or unsafe text is unusable. */
 export function acceptNarrative(text: string): string | null {

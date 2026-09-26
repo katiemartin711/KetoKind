@@ -28,8 +28,9 @@ export function useBackupActions() {
   const downloadBackup = async () => {
     try {
       const backup = exportBackup();
-      if (validateBackup(backup).length > 0) {
-        Alert.alert('Backup failed');
+      const [firstIssue] = validateBackup(backup);
+      if (firstIssue) {
+        Alert.alert('Backup failed', `${firstIssue.path} — ${firstIssue.message}`);
         return;
       }
       const now = new Date();

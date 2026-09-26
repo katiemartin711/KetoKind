@@ -3,8 +3,7 @@
 // downloads the GGUF into the app's documents folder and runs it locally.
 
 import { TurboModuleRegistry } from 'react-native';
-import * as Crypto from 'expo-crypto';
-import { Directory, File, Paths } from 'expo-file-system';
+import { Directory, File, FileMode, Paths } from 'expo-file-system';
 import { initLlama, type LlamaContext } from 'llama.rn';
 import {
   ON_DEVICE_MODEL_BYTES,
@@ -12,6 +11,7 @@ import {
   ON_DEVICE_MODEL_SHA256,
   ON_DEVICE_MODEL_URL,
 } from './model';
+import { IncrementalSha256 } from './sha256';
 
 export function isNativeLlmLinked(): boolean {
   try {
@@ -38,11 +38,42 @@ export function isModelReady(): boolean {
   }
 }
 
-/** SHA-256 hex of a file, using the SDK 57 byte digest (digestStringAsync hashes strings only). */
+/** Bytes per FileHandle.readBytes call. Stays well under the Android signed-int cap. */
+const HASH_CHUNK_BYTES = 1024 * 1024;
+
+/**
+ * SHA-256 hex of a file, read with FileHandle.readBytes.
+ * SDK 57 Crypto.digest takes one BufferSource and does not stream, so this
+ * does not call File.bytes(). The hex matches that digest. The handle is
+ * closed before return so the caller can move or delete the file.
+ */
 async function sha256File(file: File): Promise<string> {
-  const bytes = await file.bytes();
-  const digest = await Crypto.digest(Crypto.CryptoDigestAlgorithm.SHA256, bytes);
-  return Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, '0')).join('');
+  const handle = file.open(FileMode.ReadOnly);
+  const hash = new IncrementalSha256();
+  try {
+    const total = file.size;
+    let read = 0;
+    while (read < total) {
+      const want = Math.min(HASH_CHUNK_BYTES, total - read);
+      const chunk = handle.readBytes(want);
+      if (chunk.length === 0 || chunk.length > want) {
+        throw new Error('Could not read the model file.');
+      }
+      hash.update(chunk);
+      read += chunk.length;
+      await new Promise<void>((resolve) => {
+        setTimeout(resolve, 0);
+      });
+    }
+    if (read !== total) throw new Error('Could not read the model file.');
+    return hash.digestHex();
+  } finally {
+    try {
+      handle.close();
+    } catch {
+      // close() must finish so a bad partial can be deleted.
+    }
+  }
 }
 
 let context: LlamaContext | null = null;

@@ -158,6 +158,38 @@ check('narrative acceptance drops advice and fingerprints change with the stats'
   );
   const okText = 'In your logs, headache severity averaged higher on higher net-carb days than on lower ones.';
   eq(acceptNarrative(okText), okText, 'plain pattern');
+  eq(
+    acceptNarrative('In your logs, higher fat days caused headache severity to drop across the month.'),
+    null,
+    'caused',
+  );
+  eq(
+    acceptNarrative('In your logs, higher fat days improved headache severity across the month.'),
+    null,
+    'improved',
+  );
+  eq(
+    acceptNarrative('In your logs, higher fat days worsened headache severity across the month.'),
+    null,
+    'worsened',
+  );
+  eq(
+    acceptNarrative('In your logs, higher fat days were causing headache severity to drop across the month.'),
+    null,
+    'causing',
+  );
+  eq(
+    acceptNarrative('In your logs, higher fat days were improving headache severity across the month.'),
+    null,
+    'improving',
+  );
+  eq(
+    acceptNarrative('In your logs, higher fat days were worsening headache severity across the month.'),
+    null,
+    'worsening',
+  );
+  const foodSentence = 'was lower on days with this food than on days without it';
+  eq(acceptNarrative(foodSentence), foodSentence, 'descriptive food sentence');
   const a = compareMacroBalance('Headache', days([1, 1, 1, 1, 1, 1, 1, 4, 4, 4]), macros(10, (i) => (i < 7 ? 4 : 30)), 'netCarbs');
   const b = compareMacroBalance('Headache', days([2, 2, 2, 2, 2, 2, 2, 4, 4, 4]), macros(10, (i) => (i < 7 ? 4 : 30)), 'netCarbs');
   ok(a != null && b != null && macroFingerprint([a]) !== macroFingerprint([b]), 'fingerprint');

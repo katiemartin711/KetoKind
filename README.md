@@ -86,10 +86,10 @@ compiles only the pure/testable modules (`db`, `types`, `theme`,
 ### SQLite schema (`ketokind.db`)
 
 Tables: `profile` (single row, `id = 1`), `allergies`, `conditions`,
-`medications`, `supplements`, `food_logs`, `med_logs`, `symptom_logs`,
-`supplement_logs`, `weight_logs`.
+`medications`, `supplements`, `food_logs`, `meal_favorites`, `med_logs`,
+`symptom_logs`, `supplement_logs`, `weight_logs`.
 
-**Migrations** (`SCHEMA_VERSION = 6`, applied in order via
+**Migrations** (`SCHEMA_VERSION = 8`, applied in order via
 `PRAGMA user_version` + `addColumnIfMissing` / index helpers):
 
 - **v2:** `med_logs.name` snapshot (history survives renames/deletes) +
@@ -102,11 +102,21 @@ Tables: `profile` (single row, `id = 1`), `allergies`, `conditions`,
   `net_carbs_g`, `calories`, `macro_source`), `profile.track_calories`,
   `profile.llm_offer` (declined the model download — not included in backups),
   and a `trend_insights` cache for the on-device Trends summary.
+- **v7:** `meal_favorites` for meals saved from the food log.
+- **v8:** `meal_favorites.label`, an optional short name. Blank uses the meal description.
 
 ### Backup format
 
 `exportBackup()` snapshots every table into one JSON object
-(`ketokind-backup-*.json`), `version: 1`. Pro entitlement (`is_pro`) is
+(`ketokind-backup-*.json`), `version: 1`. A current file includes:
+
+- Meal logs with macros and `macro_source` (`estimated` or `edited`).
+- `mealFavorites`, including `label` (the optional short name; `""` uses the meal description) and the same macro fields.
+- Med logs with the name snapshot and `quantity`.
+- Supplement logs with `supplement_id`, the name snapshot, and `quantity`.
+- `profile.track_calories` and `profile.reminder_settings`.
+
+Pro entitlement (`is_pro`) and the model-download choice (`llm_offer`) are
 **not** included — restore purchases through the App Store / Play Store after
 switching devices. `validateBackup()` is pure and runs
 *before* any data is touched: it checks structure, duplicate ids, ISO-8601
@@ -114,9 +124,10 @@ timestamps, numeric ranges, and cross-list references (e.g. every
 `medLogs[].medication_id` must exist in `medications`). `importBackup()`
 refuses invalid files before deleting anything and restores inside a single
 transaction — a mid-import failure rolls everything back. Import preserves
-this device's Pro flag (never grants Pro from a file). Pre-v2 backups
-(without med-log name snapshots) still import; names are backfilled from the
-restored medications. Delete-all also resets `theme_mode` to `system` and
+this device's Pro flag and download choice (never grants Pro from a file).
+Older files still import: missing med-log names are backfilled from the
+restored medications, and missing macros, favorites, or favorite labels come
+back blank. Delete-all also resets `theme_mode` to `system` and
 clears the profile name.
 
 ## Run it on a phone
@@ -222,32 +233,35 @@ never trigger data loading for this tab.
 
 ## Sample data
 
-Don't want to log for 90 days before seeing what Trends can do? Two synthetic
-datasets live in [`sample-data/`](sample-data/) — no real user data, and both
-pass the app's real backup validator:
+Don't want to log for 90 days before seeing what Trends can do? Four synthetic
+datasets live in [`sample-data/`](sample-data/) — no real user data. Each one
+is a current backup (`version: 1`) with meal macros, favorite names, dose
+quantities, and 90 days of food, symptoms, and medication or supplements.
+Regenerate them with `node dist-test/generateDemos.js` after `npm test` has
+compiled `src/generateDemos.ts`.
 
-| File | What's inside | Best for |
+| File | Diet | What's inside |
 |---|---|---|
-| `ketokind-trends-sample-data.json` | 90 days: weight 152.4 → 143.3 lb, 320 symptom logs, 60 med logs, 174 supplement logs, 28 meals | The Trends tab: weight graph, symptom × item patterns, symptom-over-time chart |
-| `ketokind-sample-data.json` | ~2 weeks of everyday logging: 34 meals, meds, supplements, symptoms, weigh-ins | Touring the Dashboard, Log tab, and AI Coach export |
+| `ketokind-demo-keto.json` | Keto | Eggs, meat, dairy, and some higher-carb vegetable dinners. Favorites include “Usual breakfast”. |
+| `ketokind-demo-carnivore.json` | Carnivore | Animal foods only, with cheese or butter on some days. |
+| `ketokind-demo-lion.json` | Lion | Ruminant meat, salt, and water, plus a few egg days. |
+| `ketokind-demo-paleo.json` | Paleo | Meat, eggs, vegetables, fruit, and sweet potato. No dairy. |
 
-The trends dataset is built to show the feature off: Congestion × Cetirizine,
-Headache × Magnesium Glycinate, and Muscle cramps × Electrolyte mix all have
-enough data to produce comparisons, while Vitamin D3 (logged every day, so
-there's no "not taken" side) and Melatonin (logged once) demonstrate the "not
-enough data yet" states. It imports as a **free** profile, so you can also try
-the Pro paywall from the Trends tab.
+Each file logs a symptom every day, so Trends can compare days an item was
+logged with days it was not. Vitamin D3 and fish oil are logged every day, so
+those comparisons stay in “not enough data yet”. Calorie tracking is on.
+Imports stay a **free** profile, so you can also try the Pro paywall from Trends.
 
 **To import one:**
 
 1. Get the `.json` file onto your phone (download it from this repo, then
    AirDrop / email it to yourself / save it to Files).
-2. Open KetoKind in Expo Go. Import is a Pro feature, so first go to the
-   **Profile** tab → **Testing** section and turn on **Simulate Pro user**.
+2. Import is a Pro feature. On a preview build, open **Profile** → **Testing**
+   and turn on **Simulate Pro user**.
 3. Profile → **Backup** → **Import data**, pick the file, and confirm.
    Importing **replaces everything** currently on the device — export your own
    data first if you want to keep it.
-4. Head to the **Trends** tab.
+4. Head to the **Trends** tab. Saved meals are on the **Log** tab.
 
 ## Testing
 
@@ -263,6 +277,7 @@ npm test   # tsc -p tsconfig.test.json, then node dist-test/*.test.js
 |---|---|---|
 | `src/milestones.test.ts` | Diet-start parsing/formatting, duration labels, milestone detection, dismissed-milestone persistence | 14 passed |
 | `src/backup.test.ts` | Backup round-trip, malformed rejection, rollback, migrations, Pro omitted from export / preserved on import, timestamp indexes, meal-macro round-trip | 42 passed |
+| `src/sampleData.test.ts` | The four diet demo files validate, cover 90 days, and restore macros, favorite names, and dose quantities | 4 passed |
 | `src/dietPrinciples.test.ts` | Every diet returns 10 non-empty principles; per-diet overrides never contradict the diet (e.g. no "dairy is optional" for Lion Diet or paleo); keto and carnivore are differentiated | 7 passed |
 | `src/numberParsing.test.ts` | Strict int/float parsers accept plain numbers and reject junk like "12abc", "1e3", "0x10" | 4 passed |
 | `src/medSuppSelection.test.ts` | Log-tab med/supp selection state machine: multi-select, qty init/drop, edit-mode single-select locking of the other section, qty clamping 1–20, prune, load, reset | 10 passed |

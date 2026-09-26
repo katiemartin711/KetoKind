@@ -3,9 +3,15 @@
 // downloads the GGUF into the app's documents folder and runs it locally.
 
 import { TurboModuleRegistry } from 'react-native';
+import * as Crypto from 'expo-crypto';
 import { Directory, File, Paths } from 'expo-file-system';
 import { initLlama, type LlamaContext } from 'llama.rn';
-import { ON_DEVICE_MODEL_FILE, ON_DEVICE_MODEL_URL } from './model';
+import {
+  ON_DEVICE_MODEL_BYTES,
+  ON_DEVICE_MODEL_FILE,
+  ON_DEVICE_MODEL_SHA256,
+  ON_DEVICE_MODEL_URL,
+} from './model';
 
 export function isNativeLlmLinked(): boolean {
   try {
@@ -25,10 +31,18 @@ export function onDeviceModelFile(): File {
 
 export function isModelReady(): boolean {
   try {
-    return onDeviceModelFile().exists;
+    const file = onDeviceModelFile();
+    return file.exists && file.size === ON_DEVICE_MODEL_BYTES;
   } catch {
     return false;
   }
+}
+
+/** SHA-256 hex of a file, using the SDK 57 byte digest (digestStringAsync hashes strings only). */
+async function sha256File(file: File): Promise<string> {
+  const bytes = await file.bytes();
+  const digest = await Crypto.digest(Crypto.CryptoDigestAlgorithm.SHA256, bytes);
+  return Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, '0')).join('');
 }
 
 let context: LlamaContext | null = null;
@@ -50,15 +64,30 @@ async function releaseContext(): Promise<void> {
 export async function downloadOnDeviceModel(onProgress?: (fraction: number) => void): Promise<void> {
   const dir = modelsDirectory();
   if (!dir.exists) dir.create({ intermediates: true, idempotent: true });
+  const partial = new File(dir, `${ON_DEVICE_MODEL_FILE}.partial`);
   const dest = onDeviceModelFile();
-  await File.downloadFileAsync(ON_DEVICE_MODEL_URL, dest, {
-    idempotent: true,
-    onProgress: (data) => {
-      if (!onProgress || data.totalBytes <= 0) return;
-      onProgress(Math.min(1, data.bytesWritten / data.totalBytes));
-    },
-  });
-  await releaseContext();
+  try {
+    await File.downloadFileAsync(ON_DEVICE_MODEL_URL, partial, {
+      idempotent: true,
+      onProgress: (data) => {
+        if (!onProgress || data.totalBytes <= 0) return;
+        onProgress(Math.min(1, data.bytesWritten / data.totalBytes));
+      },
+    });
+    if (partial.size !== ON_DEVICE_MODEL_BYTES) {
+      throw new Error('The model download did not match the expected file.');
+    }
+    const hash = await sha256File(partial);
+    if (hash !== ON_DEVICE_MODEL_SHA256) {
+      throw new Error('The model download did not match the expected file.');
+    }
+    if (dest.exists) dest.delete();
+    await partial.move(dest);
+    await releaseContext();
+  } catch (err) {
+    if (partial.exists) partial.delete();
+    throw err;
+  }
 }
 
 export async function deleteOnDeviceModel(): Promise<void> {

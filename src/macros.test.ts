@@ -141,6 +141,16 @@ check('macro comparison withholds thin data and splits on the median', () => {
 check('narrative acceptance drops advice and fingerprints change with the stats', () => {
   eq(acceptNarrative('too short'), null, 'short');
   eq(acceptNarrative('You should stop taking your medication based on these logs today.'), null, 'advice');
+  eq(
+    acceptNarrative('In your logs, higher fat days cause headache severity to drop across the month.'),
+    null,
+    'causal wording',
+  );
+  eq(
+    acceptNarrative('Averaged across your logs, headache severity was lower on higher-fat days.'),
+    'Averaged across your logs, headache severity was lower on higher-fat days.',
+    'descriptive wording stays',
+  );
   const okText = 'In your logs, headache severity averaged higher on higher net-carb days than on lower ones.';
   eq(acceptNarrative(okText), okText, 'plain pattern');
   const a = compareMacroBalance('Headache', days([1, 1, 1, 1, 1, 1, 1, 4, 4, 4]), macros(10, (i) => (i < 7 ? 4 : 30)), 'netCarbs');

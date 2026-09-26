@@ -127,7 +127,8 @@ export function narrativePrompt(comparisons: MacroComparison[]): { system: strin
   };
 }
 
-const UNSAFE_NARRATIVE = /\b(you should|stop taking|start taking|increase your|decrease your|diagnos)/i;
+const UNSAFE_NARRATIVE =
+  /\b(you should|stop taking|start taking|increase your|decrease your|diagnos|causes?|improves?|worsens?|avoid|cut out|don't eat|do not eat|quit|discontinue)\b/i;
 
 /** Drop model text that slips into advice. Empty or unsafe text is unusable. */
 export function acceptNarrative(text: string): string | null {

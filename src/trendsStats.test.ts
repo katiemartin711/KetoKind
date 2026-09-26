@@ -206,10 +206,11 @@ check('rankPatterns keeps top 3 by absolute diff, drops nulls', () => {
 check('filterWeightRange keeps trailing windows; -1 keeps all', () => {
   const now = Date.now();
   const day = 24 * 60 * 60 * 1000;
+  const key = (daysAgo: number) => localDayKey(new Date(now - daysAgo * day).toISOString());
   const pts = [
     { day: '2025-01-01', weight: 200, at: now - 400 * day },
-    { day: '2026-09-01', weight: 190, at: now - 20 * day },
-    { day: '2026-09-19', weight: 185, at: now - 1 * day },
+    { day: key(20), weight: 190, at: now - 20 * day },
+    { day: key(1), weight: 185, at: now - 1 * day },
   ];
   eq(filterWeightRange(pts, 30).length, 2, '30d keeps 2');
   eq(filterWeightRange(pts, 90).length, 2, '90d keeps 2');

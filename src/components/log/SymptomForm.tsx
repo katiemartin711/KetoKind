@@ -79,7 +79,7 @@ export default function SymptomForm(props: Props) {
             key={n}
             style={[styles.chip, severity === n && styles.chipActive]}
             onPress={() => onSeverityChange(n)}
-            accessibilityRole="checkbox"
+            accessibilityRole="radio"
             accessibilityState={{ selected: severity === n }}
             accessibilityLabel={`Severity ${n} of 5`}
           >

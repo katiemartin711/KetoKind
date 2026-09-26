@@ -3,8 +3,8 @@
 // sound/badge toggles, and a shortcut to the iPhone's system notification
 // settings (banner style, banner duration, per-app toggles live there).
 
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Alert, Linking, StyleSheet, Switch, Text, TouchableOpacity, View } from 'react-native';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Alert, Linking, Platform, StyleSheet, Switch, Text, TouchableOpacity, View } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { useTheme } from '../../ThemeContext';
 import type { Palette } from '../../theme';
@@ -21,6 +21,8 @@ import {
   reconcileReminders,
 } from '../../reminders';
 import TimePickerModal from './TimePickerModal';
+
+const deviceSettingsLabel = Platform.OS === 'ios' ? 'iPhone Settings' : 'Settings';
 
 type Permission = 'granted' | 'denied' | 'undetermined';
 type PickerState = { mode: 'main' } | { mode: 'custom'; id: string } | { mode: 'new' } | null;
@@ -61,6 +63,7 @@ export default function NotificationSection({ reloadToken }: { reloadToken: numb
   const { colors: C, common } = useTheme();
   const styles = useMemo(() => makeStyles(C), [C]);
   const [settings, setSettings] = useState<ReminderSettings>(() => getReminderSettings());
+  const settingsRef = useRef(settings);
   const [permission, setPermission] = useState<Permission>('undetermined');
   const [picker, setPicker] = useState<PickerState>(null);
 
@@ -83,20 +86,26 @@ export default function NotificationSection({ reloadToken }: { reloadToken: numb
     refresh();
   }, [reloadToken, refresh]);
 
-  /** Persist one change and re-schedule. Never throws: a scheduling failure
-   *  must not lose the user's saved preference. */
-  const apply = useCallback(
-    (next: ReminderSettings) => {
-      setSettings(next);
-      try {
-        saveReminderSettings(next);
-      } catch {
-        return;
-      }
-      reconcileReminders();
-    },
-    [],
-  );
+  // toggleEnabled awaits a permission prompt. Read the latest settings from
+  // this ref so that wait cannot spread a stale object.
+  useEffect(() => {
+    settingsRef.current = settings;
+  }, [settings]);
+
+  /** Persist first. A failed write alerts and leaves the previous settings on screen. */
+  const apply = useCallback((next: ReminderSettings) => {
+    try {
+      saveReminderSettings(next);
+    } catch (e) {
+      Alert.alert(
+        'Could not save reminders',
+        e instanceof Error ? e.message : 'Try again in a moment.',
+      );
+      return;
+    }
+    setSettings(next);
+    reconcileReminders();
+  }, []);
 
   const toggleEnabled = async (v: boolean) => {
     if (v) {
@@ -105,7 +114,7 @@ export default function NotificationSection({ reloadToken }: { reloadToken: numb
       if (!ok) {
         Alert.alert(
           'Notifications are blocked',
-          'KetoKind needs notification permission to send reminders. You can allow it in iPhone Settings.',
+          `KetoKind needs notification permission to send reminders. You can allow it in ${deviceSettingsLabel}.`,
           [
             { text: 'Not now', style: 'cancel' },
             { text: 'Open Settings', onPress: () => Linking.openSettings() },
@@ -114,7 +123,7 @@ export default function NotificationSection({ reloadToken }: { reloadToken: numb
         return;
       }
     }
-    apply({ ...settings, enabled: v });
+    apply({ ...settingsRef.current, enabled: v });
   };
 
   const onPickerSave = (t: ReminderTime) => {
@@ -159,9 +168,9 @@ export default function NotificationSection({ reloadToken }: { reloadToken: numb
             onPress={() => Linking.openSettings()}
             style={[styles.warnButton, { borderColor: C.danger }]}
             accessibilityRole="button"
-            accessibilityLabel="Open iPhone Settings"
+            accessibilityLabel={`Open ${deviceSettingsLabel}`}
           >
-            <Text style={[styles.warnButtonText, { color: C.danger }]}>Open iPhone Settings</Text>
+            <Text style={[styles.warnButtonText, { color: C.danger }]}>Open {deviceSettingsLabel}</Text>
           </TouchableOpacity>
         </View>
       ) : null}
@@ -261,15 +270,15 @@ export default function NotificationSection({ reloadToken }: { reloadToken: numb
 
       <Text style={[styles.sectionLabel, { color: C.muted }]}>NOTIFICATION STYLE</Text>
       <Text style={[styles.hint, { color: C.muted, marginBottom: 8 }]}>
-        Banner vs. list, how long banners stay on screen, and sounds are controlled in iPhone Settings.
+        Banner vs. list, how long banners stay on screen, and sounds are controlled in {deviceSettingsLabel}.
       </Text>
       <TouchableOpacity
         onPress={() => Linking.openSettings()}
         style={[styles.addButton, { borderColor: C.border }]}
         accessibilityRole="button"
-        accessibilityLabel="Open iPhone Settings"
+        accessibilityLabel={`Open ${deviceSettingsLabel}`}
       >
-        <Text style={[styles.addButtonText, { color: C.text }]}>Open iPhone Settings</Text>
+        <Text style={[styles.addButtonText, { color: C.text }]}>Open {deviceSettingsLabel}</Text>
       </TouchableOpacity>
 
       <TimePickerModal

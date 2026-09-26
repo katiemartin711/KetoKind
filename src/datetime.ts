@@ -1,6 +1,8 @@
 // Shared local-date / time formatters used across Log, Dashboard, Export,
 // and list screens — keeps locale formatting in one place.
 
+import { localDayKey } from './trendsStats';
+
 /** "3:45 PM" from an ISO timestamp. */
 export function fmtTime(iso: string): string {
   return new Date(iso).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
@@ -46,10 +48,9 @@ export function dayLabel(iso: string): string {
   return d.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
 }
 
-/** Local-day key for grouping list sections (year-month-date). */
+/** Local-day key for grouping list sections (YYYY-MM-DD, month 1-12). */
 export function dayKey(iso: string): string {
-  const d = new Date(iso);
-  return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+  return localDayKey(iso);
 }
 
 function sameLocalDay(a: Date, b: Date): boolean {

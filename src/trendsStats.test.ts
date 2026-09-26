@@ -20,6 +20,7 @@ import {
   filterWeightRange,
   localDayKey,
   rankPatterns,
+  diffLabel,
   round1,
   shortDayLabel,
   summarizeWeights,
@@ -78,6 +79,10 @@ check('average and round1', () => {
   eq(average([]), null, 'empty -> null');
   eq(round1(2.34), 2.3, 'rounds down');
   eq(round1(2.35), 2.4, 'rounds up');
+});
+
+check('diffLabel rounds a near-zero difference to the same', () => {
+  eq(diffLabel(0.04), 'about the same on days taken vs. not taken', 'rounds to zero');
 });
 
 check('bucketDays splits severities by item-day membership', () => {

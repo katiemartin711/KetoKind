@@ -1,0 +1,45 @@
+# Publishes a JavaScript update for the installed preview app.
+# EXPO_TOKEN is a repository secret. This workflow does not print it.
+
+name: Publish phone update
+
+on:
+  push:
+    branches:
+      - cursor/on-device-llm-macros-bf07
+      - main
+  workflow_dispatch:
+
+jobs:
+  update:
+    if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip update]') }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Configure EAS Update
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: npx eas-cli update:configure --non-interactive --environment preview
+      - name: Publish update
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          EXPO_PUBLIC_DEMO_PRO: "1"
+          UPDATE_MESSAGE: ${{ github.event.head_commit.message || 'Phone update' }}
+        run: npx eas-cli update --channel preview --environment preview --non-interactive --platform ios --message "$UPDATE_MESSAGE"
+      - name: Save EAS Update config
+        run: |
+          if git diff --quiet -- app.json package.json package-lock.json; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app.json package.json package-lock.json
+          git commit -m "[skip update] Save EAS Update project config"
+          git push

@@ -3,7 +3,7 @@
 // all-logs editEntry). The screen component (src/screens/LogScreen.tsx)
 // only composes the UI from what this hook returns.
 
-import { useCallback, useEffect, useReducer, useState } from 'react';
+import { useCallback, useEffect, useReducer, useRef, useState } from 'react';
 import { Alert } from 'react-native';
 import { useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
 import type { RouteProp } from '@react-navigation/native';
@@ -56,6 +56,44 @@ import {
   type EditingKind,
 } from './medSuppSelection';
 import type { SegmentOption } from './SegmentTabs';
+import { beginSave, finishSave, type SaveDraft } from './saveGuard';
+
+type LogEditing = { kind: AnyLog['kind']; id: number } | null;
+
+/** Fields saveMeal reads from the form. Cleared while that save is in flight. */
+interface MealDraftValue {
+  name: string;
+  notes: string;
+  type: string;
+  logDate: Date;
+  editing: LogEditing;
+}
+
+/** Fields saveMedSupp reads from the form. */
+interface MedSuppDraftValue {
+  selectedMedIds: number[];
+  selectedSuppIds: number[];
+  medQty: Record<number, number>;
+  suppQty: Record<number, number>;
+  logDate: Date;
+  editing: LogEditing;
+}
+
+/** Fields saveSymptom reads from the form. */
+interface SymptomDraftValue {
+  name: string;
+  severity: number;
+  notes: string;
+  logDate: Date;
+  editing: LogEditing;
+}
+
+/** Fields saveWeight reads from the form. */
+interface WeightDraftValue {
+  weightInput: string;
+  logDate: Date;
+  editing: LogEditing;
+}
 
 type LogRoute = RouteProp<RootTabParamList, 'Log'>;
 
@@ -105,7 +143,67 @@ export function useLogScreen() {
   // Timestamp for the entry being created/edited — defaults to right now.
   const [logDate, setLogDate] = useState<Date>(new Date());
   // Non-null while an existing entry is loaded into the form for editing.
-  const [editing, setEditing] = useState<{ kind: AnyLog['kind']; id: number } | null>(null);
+  const [editing, setEditing] = useState<LogEditing>(null);
+
+  // Each save owns one draft. The ref is refreshed from form state every
+  // render, but not while that save is in flight — beginSave has already
+  // emptied the value, and copying the still-filled form back would let a
+  // second tap insert another row.
+  const draftRef = useRef<{
+    meal: SaveDraft<MealDraftValue>;
+    medSupp: SaveDraft<MedSuppDraftValue>;
+    symptom: SaveDraft<SymptomDraftValue>;
+    weight: SaveDraft<WeightDraftValue>;
+  }>({
+    meal: {
+      saving: false,
+      value: { name: '', notes: '', type: 'Dinner', logDate: new Date(), editing: null },
+    },
+    medSupp: {
+      saving: false,
+      value: {
+        selectedMedIds: [],
+        selectedSuppIds: [],
+        medQty: {},
+        suppQty: {},
+        logDate: new Date(),
+        editing: null,
+      },
+    },
+    symptom: {
+      saving: false,
+      value: { name: '', severity: 3, notes: '', logDate: new Date(), editing: null },
+    },
+    weight: {
+      saving: false,
+      value: { weightInput: '', logDate: new Date(), editing: null },
+    },
+  });
+  if (!draftRef.current.meal.saving) {
+    draftRef.current.meal.value = { name: mealName, notes: mealNotes, type: mealType, logDate, editing };
+  }
+  if (!draftRef.current.medSupp.saving) {
+    draftRef.current.medSupp.value = {
+      selectedMedIds: sel.selectedMedIds,
+      selectedSuppIds: sel.selectedSuppIds,
+      medQty: sel.medQty,
+      suppQty: sel.suppQty,
+      logDate,
+      editing,
+    };
+  }
+  if (!draftRef.current.symptom.saving) {
+    draftRef.current.symptom.value = {
+      name: symptomName,
+      severity,
+      notes: symptomNotes,
+      logDate,
+      editing,
+    };
+  }
+  if (!draftRef.current.weight.saving) {
+    draftRef.current.weight.value = { weightInput, logDate, editing };
+  }
 
   const refresh = useCallback(() => {
     setTodayLogs(getLogsForDay(new Date()));
@@ -131,10 +229,9 @@ export function useLogScreen() {
   useFocusEffect(refresh);
 
   // Dashboard quick-add buttons navigate here with a segment param.
-  // Mirrors tapping the segmented control below: switching forms exits edit
-  // mode and resets the time to now. Without the setEditing(null), arriving
-  // here mid-edit would leave a stale `editing` that matches no branch of
-  // the save handler, silently discarding the new selections.
+  // Mirrors tapping the segmented control: switching forms clears the whole
+  // form (including a loaded edit). Clearing only `editing` left the fields
+  // filled, so Save inserted a second row.
   //
   // The all-logs list screen navigates here with editEntry instead: the
   // entry is loaded into the form for editing. The param is consumed
@@ -151,9 +248,9 @@ export function useLogScreen() {
         trackWeight: !!getProfile().track_weight,
       });
     } else if (segmentParam) {
+      resetForm();
       setSegment(segmentParam);
-      setEditing(null);
-      setLogDate(new Date());
+      tabNavigation.setParams({ segment: undefined });
     }
     // startEdit intentionally omitted: this effect answers param changes only.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -168,11 +265,11 @@ export function useLogScreen() {
     if (!trackWeightOn && segment === 'weight') setSegment('meal');
   }, [trackWeightOn, segment]);
 
-  /** Switching forms exits edit mode; the time resets to now. */
+  /** Switching forms clears the in-progress edit so Save cannot insert a copy. */
   const selectSegment = (key: LogSegment) => {
+    resetForm();
     setSegment(key);
-    setEditing(null);
-    setLogDate(new Date());
+    tabNavigation.setParams({ segment: undefined });
   };
 
   const macroInput = {
@@ -184,53 +281,75 @@ export function useLogScreen() {
   };
 
   const saveMeal = () => {
-    if (!mealName.trim()) return Alert.alert('Missing name', 'What did you eat?');
-    const fieldsBlank = macroFieldsBlank(macroInput, trackCalories);
-    let userMacros = null;
-    if (!fieldsBlank) {
-      const parsed = parseUserMacros(macroInput, trackCalories);
-      if (!parsed.ok) return Alert.alert('Check macros', parsed.message);
-      userMacros = parsed.macros;
-    }
-    const previous = editing?.kind === 'meal' ? getFoodLog(editing.id) : null;
-    const sameAsSaved =
-      previous != null &&
-      userMacros != null &&
-      previous.protein_g === userMacros.proteinG &&
-      previous.fat_g === userMacros.fatG &&
-      previous.carbs_g === userMacros.carbsG &&
-      previous.fiber_g === userMacros.fiberG &&
-      (!trackCalories || (previous.calories ?? null) === userMacros.calories);
-    // An untouched estimate should be recalculated. Typed numbers are kept.
-    const userEdited = !fieldsBlank && !(sameAsSaved && previous?.macro_source === 'estimated');
+    const begun = beginSave(draftRef.current.meal, {
+      name: '',
+      notes: '',
+      type: 'Dinner',
+      logDate: new Date(),
+      editing: null,
+    });
+    if (!begun.ok) return;
     let mealId = 0;
+    let userEdited = false;
     try {
-      const at = logDate.toISOString();
-      if (editing?.kind === 'meal') {
-        updateFoodLog(editing.id, mealName, mealType, mealNotes, at);
-        mealId = editing.id;
+      if (!begun.value.name.trim()) {
+        finishSave(draftRef.current.meal, begun.value);
+        Alert.alert('Missing name', 'What did you eat?');
+        return;
+      }
+      const fieldsBlank = macroFieldsBlank(macroInput, trackCalories);
+      let userMacros = null;
+      if (!fieldsBlank) {
+        const parsed = parseUserMacros(macroInput, trackCalories);
+        if (!parsed.ok) {
+          finishSave(draftRef.current.meal, begun.value);
+          Alert.alert('Check macros', parsed.message);
+          return;
+        }
+        userMacros = parsed.macros;
+      }
+      const editingMeal = begun.value.editing?.kind === 'meal' ? begun.value.editing : null;
+      const previous = editingMeal ? getFoodLog(editingMeal.id) : null;
+      const sameAsSaved =
+        previous != null &&
+        userMacros != null &&
+        previous.protein_g === userMacros.proteinG &&
+        previous.fat_g === userMacros.fatG &&
+        previous.carbs_g === userMacros.carbsG &&
+        previous.fiber_g === userMacros.fiberG &&
+        (!trackCalories || (previous.calories ?? null) === userMacros.calories);
+      // An untouched estimate should be recalculated. Typed numbers are kept.
+      userEdited = !fieldsBlank && !(sameAsSaved && previous?.macro_source === 'estimated');
+      const at = begun.value.logDate.toISOString();
+      if (editingMeal) {
+        updateFoodLog(editingMeal.id, begun.value.name, begun.value.type, begun.value.notes, at);
+        mealId = editingMeal.id;
       } else {
-        mealId = addFoodLog(mealName, mealType, mealNotes, at);
+        mealId = addFoodLog(begun.value.name, begun.value.type, begun.value.notes, at);
       }
       if (userMacros && userEdited && !sameAsSaved) setFoodMacros(mealId, userMacros, 'edited');
       if (favorite) {
         saveMealFavorite({
-          name: mealName,
-          mealType,
-          notes: mealNotes,
+          name: begun.value.name,
+          mealType: begun.value.type,
+          notes: begun.value.notes,
           macros: userMacros,
           source: userMacros && userEdited ? 'edited' : '',
           label: favoriteLabel,
         });
       } else {
-        deleteMealFavoriteByName(mealName);
+        deleteMealFavoriteByName(begun.value.name);
       }
+      resetForm();
+      refresh();
+      finishSave(draftRef.current.meal, null);
     } catch (e) {
+      finishSave(draftRef.current.meal, begun.value);
       alertSaveFailed(e);
       return;
     }
-    const savedName = mealName;
-    const savedNotes = mealNotes;
+    const savedName = begun.value.name;
+    const savedNotes = begun.value.notes;
     const keepFavorite = favorite;
     const plan = estimateMealMacros(savedName, savedNotes)
       ? userEdited
@@ -242,8 +361,6 @@ export function useLogScreen() {
           offer: getLlmOffer(),
           userEditedMacros: userEdited,
         });
-    resetForm();
-    refresh();
     if (plan === 'estimate') {
       setEstimating(true);
       void estimateSavedMeal(mealId, savedName, savedNotes)
@@ -298,17 +415,29 @@ export function useLogScreen() {
    * same timestamp — for the after-a-meal handful of pills.
    */
   const saveMedSupp = () => {
-    const { selectedMedIds, selectedSuppIds, medQty, suppQty } = sel;
-    if (selectedMedIds.length === 0 && selectedSuppIds.length === 0) {
-      return Alert.alert('Nothing selected', 'Pick at least one medication or supplement first.');
-    }
+    const begun = beginSave(draftRef.current.medSupp, {
+      selectedMedIds: [],
+      selectedSuppIds: [],
+      medQty: {},
+      suppQty: {},
+      logDate: new Date(),
+      editing: null,
+    });
+    if (!begun.ok) return;
+    const { selectedMedIds, selectedSuppIds, medQty, suppQty } = begun.value;
     try {
-      const at = logDate.toISOString();
-      if (editing?.kind === 'medication' && selectedMedIds.length > 0) {
-        updateMedLog(editing.id, selectedMedIds[0], at, medQty[selectedMedIds[0]] ?? 1);
-      } else if (editing?.kind === 'supplement' && selectedSuppIds.length > 0) {
-        updateSupplementLog(editing.id, selectedSuppIds[0], at, suppQty[selectedSuppIds[0]] ?? 1);
-      } else if (!editing) {
+      if (selectedMedIds.length === 0 && selectedSuppIds.length === 0) {
+        finishSave(draftRef.current.medSupp, begun.value);
+        Alert.alert('Nothing selected', 'Pick at least one medication or supplement first.');
+        return;
+      }
+      const at = begun.value.logDate.toISOString();
+      const draftEditing = begun.value.editing;
+      if (draftEditing?.kind === 'medication' && selectedMedIds.length > 0) {
+        updateMedLog(draftEditing.id, selectedMedIds[0], at, medQty[selectedMedIds[0]] ?? 1);
+      } else if (draftEditing?.kind === 'supplement' && selectedSuppIds.length > 0) {
+        updateSupplementLog(draftEditing.id, selectedSuppIds[0], at, suppQty[selectedSuppIds[0]] ?? 1);
+      } else if (!draftEditing) {
         // Multi-insert must be atomic so a crash mid-handful doesn't leave a
         // half-logged set of pills.
         database().withTransactionSync(() => {
@@ -318,7 +447,9 @@ export function useLogScreen() {
       }
       resetForm();
       refresh();
+      finishSave(draftRef.current.medSupp, null);
     } catch (e) {
+      finishSave(draftRef.current.medSupp, begun.value);
       alertSaveFailed(e);
     }
   };
@@ -339,34 +470,66 @@ export function useLogScreen() {
   };
 
   const saveSymptom = () => {
-    if (!symptomName.trim()) return Alert.alert('Missing name', 'What symptom are you logging?');
+    const begun = beginSave(draftRef.current.symptom, {
+      name: '',
+      severity: 3,
+      notes: '',
+      logDate: new Date(),
+      editing: null,
+    });
+    if (!begun.ok) return;
     try {
-      const at = logDate.toISOString();
-      if (editing?.kind === 'symptom') {
-        updateSymptomLog(editing.id, symptomName, severity, symptomNotes, at);
+      if (!begun.value.name.trim()) {
+        finishSave(draftRef.current.symptom, begun.value);
+        Alert.alert('Missing name', 'What symptom are you logging?');
+        return;
+      }
+      const at = begun.value.logDate.toISOString();
+      if (begun.value.editing?.kind === 'symptom') {
+        updateSymptomLog(
+          begun.value.editing.id,
+          begun.value.name,
+          begun.value.severity,
+          begun.value.notes,
+          at,
+        );
       } else {
-        addSymptomLog(symptomName, severity, symptomNotes, at);
+        addSymptomLog(begun.value.name, begun.value.severity, begun.value.notes, at);
       }
       resetForm();
       refresh();
+      finishSave(draftRef.current.symptom, null);
     } catch (e) {
+      finishSave(draftRef.current.symptom, begun.value);
       alertSaveFailed(e);
     }
   };
 
   const saveWeight = () => {
-    const w = parseFloatStrict(weightInput);
-    if (w == null || w <= 0) return Alert.alert('Invalid', 'Enter your weight in lbs.');
+    const begun = beginSave(draftRef.current.weight, {
+      weightInput: '',
+      logDate: new Date(),
+      editing: null,
+    });
+    if (!begun.ok) return;
     try {
-      const at = logDate.toISOString();
-      if (editing?.kind === 'weight') {
-        updateWeightLog(editing.id, w, at);
+      const w = parseFloatStrict(begun.value.weightInput);
+      if (w == null || w <= 0) {
+        finishSave(draftRef.current.weight, begun.value);
+        Alert.alert('Invalid', 'Enter your weight in lbs.');
+        return;
+      }
+      const at = begun.value.logDate.toISOString();
+      if (begun.value.editing?.kind === 'weight') {
+        updateWeightLog(begun.value.editing.id, w, at);
       } else {
         addWeightLog(w, at);
       }
       resetForm();
       refresh();
+      finishSave(draftRef.current.weight, null);
     } catch (e) {
+      finishSave(draftRef.current.weight, begun.value);
       alertSaveFailed(e);
     }
   };
@@ -393,6 +556,8 @@ export function useLogScreen() {
   };
 
   /** Load an existing entry into the form so it can be edited (time included).
+   *  The row is fetched before resetForm so a missing entry (or a weigh-in
+   *  while weight tracking is off) leaves the current form alone.
    *  `ctx` lets callers pass fresh db reads instead of possibly-stale state —
    *  used when arriving from the all-logs screen before this tab was focused. */
   const startEdit = (
@@ -401,10 +566,10 @@ export function useLogScreen() {
   ) => {
     const meds = ctx?.medications ?? medications;
     const weightOn = ctx?.trackWeight ?? trackWeightOn;
-    resetForm();
     if (log.kind === 'meal') {
       const row = getFoodLog(log.id);
       if (!row) return;
+      resetForm();
       setMealName(row.name);
       setMealType(row.meal_type);
       setMealNotes(row.notes);
@@ -420,6 +585,7 @@ export function useLogScreen() {
     } else if (log.kind === 'medication') {
       const row = getMedLog(log.id);
       if (!row) return;
+      resetForm();
       // The medication may have been deleted from the profile since — don't
       // keep an invisible selection; the user picks a current one instead.
       const stillExists = meds.some((m) => m.id === row.medication_id);
@@ -434,19 +600,25 @@ export function useLogScreen() {
     } else if (log.kind === 'symptom') {
       const row = getSymptomLog(log.id);
       if (!row) return;
+      resetForm();
       setSymptomName(row.name);
       setSeverity(row.severity);
       setSymptomNotes(row.notes);
       setLogDate(new Date(row.logged_at));
     } else if (log.kind === 'weight') {
-      if (!weightOn) return; // tracking was turned off in Profile
       const row = getWeightLog(log.id);
       if (!row) return;
+      if (!weightOn) {
+        Alert.alert('Weight tracking is off', 'Turn it on in Profile to edit this weigh-in.');
+        return;
+      }
+      resetForm();
       setWeightInput(String(row.weight));
       setLogDate(new Date(row.logged_at));
     } else if (log.kind === 'supplement') {
       const row = getSupplementLog(log.id);
       if (!row) return;
+      resetForm();
       // Legacy free-text logs (or ones whose supplement was deleted) have no
       // live profile entry — the user just picks again.
       dispatchSel({
@@ -457,6 +629,8 @@ export function useLogScreen() {
         suppQty: row.supplement_id != null ? { [row.supplement_id]: row.quantity ?? 1 } : {},
       });
       setLogDate(new Date(row.logged_at));
+    } else {
+      return;
     }
     setSegment(log.kind === 'medication' || log.kind === 'supplement' ? 'medsupp' : log.kind);
     setEditing({ kind: log.kind, id: log.id });

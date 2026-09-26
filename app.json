@@ -39,8 +39,12 @@
       [
         "expo-build-properties",
         {
-          "ios": { "newArchEnabled": true },
-          "android": { "newArchEnabled": true }
+          "ios": {
+            "newArchEnabled": true
+          },
+          "android": {
+            "newArchEnabled": true
+          }
         }
       ],
       [
@@ -65,6 +69,15 @@
           }
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "62c7a471-044a-4dfb-9b36-8ab4030ebad8"
+      }
+    },
+    "owner": "compoundboar",
+    "updates": {
+      "url": "https://u.expo.dev/62c7a471-044a-4dfb-9b36-8ab4030ebad8"
+    }
   }
 }

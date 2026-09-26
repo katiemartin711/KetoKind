@@ -8,7 +8,7 @@
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.katiemartin.ketokind"
+      "bundleIdentifier": "com.polygrok.ketokind"
     },
     "android": {
       "package": "com.katiemartin.ketokind",

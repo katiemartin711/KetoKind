@@ -4,6 +4,7 @@ import DateTimeField from './DateTimeField';
 import { useTheme } from '../../ThemeContext';
 import type { Palette } from '../../theme';
 import type { MealFavorite } from '../../types';
+import { favoriteTileText } from '../../favoriteTile';
 
 const MEAL_TYPES = ['Breakfast', 'Lunch', 'Dinner', 'Snack'];
 
@@ -81,32 +82,33 @@ export default function MealForm(props: Props) {
       {favorites.length > 0 && (
         <View style={styles.favorites}>
           <Text style={common.label}>Favorites</Text>
-          {favorites.map((fav) => {
-            const title = fav.label.trim() || fav.name;
-            return (
-              <View key={fav.id} style={styles.favoriteRow}>
-                <TouchableOpacity
-                  style={styles.favoriteMain}
-                  onPress={() => onUseFavorite(fav.id)}
-                  accessibilityRole="button"
-                  accessibilityLabel={`Log ${title}`}
-                >
-                  <Text style={[styles.favoriteName, { color: colors.text }]}>{title}</Text>
-                  <Text style={styles.hint}>
-                    {fav.label.trim() ? `${fav.meal_type} · ${fav.name}` : fav.meal_type}
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => onRemoveFavorite(fav.id)}
-                  accessibilityRole="button"
-                  accessibilityLabel={`Remove ${title} from favorites`}
-                  hitSlop={8}
-                >
-                  <Text style={[styles.remove, { color: colors.muted }]}>×</Text>
-                </TouchableOpacity>
-              </View>
-            );
-          })}
+          <View style={styles.favoriteTiles}>
+            {favorites.map((fav) => {
+              const title = favoriteTileText(fav.label, fav.name);
+              const spoken = fav.label.trim() || fav.name.trim();
+              return (
+                <View key={fav.id} style={styles.favoriteTile}>
+                  <TouchableOpacity
+                    onPress={() => onUseFavorite(fav.id)}
+                    accessibilityRole="button"
+                    accessibilityLabel={`Log ${spoken}`}
+                  >
+                    <Text style={[styles.favoriteTileText, { color: colors.text }]} numberOfLines={1}>
+                      {title}
+                    </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() => onRemoveFavorite(fav.id)}
+                    accessibilityRole="button"
+                    accessibilityLabel={`Remove ${spoken} from favorites`}
+                    hitSlop={6}
+                  >
+                    <Text style={[styles.favoriteTileRemove, { color: colors.muted }]}>×</Text>
+                  </TouchableOpacity>
+                </View>
+              );
+            })}
+          </View>
         </View>
       )}
       <Text style={common.label}>What did you eat?</Text>
@@ -229,20 +231,22 @@ function MacroField({
 const makeStyles = (C: Palette) =>
   StyleSheet.create({
     hint: { fontSize: 13, color: C.muted, marginBottom: 8, lineHeight: 18 },
-    favorites: { marginBottom: 8 },
-    favoriteRow: {
+    favorites: { marginBottom: 4 },
+    favoriteTiles: { flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
+    favoriteTile: {
       flexDirection: 'row',
       alignItems: 'center',
+      maxWidth: '100%',
       borderWidth: 1,
       borderColor: C.border,
-      borderRadius: 12,
-      paddingHorizontal: 12,
-      paddingVertical: 8,
-      marginBottom: 8,
+      borderRadius: 14,
+      paddingLeft: 8,
+      paddingRight: 2,
+      paddingVertical: 2,
     },
-    favoriteMain: { flex: 1 },
+    favoriteTileText: { fontSize: 13, fontWeight: '600' },
+    favoriteTileRemove: { fontSize: 16, lineHeight: 18, paddingHorizontal: 4 },
     favoriteName: { fontSize: 16, fontWeight: '600' },
-    remove: { fontSize: 22, paddingHorizontal: 8 },
     favoriteToggle: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 8 },
     favoriteCopy: { flex: 1 },
     macroRow: { flexDirection: 'row', gap: 10 },

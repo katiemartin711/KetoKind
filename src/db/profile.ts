@@ -79,7 +79,11 @@ export function deleteAllData(): void {
   });
   // Actually purge the deleted rows from the file (DELETE alone leaves them
   // in free pages).
-  database().execSync('VACUUM;');
+  try {
+    database().execSync('VACUUM;');
+  } catch {
+    // The wipe already committed. A failed VACUUM must not look like a failed delete.
+  }
 }
 
 

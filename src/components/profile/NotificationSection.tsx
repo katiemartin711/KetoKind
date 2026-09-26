@@ -3,7 +3,7 @@
 // sound/badge toggles, and a shortcut to the iPhone's system notification
 // settings (banner style, banner duration, per-app toggles live there).
 
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Alert, Linking, StyleSheet, Switch, Text, TouchableOpacity, View } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { useTheme } from '../../ThemeContext';
@@ -57,7 +57,7 @@ function SettingRow({
   );
 }
 
-export default function NotificationSection() {
+export default function NotificationSection({ reloadToken }: { reloadToken: number }) {
   const { colors: C, common } = useTheme();
   const styles = useMemo(() => makeStyles(C), [C]);
   const [settings, setSettings] = useState<ReminderSettings>(() => getReminderSettings());
@@ -76,6 +76,12 @@ export default function NotificationSection() {
   // Re-read when returning to the Profile tab — the user may have flipped
   // the system switch in iPhone Settings while we were away.
   useFocusEffect(refresh);
+
+  // Profile stays focused across delete-all and import, so useFocusEffect
+  // does not re-run. Reload when the parent bumps reloadToken.
+  useEffect(() => {
+    refresh();
+  }, [reloadToken, refresh]);
 
   /** Persist one change and re-schedule. Never throws: a scheduling failure
    *  must not lose the user's saved preference. */

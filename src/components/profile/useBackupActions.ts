@@ -15,6 +15,7 @@ import {
   validateBackup,
 } from '../../db/backup';
 import type { DatabaseBackup } from '../../db/backup';
+import { IMPORT_BODY } from '../../destructiveCopy';
 
 export function useBackupActions() {
   const downloadBackup = async () => {
@@ -67,7 +68,7 @@ export function useBackupActions() {
       const backup = parsed;
       Alert.alert(
         'Replace all data?',
-        'Importing will replace everything currently on this device with the backup. This cannot be undone.',
+        IMPORT_BODY,
         [
           { text: 'Cancel', style: 'cancel' },
           {

@@ -625,6 +625,38 @@ check('export after deleting a medication and supplement still imports', () => {
   }
 });
 
+check('offset timestamp imports onto the local day of its instant', () => {
+  const handle = setup();
+  try {
+    populateDb();
+    const backup = exportBackup();
+    backup.foodLogs[0].logged_at = '2026-09-21T01:00:00-04:00';
+    eq(validateBackup(backup), [], 'offset timestamp is valid');
+    importBackup(backup);
+    const stored = database().getFirstSync<{ logged_at: string }>(
+      'SELECT logged_at FROM food_logs WHERE name = ?',
+      [backup.foodLogs[0].name],
+    );
+    eq(stored?.logged_at, '2026-09-21T05:00:00.000Z', 'stored as UTC');
+    const day = getLogsForDay(new Date('2026-09-21T12:00:00-04:00'));
+    ok(day.some((l) => l.kind === 'meal' && l.title === backup.foodLogs[0].name), 'visible on that local day');
+  } finally {
+    handle.close();
+  }
+});
+
+check('rejects hour 24 timestamps', () => {
+  const handle = setup();
+  try {
+    populateDb();
+    const backup = exportBackup();
+    backup.foodLogs[0].logged_at = '2026-01-01T24:00:00.000Z';
+    ok(validateBackup(backup).some((i) => i.path.endsWith('.logged_at')), 'T24 rejected');
+  } finally {
+    handle.close();
+  }
+});
+
 console.log(`
 ${passed} passed, ${failed} failed`);
 if (failed > 0) throw new Error(`${failed} test(s) failed`);

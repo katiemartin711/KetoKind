@@ -97,20 +97,40 @@ function isWeight(v: unknown): v is number {
 }
 
 /**
- * Full ISO-8601 datetimes — the only timestamp format this app writes
- * (Date.toISOString(), e.g. '2026-09-21T02:24:30.995Z'). Impossible calendar
- * dates like '2024-02-30' are rejected explicitly (V8's Date.parse rolls them
- * over to March instead of returning NaN).
+ * Full ISO-8601 datetimes. This app writes Date.toISOString()
+ * (e.g. '2026-09-21T02:24:30.995Z'); offsets are accepted and stored in that
+ * form. Hour 24, minutes or seconds above 59, years before 1970, and
+ * impossible calendar dates like '2024-02-30' are rejected (V8's Date.parse
+ * rolls Feb 30 into March instead of returning NaN). Instants more than two
+ * days ahead of now are rejected.
  */
-const ISO_DATETIME_RE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{1,3})?(Z|[+-]\d{2}:?\d{2})$/;
+const ISO_DATETIME_RE =
+  /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(\.\d{1,3})?(Z|[+-]\d{2}:?\d{2})$/;
+
 function isIsoDateTime(v: unknown): v is string {
-  if (typeof v !== 'string' || !ISO_DATETIME_RE.test(v)) return false;
-  const [y, m, d] = v.slice(0, 10).split('-').map(Number);
-  const check = new Date(Date.UTC(y, m - 1, d));
-  if (check.getUTCFullYear() !== y || check.getUTCMonth() !== m - 1 || check.getUTCDate() !== d) {
+  if (typeof v !== 'string') return false;
+  const m = ISO_DATETIME_RE.exec(v);
+  if (!m) return false;
+  const y = Number(m[1]);
+  const mo = Number(m[2]);
+  const d = Number(m[3]);
+  const hh = Number(m[4]);
+  const mm = Number(m[5]);
+  const ss = Number(m[6]);
+  if (y < 1970 || hh > 23 || mm > 59 || ss > 59) return false;
+  const check = new Date(Date.UTC(y, mo - 1, d));
+  if (check.getUTCFullYear() !== y || check.getUTCMonth() !== mo - 1 || check.getUTCDate() !== d) {
     return false;
   }
-  return !Number.isNaN(Date.parse(v));
+  const parsed = Date.parse(v);
+  if (Number.isNaN(parsed)) return false;
+  // Two days of slack so a backup made on a clock a little ahead still imports.
+  if (parsed > Date.now() + 2 * 24 * 60 * 60 * 1000) return false;
+  return true;
+}
+
+function canonicalIso(v: string): string {
+  return new Date(v).toISOString();
 }
 
 /**
@@ -438,7 +458,7 @@ export function importBackup(b: DatabaseBackup): void {
           f.id,
           str(f.name),
           str(f.meal_type, 'Meal'),
-          str(f.logged_at),
+          canonicalIso(str(f.logged_at)),
           str(f.notes),
           macroNum(f.protein_g),
           macroNum(f.fat_g),
@@ -452,7 +472,7 @@ export function importBackup(b: DatabaseBackup): void {
     }
     for (const m of b.medLogs) {
       database().runSync('INSERT INTO med_logs (id, medication_id, name, taken_at, quantity) VALUES (?, ?, ?, ?, ?)', [
-        m.id, num(m.medication_id, 0), str(m.name), str(m.taken_at), num(m.quantity, 1),
+        m.id, num(m.medication_id, 0), str(m.name), canonicalIso(str(m.taken_at)), num(m.quantity, 1),
       ]);
     }
     // Pre-v2 backups carry no med-log name snapshots — fill them from the
@@ -464,7 +484,7 @@ export function importBackup(b: DatabaseBackup): void {
     `);
     for (const s of b.symptomLogs) {
       database().runSync('INSERT INTO symptom_logs (id, name, severity, logged_at, notes) VALUES (?, ?, ?, ?, ?)', [
-        s.id, str(s.name), num(s.severity, 3), str(s.logged_at), str(s.notes),
+        s.id, str(s.name), num(s.severity, 3), canonicalIso(str(s.logged_at)), str(s.notes),
       ]);
     }
     for (const s of b.supplementLogs) {
@@ -474,7 +494,7 @@ export function importBackup(b: DatabaseBackup): void {
           s.id,
           str(s.name),
           typeof s.supplement_id === 'number' && Number.isFinite(s.supplement_id) ? s.supplement_id : null,
-          str(s.logged_at),
+          canonicalIso(str(s.logged_at)),
           str(s.notes),
           num(s.quantity, 1),
         ],
@@ -503,7 +523,7 @@ export function importBackup(b: DatabaseBackup): void {
     }
     for (const w of b.weightLogs) {
       database().runSync('INSERT INTO weight_logs (id, weight, logged_at) VALUES (?, ?, ?)', [
-        w.id, num(w.weight, 0), str(w.logged_at),
+        w.id, num(w.weight, 0), canonicalIso(str(w.logged_at)),
       ]);
     }
     // Id counters continue after the highest restored id.

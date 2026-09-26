@@ -64,6 +64,9 @@ export default function MealForm(props: Props) {
   return (
     <View style={common.card}>
       <Text style={common.label}>What did you eat?</Text>
+      <Text style={styles.hint}>
+        More detail, including amounts, makes the macro estimate and insights more accurate.
+      </Text>
       <TextInput
         style={common.input}
         placeholder="e.g. Ribeye steak, 3 eggs"

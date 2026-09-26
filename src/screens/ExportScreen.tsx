@@ -45,9 +45,13 @@ export default function ExportScreen() {
   const combined = useMemo(() => `${prompt}\n\n---\n\n${markdown}`, [prompt, markdown]);
 
   const copyAll = async () => {
-    await Clipboard.setStringAsync(combined);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    try {
+      await Clipboard.setStringAsync(combined);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (e) {
+      Alert.alert('Copy failed', e instanceof Error ? e.message : 'Could not copy the prompt.');
+    }
   };
 
   const exportAndShare = async () => {
@@ -56,13 +60,17 @@ export default function ExportScreen() {
         return Alert.alert('Unavailable', 'Sharing is not available on this device.');
       }
       const file = new File(Paths.cache, 'ketokind-context.md');
-      file.write(markdown);
-      await Sharing.shareAsync(file.uri, {
-        mimeType: 'text/markdown',
-        dialogTitle: 'Share your AI context file',
-      });
-      setShared(true);
-      setTimeout(() => setShared(false), 2500);
+      try {
+        file.write(markdown);
+        await Sharing.shareAsync(file.uri, {
+          mimeType: 'text/markdown',
+          dialogTitle: 'Share your AI context file',
+        });
+        setShared(true);
+        setTimeout(() => setShared(false), 2500);
+      } finally {
+        try { file.delete(); } catch { /* already gone */ }
+      }
     } catch (e) {
       Alert.alert('Export failed', e instanceof Error ? e.message : 'Unknown error');
     }

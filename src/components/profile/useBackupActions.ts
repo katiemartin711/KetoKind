@@ -1,7 +1,6 @@
-// Backup export/import actions for the Profile tab. The Expo file calls
-// (document picker, expo-file-system, sharing) are moved verbatim — no new
-// Expo API usage. After a successful import the caller-provided `onImported`
-// runs so the screen can refresh its state.
+// Backup export/import actions for the Profile tab. After a successful import
+// the caller-provided `onImported` runs so the screen can refresh its state.
+// The backup JSON and the document-picker cache copy are deleted after use.
 
 import { Alert } from 'react-native';
 import * as DocumentPicker from 'expo-document-picker';
@@ -17,6 +16,14 @@ import {
 import type { DatabaseBackup } from '../../db/backup';
 import { IMPORT_BODY } from '../../destructiveCopy';
 
+function deleteFile(file: File) {
+  try {
+    file.delete();
+  } catch {
+    /* already gone */
+  }
+}
+
 export function useBackupActions() {
   const downloadBackup = async () => {
     try {
@@ -27,15 +34,26 @@ export function useBackupActions() {
       }
       const now = new Date();
       const stamp = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-      const file = new File(Paths.document, `ketokind-backup-${stamp}.json`);
-      file.write(JSON.stringify(backup));
-      await Sharing.shareAsync(file.uri, { mimeType: 'application/json' });
+      const file = new File(Paths.cache, `ketokind-backup-${stamp}.json`);
+      try {
+        file.write(JSON.stringify(backup));
+        await Sharing.shareAsync(file.uri, { mimeType: 'application/json' });
+      } finally {
+        try { file.delete(); } catch { /* already gone */ }
+      }
     } catch (e) {
       Alert.alert('Backup failed', e instanceof Error ? e.message : 'Could not create the backup file.');
     }
   };
 
   const importBackupFile = async (onImported: (backup: DatabaseBackup) => void) => {
+    let cached: File | null = null;
+    const deleteCached = () => {
+      if (!cached) return;
+      const file = cached;
+      cached = null;
+      deleteFile(file);
+    };
     try {
       const result = await DocumentPicker.getDocumentAsync({
         type: 'application/json',
@@ -44,14 +62,15 @@ export function useBackupActions() {
       if (result.canceled) return;
       const uri = result.assets[0]?.uri;
       if (!uri) return;
-      const file = new File(uri);
-      if (file.size > MAX_BACKUP_BYTES) {
+      cached = new File(uri);
+      if (cached.size > MAX_BACKUP_BYTES) {
         Alert.alert('Invalid file', 'That backup is too large to import.');
+        deleteCached();
         return;
       }
       let parsed: unknown;
       try {
-        parsed = JSON.parse(await file.text());
+        parsed = JSON.parse(await cached.text());
       } catch {
         parsed = null;
       }
@@ -63,6 +82,7 @@ export function useBackupActions() {
             ? `That file is not a valid KetoKind backup: ${firstIssue.path} — ${firstIssue.message}`
             : 'That file is not a valid KetoKind backup.',
         );
+        deleteCached();
         return;
       }
       const backup = parsed;
@@ -70,7 +90,7 @@ export function useBackupActions() {
         'Replace all data?',
         IMPORT_BODY,
         [
-          { text: 'Cancel', style: 'cancel' },
+          { text: 'Cancel', style: 'cancel', onPress: deleteCached },
           {
             text: 'Import',
             style: 'destructive',
@@ -80,12 +100,15 @@ export function useBackupActions() {
                 onImported(backup);
               } catch (e) {
                 Alert.alert('Import failed', e instanceof Error ? e.message : 'Could not import the backup.');
+              } finally {
+                deleteCached();
               }
             },
           },
         ],
       );
     } catch (e) {
+      deleteCached();
       Alert.alert('Import failed', e instanceof Error ? e.message : 'Could not read the file.');
     }
   };

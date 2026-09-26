@@ -1,9 +1,16 @@
 import React, { Fragment } from 'react';
 import { useWindowDimensions, View } from 'react-native';
 import Svg, { Circle, Polyline, Text as SvgText } from 'react-native-svg';
+import { xForTime } from '../../chartScale';
 import type { Palette } from '../../theme';
 import { shortDayLabel } from '../../trendsStats';
 import type { SymptomDay } from '../../trendsStats';
+
+/** Local noon for a `YYYY-MM-DD` key so spacing follows calendar time. */
+function dayAtNoon(day: string): number {
+  const [y, m, d] = day.split('-').map(Number);
+  return new Date(y, m - 1, d, 12).getTime();
+}
 
 interface Props {
   days: SymptomDay[];
@@ -21,11 +28,13 @@ export default function SymptomHistoryChart({ days, colors }: Props) {
   const innerH = height - pad.top - pad.bottom;
 
   const n = days.length;
-  const x = (i: number) => pad.left + (n === 1 ? innerW / 2 : (i / (n - 1)) * innerW);
+  const t0 = dayAtNoon(days[0].day);
+  const t1 = dayAtNoon(days[days.length - 1].day);
+  const xAt = (at: number) => xForTime(at, t0, t1, pad.left, innerW);
   // Severity 1 at the bottom, 5 at the top.
   const y = (sev: number) => pad.top + (1 - (sev - 1) / 4) * innerH;
 
-  const linePts = days.map((d, i) => `${x(i).toFixed(1)},${y(d.severity).toFixed(1)}`).join(' ');
+  const linePts = days.map((d) => `${xAt(dayAtNoon(d.day)).toFixed(1)},${y(d.severity).toFixed(1)}`).join(' ');
   const sevs = days.map((d) => d.severity);
   const low = Math.min(...sevs);
   const high = Math.max(...sevs);
@@ -56,7 +65,7 @@ export default function SymptomHistoryChart({ days, colors }: Props) {
         {/* Dots only when the chart isn't crowded — the line carries it past ~30 points. */}
         {n <= 30 &&
           days.map((d, i) => (
-            <Circle key={`${d.day}-${i}`} cx={x(i)} cy={y(d.severity)} r={4} fill={colors.accent} />
+            <Circle key={`${d.day}-${i}`} cx={xAt(dayAtNoon(d.day))} cy={y(d.severity)} r={4} fill={colors.accent} />
           ))}
         <SvgText x={pad.left} y={height - 8} fontSize={10} fill={colors.muted}>
           {shortDayLabel(days[0].day)}

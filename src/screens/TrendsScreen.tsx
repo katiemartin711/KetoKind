@@ -474,7 +474,7 @@ export default function TrendsScreen() {
                         </Text>
                         <SymptomHistoryChart days={histDays} colors={colors} />
                         <Text style={[styles.body, { color: colors.muted, marginTop: 4 }]}>
-                          Each dot is a day you logged {histSymptom || 'this symptom'} — higher means more severe (1–5).
+                          Each point is a day you logged this symptom — higher means more severe (1–5).
                         </Text>
                       </>
                     )}

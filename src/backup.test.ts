@@ -638,7 +638,7 @@ check('offset timestamp imports onto the local day of its instant', () => {
       [backup.foodLogs[0].name],
     );
     eq(stored?.logged_at, '2026-09-21T05:00:00.000Z', 'stored as UTC');
-    const day = getLogsForDay(new Date('2026-09-21T12:00:00-04:00'));
+    const day = getLogsForDay(new Date(stored!.logged_at));
     ok(day.some((l) => l.kind === 'meal' && l.title === backup.foodLogs[0].name), 'visible on that local day');
   } finally {
     handle.close();

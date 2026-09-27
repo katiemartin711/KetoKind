@@ -1,5 +1,5 @@
 import { estimateMealMacros } from './foodEstimate';
-import { finalizeMacros, formatMacroSummary, macroFieldsBlank, parseMacroJson, parseUserMacros, plausibleMacroEstimate } from './macros';
+import { finalizeMacros, formatMacroSummary, macroEstimatePrompt, macroFieldsBlank, parseMacroJson, parseUserMacros, plausibleMacroEstimate } from './macros';
 import { planMealSave } from './llmOffer';
 import { acceptNarrative, compareMacroBalance, macroFingerprint } from './macroCorrelations';
 import type { SymptomDay } from './trendsStats';
@@ -59,15 +59,11 @@ check('portion table totals eggs, thick bacon, and a fraction of a cup', () => {
   ok(meal != null && meal.proteinG > 45 && meal.proteinG < 55, 'protein near 50g');
   ok(meal != null && meal.fatG > 100, 'fat includes the butter');
   eq(estimateMealMacros('something unlisted', ''), null, 'unknown food skips the table');
-  const burger = estimateMealMacros(
-    'Whataburger sweet and spicy bacon burger, no bun, no mustard, extra patty, light sauce',
-    '',
-  );
-  ok(burger != null && burger.proteinG > 60 && burger.proteinG < 100, 'burger is not one bacon strip');
-  ok(burger != null && (burger.calories ?? 0) > 800, 'calories cover the patties');
-  ok(burger != null && burger.carbsG < 45, 'no bun keeps carbs down');
-  const plainBacon = estimateMealMacros('3 strips bacon', '');
-  ok(plainBacon != null && plainBacon.proteinG > 8 && plainBacon.proteinG < 12, 'plain bacon still uses the strip');
+  const described = 'Whataburger sweet and spicy bacon burger, no bun, no mustard, extra patty, light sauce';
+  const prompt = macroEstimatePrompt(described, 'lettuce wrap');
+  eq(prompt.user, `${described}\nlettuce wrap`, 'the model is given the whole description');
+  ok(prompt.system.includes('entire description'), 'the model is told to read all of it');
+  ok(prompt.system.includes('no') && prompt.system.includes('extra') && prompt.system.includes('light'), 'exclusions and amounts are in the instructions');
   const tiny = { proteinG: 1.5, fatG: 0.5, carbsG: 1.5, fiberG: 0.5, netCarbsG: 1, calories: 20 };
   eq(plausibleMacroEstimate(tiny, '6 eggs, 3 strips of thick cut bacon'), false, 'placeholder grams rejected');
 });

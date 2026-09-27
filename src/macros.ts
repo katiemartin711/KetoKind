@@ -176,10 +176,12 @@ export function plausibleMacroEstimate(macros: MacroGrams, meal: string): boolea
 }
 
 export function macroEstimatePrompt(name: string, notes: string): { system: string; user: string } {
-  const meal = notes.trim() ? `${name.trim()} (${notes.trim()})` : name.trim();
+  const title = name.trim();
+  const detail = notes.trim();
+  const meal = detail ? `${title}\n${detail}` : title;
   return {
     system:
-      'You estimate nutrition for one meal. Reply with JSON only: protein_g, fat_g, carbs_g (total carbohydrates), fiber_g, and calories. Use grams and kilocalories for a typical single serving when the portion is unclear. Do not give advice.',
-    user: `Meal: ${meal}`,
+      'You calculate the total nutrition for one meal. Read the entire description before you answer. Add every food it names. Leave out anything marked no, without, or hold. Count extra and double as more of that food, and light as less. Reply with JSON only: protein_g, fat_g, carbs_g (total carbohydrates), fiber_g, and calories for the whole meal in grams and kilocalories. Do not give advice.',
+    user: meal,
   };
 }

@@ -1,6 +1,5 @@
-// Portion-based macro estimate for common foods. A 0.5B model will happily
-// answer "6 eggs and bacon" with about 1g of protein, so known foods are
-// totaled from standard portions before the model is asked.
+// Portion-based macro estimate for common foods. Demo logs use this table.
+// A saved meal is totaled by the on-device model from the full description.
 
 import { finalizeMacros, type MacroGrams } from './macros';
 
@@ -105,16 +104,12 @@ function segmentsOf(text: string): string[] {
     .filter(Boolean);
 }
 
-const DISH_WORD = /\b(?:cheeseburgers?|burgers?|sandwiches?|tacos?|wraps?)\b/;
-
 function matchFood(phrase: string): Food | null {
   let best: { food: Food; len: number } | null = null;
   for (const food of FOODS) {
     for (const alias of food.aliases) {
       const a = normalize(alias);
       const re = new RegExp(`(?:^|\\s)${a.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}s?(?:\\s|$)`);
-      // "bacon" inside "bacon burger" is one word of a dish, not a strip of bacon.
-      if (DISH_WORD.test(phrase) && !DISH_WORD.test(a)) continue;
       if (re.test(phrase) && (best == null || a.length > best.len)) best = { food, len: a.length };
     }
   }
@@ -155,109 +150,9 @@ function parseSegment(segment: string): { protein: number; fat: number; carbs: n
   return scale(food, qty, unit);
 }
 
-type Grams = { protein: number; fat: number; carbs: number; fiber: number };
-
-// Sweet & Spicy Bacon Burger on a 5" bun, as listed by the restaurant:
-// about 60g protein, 62g fat, 69g carbs, 3g fiber. That build is two beef
-// patties, bacon, cheese, sauce, mustard, and the bun.
-const SWEET_SPICY_BACON_BURGER: Grams = { protein: 60, fat: 62, carbs: 69, fiber: 3 };
-
-// The 5" bun those listings include. "No bun" takes this back off.
-const BURGER_BUN: Grams = { protein: 5, fat: 4, carbs: 30, fiber: 2 };
-
-function foodByAlias(alias: string): Food {
-  const food = FOODS.find((item) => item.aliases.includes(alias));
-  if (!food) throw new Error(`missing portion for ${alias}`);
-  return food;
-}
-
-function portion(alias: string, qty: number, unit: Measure): Grams {
-  const scaled = scale(foodByAlias(alias), qty, unit);
-  if (!scaled) throw new Error(`cannot scale ${alias}`);
-  return scaled;
-}
-
-function shift(base: Grams, delta: Grams, sign: 1 | -1): Grams {
-  return {
-    protein: Math.max(0, base.protein + sign * delta.protein),
-    fat: Math.max(0, base.fat + sign * delta.fat),
-    carbs: Math.max(0, base.carbs + sign * delta.carbs),
-    fiber: Math.max(0, base.fiber + sign * delta.fiber),
-  };
-}
-
-function macrosFrom(parts: Grams): MacroGrams | null {
-  const calories = parts.protein * 4 + parts.carbs * 4 + parts.fat * 9;
-  return finalizeMacros(parts.protein, parts.fat, parts.carbs, parts.fiber, calories);
-}
-
-function leftOff(text: string, item: string): boolean {
-  return new RegExp(`\\b(?:no|without|hold(?:\\s+the)?)\\s+(?:the\\s+)?${item}\\b`).test(text) || (item === 'buns?' && /\bbunless\b|\blettuce wrap\b/.test(text));
-}
-
-/** A burger described as a dish, not as one ingredient the table already knows. */
-function estimateBurger(text: string): MacroGrams | null {
-  const n = normalize(text);
-  const named = /sweet and spicy bacon burger/.test(n);
-  const generic = /\b(?:cheese)?burgers?\b/.test(n) || /\bpatt(?:y|ies)\b/.test(n);
-  if (!named && !generic) return null;
-
-  if (!named) {
-    let patties = /\b(?:cheese)?burgers?\b/.test(n) ? 1 : 0;
-    if (/\b(?:double|two)\b/.test(n)) patties = Math.max(patties, 2);
-    if (/\btriple\b/.test(n)) patties = Math.max(patties, 3);
-    const counted = n.match(/(\d+)\s+patt(?:y|ies)/);
-    if (counted) patties = Math.max(patties, Number(counted[1]));
-    if (patties === 0) patties = 1;
-    if (/\bextra\s+patt/.test(n) || /\bextra\s+meat\b/.test(n)) patties += 1;
-    let parts = portion('ground beef', 4 * patties, 'oz');
-    if (/\bbacon\b/.test(n) && !leftOff(n, 'bacon')) parts = shift(parts, portion('bacon', 2, 'strip'), 1);
-    if ((/\bcheese\b/.test(n) || /\bcheeseburgers?\b/.test(n)) && !leftOff(n, 'cheese')) {
-      parts = shift(parts, portion('cheddar', 1, 'oz'), 1);
-    }
-    if (!leftOff(n, 'buns?')) parts = shift(parts, BURGER_BUN, 1);
-    if (!leftOff(n, 'sauce')) {
-      const sauceCarbs = /\blight\s+sauce\b/.test(n) ? 6 : /\bsauce\b/.test(n) ? 12 : 0;
-      parts = shift(parts, { protein: 0, fat: 0, carbs: sauceCarbs, fiber: 0 }, 1);
-    }
-    return macrosFrom(parts);
-  }
-
-  let parts: Grams = { ...SWEET_SPICY_BACON_BURGER };
-  if (/\bextra\s+patt/.test(n) || /\bextra\s+meat\b/.test(n)) parts = shift(parts, portion('ground beef', 4, 'oz'), 1);
-  if (leftOff(n, 'buns?')) parts = shift(parts, BURGER_BUN, -1);
-  if (leftOff(n, 'mustard')) parts = shift(parts, { protein: 0, fat: 0, carbs: 1, fiber: 0 }, -1);
-  if (leftOff(n, 'sauce')) parts = shift(parts, { protein: 0, fat: 1, carbs: 15, fiber: 0 }, -1);
-  else if (/\blight\s+sauce\b/.test(n)) parts = shift(parts, { protein: 0, fat: 1, carbs: 8, fiber: 0 }, -1);
-  return macrosFrom(parts);
-}
-
-function sidePortions(text: string): Grams {
-  let parts: Grams = { protein: 0, fat: 0, carbs: 0, fiber: 0 };
-  for (const segment of segmentsOf(text)) {
-    if (/\b(?:whataburger|burgers?|patt(?:y|ies)|buns?|sauce|mustard)\b/.test(segment)) continue;
-    const part = parseSegment(segment);
-    if (!part) continue;
-    parts = shift(parts, part, 1);
-  }
-  return parts;
-}
-
 /** Sum standard portions for foods this table knows. Null when none match. */
 export function estimateMealMacros(name: string, notes: string): MacroGrams | null {
   const text = notes.trim() ? `${name} ${notes}` : name;
-  const burger = estimateBurger(text);
-  if (burger) {
-    const sides = sidePortions(text);
-    if (sides.protein === 0 && sides.fat === 0 && sides.carbs === 0) return burger;
-    return macrosFrom(
-      shift(
-        { protein: burger.proteinG, fat: burger.fatG, carbs: burger.carbsG, fiber: burger.fiberG },
-        sides,
-        1,
-      ),
-    );
-  }
   let protein = 0;
   let fat = 0;
   let carbs = 0;

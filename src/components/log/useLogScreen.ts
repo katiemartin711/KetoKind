@@ -40,7 +40,6 @@ import { macroFieldsBlank, parseUserMacros } from '../../macros';
 import { planMealSave } from '../../llmOffer';
 import { ON_DEVICE_MODEL_MB } from '../../llm/model';
 import { downloadOnDeviceModel, isModelReady, isNativeLlmLinked } from '../../llm/engine';
-import { estimateMealMacros } from '../../foodEstimate';
 import { estimateSavedMeal } from '../../llm/tasks';
 import {
   deleteMealFavorite,
@@ -351,16 +350,12 @@ export function useLogScreen() {
     const savedName = begun.value.name;
     const savedNotes = begun.value.notes;
     const keepFavorite = favorite;
-    const plan = estimateMealMacros(savedName, savedNotes)
-      ? userEdited
-        ? 'save-only'
-        : 'estimate'
-      : planMealSave({
-          modelReady: isModelReady(),
-          nativeAvailable: isNativeLlmLinked(),
-          offer: getLlmOffer(),
-          userEditedMacros: userEdited,
-        });
+    const plan = planMealSave({
+      modelReady: isModelReady(),
+      nativeAvailable: isNativeLlmLinked(),
+      offer: getLlmOffer(),
+      userEditedMacros: userEdited,
+    });
     if (plan === 'estimate') {
       setEstimating(true);
       void estimateSavedMeal(mealId, savedName, savedNotes)

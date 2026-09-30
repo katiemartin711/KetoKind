@@ -21,20 +21,33 @@ async function completeWithOnDeviceModel(
   return completeOnDevice(system, user, schema, nPredict);
 }
 
-/** Fill macros for a meal that was already saved. Returns false if the model output was unusable. */
+export interface MealEstimateResult {
+  /** True when the reply was parsed and written onto the meal. */
+  stored: boolean;
+  /** Exact model text, or the error message if the model call threw. */
+  raw: string;
+}
+
+/** Fill macros for a meal that was already saved. Unusable output is returned and not stored. */
 export async function estimateSavedMeal(
   id: number,
   name: string,
   notes: string,
   complete: MealCompleter = completeWithOnDeviceModel,
-): Promise<boolean> {
+): Promise<MealEstimateResult> {
   const prompt = macroEstimatePrompt(name, notes);
-  const text = await complete(prompt.system, prompt.user, MACRO_JSON_SCHEMA, 180);
+  let text = '';
+  try {
+    text = await complete(prompt.system, prompt.user, MACRO_JSON_SCHEMA, 180);
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    return { stored: false, raw: message };
+  }
   const macros = parseMacroJson(text);
   const meal = [name.trim(), notes.trim()].filter(Boolean).join('\n');
-  if (!macros || !plausibleMacroEstimate(macros, meal)) return false;
+  if (!macros || !plausibleMacroEstimate(macros, meal)) return { stored: false, raw: text };
   setFoodMacros(id, macros, 'estimated');
-  return true;
+  return { stored: true, raw: text };
 }
 
 export async function writeTrendNarrative(comparisons: MacroComparison[]): Promise<string | null> {

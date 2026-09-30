@@ -40,7 +40,12 @@ async function modelReadsTheWholeDescription(): Promise<void> {
       seenUser = user;
       return '{"protein_g":80,"fat_g":70,"carbs_g":20,"fiber_g":1,"calories":1000}';
     });
-    ok(saved, 'model result stored');
+    eq(saved.stored, true, 'model result stored');
+    eq(
+      saved.raw,
+      '{"protein_g":80,"fat_g":70,"carbs_g":20,"fiber_g":1,"calories":1000}',
+      'raw reply is returned',
+    );
     eq(seenUser, `${described}\nlettuce wrap`, 'prompt is the whole description');
     ok(seenSystem.includes('entire description'), 'instructions say to read all of it');
     const row = getFoodLog(id);
@@ -53,9 +58,30 @@ async function modelReadsTheWholeDescription(): Promise<void> {
   }
 }
 
+async function rejectedReplyIsStillReturned(): Promise<void> {
+  const handle = setup();
+  try {
+    const id = addFoodLog(described, 'Dinner', '', new Date().toISOString());
+    const raw = '{"protein_g":3,"fat_g":3.3,"carbs_g":0.1,"fiber_g":0,"calories":42.1}';
+    const saved = await estimateSavedMeal(id, described, '', async () => raw);
+    eq(saved.stored, false, 'a bacon-strip reply is not stored');
+    eq(saved.raw, raw, 'raw reply is kept when it is rejected');
+    const row = getFoodLog(id);
+    eq(row?.protein_g, null, 'no macros written');
+    const broken = await estimateSavedMeal(id, described, '', async () => {
+      throw new Error('model stopped');
+    });
+    eq(broken.stored, false, 'a model error is not stored');
+    eq(broken.raw, 'model stopped', 'the error text is the raw reply');
+  } finally {
+    handle.close();
+  }
+}
+
 modelReadsTheWholeDescription()
+  .then(() => rejectedReplyIsStillReturned())
   .then(() => {
-    passed += 1;
+    passed += 2;
     console.log(`${passed} passed`);
   })
   .catch((err: unknown) => {

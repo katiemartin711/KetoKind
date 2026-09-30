@@ -41,6 +41,7 @@ import { planMealSave } from '../../llmOffer';
 import { ON_DEVICE_MODEL_MB } from '../../llm/model';
 import { downloadOnDeviceModel, isModelReady, isNativeLlmLinked } from '../../llm/engine';
 import { estimateSavedMeal } from '../../llm/tasks';
+import { clearModelReply, rememberModelReply } from '../../llm/replyLog';
 import {
   deleteMealFavorite,
   deleteMealFavoriteByName,
@@ -359,13 +360,19 @@ export function useLogScreen() {
     if (plan === 'estimate') {
       setEstimating(true);
       void estimateSavedMeal(mealId, savedName, savedNotes)
-        .then((ok) => {
-          if (keepFavorite && ok) {
+        .then((result) => {
+          rememberModelReply(mealId, result);
+          if (keepFavorite && result.stored) {
             const row = getFoodLog(mealId);
             if (row) saveMealFavoriteFromLog(row);
           }
         })
-        .catch(() => false)
+        .catch((err: unknown) => {
+          rememberModelReply(mealId, {
+            stored: false,
+            raw: err instanceof Error ? err.message : String(err),
+          });
+        })
         .finally(() => {
           setEstimating(false);
           refresh();
@@ -382,8 +389,9 @@ export function useLogScreen() {
               setEstimating(true);
               void downloadOnDeviceModel()
                 .then(() => estimateSavedMeal(mealId, savedName, savedNotes))
-                .then((ok) => {
-                  if (keepFavorite && ok) {
+                .then((result) => {
+                  rememberModelReply(mealId, result);
+                  if (keepFavorite && result.stored) {
                     const row = getFoodLog(mealId);
                     if (row) saveMealFavoriteFromLog(row);
                   }
@@ -402,6 +410,9 @@ export function useLogScreen() {
           },
         ],
       );
+    } else {
+      clearModelReply(mealId);
+      refresh();
     }
   };
 
@@ -635,6 +646,7 @@ export function useLogScreen() {
     confirmDeleteEntry(log.title, () => {
       try {
         deleteLog(log.kind, log.id);
+        if (log.kind === 'meal') clearModelReply(log.id);
         refresh();
       } catch (e) {
         alertSaveFailed(e);

@@ -226,7 +226,7 @@ symptom severity is compared with the same day floors as other patterns.
 A **Write a summary** button runs the on-device model once and caches the
 text until the comparisons change. Estimates are labeled approximate.
 
-The model file (about 500 MB, Qwen2.5 0.5B Instruct Q4) downloads the first
+The model file (about 1 GB, Qwen2.5 1.5B Instruct Q4) downloads the first
 time you save a meal, or later from Profile → On-device meal estimates.
 Declining the prompt still saves the meal. You can type macros yourself and
 skip the model. Net carbs are total carbs minus fiber, computed in the app.

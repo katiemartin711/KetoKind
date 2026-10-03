@@ -1,8 +1,9 @@
 // Meal estimate and Trends narrative. Both stay on device.
 
 import { setFoodMacros } from '../db/logs';
+import { parseListedFoods, sumListedFoods } from '../foodEstimate';
 import { acceptNarrative, narrativePrompt, type MacroComparison } from '../macroCorrelations';
-import { MACRO_JSON_SCHEMA, macroEstimatePrompt, parseMacroJson, plausibleMacroEstimate } from '../macros';
+import { MEAL_ITEMS_JSON_SCHEMA, macroEstimatePrompt, plausibleMacroEstimate } from '../macros';
 
 export type MealCompleter = (
   system: string,
@@ -18,7 +19,7 @@ async function completeWithOnDeviceModel(
   nPredict: number,
 ): Promise<string> {
   const { completeOnDevice } = await import('./engine');
-  return completeOnDevice(system, user, schema, nPredict);
+  return completeOnDevice(system, user, schema, nPredict, 0);
 }
 
 export interface MealEstimateResult {
@@ -38,12 +39,13 @@ export async function estimateSavedMeal(
   const prompt = macroEstimatePrompt(name, notes);
   let text = '';
   try {
-    text = await complete(prompt.system, prompt.user, MACRO_JSON_SCHEMA, 180);
+    text = await complete(prompt.system, prompt.user, MEAL_ITEMS_JSON_SCHEMA, 240);
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     return { stored: false, raw: message };
   }
-  const macros = parseMacroJson(text);
+  const listed = parseListedFoods(text);
+  const macros = listed ? sumListedFoods(listed) : null;
   const meal = [name.trim(), notes.trim()].filter(Boolean).join('\n');
   if (!macros || !plausibleMacroEstimate(macros, meal)) return { stored: false, raw: text };
   setFoodMacros(id, macros, 'estimated');

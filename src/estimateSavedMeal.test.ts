@@ -5,6 +5,7 @@ import { NodeSqliteHandle } from './nodeSqliteAdapter';
 import { __setDbForTests } from './db/client';
 import { addFoodLog, getFoodLog } from './db/logs';
 import { initDb } from './db/schema';
+import { parseListedFoods, sumListedFoods } from './foodEstimate';
 import { estimateSavedMeal } from './llm/tasks';
 
 let passed = 0;
@@ -35,23 +36,23 @@ async function modelReadsTheWholeDescription(): Promise<void> {
     const id = addFoodLog(described, 'Lunch', 'lettuce wrap', new Date().toISOString());
     let seenUser = '';
     let seenSystem = '';
+    const raw =
+      '{"items":[{"food":"beef patty","count":2,"unit":"each"},{"food":"cheese","count":1,"unit":"each"},{"food":"bacon","count":1,"unit":"strip"},{"food":"extra patty","count":1,"unit":"each"},{"food":"sauce","count":0.5,"unit":"each"}]}';
     const saved = await estimateSavedMeal(id, described, 'lettuce wrap', async (system, user) => {
       seenSystem = system;
       seenUser = user;
-      return '{"protein_g":80,"fat_g":70,"carbs_g":20,"fiber_g":1,"calories":1000}';
+      return raw;
     });
     eq(saved.stored, true, 'model result stored');
-    eq(
-      saved.raw,
-      '{"protein_g":80,"fat_g":70,"carbs_g":20,"fiber_g":1,"calories":1000}',
-      'raw reply is returned',
-    );
+    eq(saved.raw, raw, 'raw reply is returned');
     eq(seenUser, `${described}\nlettuce wrap`, 'prompt is the whole description');
-    ok(seenSystem.includes('entire description'), 'instructions say to read all of it');
+    ok(seenSystem.includes('entire meal'), 'instructions say to read all of it');
+    const listed = parseListedFoods(raw);
+    const expected = listed ? sumListedFoods(listed) : null;
     const row = getFoodLog(id);
-    eq(row?.protein_g, 80, 'protein comes from the model');
-    eq(row?.fat_g, 70, 'fat comes from the model');
-    eq(row?.carbs_g, 20, 'carbs come from the model');
+    eq(row?.protein_g, expected?.proteinG ?? null, 'protein is the summed list');
+    ok((row?.protein_g ?? 0) > 40, 'two patties, not one bacon strip');
+    ok((row?.carbs_g ?? 99) < 15, 'the bun was left off the list');
     eq(row?.macro_source, 'estimated', 'source');
   } finally {
     handle.close();

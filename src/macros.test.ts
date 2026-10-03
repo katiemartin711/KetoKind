@@ -62,8 +62,9 @@ check('portion table totals eggs, thick bacon, and a fraction of a cup', () => {
   const described = 'Whataburger sweet and spicy bacon burger, no bun, no mustard, extra patty, light sauce';
   const prompt = macroEstimatePrompt(described, 'lettuce wrap');
   eq(prompt.user, `${described}\nlettuce wrap`, 'the model is given the whole description');
-  ok(prompt.system.includes('entire description'), 'the model is told to read all of it');
+  ok(prompt.system.includes('entire meal'), 'the model is told to read all of it');
   ok(prompt.system.includes('no') && prompt.system.includes('extra') && prompt.system.includes('light'), 'exclusions and amounts are in the instructions');
+  ok(prompt.system.includes('items'), 'the model lists foods instead of totaling them');
   const tiny = { proteinG: 1.5, fatG: 0.5, carbsG: 1.5, fiberG: 0.5, netCarbsG: 1, calories: 20 };
   eq(plausibleMacroEstimate(tiny, '6 eggs, 3 strips of thick cut bacon'), false, 'placeholder grams rejected');
 });

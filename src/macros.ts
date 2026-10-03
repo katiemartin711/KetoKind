@@ -152,16 +152,23 @@ export function formatMacroSummary(
   return parts.join(' · ') + tag;
 }
 
-export const MACRO_JSON_SCHEMA = {
+export const MEAL_ITEMS_JSON_SCHEMA = {
   type: 'object',
   properties: {
-    protein_g: { type: 'number' },
-    fat_g: { type: 'number' },
-    carbs_g: { type: 'number' },
-    fiber_g: { type: 'number' },
-    calories: { type: 'number' },
+    items: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          food: { type: 'string' },
+          count: { type: 'number' },
+          unit: { type: 'string' },
+        },
+        required: ['food', 'count', 'unit'],
+      },
+    },
   },
-  required: ['protein_g', 'fat_g', 'carbs_g', 'fiber_g', 'calories'],
+  required: ['items'],
 } as const;
 
 /**
@@ -181,7 +188,7 @@ export function macroEstimatePrompt(name: string, notes: string): { system: stri
   const meal = detail ? `${title}\n${detail}` : title;
   return {
     system:
-      'You calculate the total nutrition for one meal. Read the entire description before you answer. Add every food it names. Leave out anything marked no, without, or hold. Count extra and double as more of that food, and light as less. Reply with JSON only: protein_g, fat_g, carbs_g (total carbohydrates), fiber_g, and calories for the whole meal in grams and kilocalories. Do not give advice.',
+      'Read the entire meal. List every food that is in the finished meal. Reply with JSON only: {"items":[{"food":"short name","count":number,"unit":"each"|"ounce"|"cup"|"tablespoon"|"teaspoon"|"strip"}]}. count is how many of that unit. If the text gives a number and a unit, use them. extra or double means one more of that food. extra patty on a burger means 2 patties. no, without, or hold means leave that food out. light or easy means half of one. A burger includes one beef patty and one cheese slice unless the text says otherwise. List each food once. Do not list foods that were left out. Example: bacon cheeseburger, no bun, extra patty, light sauce {"items":[{"food":"beef patty","count":2,"unit":"each"},{"food":"cheese","count":1,"unit":"each"},{"food":"bacon","count":1,"unit":"strip"},{"food":"sauce","count":0.5,"unit":"each"}]}',
     user: meal,
   };
 }

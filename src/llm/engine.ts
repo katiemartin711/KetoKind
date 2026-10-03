@@ -10,6 +10,7 @@ import {
   ON_DEVICE_MODEL_FILE,
   ON_DEVICE_MODEL_SHA256,
   ON_DEVICE_MODEL_URL,
+  PREVIOUS_ON_DEVICE_MODEL_FILE,
 } from './model';
 import { IncrementalSha256 } from './sha256';
 
@@ -116,6 +117,8 @@ export async function downloadOnDeviceModel(onProgress?: (fraction: number) => v
     }
     if (dest.exists) dest.delete();
     await partial.move(dest);
+    const previous = new File(dir, PREVIOUS_ON_DEVICE_MODEL_FILE);
+    if (previous.uri !== dest.uri && previous.exists) previous.delete();
     await releaseContext();
   } catch (err) {
     const leftover = new File(partialPath);
@@ -158,6 +161,7 @@ export async function completeOnDevice(
   user: string,
   schema: object | null,
   nPredict: number,
+  temperature = 0.2,
 ): Promise<string> {
   const llama = await llamaContext();
   const result = await llama.completion({
@@ -166,7 +170,7 @@ export async function completeOnDevice(
       { role: 'user', content: user },
     ],
     n_predict: nPredict,
-    temperature: 0.2,
+    temperature,
     stop: ['<|im_end|>', '<|endoftext|>', '</s>'],
     response_format: schema
       ? { type: 'json_schema', json_schema: { strict: true, schema } }

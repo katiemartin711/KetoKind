@@ -1,5 +1,5 @@
 // Portion-based macro estimate for common foods. Demo logs use this table.
-// A saved meal is totaled by the on-device model from the full description.
+// A saved meal is listed by the on-device model, then totaled here.
 
 import { finalizeMacros, type MacroGrams } from './macros';
 
@@ -32,6 +32,13 @@ const FOODS: Food[] = [
   { aliases: ['cream cheese'], per: 'tbsp', protein: 1.1, fat: 5, carbs: 0.8, fiber: 0, grams: { tbsp: 14.5, oz: 28.35, g: 1 } },
   { aliases: ['heavy cream', 'heavy whipping cream'], per: 'tbsp', protein: 0.4, fat: 5.4, carbs: 0.4, fiber: 0, grams: { tbsp: 15, tsp: 5, cup: 238, g: 1 } },
   { aliases: ['ground beef'], per: 'oz', protein: 6.5, fat: 5.6, carbs: 0, fiber: 0, grams: { oz: 28.35, g: 1 } },
+  { aliases: ['beef patty', 'hamburger patty', 'patty'], per: 'each', protein: 26, fat: 22.4, carbs: 0, fiber: 0, grams: { each: 113, oz: 28.35, g: 1 } },
+  { aliases: ['cheese'], per: 'each', protein: 7, fat: 9.4, carbs: 0.4, fiber: 0, grams: { each: 28.35, oz: 28.35, g: 1 } },
+  { aliases: ['hamburger bun', 'burger bun', 'bun'], per: 'each', protein: 4, fat: 2.5, carbs: 26, fiber: 1, grams: { each: 50, g: 1, oz: 28.35 } },
+  { aliases: ['sauce'], per: 'each', protein: 0.2, fat: 5, carbs: 4, fiber: 0, grams: { each: 15, tbsp: 15, g: 1 } },
+  { aliases: ['onion'], per: 'each', protein: 0.3, fat: 0, carbs: 2, fiber: 0.4, grams: { each: 25, g: 1, oz: 28.35 } },
+  { aliases: ['mustard'], per: 'each', protein: 0.2, fat: 0.2, carbs: 0.5, fiber: 0, grams: { each: 5, tsp: 5, tbsp: 15, g: 1 } },
+  { aliases: ['ranch dressing', 'ranch'], per: 'each', protein: 0.4, fat: 10, carbs: 1, fiber: 0, grams: { each: 30, tbsp: 15, g: 1 } },
   { aliases: ['ribeye'], per: 'oz', protein: 7, fat: 8, carbs: 0, fiber: 0, grams: { oz: 28.35, g: 1 } },
   { aliases: ['steak'], per: 'oz', protein: 7, fat: 6, carbs: 0, fiber: 0, grams: { oz: 28.35, g: 1 } },
   { aliases: ['chicken thigh'], per: 'oz', protein: 6.2, fat: 3.5, carbs: 0, fiber: 0, grams: { oz: 28.35, g: 1 } },
@@ -170,4 +177,134 @@ export function estimateMealMacros(name: string, notes: string): MacroGrams | nu
   if (hits === 0) return null;
   const calories = protein * 4 + carbs * 4 + fat * 9;
   return finalizeMacros(protein, fat, carbs, fiber, calories);
+}
+
+export interface ListedFood {
+  food: string;
+  count: number;
+  unit: string;
+}
+
+interface ListedHit {
+  food: Food;
+  phrase: string;
+  count: number;
+  unit: Measure | null;
+}
+
+function aliasPattern(alias: string): RegExp {
+  const escaped = normalize(alias).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`(?:^|\\s)${escaped}s?(?:\\s|$)`);
+}
+
+function phraseHasAlias(phrase: string, food: Food): boolean {
+  const text = normalize(phrase);
+  return food.aliases.some((alias) => aliasPattern(alias).test(text));
+}
+
+function hitsOverlap(a: ListedHit, b: ListedHit): boolean {
+  if (a.food === b.food) return true;
+  return phraseHasAlias(a.phrase, b.food) || phraseHasAlias(b.phrase, a.food);
+}
+
+function listedUnit(raw: string): Measure | null {
+  const token = normalize(raw);
+  if (token === '') return null;
+  return UNIT_WORDS[token] ?? null;
+}
+
+/** Turn a model food list into numbers. Fractions like 1/3 are accepted. */
+export function parseListedFoods(text: string): ListedFood[] | null {
+  const repaired = text.replace(/:\s*(\d+)\s*\/\s*(\d+)/g, (_match, whole: string, den: string) => {
+    const bottom = Number(den);
+    if (!bottom) return `: ${whole}/${den}`;
+    return `: ${Number(whole) / bottom}`;
+  });
+  const start = repaired.indexOf('{');
+  const end = repaired.lastIndexOf('}');
+  if (start < 0 || end <= start) return null;
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(repaired.slice(start, end + 1));
+  } catch {
+    return null;
+  }
+  if (typeof parsed !== 'object' || parsed === null || !('items' in parsed)) return null;
+  const items = (parsed as { items?: unknown }).items;
+  if (!Array.isArray(items)) return null;
+  const listed: ListedFood[] = [];
+  for (const item of items) {
+    if (typeof item !== 'object' || item === null) continue;
+    const row = item as { food?: unknown; count?: unknown; unit?: unknown };
+    const food = typeof row.food === 'string' ? row.food.trim() : '';
+    const count = typeof row.count === 'number' ? row.count : Number(row.count);
+    const unit = typeof row.unit === 'string' ? row.unit.trim() : '';
+    if (!food || !Number.isFinite(count) || count <= 0 || count > 100) continue;
+    listed.push({ food, count, unit });
+  }
+  return listed.length > 0 ? listed : null;
+}
+
+function chooseHit(group: ListedHit[]): ListedHit {
+  const food = group.reduce((best, hit) => {
+    const bestLen = best.food.aliases.reduce((n, alias) => Math.max(n, alias.length), 0);
+    const hitLen = hit.food.aliases.reduce((n, alias) => Math.max(n, alias.length), 0);
+    return hitLen > bestLen ? hit : best;
+  }).food;
+  const measured = group.reduce((best, hit) => {
+    const bestSpecific = (best.unit ?? best.food.per) === 'each' ? 0 : 1;
+    const hitSpecific = (hit.unit ?? hit.food.per) === 'each' ? 0 : 1;
+    if (hitSpecific !== bestSpecific) return hitSpecific > bestSpecific ? hit : best;
+    return hit.count > best.count ? hit : best;
+  });
+  return { ...measured, food };
+}
+
+/** Add the model's food list with this table. Unknown names are skipped. */
+export function sumListedFoods(items: ListedFood[]): MacroGrams | null {
+  const hits: ListedHit[] = [];
+  for (const item of items) {
+    const food = matchFood(normalize(item.food));
+    if (!food) continue;
+    hits.push({ food, phrase: item.food, count: item.count, unit: listedUnit(item.unit) });
+  }
+  if (hits.length === 0) return null;
+  const parent = hits.map((_, index) => index);
+  const find = (index: number): number => {
+    let cursor = index;
+    while (parent[cursor] !== cursor) {
+      parent[cursor] = parent[parent[cursor]];
+      cursor = parent[cursor];
+    }
+    return cursor;
+  };
+  for (let i = 0; i < hits.length; i++) {
+    for (let j = i + 1; j < hits.length; j++) {
+      if (hitsOverlap(hits[i], hits[j])) parent[find(i)] = find(j);
+    }
+  }
+  const buckets = new Map<number, ListedHit[]>();
+  hits.forEach((hit, index) => {
+    const root = find(index);
+    const list = buckets.get(root) ?? [];
+    list.push(hit);
+    buckets.set(root, list);
+  });
+  let protein = 0;
+  let fat = 0;
+  let carbs = 0;
+  let fiber = 0;
+  let matched = 0;
+  for (const group of buckets.values()) {
+    const chosen = chooseHit(group);
+    const part = scale(chosen.food, chosen.count, chosen.unit);
+    if (!part) continue;
+    matched += 1;
+    protein += part.protein;
+    fat += part.fat;
+    carbs += part.carbs;
+    fiber += part.fiber;
+  }
+  if (matched === 0) return null;
+  return finalizeMacros(protein, fat, carbs, fiber, protein * 4 + carbs * 4 + fat * 9);
 }

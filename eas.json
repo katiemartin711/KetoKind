@@ -18,7 +18,8 @@
       "distribution": "internal",
       "channel": "preview",
       "env": {
-        "EXPO_PUBLIC_DEMO_PRO": "1"
+        "EXPO_PUBLIC_DEMO_PRO": "1",
+        "EXPO_PUBLIC_SHOW_MODEL_REPLY": "1"
       },
       "android": {
         "buildType": "apk"

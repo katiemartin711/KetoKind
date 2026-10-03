@@ -44,6 +44,31 @@ function toggleId(ids: number[], id: number): number[] {
   return ids.includes(id) ? ids.filter((x) => x !== id) : [...ids, id];
 }
 
+function clampQty(n: number): number {
+  if (!Number.isInteger(n) || n < 1) return 1;
+  if (n > 20) return 20;
+  return n;
+}
+
+function clampQtyMap(qty: Record<number, number>): Record<number, number> {
+  const out: Record<number, number> = {};
+  for (const key of Object.keys(qty)) {
+    const id = Number(key);
+    out[id] = clampQty(qty[id]);
+  }
+  return out;
+}
+
+/** Keep quantities for the ids that are still selected, clamped to 1–20. */
+function pickedQty(qty: Record<number, number>, ids: number[]): Record<number, number> {
+  const out: Record<number, number> = {};
+  for (const id of ids) {
+    if (qty[id] === undefined) continue;
+    out[id] = clampQty(qty[id]);
+  }
+  return out;
+}
+
 function toggleMed(
   state: MedSuppSelectionState,
   id: number,
@@ -110,18 +135,22 @@ export function medSuppSelectionReducer(
         [key]: { ...q, [action.id]: Math.min(20, Math.max(1, (q[action.id] ?? 1) + action.delta)) },
       };
     }
-    case 'prune':
+    case 'prune': {
+      const selectedMedIds = state.selectedMedIds.filter((id) => action.validMedIds.includes(id));
+      const selectedSuppIds = state.selectedSuppIds.filter((id) => action.validSuppIds.includes(id));
       return {
-        ...state,
-        selectedMedIds: state.selectedMedIds.filter((id) => action.validMedIds.includes(id)),
-        selectedSuppIds: state.selectedSuppIds.filter((id) => action.validSuppIds.includes(id)),
+        selectedMedIds,
+        selectedSuppIds,
+        medQty: pickedQty(state.medQty, selectedMedIds),
+        suppQty: pickedQty(state.suppQty, selectedSuppIds),
       };
+    }
     case 'load-selection':
       return {
         selectedMedIds: action.medIds,
         selectedSuppIds: action.suppIds,
-        medQty: action.medQty,
-        suppQty: action.suppQty,
+        medQty: clampQtyMap(action.medQty),
+        suppQty: clampQtyMap(action.suppQty),
       };
     case 'reset':
       return initialMedSuppSelection;

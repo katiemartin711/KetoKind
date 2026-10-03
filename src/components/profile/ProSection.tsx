@@ -28,7 +28,7 @@ export default function ProSection({ isPro, onPress }: Props) {
           <Text style={styles.hint}>
             {isPro
               ? 'Pro is active — AI Coach export and backups unlocked.'
-              : 'Unlock the AI Coach export plus backup export & import.'}
+              : 'Unlock the AI Coach export, Trends, plus backup export & import.'}
           </Text>
         </View>
         <Text style={[styles.status, { color: isPro ? colors.accent : colors.muted }]}>

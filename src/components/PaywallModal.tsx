@@ -66,6 +66,8 @@ export default function PaywallModal({ visible, onClose, onUnlocked }: Props) {
       } else {
         Alert.alert('No purchase found', 'No previous KetoKind Pro purchase was found.');
       }
+    } catch (e) {
+      Alert.alert('Purchase failed', e instanceof Error ? e.message : 'Could not complete the purchase.');
     } finally {
       setBusy(false);
     }

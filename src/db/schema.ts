@@ -265,15 +265,15 @@ export function initDb(): void {
       }
     }
   }
-  // Apply any newer migrations in order (each in a transaction so a crash
-  // mid-migration can't leave a half-applied schema), then stamp the version.
+  // Apply any newer migrations in order. Stamp user_version inside the same
+  // transaction so a crash cannot leave a half-applied schema ahead of the
+  // pragma. A stored version newer than SCHEMA_VERSION is left alone.
+  if (currentVersion > SCHEMA_VERSION) return;
   for (let v = currentVersion + 1; v <= SCHEMA_VERSION; v++) {
     const migrate = MIGRATIONS[v];
-    if (migrate) {
-      database().withTransactionSync(() => {
-        migrate();
-      });
-    }
+    database().withTransactionSync(() => {
+      if (migrate) migrate();
+      database().execSync(`PRAGMA user_version = ${v}`);
+    });
   }
-  database().execSync(`PRAGMA user_version = ${SCHEMA_VERSION}`);
 }

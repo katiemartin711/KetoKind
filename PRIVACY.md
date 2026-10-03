@@ -18,7 +18,7 @@ Everything you log in KetoKind — meals, medications, supplements, symptoms, we
 
 ## On-device meal model
 
-If you choose to download it, the app fetches one model file (about 500 MB) from Hugging Face and stores it on your device. That download does not include your meals, symptoms, or profile. Macro estimates and the Trends summary are computed on the phone. If you skip the download, logging still works, and you can download later from Profile.
+If you choose to download it, the app fetches one model file (about 1 GB) from Hugging Face and stores it on your device. That download does not include your meals, symptoms, or profile. Macro estimates and the Trends summary are computed on the phone. If you skip the download, logging still works, and you can download later from Profile.
 
 The AI Coach export is separate: it only leaves the device when you copy or share it.
 

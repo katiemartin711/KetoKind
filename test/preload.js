@@ -24,6 +24,11 @@
 
 'use strict';
 
+// Node has no Metro __DEV__. Tests that load pro.js must see a dev build so
+// requestPurchase stays in the simulated path. Production code treats a
+// missing __DEV__ as false.
+globalThis.__DEV__ = true;
+
 // jest's expect() is unavailable; RNTL only needs expect.extend at import.
 global.expect = Object.assign(
   () => {

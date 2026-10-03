@@ -138,34 +138,50 @@ function ThemedApp() {
   const [splashDone, setSplashDone] = useState(false);
   const hideSplash = useCallback(() => setSplashDone(true), []);
   const navigationRef = useNavigationContainerRef<RootStackParamList>();
+  const pendingLogTab = useRef(false);
 
   // Local reminder notifications (on-device only, no network):
   // - first launch writes the default 8pm-nudge settings and asks for
   //   permission once; every launch re-reconciles the schedule;
   // - re-check whenever the app comes back from the background, so the
   //   "only if you haven't logged" condition stays accurate;
-  // - tapping a reminder opens the Log tab.
+  // - tapping a reminder opens the Log tab. A cold start opens Log only
+  //   for a response that has not already been handled.
+  const openLogTab = useCallback(() => {
+    if (navigationRef.isReady()) {
+      pendingLogTab.current = false;
+      navigationRef.navigate('Tabs', { screen: 'Log' });
+    } else {
+      pendingLogTab.current = true;
+    }
+  }, [navigationRef]);
+
+  const onNavigationReady = useCallback(() => {
+    if (!pendingLogTab.current) return;
+    pendingLogTab.current = false;
+    navigationRef.navigate('Tabs', { screen: 'Log' });
+  }, [navigationRef]);
+
   useEffect(() => {
     ensureReminderSetup();
     const appStateSub = AppState.addEventListener('change', (s) => {
       if (s === 'active') reconcileReminders();
     });
-    const openLogTab = () => {
-      if (navigationRef.isReady()) navigationRef.navigate('Tabs', { screen: 'Log' });
-    };
     const notifSub = Notifications.addNotificationResponseReceivedListener(openLogTab);
-    Notifications.getLastNotificationResponseAsync().then((r) => {
-      if (r) openLogTab();
+    Notifications.getLastNotificationResponseAsync().then(async (response) => {
+      if (!response) return;
+      openLogTab();
+      await Notifications.clearLastNotificationResponseAsync();
     });
     return () => {
       appStateSub.remove();
       notifSub.remove();
     };
-  }, [navigationRef]);
+  }, [navigationRef, openLogTab]);
 
   return (
     <>
-      <NavigationContainer ref={navigationRef}>
+      <NavigationContainer ref={navigationRef} onReady={onNavigationReady}>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Tabs" component={TabNavigator} />
           <Stack.Screen name="LogList">

@@ -8,11 +8,9 @@ import { initLlama, type LlamaContext } from 'llama.rn';
 import {
   ON_DEVICE_MODEL_BYTES,
   ON_DEVICE_MODEL_FILE,
-  ON_DEVICE_MODEL_SHA256,
   ON_DEVICE_MODEL_URL,
   PREVIOUS_ON_DEVICE_MODEL_FILE,
 } from './model';
-import { IncrementalSha256 } from './sha256';
 
 export function isNativeLlmLinked(): boolean {
   try {
@@ -39,35 +37,20 @@ export function isModelReady(): boolean {
   }
 }
 
-/** Bytes per FileHandle.readBytes call. Stays well under the Android signed-int cap. */
-const HASH_CHUNK_BYTES = 1024 * 1024;
+/** "GGUF" — the first four bytes of every GGUF file. */
+const GGUF_MAGIC = [0x47, 0x47, 0x55, 0x46];
 
 /**
- * SHA-256 hex of a file, read with FileHandle.readBytes.
- * SDK 57 Crypto.digest takes one BufferSource and does not stream, so this
- * does not call File.bytes(). The hex matches that digest. The handle is
- * closed before return so the caller can move or delete the file.
+ * True when the file starts with the GGUF magic. The download URL is pinned
+ * to a Hugging Face commit over TLS, so this plus the byte count is the
+ * integrity check. A full SHA-256 in JavaScript took minutes on Hermes for
+ * the 1.1 GB file and showed as a download stuck at 100%.
  */
-async function sha256File(file: File): Promise<string> {
+function looksLikeGguf(file: File): boolean {
   const handle = file.open(FileMode.ReadOnly);
-  const hash = new IncrementalSha256();
   try {
-    const total = file.size;
-    let read = 0;
-    while (read < total) {
-      const want = Math.min(HASH_CHUNK_BYTES, total - read);
-      const chunk = handle.readBytes(want);
-      if (chunk.length === 0 || chunk.length > want) {
-        throw new Error('Could not read the model file.');
-      }
-      hash.update(chunk);
-      read += chunk.length;
-      await new Promise<void>((resolve) => {
-        setTimeout(resolve, 0);
-      });
-    }
-    if (read !== total) throw new Error('Could not read the model file.');
-    return hash.digestHex();
+    const head = handle.readBytes(GGUF_MAGIC.length);
+    return head.length === GGUF_MAGIC.length && GGUF_MAGIC.every((b, i) => head[i] === b);
   } finally {
     try {
       handle.close();
@@ -108,11 +91,7 @@ export async function downloadOnDeviceModel(onProgress?: (fraction: number) => v
         onProgress(Math.min(1, data.bytesWritten / data.totalBytes));
       },
     });
-    if (partial.size !== ON_DEVICE_MODEL_BYTES) {
-      throw new Error('The model download did not match the expected file.');
-    }
-    const hash = await sha256File(partial);
-    if (hash !== ON_DEVICE_MODEL_SHA256) {
+    if (partial.size !== ON_DEVICE_MODEL_BYTES || !looksLikeGguf(partial)) {
       throw new Error('The model download did not match the expected file.');
     }
     if (dest.exists) dest.delete();

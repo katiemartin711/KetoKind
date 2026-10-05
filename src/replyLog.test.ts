@@ -24,6 +24,7 @@ check('model reply line is the raw text, and hidden unless the preview flag is o
   eq(formatModelReplyLine(raw, true), `Qwen: ${raw}`, 'stored reply');
   eq(formatModelReplyLine(raw, false), `Qwen (not saved): ${raw}`, 'rejected reply');
   eq(formatModelReplyLine('  ', false), 'Qwen (not saved): (empty reply)', 'blank reply');
+  eq(formatModelReplyLine(raw, true, ['jalapenos']), `Qwen: ${raw}\nNot in table: jalapenos`, 'skipped foods named');
   eq(modelReplyVisible(undefined), false, 'production build hides the line');
   eq(modelReplyVisible('1'), true, 'preview flag shows the line');
 });

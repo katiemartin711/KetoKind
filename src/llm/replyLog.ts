@@ -6,6 +6,8 @@
 export interface ModelReply {
   raw: string;
   stored: boolean;
+  /** Listed foods the table could not price. */
+  skipped?: string[];
 }
 
 const replies = new Map<number, ModelReply>();
@@ -31,11 +33,12 @@ export function visibleModelReply(
   if (!modelReplyVisible(flag)) return undefined;
   const reply = replies.get(mealId);
   if (!reply) return undefined;
-  return formatModelReplyLine(reply.raw, reply.stored);
+  return formatModelReplyLine(reply.raw, reply.stored, reply.skipped);
 }
 
-/** Raw model text, with a short note when the app refused to store it. */
-export function formatModelReplyLine(raw: string, stored: boolean): string {
+/** Raw model text, with a short note when the app refused to store it or skipped foods. */
+export function formatModelReplyLine(raw: string, stored: boolean, skipped: string[] = []): string {
   const body = raw.trim() === '' ? '(empty reply)' : raw.trim();
-  return stored ? `Qwen: ${body}` : `Qwen (not saved): ${body}`;
+  const line = stored ? `Qwen: ${body}` : `Qwen (not saved): ${body}`;
+  return skipped.length > 0 ? `${line}\nNot in table: ${skipped.join(', ')}` : line;
 }

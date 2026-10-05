@@ -124,7 +124,9 @@ function matchFood(phrase: string): Food | null {
 }
 
 function scale(food: Food, qty: number, unit: Measure | null): { protein: number; fat: number; carbs: number; fiber: number } | null {
-  const use = unit ?? food.per;
+  // A unit this food is not measured in ("slice" of cheese, "each" bacon)
+  // counts as its default portion rather than dropping the food.
+  const use = unit != null && food.grams[unit] != null ? unit : food.per;
   const gramsEach = food.grams[use];
   const gramsBasis = food.grams[food.per];
   if (gramsEach == null || gramsBasis == null || gramsBasis === 0) return null;
@@ -260,15 +262,30 @@ function chooseHit(group: ListedHit[]): ListedHit {
   return { ...measured, food };
 }
 
+export interface ListedFoodsTotal {
+  macros: MacroGrams | null;
+  /** Food names the table does not know. Their macros are missing from the total. */
+  skipped: string[];
+}
+
 /** Add the model's food list with this table. Unknown names are skipped. */
 export function sumListedFoods(items: ListedFood[]): MacroGrams | null {
+  return totalListedFoods(items).macros;
+}
+
+/** Same as sumListedFoods, also naming the foods that were not counted. */
+export function totalListedFoods(items: ListedFood[]): ListedFoodsTotal {
   const hits: ListedHit[] = [];
+  const skipped: string[] = [];
   for (const item of items) {
     const food = matchFood(normalize(item.food));
-    if (!food) continue;
+    if (!food) {
+      skipped.push(item.food);
+      continue;
+    }
     hits.push({ food, phrase: item.food, count: item.count, unit: listedUnit(item.unit) });
   }
-  if (hits.length === 0) return null;
+  if (hits.length === 0) return { macros: null, skipped };
   const parent = hits.map((_, index) => index);
   const find = (index: number): number => {
     let cursor = index;
@@ -305,6 +322,6 @@ export function sumListedFoods(items: ListedFood[]): MacroGrams | null {
     carbs += part.carbs;
     fiber += part.fiber;
   }
-  if (matched === 0) return null;
-  return finalizeMacros(protein, fat, carbs, fiber, protein * 4 + carbs * 4 + fat * 9);
+  if (matched === 0) return { macros: null, skipped };
+  return { macros: finalizeMacros(protein, fat, carbs, fiber, protein * 4 + carbs * 4 + fat * 9), skipped };
 }

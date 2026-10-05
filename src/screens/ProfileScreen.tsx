@@ -10,7 +10,9 @@
 import React, { useCallback, useState } from 'react';
 import { Alert, Text } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
-import { deleteAllData, getProfile, getProStatus, getTrackCalories, setProStatus, setTrackCalories } from '../db/profile';
+import { deleteAllData, getCarbsMode, getProfile, getProStatus, getTrackCalories, setCarbsMode, setProStatus, setTrackCalories } from '../db/profile';
+import type { CarbsMode } from '../macros';
+import CarbsSection from '../components/profile/CarbsSection';
 import { DELETE_ALL_BODY } from '../destructiveCopy';
 import { reconcileReminders } from '../reminders';
 import { TEST_MODE_PURCHASE } from '../pro';
@@ -48,6 +50,7 @@ export default function ProfileScreen() {
   const [reminderToken, setReminderToken] = useState(0);
   const [paywallVisible, setPaywallVisible] = useState(false);
   const [trackCalories, setTrackCaloriesOn] = useState(false);
+  const [carbsMode, setCarbsModeState] = useState<CarbsMode>('net');
   const [modelReady, setModelReady] = useState(false);
   const [downloading, setDownloading] = useState(false);
   const [downloadProgress, setDownloadProgress] = useState<number | null>(null);
@@ -60,6 +63,7 @@ export default function ProfileScreen() {
     medSupp.load();
     setIsPro(getProStatus());
     setTrackCaloriesOn(getTrackCalories());
+    setCarbsModeState(getCarbsMode());
     setModelReady(isModelReady());
   }, [dietAbout.load, weightSettings.load, lists.load, medSupp.load]);
 
@@ -183,6 +187,14 @@ export default function ProfileScreen() {
                 },
               },
             ]);
+          }}
+        />
+
+        <CarbsSection
+          mode={carbsMode}
+          onChange={(mode) => {
+            setCarbsMode(mode);
+            setCarbsModeState(mode);
           }}
         />
 

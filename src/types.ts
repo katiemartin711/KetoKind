@@ -32,6 +32,7 @@ export interface Profile {
   reminder_settings: string; // JSON ReminderSettings ('' = defaults)
   track_calories: number; // 0/1 — show and correlate calories (off by default)
   llm_offer: string; // '' = not decided, 'declined' = skipped the model download
+  carbs_mode: string; // 'net' (default) or 'total' — which carbs show on meals and in Trends
 }
 
 export interface Allergy {

@@ -3,9 +3,9 @@
 import { database } from './client';
 import { listMedications } from './catalog';
 import { localDayKey } from '../trendsStats';
-import { formatMacroSummary } from '../macros';
+import { carbsForMode, formatMacroSummary, type CarbsMode } from '../macros';
 import type { MacroGrams, MacroSource } from '../macros';
-import { getTrackCalories } from './profile';
+import { getCarbsMode, getTrackCalories } from './profile';
 import type {
   AnyLog,
   FoodLog,
@@ -263,8 +263,9 @@ export function getLogsForDay(date: Date): AnyLog[] {
   );
 
   const trackCalories = getTrackCalories();
+  const carbsMode = getCarbsMode();
   const all: AnyLog[] = [
-    ...meals.map((m) => mapMeal(m, trackCalories)),
+    ...meals.map((m) => mapMeal(m, trackCalories, carbsMode)),
     ...meds.map(mapMed),
     ...symptoms.map(mapSymptom),
     ...supplements.map(mapSupplement),
@@ -276,14 +277,15 @@ export function getLogsForDay(date: Date): AnyLog[] {
   });
 }
 
-function mapMeal(m: FoodLog, trackCalories: boolean): AnyLog {
+function mapMeal(m: FoodLog, trackCalories: boolean, carbsMode: CarbsMode): AnyLog {
   const macros = formatMacroSummary(
     m.protein_g,
     m.fat_g,
-    m.net_carbs_g,
+    carbsForMode(m.carbs_g, m.net_carbs_g, carbsMode),
     m.calories,
     m.macro_source,
     trackCalories,
+    carbsMode,
   );
   const base = m.meal_type + (m.notes ? ` — ${m.notes}` : '');
   return {
@@ -341,7 +343,7 @@ function mapWeight(w: WeightLog): AnyLog {
 const KIND_QUERIES: Record<AnyLog['kind'], { sql: string; map: (row: any) => AnyLog }> = {
   meal: {
     sql: 'SELECT * FROM food_logs ORDER BY logged_at DESC, id DESC',
-    map: (row: FoodLog) => mapMeal(row, getTrackCalories()),
+    map: (row: FoodLog) => mapMeal(row, getTrackCalories(), getCarbsMode()),
   },
   medication: {
     sql: 'SELECT id, medication_id, name, taken_at, quantity FROM med_logs ORDER BY taken_at DESC, id DESC',

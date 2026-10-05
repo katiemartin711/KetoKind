@@ -13,6 +13,14 @@ export interface MacroGrams {
 
 export type MacroSource = 'estimated' | 'edited';
 
+/** Which carbs the user tracks: net (total − fiber) or total. */
+export type CarbsMode = 'net' | 'total';
+
+/** The carbs number a meal shows under `mode`. */
+export function carbsForMode(carbsG: number | null, netCarbsG: number | null, mode: CarbsMode): number | null {
+  return mode === 'total' ? carbsG : netCarbsG;
+}
+
 const MAX_GRAMS = 800;
 const MAX_CALORIES = 8000;
 
@@ -136,17 +144,22 @@ export function parseUserMacros(
   return { ok: true, macros };
 }
 
-/** One-line summary for a log row. Calories appear only when tracking is on. */
+/**
+ * One-line summary for a log row. Calories appear only when tracking is on.
+ * `carbsG` is already the number for `carbsMode` (see carbsForMode).
+ */
 export function formatMacroSummary(
   proteinG: number | null,
   fatG: number | null,
-  netCarbsG: number | null,
+  carbsG: number | null,
   calories: number | null,
   source: string,
   trackCalories: boolean,
+  carbsMode: CarbsMode = 'net',
 ): string {
-  if (proteinG == null || fatG == null || netCarbsG == null) return '';
-  const parts = [`P ${proteinG}g`, `F ${fatG}g`, `net C ${netCarbsG}g`];
+  if (proteinG == null || fatG == null || carbsG == null) return '';
+  const carbsLabel = carbsMode === 'total' ? 'C' : 'net C';
+  const parts = [`P ${proteinG}g`, `F ${fatG}g`, `${carbsLabel} ${carbsG}g`];
   if (trackCalories && calories != null) parts.push(`${calories} kcal`);
   const tag = source === 'estimated' ? ' (est.)' : source === 'edited' ? ' (edited)' : '';
   return parts.join(' · ') + tag;

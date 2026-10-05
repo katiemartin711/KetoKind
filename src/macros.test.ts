@@ -80,6 +80,11 @@ check('formatMacroSummary hides calories until tracking is on', () => {
     'P 20g · F 10g · net C 3g · 400 kcal (edited)',
     'with calories',
   );
+  eq(
+    formatMacroSummary(20, 10, 5, 400, 'estimated', false, 'total'),
+    'P 20g · F 10g · C 5g (est.)',
+    'total carbs mode drops the net label',
+  );
 });
 
 check('meal save plan: estimate, prompt once, then stay quiet', () => {
@@ -121,7 +126,7 @@ function macros(n: number, net: (i: number) => number): Map<string, MacroDay> {
   const map = new Map<string, MacroDay>();
   for (let i = 0; i < n; i++) {
     const day = `2026-01-${String(i + 1).padStart(2, '0')}`;
-    map.set(day, { day, proteinG: 80, fatG: 100, netCarbsG: net(i), calories: 1800 });
+    map.set(day, { day, proteinG: 80, fatG: 100, carbsG: net(i) + 3, netCarbsG: net(i), calories: 1800 });
   }
   return map;
 }

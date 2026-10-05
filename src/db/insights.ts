@@ -7,6 +7,7 @@ interface MacroRow {
   logged_at: string;
   protein_g: number;
   fat_g: number;
+  carbs_g: number;
   net_carbs_g: number;
   calories: number | null;
 }
@@ -19,18 +20,20 @@ interface MacroRow {
 export function listDailyMacros(lookbackDays: number | null = null): Map<string, MacroDay> {
   const since = sinceIsoForRange(lookbackDays);
   const sql = since
-    ? `SELECT logged_at, protein_g, fat_g, net_carbs_g, calories
+    ? `SELECT logged_at, protein_g, fat_g, carbs_g, net_carbs_g, calories
        FROM food_logs
        WHERE macro_source IN ('estimated', 'edited')
          AND protein_g IS NOT NULL
          AND fat_g IS NOT NULL
+         AND carbs_g IS NOT NULL
          AND net_carbs_g IS NOT NULL
          AND logged_at >= ?`
-    : `SELECT logged_at, protein_g, fat_g, net_carbs_g, calories
+    : `SELECT logged_at, protein_g, fat_g, carbs_g, net_carbs_g, calories
        FROM food_logs
        WHERE macro_source IN ('estimated', 'edited')
          AND protein_g IS NOT NULL
          AND fat_g IS NOT NULL
+         AND carbs_g IS NOT NULL
          AND net_carbs_g IS NOT NULL`;
   const rows = since
     ? database().getAllSync<MacroRow>(sql, [since])
@@ -44,12 +47,14 @@ export function listDailyMacros(lookbackDays: number | null = null): Map<string,
         day,
         proteinG: r.protein_g,
         fatG: r.fat_g,
+        carbsG: r.carbs_g,
         netCarbsG: r.net_carbs_g,
         calories: r.calories,
       });
     } else {
       prev.proteinG += r.protein_g;
       prev.fatG += r.fat_g;
+      prev.carbsG += r.carbs_g;
       prev.netCarbsG += r.net_carbs_g;
       if (prev.calories == null || r.calories == null) prev.calories = null;
       else prev.calories += r.calories;

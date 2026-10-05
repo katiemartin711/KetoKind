@@ -24,7 +24,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
-import { getProStatus, getTrackCalories } from '../db/profile';
+import { getCarbsMode, getProStatus, getTrackCalories } from '../db/profile';
 import { getCachedNarrative, listDailyMacros, saveNarrative } from '../db/insights';
 import { getItemDayList, getMealDayMap, getSymptomDayMap, getWeightSeries } from '../db/trends';
 import type { ItemDays, SymptomSeries } from '../db/trends';
@@ -152,7 +152,7 @@ export default function TrendsScreen() {
     for (const sName of names) {
       const sDays =
         symptomRows.find((s) => s.name.toLowerCase() === sName.toLowerCase())?.days ?? [];
-      for (const axis of macroAxes(getTrackCalories())) {
+      for (const axis of macroAxes(getTrackCalories(), getCarbsMode())) {
         const compared = compareMacroBalance(sName, sDays, macros, axis);
         if (compared) comps.push(compared);
       }

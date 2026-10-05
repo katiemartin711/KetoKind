@@ -501,6 +501,7 @@ export function buildDemo(demo: Demo): Record<string, unknown> {
       dismissed_milestones: '',
       reminder_settings: '',
       track_calories: 1,
+      carbs_mode: 'net',
     },
     allergies: demo.allergies,
     conditions: demo.conditions,

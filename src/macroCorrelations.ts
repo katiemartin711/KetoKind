@@ -6,20 +6,23 @@
 
 import { MIN_BASELINE_DAYS, MIN_COMPARISON_DAYS, average } from './trendsStats';
 import type { SymptomDay } from './trendsStats';
+import type { CarbsMode } from './macros';
 
 export interface MacroDay {
   day: string; // local YYYY-MM-DD
   proteinG: number;
   fatG: number;
+  carbsG: number;
   netCarbsG: number;
   calories: number | null;
 }
 
-export type MacroAxis = 'protein' | 'fat' | 'netCarbs' | 'calories';
+export type MacroAxis = 'protein' | 'fat' | 'carbs' | 'netCarbs' | 'calories';
 
 export const MACRO_AXIS_LABEL: Record<MacroAxis, string> = {
   protein: 'protein',
   fat: 'fat',
+  carbs: 'total carbs',
   netCarbs: 'net carbs',
   calories: 'calories',
 };
@@ -40,6 +43,7 @@ export interface MacroComparison {
 function axisValue(day: MacroDay, axis: MacroAxis): number | null {
   if (axis === 'protein') return day.proteinG;
   if (axis === 'fat') return day.fatG;
+  if (axis === 'carbs') return day.carbsG;
   if (axis === 'netCarbs') return day.netCarbsG;
   return day.calories;
 }
@@ -96,8 +100,9 @@ export function compareMacroBalance(
   };
 }
 
-export function macroAxes(trackCalories: boolean): MacroAxis[] {
-  const axes: MacroAxis[] = ['protein', 'fat', 'netCarbs'];
+/** Only the carbs the user tracks are compared, so Trends matches the meal rows. */
+export function macroAxes(trackCalories: boolean, carbsMode: CarbsMode = 'net'): MacroAxis[] {
+  const axes: MacroAxis[] = ['protein', 'fat', carbsMode === 'total' ? 'carbs' : 'netCarbs'];
   if (trackCalories) axes.push('calories');
   return axes;
 }

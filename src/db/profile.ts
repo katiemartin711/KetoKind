@@ -3,6 +3,7 @@ import { database } from './client';
 import type { DietType, Profile } from '../types';
 import type { ThemeMode } from '../theme';
 import { parseReminderSettings, type ReminderSettings } from '../reminderLogic';
+import type { CarbsMode } from '../macros';
 
 export function getProfile(): Profile {
   const row = database().getFirstSync<Profile>('SELECT * FROM profile WHERE id = 1');
@@ -69,7 +70,8 @@ export function deleteAllData(): void {
         is_pro = 0,
         reminder_settings = '',
         track_calories = 0,
-        llm_offer = ''
+        llm_offer = '',
+        carbs_mode = 'net'
       WHERE id = 1;
       DELETE FROM trend_insights;
     `);
@@ -158,6 +160,16 @@ export function getTrackCalories(): boolean {
 
 export function setTrackCalories(on: boolean): void {
   database().runSync('UPDATE profile SET track_calories = ? WHERE id = 1', [on ? 1 : 0]);
+}
+
+/** Which carbs show on meal rows and feed Trends: net (total − fiber) by default. */
+export function getCarbsMode(): CarbsMode {
+  const row = database().getFirstSync<{ carbs_mode: string }>('SELECT carbs_mode FROM profile WHERE id = 1');
+  return row?.carbs_mode === 'total' ? 'total' : 'net';
+}
+
+export function setCarbsMode(mode: CarbsMode): void {
+  database().runSync('UPDATE profile SET carbs_mode = ? WHERE id = 1', [mode]);
 }
 
 /** '' until the user answers the download prompt; 'declined' skips future prompts. */

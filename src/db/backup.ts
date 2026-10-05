@@ -202,6 +202,10 @@ export function validateBackup(value: unknown): BackupIssue[] {
     if (p.track_calories !== undefined && !isFlag(p.track_calories)) {
       at('profile.track_calories', 'must be 0 or 1');
     }
+    // Optional: backups from before the carbs setting omit it (defaults to net).
+    if (p.carbs_mode !== undefined && p.carbs_mode !== 'net' && p.carbs_mode !== 'total') {
+      at('profile.carbs_mode', "must be 'net' or 'total'");
+    }
     if (p.starting_weight !== null && !isWeight(p.starting_weight)) {
       at('profile.starting_weight', 'must be null or a plausible weight in lbs');
     }
@@ -417,12 +421,13 @@ export function importBackup(b: DatabaseBackup): void {
     const keepPro = kept?.is_pro ?? 0;
     const keepOffer = kept?.llm_offer === 'declined' ? 'declined' : '';
     const trackCalories = boolInt((p as { track_calories?: unknown }).track_calories);
+    const carbsMode = (p as { carbs_mode?: unknown }).carbs_mode === 'total' ? 'total' : 'net';
     database().runSync(
       `INSERT OR REPLACE INTO profile
          (id, name, diet_type, diet_nuances, goals, theme_mode, track_weight, starting_weight,
           age, sex, bio, diet_start, dismissed_milestones, reminder_settings, is_pro,
-          track_calories, llm_offer)
-       VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          track_calories, llm_offer, carbs_mode)
+       VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         str(p.name),
         dietType,
@@ -440,6 +445,7 @@ export function importBackup(b: DatabaseBackup): void {
         keepPro,
         trackCalories,
         keepOffer,
+        carbsMode,
       ],
     );
 

@@ -56,6 +56,7 @@ const MIGRATIONS: Record<number, () => void> = {
     addColumnIfMissing('food_logs', 'macro_source', "TEXT NOT NULL DEFAULT ''");
     addColumnIfMissing('profile', 'track_calories', 'INTEGER NOT NULL DEFAULT 0');
     addColumnIfMissing('profile', 'llm_offer', "TEXT NOT NULL DEFAULT ''");
+    addColumnIfMissing('profile', 'carbs_mode', "TEXT NOT NULL DEFAULT 'net'");
     ensureInsightTable();
   },
   7: () => {
@@ -140,7 +141,8 @@ export function initDb(): void {
       is_pro INTEGER NOT NULL DEFAULT 0,
       reminder_settings TEXT NOT NULL DEFAULT '',
       track_calories INTEGER NOT NULL DEFAULT 0,
-      llm_offer TEXT NOT NULL DEFAULT ''
+      llm_offer TEXT NOT NULL DEFAULT '',
+      carbs_mode TEXT NOT NULL DEFAULT 'net'
     );
     CREATE TABLE IF NOT EXISTS allergies (
       id INTEGER PRIMARY KEY AUTOINCREMENT,

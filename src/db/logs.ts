@@ -2,6 +2,7 @@
 // Plus day-bound helpers, per-day rollups, and the logging streak.
 import { database } from './client';
 import { listMedications } from './catalog';
+import { localDayKey } from '../trendsStats';
 import { formatMacroSummary } from '../macros';
 import type { MacroGrams, MacroSource } from '../macros';
 import { getTrackCalories } from './profile';
@@ -269,7 +270,10 @@ export function getLogsForDay(date: Date): AnyLog[] {
     ...supplements.map(mapSupplement),
     ...weights.map(mapWeight),
   ];
-  return all.sort((a, b) => (a.logged_at < b.logged_at ? 1 : -1));
+  return all.sort((a, b) => {
+    if (a.logged_at === b.logged_at) return b.id - a.id;
+    return a.logged_at < b.logged_at ? 1 : -1;
+  });
 }
 
 function mapMeal(m: FoodLog, trackCalories: boolean): AnyLog {
@@ -336,16 +340,16 @@ function mapWeight(w: WeightLog): AnyLog {
 
 const KIND_QUERIES: Record<AnyLog['kind'], { sql: string; map: (row: any) => AnyLog }> = {
   meal: {
-    sql: 'SELECT * FROM food_logs ORDER BY logged_at DESC',
+    sql: 'SELECT * FROM food_logs ORDER BY logged_at DESC, id DESC',
     map: (row: FoodLog) => mapMeal(row, getTrackCalories()),
   },
   medication: {
-    sql: 'SELECT id, medication_id, name, taken_at, quantity FROM med_logs ORDER BY taken_at DESC',
+    sql: 'SELECT id, medication_id, name, taken_at, quantity FROM med_logs ORDER BY taken_at DESC, id DESC',
     map: mapMed,
   },
-  symptom: { sql: 'SELECT * FROM symptom_logs ORDER BY logged_at DESC', map: mapSymptom },
-  supplement: { sql: 'SELECT * FROM supplement_logs ORDER BY logged_at DESC', map: mapSupplement },
-  weight: { sql: 'SELECT * FROM weight_logs ORDER BY logged_at DESC', map: mapWeight },
+  symptom: { sql: 'SELECT * FROM symptom_logs ORDER BY logged_at DESC, id DESC', map: mapSymptom },
+  supplement: { sql: 'SELECT * FROM supplement_logs ORDER BY logged_at DESC, id DESC', map: mapSupplement },
+  weight: { sql: 'SELECT * FROM weight_logs ORDER BY logged_at DESC, id DESC', map: mapWeight },
 };
 
 export interface LogPageOpts {
@@ -400,33 +404,35 @@ export function getDayCounts(date: Date): {
   };
 }
 
-/** True when any log table has a row on the local day containing `date`. */
-function hasAnyLogOnDay(date: Date): boolean {
-  const { start, end } = getDayBounds(date);
-  for (const { table, timeCol } of Object.values(KIND_TABLES)) {
-    const row = database().getFirstSync<{ n: number }>(
-      `SELECT 1 AS n FROM ${table} WHERE ${timeCol} BETWEEN ? AND ? LIMIT 1`,
-      [start, end],
-    );
-    if (row) return true;
-  }
-  return false;
-}
+const STREAK_LOOKBACK_DAYS = 4000;
 
 /**
  * Consecutive-day streak: number of back-to-back local days (ending today or
- * yesterday) that contain at least one log entry of any kind. Walks day-by-day
- * with indexed range checks instead of loading every distinct day.
+ * yesterday) that contain at least one log entry of any kind. One SELECT per
+ * log table, then an in-memory walk of local day keys.
  */
 export function getStreak(): number {
-  let streak = 0;
-  const cursor = new Date();
-  // A streak stays alive if the most recent logged day is today or yesterday.
-  if (!hasAnyLogOnDay(cursor)) {
-    cursor.setDate(cursor.getDate() - 1);
-    if (!hasAnyLogOnDay(cursor)) return 0;
+  const earliest = new Date();
+  earliest.setHours(0, 0, 0, 0);
+  earliest.setDate(earliest.getDate() - STREAK_LOOKBACK_DAYS);
+  const since = earliest.toISOString();
+  const days = new Set<string>();
+  for (const { table, timeCol } of Object.values(KIND_TABLES)) {
+    const rows = database().getAllSync<{ t: string }>(
+      `SELECT ${timeCol} AS t FROM ${table} WHERE ${timeCol} >= ?`,
+      [since],
+    );
+    for (const row of rows) days.add(localDayKey(row.t));
   }
-  while (hasAnyLogOnDay(cursor)) {
+  const cursor = new Date();
+  cursor.setHours(0, 0, 0, 0);
+  const key = (d: Date) => localDayKey(d.toISOString());
+  if (!days.has(key(cursor))) {
+    cursor.setDate(cursor.getDate() - 1);
+    if (!days.has(key(cursor))) return 0;
+  }
+  let streak = 0;
+  while (days.has(key(cursor))) {
     streak += 1;
     cursor.setDate(cursor.getDate() - 1);
   }

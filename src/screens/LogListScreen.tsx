@@ -3,7 +3,7 @@
 // entry to edit it on the Log tab; the ✕ deletes it. Loads in pages so
 // multi-year histories don't hitch on open.
 
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { SectionList, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
@@ -47,8 +47,10 @@ export default function LogListScreen() {
   const styles = useMemo(() => makeStyles(COLORS), [COLORS]);
   const [logs, setLogs] = useState<AnyLog[]>([]);
   const [hasMore, setHasMore] = useState(true);
+  const loadingMore = useRef(false);
 
   const refresh = useCallback(() => {
+    loadingMore.current = false;
     const page = getLogsOfKind(logType, { limit: PAGE_SIZE, offset: 0 });
     setLogs(page);
     setHasMore(page.length === PAGE_SIZE);
@@ -58,14 +60,19 @@ export default function LogListScreen() {
   useFocusEffect(refresh);
 
   const loadMore = useCallback(() => {
-    if (!hasMore) return;
-    const page = getLogsOfKind(logType, { limit: PAGE_SIZE, offset: logs.length });
-    if (page.length === 0) {
-      setHasMore(false);
-      return;
+    if (!hasMore || loadingMore.current) return;
+    loadingMore.current = true;
+    try {
+      const page = getLogsOfKind(logType, { limit: PAGE_SIZE, offset: logs.length });
+      if (page.length === 0) {
+        setHasMore(false);
+        return;
+      }
+      setLogs((prev) => [...prev, ...page]);
+      setHasMore(page.length === PAGE_SIZE);
+    } finally {
+      loadingMore.current = false;
     }
-    setLogs((prev) => [...prev, ...page]);
-    setHasMore(page.length === PAGE_SIZE);
   }, [hasMore, logType, logs.length]);
 
   const sections = useMemo(() => {

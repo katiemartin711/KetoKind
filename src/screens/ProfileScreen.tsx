@@ -11,6 +11,8 @@ import React, { useCallback, useState } from 'react';
 import { Alert, Text } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { deleteAllData, getProfile, getProStatus, getTrackCalories, setProStatus, setTrackCalories } from '../db/profile';
+import { DELETE_ALL_BODY } from '../destructiveCopy';
+import { reconcileReminders } from '../reminders';
 import { TEST_MODE_PURCHASE } from '../pro';
 import { deleteOnDeviceModel, downloadOnDeviceModel, isModelReady, isNativeLlmLinked } from '../llm/engine';
 import type { DatabaseBackup } from '../db/backup';
@@ -43,6 +45,7 @@ export default function ProfileScreen() {
   const medSupp = useMedSuppManager();
   const backup = useBackupActions();
   const [isPro, setIsPro] = useState(false);
+  const [reminderToken, setReminderToken] = useState(0);
   const [paywallVisible, setPaywallVisible] = useState(false);
   const [trackCalories, setTrackCaloriesOn] = useState(false);
   const [modelReady, setModelReady] = useState(false);
@@ -71,18 +74,24 @@ export default function ProfileScreen() {
   const confirmDeleteAllData = () => {
     Alert.alert(
       'Delete all data?',
-      'This permanently deletes your profile, logs, medications, supplements, and weight history on this device. This cannot be undone.',
+      DELETE_ALL_BODY,
       [
         { text: 'Cancel', style: 'cancel' },
         {
           text: 'Delete everything',
           style: 'destructive',
           onPress: () => {
-            deleteAllData();
-            medSupp.clearMedSuppForm();
-            setAppTheme('system'); // delete-all resets the theme too
-            refresh();
-            Alert.alert('Done', 'All data has been deleted from this device.');
+            try {
+              deleteAllData();
+              medSupp.clearMedSuppForm();
+              setAppTheme('system');
+              setReminderToken((n) => n + 1);
+              void reconcileReminders(true);
+              refresh();
+              Alert.alert('Done', 'All data has been deleted from this device.');
+            } catch (e) {
+              Alert.alert('Delete failed', e instanceof Error ? e.message : 'Could not delete data.');
+            }
           },
         },
       ],
@@ -94,6 +103,8 @@ export default function ProfileScreen() {
   const onBackupImported = (b: DatabaseBackup) => {
     medSupp.clearMedSuppForm();
     refresh();
+    setReminderToken((n) => n + 1);
+    void reconcileReminders(true);
     const mode = b.profile.theme_mode;
     setAppTheme(mode === 'light' || mode === 'dark' ? mode : 'system');
     Alert.alert('Done', 'Backup imported successfully.');
@@ -186,7 +197,7 @@ export default function ProfileScreen() {
 
         <AppearanceSection />
 
-        <NotificationSection />
+        <NotificationSection reloadToken={reminderToken} />
 
         <SimpleListSection
           title="Allergies"

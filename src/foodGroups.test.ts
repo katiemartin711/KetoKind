@@ -121,6 +121,27 @@ check('keyword is trimmed before matching', () => {
   eq(daysOf(m), ['2026-09-02'], 'bacon day');
 });
 
+check('food terms do not match lookalike words', () => {
+  const days = new Map<string, string[]>([
+    ['2026-01-01', ['hamburger']],
+    ['2026-01-02', ['eggplant parmesan']],
+    ['2026-01-03', ['peanut butter']],
+    ['2026-01-04', ['almond milk']],
+    ['2026-01-05', ['kidney beans']],
+    ['2026-01-06', ['oyster mushrooms']],
+    ['2026-01-07', ['artichoke hearts']],
+    ['2026-01-08', ['no eggs']],
+    ['2026-01-09', ['egg-free muffins']],
+    ['2026-01-10', ['ribeye and eggs']],
+    ['2026-01-11', ['butter']],
+  ]);
+  eq([...matchFoodDays('pork', days).daysWith], [], 'ham is not hamburger');
+  eq([...matchFoodDays('eggs', days).daysWith], ['2026-01-10'], 'egg is not eggplant or a negation');
+  eq([...matchFoodDays('dairy', days).daysWith], ['2026-01-11'], 'butter is not peanut butter or almond milk');
+  eq([...matchFoodDays('organ meats', days).daysWith], [], 'kidney beans and artichoke hearts');
+  eq([...matchFoodDays('seafood', days).daysWith], [], 'oyster mushrooms');
+});
+
 ok(FOOD_GROUPS.beef.includes('ribeye'), 'beef group has ribeye');
 ok(FOOD_GROUPS.pork.includes('bacon'), 'pork group has bacon');
 

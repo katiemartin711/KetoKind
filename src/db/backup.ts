@@ -27,6 +27,13 @@ import { parseDietStart } from '../milestones';
 /** `is_pro` and `llm_offer` stay on the device (purchase + download choice). */
 export type BackupProfile = Omit<Profile, 'is_pro' | 'llm_offer'>;
 
+/** Refuse a backup file larger than this before reading or parsing it. */
+export const MAX_BACKUP_BYTES = 8 * 1024 * 1024;
+/** Refuse a single table longer than this during validateBackup. */
+export const MAX_BACKUP_ROWS = 20000;
+/** Refuse a string field longer than this during validateBackup. */
+export const MAX_BACKUP_STRING = 4000;
+
 /** Everything stored on-device, in one JSON-serializable object. */
 export interface DatabaseBackup {
   version: 1;
@@ -97,25 +104,46 @@ function isWeight(v: unknown): v is number {
 }
 
 /**
- * Full ISO-8601 datetimes — the only timestamp format this app writes
- * (Date.toISOString(), e.g. '2026-09-21T02:24:30.995Z'). Impossible calendar
- * dates like '2024-02-30' are rejected explicitly (V8's Date.parse rolls them
- * over to March instead of returning NaN).
+ * Full ISO-8601 datetimes. This app writes Date.toISOString()
+ * (e.g. '2026-09-21T02:24:30.995Z'); offsets are accepted and stored in that
+ * form. Hour 24, minutes or seconds above 59, years before 1970, and
+ * impossible calendar dates like '2024-02-30' are rejected (V8's Date.parse
+ * rolls Feb 30 into March instead of returning NaN). Instants more than two
+ * days ahead of now are rejected.
  */
-const ISO_DATETIME_RE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{1,3})?(Z|[+-]\d{2}:?\d{2})$/;
+const ISO_DATETIME_RE =
+  /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(\.\d{1,3})?(Z|[+-]\d{2}:?\d{2})$/;
+
 function isIsoDateTime(v: unknown): v is string {
-  if (typeof v !== 'string' || !ISO_DATETIME_RE.test(v)) return false;
-  const [y, m, d] = v.slice(0, 10).split('-').map(Number);
-  const check = new Date(Date.UTC(y, m - 1, d));
-  if (check.getUTCFullYear() !== y || check.getUTCMonth() !== m - 1 || check.getUTCDate() !== d) {
+  if (typeof v !== 'string') return false;
+  const m = ISO_DATETIME_RE.exec(v);
+  if (!m) return false;
+  const y = Number(m[1]);
+  const mo = Number(m[2]);
+  const d = Number(m[3]);
+  const hh = Number(m[4]);
+  const mm = Number(m[5]);
+  const ss = Number(m[6]);
+  if (y < 1970 || hh > 23 || mm > 59 || ss > 59) return false;
+  const check = new Date(Date.UTC(y, mo - 1, d));
+  if (check.getUTCFullYear() !== y || check.getUTCMonth() !== mo - 1 || check.getUTCDate() !== d) {
     return false;
   }
-  return !Number.isNaN(Date.parse(v));
+  const parsed = Date.parse(v);
+  if (Number.isNaN(parsed)) return false;
+  // Two days of slack so a backup made on a clock a little ahead still imports.
+  if (parsed > Date.now() + 2 * 24 * 60 * 60 * 1000) return false;
+  return true;
+}
+
+function canonicalIso(v: string): string {
+  return new Date(v).toISOString();
 }
 
 /**
  * Deep validation of a parsed backup: structure, duplicate ids, dates,
- * dangling relationships, and numeric ranges. Pure — run it BEFORE touching
+ * and numeric ranges. A dose may outlive its catalog row; the name snapshot
+ * is the source of truth. Pure — run it BEFORE touching
  * any data: a wrong or tampered file must abort the import, never wipe the
  * device. Returns every issue found ([] means the backup is valid).
  */
@@ -125,13 +153,18 @@ export function validateBackup(value: unknown): BackupIssue[] {
     issues.push({ path, message });
   };
   const expectString = (row: Record<string, unknown>, key: string, path: string): void => {
-    if (typeof row[key] !== 'string') at(`${path}.${key}`, 'must be a string');
+    const value = row[key];
+    if (typeof value !== 'string') {
+      at(`${path}.${key}`, 'must be a string');
+      return;
+    }
+    if (value.length > MAX_BACKUP_STRING) at(`${path}.${key}`, 'must be at most 4000 characters');
   };
   const expectTimestamp = (row: Record<string, unknown>, key: string, path: string): void => {
     if (!isIsoDateTime(row[key])) at(`${path}.${key}`, 'must be an ISO-8601 timestamp');
   };
   const expectQuantity = (row: Record<string, unknown>, key: string, path: string): void => {
-    if (!isPositiveInt(row[key])) at(`${path}.${key}`, 'must be a positive integer');
+    if (!isPositiveInt(row[key]) || row[key] > 20) at(`${path}.${key}`, 'must be an integer 1-20');
   };
 
   if (!isRecord(value)) {
@@ -188,8 +221,7 @@ export function validateBackup(value: unknown): BackupIssue[] {
   }
 
   // -- lists ---------------------------------------------------------------
-  // checkList validates structure + ids and returns the rows' ids so later
-  // lists can check their references (medLogs -> medications, ...).
+  // checkList validates structure + ids and rejects duplicate ids within a list.
   const checkList = (
     key: string,
     checkRow: (row: Record<string, unknown>, path: string) => void,
@@ -198,6 +230,10 @@ export function validateBackup(value: unknown): BackupIssue[] {
     const rows = (value as Record<string, unknown>)[key];
     if (!Array.isArray(rows)) {
       at(key, 'must be an array');
+      return ids;
+    }
+    if (rows.length > MAX_BACKUP_ROWS) {
+      at(key, 'has too many rows');
       return ids;
     }
     rows.forEach((r, i) => {
@@ -221,15 +257,15 @@ export function validateBackup(value: unknown): BackupIssue[] {
     expectString(row, 'name', path);
     expectString(row, 'dosage', path);
     expectString(row, 'purpose', path);
-    if (!isPositiveInt(row.times_per_day)) {
-      at(`${path}.times_per_day`, 'must be a positive integer');
+    if (!isPositiveInt(row.times_per_day) || row.times_per_day > 24) {
+      at(`${path}.times_per_day`, 'must be an integer 1-24');
     }
     if (!isFlag(row.as_needed)) at(`${path}.as_needed`, 'must be 0 or 1');
   };
   checkList('allergies', (row, path) => expectString(row, 'name', path));
   checkList('conditions', (row, path) => expectString(row, 'name', path));
-  const medicationIds = checkList('medications', checkSchedulable);
-  const supplementIds = checkList('supplements', checkSchedulable);
+  checkList('medications', checkSchedulable);
+  checkList('supplements', checkSchedulable);
 
   const expectOptionalMacro = (row: Record<string, unknown>, key: string, path: string): void => {
     const v = row[key];
@@ -260,10 +296,9 @@ export function validateBackup(value: unknown): BackupIssue[] {
     const mid = row.medication_id;
     if (!isPositiveInt(mid)) {
       at(`${path}.medication_id`, 'must be a positive integer');
-    } else if (!medicationIds.has(mid)) {
-      at(`${path}.medication_id`, `no medication with id ${mid} in this backup`);
     }
-    // 'name' is optional: pre-v2 backups don't have it (import backfills it).
+    // Name snapshot is the source of truth. '' is the pre-v2 "Deleted medication" row.
+    // A missing catalog id is allowed.
     if (row.name !== undefined && typeof row.name !== 'string') {
       at(`${path}.name`, 'must be a string');
     }
@@ -285,12 +320,8 @@ export function validateBackup(value: unknown): BackupIssue[] {
     expectTimestamp(row, 'logged_at', path);
     expectQuantity(row, 'quantity', path);
     const sid = row.supplement_id;
-    if (sid !== null) {
-      if (!isPositiveInt(sid)) {
-        at(`${path}.supplement_id`, 'must be null or a positive integer');
-      } else if (!supplementIds.has(sid)) {
-        at(`${path}.supplement_id`, `no supplement with id ${sid} in this backup`);
-      }
+    if (sid !== null && !isPositiveInt(sid)) {
+      at(`${path}.supplement_id`, 'must be null or a positive integer');
     }
   });
   checkList('weightLogs', (row, path) => {
@@ -443,7 +474,7 @@ export function importBackup(b: DatabaseBackup): void {
           f.id,
           str(f.name),
           str(f.meal_type, 'Meal'),
-          str(f.logged_at),
+          canonicalIso(str(f.logged_at)),
           str(f.notes),
           macroNum(f.protein_g),
           macroNum(f.fat_g),
@@ -457,7 +488,7 @@ export function importBackup(b: DatabaseBackup): void {
     }
     for (const m of b.medLogs) {
       database().runSync('INSERT INTO med_logs (id, medication_id, name, taken_at, quantity) VALUES (?, ?, ?, ?, ?)', [
-        m.id, num(m.medication_id, 0), str(m.name), str(m.taken_at), num(m.quantity, 1),
+        m.id, num(m.medication_id, 0), str(m.name), canonicalIso(str(m.taken_at)), num(m.quantity, 1),
       ]);
     }
     // Pre-v2 backups carry no med-log name snapshots — fill them from the
@@ -469,7 +500,7 @@ export function importBackup(b: DatabaseBackup): void {
     `);
     for (const s of b.symptomLogs) {
       database().runSync('INSERT INTO symptom_logs (id, name, severity, logged_at, notes) VALUES (?, ?, ?, ?, ?)', [
-        s.id, str(s.name), num(s.severity, 3), str(s.logged_at), str(s.notes),
+        s.id, str(s.name), num(s.severity, 3), canonicalIso(str(s.logged_at)), str(s.notes),
       ]);
     }
     for (const s of b.supplementLogs) {
@@ -479,7 +510,7 @@ export function importBackup(b: DatabaseBackup): void {
           s.id,
           str(s.name),
           typeof s.supplement_id === 'number' && Number.isFinite(s.supplement_id) ? s.supplement_id : null,
-          str(s.logged_at),
+          canonicalIso(str(s.logged_at)),
           str(s.notes),
           num(s.quantity, 1),
         ],
@@ -508,7 +539,7 @@ export function importBackup(b: DatabaseBackup): void {
     }
     for (const w of b.weightLogs) {
       database().runSync('INSERT INTO weight_logs (id, weight, logged_at) VALUES (?, ?, ?)', [
-        w.id, num(w.weight, 0), str(w.logged_at),
+        w.id, num(w.weight, 0), canonicalIso(str(w.logged_at)),
       ]);
     }
     // Id counters continue after the highest restored id.

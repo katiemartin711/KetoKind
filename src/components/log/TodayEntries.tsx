@@ -4,6 +4,7 @@ import { useTheme } from '../../ThemeContext';
 import type { Palette } from '../../theme';
 import type { AnyLog } from '../../types';
 import { fmtTime } from '../../datetime';
+import { visibleModelReply } from '../../llm/replyLog';
 
 const KIND_LABEL: Record<AnyLog['kind'], string> = {
   meal: 'Meal',
@@ -32,32 +33,41 @@ export default function TodayEntries({ logs, onEdit, onDelete }: Props) {
       ) : (
         <Text style={styles.hint}>Tap an entry to edit it.</Text>
       )}
-      {logs.map((log) => (
+      {logs.map((log) => {
+        const reply = log.kind === 'meal' ? visibleModelReply(log.id) : undefined;
+        return (
         <View key={`${log.kind}-${log.id}`} style={[common.card, styles.entryRow]}>
-          <TouchableOpacity
-            style={styles.entryText}
-            onPress={() => onEdit(log)}
-            accessibilityRole="button"
-            accessibilityLabel={`Edit ${KIND_LABEL[log.kind]} entry ${log.title}`}
-          >
-            <Text style={styles.entryTitle}>
-              {log.title} <Text style={styles.entryKind}>· {KIND_LABEL[log.kind]}</Text>
-            </Text>
-            <Text style={styles.entryDetail}>
-              {fmtTime(log.logged_at)}
-              {log.detail ? ` — ${log.detail}` : ''}
-            </Text>
-          </TouchableOpacity>
+          <View style={styles.entryText}>
+            <TouchableOpacity
+              onPress={() => onEdit(log)}
+              accessibilityRole="button"
+              accessibilityLabel={`Edit ${KIND_LABEL[log.kind]} entry ${log.title}`}
+            >
+              <Text style={styles.entryTitle}>
+                {log.title} <Text style={styles.entryKind}>· {KIND_LABEL[log.kind]}</Text>
+              </Text>
+              <Text style={styles.entryDetail}>
+                {fmtTime(log.logged_at)}
+                {log.detail ? ` — ${log.detail}` : ''}
+              </Text>
+            </TouchableOpacity>
+            {reply ? (
+              <Text selectable style={styles.modelReply}>
+                {reply}
+              </Text>
+            ) : null}
+          </View>
           <TouchableOpacity
             onPress={() => onDelete(log)}
             style={styles.deleteBtn}
             accessibilityRole="button"
-            accessibilityLabel={`Delete ${KIND_LABEL[log.kind]} entry`}
+            accessibilityLabel={`Delete ${KIND_LABEL[log.kind]} ${log.title}`}
           >
             <Text style={styles.deleteText}>✕</Text>
           </TouchableOpacity>
         </View>
-      ))}
+        );
+      })}
     </>
   );
 }
@@ -65,11 +75,12 @@ export default function TodayEntries({ logs, onEdit, onDelete }: Props) {
 const makeStyles = (C: Palette) =>
   StyleSheet.create({
     hint: { fontSize: 14, color: C.muted, marginVertical: 8 },
-    entryRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 12 },
+    entryRow: { flexDirection: 'row', alignItems: 'flex-start', paddingVertical: 12 },
     entryText: { flex: 1 },
     entryTitle: { fontSize: 15, fontWeight: '600', color: C.text },
     entryKind: { fontWeight: '400', color: C.muted, fontSize: 13 },
     entryDetail: { fontSize: 13, color: C.muted, marginTop: 2 },
+    modelReply: { fontSize: 12, color: C.text, marginTop: 6 },
     deleteBtn: {
       backgroundColor: C.dangerLight,
       borderRadius: 22,

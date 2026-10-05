@@ -69,6 +69,7 @@ jobs:
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
           EXPO_PUBLIC_DEMO_PRO: "1"
+          EXPO_PUBLIC_SHOW_MODEL_REPLY: "1"
           UPDATE_MESSAGE: ${{ github.event.head_commit.message || 'Phone update' }}
         run: npx eas-cli update --channel preview --environment preview --non-interactive --platform ios --message "$UPDATE_MESSAGE"
       - name: Save EAS Update config

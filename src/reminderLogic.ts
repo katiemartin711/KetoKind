@@ -2,7 +2,7 @@
 // dependencies, so they can be unit-tested under plain Node.
 //
 // The actual OS scheduling (expo-notifications) lives in src/reminders.ts
-// and consumes computeOccurrences() below.
+// and consumes occurrencesToSchedule() below.
 
 /** A wall-clock time in 24-hour form, interpreted in the phone's local timezone. */
 export interface ReminderTime {
@@ -71,7 +71,8 @@ export function parseReminderSettings(raw: string | null | undefined): ReminderS
       (c): c is CustomReminder =>
         typeof c === 'object' && c !== null && typeof (c as CustomReminder).id === 'string' && isValidTime(c),
     )
-    .map((c) => ({ id: c.id, hour: c.hour, minute: c.minute }));
+    .map((c) => ({ id: c.id, hour: c.hour, minute: c.minute }))
+    .slice(0, 12);
   return {
     enabled: typeof p.enabled === 'boolean' ? p.enabled : DEFAULT_REMINDER_SETTINGS.enabled,
     time: isValidTime(p.time) ? { hour: p.time.hour, minute: p.time.minute } : { ...DEFAULT_REMINDER_SETTINGS.time },
@@ -132,6 +133,30 @@ export function computeOccurrences(
   }
   out.sort((a, b) => a.date.getTime() - b.date.getTime());
   return out;
+}
+
+export function scheduleKey(settings: ReminderSettings, hasLogsToday: boolean, localDate: string): string {
+  return JSON.stringify({
+    localDate,
+    enabled: settings.enabled,
+    time: settings.time,
+    onlyIfNoLogs: settings.onlyIfNoLogs,
+    hasLogsToday: settings.onlyIfNoLogs ? hasLogsToday : false,
+    sound: settings.sound,
+    badge: settings.badge,
+    custom: settings.custom,
+  });
+}
+
+export function occurrencesToSchedule(
+  settings: ReminderSettings,
+  now: Date,
+  hasLogsToday: boolean,
+  daysAhead = 7,
+): ScheduledOccurrence[] {
+  return computeOccurrences(settings, now, hasLogsToday, daysAhead).filter(
+    (occ) => settings.enabled || occ.kind === 'custom',
+  );
 }
 
 /** Unique id for a newly added custom reminder. */

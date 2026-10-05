@@ -120,6 +120,30 @@ check('load-selection restores a saved entry for editing', () => {
   eq(s.medQty[4], 3, 'qty restored');
 });
 
+check('load-selection clamps a quantity of 99 to 20', () => {
+  const s = reduce(initialMedSuppSelection, {
+    type: 'load-selection',
+    medIds: [4],
+    suppIds: [],
+    medQty: { 4: 99 },
+    suppQty: {},
+  });
+  eq(s.medQty[4], 20, 'stored quantity is 20');
+});
+
+check('prune drops quantity keys whose ids are no longer selected', () => {
+  const loaded: MedSuppSelectionState = {
+    selectedMedIds: [1, 2],
+    selectedSuppIds: [9],
+    medQty: { 1: 3, 2: 99 },
+    suppQty: { 9: 2 },
+  };
+  const s = reduce(loaded, { type: 'prune', validMedIds: [2], validSuppIds: [] });
+  eq(1 in s.medQty, false, 'removed id is gone from medQty');
+  eq(s.medQty[2], 20, 'remaining quantity clamped');
+  eq(9 in s.suppQty, false, 'removed supp quantity dropped');
+});
+
 check('reset returns to the initial empty selection', () => {
   let s = initialMedSuppSelection;
   s = reduce(s, { type: 'toggle-med', id: 1, editingKind: null });

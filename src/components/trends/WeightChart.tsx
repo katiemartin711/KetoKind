@@ -1,6 +1,7 @@
 import React from 'react';
 import { useWindowDimensions, View } from 'react-native';
 import Svg, { Circle, Polygon, Polyline, Text as SvgText } from 'react-native-svg';
+import { xForTime } from '../../chartScale';
 import type { Palette } from '../../theme';
 import { round1, shortDayLabel } from '../../trendsStats';
 import type { WeightPoint } from '../../trendsStats';
@@ -29,10 +30,12 @@ export default function WeightChart({ points, colors }: Props) {
     max += 1;
   }
   const n = points.length;
-  const x = (i: number) => pad.left + (n === 1 ? innerW / 2 : (i / (n - 1)) * innerW);
+  const t0 = points[0].at;
+  const t1 = points[points.length - 1].at;
+  const xAt = (at: number) => xForTime(at, t0, t1, pad.left, innerW);
   const y = (v: number) => pad.top + (1 - (v - min) / (max - min)) * innerH;
 
-  const linePts = points.map((p, i) => `${x(i).toFixed(1)},${y(p.weight).toFixed(1)}`).join(' ');
+  const linePts = points.map((p) => `${xAt(p.at).toFixed(1)},${y(p.weight).toFixed(1)}`).join(' ');
   const areaPts =
     `${pad.left},${(pad.top + innerH).toFixed(1)} ` +
     linePts +
@@ -51,12 +54,12 @@ export default function WeightChart({ points, colors }: Props) {
         {/* Dots only when the chart isn't crowded — the line carries it past ~30 points. */}
         {points.length <= 30 &&
           points.map((p, i) => (
-            <Circle key={i} cx={x(i)} cy={y(p.weight)} r={3} fill={colors.accent} />
+            <Circle key={i} cx={xAt(p.at)} cy={y(p.weight)} r={3} fill={colors.accent} />
           ))}
         {/* min / max markers */}
-        <Circle cx={x(minIdx)} cy={y(weights[minIdx])} r={5} fill="none" stroke={colors.muted} strokeWidth={2} />
+        <Circle cx={xAt(points[minIdx].at)} cy={y(weights[minIdx])} r={5} fill="none" stroke={colors.muted} strokeWidth={2} />
         <SvgText
-          x={x(minIdx)}
+          x={xAt(points[minIdx].at)}
           y={y(weights[minIdx]) - 10}
           fontSize={10}
           fill={colors.muted}
@@ -64,9 +67,9 @@ export default function WeightChart({ points, colors }: Props) {
         >
           {`low ${round1(weights[minIdx])}`}
         </SvgText>
-        <Circle cx={x(maxIdx)} cy={y(weights[maxIdx])} r={5} fill="none" stroke={colors.muted} strokeWidth={2} />
+        <Circle cx={xAt(points[maxIdx].at)} cy={y(weights[maxIdx])} r={5} fill="none" stroke={colors.muted} strokeWidth={2} />
         <SvgText
-          x={x(maxIdx)}
+          x={xAt(points[maxIdx].at)}
           y={y(weights[maxIdx]) - 10}
           fontSize={10}
           fill={colors.muted}
@@ -75,9 +78,9 @@ export default function WeightChart({ points, colors }: Props) {
           {`high ${round1(weights[maxIdx])}`}
         </SvgText>
         {/* current marker */}
-        <Circle cx={x(lastIdx)} cy={y(weights[lastIdx])} r={5.5} fill={colors.accent} />
+        <Circle cx={xAt(points[lastIdx].at)} cy={y(weights[lastIdx])} r={5.5} fill={colors.accent} />
         <SvgText
-          x={x(lastIdx)}
+          x={xAt(points[lastIdx].at)}
           y={y(weights[lastIdx]) + 18}
           fontSize={11}
           fontWeight="700"

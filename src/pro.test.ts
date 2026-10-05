@@ -108,7 +108,7 @@ check('delete-all resets the Pro flag', () => {
 });
 
 check('preview builds can simulate Pro; production builds cannot', () => {
-  eq(purchaseTestModeEnabled(undefined, undefined), true, 'node tests stay in test mode');
+  eq(purchaseTestModeEnabled(undefined, undefined), false, 'missing __DEV__ does not simulate a purchase');
   eq(purchaseTestModeEnabled(true, undefined), true, 'dev build');
   eq(purchaseTestModeEnabled(false, '1'), true, 'preview demo build');
   eq(purchaseTestModeEnabled(false, undefined), false, 'production build');

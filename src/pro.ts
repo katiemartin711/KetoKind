@@ -49,8 +49,7 @@ export function purchaseTestModeEnabled(
   dev: boolean | undefined,
   demoFlag: string | undefined,
 ): boolean {
-  const devBuild = dev === undefined ? true : dev;
-  return devBuild || demoFlag === '1';
+  return dev === true || demoFlag === '1';
 }
 
 export const TEST_MODE_PURCHASE: boolean = purchaseTestModeEnabled(

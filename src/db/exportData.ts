@@ -23,12 +23,13 @@ export interface ExportData {
   medications: Medication[];
   supplements: Supplement[];
   /** Per-type counts for the trailing 30 local days. */
-  counts30: { meals: number; medsTaken: number; symptoms: number; supplements: number };
+  counts30: { meals: number; medsTaken: number; symptoms: number; supplements: number; weighIns: number };
   recentMeals: FoodLog[];
   recentSymptoms: SymptomLog[];
   recentSupplements: SupplementLog[];
   /** Med doses with the name snapshot column (survives renames/deletes). */
   recentMeds: (Omit<MedLog, 'name'> & { medication_name: string })[];
+  recentWeights: WeightLog[];
   rangeLabel: string;
 }
 
@@ -64,23 +65,28 @@ export function getExportData(): ExportData {
       medsTaken: countRange('med_logs', 'taken_at'),
       symptoms: countRange('symptom_logs', 'logged_at'),
       supplements: countRange('supplement_logs', 'logged_at'),
+      weighIns: countRange('weight_logs', 'logged_at'),
     },
     recentMeals: database().getAllSync<FoodLog>(
-      'SELECT * FROM food_logs WHERE logged_at BETWEEN ? AND ? ORDER BY logged_at DESC LIMIT 40',
+      'SELECT * FROM food_logs WHERE logged_at BETWEEN ? AND ? ORDER BY logged_at DESC',
       [startIso, endIso],
     ),
     recentSymptoms: database().getAllSync<SymptomLog>(
-      'SELECT * FROM symptom_logs WHERE logged_at BETWEEN ? AND ? ORDER BY logged_at DESC LIMIT 40',
+      'SELECT * FROM symptom_logs WHERE logged_at BETWEEN ? AND ? ORDER BY logged_at DESC',
       [startIso, endIso],
     ),
     recentSupplements: database().getAllSync<SupplementLog>(
-      'SELECT * FROM supplement_logs WHERE logged_at BETWEEN ? AND ? ORDER BY logged_at DESC LIMIT 40',
+      'SELECT * FROM supplement_logs WHERE logged_at BETWEEN ? AND ? ORDER BY logged_at DESC',
       [startIso, endIso],
     ),
     recentMeds: database().getAllSync<Omit<MedLog, 'name'> & { medication_name: string }>(
       `SELECT med_logs.id, med_logs.medication_id, med_logs.name AS medication_name, med_logs.taken_at, med_logs.quantity
        FROM med_logs
-       WHERE taken_at BETWEEN ? AND ? ORDER BY taken_at DESC LIMIT 60`,
+       WHERE taken_at BETWEEN ? AND ? ORDER BY taken_at DESC`,
+      [startIso, endIso],
+    ),
+    recentWeights: database().getAllSync<WeightLog>(
+      'SELECT * FROM weight_logs WHERE logged_at BETWEEN ? AND ? ORDER BY logged_at DESC',
       [startIso, endIso],
     ),
     rangeLabel,

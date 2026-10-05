@@ -1,6 +1,6 @@
 // Day-level macro totals and the cached Trends narrative.
 import { database } from './client';
-import { localDayKey } from '../trendsStats';
+import { localDayKey, sinceIsoForRange } from '../trendsStats';
 import type { MacroDay } from '../macroCorrelations';
 
 interface MacroRow {
@@ -11,16 +11,30 @@ interface MacroRow {
   calories: number | null;
 }
 
-/** Sum estimated or edited meals onto local days. Days with no macros are omitted. */
-export function listDailyMacros(): Map<string, MacroDay> {
-  const rows = database().getAllSync<MacroRow>(
-    `SELECT logged_at, protein_g, fat_g, net_carbs_g, calories
-     FROM food_logs
-     WHERE macro_source IN ('estimated', 'edited')
-       AND protein_g IS NOT NULL
-       AND fat_g IS NOT NULL
-       AND net_carbs_g IS NOT NULL`,
-  );
+/**
+ * Sum estimated or edited meals onto local days. Days with no macros are omitted.
+ * `lookbackDays` null has no date bound. A number keeps meals at or after
+ * sinceIsoForRange (same local start-of-day cutoff as the other Trends queries).
+ */
+export function listDailyMacros(lookbackDays: number | null = null): Map<string, MacroDay> {
+  const since = sinceIsoForRange(lookbackDays);
+  const sql = since
+    ? `SELECT logged_at, protein_g, fat_g, net_carbs_g, calories
+       FROM food_logs
+       WHERE macro_source IN ('estimated', 'edited')
+         AND protein_g IS NOT NULL
+         AND fat_g IS NOT NULL
+         AND net_carbs_g IS NOT NULL
+         AND logged_at >= ?`
+    : `SELECT logged_at, protein_g, fat_g, net_carbs_g, calories
+       FROM food_logs
+       WHERE macro_source IN ('estimated', 'edited')
+         AND protein_g IS NOT NULL
+         AND fat_g IS NOT NULL
+         AND net_carbs_g IS NOT NULL`;
+  const rows = since
+    ? database().getAllSync<MacroRow>(sql, [since])
+    : database().getAllSync<MacroRow>(sql);
   const map = new Map<string, MacroDay>();
   for (const r of rows) {
     const day = localDayKey(r.logged_at);

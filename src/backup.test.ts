@@ -7,7 +7,7 @@
 import { NodeSqliteHandle } from './nodeSqliteAdapter';
 import { exportBackup, importBackup, isDatabaseBackup, validateBackup } from './db/backup';
 import type { DatabaseBackup } from './db/backup';
-import { addAllergy, addCondition, addMedication, addSupplement, deleteMedication, listMedications, listSupplements, updateMedication } from './db/catalog';
+import { addAllergy, addCondition, addMedication, addSupplement, deleteMedication, deleteSupplement, listMedications, listSupplements, updateMedication } from './db/catalog';
 import { __setDbForTests } from './db/client';
 import { addFoodLog, addMedLog, addSupplementLog, addSymptomLog, addWeightLog, getFoodLog, getLogsForDay, setFoodMacros, updateMedLog } from './db/logs';
 import { deleteAllData, dismissMilestones, getLlmOffer, getProStatus, getTrackCalories, saveProfile, setLlmOffer, setProStatus, setThemeMode, setTrackCalories, setWeightTracking } from './db/profile';
@@ -213,11 +213,15 @@ expectRejected('rejects non-ISO timestamp', (b) => {
 expectRejected('rejects non-string timestamp', (b) => {
   rowsOf(b, 'weightLogs')[0].logged_at = 1726400000000;
 });
+// A dangling catalog id is valid when name is a string, including ''.
+// These fixtures keep proving a non-string name is rejected.
 expectRejected('rejects dangling medication reference', (b) => {
   rowsOf(b, 'medLogs')[0].medication_id = 9999;
+  rowsOf(b, 'medLogs')[0].name = 1;
 });
 expectRejected('rejects dangling supplement reference', (b) => {
   rowsOf(b, 'supplementLogs')[0].supplement_id = 9999;
+  rowsOf(b, 'supplementLogs')[0].name = 1;
 });
 expectRejected('rejects negative quantity', (b) => {
   rowsOf(b, 'medLogs')[0].quantity = -1;
@@ -239,6 +243,37 @@ expectRejected('rejects implausible age', (b) => {
 });
 expectRejected('rejects zero times_per_day', (b) => {
   rowsOf(b, 'medications')[0].times_per_day = 0;
+});
+expectRejected('rejects times_per_day above 24', (b) => {
+  rowsOf(b, 'medications')[0].times_per_day = 25;
+});
+expectRejected('rejects quantity above 20', (b) => {
+  rowsOf(b, 'medLogs')[0].quantity = 21;
+});
+
+check('rejects a list longer than MAX_BACKUP_ROWS', () => {
+  const handle = setup();
+  try {
+    populateDb();
+    const backup = exportBackup();
+    const row = backup.allergies[0];
+    backup.allergies = Array.from({ length: 20001 }, (_, i) => ({ ...row, id: i + 1 }));
+    ok(validateBackup(backup).some((i) => i.path === 'allergies'), 'row cap');
+  } finally {
+    handle.close();
+  }
+});
+
+check('rejects an oversized string field', () => {
+  const handle = setup();
+  try {
+    populateDb();
+    const backup = exportBackup();
+    backup.foodLogs[0].name = 'x'.repeat(4001);
+    ok(validateBackup(backup).some((i) => i.path.endsWith('.name')), 'string cap');
+  } finally {
+    handle.close();
+  }
 });
 expectRejected('rejects bad diet_start', (b) => {
   (b.profile as Record<string, unknown>).diet_start = '2024-13-45';
@@ -591,6 +626,74 @@ check('schema v5 creates log timestamp indexes', () => {
   } finally {
     handle.close();
   }
+});
+
+check('export after deleting a medication and supplement still imports', () => {
+  const handle = setup();
+  try {
+    populateDb();
+    const med = mustFind(listMedications(), (m) => m.name === 'Metformin', 'Metformin');
+    const supp = mustFind(listSupplements(), (s) => s.name === 'Magnesium', 'Magnesium');
+    deleteMedication(med.id);
+    deleteSupplement(supp.id);
+    const backup = exportBackup();
+    eq(validateBackup(backup), [], 'own backup after catalog delete');
+    deleteAllData();
+    importBackup(backup);
+    // populateDb logs Metformin at t1 and Magnesium at t2, not the same instant.
+    const medDay = getLogsForDay(new Date('2026-09-15T12:00:00.000Z'));
+    ok(
+      medDay.some((l) => l.kind === 'medication' && l.title === 'Metformin'),
+      'med name snapshot restored',
+    );
+    const suppDay = getLogsForDay(new Date('2026-09-16T08:30:00.000Z'));
+    ok(
+      suppDay.some((l) => l.kind === 'supplement' && l.title === 'Magnesium'),
+      'supplement name snapshot restored',
+    );
+  } finally {
+    handle.close();
+  }
+});
+
+check('offset timestamp imports onto the local day of its instant', () => {
+  const handle = setup();
+  try {
+    populateDb();
+    const backup = exportBackup();
+    backup.foodLogs[0].logged_at = '2026-09-21T01:00:00-04:00';
+    eq(validateBackup(backup), [], 'offset timestamp is valid');
+    importBackup(backup);
+    const stored = database().getFirstSync<{ logged_at: string }>(
+      'SELECT logged_at FROM food_logs WHERE name = ?',
+      [backup.foodLogs[0].name],
+    );
+    eq(stored?.logged_at, '2026-09-21T05:00:00.000Z', 'stored as UTC');
+    const day = getLogsForDay(new Date(stored!.logged_at));
+    ok(day.some((l) => l.kind === 'meal' && l.title === backup.foodLogs[0].name), 'visible on that local day');
+  } finally {
+    handle.close();
+  }
+});
+
+check('rejects hour 24 timestamps', () => {
+  const handle = setup();
+  try {
+    populateDb();
+    const backup = exportBackup();
+    backup.foodLogs[0].logged_at = '2026-01-01T24:00:00.000Z';
+    ok(validateBackup(backup).some((i) => i.path.endsWith('.logged_at')), 'T24 rejected');
+  } finally {
+    handle.close();
+  }
+});
+
+check('initDb does not downgrade a newer user_version', () => {
+  const handle = setup();
+  handle.execSync('PRAGMA user_version = 9');
+  initDb();
+  const stored = handle.getFirstSync<{ user_version: number }>('PRAGMA user_version');
+  eq(stored?.user_version, 9, 'newer version kept');
 });
 
 console.log(`

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Discover and run every compiled *.test.js under dist-test/.
-// medSuppForm.test.js needs the RN/Expo mocks from test/preload.js.
+// Every file is preloaded with test/preload.js so __DEV__ is true before
+// pro.js loads, and the React Native component tests get their mocks.
 
 const { spawnSync } = require('child_process');
 const fs = require('fs');
@@ -8,7 +9,6 @@ const path = require('path');
 
 const root = path.join(__dirname, '..');
 const dist = path.join(root, 'dist-test');
-const preload = path.join(root, 'test', 'preload.js');
 
 function walk(dir) {
   const out = [];
@@ -36,11 +36,7 @@ if (tests.length === 0) {
 let failed = 0;
 for (const file of tests) {
   const rel = path.relative(root, file);
-  const needsPreload =
-    path.basename(file) === 'medSuppForm.test.js' ||
-    path.basename(file) === 'symptomForm.test.js' ||
-    path.basename(file) === 'mealForm.test.js';
-  const args = needsPreload ? ['-r', preload, file] : [file];
+  const args = ['--require', './test/preload.js', file];
   const result = spawnSync(process.execPath, args, { cwd: root, stdio: 'inherit' });
   if (result.status !== 0) {
     failed += 1;

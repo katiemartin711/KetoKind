@@ -66,13 +66,20 @@ export function dietDurationLabel(s: string | null | undefined): string | null {
   const days = daysSinceDietStart(s);
   if (days == null || days < 0) return null;
   if (days === 0) return 'started today';
-  if (days < 30) return days === 1 ? '1 day' : `${days} days`;
-  const months = Math.floor(days / 30.44);
-  if (months < 12) return months === 1 ? '1 month' : `${months} months`;
-  const years = Math.floor(months / 12);
-  const rem = Math.round(months % 12);
+  if (days <= 30) return days === 1 ? '1 day' : `${days} days`;
+  if (days < 365) {
+    const months = Math.max(1, Math.round(days / 30.44));
+    return months === 1 ? '1 month' : `${months} months`;
+  }
+  let years = Math.floor(days / 365);
+  let rem = Math.round((days % 365) / 30.44);
+  if (rem === 12) {
+    years += 1;
+    rem = 0;
+  }
   const y = years === 1 ? '1 year' : `${years} years`;
-  return rem > 0 ? `${y} ${rem === 1 ? '1 month' : `${rem} months`}` : y;
+  if (rem === 0) return y;
+  return `${y} ${rem === 1 ? '1 month' : `${rem} months`}`;
 }
 
 export interface Milestone {

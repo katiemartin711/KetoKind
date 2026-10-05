@@ -120,8 +120,9 @@ Pro entitlement (`is_pro`) and the model-download choice (`llm_offer`) are
 **not** included — restore purchases through the App Store / Play Store after
 switching devices. `validateBackup()` is pure and runs
 *before* any data is touched: it checks structure, duplicate ids, ISO-8601
-timestamps, numeric ranges, and cross-list references (e.g. every
-`medLogs[].medication_id` must exist in `medications`). `importBackup()`
+timestamps, and numeric ranges. A dose may outlive its catalog row; the
+name snapshot is the source of truth, so a `medLogs[].medication_id` or
+`supplementLogs[].supplement_id` need not exist in the catalog. `importBackup()`
 refuses invalid files before deleting anything and restores inside a single
 transaction — a mid-import failure rolls everything back. Import preserves
 this device's Pro flag and download choice (never grants Pro from a file).
@@ -193,17 +194,20 @@ The Trends tab has two parts:
 
 - **Weight trend** — a line graph of weigh-ins with a range dropdown (Week /
   Month / 90 days / 6 months / Year / All), marking the low, high, and
-  current values plus the change across the range. Dots are drawn only at 30
-  points or fewer — past that the line carries it. If weight isn't tracked, a
-  friendly empty state explains that weight logging is optional and points to
+  current values plus the change across the range. Week is 7 local dates
+  inclusive. Year and All are not clipped at 180 days. Dots are drawn only at
+  30 points or fewer — past that the line carries it. If weight isn't tracked,
+  a friendly empty state explains that weight logging is optional and points to
   the Log tab.
 - **Symptom patterns** — pick a symptom and a medication/supplement to compare
   average symptom severity on days the item was taken vs. days it wasn't, plus
   a "strongest patterns" list ranking the top 3 symptom × item pairs by
   absolute difference.
 - **Symptom over time** — pick a symptom to see its severity (1–5) plotted day
-  by day over the same range options, with days logged, average, and worst
-  severity.
+  by day over the same range options (Week is 7 local dates inclusive; Year and
+  All are not clipped at 180 days), with days logged, average, and worst
+  severity. Symptom patterns and macro correlations are not limited by those
+  dropdowns.
 
 **When a comparison shows:** each side needs at least 2 days and at least one
 side needs 7+, counted on days the symptom was logged — so a very regular
@@ -222,7 +226,7 @@ symptom severity is compared with the same day floors as other patterns.
 A **Write a summary** button runs the on-device model once and caches the
 text until the comparisons change. Estimates are labeled approximate.
 
-The model file (about 500 MB, Qwen2.5 0.5B Instruct Q4) downloads the first
+The model file (about 1 GB, Qwen2.5 1.5B Instruct Q4) downloads the first
 time you save a meal, or later from Profile → On-device meal estimates.
 Declining the prompt still saves the meal. You can type macros yourself and
 skip the model. Net carbs are total carbs minus fiber, computed in the app.

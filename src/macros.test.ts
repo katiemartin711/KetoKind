@@ -1,5 +1,5 @@
 import { estimateMealMacros } from './foodEstimate';
-import { finalizeMacros, formatMacroSummary, macroFieldsBlank, parseMacroJson, parseUserMacros, plausibleMacroEstimate } from './macros';
+import { finalizeMacros, formatMacroSummary, macroEstimatePrompt, macroFieldsBlank, parseMacroJson, parseUserMacros, plausibleMacroEstimate } from './macros';
 import { planMealSave } from './llmOffer';
 import { acceptNarrative, compareMacroBalance, macroFingerprint } from './macroCorrelations';
 import type { SymptomDay } from './trendsStats';
@@ -59,6 +59,12 @@ check('portion table totals eggs, thick bacon, and a fraction of a cup', () => {
   ok(meal != null && meal.proteinG > 45 && meal.proteinG < 55, 'protein near 50g');
   ok(meal != null && meal.fatG > 100, 'fat includes the butter');
   eq(estimateMealMacros('something unlisted', ''), null, 'unknown food skips the table');
+  const described = 'Whataburger sweet and spicy bacon burger, no bun, no mustard, extra patty, light sauce';
+  const prompt = macroEstimatePrompt(described, 'lettuce wrap');
+  eq(prompt.user, `${described}\nlettuce wrap`, 'the model is given the whole description');
+  ok(prompt.system.includes('entire meal'), 'the model is told to read all of it');
+  ok(prompt.system.includes('no') && prompt.system.includes('extra') && prompt.system.includes('light'), 'exclusions and amounts are in the instructions');
+  ok(prompt.system.includes('items'), 'the model lists foods instead of totaling them');
   const tiny = { proteinG: 1.5, fatG: 0.5, carbsG: 1.5, fiberG: 0.5, netCarbsG: 1, calories: 20 };
   eq(plausibleMacroEstimate(tiny, '6 eggs, 3 strips of thick cut bacon'), false, 'placeholder grams rejected');
 });
@@ -141,8 +147,55 @@ check('macro comparison withholds thin data and splits on the median', () => {
 check('narrative acceptance drops advice and fingerprints change with the stats', () => {
   eq(acceptNarrative('too short'), null, 'short');
   eq(acceptNarrative('You should stop taking your medication based on these logs today.'), null, 'advice');
+  eq(
+    acceptNarrative('In your logs, higher fat days cause headache severity to drop across the month.'),
+    null,
+    'causal wording',
+  );
+  eq(
+    acceptNarrative('In your logs, this pattern is not a diagnosis of any condition today.'),
+    null,
+    'diagnosis wording',
+  );
+  eq(
+    acceptNarrative('Averaged across your logs, headache severity was lower on higher-fat days.'),
+    'Averaged across your logs, headache severity was lower on higher-fat days.',
+    'descriptive wording stays',
+  );
   const okText = 'In your logs, headache severity averaged higher on higher net-carb days than on lower ones.';
   eq(acceptNarrative(okText), okText, 'plain pattern');
+  eq(
+    acceptNarrative('In your logs, higher fat days caused headache severity to drop across the month.'),
+    null,
+    'caused',
+  );
+  eq(
+    acceptNarrative('In your logs, higher fat days improved headache severity across the month.'),
+    null,
+    'improved',
+  );
+  eq(
+    acceptNarrative('In your logs, higher fat days worsened headache severity across the month.'),
+    null,
+    'worsened',
+  );
+  eq(
+    acceptNarrative('In your logs, higher fat days were causing headache severity to drop across the month.'),
+    null,
+    'causing',
+  );
+  eq(
+    acceptNarrative('In your logs, higher fat days were improving headache severity across the month.'),
+    null,
+    'improving',
+  );
+  eq(
+    acceptNarrative('In your logs, higher fat days were worsening headache severity across the month.'),
+    null,
+    'worsening',
+  );
+  const foodSentence = 'was lower on days with this food than on days without it';
+  eq(acceptNarrative(foodSentence), foodSentence, 'descriptive food sentence');
   const a = compareMacroBalance('Headache', days([1, 1, 1, 1, 1, 1, 1, 4, 4, 4]), macros(10, (i) => (i < 7 ? 4 : 30)), 'netCarbs');
   const b = compareMacroBalance('Headache', days([2, 2, 2, 2, 2, 2, 2, 4, 4, 4]), macros(10, (i) => (i < 7 ? 4 : 30)), 'netCarbs');
   ok(a != null && b != null && macroFingerprint([a]) !== macroFingerprint([b]), 'fingerprint');

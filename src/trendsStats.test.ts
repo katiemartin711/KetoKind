@@ -8,6 +8,7 @@ import { __setDbForTests, database } from './db/client';
 import { addFoodLog, addMedLog, addSupplementLog, addSymptomLog, addWeightLog } from './db/logs';
 import { initDb } from './db/schema';
 import { getItemDayList, getMealDayMap, getSymptomDayMap, getWeightSeries } from './db/trends';
+import type { SymptomSeries } from './db/trends';
 import {
   MIN_BASELINE_DAYS,
   MIN_COMPARISON_DAYS,
@@ -19,6 +20,7 @@ import {
   filterWeightRange,
   localDayKey,
   rankPatterns,
+  diffLabel,
   round1,
   shortDayLabel,
   summarizeWeights,
@@ -77,6 +79,10 @@ check('average and round1', () => {
   eq(average([]), null, 'empty -> null');
   eq(round1(2.34), 2.3, 'rounds down');
   eq(round1(2.35), 2.4, 'rounds up');
+});
+
+check('diffLabel rounds a near-zero difference to the same', () => {
+  eq(diffLabel(0.04), 'about the same on days taken vs. not taken', 'rounds to zero');
 });
 
 check('bucketDays splits severities by item-day membership', () => {
@@ -206,15 +212,30 @@ check('rankPatterns keeps top 3 by absolute diff, drops nulls', () => {
 check('filterWeightRange keeps trailing windows; -1 keeps all', () => {
   const now = Date.now();
   const day = 24 * 60 * 60 * 1000;
+  const key = (daysAgo: number) => localDayKey(new Date(now - daysAgo * day).toISOString());
   const pts = [
     { day: '2025-01-01', weight: 200, at: now - 400 * day },
-    { day: '2026-09-01', weight: 190, at: now - 20 * day },
-    { day: '2026-09-19', weight: 185, at: now - 1 * day },
+    { day: key(20), weight: 190, at: now - 20 * day },
+    { day: key(1), weight: 185, at: now - 1 * day },
   ];
   eq(filterWeightRange(pts, 30).length, 2, '30d keeps 2');
   eq(filterWeightRange(pts, 90).length, 2, '90d keeps 2');
   eq(filterWeightRange(pts, -1).length, 3, 'all keeps 3');
   eq(filterWeightRange([], 30).length, 0, 'empty stays empty');
+});
+
+check('week window is seven local dates inclusive', () => {
+  const now = Date.now();
+  const day = 24 * 60 * 60 * 1000;
+  const points = [0, 6, 7].map((ago) => ({
+    day: localDayKey(new Date(now - ago * day).toISOString()),
+    weight: 150,
+    at: new Date(now - ago * day).setHours(12, 0, 0, 0),
+  }));
+  const kept = filterWeightRange(points, 7).map((p) => p.day);
+  eq(kept.includes(points[0].day), true, 'today');
+  eq(kept.includes(points[1].day), true, 'six days ago');
+  eq(kept.includes(points[2].day), false, 'seven days ago is outside a 7-date week');
 });
 
 check('filterSymptomRange keeps trailing windows; -1 keeps all', () => {
@@ -264,18 +285,49 @@ check('getWeightSeries returns oldest-first with local day keys', () => {
   ok(series.every((p) => p.at > 0), 'epochs present');
 });
 
+check('getWeightSeries(null) includes a weigh-in 400 days ago; 180 does not', () => {
+  setup();
+  const old = new Date();
+  old.setDate(old.getDate() - 400);
+  addWeightLog(210, old.toISOString());
+  const allTime = getWeightSeries(null);
+  const halfYear = getWeightSeries(180);
+  ok(allTime.some((p) => p.weight === 210), 'null includes the 400-day weigh-in');
+  ok(!halfYear.some((p) => p.weight === 210), '180 excludes the 400-day weigh-in');
+});
+
 check('getSymptomDayMap averages multiple same-day entries', () => {
   setup();
   addSymptomLog('Headache', 2, '', iso(2026, 9, 1, 9));
   addSymptomLog('Headache', 4, '', iso(2026, 9, 1, 18));
   addSymptomLog('Headache', 5, '', iso(2026, 9, 2, 9));
   addSymptomLog('Fatigue', 3, '', iso(2026, 9, 1, 9));
-  const m = getSymptomDayMap();
-  eq(m.get('Headache'), [
+  const series = getSymptomDayMap();
+  const headache = series.find((s) => s.name === 'Headache');
+  const fatigue = series.find((s) => s.name === 'Fatigue');
+  eq(headache?.days, [
     { day: '2026-09-01', severity: 3 },
     { day: '2026-09-02', severity: 5 },
   ], 'headache days averaged, oldest first');
-  eq(m.get('Fatigue'), [{ day: '2026-09-01', severity: 3 }], 'fatigue separate');
+  eq(fatigue?.days, [{ day: '2026-09-01', severity: 3 }], 'fatigue separate');
+});
+
+check('getSymptomDayMap merges names that differ only by case', () => {
+  setup();
+  addSymptomLog('Headache', 2, '', iso(2026, 9, 1, 9));
+  addSymptomLog('headache', 4, '', iso(2026, 9, 2, 9));
+  const series: SymptomSeries[] = getSymptomDayMap(null);
+  eq(series.length, 1, 'one series');
+  eq(series.map((s) => s.name.toLowerCase()), ['headache'], 'one normalized key');
+  eq(series[0].name, 'Headache', 'first-seen display casing');
+  eq(
+    series[0].days,
+    [
+      { day: '2026-09-01', severity: 2 },
+      { day: '2026-09-02', severity: 4 },
+    ],
+    'two days merged, oldest first',
+  );
 });
 
 check('getItemDayList groups med/supplement days by name, case-insensitive', () => {

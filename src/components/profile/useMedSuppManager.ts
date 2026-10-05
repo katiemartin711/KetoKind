@@ -78,7 +78,8 @@ export function useMedSuppManager() {
     if (!medSuppForm.asNeeded && (times == null || times < 1 || times > 24)) {
       return Alert.alert('Invalid', 'Times per day must be a whole number between 1 and 24.');
     }
-    const timesPerDay = times ?? 1; // irrelevant for as-needed items
+    // Backups reject times_per_day outside 1-24, including as-needed rows.
+    const timesPerDay = times == null || times < 1 ? 1 : Math.min(times, 24);
     if (editingEntry) {
       if (editingEntry.tab === 'medication') {
         updateMedication(editingEntry.id, medSuppForm.name, medSuppForm.dosage, timesPerDay, medSuppForm.purpose, medSuppForm.asNeeded);

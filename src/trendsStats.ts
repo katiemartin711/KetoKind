@@ -19,6 +19,19 @@ export const MIN_COMPARISON_DAYS = 2;
 /** @deprecated use MIN_BASELINE_DAYS / MIN_COMPARISON_DAYS */
 export const MIN_PATTERN_DAYS = 7;
 
+/**
+ * ISO lower bound for a trailing window of `days` local dates, inclusive of today.
+ * `null` (or a negative count) means no lower bound. Otherwise local midnight of
+ * `today - (days - 1)`, so Week (7) is seven dates, not eight.
+ */
+export function sinceIsoForRange(days: number | null): string | null {
+  if (days == null || days < 0) return null;
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  d.setDate(d.getDate() - (days - 1));
+  return d.toISOString();
+}
+
 /** 'YYYY-MM-DD' in the device's local timezone for an ISO timestamp. */
 export function localDayKey(iso: string): string {
   const d = new Date(iso);
@@ -152,8 +165,8 @@ export interface WeightPoint {
  */
 export function filterWeightRange(points: WeightPoint[], days: number): WeightPoint[] {
   if (days < 0) return points;
-  const cutoff = Date.now() - days * 24 * 60 * 60 * 1000;
-  return points.filter((p) => p.at >= cutoff);
+  const cutoff = localDayKey(sinceIsoForRange(days)!);
+  return points.filter((p) => p.day >= cutoff);
 }
 
 /**
@@ -163,7 +176,7 @@ export function filterWeightRange(points: WeightPoint[], days: number): WeightPo
  */
 export function filterSymptomRange(days: SymptomDay[], daysBack: number): SymptomDay[] {
   if (daysBack < 0) return days;
-  const cutoff = localDayKey(new Date(Date.now() - daysBack * 24 * 60 * 60 * 1000).toISOString());
+  const cutoff = localDayKey(sinceIsoForRange(daysBack)!);
   return days.filter((d) => d.day >= cutoff);
 }
 

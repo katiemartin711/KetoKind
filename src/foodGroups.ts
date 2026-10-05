@@ -1,11 +1,14 @@
 // Food keyword matching for Trends food × symptom patterns.
 //
 // Meal logs are plain English text ("ribeye with butter and salt"), so
-// matching is case-insensitive substring search over each day's meal text.
-// A keyword that names a FOOD_GROUPS entry expands to that group's foods
-// (typing "dairy" matches days mentioning cheese, cream, butter, …);
-// anything else is treated as a plain keyword. Tip for users: typing the
-// shorter form ("egg") catches plurals ("eggs").
+// matching is a case-insensitive whole-word search over each day's meal
+// text, with one optional trailing "s". A keyword that names a FOOD_GROUPS
+// entry expands to that group's foods (typing "dairy" matches days
+// mentioning cheese, cream, butter, …); anything else is a plain keyword.
+// Hits are skipped when the 24 characters before the term end with "no",
+// "not", or "without" plus whitespace, when the term is immediately
+// followed by "-free",
+// or when the term sits inside a lookalike phrase such as "peanut butter".
 //
 // Pure functions, no db access, no React: the screen feeds in a
 // day → meal-texts map from src/db/trends.ts getMealDayMap(), so this is
@@ -54,11 +57,62 @@ export interface FoodMatch {
   isGroup: boolean;
 }
 
+const LOOKALIKES = [
+  'peanut butter',
+  'almond milk',
+  'coconut milk',
+  'oat milk',
+  'kidney bean',
+  'oyster mushroom',
+  'artichoke heart',
+];
+
+function insideLookalike(haystack: string, matchIndex: number, term: string): boolean {
+  const from = Math.max(0, matchIndex - 24);
+  const to = Math.min(haystack.length, matchIndex + term.length + 24);
+  const window = haystack.slice(from, to);
+  return LOOKALIKES.some((phrase) => {
+    if (!phrase.includes(term)) return false;
+    const termAt = phrase.indexOf(term);
+    let rel = window.indexOf(phrase);
+    while (rel !== -1) {
+      if (matchIndex === from + rel + termAt) return true;
+      rel = window.indexOf(phrase, rel + 1);
+    }
+    return false;
+  });
+}
+
+/**
+ * Case-insensitive whole-word search. An optional trailing "s" counts as
+ * the same term. A hit is rejected when the 24 characters before it end
+ * with "no", "not", or "without" plus whitespace, when the term is
+ * immediately followed by "-free", or when that hit sits inside a
+ * lookalike phrase. A later plain mention on the same day still counts.
+ */
+export function mentionsFoodTerm(haystack: string, term: string): boolean {
+  const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`(^|[^a-z0-9])${escaped}s?(?=[^a-z0-9]|$)`, 'gi');
+  const text = haystack.toLowerCase();
+  for (const match of text.matchAll(re)) {
+    const start = match.index ?? 0;
+    const boundaryLen = match[1]?.length ?? 0;
+    const termStart = start + boundaryLen;
+    const before = text.slice(Math.max(0, termStart - 24), termStart);
+    if (/\b(no|not|without)\s+$/.test(before)) continue;
+    const after = text.slice(start + match[0].length);
+    if (after.startsWith('-free')) continue;
+    if (insideLookalike(text, termStart, term)) continue;
+    return true;
+  }
+  return false;
+}
+
 /**
  * Partition days by whether any of the day's meal texts mention the
  * keyword. Group names expand to their foods (a day matches when it
  * mentions ANY of them); anything else is a plain case-insensitive
- * substring search. Empty keyword matches nothing.
+ * word search. Empty keyword matches nothing.
  */
 export function matchFoodDays(
   keyword: string,
@@ -71,7 +125,7 @@ export function matchFoodDays(
   const daysWith = new Set<string>();
   for (const [day, texts] of mealLogsByDay) {
     const haystack = texts.join('\n').toLowerCase();
-    if (matchedFoods.some((t) => haystack.includes(t))) daysWith.add(day);
+    if (matchedFoods.some((t) => mentionsFoodTerm(haystack, t))) daysWith.add(day);
   }
   return { matchedFoods, daysWith, isGroup: groupTerms !== null };
 }

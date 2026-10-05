@@ -1,0 +1,321 @@
+{
+  "chain": "Popeyes",
+  "aliases": ["popeyes", "popeye's", "popeyes louisiana kitchen", "popeyes chicken", "popeys", "popeyes fried chicken", "popeyes louisiana chicken", "pop eyes"],
+  "source": "https://plk-use1-prod.sites.rbictg.com/nutrition/PLK_Nutrition.pdf",
+  "sources": [
+    "https://plk-use1-prod.sites.rbictg.com/nutrition/PLK_Nutrition.pdf",
+    "https://www.popeyes.com/nutritional-information"
+  ],
+  "retrieved": "2026-10-05",
+  "notes": "All numbers are from the Popeyes USA Nutrition Guide PDF (September 2026), which popeyes.com/nutritional-information links to. The guide lists Signature Chicken pieces as 'Classic or Spicy' with one set of numbers, and tenders as 'Classic or Spicy' with one set of numbers, so classic and spicy variants share macros here. Chicken pieces, the classic tender, biscuit and sauces are published per unit and used directly; the blackened tender and the classic bone-in wing are derived by division from the published multi-piece rows. The guide does not publish the chicken sandwich fillet, brioche bun, wrap tortilla or wing sauces separately, so sandwiches, wraps and wings have no build. The 2Pc White/Dark items are the sums of the published pieces (white = breast + wing, dark = thigh + leg, as sold).",
+  "components": {
+    "breast": { "unit": "piece", "protein": 52, "fat": 30, "carbs": 17, "fiber": 2, "calories": 620 },
+    "thigh": { "unit": "piece", "protein": 25, "fat": 34, "carbs": 18, "fiber": 1, "calories": 490 },
+    "leg": { "unit": "piece", "protein": 15, "fat": 12, "carbs": 9, "fiber": 1, "calories": 200 },
+    "wing": { "unit": "piece", "protein": 14, "fat": 15, "carbs": 11, "fiber": 1, "calories": 220 },
+    "classic tender": { "unit": "piece", "protein": 12, "fat": 6, "carbs": 8, "fiber": 0, "calories": 130 },
+    "blackened tender": { "unit": "piece", "protein": 9.3, "fat": 2, "carbs": 0.7, "fiber": 0.3, "calories": 57, "derived": "Tenders - Blackened 3 Pieces divided by 3 (the 5 Pieces row is within rounding of 5 of these)" },
+    "classic bone-in wing": { "unit": "piece", "protein": 5.8, "fat": 6.3, "carbs": 6.7, "fiber": 0.5, "calories": 107, "derived": "Classic Bone-In Wings 6 Pieces divided by 6" },
+    "biscuit": { "unit": "each", "protein": 3, "fat": 14, "carbs": 24, "fiber": 1, "calories": 230 },
+    "bayou buffalo sauce": { "unit": "each", "protein": 0, "fat": 5, "carbs": 2, "fiber": 0, "calories": 50 },
+    "boldbq sauce": { "unit": "each", "protein": 0, "fat": 0, "carbs": 14, "fiber": 0, "calories": 60 },
+    "blackened ranch sauce": { "unit": "each", "protein": 0, "fat": 11, "carbs": 2, "fiber": 0, "calories": 110 },
+    "buttermilk ranch sauce": { "unit": "each", "protein": 0, "fat": 14, "carbs": 2, "fiber": 0, "calories": 130 },
+    "mardi gras mustard": { "unit": "each", "protein": 1, "fat": 8, "carbs": 4, "fiber": 1, "calories": 90 },
+    "sweet heat sauce": { "unit": "each", "protein": 0, "fat": 0, "carbs": 19, "fiber": 0, "calories": 70 },
+    "wild honey mustard": { "unit": "each", "protein": 0, "fat": 11, "carbs": 5, "fiber": 0, "calories": 110 },
+    "cocktail sauce": { "unit": "each", "protein": 1, "fat": 0, "carbs": 9, "fiber": 1, "calories": 35 },
+    "cajun gravy": { "unit": "each", "protein": 10, "fat": 12, "carbs": 2, "fiber": 1, "calories": 160 },
+    "jalapeno": { "unit": "each", "protein": 0, "fat": 0, "carbs": 1, "fiber": 1, "calories": 5 }
+  },
+  "items": [
+    {
+      "name": "Signature Chicken Breast (Classic or Spicy)",
+      "aliases": ["breast", "chicken breast", "classic breast", "spicy breast", "mild breast", "1pc breast", "fried chicken breast", "signature chicken breast"],
+      "macros": { "protein": 52, "fat": 30, "carbs": 17, "fiber": 2, "calories": 620 }
+    },
+    {
+      "name": "Signature Chicken Thigh (Classic or Spicy)",
+      "aliases": ["thigh", "chicken thigh", "classic thigh", "spicy thigh", "mild thigh", "1pc thigh", "fried chicken thigh", "signature chicken thigh"],
+      "macros": { "protein": 25, "fat": 34, "carbs": 18, "fiber": 1, "calories": 490 }
+    },
+    {
+      "name": "Signature Chicken Leg (Classic or Spicy)",
+      "aliases": ["leg", "drumstick", "chicken leg", "classic leg", "spicy leg", "mild leg", "1pc leg", "drum", "fried chicken leg", "signature chicken leg"],
+      "macros": { "protein": 15, "fat": 12, "carbs": 9, "fiber": 1, "calories": 200 }
+    },
+    {
+      "name": "Signature Chicken Wing (Classic or Spicy)",
+      "aliases": ["wing", "chicken wing", "classic wing", "spicy wing", "mild wing", "1pc wing", "fried chicken wing", "signature chicken wing"],
+      "macros": { "protein": 14, "fat": 15, "carbs": 11, "fiber": 1, "calories": 220 }
+    },
+    {
+      "name": "2Pc Signature Chicken, White (Breast & Wing)",
+      "aliases": ["2pc white", "2 piece white", "2pc signature chicken white", "two piece white meat", "2pc white meat", "breast and wing", "2 pc classic white", "2 pc spicy white"],
+      "macros": { "protein": 66, "fat": 45, "carbs": 28, "fiber": 3, "calories": 840 },
+      "build": [
+        { "component": "breast", "count": 1 },
+        { "component": "wing", "count": 1 }
+      ]
+    },
+    {
+      "name": "2Pc Signature Chicken, Dark (Thigh & Leg)",
+      "aliases": ["2pc dark", "2 piece dark", "2pc signature chicken dark", "two piece dark meat", "2pc dark meat", "thigh and leg", "leg and thigh", "2 pc classic dark", "2 pc spicy dark"],
+      "macros": { "protein": 40, "fat": 46, "carbs": 27, "fiber": 2, "calories": 690 },
+      "build": [
+        { "component": "thigh", "count": 1 },
+        { "component": "leg", "count": 1 }
+      ]
+    },
+    {
+      "name": "3Pc Tenders (Classic or Spicy)",
+      "aliases": ["3pc tenders", "3 pc tenders", "3 piece tenders", "three tenders", "3 tenders", "3pc classic tenders", "3pc spicy tenders", "tenders", "chicken tenders", "3 piece chicken tenders", "handcrafted tenders", "3pc mild tenders"],
+      "macros": { "protein": 35, "fat": 19, "carbs": 25, "fiber": 1, "calories": 390 },
+      "build": [
+        { "component": "classic tender", "count": 3 }
+      ]
+    },
+    {
+      "name": "5Pc Tenders (Classic or Spicy)",
+      "aliases": ["5pc tenders", "5 pc tenders", "5 piece tenders", "five tenders", "5 tenders", "5pc classic tenders", "5pc spicy tenders", "5 piece chicken tenders", "5pc mild tenders"],
+      "macros": { "protein": 58, "fat": 32, "carbs": 41, "fiber": 2, "calories": 650 },
+      "build": [
+        { "component": "classic tender", "count": 5 }
+      ]
+    },
+    {
+      "name": "3Pc Blackened Tenders",
+      "aliases": ["3pc blackened tenders", "3 pc blackened tenders", "blackened tenders", "3 blackened tenders", "three blackened tenders", "3 piece blackened tenders", "blackened chicken tenders", "blackend tenders"],
+      "macros": { "protein": 28, "fat": 6, "carbs": 2, "fiber": 1, "calories": 170 },
+      "build": [
+        { "component": "blackened tender", "count": 3 }
+      ]
+    },
+    {
+      "name": "5Pc Blackened Tenders",
+      "aliases": ["5pc blackened tenders", "5 pc blackened tenders", "5 blackened tenders", "five blackened tenders", "5 piece blackened tenders"],
+      "macros": { "protein": 47, "fat": 9, "carbs": 4, "fiber": 1, "calories": 280 },
+      "build": [
+        { "component": "blackened tender", "count": 5 }
+      ]
+    },
+    {
+      "name": "Classic Chicken Sandwich",
+      "aliases": ["classic chicken sandwich", "chicken sandwich", "classic sandwich", "popeyes chicken sandwich", "the chicken sandwich", "mild chicken sandwich", "regular chicken sandwich", "chx sandwich"],
+      "macros": { "protein": 28, "fat": 42, "carbs": 50, "fiber": 2, "calories": 700 }
+    },
+    {
+      "name": "Spicy Chicken Sandwich",
+      "aliases": ["spicy chicken sandwich", "spicy sandwich", "spicy chx sandwich", "hot chicken sandwich", "popeyes spicy chicken sandwich"],
+      "macros": { "protein": 28, "fat": 42, "carbs": 50, "fiber": 2, "calories": 700 }
+    },
+    {
+      "name": "Honey Chicken Biscuit",
+      "aliases": ["honey chicken biscuit", "chicken biscuit with honey", "honey biscuit sandwich", "honey chicken biscuit sandwich"],
+      "macros": { "protein": 23, "fat": 41, "carbs": 67, "fiber": 3, "calories": 730 }
+    },
+    {
+      "name": "Classic Tender Wrap",
+      "aliases": ["classic wrap", "chicken wrap", "classic chicken wrap", "tender wrap", "classic tender wrap", "mild wrap"],
+      "macros": { "protein": 19, "fat": 32, "carbs": 31, "fiber": 2, "calories": 480 }
+    },
+    {
+      "name": "Spicy Tender Wrap",
+      "aliases": ["spicy wrap", "spicy chicken wrap", "spicy tender wrap"],
+      "macros": { "protein": 19, "fat": 31, "carbs": 32, "fiber": 2, "calories": 480 }
+    },
+    {
+      "name": "Classic Tender Blackened Ranch Wrap",
+      "aliases": ["blackened ranch wrap", "blackened wrap", "blackened chicken wrap", "classic tender blackened ranch wrap", "blackened ranch chicken wrap"],
+      "macros": { "protein": 19, "fat": 25, "carbs": 32, "fiber": 2, "calories": 430 }
+    },
+    {
+      "name": "Classic Bone-In Wings, 6 Pieces",
+      "aliases": ["6pc wings", "6 piece wings", "classic wings", "6pc classic wings", "bone-in wings", "bone in wings", "6 wings", "classic bone-in wings", "plain wings"],
+      "macros": { "protein": 35, "fat": 38, "carbs": 40, "fiber": 3, "calories": 640 }
+    },
+    {
+      "name": "Ghost Pepper Bone-In Wings, 6 Pieces",
+      "aliases": ["ghost pepper wings", "6pc ghost pepper wings", "6 piece ghost pepper wings", "ghost pepper bone-in wings", "ghost wings"],
+      "macros": { "protein": 35, "fat": 38, "carbs": 42, "fiber": 3, "calories": 650 }
+    },
+    {
+      "name": "Honey BBQ Bone-In Wings, 6 Pieces",
+      "aliases": ["honey bbq wings", "6pc honey bbq wings", "6 piece honey bbq wings", "bbq wings", "honey barbecue wings"],
+      "macros": { "protein": 36, "fat": 38, "carbs": 90, "fiber": 3, "calories": 850 }
+    },
+    {
+      "name": "Sweet & Spicy Bone-In Wings, 6 Pieces",
+      "aliases": ["sweet and spicy wings", "sweet n spicy wings", "6pc sweet and spicy wings", "6 piece sweet n spicy wings", "sweet & spicy wings"],
+      "macros": { "protein": 36, "fat": 38, "carbs": 96, "fiber": 3, "calories": 870 }
+    },
+    {
+      "name": "Butterfly Shrimp, 8 Pieces",
+      "aliases": ["butterfly shrimp", "8pc butterfly shrimp", "8 piece shrimp", "shrimp", "fried shrimp", "8pc shrimp"],
+      "macros": { "protein": 14, "fat": 21, "carbs": 30, "fiber": 2, "calories": 360 }
+    },
+    {
+      "name": "Buttermilk Biscuit",
+      "aliases": ["biscuit", "buttermilk biscuit", "biscuits", "popeyes biscuit", "1 biscuit", "bisquit"],
+      "macros": { "protein": 3, "fat": 14, "carbs": 24, "fiber": 1, "calories": 230 }
+    },
+    {
+      "name": "Cajun Fries, Regular",
+      "aliases": ["cajun fries", "fries", "regular fries", "regular cajun fries", "french fries", "small fries", "seasoned fries"],
+      "macros": { "protein": 3, "fat": 15, "carbs": 31, "fiber": 3, "calories": 270 }
+    },
+    {
+      "name": "Cajun Fries, Large",
+      "aliases": ["large cajun fries", "large fries", "lg fries", "large seasoned fries"],
+      "macros": { "protein": 9, "fat": 41, "carbs": 86, "fiber": 8, "calories": 740 }
+    },
+    {
+      "name": "Homestyle Mac & Cheese, Regular",
+      "aliases": ["mac and cheese", "mac n cheese", "homestyle mac and cheese", "regular mac and cheese", "macaroni and cheese", "mac & cheese", "mac"],
+      "macros": { "protein": 11, "fat": 20, "carbs": 16, "fiber": 0, "calories": 280 }
+    },
+    {
+      "name": "Homestyle Mac & Cheese, Large",
+      "aliases": ["large mac and cheese", "large mac n cheese", "lg mac and cheese", "large homestyle mac and cheese"],
+      "macros": { "protein": 33, "fat": 63, "carbs": 48, "fiber": 1, "calories": 850 }
+    },
+    {
+      "name": "Mashed Potatoes with Cajun Gravy, Regular",
+      "aliases": ["mashed potatoes", "mashed potatoes with gravy", "mashed potatoes and gravy", "regular mashed potatoes", "cajun mashed potatoes", "mashed potatos", "potatoes and gravy"],
+      "macros": { "protein": 3, "fat": 6, "carbs": 13, "fiber": 0, "calories": 110 }
+    },
+    {
+      "name": "Mashed Potatoes with Cajun Gravy, Large",
+      "aliases": ["large mashed potatoes", "large mashed potatoes with gravy", "lg mashed potatoes", "large mashed potatoes and gravy"],
+      "macros": { "protein": 7, "fat": 14, "carbs": 39, "fiber": 4, "calories": 310 }
+    },
+    {
+      "name": "Red Beans & Rice, Regular",
+      "aliases": ["red beans and rice", "red beans n rice", "regular red beans and rice", "beans and rice", "red beans", "red beans & rice"],
+      "macros": { "protein": 7, "fat": 16, "carbs": 29, "fiber": 6, "calories": 260 }
+    },
+    {
+      "name": "Red Beans & Rice, Large",
+      "aliases": ["large red beans and rice", "large red beans n rice", "lg red beans and rice", "large beans and rice"],
+      "macros": { "protein": 18, "fat": 40, "carbs": 73, "fiber": 13, "calories": 640 }
+    },
+    {
+      "name": "Coleslaw, Regular",
+      "aliases": ["coleslaw", "cole slaw", "regular coleslaw", "slaw"],
+      "macros": { "protein": 1, "fat": 12, "carbs": 12, "fiber": 2, "calories": 160 }
+    },
+    {
+      "name": "Coleslaw, Large",
+      "aliases": ["large coleslaw", "large cole slaw", "lg coleslaw"],
+      "macros": { "protein": 3, "fat": 37, "carbs": 37, "fiber": 6, "calories": 480 }
+    },
+    {
+      "name": "Cajun Rice, Regular",
+      "aliases": ["cajun rice", "regular cajun rice", "dirty rice", "rice", "cajun dirty rice"],
+      "macros": { "protein": 9, "fat": 10, "carbs": 27, "fiber": 1, "calories": 230 }
+    },
+    {
+      "name": "Cajun Rice, Large",
+      "aliases": ["large cajun rice", "lg cajun rice", "large dirty rice", "large rice"],
+      "macros": { "protein": 31, "fat": 26, "carbs": 107, "fiber": 4, "calories": 780 }
+    },
+    {
+      "name": "Cajun Gravy, Regular",
+      "aliases": ["cajun gravy", "gravy", "side of gravy", "regular cajun gravy", "gravy side", "cajun gravy side"],
+      "macros": { "protein": 10, "fat": 12, "carbs": 2, "fiber": 1, "calories": 160 }
+    },
+    {
+      "name": "Jalapeno Pepper",
+      "aliases": ["jalapeno", "jalapeño", "whole jalapeno", "jalapeno pepper", "1 jalapeno", "pickled jalapeno"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 1, "fiber": 1, "calories": 5 }
+    },
+    {
+      "name": "Bayou Buffalo Sauce",
+      "aliases": ["bayou buffalo", "bayou buffalo sauce", "buffalo sauce", "buffalo dipping sauce"],
+      "macros": { "protein": 0, "fat": 5, "carbs": 2, "fiber": 0, "calories": 50 }
+    },
+    {
+      "name": "BoldBQ Sauce",
+      "aliases": ["boldbq", "bold bq", "boldbq sauce", "bbq sauce", "barbecue sauce", "bold bbq sauce", "bbq dipping sauce"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 14, "fiber": 0, "calories": 60 }
+    },
+    {
+      "name": "Blackened Ranch Sauce",
+      "aliases": ["blackened ranch", "blackened ranch sauce", "blackened ranch dipping sauce", "blackend ranch"],
+      "macros": { "protein": 0, "fat": 11, "carbs": 2, "fiber": 0, "calories": 110 }
+    },
+    {
+      "name": "Buttermilk Ranch Sauce",
+      "aliases": ["buttermilk ranch", "ranch", "ranch sauce", "ranch dipping sauce", "buttermilk ranch sauce"],
+      "macros": { "protein": 0, "fat": 14, "carbs": 2, "fiber": 0, "calories": 130 }
+    },
+    {
+      "name": "Mardi Gras Mustard",
+      "aliases": ["mardi gras mustard", "mardi gras mustard sauce", "creole mustard", "mardi gras sauce"],
+      "macros": { "protein": 1, "fat": 8, "carbs": 4, "fiber": 1, "calories": 90 }
+    },
+    {
+      "name": "Sweet Heat Sauce",
+      "aliases": ["sweet heat", "sweet heat sauce", "sweet heat dipping sauce"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 19, "fiber": 0, "calories": 70 }
+    },
+    {
+      "name": "Wild Honey Mustard",
+      "aliases": ["wild honey mustard", "honey mustard", "honey mustard sauce", "honey mustard dipping sauce"],
+      "macros": { "protein": 0, "fat": 11, "carbs": 5, "fiber": 0, "calories": 110 }
+    },
+    {
+      "name": "Cocktail Sauce",
+      "aliases": ["cocktail sauce", "shrimp sauce", "cocktail dipping sauce"],
+      "macros": { "protein": 1, "fat": 0, "carbs": 9, "fiber": 1, "calories": 35 }
+    },
+    {
+      "name": "Chicken Biscuit",
+      "aliases": ["chicken biscuit", "breakfast chicken biscuit", "chicken breakfast biscuit"],
+      "macros": { "protein": 17, "fat": 26, "carbs": 47, "fiber": 1, "calories": 490 }
+    },
+    {
+      "name": "Sausage Biscuit",
+      "aliases": ["sausage biscuit", "breakfast sausage biscuit"],
+      "macros": { "protein": 13, "fat": 36, "carbs": 41, "fiber": 1, "calories": 540 }
+    },
+    {
+      "name": "Egg & Sausage Biscuit",
+      "aliases": ["egg and sausage biscuit", "sausage egg biscuit", "sausage and egg biscuit", "egg & sausage biscuit"],
+      "macros": { "protein": 20, "fat": 45, "carbs": 43, "fiber": 1, "calories": 690 }
+    },
+    {
+      "name": "Bacon Biscuit",
+      "aliases": ["bacon biscuit", "breakfast bacon biscuit"],
+      "macros": { "protein": 8, "fat": 25, "carbs": 37, "fiber": 3, "calories": 400 }
+    },
+    {
+      "name": "Hash Rounds",
+      "aliases": ["hash rounds", "hashbrowns", "hash browns", "tater rounds", "hash round"],
+      "macros": { "protein": 3, "fat": 20, "carbs": 41, "fiber": 4, "calories": 360 }
+    },
+    {
+      "name": "Cinnamon Apple Pie",
+      "aliases": ["apple pie", "cinnamon apple pie", "fried apple pie", "apple turnover"],
+      "macros": { "protein": 3, "fat": 14, "carbs": 35, "fiber": 2, "calories": 280 }
+    },
+    {
+      "name": "Strawberry & Cream Cheese Pie",
+      "aliases": ["strawberry pie", "strawberry cream cheese pie", "strawberry and cream cheese pie", "strawberry cheesecake pie"],
+      "macros": { "protein": 4, "fat": 17, "carbs": 34, "fiber": 1, "calories": 300 }
+    },
+    {
+      "name": "Kids Tender, Classic (1 Piece)",
+      "aliases": ["kids tender", "1 tender", "one tender", "1pc tender", "single tender", "kids meal tender"],
+      "macros": { "protein": 12, "fat": 6, "carbs": 8, "fiber": 0, "calories": 130 },
+      "build": [
+        { "component": "classic tender", "count": 1 }
+      ]
+    },
+    {
+      "name": "Kids Leg, Classic (1 Piece)",
+      "aliases": ["kids leg", "kids drumstick", "kids meal leg", "1pc leg kids meal"],
+      "macros": { "protein": 12, "fat": 11, "carbs": 9, "fiber": 0, "calories": 190 }
+    }
+  ]
+}

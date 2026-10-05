@@ -1,0 +1,442 @@
+{
+  "chain": "Olive Garden",
+  "aliases": ["olive garden", "olivegarden", "olive gardens", "the olive garden", "og", "olive garden italian restaurant", "oliver garden"],
+  "source": "https://media.olivegarden.com/en_us/pdf/olive_garden_nutrition.pdf",
+  "retrieved": "2026-10-05",
+  "notes": "All numbers are from Olive Garden's own Nutrition Information PDF (US_083126 edition, linked from https://www.olivegarden.com/nutrition). The PDF lists every item as served; dinner and lunch entrees do NOT include the unlimited soup/salad/breadsticks, which are published as separate rows (one breadstick, one salad serving of about 5 oz, one 8 fl oz soup serving). Create Your Own Pasta rows give each pasta, sauce and topping separately, and those rows are used as components; builds for Fettuccine Alfredo, Chicken Alfredo, Shrimp Alfredo and the Spaghetti entrees reproduce the published entree totals from them. Where the PDF prints 'less than 1 g' for fiber or sugar the value is stored as 0.5. Dipping sauces are the Appetizers rows; dressings are per 1 fl oz.",
+  "components": {
+    "breadstick with garlic topping": { "unit": "each", "protein": 4, "fat": 2.5, "carbs": 25, "fiber": 0.5, "calories": 140 },
+    "breadstick plain": { "unit": "each", "protein": 4, "fat": 1, "carbs": 25, "fiber": 1, "calories": 130 },
+    "house salad without dressing": { "unit": "each", "protein": 2, "fat": 2, "carbs": 11, "fiber": 2, "calories": 70 },
+    "signature italian dressing": { "unit": "each", "protein": 0, "fat": 8, "carbs": 2, "fiber": 0, "calories": 80 },
+    "low-fat italian dressing": { "unit": "each", "protein": 0, "fat": 2, "carbs": 2, "fiber": 0, "calories": 30 },
+    "fettuccine": { "unit": "each", "protein": 12, "fat": 2.5, "carbs": 67, "fiber": 3, "calories": 350 },
+    "angel hair": { "unit": "each", "protein": 12, "fat": 2.5, "carbs": 67, "fiber": 3, "calories": 350 },
+    "bucatini": { "unit": "each", "protein": 15, "fat": 3, "carbs": 81, "fiber": 3, "calories": 410 },
+    "gluten-free rotini": { "unit": "each", "protein": 9, "fat": 3.5, "carbs": 77, "fiber": 5, "calories": 380 },
+    "rigatoni": { "unit": "each", "protein": 14, "fat": 6, "carbs": 83, "fiber": 3, "calories": 440 },
+    "spaghetti": { "unit": "each", "protein": 12, "fat": 3.5, "carbs": 67, "fiber": 3, "calories": 340 },
+    "alfredo sauce": { "unit": "each", "protein": 15, "fat": 87, "carbs": 11, "fiber": 0, "calories": 870 },
+    "spicy alfredo sauce": { "unit": "each", "protein": 18, "fat": 97, "carbs": 15, "fiber": 0, "calories": 980 },
+    "creamy mushroom sauce": { "unit": "each", "protein": 10, "fat": 87, "carbs": 13, "fiber": 0, "calories": 860 },
+    "five cheese marinara": { "unit": "each", "protein": 11, "fat": 33, "carbs": 17, "fiber": 3, "calories": 400 },
+    "marinara": { "unit": "each", "protein": 4, "fat": 9, "carbs": 17, "fiber": 4, "calories": 150 },
+    "meat sauce": { "unit": "each", "protein": 14, "fat": 19, "carbs": 19, "fiber": 2, "calories": 300 },
+    "grilled chicken": { "unit": "each", "protein": 26, "fat": 2.5, "carbs": 0, "fiber": 0, "calories": 130 },
+    "crispy chicken fritta": { "unit": "each", "protein": 20, "fat": 12, "carbs": 14, "fiber": 1, "calories": 240 },
+    "crispy shrimp fritta": { "unit": "each", "protein": 11, "fat": 12, "carbs": 17, "fiber": 1, "calories": 220 },
+    "sauteed shrimp": { "unit": "each", "protein": 33, "fat": 3.5, "carbs": 1, "fiber": 0, "calories": 170 },
+    "italian sausage (2 links)": { "unit": "each", "protein": 27, "fat": 39, "carbs": 2, "fiber": 0.5, "calories": 470 },
+    "meatballs (3)": { "unit": "each", "protein": 23, "fat": 40, "carbs": 7, "fiber": 3, "calories": 480 },
+    "broccoli (pasta topping)": { "unit": "each", "protein": 4, "fat": 13, "carbs": 8, "fiber": 3, "calories": 150 },
+    "parmesan garlic broccoli": { "unit": "each", "protein": 5, "fat": 13, "carbs": 8, "fiber": 3, "calories": 150 },
+    "mashed potatoes": { "unit": "each", "protein": 4, "fat": 8, "carbs": 27, "fiber": 3, "calories": 200 },
+    "marinara dipping sauce": { "unit": "each", "protein": 0.5, "fat": 2, "carbs": 4, "fiber": 0.5, "calories": 35 },
+    "spicy ranch dipping sauce": { "unit": "each", "protein": 1, "fat": 26, "carbs": 2, "fiber": 0, "calories": 240 },
+    "alfredo dipping sauce": { "unit": "each", "protein": 8, "fat": 43, "carbs": 5, "fiber": 0, "calories": 440 },
+    "five cheese marinara dipping sauce": { "unit": "each", "protein": 5, "fat": 17, "carbs": 9, "fiber": 1, "calories": 200 },
+    "mint candy": { "unit": "each", "protein": 0, "fat": 1.5, "carbs": 3, "fiber": 0, "calories": 25 }
+  },
+  "items": [
+    {
+      "name": "Breadstick with Garlic Topping",
+      "aliases": ["breadstick", "breadsticks", "garlic breadstick", "olive garden breadstick", "bread stick", "bread sticks", "unlimited breadsticks", "1 breadstick"],
+      "macros": { "protein": 4, "fat": 2.5, "carbs": 25, "fiber": 0.5, "calories": 140 },
+      "build": [{ "component": "breadstick with garlic topping", "count": 1 }]
+    },
+    {
+      "name": "Breadstick, plain (no garlic topping)",
+      "aliases": ["plain breadstick", "breadstick no garlic", "breadstick without garlic topping", "dry breadstick"],
+      "macros": { "protein": 4, "fat": 1, "carbs": 25, "fiber": 1, "calories": 130 },
+      "build": [{ "component": "breadstick plain", "count": 1 }]
+    },
+    {
+      "name": "Famous House Salad with Signature Italian Dressing",
+      "aliases": ["house salad", "salad", "famous house salad", "olive garden salad", "unlimited salad", "garden salad", "side salad", "salad with italian dressing"],
+      "macros": { "protein": 3, "fat": 10, "carbs": 13, "fiber": 2, "calories": 150 },
+      "build": [
+        { "component": "house salad without dressing", "count": 1 },
+        { "component": "signature italian dressing", "count": 1 }
+      ]
+    },
+    {
+      "name": "Famous House Salad without Dressing",
+      "aliases": ["salad no dressing", "house salad no dressing", "salad without dressing", "dry salad"],
+      "macros": { "protein": 2, "fat": 2, "carbs": 11, "fiber": 2, "calories": 70 },
+      "build": [{ "component": "house salad without dressing", "count": 1 }]
+    },
+    {
+      "name": "Signature Italian Dressing (1 fl oz)",
+      "aliases": ["italian dressing", "signature italian dressing", "og dressing", "olive garden dressing", "house dressing"],
+      "macros": { "protein": 0, "fat": 8, "carbs": 2, "fiber": 0, "calories": 80 }
+    },
+    {
+      "name": "Low-Fat Italian Dressing (1 fl oz)",
+      "aliases": ["low fat italian dressing", "lowfat italian", "light italian dressing"],
+      "macros": { "protein": 0, "fat": 2, "carbs": 2, "fiber": 0, "calories": 30 }
+    },
+    {
+      "name": "Zuppa Toscana Soup",
+      "aliases": ["zuppa toscana", "zuppa", "tuscan soup", "sausage kale soup", "zupa toscana", "zuppa tuscana", "bowl of zuppa toscana"],
+      "macros": { "protein": 7, "fat": 15, "carbs": 15, "fiber": 2, "calories": 220 }
+    },
+    {
+      "name": "Chicken & Gnocchi Soup",
+      "aliases": ["chicken and gnocchi", "chicken gnocchi soup", "gnocchi soup", "chicken gnocchi"],
+      "macros": { "protein": 11, "fat": 12, "carbs": 22, "fiber": 1, "calories": 230 }
+    },
+    {
+      "name": "Minestrone Soup",
+      "aliases": ["minestrone", "ministrone", "minestroni", "vegetable soup"],
+      "macros": { "protein": 5, "fat": 1, "carbs": 17, "fiber": 4, "calories": 110 }
+    },
+    {
+      "name": "Pasta e Fagioli Soup",
+      "aliases": ["pasta e fagioli", "pasta fagioli", "pasta fazool", "pasta fagoli", "bean soup", "pasta and bean soup"],
+      "macros": { "protein": 8, "fat": 5, "carbs": 16, "fiber": 3, "calories": 150 }
+    },
+    {
+      "name": "Calamari",
+      "aliases": ["fried calamari", "calamari appetizer", "calamary"],
+      "macros": { "protein": 24, "fat": 42, "carbs": 48, "fiber": 2, "calories": 670 }
+    },
+    {
+      "name": "Fried Mozzarella",
+      "aliases": ["mozzarella sticks", "fried mozz", "mozz sticks", "fried mozzarella appetizer"],
+      "macros": { "protein": 33, "fat": 49, "carbs": 57, "fiber": 4, "calories": 800 }
+    },
+    {
+      "name": "Lasagna Fritta",
+      "aliases": ["fried lasagna", "lasagna fritta appetizer", "lasagne fritta"],
+      "macros": { "protein": 39, "fat": 76, "carbs": 75, "fiber": 5, "calories": 1130 }
+    },
+    {
+      "name": "Meatballs Parmigiana",
+      "aliases": ["meatballs parm", "meatball appetizer", "meatballs parmigiana appetizer", "meatballs parmesan"],
+      "macros": { "protein": 51, "fat": 83, "carbs": 27, "fiber": 6, "calories": 1040 }
+    },
+    {
+      "name": "Spinach-Artichoke Dip with Flatbread Crisps",
+      "aliases": ["spinach artichoke dip", "spinach dip", "artichoke dip", "spinach and artichoke dip"],
+      "macros": { "protein": 33, "fat": 81, "carbs": 75, "fiber": 7, "calories": 1160 }
+    },
+    {
+      "name": "Stuffed Ziti Fritta",
+      "aliases": ["stuffed ziti", "ziti fritta", "fried ziti", "stuffed ziti fritta appetizer"],
+      "macros": { "protein": 27, "fat": 26, "carbs": 40, "fiber": 3, "calories": 500 }
+    },
+    {
+      "name": "Toasted Ravioli",
+      "aliases": ["toasted ravioli appetizer", "fried ravioli", "toasted raviolis"],
+      "macros": { "protein": 25, "fat": 31, "carbs": 69, "fiber": 4, "calories": 650 }
+    },
+    {
+      "name": "Shrimp Fritto Misto",
+      "aliases": ["shrimp fritto misto", "fritto misto", "fried shrimp appetizer", "shrimp fritto"],
+      "macros": { "protein": 41, "fat": 79, "carbs": 101, "fiber": 9, "calories": 1280 }
+    },
+    {
+      "name": "Marinara Dipping Sauce (appetizer side)",
+      "aliases": ["side of marinara", "marinara dip", "add marinara", "marinara dipping sauce"],
+      "macros": { "protein": 0.5, "fat": 2, "carbs": 4, "fiber": 0.5, "calories": 35 }
+    },
+    {
+      "name": "Alfredo Dipping Sauce",
+      "aliases": ["alfredo dip", "side of alfredo", "alfredo dipping sauce", "alfredo sauce for breadsticks", "breadstick alfredo"],
+      "macros": { "protein": 8, "fat": 43, "carbs": 5, "fiber": 0, "calories": 440 }
+    },
+    {
+      "name": "Five Cheese Marinara Dipping Sauce",
+      "aliases": ["five cheese marinara dip", "5 cheese marinara dipping sauce", "five cheese marinara sauce for breadsticks"],
+      "macros": { "protein": 5, "fat": 17, "carbs": 9, "fiber": 1, "calories": 200 }
+    },
+    {
+      "name": "Fettuccine Alfredo",
+      "aliases": ["fettuccine alfredo", "fettucine alfredo", "fettuccini alfredo", "alfredo", "alfredo pasta", "fettuccine alfredo dinner", "never ending pasta fettuccine alfredo"],
+      "macros": { "protein": 27, "fat": 89, "carbs": 78, "fiber": 3, "calories": 1220 },
+      "build": [
+        { "component": "fettuccine", "count": 1 },
+        { "component": "alfredo sauce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Chicken Alfredo (with grilled chicken)",
+      "aliases": ["chicken alfredo", "chicken fettuccine alfredo", "grilled chicken alfredo", "chicken alfredo grilled", "chicken alfredo pasta"],
+      "macros": { "protein": 79, "fat": 95, "carbs": 79, "fiber": 4, "calories": 1480 },
+      "build": [
+        { "component": "fettuccine", "count": 1 },
+        { "component": "alfredo sauce", "count": 1 },
+        { "component": "grilled chicken", "count": 2 }
+      ]
+    },
+    {
+      "name": "Chicken Alfredo (with crispy chicken fritta)",
+      "aliases": ["crispy chicken alfredo", "chicken alfredo crispy", "chicken fritta alfredo", "fried chicken alfredo"],
+      "macros": { "protein": 67, "fat": 113, "carbs": 106, "fiber": 5, "calories": 1710 },
+      "build": [
+        { "component": "fettuccine", "count": 1 },
+        { "component": "alfredo sauce", "count": 1 },
+        { "component": "crispy chicken fritta", "count": 2 }
+      ]
+    },
+    {
+      "name": "Shrimp Alfredo",
+      "aliases": ["shrimp alfredo", "shrimp fettuccine alfredo", "shrimp alfredo pasta"],
+      "macros": { "protein": 60, "fat": 93, "carbs": 79, "fiber": 4, "calories": 1390 },
+      "build": [
+        { "component": "fettuccine", "count": 1 },
+        { "component": "alfredo sauce", "count": 1 },
+        { "component": "sauteed shrimp", "count": 1 }
+      ]
+    },
+    {
+      "name": "Seafood Alfredo",
+      "aliases": ["seafood alfredo", "seafood fettuccine alfredo"],
+      "macros": { "protein": 53, "fat": 93, "carbs": 81, "fiber": 3, "calories": 1370 }
+    },
+    {
+      "name": "Chicken & Shrimp Carbonara",
+      "aliases": ["chicken and shrimp carbonara", "carbonara", "chicken shrimp carbonara"],
+      "macros": { "protein": 64, "fat": 91, "carbs": 75, "fiber": 3, "calories": 1370 }
+    },
+    {
+      "name": "Shrimp Carbonara",
+      "aliases": ["shrimp carbonara"],
+      "macros": { "protein": 58, "fat": 81, "carbs": 63, "fiber": 4, "calories": 1200 }
+    },
+    {
+      "name": "Tour of Italy",
+      "aliases": ["tour of italy", "tour italy", "lasagna chicken parm alfredo combo", "tour of italy platter"],
+      "macros": { "protein": 72, "fat": 97, "carbs": 99, "fiber": 7, "calories": 1550 }
+    },
+    {
+      "name": "Chicken Parmigiana",
+      "aliases": ["chicken parmigiana", "chicken parm", "chicken parmesan", "chicken parmigiano", "chicken parm dinner"],
+      "macros": { "protein": 64, "fat": 51, "carbs": 80, "fiber": 7, "calories": 1020 }
+    },
+    {
+      "name": "Grilled Chicken Parmigiana (gluten sensitive)",
+      "aliases": ["grilled chicken parmigiana", "grilled chicken parm", "gluten free chicken parm", "gluten sensitive chicken parmigiana"],
+      "macros": { "protein": 75, "fat": 33, "carbs": 59, "fiber": 7, "calories": 810 }
+    },
+    {
+      "name": "Lasagna Classico",
+      "aliases": ["lasagna", "lasagna classico", "lasagne", "classic lasagna", "lasagna dinner"],
+      "macros": { "protein": 54, "fat": 55, "carbs": 61, "fiber": 6, "calories": 940 }
+    },
+    {
+      "name": "Shrimp Scampi",
+      "aliases": ["shrimp scampi", "scampi", "shrimp scampi dinner"],
+      "macros": { "protein": 29, "fat": 18, "carbs": 52, "fiber": 4, "calories": 490 }
+    },
+    {
+      "name": "Chicken Scampi",
+      "aliases": ["chicken scampi"],
+      "macros": { "protein": 49, "fat": 45, "carbs": 106, "fiber": 5, "calories": 1050 }
+    },
+    {
+      "name": "Five Cheese Ziti al Forno",
+      "aliases": ["five cheese ziti", "5 cheese ziti", "ziti al forno", "baked ziti", "five cheese ziti al forno", "cheese ziti"],
+      "macros": { "protein": 46, "fat": 69, "carbs": 98, "fiber": 6, "calories": 1170 }
+    },
+    {
+      "name": "Chicken Tortelloni Alfredo",
+      "aliases": ["chicken tortelloni alfredo", "tortelloni alfredo", "chicken tortellini alfredo", "asiago tortelloni alfredo"],
+      "macros": { "protein": 112, "fat": 131, "carbs": 95, "fiber": 5, "calories": 1980 }
+    },
+    {
+      "name": "Eggplant Parmigiana",
+      "aliases": ["eggplant parmigiana", "eggplant parm", "eggplant parmesan"],
+      "macros": { "protein": 35, "fat": 58, "carbs": 108, "fiber": 11, "calories": 1070 }
+    },
+    {
+      "name": "Herb-Grilled Salmon",
+      "aliases": ["herb grilled salmon", "salmon", "grilled salmon", "salmon dinner", "herb-grilled salmon with broccoli"],
+      "macros": { "protein": 45, "fat": 45, "carbs": 9, "fiber": 4, "calories": 610 }
+    },
+    {
+      "name": "Grilled Chicken Margherita",
+      "aliases": ["chicken margherita", "grilled chicken margherita", "chicken margarita", "margherita chicken"],
+      "macros": { "protein": 65, "fat": 39, "carbs": 15, "fiber": 5, "calories": 650 }
+    },
+    {
+      "name": "Steak Gorgonzola Alfredo",
+      "aliases": ["steak gorgonzola", "steak gorgonzola alfredo", "gorgonzola steak pasta"],
+      "macros": { "protein": 74, "fat": 105, "carbs": 85, "fiber": 5, "calories": 1580 }
+    },
+    {
+      "name": "Stuffed Chicken Marsala",
+      "aliases": ["stuffed chicken marsala", "chicken marsala"],
+      "macros": { "protein": 70, "fat": 58, "carbs": 94, "fiber": 8, "calories": 1170 }
+    },
+    {
+      "name": "6 oz. Tuscan Sirloin (gluten sensitive)",
+      "aliases": ["tuscan sirloin", "6 oz tuscan sirloin", "6 oz sirloin gluten sensitive", "sirloin steak"],
+      "macros": { "protein": 46, "fat": 30, "carbs": 9, "fiber": 4, "calories": 480 }
+    },
+    {
+      "name": "6 oz. Sirloin (dinner)",
+      "aliases": ["6 oz sirloin", "6oz sirloin", "sirloin dinner", "6 oz sirloin dinner"],
+      "macros": { "protein": 57, "fat": 62, "carbs": 49, "fiber": 2, "calories": 980 }
+    },
+    {
+      "name": "Spaghetti with Marinara",
+      "aliases": ["spaghetti marinara", "spaghetti with marinara", "spaghetti with marinara sauce", "spaghetti and marinara"],
+      "macros": { "protein": 15, "fat": 12, "carbs": 83, "fiber": 6, "calories": 490 },
+      "build": [
+        { "component": "spaghetti", "count": 1 },
+        { "component": "marinara", "count": 1 }
+      ]
+    },
+    {
+      "name": "Spaghetti with Meat Sauce",
+      "aliases": ["spaghetti meat sauce", "spaghetti with meat sauce", "spaghetti and meat sauce", "spaghetti bolognese"],
+      "macros": { "protein": 26, "fat": 22, "carbs": 85, "fiber": 4, "calories": 640 },
+      "build": [
+        { "component": "spaghetti", "count": 1 },
+        { "component": "meat sauce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Spaghetti with Meat Sauce & Meatballs (3)",
+      "aliases": ["spaghetti and meatballs", "spaghetti meatballs", "spaghetti with meatballs", "spaghetti & meatballs", "spaghetti with meat sauce and meatballs"],
+      "macros": { "protein": 49, "fat": 62, "carbs": 92, "fiber": 7, "calories": 1120 },
+      "build": [
+        { "component": "spaghetti", "count": 1 },
+        { "component": "meat sauce", "count": 1 },
+        { "component": "meatballs (3)", "count": 1 }
+      ]
+    },
+    {
+      "name": "Spaghetti with Meat Sauce & Sausage (2)",
+      "aliases": ["spaghetti and sausage", "spaghetti with sausage", "spaghetti with italian sausage", "spaghetti meat sauce sausage"],
+      "macros": { "protein": 52, "fat": 62, "carbs": 87, "fiber": 5, "calories": 1110 },
+      "build": [
+        { "component": "spaghetti", "count": 1 },
+        { "component": "meat sauce", "count": 1 },
+        { "component": "italian sausage (2 links)", "count": 1 }
+      ]
+    },
+    {
+      "name": "Cheese Ravioli with Marinara Sauce",
+      "aliases": ["cheese ravioli", "ravioli marinara", "cheese ravioli marinara", "ravioli with marinara"],
+      "macros": { "protein": 41, "fat": 38, "carbs": 63, "fiber": 5, "calories": 750 }
+    },
+    {
+      "name": "Cheese Ravioli with Meat Sauce",
+      "aliases": ["cheese ravioli meat sauce", "ravioli with meat sauce", "ravioli meat sauce"],
+      "macros": { "protein": 50, "fat": 46, "carbs": 65, "fiber": 4, "calories": 860 }
+    },
+    {
+      "name": "Creamy Mushroom Ravioli",
+      "aliases": ["mushroom ravioli", "creamy mushroom ravioli"],
+      "macros": { "protein": 24, "fat": 76, "carbs": 59, "fiber": 6, "calories": 980 }
+    },
+    {
+      "name": "Ravioli Carbonara",
+      "aliases": ["ravioli carbonara"],
+      "macros": { "protein": 53, "fat": 104, "carbs": 63, "fiber": 3, "calories": 1390 }
+    },
+    {
+      "name": "Spicy Alfredo Fettuccine",
+      "aliases": ["spicy alfredo", "spicy alfredo fettuccine", "spicy fettuccine alfredo", "calabrian alfredo"],
+      "macros": { "protein": 30, "fat": 99, "carbs": 82, "fiber": 3, "calories": 1330 },
+      "build": [
+        { "component": "fettuccine", "count": 1 },
+        { "component": "spicy alfredo sauce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Fettuccine Alfredo (lunch-sized)",
+      "aliases": ["lunch fettuccine alfredo", "lunch alfredo", "lunch sized fettuccine alfredo", "small fettuccine alfredo", "lighter portion fettuccine alfredo"],
+      "macros": { "protein": 20, "fat": 67, "carbs": 58, "fiber": 2, "calories": 920 }
+    },
+    {
+      "name": "Chicken Parmigiana (lunch-sized)",
+      "aliases": ["lunch chicken parm", "lunch chicken parmigiana", "lunch sized chicken parm", "lighter portion chicken parmigiana"],
+      "macros": { "protein": 36, "fat": 29, "carbs": 61, "fiber": 5, "calories": 630 }
+    },
+    {
+      "name": "Lasagna Classico (lunch-sized)",
+      "aliases": ["lunch lasagna", "lunch sized lasagna", "lighter portion lasagna", "small lasagna"],
+      "macros": { "protein": 29, "fat": 30, "carbs": 33, "fiber": 3, "calories": 500 }
+    },
+    {
+      "name": "Five Cheese Ziti al Forno (lunch-sized)",
+      "aliases": ["lunch five cheese ziti", "lunch ziti", "lunch sized ziti al forno", "small five cheese ziti"],
+      "macros": { "protein": 24, "fat": 35, "carbs": 57, "fiber": 4, "calories": 630 }
+    },
+    {
+      "name": "Create Your Own Pasta: Fettuccine with Alfredo",
+      "aliases": ["create your own pasta", "cyo pasta", "never ending pasta bowl", "never ending pasta", "fettuccine with alfredo", "build your own pasta"],
+      "macros": { "protein": 27, "fat": 89, "carbs": 78, "fiber": 3, "calories": 1220 },
+      "build": [
+        { "component": "fettuccine", "count": 1 },
+        { "component": "alfredo sauce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Create Your Own Pasta: Rigatoni with Five Cheese Marinara",
+      "aliases": ["rigatoni five cheese marinara", "rigatoni with five cheese marinara", "rigatoni marinara"],
+      "macros": { "protein": 25, "fat": 39, "carbs": 100, "fiber": 6, "calories": 840 },
+      "build": [
+        { "component": "rigatoni", "count": 1 },
+        { "component": "five cheese marinara", "count": 1 }
+      ]
+    },
+    {
+      "name": "Side of Grilled Chicken",
+      "aliases": ["grilled chicken", "side grilled chicken", "add grilled chicken", "grilled chicken side", "chicken side"],
+      "macros": { "protein": 26, "fat": 2.5, "carbs": 0, "fiber": 0, "calories": 130 },
+      "build": [{ "component": "grilled chicken", "count": 1 }]
+    },
+    {
+      "name": "Side of Sauteed Shrimp",
+      "aliases": ["sauteed shrimp", "add shrimp", "side of shrimp", "shrimp topping"],
+      "macros": { "protein": 33, "fat": 3.5, "carbs": 1, "fiber": 0, "calories": 170 },
+      "build": [{ "component": "sauteed shrimp", "count": 1 }]
+    },
+    {
+      "name": "Side of Meatballs (3)",
+      "aliases": ["meatballs", "side of meatballs", "3 meatballs", "add meatballs", "meatball side"],
+      "macros": { "protein": 24, "fat": 42, "carbs": 11, "fiber": 4, "calories": 520 }
+    },
+    {
+      "name": "Side of Italian Sausage (2)",
+      "aliases": ["italian sausage", "side of sausage", "sausage side", "add sausage", "2 sausage links"],
+      "macros": { "protein": 27, "fat": 42, "carbs": 6, "fiber": 2, "calories": 510 }
+    },
+    {
+      "name": "Parmesan Garlic Broccoli",
+      "aliases": ["broccoli", "side broccoli", "parmesan broccoli", "garlic broccoli", "side of broccoli", "steamed broccoli"],
+      "macros": { "protein": 5, "fat": 13, "carbs": 8, "fiber": 3, "calories": 150 },
+      "build": [{ "component": "parmesan garlic broccoli", "count": 1 }]
+    },
+    {
+      "name": "Mashed Potatoes",
+      "aliases": ["mashed potatoes", "side mashed potatoes", "garlic mashed potatoes", "mashed potato"],
+      "macros": { "protein": 4, "fat": 8, "carbs": 27, "fiber": 3, "calories": 200 },
+      "build": [{ "component": "mashed potatoes", "count": 1 }]
+    },
+    {
+      "name": "Tiramisu",
+      "aliases": ["tiramisu", "tiramisu dessert", "tiramasu"],
+      "macros": { "protein": 6, "fat": 27, "carbs": 54, "fiber": 0, "calories": 470 }
+    },
+    {
+      "name": "Black Tie Mousse Cake",
+      "aliases": ["black tie mousse cake", "black tie cake", "mousse cake", "chocolate mousse cake"],
+      "macros": { "protein": 9, "fat": 50, "carbs": 76, "fiber": 4, "calories": 750 }
+    },
+    {
+      "name": "Warm Italian Doughnuts",
+      "aliases": ["italian doughnuts", "zeppoli", "zeppole", "warm italian donuts", "doughnuts"],
+      "macros": { "protein": 20, "fat": 28, "carbs": 119, "fiber": 6, "calories": 810 }
+    },
+    {
+      "name": "Mint Candy",
+      "aliases": ["mint", "andes mint", "after dinner mint", "olive garden mint", "chocolate mint"],
+      "macros": { "protein": 0, "fat": 1.5, "carbs": 3, "fiber": 0, "calories": 25 }
+    }
+  ]
+}

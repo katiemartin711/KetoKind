@@ -1,0 +1,328 @@
+{
+  "chain": "Wendy's",
+  "aliases": ["wendy's", "wendys", "wendy", "wendies", "wendy's restaurant", "wendys burgers"],
+  "source": "https://order.wendys.com/us/en/national/menu",
+  "retrieved": "2026-10-05",
+  "notes": "All item totals are from the Nutritional Value panel on each product page of Wendy's U.S. online menu (order.wendys.com/us/en/national/menu/<category>/<item>), read 2026-10-05. Wendy's does not publish per-ingredient nutrition, so every component is derived by subtraction between published items as noted in its 'derived' field; where a bun and its condiments could not be separated they are kept as one component. Bacon strip counts: the Baconator's 6 pieces are published; other strip counts in builds are the counts that reproduce the published totals and are not published by Wendy's. Fries and Frosty are the Jr. size shown by default on the menu. Dipping sauces are not published on the online menu and are omitted.",
+  "components": {
+    "quarter-pound beef patty": { "unit": "each", "protein": 18.5, "fat": 17, "carbs": 0, "fiber": 0, "calories": 230, "derived": "average of (Dave's Double minus Dave's Single) and (Dave's Triple minus Dave's Double), minus one american cheese slice" },
+    "jr beef patty": { "unit": "each", "protein": 9, "fat": 8, "carbs": 0, "fiber": 0, "calories": 110, "derived": "Double Stack minus Jr. Cheeseburger" },
+    "american cheese": { "unit": "slice", "protein": 2, "fat": 3, "carbs": 1, "fiber": 0, "calories": 40, "derived": "Jr. Cheeseburger minus Jr. Hamburger" },
+    "bacon": { "unit": "strip", "protein": 1.5, "fat": 1, "carbs": 0, "fiber": 0, "calories": 15, "derived": "(Baconator minus Dave's Double) divided by the Baconator's published 6 pieces of bacon; cross-checked against Bacon Double Stack minus Double Stack" },
+    "premium bun": { "unit": "each", "protein": 9.5, "fat": 8, "carbs": 35, "fiber": 1, "calories": 230, "derived": "Dave's Single minus quarter-pound beef patty minus american cheese minus 'lettuce, tomato & mayo' (so it carries Dave's Single's ketchup, mustard, pickle and onion); reproduces Baconator within rounding" },
+    "jr bun": { "unit": "each", "protein": 3, "fat": 2, "carbs": 24, "fiber": 1, "calories": 120, "derived": "Jr. Hamburger minus jr beef patty (so it carries the Jr. Hamburger's ketchup, mustard, pickle and onion)" },
+    "lettuce, tomato & mayo": { "unit": "each", "protein": 1, "fat": 6, "carbs": 1, "fiber": 0, "calories": 60, "derived": "Jr. Cheeseburger Deluxe minus Jr. Cheeseburger" },
+    "crispy chicken fillet": { "unit": "each", "protein": 17.5, "fat": 11, "carbs": 19, "fiber": 2, "calories": 260, "derived": "Classic Chicken Sandwich minus premium bun minus 'lettuce, tomato & mayo'" },
+    "spicy chicken fillet": { "unit": "each", "protein": 17.5, "fat": 12, "carbs": 19, "fiber": 2, "calories": 270, "derived": "Spicy Chicken Sandwich minus premium bun minus 'lettuce, tomato & mayo'" },
+    "jr crispy chicken patty": { "unit": "each", "protein": 11, "fat": 9, "carbs": 7, "fiber": 0, "calories": 160, "derived": "Crispy Chicken Sandwich minus jr bun minus 'lettuce, tomato & mayo'" },
+    "asiago cheese, bacon & ranch": { "unit": "each", "protein": 9, "fat": 9, "carbs": 1, "fiber": 0, "calories": 120, "derived": "Asiago Ranch Club Sandwich, Classic minus Classic Chicken Sandwich" },
+    "cobb salad entree": { "unit": "each", "protein": 37, "fat": 23, "carbs": 16, "fiber": 3, "calories": 410 },
+    "ranch dressing packet": { "unit": "each", "protein": 1, "fat": 26, "carbs": 2, "fiber": 0, "calories": 250 },
+    "taco salad entree": { "unit": "each", "protein": 27, "fat": 25, "carbs": 36, "fiber": 8, "calories": 470 },
+    "creamy salsa dressing packet": { "unit": "each", "protein": 1, "fat": 15, "carbs": 3, "fiber": 0, "calories": 150 },
+    "apple pecan salad entree": { "unit": "each", "protein": 30, "fat": 22, "carbs": 27, "fiber": 5, "calories": 420 },
+    "pomegranate vinaigrette packet": { "unit": "each", "protein": 0, "fat": 3, "carbs": 16, "fiber": 0, "calories": 90 },
+    "parmesan caesar salad entree": { "unit": "each", "protein": 31, "fat": 11, "carbs": 12, "fiber": 3, "calories": 270 },
+    "caesar dressing packet": { "unit": "each", "protein": 2, "fat": 25, "carbs": 2, "fiber": 0, "calories": 240 }
+  },
+  "items": [
+    {
+      "name": "Dave's Single",
+      "aliases": ["dave's single", "daves single", "dave single", "single", "dave's single cheeseburger", "daves"],
+      "macros": { "protein": 31, "fat": 34, "carbs": 37, "fiber": 2, "calories": 560 },
+      "build": [
+        { "component": "premium bun", "count": 1 },
+        { "component": "quarter-pound beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "lettuce, tomato & mayo", "count": 1 }
+      ]
+    },
+    {
+      "name": "Dave's Double",
+      "aliases": ["dave's double", "daves double", "dave double", "double", "dbl", "dave's double cheeseburger"],
+      "macros": { "protein": 50, "fat": 52, "carbs": 37, "fiber": 2, "calories": 810 },
+      "build": [
+        { "component": "premium bun", "count": 1 },
+        { "component": "quarter-pound beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "lettuce, tomato & mayo", "count": 1 }
+      ]
+    },
+    {
+      "name": "Dave's Triple",
+      "aliases": ["dave's triple", "daves triple", "dave triple", "triple", "trpl", "dave's triple cheeseburger"],
+      "macros": { "protein": 72, "fat": 74, "carbs": 38, "fiber": 2, "calories": 1100 },
+      "build": [
+        { "component": "premium bun", "count": 1 },
+        { "component": "quarter-pound beef patty", "count": 3 },
+        { "component": "american cheese", "count": 3 },
+        { "component": "lettuce, tomato & mayo", "count": 1 }
+      ]
+    },
+    {
+      "name": "Baconator",
+      "aliases": ["baconator", "baconater", "bacinator", "the baconator", "baconator burger", "bacon-ator"],
+      "macros": { "protein": 59, "fat": 58, "carbs": 36, "fiber": 1, "calories": 890 },
+      "build": [
+        { "component": "premium bun", "count": 1 },
+        { "component": "quarter-pound beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "bacon", "count": 6 }
+      ]
+    },
+    {
+      "name": "Son of Baconator",
+      "aliases": ["son of baconator", "son of a baconator", "sob", "small baconator", "jr baconator", "little baconator", "son baconator"],
+      "macros": { "protein": 34, "fat": 36, "carbs": 35, "fiber": 1, "calories": 590 },
+      "build": [
+        { "component": "premium bun", "count": 1 },
+        { "component": "jr beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "bacon", "count": 4 }
+      ]
+    },
+    {
+      "name": "Big Bacon Classic",
+      "aliases": ["big bacon classic", "bbc", "big bacon", "bacon classic", "big bacon classic single"],
+      "macros": { "protein": 35, "fat": 37, "carbs": 38, "fiber": 2, "calories": 610 },
+      "build": [
+        { "component": "premium bun", "count": 1 },
+        { "component": "quarter-pound beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "bacon", "count": 3 },
+        { "component": "lettuce, tomato & mayo", "count": 1 }
+      ]
+    },
+    {
+      "name": "Big Bacon Classic Double",
+      "aliases": ["big bacon classic double", "double big bacon classic", "bbc double", "double bbc", "big bacon double", "dbl big bacon classic"],
+      "macros": { "protein": 55, "fat": 55, "carbs": 38, "fiber": 2, "calories": 860 },
+      "build": [
+        { "component": "premium bun", "count": 1 },
+        { "component": "quarter-pound beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "bacon", "count": 3 },
+        { "component": "lettuce, tomato & mayo", "count": 1 }
+      ]
+    },
+    {
+      "name": "Big Bacon Classic Triple",
+      "aliases": ["big bacon classic triple", "triple big bacon classic", "bbc triple", "triple bbc", "big bacon triple"],
+      "macros": { "protein": 77, "fat": 77, "carbs": 38, "fiber": 2, "calories": 1140 },
+      "build": [
+        { "component": "premium bun", "count": 1 },
+        { "component": "quarter-pound beef patty", "count": 3 },
+        { "component": "american cheese", "count": 3 },
+        { "component": "bacon", "count": 3 },
+        { "component": "lettuce, tomato & mayo", "count": 1 }
+      ]
+    },
+    {
+      "name": "Jr. Bacon Cheeseburger",
+      "aliases": ["jr bacon cheeseburger", "jr. bacon cheeseburger", "junior bacon cheeseburger", "jbc", "jr bacon", "junior bacon"],
+      "macros": { "protein": 18, "fat": 21, "carbs": 24, "fiber": 1, "calories": 350 },
+      "build": [
+        { "component": "jr bun", "count": 1 },
+        { "component": "jr beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "bacon", "count": 2 },
+        { "component": "lettuce, tomato & mayo", "count": 1 }
+      ]
+    },
+    {
+      "name": "Jr. Cheeseburger",
+      "aliases": ["jr cheeseburger", "jr. cheeseburger", "junior cheeseburger", "jr cheese", "cheeseburger", "small cheeseburger"],
+      "macros": { "protein": 14, "fat": 13, "carbs": 25, "fiber": 1, "calories": 270 },
+      "build": [
+        { "component": "jr bun", "count": 1 },
+        { "component": "jr beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Jr. Cheeseburger Deluxe",
+      "aliases": ["jr cheeseburger deluxe", "jr. cheeseburger deluxe", "junior cheeseburger deluxe", "jr deluxe", "cheeseburger deluxe", "jr cheese deluxe"],
+      "macros": { "protein": 15, "fat": 19, "carbs": 26, "fiber": 1, "calories": 330 },
+      "build": [
+        { "component": "jr bun", "count": 1 },
+        { "component": "jr beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "lettuce, tomato & mayo", "count": 1 }
+      ]
+    },
+    {
+      "name": "Jr. Hamburger",
+      "aliases": ["jr hamburger", "jr. hamburger", "junior hamburger", "hamburger", "jr burger", "plain hamburger", "small hamburger"],
+      "macros": { "protein": 12, "fat": 10, "carbs": 24, "fiber": 1, "calories": 230 },
+      "build": [
+        { "component": "jr bun", "count": 1 },
+        { "component": "jr beef patty", "count": 1 }
+      ]
+    },
+    {
+      "name": "Double Stack",
+      "aliases": ["double stack", "doublestack", "dbl stack", "double stack cheeseburger", "2 stack"],
+      "macros": { "protein": 23, "fat": 21, "carbs": 25, "fiber": 1, "calories": 380 },
+      "build": [
+        { "component": "jr bun", "count": 1 },
+        { "component": "jr beef patty", "count": 2 },
+        { "component": "american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Bacon Double Stack",
+      "aliases": ["bacon double stack", "bacon doublestack", "bacon dbl stack", "double stack with bacon", "double stack bacon"],
+      "macros": { "protein": 26, "fat": 24, "carbs": 25, "fiber": 1, "calories": 420 },
+      "build": [
+        { "component": "jr bun", "count": 1 },
+        { "component": "jr beef patty", "count": 2 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "bacon", "count": 2 }
+      ]
+    },
+    {
+      "name": "Classic Chicken Sandwich",
+      "aliases": ["classic chicken sandwich", "classic chicken", "chicken sandwich", "crispy chicken breast sandwich", "homestyle chicken sandwich", "classic chx sandwich"],
+      "macros": { "protein": 28, "fat": 25, "carbs": 55, "fiber": 3, "calories": 550 },
+      "build": [
+        { "component": "premium bun", "count": 1 },
+        { "component": "crispy chicken fillet", "count": 1 },
+        { "component": "lettuce, tomato & mayo", "count": 1 }
+      ]
+    },
+    {
+      "name": "Spicy Chicken Sandwich",
+      "aliases": ["spicy chicken sandwich", "spicy chicken", "spicy chx sandwich", "spicy chicken breast sandwich", "spicy"],
+      "macros": { "protein": 28, "fat": 26, "carbs": 55, "fiber": 3, "calories": 560 },
+      "build": [
+        { "component": "premium bun", "count": 1 },
+        { "component": "spicy chicken fillet", "count": 1 },
+        { "component": "lettuce, tomato & mayo", "count": 1 }
+      ]
+    },
+    {
+      "name": "Asiago Ranch Club Sandwich, Classic",
+      "aliases": ["asiago ranch club", "asiago ranch club sandwich", "asiago ranch chicken club", "asiago club", "asiago ranch classic", "asiago chicken sandwich"],
+      "macros": { "protein": 37, "fat": 34, "carbs": 56, "fiber": 3, "calories": 670 },
+      "build": [
+        { "component": "premium bun", "count": 1 },
+        { "component": "crispy chicken fillet", "count": 1 },
+        { "component": "lettuce, tomato & mayo", "count": 1 },
+        { "component": "asiago cheese, bacon & ranch", "count": 1 }
+      ]
+    },
+    {
+      "name": "Crispy Chicken Sandwich",
+      "aliases": ["crispy chicken sandwich", "crispy chicken", "jr chicken sandwich", "junior chicken sandwich", "value chicken sandwich", "crispy chx"],
+      "macros": { "protein": 15, "fat": 17, "carbs": 32, "fiber": 1, "calories": 340 },
+      "build": [
+        { "component": "jr bun", "count": 1 },
+        { "component": "jr crispy chicken patty", "count": 1 },
+        { "component": "lettuce, tomato & mayo", "count": 1 }
+      ]
+    },
+    {
+      "name": "Crispy Chicken BLT",
+      "aliases": ["crispy chicken blt", "chicken blt", "crispy blt", "chicken blt sandwich"],
+      "macros": { "protein": 20, "fat": 23, "carbs": 34, "fiber": 1, "calories": 420 },
+      "build": [
+        { "component": "jr bun", "count": 1 },
+        { "component": "jr crispy chicken patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "bacon", "count": 2 },
+        { "component": "lettuce, tomato & mayo", "count": 1 }
+      ]
+    },
+    {
+      "name": "Grilled Chicken Ranch Wrap",
+      "aliases": ["grilled chicken ranch wrap", "grilled chicken wrap", "chicken wrap", "ranch wrap", "grilled wrap"],
+      "macros": { "protein": 28, "fat": 16, "carbs": 41, "fiber": 1, "calories": 420 }
+    },
+    {
+      "name": "4 PC. Chicken Nuggets",
+      "aliases": ["4 pc chicken nuggets", "4 piece nuggets", "4pc nuggets", "4 nuggets", "4 piece chicken nuggets", "4 nuggs"],
+      "macros": { "protein": 9, "fat": 11, "carbs": 9, "fiber": 0, "calories": 170 }
+    },
+    {
+      "name": "6 PC. Chicken Nuggets",
+      "aliases": ["6 pc chicken nuggets", "6 piece nuggets", "6pc nuggets", "6 nuggets", "6 piece chicken nuggets", "6 nuggs", "nuggets", "chicken nuggets"],
+      "macros": { "protein": 14, "fat": 16, "carbs": 13, "fiber": 1, "calories": 260 }
+    },
+    {
+      "name": "10 PC. Chicken Nuggets",
+      "aliases": ["10 pc chicken nuggets", "10 piece nuggets", "10pc nuggets", "10 nuggets", "10 piece chicken nuggets", "10 nuggs"],
+      "macros": { "protein": 23, "fat": 27, "carbs": 22, "fiber": 1, "calories": 430 }
+    },
+    {
+      "name": "6 PC. Spicy Chicken Nuggets",
+      "aliases": ["6 pc spicy chicken nuggets", "6 piece spicy nuggets", "6pc spicy nuggets", "spicy nuggets", "spicy nuggs", "6 spicy nuggets", "spicy chicken nuggets"],
+      "macros": { "protein": 15, "fat": 18, "carbs": 13, "fiber": 1, "calories": 280 }
+    },
+    {
+      "name": "3 PC. Tenders",
+      "aliases": ["3 pc tenders", "3 piece tenders", "3pc tenders", "chicken tenders", "tenders", "3 tenders", "chicken strips"],
+      "macros": { "protein": 33, "fat": 22, "carbs": 22, "fiber": 1, "calories": 420 }
+    },
+    {
+      "name": "Cobb Salad",
+      "aliases": ["cobb salad", "cobb", "cob salad", "chicken cobb salad", "cobb salad with ranch"],
+      "macros": { "protein": 38, "fat": 49, "carbs": 18, "fiber": 3, "calories": 660 },
+      "build": [
+        { "component": "cobb salad entree", "count": 1 },
+        { "component": "ranch dressing packet", "count": 1 }
+      ]
+    },
+    {
+      "name": "Taco Salad",
+      "aliases": ["taco salad", "chili taco salad", "taco salad with creamy salsa", "wendys taco salad"],
+      "macros": { "protein": 28, "fat": 40, "carbs": 39, "fiber": 8, "calories": 620 },
+      "build": [
+        { "component": "taco salad entree", "count": 1 },
+        { "component": "creamy salsa dressing packet", "count": 1 }
+      ]
+    },
+    {
+      "name": "Apple Pecan Salad",
+      "aliases": ["apple pecan salad", "apple pecan chicken salad", "apple pecan", "apple and pecan salad"],
+      "macros": { "protein": 30, "fat": 25, "carbs": 43, "fiber": 5, "calories": 510 },
+      "build": [
+        { "component": "apple pecan salad entree", "count": 1 },
+        { "component": "pomegranate vinaigrette packet", "count": 1 }
+      ]
+    },
+    {
+      "name": "Parmesan Caesar Salad",
+      "aliases": ["parmesan caesar salad", "caesar salad", "chicken caesar salad", "parmesan caesar", "cesar salad", "ceasar salad"],
+      "macros": { "protein": 33, "fat": 36, "carbs": 14, "fiber": 3, "calories": 510 },
+      "build": [
+        { "component": "parmesan caesar salad entree", "count": 1 },
+        { "component": "caesar dressing packet", "count": 1 }
+      ]
+    },
+    {
+      "name": "Jr. Natural-Cut Fries",
+      "aliases": ["jr fries", "jr. fries", "junior fries", "fries", "natural cut fries", "natural-cut fries", "french fries", "small fries", "value fries"],
+      "macros": { "protein": 4, "fat": 12, "carbs": 35, "fiber": 3, "calories": 260 }
+    },
+    {
+      "name": "Chili",
+      "aliases": ["chili", "small chili", "wendy's chili", "wendys chili", "cup of chili", "chilli"],
+      "macros": { "protein": 19, "fat": 12, "carbs": 24, "fiber": 3, "calories": 280 }
+    },
+    {
+      "name": "Baconator Fries",
+      "aliases": ["baconator fries", "bacon cheese fries", "bacon fries", "loaded fries"],
+      "macros": { "protein": 14, "fat": 25, "carbs": 42, "fiber": 3, "calories": 450 }
+    },
+    {
+      "name": "Plain Baked Potato",
+      "aliases": ["plain baked potato", "baked potato", "potato", "plain potato"],
+      "macros": { "protein": 7, "fat": 0, "carbs": 61, "fiber": 7, "calories": 270 }
+    },
+    {
+      "name": "Jr. Classic Chocolate Frosty",
+      "aliases": ["jr chocolate frosty", "jr. chocolate frosty", "chocolate frosty", "frosty", "frostie", "classic chocolate frosty", "small frosty", "junior frosty"],
+      "macros": { "protein": 9, "fat": 9, "carbs": 49, "fiber": 1, "calories": 310 }
+    }
+  ]
+}

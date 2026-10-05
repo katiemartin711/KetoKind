@@ -1,0 +1,1757 @@
+{
+  "chain": "Taco Bell",
+  "aliases": [
+    "taco bell",
+    "tacobell",
+    "taco bel",
+    "tb",
+    "the bell"
+  ],
+  "source": "https://www.tacobell.com/nutrition/info",
+  "sources": [
+    "https://www.tacobell.com/nutrition/info",
+    "https://www.nutritionix.com/taco-bell/menu/premium",
+    "https://www.tacobell.com/food/tacos/crunchy-taco",
+    "https://www.tacobell.com/food/burritos/bean-burrito",
+    "https://www.tacobell.com/food/quesadillas/cheese-quesadilla"
+  ],
+  "retrieved": "2026-10-05",
+  "notes": "Item totals are from the Taco Bell nutrition calculator (tacobell.com/nutrition/info embeds nutritionix.com/taco-bell/menu/premium). Per-component calories are published on tacobell.com product pages; component protein/fat/carbs/fiber are not published and were derived by subtraction across the published item totals (see each derived field). Cantina Chicken Bowl: the calculator lists 580 cal while the tacobell.com product page lists 480 cal, so no build is given.",
+  "components": {
+    "crunchy taco shell": {
+      "unit": "each",
+      "protein": 0.5,
+      "fat": 3.5,
+      "carbs": 9.5,
+      "fiber": 2.5,
+      "calories": 70,
+      "derived": "Crunchy Taco minus Seasoned Beef, Lettuce and Cheddar Cheese (tacobell.com/food/tacos/crunchy-taco lists each ingredient's calories); macros fitted by subtraction across the published totals of Crunchy Taco, Soft Taco, Crunchy Taco Supreme, Cheesy Gordita Crunch"
+    },
+    "soft flour tortilla": {
+      "unit": "each",
+      "protein": 2.0,
+      "fat": 2.5,
+      "carbs": 14.5,
+      "fiber": 1.5,
+      "calories": 85,
+      "derived": "Soft Taco minus Crunchy Taco (tortilla minus shell) and Cheesy Roll Up minus Three Cheese Blend; macros fitted by subtraction across the published totals of Soft Taco, Chicken Soft Taco, Cheesy Roll Up, Spicy Potato Soft Taco, Beefy 5-Layer Burrito"
+    },
+    "doritos nacho cheese shell": {
+      "unit": "each",
+      "protein": 0.5,
+      "fat": 4.0,
+      "carbs": 9.0,
+      "fiber": 2.0,
+      "calories": 70,
+      "derived": "Nacho Cheese Doritos Locos Taco minus Crunchy Taco, added to the crunchy taco shell; macros fitted by subtraction across the published totals of Doritos Locos Taco, Doritos Locos Taco Supreme, Doritos Cheesy Gordita Crunch"
+    },
+    "chalupa shell": {
+      "unit": "each",
+      "protein": 5.0,
+      "fat": 13.5,
+      "carbs": 25.0,
+      "fiber": 2.0,
+      "calories": 240,
+      "derived": "Chalupa Supreme (beef) minus Seasoned Beef, Lettuce, Tomatoes, Reduced-Fat Sour Cream and Three Cheese Blend; macros fitted by subtraction across the published totals of Chalupa Supreme beef/chicken/steak and Black Bean Chalupa Supreme"
+    },
+    "crunchwrap tortilla and tostada shell": {
+      "unit": "each",
+      "protein": 8.5,
+      "fat": 10.5,
+      "carbs": 62.5,
+      "fiber": 3.5,
+      "calories": 385,
+      "derived": "Crunchwrap Supreme minus Seasoned Beef, Nacho Cheese Sauce, Lettuce, Tomatoes and Reduced-Fat Sour Cream (12-inch tortilla plus the tostada shell, which Taco Bell does not publish separately); macros fitted by subtraction across the published totals of Crunchwrap Supreme and Black Bean Crunchwrap Supreme"
+    },
+    "burrito flour tortilla": {
+      "unit": "each",
+      "protein": 5.0,
+      "fat": 5.5,
+      "carbs": 35.0,
+      "fiber": 3.0,
+      "calories": 205,
+      "derived": "Bean Burrito minus Refried Beans, Cheddar Cheese, Red Sauce and Onions; same tortilla as Cheese Quesadilla minus Three Cheese Blend and Creamy Jalapeno Sauce; macros fitted by subtraction across the published totals of Bean Burrito, Burrito Supreme, Cheesy Bean and Rice Burrito, Cheese Quesadilla, Cantina Chicken Burrito, Grilled Cheese Burrito"
+    },
+    "gordita flatbread": {
+      "unit": "each",
+      "protein": 6.0,
+      "fat": 4.5,
+      "carbs": 25.5,
+      "fiber": 3.0,
+      "calories": 160,
+      "derived": "Cheesy Gordita Crunch minus Crunchy Taco, Three Cheese Blend and Spicy Ranch; also 3 Cheese Chicken Flatbread Melt minus Three Cheese Blend, Chicken and Creamy Chipotle Sauce; macros fitted by subtraction across the published totals of Cheesy Gordita Crunch, Doritos Cheesy Gordita Crunch, 3 Cheese Chicken Flatbread Melt"
+    },
+    "mexican pizza shell": {
+      "unit": "each",
+      "protein": 2.5,
+      "fat": 8.0,
+      "carbs": 15.5,
+      "fiber": 2.0,
+      "calories": 150,
+      "derived": "(Mexican Pizza minus Seasoned Beef, Refried Beans, Three Cheese Blend, Mexican Pizza Sauce and Tomatoes) / 2; macros fitted by subtraction across the published totals of Mexican Pizza and Veggie Mexican Pizza"
+    },
+    "tortilla chips": {
+      "unit": "each",
+      "protein": 2.0,
+      "fat": 9.0,
+      "carbs": 19.0,
+      "fiber": 3.0,
+      "calories": 160,
+      "derived": "Chips (published 160 cal on tacobell.com Chips and Nacho Supreme Dip); macros from Chips and Nacho Cheese Sauce minus Nacho Cheese Sauce and Chips and Nacho Supreme Dip minus the dip"
+    },
+    "nachos bellgrande chips": {
+      "unit": "each",
+      "protein": 5.5,
+      "fat": 23.5,
+      "carbs": 52.5,
+      "fiber": 7.0,
+      "calories": 445,
+      "derived": "Nachos BellGrande minus Seasoned Beef, Refried Beans, Nacho Cheese Sauce, Reduced-Fat Sour Cream and Tomatoes"
+    },
+    "seasoned beef": {
+      "unit": "scoop",
+      "protein": 5.0,
+      "fat": 4.0,
+      "carbs": 3.0,
+      "fiber": 0.0,
+      "calories": 70,
+      "derived": "Soft Taco (beef) minus Soft Taco (chicken), added to grilled chicken; cross-checked against Chalupa Supreme beef minus chicken and Burrito Supreme beef minus chicken; 70 cal per portion published on tacobell.com product pages"
+    },
+    "grilled chicken": {
+      "unit": "scoop",
+      "protein": 8.0,
+      "fat": 1.0,
+      "carbs": 0.5,
+      "fiber": 0.0,
+      "calories": 45,
+      "derived": "Chicken Quesadilla minus Cheese Quesadilla; 45 cal per portion published on tacobell.com product pages"
+    },
+    "steak": {
+      "unit": "scoop",
+      "protein": 8.0,
+      "fat": 2.0,
+      "carbs": 1.0,
+      "fiber": 0.0,
+      "calories": 55,
+      "derived": "Steak Quesadilla minus Cheese Quesadilla; 55-60 cal per portion published on tacobell.com product pages"
+    },
+    "slow-roasted chicken": {
+      "unit": "scoop",
+      "protein": 7.5,
+      "fat": 1.5,
+      "carbs": 2.0,
+      "fiber": 0.0,
+      "calories": 60,
+      "derived": "Cantina Chicken Burrito and Cantina Chicken Soft Taco minus their tortilla, sauces, cheese and vegetables; 60 cal per portion published on tacobell.com product pages"
+    },
+    "cheddar cheese": {
+      "unit": "scoop",
+      "protein": 2.0,
+      "fat": 1.5,
+      "carbs": 0.5,
+      "fiber": 0.0,
+      "calories": 30,
+      "derived": "Crunchy Taco minus crunchy taco shell, Seasoned Beef and Lettuce, with the Soft Taco / Cheesy Roll Up pair fixing the cheese share; 25 cal per portion published on tacobell.com product pages"
+    },
+    "three cheese blend": {
+      "unit": "scoop",
+      "protein": 1.5,
+      "fat": 1.5,
+      "carbs": 1.0,
+      "fiber": 0.0,
+      "calories": 20,
+      "derived": "one quarter of Cheesy Roll Up minus soft flour tortilla; one eighth of Cheese Quesadilla minus burrito flour tortilla and Creamy Jalapeno Sauce; 20 cal per portion published on tacobell.com product pages"
+    },
+    "refried beans": {
+      "unit": "scoop",
+      "protein": 2.5,
+      "fat": 1.5,
+      "carbs": 8.0,
+      "fiber": 3.0,
+      "calories": 60,
+      "derived": "Burrito Supreme (beef) minus Bean Burrito (beef + sour cream + vegetables - one bean portion) and half of Pintos N Cheese minus Red Sauce and Three Cheese Blend; 60 cal per portion published on tacobell.com product pages"
+    },
+    "black beans": {
+      "unit": "scoop",
+      "protein": 3.0,
+      "fat": 1.5,
+      "carbs": 7.0,
+      "fiber": 4.0,
+      "calories": 50,
+      "derived": "published side item Black Beans"
+    },
+    "seasoned rice": {
+      "unit": "scoop",
+      "protein": 0.5,
+      "fat": 1.5,
+      "carbs": 9.0,
+      "fiber": 0.5,
+      "calories": 55,
+      "derived": "(Black Beans and Rice minus Black Beans) / 2; 50 cal per portion published on tacobell.com product pages"
+    },
+    "nacho cheese sauce": {
+      "unit": "each",
+      "protein": 0.5,
+      "fat": 2.0,
+      "carbs": 2.5,
+      "fiber": 0.0,
+      "calories": 30,
+      "derived": "Beefy 5-Layer Burrito minus Burrito Supreme (soft tortilla + nacho cheese - red sauce - vegetables) and Chips and Nacho Cheese Sauce minus Chips; 30 cal per portion published on tacobell.com product pages"
+    },
+    "reduced-fat sour cream": {
+      "unit": "each",
+      "protein": 0.5,
+      "fat": 1.0,
+      "carbs": 2.0,
+      "fiber": 0.0,
+      "calories": 20,
+      "derived": "Crunchy Taco Supreme minus Crunchy Taco (sour cream + tomatoes); 20 cal per portion published on tacobell.com product pages"
+    },
+    "red sauce": {
+      "unit": "each",
+      "protein": 1.0,
+      "fat": 0.5,
+      "carbs": 2.0,
+      "fiber": 0.0,
+      "calories": 10,
+      "derived": "Bean Burrito minus Pintos N Cheese minus burrito flour tortilla and cheeses; 10 cal per portion published on tacobell.com product pages"
+    },
+    "creamy jalapeno sauce": {
+      "unit": "each",
+      "protein": 1.0,
+      "fat": 5.5,
+      "carbs": 1.5,
+      "fiber": 0.0,
+      "calories": 60,
+      "derived": "Cheese Quesadilla minus burrito flour tortilla and Three Cheese Blend; Cheesy Bean and Rice Burrito minus tortilla, beans, rice and nacho cheese; 60 cal per portion published on tacobell.com product pages"
+    },
+    "creamy chipotle sauce": {
+      "unit": "each",
+      "protein": 0.0,
+      "fat": 2.5,
+      "carbs": 0.5,
+      "fiber": 0.0,
+      "calories": 25,
+      "derived": "Spicy Potato Soft Taco minus soft flour tortilla, Potatoes, Lettuce and Cheddar Cheese; 3 Cheese Chicken Flatbread Melt minus flatbread, cheese and chicken; 25 cal per portion published on tacobell.com product pages"
+    },
+    "spicy ranch sauce": {
+      "unit": "each",
+      "protein": 0.5,
+      "fat": 6.5,
+      "carbs": 2.0,
+      "fiber": 0.0,
+      "calories": 65,
+      "derived": "Cheesy Gordita Crunch minus 3 Cheese Chicken Flatbread Melt (spicy ranch - creamy chipotle + crunchy taco - chicken); 65 cal per portion published on tacobell.com product pages"
+    },
+    "avocado ranch sauce": {
+      "unit": "each",
+      "protein": 0.0,
+      "fat": 4.5,
+      "carbs": 0.0,
+      "fiber": 0.0,
+      "calories": 30,
+      "derived": "Cantina Chicken Soft Taco and Cantina Chicken Burrito minus their other ingredients; 30 cal per portion published on tacobell.com product pages"
+    },
+    "guacamole": {
+      "unit": "each",
+      "protein": 1.5,
+      "fat": 3.0,
+      "carbs": 1.5,
+      "fiber": 0.5,
+      "calories": 35,
+      "derived": "Chips and Guacamole minus Chips gives 35 cal per portion (tacobell.com); macros split by 4/4/9 against the Cantina Chicken Burrito residual"
+    },
+    "mexican pizza sauce": {
+      "unit": "each",
+      "protein": 0.0,
+      "fat": 0.0,
+      "carbs": 5.5,
+      "fiber": 0.0,
+      "calories": 10,
+      "derived": "Mexican Pizza minus shells, beef, beans, cheese and tomatoes; 10 cal per portion published on tacobell.com product pages"
+    },
+    "seasoned potatoes": {
+      "unit": "scoop",
+      "protein": 1.0,
+      "fat": 4.5,
+      "carbs": 12.0,
+      "fiber": 1.0,
+      "calories": 95,
+      "derived": "half of Cheesy Fiesta Potatoes minus Nacho Cheese Sauce and Reduced-Fat Sour Cream; Spicy Potato Soft Taco minus soft tortilla, Creamy Chipotle Sauce, Lettuce and Cheddar; 100 cal per portion published on tacobell.com product pages"
+    },
+    "fiesta strips": {
+      "unit": "each",
+      "protein": 1.0,
+      "fat": 4.0,
+      "carbs": 8.5,
+      "fiber": 2.5,
+      "calories": 75,
+      "derived": "Cheesy Double Beef Burrito minus burrito tortilla, 2x Seasoned Beef, Seasoned Rice, Nacho Cheese Sauce, Three Cheese Blend and Reduced-Fat Sour Cream; 80 cal per portion published on tacobell.com product pages"
+    },
+    "lettuce": {
+      "unit": "each",
+      "protein": 0.0,
+      "fat": 0.0,
+      "carbs": 0.5,
+      "fiber": 0.5,
+      "calories": 0,
+      "derived": "published 2 cal per portion (tacobell.com product pages), counted as carbohydrate"
+    },
+    "tomatoes": {
+      "unit": "each",
+      "protein": 0.0,
+      "fat": 0.0,
+      "carbs": 0.5,
+      "fiber": 0.5,
+      "calories": 5,
+      "derived": "published 2.5 cal per portion (tacobell.com product pages), counted as carbohydrate"
+    },
+    "onions": {
+      "unit": "each",
+      "protein": 0.0,
+      "fat": 0.0,
+      "carbs": 0.5,
+      "fiber": 0.0,
+      "calories": 5,
+      "derived": "published 3 cal per portion (tacobell.com product pages), counted as carbohydrate"
+    },
+    "pico de gallo": {
+      "unit": "each",
+      "protein": 0.0,
+      "fat": 0.0,
+      "carbs": 1.0,
+      "fiber": 0.5,
+      "calories": 5,
+      "derived": "published 4 cal per portion (tacobell.com product pages), counted as carbohydrate"
+    },
+    "purple cabbage": {
+      "unit": "each",
+      "protein": 0.0,
+      "fat": 0.0,
+      "carbs": 1.0,
+      "fiber": 0.5,
+      "calories": 5,
+      "derived": "published 4 cal per portion (tacobell.com product pages), counted as carbohydrate"
+    },
+    "hot sauce packet": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "mild sauce packet": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "fire sauce packet": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "diablo sauce packet": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    }
+  },
+  "items": [
+    {
+      "name": "Crunchy Taco",
+      "aliases": [
+        "crunchy taco",
+        "crunchy tacos",
+        "hard taco",
+        "hard shell taco",
+        "regular taco",
+        "beef crunchy taco"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 9,
+        "carbs": 13,
+        "fiber": 3,
+        "calories": 170
+      },
+      "build": [
+        {
+          "component": "crunchy taco shell",
+          "count": 1
+        },
+        {
+          "component": "seasoned beef",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "cheddar cheese",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Soft Taco",
+      "aliases": [
+        "soft taco",
+        "soft tacos",
+        "beef soft taco",
+        "soft shell taco"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 8,
+        "carbs": 18,
+        "fiber": 3,
+        "calories": 180
+      },
+      "build": [
+        {
+          "component": "soft flour tortilla",
+          "count": 1
+        },
+        {
+          "component": "seasoned beef",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "cheddar cheese",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Chicken Soft Taco",
+      "aliases": [
+        "chicken soft taco",
+        "soft taco chicken",
+        "grilled chicken soft taco",
+        "chicken taco"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 5,
+        "carbs": 16,
+        "fiber": 1,
+        "calories": 160
+      },
+      "build": [
+        {
+          "component": "soft flour tortilla",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "cheddar cheese",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Crunchy Taco Supreme",
+      "aliases": [
+        "crunchy taco supreme",
+        "taco supreme",
+        "crunchy supreme",
+        "supreme taco",
+        "hard taco supreme"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 10,
+        "carbs": 16,
+        "fiber": 3,
+        "calories": 190
+      },
+      "build": [
+        {
+          "component": "crunchy taco shell",
+          "count": 1
+        },
+        {
+          "component": "seasoned beef",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "cheddar cheese",
+          "count": 1
+        },
+        {
+          "component": "reduced-fat sour cream",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Soft Taco Supreme",
+      "aliases": [
+        "soft taco supreme",
+        "soft supreme",
+        "supreme soft taco"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 9,
+        "carbs": 21,
+        "fiber": 3,
+        "calories": 200
+      },
+      "build": [
+        {
+          "component": "soft flour tortilla",
+          "count": 1
+        },
+        {
+          "component": "seasoned beef",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "cheddar cheese",
+          "count": 1
+        },
+        {
+          "component": "reduced-fat sour cream",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Nacho Cheese Doritos Locos Taco",
+      "aliases": [
+        "nacho cheese doritos locos taco",
+        "doritos locos taco",
+        "doritos locos tacos",
+        "doritos taco",
+        "dorito taco",
+        "dlt",
+        "locos taco",
+        "nacho cheese taco",
+        "doritos loco taco"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 10,
+        "carbs": 13,
+        "fiber": 3,
+        "calories": 170
+      },
+      "build": [
+        {
+          "component": "doritos nacho cheese shell",
+          "count": 1
+        },
+        {
+          "component": "seasoned beef",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "cheddar cheese",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Doritos Locos Taco Supreme",
+      "aliases": [
+        "doritos locos taco supreme",
+        "nacho cheese doritos locos taco supreme",
+        "dlt supreme",
+        "doritos taco supreme",
+        "supreme dlt",
+        "doritos supreme"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 11,
+        "carbs": 15,
+        "fiber": 3,
+        "calories": 190
+      },
+      "build": [
+        {
+          "component": "doritos nacho cheese shell",
+          "count": 1
+        },
+        {
+          "component": "seasoned beef",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "cheddar cheese",
+          "count": 1
+        },
+        {
+          "component": "reduced-fat sour cream",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Chalupa Supreme",
+      "aliases": [
+        "chalupa supreme",
+        "chalupa",
+        "beef chalupa",
+        "chalupa supreme beef",
+        "chaloopa",
+        "chalupas"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 20,
+        "carbs": 32,
+        "fiber": 4,
+        "calories": 350
+      },
+      "build": [
+        {
+          "component": "chalupa shell",
+          "count": 1
+        },
+        {
+          "component": "seasoned beef",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "reduced-fat sour cream",
+          "count": 1
+        },
+        {
+          "component": "three cheese blend",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Chicken Chalupa Supreme",
+      "aliases": [
+        "chicken chalupa supreme",
+        "chicken chalupa",
+        "chalupa supreme chicken"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 17,
+        "carbs": 30,
+        "fiber": 3,
+        "calories": 330
+      },
+      "build": [
+        {
+          "component": "chalupa shell",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "reduced-fat sour cream",
+          "count": 1
+        },
+        {
+          "component": "three cheese blend",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Steak Chalupa Supreme",
+      "aliases": [
+        "steak chalupa supreme",
+        "steak chalupa",
+        "chalupa supreme steak"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 18,
+        "carbs": 30,
+        "fiber": 3,
+        "calories": 340
+      },
+      "build": [
+        {
+          "component": "chalupa shell",
+          "count": 1
+        },
+        {
+          "component": "steak",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "reduced-fat sour cream",
+          "count": 1
+        },
+        {
+          "component": "three cheese blend",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Crunchwrap Supreme",
+      "aliases": [
+        "crunchwrap supreme",
+        "crunchwrap",
+        "crunch wrap",
+        "crunch wrap supreme",
+        "crunchwrap supreme beef",
+        "crunchrap"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 20,
+        "carbs": 74,
+        "fiber": 6,
+        "calories": 530
+      },
+      "build": [
+        {
+          "component": "crunchwrap tortilla and tostada shell",
+          "count": 1
+        },
+        {
+          "component": "seasoned beef",
+          "count": 1
+        },
+        {
+          "component": "nacho cheese sauce",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 2
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "reduced-fat sour cream",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Bean Burrito",
+      "aliases": [
+        "bean burrito",
+        "bean burritos",
+        "bean and cheese burrito",
+        "bean n cheese burrito"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 10,
+        "carbs": 54,
+        "fiber": 8,
+        "calories": 360
+      },
+      "build": [
+        {
+          "component": "burrito flour tortilla",
+          "count": 1
+        },
+        {
+          "component": "refried beans",
+          "count": 2
+        },
+        {
+          "component": "cheddar cheese",
+          "count": 1
+        },
+        {
+          "component": "red sauce",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Beefy 5-Layer Burrito",
+      "aliases": [
+        "beefy 5-layer burrito",
+        "beefy 5 layer burrito",
+        "beefy five layer burrito",
+        "5 layer burrito",
+        "5 layer",
+        "five layer",
+        "beefy 5 layer",
+        "5-layer",
+        "beefy five layer"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 18,
+        "carbs": 65,
+        "fiber": 7,
+        "calories": 490
+      },
+      "build": [
+        {
+          "component": "burrito flour tortilla",
+          "count": 1
+        },
+        {
+          "component": "soft flour tortilla",
+          "count": 1
+        },
+        {
+          "component": "seasoned beef",
+          "count": 1
+        },
+        {
+          "component": "refried beans",
+          "count": 1
+        },
+        {
+          "component": "reduced-fat sour cream",
+          "count": 1
+        },
+        {
+          "component": "cheddar cheese",
+          "count": 1
+        },
+        {
+          "component": "nacho cheese sauce",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Burrito Supreme",
+      "aliases": [
+        "burrito supreme",
+        "beef burrito supreme",
+        "supreme burrito",
+        "burrito supreme beef"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 14,
+        "carbs": 52,
+        "fiber": 8,
+        "calories": 390
+      },
+      "build": [
+        {
+          "component": "burrito flour tortilla",
+          "count": 1
+        },
+        {
+          "component": "seasoned beef",
+          "count": 1
+        },
+        {
+          "component": "refried beans",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "reduced-fat sour cream",
+          "count": 1
+        },
+        {
+          "component": "cheddar cheese",
+          "count": 1
+        },
+        {
+          "component": "red sauce",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Chicken Burrito Supreme",
+      "aliases": [
+        "chicken burrito supreme",
+        "burrito supreme chicken"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 11,
+        "carbs": 49,
+        "fiber": 6,
+        "calories": 370
+      },
+      "build": [
+        {
+          "component": "burrito flour tortilla",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "refried beans",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "reduced-fat sour cream",
+          "count": 1
+        },
+        {
+          "component": "cheddar cheese",
+          "count": 1
+        },
+        {
+          "component": "red sauce",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cheesy Bean and Rice Burrito",
+      "aliases": [
+        "cheesy bean and rice burrito",
+        "cheesy bean & rice burrito",
+        "bean and rice burrito",
+        "cheesy bean n rice",
+        "cbr burrito",
+        "cheesy bean rice burrito"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 16,
+        "carbs": 56,
+        "fiber": 6,
+        "calories": 400
+      },
+      "build": [
+        {
+          "component": "burrito flour tortilla",
+          "count": 1
+        },
+        {
+          "component": "refried beans",
+          "count": 1
+        },
+        {
+          "component": "seasoned rice",
+          "count": 1
+        },
+        {
+          "component": "nacho cheese sauce",
+          "count": 1
+        },
+        {
+          "component": "creamy jalapeno sauce",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cheese Quesadilla",
+      "aliases": [
+        "cheese quesadilla",
+        "quesadilla",
+        "cheese quesidilla",
+        "plain quesadilla"
+      ],
+      "macros": {
+        "protein": 18,
+        "fat": 22,
+        "carbs": 43,
+        "fiber": 4,
+        "calories": 440
+      },
+      "build": [
+        {
+          "component": "burrito flour tortilla",
+          "count": 1
+        },
+        {
+          "component": "three cheese blend",
+          "count": 8
+        },
+        {
+          "component": "creamy jalapeno sauce",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Chicken Quesadilla",
+      "aliases": [
+        "chicken quesadilla",
+        "chicken quesidilla",
+        "chicken quesadia",
+        "chicken kesadilla",
+        "quesadilla chicken"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 23,
+        "carbs": 44,
+        "fiber": 4,
+        "calories": 490
+      },
+      "build": [
+        {
+          "component": "burrito flour tortilla",
+          "count": 1
+        },
+        {
+          "component": "three cheese blend",
+          "count": 8
+        },
+        {
+          "component": "creamy jalapeno sauce",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Steak Quesadilla",
+      "aliases": [
+        "steak quesadilla",
+        "steak quesidilla",
+        "quesadilla steak"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 24,
+        "carbs": 44,
+        "fiber": 4,
+        "calories": 500
+      },
+      "build": [
+        {
+          "component": "burrito flour tortilla",
+          "count": 1
+        },
+        {
+          "component": "three cheese blend",
+          "count": 8
+        },
+        {
+          "component": "creamy jalapeno sauce",
+          "count": 1
+        },
+        {
+          "component": "steak",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cheesy Gordita Crunch",
+      "aliases": [
+        "cheesy gordita crunch",
+        "cheesy gordita",
+        "gordita crunch",
+        "gordita",
+        "cgc",
+        "cheesy gordita crunch beef"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 26,
+        "carbs": 44,
+        "fiber": 6,
+        "calories": 480
+      },
+      "build": [
+        {
+          "component": "gordita flatbread",
+          "count": 1
+        },
+        {
+          "component": "three cheese blend",
+          "count": 4
+        },
+        {
+          "component": "crunchy taco shell",
+          "count": 1
+        },
+        {
+          "component": "seasoned beef",
+          "count": 1
+        },
+        {
+          "component": "spicy ranch sauce",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "cheddar cheese",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Doritos Cheesy Gordita Crunch",
+      "aliases": [
+        "doritos cheesy gordita crunch",
+        "doritos gordita crunch",
+        "doritos cgc",
+        "nacho cheese doritos cheesy gordita crunch"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 26,
+        "carbs": 43,
+        "fiber": 5,
+        "calories": 480
+      },
+      "build": [
+        {
+          "component": "gordita flatbread",
+          "count": 1
+        },
+        {
+          "component": "three cheese blend",
+          "count": 4
+        },
+        {
+          "component": "doritos nacho cheese shell",
+          "count": 1
+        },
+        {
+          "component": "seasoned beef",
+          "count": 1
+        },
+        {
+          "component": "spicy ranch sauce",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "cheddar cheese",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cantina Chicken Bowl",
+      "aliases": [
+        "cantina chicken bowl",
+        "cantina bowl",
+        "chicken cantina bowl",
+        "cantina chicken power bowl"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 29,
+        "carbs": 55,
+        "fiber": 11,
+        "calories": 580
+      }
+    },
+    {
+      "name": "Cantina Chicken Burrito",
+      "aliases": [
+        "cantina chicken burrito",
+        "cantina burrito",
+        "chicken cantina burrito"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 28,
+        "carbs": 44,
+        "fiber": 5,
+        "calories": 530
+      },
+      "build": [
+        {
+          "component": "burrito flour tortilla",
+          "count": 1
+        },
+        {
+          "component": "slow-roasted chicken",
+          "count": 2
+        },
+        {
+          "component": "avocado ranch sauce",
+          "count": 2.5
+        },
+        {
+          "component": "creamy chipotle sauce",
+          "count": 2.5
+        },
+        {
+          "component": "purple cabbage",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "pico de gallo",
+          "count": 1
+        },
+        {
+          "component": "cheddar cheese",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Cantina Chicken Soft Taco",
+      "aliases": [
+        "cantina chicken soft taco",
+        "cantina chicken taco",
+        "cantina soft taco",
+        "cantina taco"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 10,
+        "carbs": 19,
+        "fiber": 3,
+        "calories": 210
+      },
+      "build": [
+        {
+          "component": "soft flour tortilla",
+          "count": 1
+        },
+        {
+          "component": "slow-roasted chicken",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 0.5
+        },
+        {
+          "component": "purple cabbage",
+          "count": 0.5
+        },
+        {
+          "component": "pico de gallo",
+          "count": 1
+        },
+        {
+          "component": "avocado ranch sauce",
+          "count": 1
+        },
+        {
+          "component": "cheddar cheese",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Nachos BellGrande",
+      "aliases": [
+        "nachos bellgrande",
+        "nachos bell grande",
+        "bellgrande",
+        "bell grande",
+        "nacho bellgrande",
+        "nachos belgrande",
+        "grande nachos",
+        "bellgrande nachos"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 38,
+        "carbs": 81,
+        "fiber": 13,
+        "calories": 730
+      },
+      "build": [
+        {
+          "component": "nachos bellgrande chips",
+          "count": 1
+        },
+        {
+          "component": "seasoned beef",
+          "count": 1
+        },
+        {
+          "component": "refried beans",
+          "count": 2
+        },
+        {
+          "component": "nacho cheese sauce",
+          "count": 3
+        },
+        {
+          "component": "reduced-fat sour cream",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Loaded Beef Nachos",
+      "aliases": [
+        "loaded beef nachos",
+        "loaded nachos",
+        "beef nachos",
+        "nachos supreme"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 24,
+        "carbs": 45,
+        "fiber": 9,
+        "calories": 440
+      }
+    },
+    {
+      "name": "Mexican Pizza",
+      "aliases": [
+        "mexican pizza",
+        "mexican pizzas",
+        "mex pizza",
+        "taco pizza"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 27,
+        "carbs": 51,
+        "fiber": 8,
+        "calories": 530
+      },
+      "build": [
+        {
+          "component": "mexican pizza shell",
+          "count": 2
+        },
+        {
+          "component": "seasoned beef",
+          "count": 1
+        },
+        {
+          "component": "refried beans",
+          "count": 1
+        },
+        {
+          "component": "three cheese blend",
+          "count": 4
+        },
+        {
+          "component": "mexican pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cheesy Roll Up",
+      "aliases": [
+        "cheesy roll up",
+        "cheesy roll-up",
+        "cheesy rollup",
+        "cheese roll up",
+        "roll up",
+        "rollup",
+        "cheesy roll"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 8,
+        "carbs": 18,
+        "fiber": 1,
+        "calories": 170
+      },
+      "build": [
+        {
+          "component": "soft flour tortilla",
+          "count": 1
+        },
+        {
+          "component": "three cheese blend",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "name": "Spicy Potato Soft Taco",
+      "aliases": [
+        "spicy potato soft taco",
+        "spicy potato taco",
+        "potato soft taco",
+        "potato taco"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 11,
+        "carbs": 28,
+        "fiber": 2,
+        "calories": 240
+      },
+      "build": [
+        {
+          "component": "soft flour tortilla",
+          "count": 1
+        },
+        {
+          "component": "seasoned potatoes",
+          "count": 1
+        },
+        {
+          "component": "creamy chipotle sauce",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "cheddar cheese",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Grilled Cheese Burrito",
+      "aliases": [
+        "grilled cheese burrito",
+        "grilled cheese burito",
+        "gcb"
+      ],
+      "macros": {
+        "protein": 25,
+        "fat": 36,
+        "carbs": 68,
+        "fiber": 7,
+        "calories": 690
+      },
+      "build": [
+        {
+          "component": "burrito flour tortilla",
+          "count": 1
+        },
+        {
+          "component": "reduced-fat sour cream",
+          "count": 1
+        },
+        {
+          "component": "three cheese blend",
+          "count": 8
+        },
+        {
+          "component": "nacho cheese sauce",
+          "count": 1
+        },
+        {
+          "component": "creamy chipotle sauce",
+          "count": 2.5
+        },
+        {
+          "component": "seasoned rice",
+          "count": 1
+        },
+        {
+          "component": "fiesta strips",
+          "count": 1
+        },
+        {
+          "component": "seasoned beef",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cheesy Double Beef Burrito",
+      "aliases": [
+        "cheesy double beef burrito",
+        "double beef burrito",
+        "cheesy double beef"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 25,
+        "carbs": 64,
+        "fiber": 7,
+        "calories": 560
+      },
+      "build": [
+        {
+          "component": "burrito flour tortilla",
+          "count": 1
+        },
+        {
+          "component": "seasoned beef",
+          "count": 2
+        },
+        {
+          "component": "seasoned rice",
+          "count": 1
+        },
+        {
+          "component": "nacho cheese sauce",
+          "count": 1
+        },
+        {
+          "component": "fiesta strips",
+          "count": 1
+        },
+        {
+          "component": "three cheese blend",
+          "count": 2
+        },
+        {
+          "component": "reduced-fat sour cream",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Pintos N Cheese",
+      "aliases": [
+        "pintos n cheese",
+        "pintos and cheese",
+        "pintos & cheese",
+        "pintos",
+        "beans and cheese"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 6,
+        "carbs": 19,
+        "fiber": 7,
+        "calories": 170
+      },
+      "build": [
+        {
+          "component": "refried beans",
+          "count": 2
+        },
+        {
+          "component": "red sauce",
+          "count": 1
+        },
+        {
+          "component": "three cheese blend",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Black Beans and Rice",
+      "aliases": [
+        "black beans and rice",
+        "black beans & rice",
+        "beans and rice"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 4.5,
+        "carbs": 25,
+        "fiber": 5,
+        "calories": 160
+      },
+      "build": [
+        {
+          "component": "black beans",
+          "count": 1
+        },
+        {
+          "component": "seasoned rice",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Black Beans",
+      "aliases": [
+        "black beans",
+        "side of black beans"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 1.5,
+        "carbs": 7,
+        "fiber": 4,
+        "calories": 50
+      }
+    },
+    {
+      "name": "Cheesy Fiesta Potatoes",
+      "aliases": [
+        "cheesy fiesta potatoes",
+        "fiesta potatoes",
+        "cheesy potatoes",
+        "potatoes"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 12,
+        "carbs": 29,
+        "fiber": 3,
+        "calories": 240
+      },
+      "build": [
+        {
+          "component": "seasoned potatoes",
+          "count": 2
+        },
+        {
+          "component": "nacho cheese sauce",
+          "count": 1
+        },
+        {
+          "component": "reduced-fat sour cream",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Chips and Nacho Cheese Sauce",
+      "aliases": [
+        "chips and nacho cheese sauce",
+        "chips and nacho cheese",
+        "chips and cheese",
+        "chips n cheese",
+        "nacho cheese chips"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 13,
+        "carbs": 24,
+        "fiber": 2,
+        "calories": 220
+      },
+      "build": [
+        {
+          "component": "tortilla chips",
+          "count": 1
+        },
+        {
+          "component": "nacho cheese sauce",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Double Stacked Taco",
+      "aliases": [
+        "double stacked taco",
+        "double stack taco",
+        "stacked taco"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 16,
+        "carbs": 34,
+        "fiber": 4,
+        "calories": 320
+      }
+    }
+  ]
+}

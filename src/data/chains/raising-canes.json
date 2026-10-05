@@ -1,0 +1,134 @@
+{
+  "chain": "Raising Cane's",
+  "aliases": ["raising cane's", "raising canes", "canes", "cane's", "raisin canes", "raising cains", "canes chicken", "raising cane's chicken fingers", "rasing canes"],
+  "source": "https://raisingcanes.cdn.prismic.io/raisingcanes/IxTKraMRo_HyNWx2_Allergen%26NutritionalInformation_ALL_DIGITAL_8.26.pdf",
+  "retrieved": "2026-10-05",
+  "notes": "All numbers are from Raising Cane's 'Nutritional & Allergen Information (WEB), August 2026' PDF, which is the document embedded on https://www.raisingcanes.com/allergens/. The PDF publishes each building block directly (Chicken Finger, Crinkle-Cut Fries, Texas Toast, Coleslaw, Cane's Sauce); only the sandwich bun is derived. Combo rows in the PDF exclude the drink, so combo items here are food only. The 'Chicken Fingers, N Piece' items are the published single Chicken Finger multiplied by N (Cane's publishes only the single finger). '< 1 g' fiber in the PDF is recorded as 0. The 3 Finger Combo and Kid's Combo have no build because the PDF's combo totals are lower than the sum of their published parts (the Kid's Combo has a smaller fries portion that is not published separately); the Box, Caniac and Sandwich Combos reproduce within tolerance.",
+  "components": {
+    "chicken finger": { "unit": "each", "protein": 12, "fat": 6, "carbs": 5, "fiber": 0, "calories": 130 },
+    "crinkle-cut fries": { "unit": "each", "protein": 5, "fat": 21, "carbs": 53, "fiber": 6, "calories": 420 },
+    "texas toast": { "unit": "slice", "protein": 4, "fat": 4.5, "carbs": 23, "fiber": 2, "calories": 150 },
+    "coleslaw": { "unit": "each", "protein": 1, "fat": 6, "carbs": 10, "fiber": 2, "calories": 90 },
+    "cane's sauce": { "unit": "each", "protein": 0, "fat": 18, "carbs": 6, "fiber": 0, "calories": 190 },
+    "sandwich bun": { "unit": "each", "protein": 9, "fat": 4, "carbs": 47, "fiber": 4, "calories": 230, "derived": "Chicken Sandwich minus 3 chicken fingers minus Cane's Sauce (the toasted bun and anything else on the sandwich)" }
+  },
+  "items": [
+    {
+      "name": "Chicken Finger",
+      "aliases": ["chicken finger", "finger", "1 chicken finger", "single chicken finger", "chicken tender", "tender", "one finger"],
+      "macros": { "protein": 12, "fat": 6, "carbs": 5, "fiber": 0, "calories": 130 },
+      "build": [
+        { "component": "chicken finger", "count": 1 }
+      ]
+    },
+    {
+      "name": "Chicken Fingers, 3 Piece",
+      "aliases": ["3 chicken fingers", "3 fingers", "three chicken fingers", "3 piece chicken fingers", "3pc fingers", "3 tenders"],
+      "macros": { "protein": 36, "fat": 18, "carbs": 15, "fiber": 0, "calories": 390 },
+      "build": [
+        { "component": "chicken finger", "count": 3 }
+      ]
+    },
+    {
+      "name": "Chicken Fingers, 4 Piece",
+      "aliases": ["4 chicken fingers", "4 fingers", "four chicken fingers", "4 piece chicken fingers", "4pc fingers", "4 tenders"],
+      "macros": { "protein": 48, "fat": 24, "carbs": 20, "fiber": 0, "calories": 520 },
+      "build": [
+        { "component": "chicken finger", "count": 4 }
+      ]
+    },
+    {
+      "name": "Chicken Fingers, 6 Piece",
+      "aliases": ["6 chicken fingers", "6 fingers", "six chicken fingers", "6 piece chicken fingers", "6pc fingers", "6 tenders"],
+      "macros": { "protein": 72, "fat": 36, "carbs": 30, "fiber": 0, "calories": 780 },
+      "build": [
+        { "component": "chicken finger", "count": 6 }
+      ]
+    },
+    {
+      "name": "The Box Combo",
+      "aliases": ["box combo", "the box combo", "box", "the box", "4 finger combo", "box meal", "boxed combo"],
+      "macros": { "protein": 60, "fat": 70, "carbs": 99, "fiber": 11, "calories": 1270 },
+      "build": [
+        { "component": "chicken finger", "count": 4 },
+        { "component": "crinkle-cut fries", "count": 1 },
+        { "component": "cane's sauce", "count": 1 },
+        { "component": "texas toast", "count": 1 },
+        { "component": "coleslaw", "count": 1 }
+      ]
+    },
+    {
+      "name": "The 3 Finger Combo",
+      "aliases": ["3 finger combo", "the 3 finger combo", "three finger combo", "3 finger", "3 finger meal", "three finger"],
+      "macros": { "protein": 46, "fat": 58, "carbs": 84, "fiber": 9, "calories": 1050 }
+    },
+    {
+      "name": "The Caniac Combo",
+      "aliases": ["caniac combo", "the caniac combo", "caniac", "the caniac", "6 finger combo", "caniac meal", "canaic combo"],
+      "macros": { "protein": 87, "fat": 106, "carbs": 126, "fiber": 15, "calories": 1810 },
+      "build": [
+        { "component": "chicken finger", "count": 6 },
+        { "component": "crinkle-cut fries", "count": 1 },
+        { "component": "cane's sauce", "count": 2 },
+        { "component": "texas toast", "count": 1 },
+        { "component": "coleslaw", "count": 1 }
+      ]
+    },
+    {
+      "name": "The Sandwich Combo",
+      "aliases": ["sandwich combo", "the sandwich combo", "chicken sandwich combo", "sandwich meal"],
+      "macros": { "protein": 50, "fat": 56, "carbs": 109, "fiber": 9, "calories": 1130 },
+      "build": [
+        { "component": "chicken finger", "count": 3 },
+        { "component": "cane's sauce", "count": 1 },
+        { "component": "sandwich bun", "count": 1 },
+        { "component": "crinkle-cut fries", "count": 1 }
+      ]
+    },
+    {
+      "name": "The Kid's Combo",
+      "aliases": ["kids combo", "kid's combo", "the kids combo", "kids meal", "kid's meal", "2 finger combo", "kids 2 finger"],
+      "macros": { "protein": 28, "fat": 41, "carbs": 40, "fiber": 5, "calories": 640 }
+    },
+    {
+      "name": "Chicken Sandwich",
+      "aliases": ["chicken sandwich", "the sandwich", "canes sandwich", "cane's sandwich", "chicken finger sandwich", "sandwich"],
+      "macros": { "protein": 45, "fat": 40, "carbs": 68, "fiber": 4, "calories": 810 },
+      "build": [
+        { "component": "chicken finger", "count": 3 },
+        { "component": "cane's sauce", "count": 1 },
+        { "component": "sandwich bun", "count": 1 }
+      ]
+    },
+    {
+      "name": "Crinkle-Cut Fries",
+      "aliases": ["crinkle-cut fries", "crinkle cut fries", "fries", "crinkle fries", "french fries", "canes fries"],
+      "macros": { "protein": 5, "fat": 21, "carbs": 53, "fiber": 6, "calories": 420 }
+    },
+    {
+      "name": "Texas Toast",
+      "aliases": ["texas toast", "toast", "canes toast", "garlic toast", "bread"],
+      "macros": { "protein": 4, "fat": 4.5, "carbs": 23, "fiber": 2, "calories": 150 }
+    },
+    {
+      "name": "Coleslaw",
+      "aliases": ["coleslaw", "cole slaw", "slaw", "canes coleslaw"],
+      "macros": { "protein": 1, "fat": 6, "carbs": 10, "fiber": 2, "calories": 90 }
+    },
+    {
+      "name": "Cane's Sauce",
+      "aliases": ["cane's sauce", "canes sauce", "sauce", "dipping sauce", "cane sauce", "signature sauce", "extra sauce"],
+      "macros": { "protein": 0, "fat": 18, "carbs": 6, "fiber": 0, "calories": 190 }
+    },
+    {
+      "name": "Sweet Tea, Regular",
+      "aliases": ["sweet tea", "regular sweet tea", "canes sweet tea", "22 oz sweet tea", "iced tea sweet"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 60, "fiber": 0, "calories": 230 }
+    },
+    {
+      "name": "Lemonade, Regular",
+      "aliases": ["lemonade", "regular lemonade", "canes lemonade", "22 oz lemonade", "fresh lemonade"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 76, "fiber": 0, "calories": 290 }
+    }
+  ]
+}

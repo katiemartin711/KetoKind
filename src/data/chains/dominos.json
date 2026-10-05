@@ -1,0 +1,4727 @@
+{
+  "chain": "Domino's",
+  "aliases": [
+    "dominos",
+    "domino's",
+    "dominoes",
+    "dominos pizza",
+    "domino's pizza",
+    "dominoes pizza",
+    "domino"
+  ],
+  "source": "https://www.dominos.com/cms/assets/7d2e19df-e360-41eb-a367-5ab794ab2ebc",
+  "retrieved": "2026-10-05",
+  "notes": [
+    "All figures transcribed from the Domino's Nutrition Guide (January 2026) PDF on dominos.com. The guide publishes pizza nutrition per slice as separate crust, sauce, cheese and topping rows for each size/crust; build-your-own cheese/pepperoni/sausage slice totals here are the sum of those published rows (noted per item). Specialty pizza per-slice totals are published directly (hand tossed crust).",
+    "Component units: 'slice' = the amount of that ingredient on one slice of the named size/crust. Topping rows are from the guide's 1-topping table; the guide notes that additional toppings change per-topping amounts, so specialty builds are approximate.",
+    "Not in the January 2026 guide (so omitted): Brooklyn Style (replaced by New York Style), Buffalo Chicken specialty pizza, Italian Sausage Marinara / Chicken Carbonara / Pasta Primavera pastas, Breadsticks, Bread Twists, Cinnamon Bread Twists, plain (non-sweet) Mango Habanero wings, Chicken Taco / Cheeseburger pizzas, Large or Medium Gluten Free crust."
+  ],
+  "components": {
+    "small hand tossed crust": {
+      "unit": "slice",
+      "protein": 7,
+      "fat": 3,
+      "carbs": 40,
+      "fiber": 1,
+      "calories": 220
+    },
+    "small hand tossed garlic oil blend": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 2.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 25
+    },
+    "small pizza sauce": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 0,
+      "carbs": 3,
+      "fiber": 1,
+      "calories": 15
+    },
+    "small cheese (cheese-only pizza)": {
+      "unit": "slice",
+      "protein": 8,
+      "fat": 9,
+      "carbs": 3,
+      "fiber": 0,
+      "calories": 130
+    },
+    "small cheese (with toppings)": {
+      "unit": "slice",
+      "protein": 5,
+      "fat": 7,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 90
+    },
+    "small thin crust": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 4.5,
+      "carbs": 15,
+      "fiber": 0,
+      "calories": 110
+    },
+    "small thin pizza sauce": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 10
+    },
+    "small thin cheese (cheese-only pizza)": {
+      "unit": "slice",
+      "protein": 6,
+      "fat": 7,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 100
+    },
+    "small thin cheese (with toppings)": {
+      "unit": "slice",
+      "protein": 4,
+      "fat": 5,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 70
+    },
+    "small gluten free crust": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 1.5,
+      "carbs": 37,
+      "fiber": 1,
+      "calories": 170
+    },
+    "medium hand tossed crust": {
+      "unit": "slice",
+      "protein": 4,
+      "fat": 1.5,
+      "carbs": 21,
+      "fiber": 1,
+      "calories": 110
+    },
+    "medium hand tossed garlic oil blend": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 1,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 10
+    },
+    "medium pizza sauce": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 10
+    },
+    "medium cheese (cheese-only pizza)": {
+      "unit": "slice",
+      "protein": 4,
+      "fat": 5,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 70
+    },
+    "medium cheese (with toppings)": {
+      "unit": "slice",
+      "protein": 3,
+      "fat": 3.5,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 50
+    },
+    "medium pan crust": {
+      "unit": "slice",
+      "protein": 5,
+      "fat": 7,
+      "carbs": 26,
+      "fiber": 1,
+      "calories": 190
+    },
+    "medium pan pizza sauce": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "medium pan cheese (cheese-only pizza)": {
+      "unit": "slice",
+      "protein": 5,
+      "fat": 7,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 100
+    },
+    "medium pan cheese (with toppings)": {
+      "unit": "slice",
+      "protein": 4,
+      "fat": 6,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 80
+    },
+    "medium parmesan stuffed crust crust": {
+      "unit": "slice",
+      "protein": 8,
+      "fat": 10,
+      "carbs": 28,
+      "fiber": 1,
+      "calories": 230
+    },
+    "medium parmesan stuffed crust garlic oil blend": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 1,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 10
+    },
+    "medium parmesan stuffed crust parmesan (on crust)": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 5
+    },
+    "medium thin crust": {
+      "unit": "slice",
+      "protein": 3,
+      "fat": 6,
+      "carbs": 20,
+      "fiber": 1,
+      "calories": 150
+    },
+    "medium thin pizza sauce": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 0,
+      "carbs": 3,
+      "fiber": 1,
+      "calories": 15
+    },
+    "medium thin cheese (cheese-only pizza)": {
+      "unit": "slice",
+      "protein": 9,
+      "fat": 11,
+      "carbs": 3,
+      "fiber": 0,
+      "calories": 150
+    },
+    "medium thin cheese (with toppings)": {
+      "unit": "slice",
+      "protein": 6,
+      "fat": 7,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 100
+    },
+    "medium new york style crust": {
+      "unit": "slice",
+      "protein": 4,
+      "fat": 1.5,
+      "carbs": 20,
+      "fiber": 1,
+      "calories": 110
+    },
+    "medium ny pizza sauce": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 10
+    },
+    "medium ny cheese (cheese-only pizza)": {
+      "unit": "slice",
+      "protein": 5,
+      "fat": 6,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 80
+    },
+    "medium ny cheese (with toppings)": {
+      "unit": "slice",
+      "protein": 5,
+      "fat": 6,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 80
+    },
+    "large hand tossed crust": {
+      "unit": "slice",
+      "protein": 5,
+      "fat": 2,
+      "carbs": 30,
+      "fiber": 1,
+      "calories": 160
+    },
+    "large hand tossed garlic oil blend": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 1.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 15
+    },
+    "large pizza sauce": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 10
+    },
+    "large cheese (cheese-only pizza)": {
+      "unit": "slice",
+      "protein": 6,
+      "fat": 7,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 100
+    },
+    "large cheese (with toppings)": {
+      "unit": "slice",
+      "protein": 4,
+      "fat": 5,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 70
+    },
+    "large thin crust": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 4,
+      "carbs": 13,
+      "fiber": 0,
+      "calories": 100
+    },
+    "large new york style crust": {
+      "unit": "slice",
+      "protein": 5,
+      "fat": 2,
+      "carbs": 28,
+      "fiber": 1,
+      "calories": 150
+    },
+    "large ny pizza sauce": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 0,
+      "carbs": 3,
+      "fiber": 1,
+      "calories": 15
+    },
+    "large ny cheese (cheese-only pizza)": {
+      "unit": "slice",
+      "protein": 6,
+      "fat": 9,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 110
+    },
+    "large ny cheese (with toppings)": {
+      "unit": "slice",
+      "protein": 6,
+      "fat": 9,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 110
+    },
+    "extra large hand tossed crust": {
+      "unit": "slice",
+      "protein": 7,
+      "fat": 3,
+      "carbs": 39,
+      "fiber": 1,
+      "calories": 220
+    },
+    "extra large hand tossed garlic oil blend": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 1.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 15
+    },
+    "xl pizza sauce": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 0,
+      "carbs": 3,
+      "fiber": 1,
+      "calories": 15
+    },
+    "xl cheese (cheese-only pizza)": {
+      "unit": "slice",
+      "protein": 8,
+      "fat": 10,
+      "carbs": 3,
+      "fiber": 0,
+      "calories": 130
+    },
+    "xl cheese (with toppings)": {
+      "unit": "slice",
+      "protein": 5,
+      "fat": 6,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 90
+    },
+    "small pepperoni": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 4.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 50
+    },
+    "small thin pepperoni": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 3.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 40
+    },
+    "medium pepperoni": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 2.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 30
+    },
+    "medium italian sausage": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 4.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 50
+    },
+    "medium ham": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 0.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 10
+    },
+    "medium beef": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 3.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 40
+    },
+    "medium bacon": {
+      "unit": "slice",
+      "protein": 3,
+      "fat": 3.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 45
+    },
+    "medium mushrooms": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 5
+    },
+    "medium onions": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "medium green peppers": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "medium black olives": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 1,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 15
+    },
+    "medium diced tomatoes": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "medium spinach": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "medium feta cheese": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 1,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 15
+    },
+    "medium shredded provolone cheese": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 2,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 25
+    },
+    "medium american cheese": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 3,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 40
+    },
+    "medium philly steak": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 0.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 15
+    },
+    "medium premium chicken": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 0.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 20
+    },
+    "medium pineapple": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 10
+    },
+    "medium cheddar cheese blend": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 2,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 25
+    },
+    "medium shredded parmesan asiago": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 1.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 20
+    },
+    "medium jalapeno peppers": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "medium banana peppers": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "medium extra cheese": {
+      "unit": "slice",
+      "protein": 4,
+      "fat": 5,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 70
+    },
+    "medium hot buffalo sauce": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "medium thin pepperoni": {
+      "unit": "slice",
+      "protein": 3,
+      "fat": 5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 60
+    },
+    "medium thin italian sausage": {
+      "unit": "slice",
+      "protein": 3,
+      "fat": 9,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 100
+    },
+    "medium thin ham": {
+      "unit": "slice",
+      "protein": 3,
+      "fat": 1,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 25
+    },
+    "medium thin beef": {
+      "unit": "slice",
+      "protein": 4,
+      "fat": 7,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 80
+    },
+    "medium thin bacon": {
+      "unit": "slice",
+      "protein": 5,
+      "fat": 7,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 90
+    },
+    "medium thin mushrooms": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "medium thin onions": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "medium thin green peppers": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "medium thin black olives": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 2,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 25
+    },
+    "medium thin diced tomatoes": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "medium thin spinach": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "medium thin feta cheese": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 2,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 30
+    },
+    "medium thin shredded provolone cheese": {
+      "unit": "slice",
+      "protein": 3,
+      "fat": 4,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 50
+    },
+    "medium thin american cheese": {
+      "unit": "slice",
+      "protein": 4,
+      "fat": 6,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 80
+    },
+    "medium thin philly steak": {
+      "unit": "slice",
+      "protein": 3,
+      "fat": 1.5,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 25
+    },
+    "medium thin premium chicken": {
+      "unit": "slice",
+      "protein": 5,
+      "fat": 1,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 40
+    },
+    "medium thin pineapple": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 4,
+      "fiber": 0,
+      "calories": 20
+    },
+    "medium thin extra cheese": {
+      "unit": "slice",
+      "protein": 9,
+      "fat": 11,
+      "carbs": 3,
+      "fiber": 0,
+      "calories": 150
+    },
+    "medium ny pepperoni": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 4,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 40
+    },
+    "medium ny italian sausage": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 6,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 60
+    },
+    "medium ny ham": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 0.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 15
+    },
+    "medium ny beef": {
+      "unit": "slice",
+      "protein": 3,
+      "fat": 4.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 50
+    },
+    "medium ny bacon": {
+      "unit": "slice",
+      "protein": 4,
+      "fat": 4.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 60
+    },
+    "medium ny mushrooms": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "medium ny onions": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "medium ny green peppers": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "medium ny black olives": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 1.5,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 20
+    },
+    "large pepperoni": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 3.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 40
+    },
+    "large italian sausage": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 7,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 70
+    },
+    "large ham": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 0.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 15
+    },
+    "large beef": {
+      "unit": "slice",
+      "protein": 3,
+      "fat": 5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 60
+    },
+    "large bacon": {
+      "unit": "slice",
+      "protein": 4,
+      "fat": 5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 70
+    },
+    "large mushrooms": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "large onions": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "large green peppers": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "large black olives": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 1.5,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 20
+    },
+    "large diced tomatoes": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "large spinach": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "large feta cheese": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 1.5,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 20
+    },
+    "large shredded provolone cheese": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 2.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 30
+    },
+    "large american cheese": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 4,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 50
+    },
+    "large philly steak": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 1,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 20
+    },
+    "large premium chicken": {
+      "unit": "slice",
+      "protein": 4,
+      "fat": 1,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 25
+    },
+    "large pineapple": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 3,
+      "fiber": 0,
+      "calories": 15
+    },
+    "large cheddar cheese blend": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 2.5,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 30
+    },
+    "large shredded parmesan asiago": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 2,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 25
+    },
+    "large jalapeno peppers": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "large banana peppers": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 0
+    },
+    "large extra cheese": {
+      "unit": "slice",
+      "protein": 6,
+      "fat": 7,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 100
+    },
+    "large hot buffalo sauce": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "large honey bbq sauce": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 6,
+      "fiber": 0,
+      "calories": 25
+    },
+    "large alfredo sauce": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 3,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 30
+    },
+    "large ranch sauce": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 7,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 70
+    },
+    "large ny pepperoni": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 4.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 50
+    },
+    "large ny italian sausage": {
+      "unit": "slice",
+      "protein": 3,
+      "fat": 9,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 90
+    },
+    "large ny ham": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 1,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 20
+    },
+    "large ny beef": {
+      "unit": "slice",
+      "protein": 4,
+      "fat": 7,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 80
+    },
+    "large ny bacon": {
+      "unit": "slice",
+      "protein": 5,
+      "fat": 6,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 90
+    },
+    "large ny mushrooms": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "large ny onions": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "large ny green peppers": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "large ny black olives": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 2,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 25
+    },
+    "xl pepperoni": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 50
+    },
+    "xl italian sausage": {
+      "unit": "slice",
+      "protein": 3,
+      "fat": 9,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 90
+    },
+    "xl ham": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 1,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 20
+    },
+    "xl beef": {
+      "unit": "slice",
+      "protein": 4,
+      "fat": 6,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 70
+    },
+    "xl bacon": {
+      "unit": "slice",
+      "protein": 5,
+      "fat": 7,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 90
+    },
+    "xl mushrooms": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "xl onions": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "xl green peppers": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "xl black olives": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 2,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 25
+    },
+    "xl diced tomatoes": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "xl spinach": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "xl feta cheese": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 2,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 25
+    },
+    "xl shredded provolone cheese": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 3.5,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 45
+    },
+    "xl american cheese": {
+      "unit": "slice",
+      "protein": 3,
+      "fat": 5,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 60
+    },
+    "xl philly steak": {
+      "unit": "slice",
+      "protein": 3,
+      "fat": 1.5,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 25
+    },
+    "xl premium chicken": {
+      "unit": "slice",
+      "protein": 5,
+      "fat": 1,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 35
+    },
+    "xl pineapple": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 4,
+      "fiber": 0,
+      "calories": 15
+    },
+    "xl cheddar cheese blend": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 3,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 40
+    },
+    "xl shredded parmesan asiago": {
+      "unit": "slice",
+      "protein": 3,
+      "fat": 2.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 35
+    },
+    "xl jalapeno peppers": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "xl extra cheese": {
+      "unit": "slice",
+      "protein": 8,
+      "fat": 10,
+      "carbs": 3,
+      "fiber": 0,
+      "calories": 130
+    },
+    "xl honey bbq sauce": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 8,
+      "fiber": 0,
+      "calories": 30
+    },
+    "xl alfredo sauce": {
+      "unit": "slice",
+      "protein": 1,
+      "fat": 3.5,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 40
+    },
+    "xl ranch sauce": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 9,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 90
+    }
+  },
+  "items": [
+    {
+      "name": "Small Hand Tossed Cheese Pizza (1 slice, 1/3 pizza)",
+      "aliases": [
+        "small hand tossed cheese pizza",
+        "10 inch hand tossed cheese pizza",
+        "small cheese pizza",
+        "small hand tossed cheese slice",
+        "10 inch hand tossed cheese slice",
+        "small cheese slice",
+        "small hand tossed cheese"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 14.5,
+        "carbs": 46,
+        "fiber": 2,
+        "calories": 390
+      },
+      "build": [
+        {
+          "component": "small hand tossed crust",
+          "count": 1
+        },
+        {
+          "component": "small hand tossed garlic oil blend",
+          "count": 1
+        },
+        {
+          "component": "small pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "small cheese (cheese-only pizza)",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Small Hand Tossed Pepperoni Pizza (1 slice, 1/3 pizza)",
+      "aliases": [
+        "small hand tossed pepperoni pizza",
+        "10 inch hand tossed pepperoni pizza",
+        "small pepperoni pizza",
+        "small hand tossed pepperoni slice",
+        "10 inch hand tossed pepperoni slice",
+        "small pepperoni slice",
+        "small hand tossed pepperoni",
+        "10 inch hand tossed pepperoni",
+        "small pepperoni"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 17,
+        "carbs": 45,
+        "fiber": 2,
+        "calories": 400
+      },
+      "build": [
+        {
+          "component": "small hand tossed crust",
+          "count": 1
+        },
+        {
+          "component": "small hand tossed garlic oil blend",
+          "count": 1
+        },
+        {
+          "component": "small pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "small cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "small pepperoni",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Small Crunchy Thin Crust Cheese Pizza (1 slice, 1/4 pizza)",
+      "aliases": [
+        "small thin crust cheese pizza",
+        "small thin cheese pizza",
+        "10 inch thin crust cheese pizza",
+        "small thin crust cheese slice",
+        "small thin cheese slice",
+        "10 inch thin crust cheese slice",
+        "small thin crust cheese"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 11.5,
+        "carbs": 19,
+        "fiber": 0,
+        "calories": 220
+      },
+      "build": [
+        {
+          "component": "small thin crust",
+          "count": 1
+        },
+        {
+          "component": "small thin pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "small thin cheese (cheese-only pizza)",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Small Crunchy Thin Crust Pepperoni Pizza (1 slice, 1/4 pizza)",
+      "aliases": [
+        "small thin crust pepperoni pizza",
+        "small thin pepperoni pizza",
+        "10 inch thin crust pepperoni pizza",
+        "small thin crust pepperoni slice",
+        "small thin pepperoni slice",
+        "10 inch thin crust pepperoni slice",
+        "small thin crust pepperoni",
+        "small thin pepperoni",
+        "10 inch thin crust pepperoni"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 13,
+        "carbs": 18,
+        "fiber": 0,
+        "calories": 230
+      },
+      "build": [
+        {
+          "component": "small thin crust",
+          "count": 1
+        },
+        {
+          "component": "small thin pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "small thin cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "small thin pepperoni",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Small Gluten Free Crust Cheese Pizza (1 slice, 1/3 pizza)",
+      "aliases": [
+        "gluten free cheese pizza",
+        "gluten-free cheese pizza",
+        "gf crust cheese pizza",
+        "small gluten free cheese pizza",
+        "gluten free cheese slice",
+        "gluten-free cheese slice",
+        "gf crust cheese slice",
+        "small gluten free cheese slice",
+        "gluten free cheese"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 10.5,
+        "carbs": 43,
+        "fiber": 2,
+        "calories": 315
+      },
+      "build": [
+        {
+          "component": "small gluten free crust",
+          "count": 1
+        },
+        {
+          "component": "small pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "small cheese (cheese-only pizza)",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Small Gluten Free Crust Pepperoni Pizza (1 slice, 1/3 pizza)",
+      "aliases": [
+        "gluten free pepperoni pizza",
+        "gluten-free pepperoni pizza",
+        "gf crust pepperoni pizza",
+        "small gluten free pepperoni pizza",
+        "gluten free pepperoni slice",
+        "gluten-free pepperoni slice",
+        "gf crust pepperoni slice",
+        "small gluten free pepperoni slice",
+        "gluten free pepperoni",
+        "gluten-free pepperoni",
+        "gf crust pepperoni",
+        "small gluten free pepperoni"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 13,
+        "carbs": 42,
+        "fiber": 2,
+        "calories": 325
+      },
+      "build": [
+        {
+          "component": "small gluten free crust",
+          "count": 1
+        },
+        {
+          "component": "small pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "small cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "small pepperoni",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Medium Hand Tossed Cheese Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "medium hand tossed cheese pizza",
+        "12 inch hand tossed cheese pizza",
+        "medium cheese pizza",
+        "medium hand tossed cheese slice",
+        "12 inch hand tossed cheese slice",
+        "medium cheese slice",
+        "medium hand tossed cheese"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 7.5,
+        "carbs": 24,
+        "fiber": 1,
+        "calories": 200
+      },
+      "build": [
+        {
+          "component": "medium hand tossed crust",
+          "count": 1
+        },
+        {
+          "component": "medium hand tossed garlic oil blend",
+          "count": 1
+        },
+        {
+          "component": "medium pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "medium cheese (cheese-only pizza)",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Medium Hand Tossed Pepperoni Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "medium hand tossed pepperoni pizza",
+        "12 inch hand tossed pepperoni pizza",
+        "medium pepperoni pizza",
+        "medium hand tossed pepperoni slice",
+        "12 inch hand tossed pepperoni slice",
+        "medium pepperoni slice",
+        "medium hand tossed pepperoni",
+        "12 inch hand tossed pepperoni",
+        "medium pepperoni"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 8.5,
+        "carbs": 24,
+        "fiber": 1,
+        "calories": 210
+      },
+      "build": [
+        {
+          "component": "medium hand tossed crust",
+          "count": 1
+        },
+        {
+          "component": "medium hand tossed garlic oil blend",
+          "count": 1
+        },
+        {
+          "component": "medium pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "medium cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "medium pepperoni",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Medium Hand Tossed Italian Sausage Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "medium hand tossed sausage pizza",
+        "12 inch hand tossed sausage pizza",
+        "medium sausage pizza",
+        "medium hand tossed sausage slice",
+        "12 inch hand tossed sausage slice",
+        "medium sausage slice"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 10.5,
+        "carbs": 24,
+        "fiber": 1,
+        "calories": 230
+      },
+      "build": [
+        {
+          "component": "medium hand tossed crust",
+          "count": 1
+        },
+        {
+          "component": "medium hand tossed garlic oil blend",
+          "count": 1
+        },
+        {
+          "component": "medium pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "medium cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "medium italian sausage",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Medium Handmade Pan Cheese Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "pan pizza cheese pizza",
+        "handmade pan cheese pizza",
+        "medium pan cheese pizza",
+        "deep dish cheese pizza",
+        "pan pizza cheese slice",
+        "handmade pan cheese slice",
+        "medium pan cheese slice",
+        "deep dish cheese slice",
+        "pan pizza cheese"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 14,
+        "carbs": 28,
+        "fiber": 1,
+        "calories": 295
+      },
+      "build": [
+        {
+          "component": "medium pan crust",
+          "count": 1
+        },
+        {
+          "component": "medium pan pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "medium pan cheese (cheese-only pizza)",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Medium Handmade Pan Pepperoni Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "pan pizza pepperoni pizza",
+        "handmade pan pepperoni pizza",
+        "medium pan pepperoni pizza",
+        "deep dish pepperoni pizza",
+        "pan pizza pepperoni slice",
+        "handmade pan pepperoni slice",
+        "medium pan pepperoni slice",
+        "deep dish pepperoni slice",
+        "pan pizza pepperoni",
+        "handmade pan pepperoni",
+        "medium pan pepperoni",
+        "deep dish pepperoni"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 15.5,
+        "carbs": 28,
+        "fiber": 1,
+        "calories": 305
+      },
+      "build": [
+        {
+          "component": "medium pan crust",
+          "count": 1
+        },
+        {
+          "component": "medium pan pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "medium pan cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "medium pepperoni",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Medium Handmade Pan Italian Sausage Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "pan pizza sausage pizza",
+        "handmade pan sausage pizza",
+        "medium pan sausage pizza",
+        "deep dish sausage pizza",
+        "pan pizza sausage slice",
+        "handmade pan sausage slice",
+        "medium pan sausage slice",
+        "deep dish sausage slice"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 17.5,
+        "carbs": 28,
+        "fiber": 1,
+        "calories": 325
+      },
+      "build": [
+        {
+          "component": "medium pan crust",
+          "count": 1
+        },
+        {
+          "component": "medium pan pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "medium pan cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "medium italian sausage",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Medium Parmesan Stuffed Crust Cheese Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "stuffed crust cheese pizza",
+        "parmesan stuffed crust cheese pizza",
+        "cheese stuffed crust cheese pizza",
+        "stuffed crust cheese slice",
+        "parmesan stuffed crust cheese slice",
+        "cheese stuffed crust cheese slice",
+        "stuffed crust cheese"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 16,
+        "carbs": 31,
+        "fiber": 1,
+        "calories": 325
+      },
+      "build": [
+        {
+          "component": "medium parmesan stuffed crust crust",
+          "count": 1
+        },
+        {
+          "component": "medium parmesan stuffed crust garlic oil blend",
+          "count": 1
+        },
+        {
+          "component": "medium parmesan stuffed crust parmesan (on crust)",
+          "count": 1
+        },
+        {
+          "component": "medium pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "medium cheese (cheese-only pizza)",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Medium Parmesan Stuffed Crust Pepperoni Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "stuffed crust pepperoni pizza",
+        "parmesan stuffed crust pepperoni pizza",
+        "cheese stuffed crust pepperoni pizza",
+        "stuffed crust pepperoni slice",
+        "parmesan stuffed crust pepperoni slice",
+        "cheese stuffed crust pepperoni slice",
+        "stuffed crust pepperoni",
+        "parmesan stuffed crust pepperoni",
+        "cheese stuffed crust pepperoni"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 17,
+        "carbs": 31,
+        "fiber": 1,
+        "calories": 335
+      },
+      "build": [
+        {
+          "component": "medium parmesan stuffed crust crust",
+          "count": 1
+        },
+        {
+          "component": "medium parmesan stuffed crust garlic oil blend",
+          "count": 1
+        },
+        {
+          "component": "medium parmesan stuffed crust parmesan (on crust)",
+          "count": 1
+        },
+        {
+          "component": "medium pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "medium cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "medium pepperoni",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Medium Crunchy Thin Crust Cheese Pizza (1 slice, 1/4 pizza)",
+      "aliases": [
+        "medium thin crust cheese pizza",
+        "medium thin cheese pizza",
+        "12 inch thin crust cheese pizza",
+        "medium thin crust cheese slice",
+        "medium thin cheese slice",
+        "12 inch thin crust cheese slice",
+        "medium thin crust cheese"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 17,
+        "carbs": 26,
+        "fiber": 2,
+        "calories": 315
+      },
+      "build": [
+        {
+          "component": "medium thin crust",
+          "count": 1
+        },
+        {
+          "component": "medium thin pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "medium thin cheese (cheese-only pizza)",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Medium Crunchy Thin Crust Pepperoni Pizza (1 slice, 1/4 pizza)",
+      "aliases": [
+        "medium thin crust pepperoni pizza",
+        "medium thin pepperoni pizza",
+        "12 inch thin crust pepperoni pizza",
+        "medium thin crust pepperoni slice",
+        "medium thin pepperoni slice",
+        "12 inch thin crust pepperoni slice",
+        "medium thin crust pepperoni",
+        "medium thin pepperoni",
+        "12 inch thin crust pepperoni"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 18,
+        "carbs": 25,
+        "fiber": 2,
+        "calories": 325
+      },
+      "build": [
+        {
+          "component": "medium thin crust",
+          "count": 1
+        },
+        {
+          "component": "medium thin pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "medium thin cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "medium thin pepperoni",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Medium New York Style Cheese Pizza (1 slice, 1/6 pizza)",
+      "aliases": [
+        "medium new york style cheese pizza",
+        "medium ny style cheese pizza",
+        "medium brooklyn style cheese pizza",
+        "brooklyn style medium cheese pizza",
+        "medium new york style cheese slice",
+        "medium ny style cheese slice",
+        "medium brooklyn style cheese slice",
+        "brooklyn style medium cheese slice",
+        "medium new york style cheese"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 7.5,
+        "carbs": 23,
+        "fiber": 1,
+        "calories": 200
+      },
+      "build": [
+        {
+          "component": "medium new york style crust",
+          "count": 1
+        },
+        {
+          "component": "medium ny pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "medium ny cheese (cheese-only pizza)",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Medium New York Style Pepperoni Pizza (1 slice, 1/6 pizza)",
+      "aliases": [
+        "medium new york style pepperoni pizza",
+        "medium ny style pepperoni pizza",
+        "medium brooklyn style pepperoni pizza",
+        "brooklyn style medium pepperoni pizza",
+        "medium new york style pepperoni slice",
+        "medium ny style pepperoni slice",
+        "medium brooklyn style pepperoni slice",
+        "brooklyn style medium pepperoni slice",
+        "medium new york style pepperoni",
+        "medium ny style pepperoni",
+        "medium brooklyn style pepperoni",
+        "brooklyn style medium pepperoni"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 11.5,
+        "carbs": 23,
+        "fiber": 1,
+        "calories": 240
+      },
+      "build": [
+        {
+          "component": "medium new york style crust",
+          "count": 1
+        },
+        {
+          "component": "medium ny pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "medium ny cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "medium ny pepperoni",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Large Hand Tossed Cheese Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "large hand tossed cheese pizza",
+        "14 inch hand tossed cheese pizza",
+        "large cheese pizza",
+        "hand tossed cheese pizza",
+        "large hand tossed cheese slice",
+        "14 inch hand tossed cheese slice",
+        "large cheese slice",
+        "hand tossed cheese slice",
+        "large hand tossed cheese",
+        "cheese pizza",
+        "slice of cheese",
+        "cheese slice",
+        "plain cheese"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 10.5,
+        "carbs": 34,
+        "fiber": 1,
+        "calories": 285
+      },
+      "build": [
+        {
+          "component": "large hand tossed crust",
+          "count": 1
+        },
+        {
+          "component": "large hand tossed garlic oil blend",
+          "count": 1
+        },
+        {
+          "component": "large pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "large cheese (cheese-only pizza)",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Large Hand Tossed Pepperoni Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "large hand tossed pepperoni pizza",
+        "14 inch hand tossed pepperoni pizza",
+        "large pepperoni pizza",
+        "hand tossed pepperoni pizza",
+        "large hand tossed pepperoni slice",
+        "14 inch hand tossed pepperoni slice",
+        "large pepperoni slice",
+        "hand tossed pepperoni slice",
+        "large hand tossed pepperoni",
+        "14 inch hand tossed pepperoni",
+        "large pepperoni",
+        "hand tossed pepperoni",
+        "pepperoni pizza",
+        "slice of pepperoni",
+        "pepperoni slice",
+        "peperoni"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 12,
+        "carbs": 33,
+        "fiber": 1,
+        "calories": 295
+      },
+      "build": [
+        {
+          "component": "large hand tossed crust",
+          "count": 1
+        },
+        {
+          "component": "large hand tossed garlic oil blend",
+          "count": 1
+        },
+        {
+          "component": "large pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "large cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "large pepperoni",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Large Hand Tossed Italian Sausage Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "large hand tossed sausage pizza",
+        "14 inch hand tossed sausage pizza",
+        "large sausage pizza",
+        "hand tossed sausage pizza",
+        "large hand tossed sausage slice",
+        "14 inch hand tossed sausage slice",
+        "large sausage slice",
+        "hand tossed sausage slice",
+        "sausage pizza",
+        "sausage slice"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 15.5,
+        "carbs": 33,
+        "fiber": 1,
+        "calories": 325
+      },
+      "build": [
+        {
+          "component": "large hand tossed crust",
+          "count": 1
+        },
+        {
+          "component": "large hand tossed garlic oil blend",
+          "count": 1
+        },
+        {
+          "component": "large pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "large cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "large italian sausage",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Large Crunchy Thin Crust Cheese Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "large thin crust cheese pizza",
+        "thin crust cheese pizza",
+        "crunchy thin cheese pizza",
+        "14 inch thin crust cheese pizza",
+        "large thin crust cheese slice",
+        "thin crust cheese slice",
+        "crunchy thin cheese slice",
+        "14 inch thin crust cheese slice",
+        "large thin crust cheese"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 11,
+        "carbs": 17,
+        "fiber": 0,
+        "calories": 210
+      },
+      "build": [
+        {
+          "component": "large thin crust",
+          "count": 1
+        },
+        {
+          "component": "large pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "large cheese (cheese-only pizza)",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Large Crunchy Thin Crust Pepperoni Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "large thin crust pepperoni pizza",
+        "thin crust pepperoni pizza",
+        "crunchy thin pepperoni pizza",
+        "14 inch thin crust pepperoni pizza",
+        "large thin crust pepperoni slice",
+        "thin crust pepperoni slice",
+        "crunchy thin pepperoni slice",
+        "14 inch thin crust pepperoni slice",
+        "large thin crust pepperoni",
+        "thin crust pepperoni",
+        "crunchy thin pepperoni",
+        "14 inch thin crust pepperoni"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 12.5,
+        "carbs": 16,
+        "fiber": 0,
+        "calories": 220
+      },
+      "build": [
+        {
+          "component": "large thin crust",
+          "count": 1
+        },
+        {
+          "component": "large pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "large cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "large pepperoni",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Large Crunchy Thin Crust Italian Sausage Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "large thin crust sausage pizza",
+        "thin crust sausage pizza",
+        "crunchy thin sausage pizza",
+        "14 inch thin crust sausage pizza",
+        "large thin crust sausage slice",
+        "thin crust sausage slice",
+        "crunchy thin sausage slice",
+        "14 inch thin crust sausage slice"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 16,
+        "carbs": 16,
+        "fiber": 0,
+        "calories": 250
+      },
+      "build": [
+        {
+          "component": "large thin crust",
+          "count": 1
+        },
+        {
+          "component": "large pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "large cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "large italian sausage",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Large New York Style Cheese Pizza (1 slice, 1/6 pizza)",
+      "aliases": [
+        "large new york style cheese pizza",
+        "new york style cheese pizza",
+        "ny style cheese pizza",
+        "brooklyn style cheese pizza",
+        "large brooklyn style cheese pizza",
+        "large new york style cheese slice",
+        "new york style cheese slice",
+        "ny style cheese slice",
+        "brooklyn style cheese slice",
+        "large brooklyn style cheese slice",
+        "large new york style cheese"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 11,
+        "carbs": 33,
+        "fiber": 2,
+        "calories": 275
+      },
+      "build": [
+        {
+          "component": "large new york style crust",
+          "count": 1
+        },
+        {
+          "component": "large ny pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "large ny cheese (cheese-only pizza)",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Large New York Style Pepperoni Pizza (1 slice, 1/6 pizza)",
+      "aliases": [
+        "large new york style pepperoni pizza",
+        "new york style pepperoni pizza",
+        "ny style pepperoni pizza",
+        "brooklyn style pepperoni pizza",
+        "large brooklyn style pepperoni pizza",
+        "large new york style pepperoni slice",
+        "new york style pepperoni slice",
+        "ny style pepperoni slice",
+        "brooklyn style pepperoni slice",
+        "large brooklyn style pepperoni slice",
+        "large new york style pepperoni",
+        "new york style pepperoni",
+        "ny style pepperoni",
+        "brooklyn style pepperoni",
+        "large brooklyn style pepperoni"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 15.5,
+        "carbs": 33,
+        "fiber": 2,
+        "calories": 325
+      },
+      "build": [
+        {
+          "component": "large new york style crust",
+          "count": 1
+        },
+        {
+          "component": "large ny pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "large ny cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "large ny pepperoni",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Extra Large Hand Tossed Cheese Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "extra large hand tossed cheese pizza",
+        "xl hand tossed cheese pizza",
+        "extra large cheese pizza",
+        "xl cheese pizza",
+        "16 inch hand tossed cheese pizza",
+        "extra large hand tossed cheese slice",
+        "xl hand tossed cheese slice",
+        "extra large cheese slice",
+        "xl cheese slice",
+        "16 inch hand tossed cheese slice",
+        "extra large hand tossed cheese"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 14.5,
+        "carbs": 45,
+        "fiber": 2,
+        "calories": 380
+      },
+      "build": [
+        {
+          "component": "extra large hand tossed crust",
+          "count": 1
+        },
+        {
+          "component": "extra large hand tossed garlic oil blend",
+          "count": 1
+        },
+        {
+          "component": "xl pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "xl cheese (cheese-only pizza)",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Extra Large Hand Tossed Pepperoni Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "extra large hand tossed pepperoni pizza",
+        "xl hand tossed pepperoni pizza",
+        "extra large pepperoni pizza",
+        "xl pepperoni pizza",
+        "16 inch hand tossed pepperoni pizza",
+        "extra large hand tossed pepperoni slice",
+        "xl hand tossed pepperoni slice",
+        "extra large pepperoni slice",
+        "xl pepperoni slice",
+        "16 inch hand tossed pepperoni slice",
+        "extra large hand tossed pepperoni",
+        "xl hand tossed pepperoni",
+        "extra large pepperoni",
+        "xl pepperoni",
+        "16 inch hand tossed pepperoni"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 15.5,
+        "carbs": 44,
+        "fiber": 2,
+        "calories": 390
+      },
+      "build": [
+        {
+          "component": "extra large hand tossed crust",
+          "count": 1
+        },
+        {
+          "component": "extra large hand tossed garlic oil blend",
+          "count": 1
+        },
+        {
+          "component": "xl pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "xl cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "xl pepperoni",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Extra Large Hand Tossed Italian Sausage Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "extra large hand tossed sausage pizza",
+        "xl hand tossed sausage pizza",
+        "extra large sausage pizza",
+        "xl sausage pizza",
+        "16 inch hand tossed sausage pizza",
+        "extra large hand tossed sausage slice",
+        "xl hand tossed sausage slice",
+        "extra large sausage slice",
+        "xl sausage slice",
+        "16 inch hand tossed sausage slice"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 19.5,
+        "carbs": 44,
+        "fiber": 2,
+        "calories": 430
+      },
+      "build": [
+        {
+          "component": "extra large hand tossed crust",
+          "count": 1
+        },
+        {
+          "component": "extra large hand tossed garlic oil blend",
+          "count": 1
+        },
+        {
+          "component": "xl pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "xl cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "xl italian sausage",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published per-slice crust, sauce, cheese (and topping) components from the Domino's Nutrition Guide."
+    },
+    {
+      "name": "Small Hand Tossed Deluxe Pizza (1 slice, 1/4 pizza)",
+      "aliases": [
+        "small deluxe",
+        "small deluxe pizza",
+        "small people's pizza",
+        "small the peoples pizza",
+        "small deluxe feast"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 16,
+        "carbs": 38,
+        "fiber": 1,
+        "calories": 360
+      }
+    },
+    {
+      "name": "Medium Hand Tossed Deluxe Pizza (1 slice, 1/5 pizza)",
+      "aliases": [
+        "medium deluxe",
+        "medium deluxe pizza",
+        "medium people's pizza",
+        "medium the peoples pizza",
+        "medium deluxe feast"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 19,
+        "carbs": 39,
+        "fiber": 2,
+        "calories": 390
+      }
+    },
+    {
+      "name": "Large Hand Tossed Deluxe Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "large deluxe",
+        "large deluxe pizza",
+        "large people's pizza",
+        "large the peoples pizza",
+        "large deluxe feast",
+        "deluxe",
+        "deluxe pizza",
+        "people's pizza",
+        "the peoples pizza",
+        "deluxe feast"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 16,
+        "carbs": 35,
+        "fiber": 1,
+        "calories": 340
+      },
+      "note": "No build: summing the guide's 1-topping per-slice rows overstates this multi-topping pizza by more than 15% (Domino's reduces per-topping portions as toppings are added), so only the published slice total is given."
+    },
+    {
+      "name": "Extra Large Hand Tossed Deluxe Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "extra large deluxe",
+        "extra large deluxe pizza",
+        "extra large people's pizza",
+        "extra large the peoples pizza",
+        "extra large deluxe feast",
+        "xl deluxe",
+        "xl deluxe pizza",
+        "xl people's pizza",
+        "xl the peoples pizza",
+        "xl deluxe feast"
+      ],
+      "macros": {
+        "protein": 18,
+        "fat": 21,
+        "carbs": 46,
+        "fiber": 2,
+        "calories": 450
+      },
+      "note": "No build: summing the guide's 1-topping per-slice rows overstates this multi-topping pizza by more than 15% (Domino's reduces per-topping portions as toppings are added), so only the published slice total is given."
+    },
+    {
+      "name": "Small Hand Tossed ExtravaganZZa Pizza (1 slice, 1/4 pizza)",
+      "aliases": [
+        "small extravaganzza",
+        "small extravaganza",
+        "small extravaganzza pizza",
+        "small extravaganzza feast"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 19,
+        "carbs": 38,
+        "fiber": 2,
+        "calories": 400
+      }
+    },
+    {
+      "name": "Medium Hand Tossed ExtravaganZZa Pizza (1 slice, 1/5 pizza)",
+      "aliases": [
+        "medium extravaganzza",
+        "medium extravaganza",
+        "medium extravaganzza pizza",
+        "medium extravaganzza feast"
+      ],
+      "macros": {
+        "protein": 18,
+        "fat": 22,
+        "carbs": 40,
+        "fiber": 2,
+        "calories": 440
+      }
+    },
+    {
+      "name": "Large Hand Tossed ExtravaganZZa Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "large extravaganzza",
+        "large extravaganza",
+        "large extravaganzza pizza",
+        "large extravaganzza feast",
+        "extravaganzza",
+        "extravaganza",
+        "extravaganzza pizza",
+        "extravaganzza feast"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 19,
+        "carbs": 36,
+        "fiber": 2,
+        "calories": 380
+      },
+      "note": "No build: summing the guide's 1-topping per-slice rows overstates this multi-topping pizza by more than 15% (Domino's reduces per-topping portions as toppings are added), so only the published slice total is given."
+    },
+    {
+      "name": "Extra Large Hand Tossed ExtravaganZZa Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "extra large extravaganzza",
+        "extra large extravaganza",
+        "extra large extravaganzza pizza",
+        "extra large extravaganzza feast",
+        "xl extravaganzza",
+        "xl extravaganza",
+        "xl extravaganzza pizza",
+        "xl extravaganzza feast"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 25,
+        "carbs": 47,
+        "fiber": 2,
+        "calories": 500
+      },
+      "note": "No build: summing the guide's 1-topping per-slice rows overstates this multi-topping pizza by more than 15% (Domino's reduces per-topping portions as toppings are added), so only the published slice total is given."
+    },
+    {
+      "name": "Small Hand Tossed Honolulu Hawaiian Pizza (1 slice, 1/4 pizza)",
+      "aliases": [
+        "small honolulu hawaiian",
+        "small hawaiian pizza",
+        "small hawaiian",
+        "small ham and pineapple"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 15,
+        "carbs": 39,
+        "fiber": 1,
+        "calories": 350
+      }
+    },
+    {
+      "name": "Medium Hand Tossed Honolulu Hawaiian Pizza (1 slice, 1/5 pizza)",
+      "aliases": [
+        "medium honolulu hawaiian",
+        "medium hawaiian pizza",
+        "medium hawaiian",
+        "medium ham and pineapple"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 17,
+        "carbs": 40,
+        "fiber": 1,
+        "calories": 380
+      }
+    },
+    {
+      "name": "Large Hand Tossed Honolulu Hawaiian Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "large honolulu hawaiian",
+        "large hawaiian pizza",
+        "large hawaiian",
+        "large ham and pineapple",
+        "honolulu hawaiian",
+        "hawaiian pizza",
+        "hawaiian",
+        "ham and pineapple"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 14,
+        "carbs": 36,
+        "fiber": 1,
+        "calories": 330
+      },
+      "note": "No build: summing the guide's 1-topping per-slice rows overstates this multi-topping pizza by more than 15% (Domino's reduces per-topping portions as toppings are added), so only the published slice total is given."
+    },
+    {
+      "name": "Extra Large Hand Tossed Honolulu Hawaiian Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "extra large honolulu hawaiian",
+        "extra large hawaiian pizza",
+        "extra large hawaiian",
+        "extra large ham and pineapple",
+        "xl honolulu hawaiian",
+        "xl hawaiian pizza",
+        "xl hawaiian",
+        "xl ham and pineapple"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 18,
+        "carbs": 47,
+        "fiber": 2,
+        "calories": 430
+      },
+      "note": "No build: summing the guide's 1-topping per-slice rows overstates this multi-topping pizza by more than 15% (Domino's reduces per-topping portions as toppings are added), so only the published slice total is given."
+    },
+    {
+      "name": "Small Hand Tossed MeatZZa Pizza (1 slice, 1/4 pizza)",
+      "aliases": [
+        "small meatzza",
+        "small meatza",
+        "small meatzza pizza",
+        "small meat lovers",
+        "small meatzza feast"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 19,
+        "carbs": 38,
+        "fiber": 1,
+        "calories": 390
+      }
+    },
+    {
+      "name": "Medium Hand Tossed MeatZZa Pizza (1 slice, 1/5 pizza)",
+      "aliases": [
+        "medium meatzza",
+        "medium meatza",
+        "medium meatzza pizza",
+        "medium meat lovers",
+        "medium meatzza feast"
+      ],
+      "macros": {
+        "protein": 18,
+        "fat": 21,
+        "carbs": 38,
+        "fiber": 1,
+        "calories": 420
+      }
+    },
+    {
+      "name": "Large Hand Tossed MeatZZa Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "large meatzza",
+        "large meatza",
+        "large meatzza pizza",
+        "large meat lovers",
+        "large meatzza feast",
+        "meatzza",
+        "meatza",
+        "meatzza pizza",
+        "meat lovers",
+        "meatzza feast"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 18,
+        "carbs": 34,
+        "fiber": 1,
+        "calories": 370
+      },
+      "note": "No build: summing the guide's 1-topping per-slice rows overstates this multi-topping pizza by more than 15% (Domino's reduces per-topping portions as toppings are added), so only the published slice total is given."
+    },
+    {
+      "name": "Extra Large Hand Tossed MeatZZa Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "extra large meatzza",
+        "extra large meatza",
+        "extra large meatzza pizza",
+        "extra large meat lovers",
+        "extra large meatzza feast",
+        "xl meatzza",
+        "xl meatza",
+        "xl meatzza pizza",
+        "xl meat lovers",
+        "xl meatzza feast"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 24,
+        "carbs": 45,
+        "fiber": 2,
+        "calories": 480
+      },
+      "note": "No build: summing the guide's 1-topping per-slice rows overstates this multi-topping pizza by more than 15% (Domino's reduces per-topping portions as toppings are added), so only the published slice total is given."
+    },
+    {
+      "name": "Small Hand Tossed Memphis BBQ Chicken Pizza (1 slice, 1/4 pizza)",
+      "aliases": [
+        "small memphis bbq chicken",
+        "small bbq chicken pizza",
+        "small barbecue chicken pizza",
+        "small memphis barbecue chicken"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 14,
+        "carbs": 41,
+        "fiber": 1,
+        "calories": 360
+      }
+    },
+    {
+      "name": "Medium Hand Tossed Memphis BBQ Chicken Pizza (1 slice, 1/5 pizza)",
+      "aliases": [
+        "medium memphis bbq chicken",
+        "medium bbq chicken pizza",
+        "medium barbecue chicken pizza",
+        "medium memphis barbecue chicken"
+      ],
+      "macros": {
+        "protein": 18,
+        "fat": 17,
+        "carbs": 44,
+        "fiber": 1,
+        "calories": 410
+      }
+    },
+    {
+      "name": "Large Hand Tossed Memphis BBQ Chicken Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "large memphis bbq chicken",
+        "large bbq chicken pizza",
+        "large barbecue chicken pizza",
+        "large memphis barbecue chicken",
+        "memphis bbq chicken",
+        "bbq chicken pizza",
+        "barbecue chicken pizza",
+        "memphis barbecue chicken"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 14,
+        "carbs": 39,
+        "fiber": 1,
+        "calories": 350
+      },
+      "build": [
+        {
+          "component": "large hand tossed crust",
+          "count": 1
+        },
+        {
+          "component": "large hand tossed garlic oil blend",
+          "count": 1
+        },
+        {
+          "component": "large honey bbq sauce",
+          "count": 1
+        },
+        {
+          "component": "large cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "large premium chicken",
+          "count": 1
+        },
+        {
+          "component": "large cheddar cheese blend",
+          "count": 1
+        },
+        {
+          "component": "large shredded provolone cheese",
+          "count": 1
+        },
+        {
+          "component": "large onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Extra Large Hand Tossed Memphis BBQ Chicken Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "extra large memphis bbq chicken",
+        "extra large bbq chicken pizza",
+        "extra large barbecue chicken pizza",
+        "extra large memphis barbecue chicken",
+        "xl memphis bbq chicken",
+        "xl bbq chicken pizza",
+        "xl barbecue chicken pizza",
+        "xl memphis barbecue chicken"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 18,
+        "carbs": 51,
+        "fiber": 2,
+        "calories": 460
+      },
+      "build": [
+        {
+          "component": "extra large hand tossed crust",
+          "count": 1
+        },
+        {
+          "component": "extra large hand tossed garlic oil blend",
+          "count": 1
+        },
+        {
+          "component": "xl honey bbq sauce",
+          "count": 1
+        },
+        {
+          "component": "xl cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "xl premium chicken",
+          "count": 1
+        },
+        {
+          "component": "xl cheddar cheese blend",
+          "count": 1
+        },
+        {
+          "component": "xl shredded provolone cheese",
+          "count": 1
+        },
+        {
+          "component": "xl onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Small Hand Tossed Pacific Veggie Pizza (1 slice, 1/4 pizza)",
+      "aliases": [
+        "small pacific veggie",
+        "small pacific veggie pizza",
+        "small veggie pizza",
+        "small vegetarian pizza",
+        "small veggie"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 13,
+        "carbs": 38,
+        "fiber": 1,
+        "calories": 330
+      }
+    },
+    {
+      "name": "Medium Hand Tossed Pacific Veggie Pizza (1 slice, 1/5 pizza)",
+      "aliases": [
+        "medium pacific veggie",
+        "medium pacific veggie pizza",
+        "medium veggie pizza",
+        "medium vegetarian pizza",
+        "medium veggie"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 15,
+        "carbs": 39,
+        "fiber": 2,
+        "calories": 360
+      }
+    },
+    {
+      "name": "Large Hand Tossed Pacific Veggie Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "large pacific veggie",
+        "large pacific veggie pizza",
+        "large veggie pizza",
+        "large vegetarian pizza",
+        "large veggie",
+        "pacific veggie",
+        "pacific veggie pizza",
+        "veggie pizza",
+        "vegetarian pizza",
+        "veggie"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 13,
+        "carbs": 35,
+        "fiber": 1,
+        "calories": 310
+      },
+      "build": [
+        {
+          "component": "large hand tossed crust",
+          "count": 1
+        },
+        {
+          "component": "large hand tossed garlic oil blend",
+          "count": 1
+        },
+        {
+          "component": "large pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "large cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "large spinach",
+          "count": 1
+        },
+        {
+          "component": "large onions",
+          "count": 1
+        },
+        {
+          "component": "large mushrooms",
+          "count": 1
+        },
+        {
+          "component": "large diced tomatoes",
+          "count": 1
+        },
+        {
+          "component": "large black olives",
+          "count": 1
+        },
+        {
+          "component": "large feta cheese",
+          "count": 1
+        },
+        {
+          "component": "large shredded provolone cheese",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Extra Large Hand Tossed Pacific Veggie Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "extra large pacific veggie",
+        "extra large pacific veggie pizza",
+        "extra large veggie pizza",
+        "extra large vegetarian pizza",
+        "extra large veggie",
+        "xl pacific veggie",
+        "xl pacific veggie pizza",
+        "xl veggie pizza",
+        "xl vegetarian pizza",
+        "xl veggie"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 16,
+        "carbs": 46,
+        "fiber": 2,
+        "calories": 400
+      },
+      "build": [
+        {
+          "component": "extra large hand tossed crust",
+          "count": 1
+        },
+        {
+          "component": "extra large hand tossed garlic oil blend",
+          "count": 1
+        },
+        {
+          "component": "xl pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "xl cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "xl spinach",
+          "count": 1
+        },
+        {
+          "component": "xl onions",
+          "count": 1
+        },
+        {
+          "component": "xl mushrooms",
+          "count": 1
+        },
+        {
+          "component": "xl diced tomatoes",
+          "count": 1
+        },
+        {
+          "component": "xl black olives",
+          "count": 1
+        },
+        {
+          "component": "xl feta cheese",
+          "count": 1
+        },
+        {
+          "component": "xl shredded provolone cheese",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Small Hand Tossed Philly Cheese Steak Pizza (1 slice, 1/4 pizza)",
+      "aliases": [
+        "small philly cheese steak pizza",
+        "small philly cheesesteak pizza",
+        "small philly pizza",
+        "small cheesesteak pizza"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 15,
+        "carbs": 36,
+        "fiber": 1,
+        "calories": 340
+      }
+    },
+    {
+      "name": "Medium Hand Tossed Philly Cheese Steak Pizza (1 slice, 1/5 pizza)",
+      "aliases": [
+        "medium philly cheese steak pizza",
+        "medium philly cheesesteak pizza",
+        "medium philly pizza",
+        "medium cheesesteak pizza"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 16,
+        "carbs": 37,
+        "fiber": 1,
+        "calories": 370
+      }
+    },
+    {
+      "name": "Large Hand Tossed Philly Cheese Steak Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "large philly cheese steak pizza",
+        "large philly cheesesteak pizza",
+        "large philly pizza",
+        "large cheesesteak pizza",
+        "philly cheese steak pizza",
+        "philly cheesesteak pizza",
+        "philly pizza",
+        "cheesesteak pizza"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 13,
+        "carbs": 33,
+        "fiber": 1,
+        "calories": 310
+      },
+      "note": "No build: summing the guide's 1-topping per-slice rows overstates this multi-topping pizza by more than 15% (Domino's reduces per-topping portions as toppings are added), so only the published slice total is given."
+    },
+    {
+      "name": "Extra Large Hand Tossed Philly Cheese Steak Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "extra large philly cheese steak pizza",
+        "extra large philly cheesesteak pizza",
+        "extra large philly pizza",
+        "extra large cheesesteak pizza",
+        "xl philly cheese steak pizza",
+        "xl philly cheesesteak pizza",
+        "xl philly pizza",
+        "xl cheesesteak pizza"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 17,
+        "carbs": 43,
+        "fiber": 2,
+        "calories": 400
+      },
+      "note": "No build: summing the guide's 1-topping per-slice rows overstates this multi-topping pizza by more than 15% (Domino's reduces per-topping portions as toppings are added), so only the published slice total is given."
+    },
+    {
+      "name": "Small Hand Tossed Spicy Chicken Bacon Ranch Pizza (1 slice, 1/4 pizza)",
+      "aliases": [
+        "small spicy chicken bacon ranch",
+        "small chicken bacon ranch pizza",
+        "small cbr pizza"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 21,
+        "carbs": 34,
+        "fiber": 1,
+        "calories": 390
+      }
+    },
+    {
+      "name": "Medium Hand Tossed Spicy Chicken Bacon Ranch Pizza (1 slice, 1/5 pizza)",
+      "aliases": [
+        "medium spicy chicken bacon ranch",
+        "medium chicken bacon ranch pizza",
+        "medium cbr pizza"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 27,
+        "carbs": 38,
+        "fiber": 1,
+        "calories": 480
+      }
+    },
+    {
+      "name": "Large Hand Tossed Spicy Chicken Bacon Ranch Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "large spicy chicken bacon ranch",
+        "large chicken bacon ranch pizza",
+        "large cbr pizza",
+        "spicy chicken bacon ranch",
+        "chicken bacon ranch pizza",
+        "cbr pizza"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 22,
+        "carbs": 34,
+        "fiber": 1,
+        "calories": 410
+      },
+      "note": "No build: summing the guide's 1-topping per-slice rows overstates this multi-topping pizza by more than 15% (Domino's reduces per-topping portions as toppings are added), so only the published slice total is given."
+    },
+    {
+      "name": "Extra Large Hand Tossed Spicy Chicken Bacon Ranch Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "extra large spicy chicken bacon ranch",
+        "extra large chicken bacon ranch pizza",
+        "extra large cbr pizza",
+        "xl spicy chicken bacon ranch",
+        "xl chicken bacon ranch pizza",
+        "xl cbr pizza"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 29,
+        "carbs": 44,
+        "fiber": 1,
+        "calories": 530
+      },
+      "build": [
+        {
+          "component": "extra large hand tossed crust",
+          "count": 1
+        },
+        {
+          "component": "extra large hand tossed garlic oil blend",
+          "count": 1
+        },
+        {
+          "component": "xl ranch sauce",
+          "count": 1
+        },
+        {
+          "component": "xl cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "xl premium chicken",
+          "count": 1
+        },
+        {
+          "component": "xl bacon",
+          "count": 1
+        },
+        {
+          "component": "xl jalapeno peppers",
+          "count": 1
+        },
+        {
+          "component": "xl shredded provolone cheese",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Small Hand Tossed Spinach & Feta Pizza (1 slice, 1/4 pizza)",
+      "aliases": [
+        "small spinach and feta",
+        "small spinach & feta",
+        "small spinach feta pizza",
+        "small spinach and feta pizza"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 15,
+        "carbs": 36,
+        "fiber": 1,
+        "calories": 340
+      }
+    },
+    {
+      "name": "Medium Hand Tossed Spinach & Feta Pizza (1 slice, 1/5 pizza)",
+      "aliases": [
+        "medium spinach and feta",
+        "medium spinach & feta",
+        "medium spinach feta pizza",
+        "medium spinach and feta pizza"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 17,
+        "carbs": 37,
+        "fiber": 1,
+        "calories": 370
+      }
+    },
+    {
+      "name": "Large Hand Tossed Spinach & Feta Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "large spinach and feta",
+        "large spinach & feta",
+        "large spinach feta pizza",
+        "large spinach and feta pizza",
+        "spinach and feta",
+        "spinach & feta",
+        "spinach feta pizza",
+        "spinach and feta pizza"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 15,
+        "carbs": 33,
+        "fiber": 1,
+        "calories": 320
+      },
+      "note": "No build: summing the guide's 1-topping per-slice rows overstates this multi-topping pizza by more than 15% (Domino's reduces per-topping portions as toppings are added), so only the published slice total is given."
+    },
+    {
+      "name": "Extra Large Hand Tossed Spinach & Feta Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "extra large spinach and feta",
+        "extra large spinach & feta",
+        "extra large spinach feta pizza",
+        "extra large spinach and feta pizza",
+        "xl spinach and feta",
+        "xl spinach & feta",
+        "xl spinach feta pizza",
+        "xl spinach and feta pizza"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 19,
+        "carbs": 43,
+        "fiber": 2,
+        "calories": 420
+      },
+      "note": "No build: summing the guide's 1-topping per-slice rows overstates this multi-topping pizza by more than 15% (Domino's reduces per-topping portions as toppings are added), so only the published slice total is given."
+    },
+    {
+      "name": "Small Hand Tossed Ultimate Pepperoni Pizza (1 slice, 1/4 pizza)",
+      "aliases": [
+        "small ultimate pepperoni",
+        "small ultimate pepperoni pizza",
+        "small double pepperoni",
+        "small extra pepperoni pizza"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 18,
+        "carbs": 38,
+        "fiber": 1,
+        "calories": 380
+      }
+    },
+    {
+      "name": "Medium Hand Tossed Ultimate Pepperoni Pizza (1 slice, 1/5 pizza)",
+      "aliases": [
+        "medium ultimate pepperoni",
+        "medium ultimate pepperoni pizza",
+        "medium double pepperoni",
+        "medium extra pepperoni pizza"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 21,
+        "carbs": 38,
+        "fiber": 1,
+        "calories": 420
+      }
+    },
+    {
+      "name": "Large Hand Tossed Ultimate Pepperoni Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "large ultimate pepperoni",
+        "large ultimate pepperoni pizza",
+        "large double pepperoni",
+        "large extra pepperoni pizza",
+        "ultimate pepperoni",
+        "ultimate pepperoni pizza",
+        "double pepperoni",
+        "extra pepperoni pizza"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 18,
+        "carbs": 34,
+        "fiber": 1,
+        "calories": 360
+      },
+      "build": [
+        {
+          "component": "large hand tossed crust",
+          "count": 1
+        },
+        {
+          "component": "large hand tossed garlic oil blend",
+          "count": 1
+        },
+        {
+          "component": "large pizza sauce",
+          "count": 1
+        },
+        {
+          "component": "large cheese (with toppings)",
+          "count": 1
+        },
+        {
+          "component": "large pepperoni",
+          "count": 2
+        },
+        {
+          "component": "large shredded provolone cheese",
+          "count": 1
+        },
+        {
+          "component": "large shredded parmesan asiago",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Extra Large Hand Tossed Ultimate Pepperoni Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "extra large ultimate pepperoni",
+        "extra large ultimate pepperoni pizza",
+        "extra large double pepperoni",
+        "extra large extra pepperoni pizza",
+        "xl ultimate pepperoni",
+        "xl ultimate pepperoni pizza",
+        "xl double pepperoni",
+        "xl extra pepperoni pizza"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 23,
+        "carbs": 45,
+        "fiber": 2,
+        "calories": 480
+      },
+      "note": "No build: summing the guide's 1-topping per-slice rows overstates this multi-topping pizza by more than 15% (Domino's reduces per-topping portions as toppings are added), so only the published slice total is given."
+    },
+    {
+      "name": "Small Hand Tossed Wisconsin 6 Cheese Pizza (1 slice, 1/4 pizza)",
+      "aliases": [
+        "small wisconsin 6 cheese",
+        "small wisconsin six cheese",
+        "small 6 cheese pizza",
+        "small six cheese pizza"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 14,
+        "carbs": 38,
+        "fiber": 1,
+        "calories": 340
+      }
+    },
+    {
+      "name": "Medium Hand Tossed Wisconsin 6 Cheese Pizza (1 slice, 1/5 pizza)",
+      "aliases": [
+        "medium wisconsin 6 cheese",
+        "medium wisconsin six cheese",
+        "medium 6 cheese pizza",
+        "medium six cheese pizza"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 18,
+        "carbs": 39,
+        "fiber": 1,
+        "calories": 390
+      }
+    },
+    {
+      "name": "Large Hand Tossed Wisconsin 6 Cheese Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "large wisconsin 6 cheese",
+        "large wisconsin six cheese",
+        "large 6 cheese pizza",
+        "large six cheese pizza",
+        "wisconsin 6 cheese",
+        "wisconsin six cheese",
+        "6 cheese pizza",
+        "six cheese pizza"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 15,
+        "carbs": 35,
+        "fiber": 1,
+        "calories": 330
+      },
+      "note": "No build: summing the guide's 1-topping per-slice rows overstates this multi-topping pizza by more than 15% (Domino's reduces per-topping portions as toppings are added), so only the published slice total is given."
+    },
+    {
+      "name": "Extra Large Hand Tossed Wisconsin 6 Cheese Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "extra large wisconsin 6 cheese",
+        "extra large wisconsin six cheese",
+        "extra large 6 cheese pizza",
+        "extra large six cheese pizza",
+        "xl wisconsin 6 cheese",
+        "xl wisconsin six cheese",
+        "xl 6 cheese pizza",
+        "xl six cheese pizza"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 19,
+        "carbs": 46,
+        "fiber": 2,
+        "calories": 440
+      },
+      "note": "No build: summing the guide's 1-topping per-slice rows overstates this multi-topping pizza by more than 15% (Domino's reduces per-topping portions as toppings are added), so only the published slice total is given."
+    },
+    {
+      "name": "Stuffed Cheesy Bread (1 piece)",
+      "aliases": [
+        "stuffed cheesy bread",
+        "cheesy bread",
+        "cheesy bread piece",
+        "stuffed cheesy bread piece"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 8,
+        "carbs": 15,
+        "fiber": 0,
+        "calories": 160
+      }
+    },
+    {
+      "name": "Stuffed Cheesy Bread (8 pieces, whole order)",
+      "aliases": [
+        "whole stuffed cheesy bread",
+        "order of stuffed cheesy bread",
+        "stuffed cheesy bread order",
+        "full cheesy bread"
+      ],
+      "macros": {
+        "protein": 40,
+        "fat": 64,
+        "carbs": 120,
+        "fiber": 0,
+        "calories": 1280
+      },
+      "note": "Published 1-piece serving x 8 pieces per order."
+    },
+    {
+      "name": "Bacon & Jalapeno Stuffed Cheesy Bread (1 piece)",
+      "aliases": [
+        "bacon and jalapeno stuffed cheesy bread",
+        "bacon jalapeno cheesy bread",
+        "bacon jalapeno stuffed cheesy bread",
+        "jalapeno cheesy bread"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 10,
+        "carbs": 15,
+        "fiber": 0,
+        "calories": 170
+      }
+    },
+    {
+      "name": "Pepperoni Stuffed Cheesy Bread (1 piece)",
+      "aliases": [
+        "pepperoni stuffed cheesy bread",
+        "pepperoni cheesy bread"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 10,
+        "carbs": 15,
+        "fiber": 0,
+        "calories": 170
+      }
+    },
+    {
+      "name": "Spinach & Feta Stuffed Cheesy Bread (1 piece)",
+      "aliases": [
+        "spinach and feta stuffed cheesy bread",
+        "spinach feta cheesy bread",
+        "spinach and feta cheesy bread"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 9,
+        "carbs": 15,
+        "fiber": 0,
+        "calories": 160
+      }
+    },
+    {
+      "name": "Parmesan Bread Bites (4 pieces)",
+      "aliases": [
+        "parmesan bread bites",
+        "parm bread bites",
+        "bread bites",
+        "parmesan bites"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 9,
+        "carbs": 27,
+        "fiber": 1,
+        "calories": 210
+      }
+    },
+    {
+      "name": "Parmesan Bread Bites (16 pieces, whole order)",
+      "aliases": [
+        "16 parmesan bread bites",
+        "order of parmesan bread bites",
+        "whole parmesan bread bites",
+        "parmesan bread bites order"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 36,
+        "carbs": 108,
+        "fiber": 4,
+        "calories": 840
+      },
+      "note": "Published 4-piece serving x 4."
+    },
+    {
+      "name": "Garlic Bread Bites (4 pieces)",
+      "aliases": [
+        "garlic bread bites",
+        "garlic bites",
+        "garlic bread"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 9,
+        "carbs": 27,
+        "fiber": 1,
+        "calories": 210
+      }
+    },
+    {
+      "name": "Cinnamon Bread Bites (4 pieces)",
+      "aliases": [
+        "cinnamon bread bites",
+        "cinnamon bites",
+        "cinnamon bread"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 9,
+        "carbs": 30,
+        "fiber": 1,
+        "calories": 230
+      }
+    },
+    {
+      "name": "Plain Wings, No Sauce (4 pieces)",
+      "aliases": [
+        "plain wings",
+        "plain chicken wings",
+        "wings no sauce",
+        "unsauced wings",
+        "naked wings",
+        "4 plain wings"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 20,
+        "carbs": 8,
+        "fiber": 0,
+        "calories": 250
+      }
+    },
+    {
+      "name": "Plain Wings, No Sauce (8 pieces)",
+      "aliases": [
+        "8 plain wings",
+        "8 piece plain wings",
+        "8 wings plain"
+      ],
+      "macros": {
+        "protein": 28,
+        "fat": 40,
+        "carbs": 16,
+        "fiber": 0,
+        "calories": 500
+      },
+      "note": "Published 4-piece serving x 2."
+    },
+    {
+      "name": "Hot Buffalo Wings (4 pieces)",
+      "aliases": [
+        "hot buffalo wings",
+        "buffalo wings",
+        "hot wings",
+        "hot buffalo chicken wings",
+        "4 hot wings"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 20,
+        "carbs": 9,
+        "fiber": 0,
+        "calories": 260
+      }
+    },
+    {
+      "name": "Hot Buffalo Wings (8 pieces)",
+      "aliases": [
+        "8 hot buffalo wings",
+        "8 buffalo wings",
+        "8 hot wings",
+        "8 piece buffalo wings"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 40,
+        "carbs": 18,
+        "fiber": 0,
+        "calories": 520
+      },
+      "note": "Published 4-piece serving x 2."
+    },
+    {
+      "name": "Mild Buffalo Wings (4 pieces)",
+      "aliases": [
+        "mild buffalo wings",
+        "mild wings",
+        "mild buffalo chicken wings"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 20,
+        "carbs": 10,
+        "fiber": 0,
+        "calories": 260
+      }
+    },
+    {
+      "name": "Mild Buffalo Wings (8 pieces)",
+      "aliases": [
+        "8 mild buffalo wings",
+        "8 mild wings"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 40,
+        "carbs": 20,
+        "fiber": 0,
+        "calories": 520
+      },
+      "note": "Published 4-piece serving x 2."
+    },
+    {
+      "name": "Honey BBQ Wings (4 pieces)",
+      "aliases": [
+        "honey bbq wings",
+        "bbq wings",
+        "barbecue wings",
+        "honey barbecue wings",
+        "4 bbq wings"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 20,
+        "carbs": 22,
+        "fiber": 0,
+        "calories": 310
+      }
+    },
+    {
+      "name": "Honey BBQ Wings (8 pieces)",
+      "aliases": [
+        "8 honey bbq wings",
+        "8 bbq wings",
+        "8 barbecue wings"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 40,
+        "carbs": 44,
+        "fiber": 0,
+        "calories": 620
+      },
+      "note": "Published 4-piece serving x 2."
+    },
+    {
+      "name": "Garlic Parmesan Wings (4 pieces)",
+      "aliases": [
+        "garlic parmesan wings",
+        "garlic parm wings",
+        "parmesan wings",
+        "4 garlic parm wings"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 34,
+        "carbs": 10,
+        "fiber": 0,
+        "calories": 390
+      }
+    },
+    {
+      "name": "Garlic Parmesan Wings (8 pieces)",
+      "aliases": [
+        "8 garlic parmesan wings",
+        "8 garlic parm wings"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 68,
+        "carbs": 20,
+        "fiber": 0,
+        "calories": 780
+      },
+      "note": "Published 4-piece serving x 2."
+    },
+    {
+      "name": "Sweet Mango Habanero Wings (4 pieces)",
+      "aliases": [
+        "sweet mango habanero wings",
+        "mango habanero wings",
+        "mango habanero",
+        "habanero wings",
+        "4 mango habanero wings"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 20,
+        "carbs": 21,
+        "fiber": 0,
+        "calories": 310
+      }
+    },
+    {
+      "name": "Sweet Mango Habanero Wings (8 pieces)",
+      "aliases": [
+        "8 sweet mango habanero wings",
+        "8 mango habanero wings"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 40,
+        "carbs": 42,
+        "fiber": 0,
+        "calories": 620
+      },
+      "note": "Published 4-piece serving x 2."
+    },
+    {
+      "name": "Boneless Chicken (3 pieces)",
+      "aliases": [
+        "boneless chicken",
+        "boneless wings",
+        "boneless chicken bites",
+        "3 boneless wings",
+        "boneless"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 7,
+        "carbs": 18,
+        "fiber": 0,
+        "calories": 170
+      }
+    },
+    {
+      "name": "Boneless Chicken (8 pieces)",
+      "aliases": [
+        "8 boneless chicken",
+        "8 boneless wings",
+        "8 piece boneless",
+        "boneless chicken 8 piece"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 18.7,
+        "carbs": 48,
+        "fiber": 0,
+        "calories": 453
+      },
+      "note": "Published 3-piece serving scaled to 8 pieces (x 8/3), rounded."
+    },
+    {
+      "name": "Classic Hot Buffalo Loaded Chicken (4 pieces)",
+      "aliases": [
+        "classic hot buffalo loaded chicken",
+        "hot buffalo loaded chicken",
+        "buffalo loaded chicken",
+        "loaded chicken buffalo"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 11,
+        "carbs": 16,
+        "fiber": 0,
+        "calories": 200
+      }
+    },
+    {
+      "name": "Crispy Bacon & Tomato Loaded Chicken (4 pieces)",
+      "aliases": [
+        "crispy bacon and tomato loaded chicken",
+        "bacon tomato loaded chicken",
+        "bacon and tomato loaded chicken",
+        "loaded chicken bacon tomato"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 18,
+        "carbs": 16,
+        "fiber": 0,
+        "calories": 270
+      }
+    },
+    {
+      "name": "Spicy Jalapeno & Pineapple Loaded Chicken (4 pieces)",
+      "aliases": [
+        "spicy jalapeno and pineapple loaded chicken",
+        "jalapeno pineapple loaded chicken",
+        "loaded chicken jalapeno pineapple"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 8,
+        "carbs": 23,
+        "fiber": 0,
+        "calories": 200
+      }
+    },
+    {
+      "name": "Sweet BBQ Bacon Loaded Chicken (4 pieces)",
+      "aliases": [
+        "sweet bbq bacon loaded chicken",
+        "bbq bacon loaded chicken",
+        "loaded chicken bbq bacon"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 11,
+        "carbs": 22,
+        "fiber": 0,
+        "calories": 220
+      }
+    },
+    {
+      "name": "Cheddar Bacon Loaded Tots (1/4 order)",
+      "aliases": [
+        "cheddar bacon loaded tots",
+        "loaded tots cheddar bacon",
+        "bacon tots",
+        "cheddar bacon tots",
+        "loaded tots"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 16,
+        "carbs": 17,
+        "fiber": 1,
+        "calories": 240
+      }
+    },
+    {
+      "name": "Cheddar Bacon Loaded Tots (whole order)",
+      "aliases": [
+        "whole cheddar bacon loaded tots",
+        "full order cheddar bacon loaded tots",
+        "cheddar bacon loaded tots order"
+      ],
+      "macros": {
+        "protein": 28,
+        "fat": 64,
+        "carbs": 68,
+        "fiber": 4,
+        "calories": 960
+      },
+      "note": "Published 1/4-order serving x 4."
+    },
+    {
+      "name": "Melty 3-Cheese Loaded Tots (1/4 order)",
+      "aliases": [
+        "melty 3-cheese loaded tots",
+        "melty 3 cheese loaded tots",
+        "three cheese loaded tots",
+        "3 cheese tots",
+        "cheese tots"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 13,
+        "carbs": 17,
+        "fiber": 1,
+        "calories": 210
+      }
+    },
+    {
+      "name": "Melty 3-Cheese Loaded Tots (whole order)",
+      "aliases": [
+        "whole melty 3 cheese loaded tots",
+        "full order 3 cheese loaded tots",
+        "melty 3 cheese loaded tots order"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 52,
+        "carbs": 68,
+        "fiber": 4,
+        "calories": 840
+      },
+      "note": "Published 1/4-order serving x 4."
+    },
+    {
+      "name": "Philly Cheese Steak Loaded Tots (1/4 order)",
+      "aliases": [
+        "philly cheese steak loaded tots",
+        "philly loaded tots",
+        "philly cheesesteak tots",
+        "philly tots"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 12,
+        "carbs": 18,
+        "fiber": 1,
+        "calories": 200
+      }
+    },
+    {
+      "name": "Philly Cheese Steak Loaded Tots (whole order)",
+      "aliases": [
+        "whole philly cheese steak loaded tots",
+        "full order philly loaded tots",
+        "philly cheese steak loaded tots order"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 48,
+        "carbs": 72,
+        "fiber": 4,
+        "calories": 800
+      },
+      "note": "Published 1/4-order serving x 4."
+    },
+    {
+      "name": "Buffalo Chicken Sandwich (1/2 sandwich)",
+      "aliases": [
+        "buffalo chicken sandwich half",
+        "half buffalo chicken sandwich",
+        "buffalo chicken sandwich (half)"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 20,
+        "carbs": 39,
+        "fiber": 0,
+        "calories": 420
+      }
+    },
+    {
+      "name": "Buffalo Chicken Sandwich (whole)",
+      "aliases": [
+        "buffalo chicken sandwich",
+        "buffalo chicken oven baked sandwich",
+        "buffalo chicken sub",
+        "whole buffalo chicken sandwich"
+      ],
+      "macros": {
+        "protein": 40,
+        "fat": 40,
+        "carbs": 78,
+        "fiber": 0,
+        "calories": 840
+      },
+      "note": "Published 1/2-sandwich serving x 2."
+    },
+    {
+      "name": "Chicken Bacon Ranch Sandwich (1/2 sandwich)",
+      "aliases": [
+        "chicken bacon ranch sandwich half",
+        "half chicken bacon ranch sandwich",
+        "cbr sandwich half"
+      ],
+      "macros": {
+        "protein": 23,
+        "fat": 22,
+        "carbs": 37,
+        "fiber": 0,
+        "calories": 450
+      }
+    },
+    {
+      "name": "Chicken Bacon Ranch Sandwich (whole)",
+      "aliases": [
+        "chicken bacon ranch sandwich",
+        "chicken bacon ranch sub",
+        "cbr sandwich",
+        "whole chicken bacon ranch sandwich"
+      ],
+      "macros": {
+        "protein": 46,
+        "fat": 44,
+        "carbs": 74,
+        "fiber": 0,
+        "calories": 900
+      },
+      "note": "Published 1/2-sandwich serving x 2."
+    },
+    {
+      "name": "Chicken Parm Sandwich (1/2 sandwich)",
+      "aliases": [
+        "chicken parm sandwich half",
+        "half chicken parm sandwich",
+        "chicken parmesan sandwich half"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 15,
+        "carbs": 38,
+        "fiber": 0,
+        "calories": 400
+      }
+    },
+    {
+      "name": "Chicken Parm Sandwich (whole)",
+      "aliases": [
+        "chicken parm sandwich",
+        "chicken parmesan sandwich",
+        "chicken parm sub",
+        "whole chicken parm sandwich"
+      ],
+      "macros": {
+        "protein": 48,
+        "fat": 30,
+        "carbs": 76,
+        "fiber": 0,
+        "calories": 800
+      },
+      "note": "Published 1/2-sandwich serving x 2."
+    },
+    {
+      "name": "Italian Sandwich (1/2 sandwich)",
+      "aliases": [
+        "italian sandwich half",
+        "half italian sandwich",
+        "italian sub half"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 20,
+        "carbs": 37,
+        "fiber": 0,
+        "calories": 420
+      }
+    },
+    {
+      "name": "Italian Sandwich (whole)",
+      "aliases": [
+        "italian sandwich",
+        "italian sub",
+        "italian oven baked sandwich",
+        "whole italian sandwich"
+      ],
+      "macros": {
+        "protein": 42,
+        "fat": 40,
+        "carbs": 74,
+        "fiber": 0,
+        "calories": 840
+      },
+      "note": "Published 1/2-sandwich serving x 2."
+    },
+    {
+      "name": "Philly Cheese Steak Sandwich (1/2 sandwich)",
+      "aliases": [
+        "philly cheese steak sandwich half",
+        "half philly cheese steak sandwich",
+        "philly sandwich half"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 15,
+        "carbs": 38,
+        "fiber": 0,
+        "calories": 380
+      }
+    },
+    {
+      "name": "Philly Cheese Steak Sandwich (whole)",
+      "aliases": [
+        "philly cheese steak sandwich",
+        "philly cheesesteak sandwich",
+        "philly sandwich",
+        "philly sub",
+        "whole philly cheese steak sandwich"
+      ],
+      "macros": {
+        "protein": 40,
+        "fat": 30,
+        "carbs": 76,
+        "fiber": 0,
+        "calories": 760
+      },
+      "note": "Published 1/2-sandwich serving x 2."
+    },
+    {
+      "name": "Sweet & Spicy Chicken Habanero Sandwich (1/2 sandwich)",
+      "aliases": [
+        "sweet and spicy chicken habanero sandwich half",
+        "half chicken habanero sandwich",
+        "habanero chicken sandwich half"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 14,
+        "carbs": 44,
+        "fiber": 0,
+        "calories": 390
+      }
+    },
+    {
+      "name": "Sweet & Spicy Chicken Habanero Sandwich (whole)",
+      "aliases": [
+        "sweet and spicy chicken habanero sandwich",
+        "chicken habanero sandwich",
+        "habanero chicken sandwich",
+        "sweet and spicy chicken sandwich",
+        "whole chicken habanero sandwich"
+      ],
+      "macros": {
+        "protein": 42,
+        "fat": 28,
+        "carbs": 88,
+        "fiber": 0,
+        "calories": 780
+      },
+      "note": "Published 1/2-sandwich serving x 2."
+    },
+    {
+      "name": "Chicken Alfredo Penne Pasta (1 dish)",
+      "aliases": [
+        "chicken alfredo",
+        "chicken alfredo pasta",
+        "chicken alfredo penne",
+        "alfredo pasta",
+        "chicken alfredo pasta dish"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 28,
+        "carbs": 60,
+        "fiber": 2,
+        "calories": 590
+      }
+    },
+    {
+      "name": "5-Cheese Mac & Cheese (1 dish)",
+      "aliases": [
+        "5 cheese mac and cheese",
+        "five cheese mac and cheese",
+        "mac and cheese",
+        "mac n cheese",
+        "5-cheese mac & cheese"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 50,
+        "carbs": 64,
+        "fiber": 2,
+        "calories": 830
+      }
+    },
+    {
+      "name": "Spicy Buffalo 5-Cheese Mac & Cheese (1 dish)",
+      "aliases": [
+        "spicy buffalo 5 cheese mac and cheese",
+        "buffalo mac and cheese",
+        "spicy buffalo mac and cheese",
+        "buffalo mac n cheese"
+      ],
+      "macros": {
+        "protein": 31,
+        "fat": 50,
+        "carbs": 64,
+        "fiber": 2,
+        "calories": 840
+      }
+    },
+    {
+      "name": "Classic Garden Salad (1.5 cups)",
+      "aliases": [
+        "classic garden salad",
+        "garden salad",
+        "side salad",
+        "house salad"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 3.5,
+        "carbs": 8,
+        "fiber": 1,
+        "calories": 70
+      }
+    },
+    {
+      "name": "Chicken Caesar Salad (1 container)",
+      "aliases": [
+        "chicken caesar salad",
+        "caesar salad",
+        "chicken ceasar salad",
+        "chicken caesar"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 7,
+        "carbs": 14,
+        "fiber": 2,
+        "calories": 190
+      }
+    },
+    {
+      "name": "Marzetti Garden Ranch Dressing (1.5 oz packet)",
+      "aliases": [
+        "garden ranch dressing",
+        "marzetti ranch",
+        "ranch dressing packet",
+        "ranch dressing"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 24,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 220
+      }
+    },
+    {
+      "name": "Marzetti Cardini Caesar Dressing (1.5 oz packet)",
+      "aliases": [
+        "caesar dressing",
+        "cardini caesar dressing",
+        "marzetti caesar",
+        "caesar dressing packet"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 25,
+        "carbs": 0,
+        "fiber": 0,
+        "calories": 230
+      }
+    },
+    {
+      "name": "Marzetti Balsamic Vinaigrette Dressing (1.5 oz packet)",
+      "aliases": [
+        "balsamic vinaigrette",
+        "balsamic dressing",
+        "marzetti balsamic",
+        "balsamic vinaigrette packet"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 12,
+        "carbs": 4,
+        "fiber": 0,
+        "calories": 130
+      }
+    },
+    {
+      "name": "Ken's Ranch Dressing (1.5 oz packet)",
+      "aliases": [
+        "kens ranch dressing",
+        "ken's ranch",
+        "kens ranch"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 20,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 190
+      }
+    },
+    {
+      "name": "Ken's Caesar Dressing (1.5 oz packet)",
+      "aliases": [
+        "kens caesar dressing",
+        "ken's caesar",
+        "kens caesar"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 23,
+        "carbs": 1,
+        "fiber": 0,
+        "calories": 210
+      }
+    },
+    {
+      "name": "Ken's Lite Balsamic with Olive Oil Dressing (1.5 oz packet)",
+      "aliases": [
+        "kens lite balsamic",
+        "ken's lite balsamic",
+        "lite balsamic dressing",
+        "light balsamic"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 8,
+        "carbs": 4,
+        "fiber": 0,
+        "calories": 100
+      }
+    },
+    {
+      "name": "Chocolate Lava Crunch Cake (1 cake)",
+      "aliases": [
+        "chocolate lava crunch cake",
+        "lava cake",
+        "lava crunch cake",
+        "chocolate lava cake",
+        "molten lava cake"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 17,
+        "carbs": 47,
+        "fiber": 1,
+        "calories": 350
+      }
+    },
+    {
+      "name": "Marbled Cookie Brownie (1 brownie)",
+      "aliases": [
+        "marbled cookie brownie",
+        "cookie brownie",
+        "brookie",
+        "marble cookie brownie",
+        "brownie"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 10,
+        "carbs": 26,
+        "fiber": 1,
+        "calories": 200
+      }
+    },
+    {
+      "name": "Honey BBQ Dipping Cup",
+      "aliases": [
+        "honey bbq dipping cup",
+        "bbq dipping sauce",
+        "bbq sauce cup",
+        "honey bbq sauce",
+        "bbq dip"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 17,
+        "fiber": 1,
+        "calories": 70
+      }
+    },
+    {
+      "name": "Blue Cheese Dipping Cup",
+      "aliases": [
+        "blue cheese dipping cup",
+        "blue cheese dip",
+        "blue cheese sauce",
+        "bleu cheese"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 21,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 200
+      }
+    },
+    {
+      "name": "Garlic Dipping Cup",
+      "aliases": [
+        "garlic dipping cup",
+        "garlic dipping sauce",
+        "garlic butter sauce",
+        "garlic sauce",
+        "garlic dip"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 28,
+        "carbs": 0,
+        "fiber": 0,
+        "calories": 250
+      }
+    },
+    {
+      "name": "Hot Buffalo Dipping Cup",
+      "aliases": [
+        "hot buffalo dipping cup",
+        "buffalo dipping sauce",
+        "hot sauce cup",
+        "buffalo sauce",
+        "hot buffalo sauce cup"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 1,
+        "carbs": 1,
+        "fiber": 0,
+        "calories": 15
+      }
+    },
+    {
+      "name": "Marinara Dipping Cup",
+      "aliases": [
+        "marinara dipping cup",
+        "marinara sauce",
+        "marinara dip",
+        "marinara cup",
+        "pizza dipping sauce"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 6,
+        "fiber": 0,
+        "calories": 30
+      }
+    },
+    {
+      "name": "Ranch Dipping Cup",
+      "aliases": [
+        "ranch dipping cup",
+        "ranch dip",
+        "ranch sauce cup",
+        "ranch cup",
+        "ranch"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 17,
+        "carbs": 1,
+        "fiber": 0,
+        "calories": 160
+      }
+    },
+    {
+      "name": "Sweet Icing Dipping Cup",
+      "aliases": [
+        "sweet icing dipping cup",
+        "sweet icing",
+        "icing cup",
+        "icing dip",
+        "cinnamon bread icing"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 4,
+        "carbs": 52,
+        "fiber": 0,
+        "calories": 220
+      }
+    },
+    {
+      "name": "Sweet Mango Habanero Dipping Cup",
+      "aliases": [
+        "sweet mango habanero dipping cup",
+        "mango habanero dipping sauce",
+        "mango habanero sauce cup",
+        "mango habanero dip"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 17,
+        "fiber": 0,
+        "calories": 70
+      }
+    },
+    {
+      "name": "Nacho Cheese Dipping Cup",
+      "aliases": [
+        "nacho cheese dipping cup",
+        "nacho cheese sauce",
+        "nacho cheese dip",
+        "cheese dipping cup"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 8,
+        "carbs": 5,
+        "fiber": 0,
+        "calories": 120
+      }
+    },
+    {
+      "name": "Medium Hand Tossed Ham & Bacon Breakfast Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "medium ham and bacon breakfast pizza",
+        "ham and bacon breakfast pizza",
+        "medium breakfast pizza ham bacon"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 12,
+        "carbs": 22,
+        "fiber": 1,
+        "calories": 250
+      }
+    },
+    {
+      "name": "Large Hand Tossed Ham & Bacon Breakfast Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "large ham and bacon breakfast pizza",
+        "large breakfast pizza ham bacon",
+        "ham bacon breakfast pizza large"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 14,
+        "carbs": 32,
+        "fiber": 1,
+        "calories": 330
+      }
+    },
+    {
+      "name": "Medium Hand Tossed Breakfast Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "medium breakfast pizza",
+        "breakfast pizza",
+        "breakfast pizza medium"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 10,
+        "carbs": 23,
+        "fiber": 1,
+        "calories": 230
+      }
+    },
+    {
+      "name": "Large Hand Tossed Breakfast Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "large breakfast pizza",
+        "breakfast pizza large"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 14,
+        "carbs": 33,
+        "fiber": 1,
+        "calories": 320
+      }
+    },
+    {
+      "name": "Classic Hoagie (1/2 hoagie)",
+      "aliases": [
+        "classic hoagie",
+        "hoagie",
+        "half classic hoagie"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 20,
+        "carbs": 40,
+        "fiber": 2,
+        "calories": 430
+      }
+    },
+    {
+      "name": "Bacon Cheddar Hoagie (1/2 hoagie)",
+      "aliases": [
+        "bacon cheddar hoagie",
+        "half bacon cheddar hoagie"
+      ],
+      "macros": {
+        "protein": 23,
+        "fat": 24,
+        "carbs": 48,
+        "fiber": 2,
+        "calories": 510
+      }
+    },
+    {
+      "name": "Buffalo Ranch Hoagie (1/2 hoagie)",
+      "aliases": [
+        "buffalo ranch hoagie",
+        "half buffalo ranch hoagie"
+      ],
+      "macros": {
+        "protein": 23,
+        "fat": 30,
+        "carbs": 39,
+        "fiber": 2,
+        "calories": 530
+      }
+    },
+    {
+      "name": "Mushroom Delight Hoagie (1/2 hoagie)",
+      "aliases": [
+        "mushroom delight hoagie",
+        "mushroom hoagie",
+        "half mushroom delight hoagie"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 21,
+        "carbs": 39,
+        "fiber": 2,
+        "calories": 430
+      }
+    },
+    {
+      "name": "Zesty Hoagie (1/2 hoagie)",
+      "aliases": [
+        "zesty hoagie",
+        "half zesty hoagie"
+      ],
+      "macros": {
+        "protein": 22,
+        "fat": 23,
+        "carbs": 40,
+        "fiber": 2,
+        "calories": 460
+      }
+    }
+  ]
+}

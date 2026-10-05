@@ -1,0 +1,3246 @@
+{
+  "chain": "Subway",
+  "aliases": [
+    "subway",
+    "subways",
+    "sub way"
+  ],
+  "source": "https://media.subway.com/dam/urn:aaid:aem:f20a4541-8c88-496b-940d-4aa8318cae26/original/as/us-nutrition-en.pdf",
+  "retrieved": "2026-10-05",
+  "notes": "Component macros are Subway's published amounts for a 6\" sandwich (U.S. Nutrition Information PDF, October 2026); footlong builds use count 2. Sub recipes (bread, cheese, veggies, sauce) are the defaults shown on subway.com product pages, e.g. https://www.subway.com/en-us/restaurant/13583-0/menu/category/sandwiches. 'meatballs in marinara' is Subway's 'Meatballs' line, which includes the marinara; marinara is not published separately.",
+  "components": {
+    "artisan italian bread": {
+      "unit": "each",
+      "protein": 8,
+      "fat": 2,
+      "carbs": 39,
+      "fiber": 1,
+      "calories": 210
+    },
+    "hearty multigrain bread": {
+      "unit": "each",
+      "protein": 9,
+      "fat": 3,
+      "carbs": 36,
+      "fiber": 3,
+      "calories": 200
+    },
+    "italian herbs & cheese bread": {
+      "unit": "each",
+      "protein": 10,
+      "fat": 5,
+      "carbs": 42,
+      "fiber": 2,
+      "calories": 250
+    },
+    "jalapeno cheddar bread": {
+      "unit": "each",
+      "protein": 9,
+      "fat": 5,
+      "carbs": 39,
+      "fiber": 2,
+      "calories": 240
+    },
+    "artisan flatbread": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 4,
+      "carbs": 39,
+      "fiber": 1,
+      "calories": 220
+    },
+    "12 inch wrap": {
+      "unit": "each",
+      "protein": 8,
+      "fat": 8,
+      "carbs": 50,
+      "fiber": 2,
+      "calories": 300
+    },
+    "9 inch wrap": {
+      "unit": "each",
+      "protein": 4,
+      "fat": 3,
+      "carbs": 26,
+      "fiber": 0,
+      "calories": 150
+    },
+    "mini artisan italian bread": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 2,
+      "carbs": 30,
+      "fiber": 1,
+      "calories": 160
+    },
+    "mini hearty multigrain bread": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 2,
+      "carbs": 24,
+      "fiber": 2,
+      "calories": 130
+    },
+    "oven-roasted turkey": {
+      "unit": "each",
+      "protein": 11,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 50
+    },
+    "black forest ham": {
+      "unit": "each",
+      "protein": 10,
+      "fat": 2,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 70
+    },
+    "roast beef": {
+      "unit": "each",
+      "protein": 15,
+      "fat": 2,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 80
+    },
+    "steak": {
+      "unit": "each",
+      "protein": 17,
+      "fat": 5,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 110
+    },
+    "rotisserie-style chicken": {
+      "unit": "each",
+      "protein": 15,
+      "fat": 4,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 90
+    },
+    "grilled chicken": {
+      "unit": "each",
+      "protein": 16,
+      "fat": 2,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 80
+    },
+    "sweet onion teriyaki glazed grilled chicken": {
+      "unit": "each",
+      "protein": 16,
+      "fat": 2,
+      "carbs": 9,
+      "fiber": 0,
+      "calories": 110
+    },
+    "tuna": {
+      "unit": "each",
+      "protein": 12,
+      "fat": 23,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 250
+    },
+    "meatballs in marinara": {
+      "unit": "each",
+      "protein": 12,
+      "fat": 17,
+      "carbs": 13,
+      "fiber": 2,
+      "calories": 250
+    },
+    "bacon": {
+      "unit": "strip",
+      "protein": 2.5,
+      "fat": 3,
+      "carbs": 0.5,
+      "fiber": 0,
+      "calories": 40
+    },
+    "genoa salami": {
+      "unit": "each",
+      "protein": 3,
+      "fat": 6,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 70
+    },
+    "pepperoni": {
+      "unit": "each",
+      "protein": 3,
+      "fat": 7,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 80
+    },
+    "pastrami": {
+      "unit": "each",
+      "protein": 15,
+      "fat": 29,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 320
+    },
+    "egg patty": {
+      "unit": "each",
+      "protein": 10,
+      "fat": 15,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 180
+    },
+    "veggie patty": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 9,
+      "carbs": 17,
+      "fiber": 8,
+      "calories": 170
+    },
+    "cold cut combo meats": {
+      "unit": "each",
+      "protein": 9,
+      "fat": 8,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 110
+    },
+    "all-american club meats": {
+      "unit": "each",
+      "protein": 15,
+      "fat": 7,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 140
+    },
+    "subway club meats": {
+      "unit": "each",
+      "protein": 17,
+      "fat": 3,
+      "carbs": 3,
+      "fiber": 0,
+      "calories": 100
+    },
+    "b.m.t. meats": {
+      "unit": "each",
+      "protein": 12,
+      "fat": 15,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 185,
+      "derived": "6\" B.M.T. minus 6\" Artisan Italian bread, provolone, mayonnaise, lettuce, tomatoes and onions (pepperoni, Genoa salami and ham portions on the B.M.T. differ from the individually listed 3-slice portions)"
+    },
+    "spicy italian meats": {
+      "unit": "each",
+      "protein": 12,
+      "fat": 23,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 255,
+      "derived": "6\" Spicy Italian minus 6\" Artisan Italian bread, provolone, mayonnaise, lettuce, tomatoes, onions and jalapenos"
+    },
+    "5 meat italian meats": {
+      "unit": "each",
+      "protein": 25,
+      "fat": 10,
+      "carbs": 3,
+      "fiber": 0,
+      "calories": 195,
+      "derived": "6\" 5 Meat Italian minus 6\" Artisan Italian bread, provolone, MVP Parmesan Vinaigrette, mayonnaise, lettuce, tomatoes and onions"
+    },
+    "turkey & ham meats": {
+      "unit": "each",
+      "protein": 14,
+      "fat": 2,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 65,
+      "derived": "6\" Oven-Roasted Turkey & Ham minus 6\" Artisan Italian bread, American cheese, mayonnaise, lettuce, tomatoes and onions"
+    },
+    "american cheese": {
+      "unit": "each",
+      "protein": 4,
+      "fat": 7,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 80
+    },
+    "provolone": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 7,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 90
+    },
+    "monterey cheddar": {
+      "unit": "each",
+      "protein": 7,
+      "fat": 9,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 110
+    },
+    "pepper jack": {
+      "unit": "each",
+      "protein": 5,
+      "fat": 8,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 100
+    },
+    "parmesan": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 5
+    },
+    "lettuce": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "spinach": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "tomatoes": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "cucumbers": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 0
+    },
+    "green peppers": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "red onions": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 0
+    },
+    "pickles": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "black olives": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "banana peppers": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "jalapenos": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "green chiles": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "sliced avocado": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 4,
+      "carbs": 2,
+      "fiber": 2,
+      "calories": 45
+    },
+    "smashed avocado": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 6,
+      "carbs": 3,
+      "fiber": 2,
+      "calories": 70
+    },
+    "giardiniera": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 9,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 80
+    },
+    "salad vegetable base": {
+      "unit": "each",
+      "protein": 3,
+      "fat": 1,
+      "carbs": 7,
+      "fiber": 3,
+      "calories": 50,
+      "derived": "Tuna protein bowl minus 2x tuna and 2x provolone (lettuce, spinach, tomatoes, cucumbers, green peppers, black olives and red onions as served in a bowl or salad)"
+    },
+    "mayonnaise": {
+      "unit": "tablespoon",
+      "protein": 0,
+      "fat": 11,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 100
+    },
+    "yellow mustard": {
+      "unit": "tablespoon",
+      "protein": 0,
+      "fat": 1,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 10
+    },
+    "honey mustard": {
+      "unit": "tablespoon",
+      "protein": 0,
+      "fat": 5,
+      "carbs": 3,
+      "fiber": 0,
+      "calories": 60
+    },
+    "baja chipotle": {
+      "unit": "tablespoon",
+      "protein": 0,
+      "fat": 7,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 70
+    },
+    "peppercorn ranch": {
+      "unit": "tablespoon",
+      "protein": 0,
+      "fat": 8,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 80
+    },
+    "roasted garlic aioli": {
+      "unit": "tablespoon",
+      "protein": 0,
+      "fat": 9,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 80
+    },
+    "mvp parmesan vinaigrette": {
+      "unit": "tablespoon",
+      "protein": 0,
+      "fat": 6,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 60
+    },
+    "sweet onion teriyaki": {
+      "unit": "tablespoon",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 7,
+      "fiber": 0,
+      "calories": 30
+    },
+    "buffalo sauce": {
+      "unit": "tablespoon",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 0
+    },
+    "bbq sauce": {
+      "unit": "tablespoon",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 6,
+      "fiber": 0,
+      "calories": 25
+    },
+    "hot honey sauce": {
+      "unit": "tablespoon",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 8,
+      "fiber": 0,
+      "calories": 30
+    },
+    "olive oil blend": {
+      "unit": "teaspoon",
+      "protein": 0,
+      "fat": 5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 45
+    },
+    "red wine vinegar": {
+      "unit": "teaspoon",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    }
+  },
+  "items": [
+    {
+      "name": "Steak Philly 6\"",
+      "aliases": [
+        "steak philly",
+        "philly",
+        "the philly",
+        "#1",
+        "number 1",
+        "steak and cheese",
+        "steak & cheese",
+        "philly cheesesteak",
+        "steak philly 6 inch",
+        "6 inch steak philly",
+        "six inch steak philly"
+      ],
+      "macros": {
+        "protein": 28,
+        "fat": 25,
+        "carbs": 43,
+        "fiber": 2,
+        "calories": 510
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "steak",
+          "count": 1
+        },
+        {
+          "component": "american cheese",
+          "count": 1
+        },
+        {
+          "component": "green peppers",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "mayonnaise",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Steak Philly Footlong",
+      "aliases": [
+        "12 inch steak philly",
+        "footlong philly",
+        "footlong philly cheesesteak",
+        "footlong steak & cheese",
+        "footlong steak and cheese",
+        "footlong steak philly",
+        "footlong the philly",
+        "steak philly foot long",
+        "steak philly footlong"
+      ],
+      "macros": {
+        "protein": 56,
+        "fat": 50,
+        "carbs": 86,
+        "fiber": 4,
+        "calories": 1020
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 2
+        },
+        {
+          "component": "steak",
+          "count": 2
+        },
+        {
+          "component": "american cheese",
+          "count": 2
+        },
+        {
+          "component": "green peppers",
+          "count": 2
+        },
+        {
+          "component": "red onions",
+          "count": 2
+        },
+        {
+          "component": "mayonnaise",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Chipotle Philly 6\"",
+      "aliases": [
+        "chipotle philly",
+        "chipotle steak",
+        "chipotle philly 6 inch",
+        "6 inch chipotle philly"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 22,
+        "carbs": 44,
+        "fiber": 2,
+        "calories": 490
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "steak",
+          "count": 1
+        },
+        {
+          "component": "pepper jack",
+          "count": 1
+        },
+        {
+          "component": "green peppers",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "baja chipotle",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Steak & Bacon 6\"",
+      "aliases": [
+        "steak & bacon",
+        "steak and bacon",
+        "steak n bacon",
+        "steak bacon sub"
+      ],
+      "macros": {
+        "protein": 36,
+        "fat": 30,
+        "carbs": 44,
+        "fiber": 2,
+        "calories": 590
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "steak",
+          "count": 1
+        },
+        {
+          "component": "bacon",
+          "count": 2
+        },
+        {
+          "component": "american cheese",
+          "count": 1
+        },
+        {
+          "component": "green peppers",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "mayonnaise",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Grilled Chicken 6\"",
+      "aliases": [
+        "grilled chicken",
+        "grilled chicken sub",
+        "oven roasted chicken",
+        "chicken sub",
+        "grilled chicken 6 inch",
+        "6 inch grilled chicken"
+      ],
+      "macros": {
+        "protein": 31,
+        "fat": 24,
+        "carbs": 43,
+        "fiber": 3,
+        "calories": 510
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "monterey cheddar",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "mayonnaise",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Chicken & Bacon Ranch 6\"",
+      "aliases": [
+        "chicken & bacon ranch",
+        "chicken and bacon ranch",
+        "chicken bacon ranch",
+        "cbr",
+        "chicken bacon ranch melt",
+        "chicken bacon ranch 6 inch",
+        "6 inch chicken bacon ranch",
+        "six inch chicken bacon ranch"
+      ],
+      "macros": {
+        "protein": 35,
+        "fat": 29,
+        "carbs": 44,
+        "fiber": 3,
+        "calories": 580
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "rotisserie-style chicken",
+          "count": 1
+        },
+        {
+          "component": "bacon",
+          "count": 2
+        },
+        {
+          "component": "monterey cheddar",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "peppercorn ranch",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Chicken & Bacon Ranch Footlong",
+      "aliases": [
+        "12 inch chicken & bacon ranch",
+        "chicken & bacon ranch foot long",
+        "chicken & bacon ranch footlong",
+        "footlong cbr",
+        "footlong chicken & bacon ranch",
+        "footlong chicken and bacon ranch",
+        "footlong chicken bacon ranch",
+        "footlong chicken bacon ranch melt"
+      ],
+      "macros": {
+        "protein": 70,
+        "fat": 58,
+        "carbs": 88,
+        "fiber": 6,
+        "calories": 1160
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 2
+        },
+        {
+          "component": "rotisserie-style chicken",
+          "count": 2
+        },
+        {
+          "component": "bacon",
+          "count": 4
+        },
+        {
+          "component": "monterey cheddar",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 2
+        },
+        {
+          "component": "tomatoes",
+          "count": 2
+        },
+        {
+          "component": "red onions",
+          "count": 2
+        },
+        {
+          "component": "peppercorn ranch",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Honey Mustard Chicken 6\"",
+      "aliases": [
+        "honey mustard chicken",
+        "honey mustard rotisserie chicken",
+        "honey mustard chicken sub"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 20,
+        "carbs": 47,
+        "fiber": 3,
+        "calories": 480
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "rotisserie-style chicken",
+          "count": 1
+        },
+        {
+          "component": "monterey cheddar",
+          "count": 1
+        },
+        {
+          "component": "pickles",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "honey mustard",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Sweet Onion Chicken Teriyaki 6\"",
+      "aliases": [
+        "sweet onion chicken teriyaki",
+        "chicken teriyaki",
+        "teriyaki chicken",
+        "sweet onion teriyaki",
+        "sweet onion chicken teriyaki 6 inch",
+        "6 inch chicken teriyaki"
+      ],
+      "macros": {
+        "protein": 29,
+        "fat": 11,
+        "carbs": 55,
+        "fiber": 4,
+        "calories": 430
+      },
+      "build": [
+        {
+          "component": "hearty multigrain bread",
+          "count": 1
+        },
+        {
+          "component": "sweet onion teriyaki glazed grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "american cheese",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "sweet onion teriyaki",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Sweet Onion Chicken Teriyaki Footlong",
+      "aliases": [
+        "12 inch sweet onion chicken teriyaki",
+        "footlong chicken teriyaki",
+        "footlong sweet onion chicken teriyaki",
+        "footlong sweet onion teriyaki",
+        "footlong teriyaki chicken",
+        "sweet onion chicken teriyaki foot long",
+        "sweet onion chicken teriyaki footlong"
+      ],
+      "macros": {
+        "protein": 58,
+        "fat": 22,
+        "carbs": 110,
+        "fiber": 8,
+        "calories": 860
+      },
+      "build": [
+        {
+          "component": "hearty multigrain bread",
+          "count": 2
+        },
+        {
+          "component": "sweet onion teriyaki glazed grilled chicken",
+          "count": 2
+        },
+        {
+          "component": "american cheese",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 2
+        },
+        {
+          "component": "tomatoes",
+          "count": 2
+        },
+        {
+          "component": "red onions",
+          "count": 2
+        },
+        {
+          "component": "sweet onion teriyaki",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Italian B.M.T. 6\"",
+      "aliases": [
+        "italian b.m.t.",
+        "italian bmt",
+        "bmt",
+        "b.m.t.",
+        "b m t",
+        "italian b m t",
+        "bmt sub",
+        "italian bmt 6 inch",
+        "6 inch bmt",
+        "six inch bmt",
+        "the ultimate bmt"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 35,
+        "carbs": 44,
+        "fiber": 2,
+        "calories": 590
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "b.m.t. meats",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "mayonnaise",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Italian B.M.T. Footlong",
+      "aliases": [
+        "12 inch italian b.m.t.",
+        "footlong b m t",
+        "footlong b.m.t.",
+        "footlong bmt",
+        "footlong italian b m t",
+        "footlong italian b.m.t.",
+        "footlong italian bmt",
+        "italian b.m.t. foot long",
+        "italian b.m.t. footlong"
+      ],
+      "macros": {
+        "protein": 52,
+        "fat": 70,
+        "carbs": 88,
+        "fiber": 4,
+        "calories": 1180
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 2
+        },
+        {
+          "component": "b.m.t. meats",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 2
+        },
+        {
+          "component": "tomatoes",
+          "count": 2
+        },
+        {
+          "component": "red onions",
+          "count": 2
+        },
+        {
+          "component": "mayonnaise",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Spicy Italian 6\"",
+      "aliases": [
+        "spicy italian",
+        "spicy italian sub",
+        "spicy italian 6 inch",
+        "6 inch spicy italian",
+        "six inch spicy italian"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 43,
+        "carbs": 44,
+        "fiber": 3,
+        "calories": 660
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "spicy italian meats",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "jalapenos",
+          "count": 1
+        },
+        {
+          "component": "mayonnaise",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Spicy Italian Footlong",
+      "aliases": [
+        "12 inch spicy italian",
+        "footlong spicy italian",
+        "footlong spicy italian sub",
+        "spicy italian foot long",
+        "spicy italian footlong"
+      ],
+      "macros": {
+        "protein": 52,
+        "fat": 86,
+        "carbs": 88,
+        "fiber": 6,
+        "calories": 1320
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 2
+        },
+        {
+          "component": "spicy italian meats",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 2
+        },
+        {
+          "component": "tomatoes",
+          "count": 2
+        },
+        {
+          "component": "red onions",
+          "count": 2
+        },
+        {
+          "component": "jalapenos",
+          "count": 2
+        },
+        {
+          "component": "mayonnaise",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "5 Meat Italian 6\"",
+      "aliases": [
+        "5 meat italian",
+        "five meat italian",
+        "5 meat",
+        "five meat"
+      ],
+      "macros": {
+        "protein": 39,
+        "fat": 36,
+        "carbs": 46,
+        "fiber": 2,
+        "calories": 660
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "5 meat italian meats",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "mvp parmesan vinaigrette",
+          "count": 1
+        },
+        {
+          "component": "mayonnaise",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Meatball Marinara 6\"",
+      "aliases": [
+        "meatball marinara",
+        "meatball",
+        "meatball sub",
+        "meatball sandwich",
+        "the boss",
+        "meatball marinara 6 inch",
+        "6 inch meatball",
+        "six inch meatball"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 27,
+        "carbs": 52,
+        "fiber": 4,
+        "calories": 550
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "meatballs in marinara",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "parmesan",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Meatball Marinara Footlong",
+      "aliases": [
+        "12 inch meatball marinara",
+        "footlong meatball",
+        "footlong meatball marinara",
+        "footlong meatball sandwich",
+        "footlong meatball sub",
+        "footlong the boss",
+        "meatball marinara foot long",
+        "meatball marinara footlong"
+      ],
+      "macros": {
+        "protein": 52,
+        "fat": 54,
+        "carbs": 104,
+        "fiber": 8,
+        "calories": 1100
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 2
+        },
+        {
+          "component": "meatballs in marinara",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "parmesan",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Meatball Pepperoni 6\"",
+      "aliases": [
+        "meatball pepperoni",
+        "pepperoni meatball",
+        "meatball and pepperoni"
+      ],
+      "macros": {
+        "protein": 32,
+        "fat": 37,
+        "carbs": 56,
+        "fiber": 4,
+        "calories": 670
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "meatballs in marinara",
+          "count": 1
+        },
+        {
+          "component": "pepperoni",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "parmesan",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Oven-Roasted Turkey 6\"",
+      "aliases": [
+        "oven-roasted turkey",
+        "oven roasted turkey",
+        "turkey breast",
+        "turkey",
+        "turkey sub",
+        "turkey sandwich",
+        "titan turkey",
+        "turkey 6 inch",
+        "6 inch turkey",
+        "six inch turkey"
+      ],
+      "macros": {
+        "protein": 25,
+        "fat": 22,
+        "carbs": 42,
+        "fiber": 3,
+        "calories": 470
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "oven-roasted turkey",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "mayonnaise",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Oven-Roasted Turkey Footlong",
+      "aliases": [
+        "12 inch oven-roasted turkey",
+        "footlong oven roasted turkey",
+        "footlong oven-roasted turkey",
+        "footlong turkey",
+        "footlong turkey breast",
+        "footlong turkey sandwich",
+        "footlong turkey sub",
+        "oven-roasted turkey foot long",
+        "oven-roasted turkey footlong"
+      ],
+      "macros": {
+        "protein": 50,
+        "fat": 44,
+        "carbs": 84,
+        "fiber": 6,
+        "calories": 940
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 2
+        },
+        {
+          "component": "oven-roasted turkey",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 2
+        },
+        {
+          "component": "tomatoes",
+          "count": 2
+        },
+        {
+          "component": "red onions",
+          "count": 2
+        },
+        {
+          "component": "mayonnaise",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Black Forest Ham 6\"",
+      "aliases": [
+        "black forest ham",
+        "ham",
+        "ham sub",
+        "ham sandwich",
+        "ham and cheese",
+        "grand slam ham",
+        "black forest ham 6 inch",
+        "6 inch ham",
+        "six inch ham"
+      ],
+      "macros": {
+        "protein": 25,
+        "fat": 22,
+        "carbs": 44,
+        "fiber": 2,
+        "calories": 480
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "black forest ham",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "mayonnaise",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Black Forest Ham Footlong",
+      "aliases": [
+        "12 inch black forest ham",
+        "black forest ham foot long",
+        "black forest ham footlong",
+        "footlong black forest ham",
+        "footlong grand slam ham",
+        "footlong ham",
+        "footlong ham and cheese",
+        "footlong ham sandwich",
+        "footlong ham sub"
+      ],
+      "macros": {
+        "protein": 50,
+        "fat": 44,
+        "carbs": 88,
+        "fiber": 4,
+        "calories": 960
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 2
+        },
+        {
+          "component": "black forest ham",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 2
+        },
+        {
+          "component": "tomatoes",
+          "count": 2
+        },
+        {
+          "component": "red onions",
+          "count": 2
+        },
+        {
+          "component": "mayonnaise",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Roast Beef 6\"",
+      "aliases": [
+        "roast beef",
+        "roast beef sub",
+        "roast beef sandwich",
+        "garlic roast beef",
+        "roast beef 6 inch",
+        "6 inch roast beef",
+        "six inch roast beef"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 22,
+        "carbs": 44,
+        "fiber": 2,
+        "calories": 490
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "roast beef",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "mayonnaise",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Roast Beef Footlong",
+      "aliases": [
+        "12 inch roast beef",
+        "footlong garlic roast beef",
+        "footlong roast beef",
+        "footlong roast beef sandwich",
+        "footlong roast beef sub",
+        "roast beef foot long",
+        "roast beef footlong"
+      ],
+      "macros": {
+        "protein": 60,
+        "fat": 44,
+        "carbs": 88,
+        "fiber": 4,
+        "calories": 980
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 2
+        },
+        {
+          "component": "roast beef",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 2
+        },
+        {
+          "component": "tomatoes",
+          "count": 2
+        },
+        {
+          "component": "red onions",
+          "count": 2
+        },
+        {
+          "component": "mayonnaise",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Cold Cut Combo 6\"",
+      "aliases": [
+        "cold cut combo",
+        "cold cut",
+        "cold cuts",
+        "cold cut sub",
+        "cold cut combo 6 inch",
+        "6 inch cold cut combo"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 28,
+        "carbs": 43,
+        "fiber": 2,
+        "calories": 520
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "cold cut combo meats",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "mayonnaise",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cold Cut Combo Footlong",
+      "aliases": [
+        "12 inch cold cut combo",
+        "cold cut combo foot long",
+        "cold cut combo footlong",
+        "footlong cold cut",
+        "footlong cold cut combo",
+        "footlong cold cut sub",
+        "footlong cold cuts"
+      ],
+      "macros": {
+        "protein": 48,
+        "fat": 56,
+        "carbs": 86,
+        "fiber": 4,
+        "calories": 1040
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 2
+        },
+        {
+          "component": "cold cut combo meats",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 2
+        },
+        {
+          "component": "tomatoes",
+          "count": 2
+        },
+        {
+          "component": "red onions",
+          "count": 2
+        },
+        {
+          "component": "mayonnaise",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Tuna 6\"",
+      "aliases": [
+        "tuna",
+        "tuna sub",
+        "tuna sandwich",
+        "tuna salad sub",
+        "tuna 6 inch",
+        "6 inch tuna",
+        "six inch tuna"
+      ],
+      "macros": {
+        "protein": 27,
+        "fat": 32,
+        "carbs": 42,
+        "fiber": 2,
+        "calories": 560
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "tuna",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Tuna Footlong",
+      "aliases": [
+        "12 inch tuna",
+        "footlong tuna",
+        "footlong tuna salad sub",
+        "footlong tuna sandwich",
+        "footlong tuna sub",
+        "tuna foot long",
+        "tuna footlong"
+      ],
+      "macros": {
+        "protein": 54,
+        "fat": 64,
+        "carbs": 84,
+        "fiber": 4,
+        "calories": 1120
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 2
+        },
+        {
+          "component": "tuna",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 2
+        },
+        {
+          "component": "tomatoes",
+          "count": 2
+        },
+        {
+          "component": "red onions",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Veggie Delite 6\"",
+      "aliases": [
+        "veggie delite",
+        "veggie delight",
+        "veggie",
+        "veggie sub",
+        "vegetarian sub",
+        "veggie delite 6 inch",
+        "6 inch veggie"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 10,
+        "carbs": 40,
+        "fiber": 4,
+        "calories": 310
+      },
+      "build": [
+        {
+          "component": "hearty multigrain bread",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "spinach",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "cucumbers",
+          "count": 1
+        },
+        {
+          "component": "green peppers",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Veggie Delite Footlong",
+      "aliases": [
+        "12 inch veggie delite",
+        "footlong vegetarian sub",
+        "footlong veggie",
+        "footlong veggie delight",
+        "footlong veggie delite",
+        "footlong veggie sub",
+        "veggie delite foot long",
+        "veggie delite footlong"
+      ],
+      "macros": {
+        "protein": 32,
+        "fat": 20,
+        "carbs": 80,
+        "fiber": 8,
+        "calories": 620
+      },
+      "build": [
+        {
+          "component": "hearty multigrain bread",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 2
+        },
+        {
+          "component": "spinach",
+          "count": 2
+        },
+        {
+          "component": "tomatoes",
+          "count": 2
+        },
+        {
+          "component": "cucumbers",
+          "count": 2
+        },
+        {
+          "component": "green peppers",
+          "count": 2
+        },
+        {
+          "component": "red onions",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "All American Club 6\"",
+      "aliases": [
+        "all american club",
+        "all-american club",
+        "#10",
+        "number 10",
+        "american club",
+        "club sub",
+        "all american club 6 inch"
+      ],
+      "macros": {
+        "protein": 28,
+        "fat": 28,
+        "carbs": 45,
+        "fiber": 2,
+        "calories": 540
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "all-american club meats",
+          "count": 1
+        },
+        {
+          "component": "american cheese",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "mayonnaise",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Subway Club 6\"",
+      "aliases": [
+        "subway club",
+        "#11",
+        "number 11",
+        "the club",
+        "subway club 6 inch",
+        "6 inch subway club"
+      ],
+      "macros": {
+        "protein": 31,
+        "fat": 23,
+        "carbs": 43,
+        "fiber": 4,
+        "calories": 500
+      },
+      "build": [
+        {
+          "component": "hearty multigrain bread",
+          "count": 1
+        },
+        {
+          "component": "subway club meats",
+          "count": 1
+        },
+        {
+          "component": "american cheese",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "mayonnaise",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Subway Club Footlong",
+      "aliases": [
+        "12 inch subway club",
+        "footlong subway club",
+        "footlong the club",
+        "subway club foot long",
+        "subway club footlong"
+      ],
+      "macros": {
+        "protein": 62,
+        "fat": 46,
+        "carbs": 86,
+        "fiber": 8,
+        "calories": 1000
+      },
+      "build": [
+        {
+          "component": "hearty multigrain bread",
+          "count": 2
+        },
+        {
+          "component": "subway club meats",
+          "count": 2
+        },
+        {
+          "component": "american cheese",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 2
+        },
+        {
+          "component": "tomatoes",
+          "count": 2
+        },
+        {
+          "component": "red onions",
+          "count": 2
+        },
+        {
+          "component": "mayonnaise",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Big Hot Pastrami 6\"",
+      "aliases": [
+        "big hot pastrami",
+        "pastrami",
+        "hot pastrami",
+        "pastrami sub"
+      ],
+      "macros": {
+        "protein": 27,
+        "fat": 38,
+        "carbs": 43,
+        "fiber": 2,
+        "calories": 620
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "pastrami",
+          "count": 1
+        },
+        {
+          "component": "american cheese",
+          "count": 1
+        },
+        {
+          "component": "yellow mustard",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "B.L.T. 6\"",
+      "aliases": [
+        "b.l.t.",
+        "blt",
+        "bacon lettuce tomato",
+        "blt sub",
+        "6 inch blt"
+      ],
+      "macros": {
+        "protein": 18,
+        "fat": 26,
+        "carbs": 42,
+        "fiber": 2,
+        "calories": 480
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "bacon",
+          "count": 4
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "mayonnaise",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Buffalo Chicken 6\"",
+      "aliases": [
+        "buffalo chicken",
+        "buffalo chicken sub",
+        "buffalo chicken 6 inch",
+        "6 inch buffalo chicken"
+      ],
+      "macros": {
+        "protein": 29,
+        "fat": 19,
+        "carbs": 45,
+        "fiber": 2,
+        "calories": 460
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "american cheese",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "cucumbers",
+          "count": 1
+        },
+        {
+          "component": "buffalo sauce",
+          "count": 1
+        },
+        {
+          "component": "peppercorn ranch",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Oven-Roasted Turkey & Ham 6\"",
+      "aliases": [
+        "oven-roasted turkey & ham",
+        "oven roasted turkey and ham",
+        "turkey & ham",
+        "turkey and ham",
+        "turkey ham",
+        "turkey ham sub"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 22,
+        "carbs": 41,
+        "fiber": 4,
+        "calories": 460
+      },
+      "build": [
+        {
+          "component": "artisan italian bread",
+          "count": 1
+        },
+        {
+          "component": "turkey & ham meats",
+          "count": 1
+        },
+        {
+          "component": "american cheese",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "mayonnaise",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Fresh Fit Oven Roasted Turkey 6\"",
+      "aliases": [
+        "fresh fit turkey",
+        "fresh fit oven roasted turkey",
+        "turkey fresh fit"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 4,
+        "carbs": 40,
+        "fiber": 4,
+        "calories": 270
+      },
+      "build": [
+        {
+          "component": "hearty multigrain bread",
+          "count": 1
+        },
+        {
+          "component": "oven-roasted turkey",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "spinach",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "cucumbers",
+          "count": 1
+        },
+        {
+          "component": "green peppers",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "black olives",
+          "count": 1
+        },
+        {
+          "component": "pickles",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Fresh Fit Black Forest Ham 6\"",
+      "aliases": [
+        "fresh fit ham",
+        "fresh fit black forest ham",
+        "ham fresh fit"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 5,
+        "carbs": 42,
+        "fiber": 4,
+        "calories": 280
+      },
+      "build": [
+        {
+          "component": "hearty multigrain bread",
+          "count": 1
+        },
+        {
+          "component": "black forest ham",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "spinach",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "cucumbers",
+          "count": 1
+        },
+        {
+          "component": "green peppers",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "black olives",
+          "count": 1
+        },
+        {
+          "component": "pickles",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Fresh Fit Roast Beef 6\"",
+      "aliases": [
+        "fresh fit roast beef",
+        "roast beef fresh fit"
+      ],
+      "macros": {
+        "protein": 25,
+        "fat": 4,
+        "carbs": 42,
+        "fiber": 4,
+        "calories": 300
+      },
+      "build": [
+        {
+          "component": "hearty multigrain bread",
+          "count": 1
+        },
+        {
+          "component": "roast beef",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "spinach",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "cucumbers",
+          "count": 1
+        },
+        {
+          "component": "green peppers",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "black olives",
+          "count": 1
+        },
+        {
+          "component": "pickles",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Fresh Fit Grilled Chicken 6\"",
+      "aliases": [
+        "fresh fit grilled chicken",
+        "grilled chicken fresh fit"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 5,
+        "carbs": 40,
+        "fiber": 4,
+        "calories": 300
+      },
+      "build": [
+        {
+          "component": "hearty multigrain bread",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "spinach",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "cucumbers",
+          "count": 1
+        },
+        {
+          "component": "green peppers",
+          "count": 1
+        },
+        {
+          "component": "red onions",
+          "count": 1
+        },
+        {
+          "component": "black olives",
+          "count": 1
+        },
+        {
+          "component": "pickles",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Steak Philly Protein Bowl",
+      "aliases": [
+        "steak philly protein bowl",
+        "steak philly bowl",
+        "philly bowl",
+        "steak bowl",
+        "steak & cheese protein bowl",
+        "steak and cheese bowl",
+        "steak philly no bready bowl"
+      ],
+      "macros": {
+        "protein": 43,
+        "fat": 47,
+        "carbs": 14,
+        "fiber": 3,
+        "calories": 630
+      },
+      "build": [
+        {
+          "component": "steak",
+          "count": 2
+        },
+        {
+          "component": "american cheese",
+          "count": 2
+        },
+        {
+          "component": "mayonnaise",
+          "count": 2
+        },
+        {
+          "component": "salad vegetable base",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Chipotle Philly Protein Bowl",
+      "aliases": [
+        "chipotle philly protein bowl",
+        "chipotle philly bowl",
+        "chipotle steak bowl"
+      ],
+      "macros": {
+        "protein": 46,
+        "fat": 41,
+        "carbs": 15,
+        "fiber": 4,
+        "calories": 600
+      },
+      "build": [
+        {
+          "component": "steak",
+          "count": 2
+        },
+        {
+          "component": "pepper jack",
+          "count": 2
+        },
+        {
+          "component": "baja chipotle",
+          "count": 2
+        },
+        {
+          "component": "salad vegetable base",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Chicken & Bacon Ranch Protein Bowl",
+      "aliases": [
+        "chicken & bacon ranch protein bowl",
+        "chicken bacon ranch protein bowl",
+        "chicken bacon ranch bowl",
+        "cbr bowl",
+        "cbr protein bowl",
+        "chicken bacon ranch no bready bowl"
+      ],
+      "macros": {
+        "protein": 55,
+        "fat": 55,
+        "carbs": 14,
+        "fiber": 4,
+        "calories": 760
+      },
+      "build": [
+        {
+          "component": "rotisserie-style chicken",
+          "count": 2
+        },
+        {
+          "component": "bacon",
+          "count": 4
+        },
+        {
+          "component": "monterey cheddar",
+          "count": 2
+        },
+        {
+          "component": "peppercorn ranch",
+          "count": 2
+        },
+        {
+          "component": "salad vegetable base",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Grilled Chicken Protein Bowl",
+      "aliases": [
+        "grilled chicken protein bowl",
+        "grilled chicken bowl",
+        "chicken bowl",
+        "chicken protein bowl"
+      ],
+      "macros": {
+        "protein": 48,
+        "fat": 44,
+        "carbs": 11,
+        "fiber": 3,
+        "calories": 620
+      },
+      "build": [
+        {
+          "component": "grilled chicken",
+          "count": 2
+        },
+        {
+          "component": "monterey cheddar",
+          "count": 2
+        },
+        {
+          "component": "mayonnaise",
+          "count": 2
+        },
+        {
+          "component": "salad vegetable base",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Sweet Onion Chicken Teriyaki Protein Bowl",
+      "aliases": [
+        "sweet onion chicken teriyaki protein bowl",
+        "chicken teriyaki bowl",
+        "teriyaki chicken bowl",
+        "sweet onion teriyaki bowl"
+      ],
+      "macros": {
+        "protein": 42,
+        "fat": 18,
+        "carbs": 40,
+        "fiber": 3,
+        "calories": 470
+      },
+      "build": [
+        {
+          "component": "sweet onion teriyaki glazed grilled chicken",
+          "count": 2
+        },
+        {
+          "component": "american cheese",
+          "count": 2
+        },
+        {
+          "component": "sweet onion teriyaki",
+          "count": 2
+        },
+        {
+          "component": "salad vegetable base",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Italian B.M.T. Protein Bowl",
+      "aliases": [
+        "italian b.m.t. protein bowl",
+        "italian bmt protein bowl",
+        "bmt protein bowl",
+        "bmt bowl",
+        "italian bmt bowl",
+        "bmt no bready bowl"
+      ],
+      "macros": {
+        "protein": 38,
+        "fat": 66,
+        "carbs": 14,
+        "fiber": 3,
+        "calories": 800
+      },
+      "build": [
+        {
+          "component": "b.m.t. meats",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "mayonnaise",
+          "count": 2
+        },
+        {
+          "component": "salad vegetable base",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Spicy Italian Protein Bowl",
+      "aliases": [
+        "spicy italian protein bowl",
+        "spicy italian bowl"
+      ],
+      "macros": {
+        "protein": 37,
+        "fat": 82,
+        "carbs": 13,
+        "fiber": 3,
+        "calories": 930
+      },
+      "build": [
+        {
+          "component": "spicy italian meats",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "mayonnaise",
+          "count": 2
+        },
+        {
+          "component": "salad vegetable base",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Meatball Marinara Protein Bowl",
+      "aliases": [
+        "meatball marinara protein bowl",
+        "meatball protein bowl",
+        "meatball bowl",
+        "meatball marinara bowl"
+      ],
+      "macros": {
+        "protein": 40,
+        "fat": 63,
+        "carbs": 36,
+        "fiber": 8,
+        "calories": 850
+      },
+      "build": [
+        {
+          "component": "meatballs in marinara",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "parmesan",
+          "count": 2
+        },
+        {
+          "component": "mvp parmesan vinaigrette",
+          "count": 2
+        },
+        {
+          "component": "salad vegetable base",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Oven-Roasted Turkey Protein Bowl",
+      "aliases": [
+        "oven-roasted turkey protein bowl",
+        "oven roasted turkey protein bowl",
+        "turkey protein bowl",
+        "turkey bowl",
+        "turkey no bready bowl"
+      ],
+      "macros": {
+        "protein": 37,
+        "fat": 40,
+        "carbs": 10,
+        "fiber": 3,
+        "calories": 540
+      },
+      "build": [
+        {
+          "component": "oven-roasted turkey",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "mayonnaise",
+          "count": 2
+        },
+        {
+          "component": "salad vegetable base",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Black Forest Ham Protein Bowl",
+      "aliases": [
+        "black forest ham protein bowl",
+        "ham protein bowl",
+        "ham bowl"
+      ],
+      "macros": {
+        "protein": 35,
+        "fat": 41,
+        "carbs": 13,
+        "fiber": 3,
+        "calories": 560
+      },
+      "build": [
+        {
+          "component": "black forest ham",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "mayonnaise",
+          "count": 2
+        },
+        {
+          "component": "salad vegetable base",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Roast Beef Protein Bowl",
+      "aliases": [
+        "roast beef protein bowl",
+        "roast beef bowl"
+      ],
+      "macros": {
+        "protein": 46,
+        "fat": 40,
+        "carbs": 14,
+        "fiber": 3,
+        "calories": 590
+      },
+      "build": [
+        {
+          "component": "roast beef",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "mayonnaise",
+          "count": 2
+        },
+        {
+          "component": "salad vegetable base",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cold Cut Combo Protein Bowl",
+      "aliases": [
+        "cold cut combo protein bowl",
+        "cold cut combo bowl",
+        "cold cut bowl"
+      ],
+      "macros": {
+        "protein": 33,
+        "fat": 53,
+        "carbs": 11,
+        "fiber": 3,
+        "calories": 650
+      },
+      "build": [
+        {
+          "component": "cold cut combo meats",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "mayonnaise",
+          "count": 2
+        },
+        {
+          "component": "salad vegetable base",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Tuna Protein Bowl",
+      "aliases": [
+        "tuna protein bowl",
+        "tuna bowl",
+        "tuna no bready bowl"
+      ],
+      "macros": {
+        "protein": 39,
+        "fat": 61,
+        "carbs": 9,
+        "fiber": 3,
+        "calories": 730
+      },
+      "build": [
+        {
+          "component": "tuna",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "salad vegetable base",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "All American Club Protein Bowl",
+      "aliases": [
+        "all american club protein bowl",
+        "all american club bowl",
+        "club protein bowl"
+      ],
+      "macros": {
+        "protein": 41,
+        "fat": 52,
+        "carbs": 15,
+        "fiber": 3,
+        "calories": 680
+      },
+      "build": [
+        {
+          "component": "all-american club meats",
+          "count": 2
+        },
+        {
+          "component": "american cheese",
+          "count": 2
+        },
+        {
+          "component": "mayonnaise",
+          "count": 2
+        },
+        {
+          "component": "salad vegetable base",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Subway Club Protein Bowl",
+      "aliases": [
+        "subway club protein bowl",
+        "subway club bowl",
+        "club bowl"
+      ],
+      "macros": {
+        "protein": 45,
+        "fat": 20,
+        "carbs": 16,
+        "fiber": 3,
+        "calories": 410
+      },
+      "build": [
+        {
+          "component": "subway club meats",
+          "count": 2
+        },
+        {
+          "component": "american cheese",
+          "count": 2
+        },
+        {
+          "component": "salad vegetable base",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Buffalo Chicken Protein Bowl",
+      "aliases": [
+        "buffalo chicken protein bowl",
+        "buffalo chicken bowl"
+      ],
+      "macros": {
+        "protein": 35,
+        "fat": 21,
+        "carbs": 14,
+        "fiber": 3,
+        "calories": 380
+      },
+      "build": [
+        {
+          "component": "grilled chicken",
+          "count": 2
+        },
+        {
+          "component": "american cheese",
+          "count": 1
+        },
+        {
+          "component": "buffalo sauce",
+          "count": 1
+        },
+        {
+          "component": "peppercorn ranch",
+          "count": 1
+        },
+        {
+          "component": "salad vegetable base",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Oven-Roasted Turkey Salad",
+      "aliases": [
+        "turkey salad",
+        "oven roasted turkey salad"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 32,
+        "carbs": 11,
+        "fiber": 4,
+        "calories": 400
+      }
+    },
+    {
+      "name": "Chicken & Bacon Ranch Salad",
+      "aliases": [
+        "chicken bacon ranch salad",
+        "cbr salad",
+        "chicken & bacon ranch salad"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 36,
+        "carbs": 14,
+        "fiber": 5,
+        "calories": 490
+      }
+    },
+    {
+      "name": "Steak Philly Salad",
+      "aliases": [
+        "steak philly salad",
+        "steak salad",
+        "philly salad"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 35,
+        "carbs": 13,
+        "fiber": 4,
+        "calories": 450
+      }
+    },
+    {
+      "name": "Italian B.M.T. Salad",
+      "aliases": [
+        "bmt salad",
+        "italian bmt salad",
+        "b.m.t. salad"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 45,
+        "carbs": 13,
+        "fiber": 4,
+        "calories": 530
+      }
+    },
+    {
+      "name": "Tuna Salad",
+      "aliases": [
+        "tuna salad bowl",
+        "subway tuna salad"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 31,
+        "carbs": 10,
+        "fiber": 4,
+        "calories": 400
+      }
+    },
+    {
+      "name": "Grilled Chicken Salad",
+      "aliases": [
+        "grilled chicken salad",
+        "chicken salad"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 34,
+        "carbs": 12,
+        "fiber": 4,
+        "calories": 450
+      }
+    },
+    {
+      "name": "Veggie Delite Salad",
+      "aliases": [
+        "veggie delite salad",
+        "veggie salad",
+        "veggie delight salad"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 8,
+        "carbs": 10,
+        "fiber": 4,
+        "calories": 140
+      }
+    },
+    {
+      "name": "Chocolate Chip Cookie",
+      "aliases": [
+        "chocolate chip cookie",
+        "chocolate chip",
+        "choc chip cookie"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 10,
+        "carbs": 30,
+        "fiber": 0,
+        "calories": 210
+      }
+    },
+    {
+      "name": "Double Chocolate Cookie",
+      "aliases": [
+        "double chocolate cookie",
+        "double chocolate chip cookie",
+        "double chocolate"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 9,
+        "carbs": 29,
+        "fiber": 1,
+        "calories": 210
+      }
+    },
+    {
+      "name": "Oatmeal Raisin Cookie",
+      "aliases": [
+        "oatmeal raisin cookie",
+        "oatmeal raisin",
+        "oatmeal cookie"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 8,
+        "carbs": 30,
+        "fiber": 1,
+        "calories": 200
+      }
+    },
+    {
+      "name": "Raspberry Cheesecake Cookie",
+      "aliases": [
+        "raspberry cheesecake cookie",
+        "raspberry cheesecake"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 9,
+        "carbs": 29,
+        "fiber": 0,
+        "calories": 210
+      }
+    },
+    {
+      "name": "White Chip Macadamia Nut Cookie",
+      "aliases": [
+        "white chip macadamia nut cookie",
+        "white chocolate macadamia cookie",
+        "macadamia nut cookie",
+        "macadamia cookie"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 10,
+        "carbs": 28,
+        "fiber": 0,
+        "calories": 210
+      }
+    }
+  ]
+}

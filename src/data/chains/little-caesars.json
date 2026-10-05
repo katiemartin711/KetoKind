@@ -1,0 +1,2190 @@
+{
+  "chain": "Little Caesars",
+  "aliases": [
+    "little caesars",
+    "little ceasars",
+    "lil caesars",
+    "little caesar's",
+    "little caesar",
+    "little ceasar",
+    "lil ceasars",
+    "littlecaesars",
+    "little cesars"
+  ],
+  "source": "https://littlecaesars.com/static/usnutritionguide.pdf",
+  "retrieved": "2026-10-05",
+  "notes": "Little Caesars publishes whole-pizza and whole-order figures only (US nutrition guide, CR0027232, also shown as images at https://littlecaesars.com/en-us/menu/nutrition/). Per-slice entries are the published whole large pizza divided by 8; the guide itself implies 8 slices for a large Detroit-Style Deep Dish (4-slice lunch combo = 1390 cal, half of the 2770-cal whole), and the 8-slice cut for large round pizzas is the standard Little Caesars cut but is not printed in the guide. Thin Crust and Slices-N-Stix have no per-slice entry. Wing, bread-stick and dip figures are published per 8-piece order, per 8/10/3-piece order and per container respectively. Items the guide lists without numbers (Pretzel Crust with Pizza Sauce and Cheese, Old World Fanceroni Pepperoni, Little Caesars Cookies, Zap Pak, Parmesan Cheese Packet) are omitted.",
+  "components": {
+    "classic cheese pizza slice": {
+      "unit": "slice",
+      "protein": 11.88,
+      "fat": 8.13,
+      "carbs": 31,
+      "fiber": 1.5,
+      "calories": 243.75,
+      "derived": "Large Classic Cheese pizza (published whole) / 8 slices per large pizza; the guide's lunch combo lists a 4-slice Detroit-Style Deep Dish Pepperoni at 1390 cal, half of the 2770-cal whole pizza"
+    },
+    "deep dish cheese pizza slice": {
+      "unit": "slice",
+      "protein": 14.75,
+      "fat": 10.63,
+      "carbs": 39.63,
+      "fiber": 2,
+      "calories": 312.5,
+      "derived": "Detroit-Style Deep Dish Cheese pizza (published whole) / 8 slices per large pizza; the guide's lunch combo lists a 4-slice Detroit-Style Deep Dish Pepperoni at 1390 cal, half of the 2770-cal whole pizza"
+    },
+    "pepperoni topping (round, per slice)": {
+      "unit": "slice",
+      "protein": 1.63,
+      "fat": 4,
+      "carbs": 0.25,
+      "fiber": 0,
+      "calories": 43.75,
+      "derived": "published \"Custom Round Pizzas\" topping add-on for a whole pizza / 8 slices"
+    },
+    "bacon topping (round, per slice)": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 4.38,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 47.5,
+      "derived": "published \"Custom Round Pizzas\" topping add-on for a whole pizza / 8 slices"
+    },
+    "seasoned beef topping (round, per slice)": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 3.5,
+      "carbs": 0.13,
+      "fiber": 0,
+      "calories": 41.25,
+      "derived": "published \"Custom Round Pizzas\" topping add-on for a whole pizza / 8 slices"
+    },
+    "italian sausage topping (round, per slice)": {
+      "unit": "slice",
+      "protein": 2.38,
+      "fat": 4.75,
+      "carbs": 0.25,
+      "fiber": 0,
+      "calories": 53.75,
+      "derived": "published \"Custom Round Pizzas\" topping add-on for a whole pizza / 8 slices"
+    },
+    "smoky ham topping (round, per slice)": {
+      "unit": "slice",
+      "protein": 3.25,
+      "fat": 0.56,
+      "carbs": 0.38,
+      "fiber": 0,
+      "calories": 17.5,
+      "derived": "published \"Custom Round Pizzas\" topping add-on for a whole pizza / 8 slices"
+    },
+    "green peppers topping (round, per slice)": {
+      "unit": "slice",
+      "protein": 0.13,
+      "fat": 0,
+      "carbs": 0.5,
+      "fiber": 0.25,
+      "calories": 2.5,
+      "derived": "published \"Custom Round Pizzas\" topping add-on for a whole pizza / 8 slices"
+    },
+    "onions topping (round, per slice)": {
+      "unit": "slice",
+      "protein": 0.13,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0.25,
+      "calories": 4.38,
+      "derived": "published \"Custom Round Pizzas\" topping add-on for a whole pizza / 8 slices"
+    },
+    "mushrooms (fresh) topping (round, per slice)": {
+      "unit": "slice",
+      "protein": 0.63,
+      "fat": 0.06,
+      "carbs": 0.63,
+      "fiber": 0.25,
+      "calories": 4.38,
+      "derived": "published \"Custom Round Pizzas\" topping add-on for a whole pizza / 8 slices"
+    },
+    "black olives topping (round, per slice)": {
+      "unit": "slice",
+      "protein": 0.13,
+      "fat": 3,
+      "carbs": 0.5,
+      "fiber": 0.5,
+      "calories": 35,
+      "derived": "published \"Custom Round Pizzas\" topping add-on for a whole pizza / 8 slices"
+    },
+    "jalapeno peppers topping (round, per slice)": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0.75,
+      "carbs": 0.5,
+      "fiber": 0.5,
+      "calories": 10,
+      "derived": "published \"Custom Round Pizzas\" topping add-on for a whole pizza / 8 slices"
+    },
+    "banana peppers topping (round, per slice)": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0.88,
+      "fiber": 0,
+      "calories": 6.25,
+      "derived": "published \"Custom Round Pizzas\" topping add-on for a whole pizza / 8 slices"
+    },
+    "pineapple topping (round, per slice)": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 2.75,
+      "fiber": 0,
+      "calories": 11.25,
+      "derived": "published \"Custom Round Pizzas\" topping add-on for a whole pizza / 8 slices"
+    },
+    "extra cheese topping (round, per slice)": {
+      "unit": "slice",
+      "protein": 2.63,
+      "fat": 2.38,
+      "carbs": 0.5,
+      "fiber": 0,
+      "calories": 33.75,
+      "derived": "published \"Custom Round Pizzas\" topping add-on for a whole pizza / 8 slices"
+    },
+    "fresh mozzarella topping (round, per slice)": {
+      "unit": "slice",
+      "protein": 1.88,
+      "fat": 1.88,
+      "carbs": 0.25,
+      "fiber": 0,
+      "calories": 25,
+      "derived": "published \"Custom Round Pizzas\" topping add-on for a whole pizza / 8 slices"
+    },
+    "pepperoni topping (deep dish, per slice)": {
+      "unit": "slice",
+      "protein": 1.38,
+      "fat": 3.25,
+      "carbs": 0.25,
+      "fiber": 0,
+      "calories": 35,
+      "derived": "published \"Custom Detroit-Style Deep Dish\" topping add-on for a whole pizza / 8 slices"
+    },
+    "bacon topping (deep dish, per slice)": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 4.38,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 47.5,
+      "derived": "published \"Custom Detroit-Style Deep Dish\" topping add-on for a whole pizza / 8 slices"
+    },
+    "seasoned beef topping (deep dish, per slice)": {
+      "unit": "slice",
+      "protein": 1.5,
+      "fat": 2.75,
+      "carbs": 0.13,
+      "fiber": 0,
+      "calories": 31.25,
+      "derived": "published \"Custom Detroit-Style Deep Dish\" topping add-on for a whole pizza / 8 slices"
+    },
+    "italian sausage topping (deep dish, per slice)": {
+      "unit": "slice",
+      "protein": 1.88,
+      "fat": 3.63,
+      "carbs": 0.25,
+      "fiber": 0,
+      "calories": 41.25,
+      "derived": "published \"Custom Detroit-Style Deep Dish\" topping add-on for a whole pizza / 8 slices"
+    },
+    "smoky ham topping (deep dish, per slice)": {
+      "unit": "slice",
+      "protein": 2.38,
+      "fat": 0.38,
+      "carbs": 0.25,
+      "fiber": 0,
+      "calories": 13.75,
+      "derived": "published \"Custom Detroit-Style Deep Dish\" topping add-on for a whole pizza / 8 slices"
+    },
+    "green peppers topping (deep dish, per slice)": {
+      "unit": "slice",
+      "protein": 0.13,
+      "fat": 0,
+      "carbs": 0.38,
+      "fiber": 0.13,
+      "calories": 1.88,
+      "derived": "published \"Custom Detroit-Style Deep Dish\" topping add-on for a whole pizza / 8 slices"
+    },
+    "onions topping (deep dish, per slice)": {
+      "unit": "slice",
+      "protein": 0.13,
+      "fat": 0,
+      "carbs": 0.75,
+      "fiber": 0.13,
+      "calories": 3.13,
+      "derived": "published \"Custom Detroit-Style Deep Dish\" topping add-on for a whole pizza / 8 slices"
+    },
+    "mushrooms (fresh) topping (deep dish, per slice)": {
+      "unit": "slice",
+      "protein": 0.63,
+      "fat": 0.06,
+      "carbs": 0.63,
+      "fiber": 0.25,
+      "calories": 4.38,
+      "derived": "published \"Custom Detroit-Style Deep Dish\" topping add-on for a whole pizza / 8 slices"
+    },
+    "black olives topping (deep dish, per slice)": {
+      "unit": "slice",
+      "protein": 0.13,
+      "fat": 2.13,
+      "carbs": 0.38,
+      "fiber": 0.38,
+      "calories": 26.25,
+      "derived": "published \"Custom Detroit-Style Deep Dish\" topping add-on for a whole pizza / 8 slices"
+    },
+    "jalapeno peppers topping (deep dish, per slice)": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0.56,
+      "carbs": 0.38,
+      "fiber": 0.38,
+      "calories": 7.5,
+      "derived": "published \"Custom Detroit-Style Deep Dish\" topping add-on for a whole pizza / 8 slices"
+    },
+    "banana peppers topping (deep dish, per slice)": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0.63,
+      "fiber": 0,
+      "calories": 4.38,
+      "derived": "published \"Custom Detroit-Style Deep Dish\" topping add-on for a whole pizza / 8 slices"
+    },
+    "pineapple topping (deep dish, per slice)": {
+      "unit": "slice",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 2.75,
+      "fiber": 0,
+      "calories": 11.25,
+      "derived": "published \"Custom Detroit-Style Deep Dish\" topping add-on for a whole pizza / 8 slices"
+    },
+    "extra cheese topping (deep dish, per slice)": {
+      "unit": "slice",
+      "protein": 2.63,
+      "fat": 2.38,
+      "carbs": 0.5,
+      "fiber": 0,
+      "calories": 33.75,
+      "derived": "published \"Custom Detroit-Style Deep Dish\" topping add-on for a whole pizza / 8 slices"
+    },
+    "fresh mozzarella topping (deep dish, per slice)": {
+      "unit": "slice",
+      "protein": 1.88,
+      "fat": 1.88,
+      "carbs": 0.25,
+      "fiber": 0,
+      "calories": 25,
+      "derived": "published \"Custom Detroit-Style Deep Dish\" topping add-on for a whole pizza / 8 slices"
+    },
+    "crazy bread stick": {
+      "unit": "piece",
+      "protein": 3.13,
+      "fat": 2.75,
+      "carbs": 16,
+      "fiber": 0.63,
+      "calories": 100,
+      "derived": "Crazy Bread (8 bread sticks) / 8"
+    },
+    "italian cheese bread stick": {
+      "unit": "piece",
+      "protein": 5.9,
+      "fat": 5.4,
+      "carbs": 15.6,
+      "fiber": 0.7,
+      "calories": 134,
+      "derived": "Italian Cheese Bread (10 bread sticks) / 10"
+    },
+    "pepperoni cheese bread stick": {
+      "unit": "piece",
+      "protein": 6.6,
+      "fat": 7.1,
+      "carbs": 15.5,
+      "fiber": 0.7,
+      "calories": 152,
+      "derived": "Pepperoni Cheese Bread (10 bread sticks) / 10"
+    },
+    "zesty cheese bread stick": {
+      "unit": "piece",
+      "protein": 5.5,
+      "fat": 7.1,
+      "carbs": 15.8,
+      "fiber": 0.7,
+      "calories": 149,
+      "derived": "Zesty Cheese Bread (10 bread sticks) / 10"
+    },
+    "stuffed crazy bread stick": {
+      "unit": "piece",
+      "protein": 11.67,
+      "fat": 12.67,
+      "carbs": 39.67,
+      "fiber": 1.33,
+      "calories": 316.67,
+      "derived": "Stuffed Crazy Bread (3 bread sticks & Crazy Sauce) minus Crazy Sauce (1 sauce cup), / 3"
+    },
+    "crazy sauce cup": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 0,
+      "carbs": 7,
+      "fiber": 2,
+      "calories": 30
+    },
+    "oven roasted wing": {
+      "unit": "piece",
+      "protein": 5.88,
+      "fat": 4.38,
+      "carbs": 0.38,
+      "fiber": 0,
+      "calories": 63.75,
+      "derived": "Caesar Wings Oven Roasted (8-piece order) / 8"
+    },
+    "buffalo wing": {
+      "unit": "piece",
+      "protein": 5.88,
+      "fat": 4.38,
+      "carbs": 0.88,
+      "fiber": 0,
+      "calories": 65,
+      "derived": "Caesar Wings Buffalo (8-piece order) / 8"
+    },
+    "bbq wing": {
+      "unit": "piece",
+      "protein": 6,
+      "fat": 4.38,
+      "carbs": 4,
+      "fiber": 0,
+      "calories": 77.5,
+      "derived": "Caesar Wings BBQ (8-piece order) / 8"
+    },
+    "garlic parmesan wing": {
+      "unit": "piece",
+      "protein": 6.13,
+      "fat": 6.38,
+      "carbs": 0.63,
+      "fiber": 0,
+      "calories": 83.75,
+      "derived": "Caesar Wings Garlic Parmesan (8-piece order) / 8"
+    }
+  },
+  "items": [
+    {
+      "name": "Hot-N-Ready Classic Pepperoni Pizza (whole large pizza)",
+      "aliases": [
+        "whole classic pepperoni",
+        "whole hot n ready pepperoni",
+        "whole hot-n-ready pepperoni",
+        "whole hot-n-ready",
+        "whole hot n ready",
+        "whole pepperoni pizza",
+        "whole pepperoni",
+        "whole large pepperoni",
+        "classic pepperoni whole pizza",
+        "hot n ready pepperoni whole pizza",
+        "hot-n-ready pepperoni whole pizza",
+        "hot-n-ready whole pizza",
+        "hot n ready whole pizza",
+        "pepperoni pizza whole pizza",
+        "pepperoni whole pizza",
+        "large pepperoni whole pizza"
+      ],
+      "macros": {
+        "protein": 109,
+        "fat": 97,
+        "carbs": 250,
+        "fiber": 13,
+        "calories": 2300
+      }
+    },
+    {
+      "name": "Hot-N-Ready Classic Pepperoni Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "classic pepperoni",
+        "hot n ready pepperoni",
+        "hot-n-ready pepperoni",
+        "hot-n-ready",
+        "hot n ready",
+        "pepperoni pizza",
+        "pepperoni",
+        "large pepperoni",
+        "slice of classic pepperoni",
+        "slice of hot n ready pepperoni",
+        "slice of hot-n-ready pepperoni",
+        "slice of hot-n-ready",
+        "slice of hot n ready",
+        "slice of pepperoni pizza",
+        "slice of pepperoni",
+        "slice of large pepperoni",
+        "classic pepperoni slice",
+        "hot n ready pepperoni slice",
+        "hot-n-ready pepperoni slice",
+        "hot-n-ready slice",
+        "hot n ready slice",
+        "pepperoni pizza slice",
+        "pepperoni slice",
+        "large pepperoni slice"
+      ],
+      "macros": {
+        "protein": 13.6,
+        "fat": 12.1,
+        "carbs": 31.3,
+        "fiber": 1.6,
+        "calories": 287.5
+      },
+      "build": [
+        {
+          "component": "classic cheese pizza slice",
+          "count": 1
+        },
+        {
+          "component": "pepperoni topping (round, per slice)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Hot-N-Ready Classic Cheese Pizza (whole large pizza)",
+      "aliases": [
+        "whole classic cheese",
+        "whole hot n ready cheese",
+        "whole hot-n-ready cheese",
+        "whole cheese pizza",
+        "whole cheese",
+        "whole large cheese",
+        "classic cheese whole pizza",
+        "hot n ready cheese whole pizza",
+        "hot-n-ready cheese whole pizza",
+        "cheese pizza whole pizza",
+        "cheese whole pizza",
+        "large cheese whole pizza"
+      ],
+      "macros": {
+        "protein": 95,
+        "fat": 65,
+        "carbs": 248,
+        "fiber": 12,
+        "calories": 1950
+      }
+    },
+    {
+      "name": "Hot-N-Ready Classic Cheese Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "classic cheese",
+        "hot n ready cheese",
+        "hot-n-ready cheese",
+        "cheese pizza",
+        "cheese",
+        "large cheese",
+        "slice of classic cheese",
+        "slice of hot n ready cheese",
+        "slice of hot-n-ready cheese",
+        "slice of cheese pizza",
+        "slice of cheese",
+        "slice of large cheese",
+        "classic cheese slice",
+        "hot n ready cheese slice",
+        "hot-n-ready cheese slice",
+        "cheese pizza slice",
+        "cheese slice",
+        "large cheese slice"
+      ],
+      "macros": {
+        "protein": 11.9,
+        "fat": 8.1,
+        "carbs": 31,
+        "fiber": 1.5,
+        "calories": 243.8
+      },
+      "build": [
+        {
+          "component": "classic cheese pizza slice",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Classic Italian Sausage Pizza (whole large pizza)",
+      "aliases": [
+        "whole classic italian sausage",
+        "whole classic sausage",
+        "whole sausage pizza",
+        "whole italian sausage pizza",
+        "classic italian sausage whole pizza",
+        "classic sausage whole pizza",
+        "sausage pizza whole pizza",
+        "italian sausage pizza whole pizza"
+      ],
+      "macros": {
+        "protein": 111,
+        "fat": 91,
+        "carbs": 255,
+        "fiber": 13,
+        "calories": 2270
+      }
+    },
+    {
+      "name": "Classic Italian Sausage Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "classic italian sausage",
+        "classic sausage",
+        "sausage pizza",
+        "italian sausage pizza",
+        "slice of classic italian sausage",
+        "slice of classic sausage",
+        "slice of sausage pizza",
+        "slice of italian sausage pizza",
+        "classic italian sausage slice",
+        "classic sausage slice",
+        "sausage pizza slice",
+        "italian sausage pizza slice"
+      ],
+      "macros": {
+        "protein": 13.9,
+        "fat": 11.4,
+        "carbs": 31.9,
+        "fiber": 1.6,
+        "calories": 283.8
+      },
+      "build": [
+        {
+          "component": "classic cheese pizza slice",
+          "count": 1
+        },
+        {
+          "component": "italian sausage topping (round, per slice)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "ExtraMostBestest Pepperoni Pizza (whole large pizza)",
+      "aliases": [
+        "whole extramostbestest pepperoni",
+        "whole extra most bestest pepperoni",
+        "whole emb pepperoni",
+        "whole extramostbestest",
+        "whole emb",
+        "extramostbestest pepperoni whole pizza",
+        "extra most bestest pepperoni whole pizza",
+        "emb pepperoni whole pizza",
+        "extramostbestest whole pizza",
+        "emb whole pizza"
+      ],
+      "macros": {
+        "protein": 122,
+        "fat": 113,
+        "carbs": 252,
+        "fiber": 13,
+        "calories": 2500
+      }
+    },
+    {
+      "name": "ExtraMostBestest Pepperoni Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "extramostbestest pepperoni",
+        "extra most bestest pepperoni",
+        "emb pepperoni",
+        "extramostbestest",
+        "emb",
+        "slice of extramostbestest pepperoni",
+        "slice of extra most bestest pepperoni",
+        "slice of emb pepperoni",
+        "slice of extramostbestest",
+        "slice of emb",
+        "extramostbestest pepperoni slice",
+        "extra most bestest pepperoni slice",
+        "emb pepperoni slice",
+        "extramostbestest slice",
+        "emb slice"
+      ],
+      "macros": {
+        "protein": 15.3,
+        "fat": 14.1,
+        "carbs": 31.5,
+        "fiber": 1.6,
+        "calories": 312.5
+      }
+    },
+    {
+      "name": "ExtraMostBestest Cheese Pizza (whole large pizza)",
+      "aliases": [
+        "whole extramostbestest cheese",
+        "whole extra most bestest cheese",
+        "whole emb cheese",
+        "extramostbestest cheese whole pizza",
+        "extra most bestest cheese whole pizza",
+        "emb cheese whole pizza"
+      ],
+      "macros": {
+        "protein": 117,
+        "fat": 84,
+        "carbs": 252,
+        "fiber": 13,
+        "calories": 2220
+      }
+    },
+    {
+      "name": "ExtraMostBestest Cheese Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "extramostbestest cheese",
+        "extra most bestest cheese",
+        "emb cheese",
+        "slice of extramostbestest cheese",
+        "slice of extra most bestest cheese",
+        "slice of emb cheese",
+        "extramostbestest cheese slice",
+        "extra most bestest cheese slice",
+        "emb cheese slice"
+      ],
+      "macros": {
+        "protein": 14.6,
+        "fat": 10.5,
+        "carbs": 31.5,
+        "fiber": 1.6,
+        "calories": 277.5
+      }
+    },
+    {
+      "name": "ExtraMostBestest Italian Sausage Pizza (whole large pizza)",
+      "aliases": [
+        "whole extramostbestest italian sausage",
+        "whole extramostbestest sausage",
+        "whole emb sausage",
+        "whole emb italian sausage",
+        "extramostbestest italian sausage whole pizza",
+        "extramostbestest sausage whole pizza",
+        "emb sausage whole pizza",
+        "emb italian sausage whole pizza"
+      ],
+      "macros": {
+        "protein": 129,
+        "fat": 128,
+        "carbs": 252,
+        "fiber": 13,
+        "calories": 2660
+      }
+    },
+    {
+      "name": "ExtraMostBestest Italian Sausage Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "extramostbestest italian sausage",
+        "extramostbestest sausage",
+        "emb sausage",
+        "emb italian sausage",
+        "slice of extramostbestest italian sausage",
+        "slice of extramostbestest sausage",
+        "slice of emb sausage",
+        "slice of emb italian sausage",
+        "extramostbestest italian sausage slice",
+        "extramostbestest sausage slice",
+        "emb sausage slice",
+        "emb italian sausage slice"
+      ],
+      "macros": {
+        "protein": 16.1,
+        "fat": 16,
+        "carbs": 31.5,
+        "fiber": 1.6,
+        "calories": 332.5
+      }
+    },
+    {
+      "name": "5 Meat Feast Pizza (round) (whole large pizza)",
+      "aliases": [
+        "whole 5 meat feast",
+        "whole five meat feast",
+        "whole 5 meat",
+        "whole meat feast",
+        "5 meat feast whole pizza",
+        "five meat feast whole pizza",
+        "5 meat whole pizza",
+        "meat feast whole pizza"
+      ],
+      "macros": {
+        "protein": 139,
+        "fat": 142,
+        "carbs": 252,
+        "fiber": 13,
+        "calories": 2830
+      }
+    },
+    {
+      "name": "5 Meat Feast Pizza (round) (1 slice, 1/8 pizza)",
+      "aliases": [
+        "5 meat feast",
+        "five meat feast",
+        "5 meat",
+        "meat feast",
+        "slice of 5 meat feast",
+        "slice of five meat feast",
+        "slice of 5 meat",
+        "slice of meat feast",
+        "5 meat feast slice",
+        "five meat feast slice",
+        "5 meat slice",
+        "meat feast slice"
+      ],
+      "macros": {
+        "protein": 17.4,
+        "fat": 17.8,
+        "carbs": 31.5,
+        "fiber": 1.6,
+        "calories": 353.8
+      }
+    },
+    {
+      "name": "Ultimate Supreme Pizza (round) (whole large pizza)",
+      "aliases": [
+        "whole ultimate supreme",
+        "whole supreme",
+        "whole supreme pizza",
+        "ultimate supreme whole pizza",
+        "supreme whole pizza",
+        "supreme pizza whole pizza"
+      ],
+      "macros": {
+        "protein": 118,
+        "fat": 112,
+        "carbs": 259,
+        "fiber": 15,
+        "calories": 2500
+      }
+    },
+    {
+      "name": "Ultimate Supreme Pizza (round) (1 slice, 1/8 pizza)",
+      "aliases": [
+        "ultimate supreme",
+        "supreme",
+        "supreme pizza",
+        "slice of ultimate supreme",
+        "slice of supreme",
+        "slice of supreme pizza",
+        "ultimate supreme slice",
+        "supreme slice",
+        "supreme pizza slice"
+      ],
+      "macros": {
+        "protein": 14.8,
+        "fat": 14,
+        "carbs": 32.4,
+        "fiber": 1.9,
+        "calories": 312.5
+      }
+    },
+    {
+      "name": "3 Meat Treat Pizza (round) (whole large pizza)",
+      "aliases": [
+        "whole 3 meat treat",
+        "whole three meat treat",
+        "whole 3 meat",
+        "whole meat treat",
+        "3 meat treat whole pizza",
+        "three meat treat whole pizza",
+        "3 meat whole pizza",
+        "meat treat whole pizza"
+      ],
+      "macros": {
+        "protein": 135,
+        "fat": 147,
+        "carbs": 252,
+        "fiber": 13,
+        "calories": 2860
+      }
+    },
+    {
+      "name": "3 Meat Treat Pizza (round) (1 slice, 1/8 pizza)",
+      "aliases": [
+        "3 meat treat",
+        "three meat treat",
+        "3 meat",
+        "meat treat",
+        "slice of 3 meat treat",
+        "slice of three meat treat",
+        "slice of 3 meat",
+        "slice of meat treat",
+        "3 meat treat slice",
+        "three meat treat slice",
+        "3 meat slice",
+        "meat treat slice"
+      ],
+      "macros": {
+        "protein": 16.9,
+        "fat": 18.4,
+        "carbs": 31.5,
+        "fiber": 1.6,
+        "calories": 357.5
+      }
+    },
+    {
+      "name": "Hula Hawaiian Pizza (round) (whole large pizza)",
+      "aliases": [
+        "whole hula hawaiian",
+        "whole hawaiian",
+        "whole hawaiian pizza",
+        "whole ham and pineapple pizza",
+        "hula hawaiian whole pizza",
+        "hawaiian whole pizza",
+        "hawaiian pizza whole pizza",
+        "ham and pineapple pizza whole pizza"
+      ],
+      "macros": {
+        "protein": 121,
+        "fat": 70,
+        "carbs": 272,
+        "fiber": 13,
+        "calories": 2180
+      }
+    },
+    {
+      "name": "Hula Hawaiian Pizza (round) (1 slice, 1/8 pizza)",
+      "aliases": [
+        "hula hawaiian",
+        "hawaiian",
+        "hawaiian pizza",
+        "ham and pineapple pizza",
+        "slice of hula hawaiian",
+        "slice of hawaiian",
+        "slice of hawaiian pizza",
+        "slice of ham and pineapple pizza",
+        "hula hawaiian slice",
+        "hawaiian slice",
+        "hawaiian pizza slice",
+        "ham and pineapple pizza slice"
+      ],
+      "macros": {
+        "protein": 15.1,
+        "fat": 8.8,
+        "carbs": 34,
+        "fiber": 1.6,
+        "calories": 272.5
+      },
+      "build": [
+        {
+          "component": "classic cheese pizza slice",
+          "count": 1
+        },
+        {
+          "component": "smoky ham topping (round, per slice)",
+          "count": 1
+        },
+        {
+          "component": "pineapple topping (round, per slice)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Veggie Pizza (round) (whole large pizza)",
+      "aliases": [
+        "whole veggie",
+        "whole veggie pizza",
+        "whole vegetable pizza",
+        "veggie whole pizza",
+        "veggie pizza whole pizza",
+        "vegetable pizza whole pizza"
+      ],
+      "macros": {
+        "protein": 100,
+        "fat": 84,
+        "carbs": 266,
+        "fiber": 20,
+        "calories": 2240
+      }
+    },
+    {
+      "name": "Veggie Pizza (round) (1 slice, 1/8 pizza)",
+      "aliases": [
+        "veggie",
+        "veggie pizza",
+        "vegetable pizza",
+        "slice of veggie",
+        "slice of veggie pizza",
+        "slice of vegetable pizza",
+        "veggie slice",
+        "veggie pizza slice",
+        "vegetable pizza slice"
+      ],
+      "macros": {
+        "protein": 12.5,
+        "fat": 10.5,
+        "carbs": 33.3,
+        "fiber": 2.5,
+        "calories": 280
+      }
+    },
+    {
+      "name": "Stuffed Crust Pepperoni Pizza (whole large pizza)",
+      "aliases": [
+        "whole stuffed crust pepperoni",
+        "whole stuffed crust",
+        "whole stuffed crust pizza",
+        "stuffed crust pepperoni whole pizza",
+        "stuffed crust whole pizza",
+        "stuffed crust pizza whole pizza"
+      ],
+      "macros": {
+        "protein": 144,
+        "fat": 153,
+        "carbs": 259,
+        "fiber": 13,
+        "calories": 2980
+      }
+    },
+    {
+      "name": "Stuffed Crust Pepperoni Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "stuffed crust pepperoni",
+        "stuffed crust",
+        "stuffed crust pizza",
+        "slice of stuffed crust pepperoni",
+        "slice of stuffed crust",
+        "slice of stuffed crust pizza",
+        "stuffed crust pepperoni slice",
+        "stuffed crust slice",
+        "stuffed crust pizza slice"
+      ],
+      "macros": {
+        "protein": 18,
+        "fat": 19.1,
+        "carbs": 32.4,
+        "fiber": 1.6,
+        "calories": 372.5
+      }
+    },
+    {
+      "name": "Pretzel Crust Pizza with Pizza Sauce (whole large pizza)",
+      "aliases": [
+        "whole pretzel crust pizza",
+        "whole pretzel crust",
+        "whole pretzel crust pepperoni",
+        "whole pretzel pizza",
+        "pretzel crust pizza whole pizza",
+        "pretzel crust whole pizza",
+        "pretzel crust pepperoni whole pizza",
+        "pretzel pizza whole pizza"
+      ],
+      "macros": {
+        "protein": 91,
+        "fat": 85,
+        "carbs": 240,
+        "fiber": 11,
+        "calories": 2080
+      }
+    },
+    {
+      "name": "Pretzel Crust Pizza with Pizza Sauce (1 slice, 1/8 pizza)",
+      "aliases": [
+        "pretzel crust pizza",
+        "pretzel crust",
+        "pretzel crust pepperoni",
+        "pretzel pizza",
+        "slice of pretzel crust pizza",
+        "slice of pretzel crust",
+        "slice of pretzel crust pepperoni",
+        "slice of pretzel pizza",
+        "pretzel crust pizza slice",
+        "pretzel crust slice",
+        "pretzel crust pepperoni slice",
+        "pretzel pizza slice"
+      ],
+      "macros": {
+        "protein": 11.4,
+        "fat": 10.6,
+        "carbs": 30,
+        "fiber": 1.4,
+        "calories": 260
+      }
+    },
+    {
+      "name": "Cheese Pretzel Crust Pizza with Cheese Sauce (whole large pizza)",
+      "aliases": [
+        "whole cheese pretzel crust",
+        "whole cheese pretzel crust pizza",
+        "whole pretzel crust cheese pizza",
+        "cheese pretzel crust whole pizza",
+        "cheese pretzel crust pizza whole pizza",
+        "pretzel crust cheese pizza whole pizza"
+      ],
+      "macros": {
+        "protein": 85,
+        "fat": 71,
+        "carbs": 243,
+        "fiber": 9,
+        "calories": 1940
+      }
+    },
+    {
+      "name": "Cheese Pretzel Crust Pizza with Cheese Sauce (1 slice, 1/8 pizza)",
+      "aliases": [
+        "cheese pretzel crust",
+        "cheese pretzel crust pizza",
+        "pretzel crust cheese pizza",
+        "slice of cheese pretzel crust",
+        "slice of cheese pretzel crust pizza",
+        "slice of pretzel crust cheese pizza",
+        "cheese pretzel crust slice",
+        "cheese pretzel crust pizza slice",
+        "pretzel crust cheese pizza slice"
+      ],
+      "macros": {
+        "protein": 10.6,
+        "fat": 8.9,
+        "carbs": 30.4,
+        "fiber": 1.1,
+        "calories": 242.5
+      }
+    },
+    {
+      "name": "Pretzel Crust Pizza with Cheese Sauce (whole large pizza)",
+      "aliases": [
+        "whole pretzel crust pizza with cheese sauce",
+        "whole pretzel crust cheese sauce",
+        "whole pretzel crust pepperoni with cheese sauce",
+        "pretzel crust pizza with cheese sauce whole pizza",
+        "pretzel crust cheese sauce whole pizza",
+        "pretzel crust pepperoni with cheese sauce whole pizza"
+      ],
+      "macros": {
+        "protein": 94,
+        "fat": 93,
+        "carbs": 244,
+        "fiber": 9,
+        "calories": 2190
+      }
+    },
+    {
+      "name": "Pretzel Crust Pizza with Cheese Sauce (1 slice, 1/8 pizza)",
+      "aliases": [
+        "pretzel crust pizza with cheese sauce",
+        "pretzel crust cheese sauce",
+        "pretzel crust pepperoni with cheese sauce",
+        "slice of pretzel crust pizza with cheese sauce",
+        "slice of pretzel crust cheese sauce",
+        "slice of pretzel crust pepperoni with cheese sauce",
+        "pretzel crust pizza with cheese sauce slice",
+        "pretzel crust cheese sauce slice",
+        "pretzel crust pepperoni with cheese sauce slice"
+      ],
+      "macros": {
+        "protein": 11.8,
+        "fat": 11.6,
+        "carbs": 30.5,
+        "fiber": 1.1,
+        "calories": 273.8
+      }
+    },
+    {
+      "name": "Slices-N-Stix (whole)",
+      "aliases": [
+        "slices-n-stix",
+        "slices n stix",
+        "slices and stix",
+        "slices n sticks"
+      ],
+      "macros": {
+        "protein": 107,
+        "fat": 97,
+        "carbs": 253,
+        "fiber": 13,
+        "calories": 2300
+      }
+    },
+    {
+      "name": "Slices-N-Stix Bacon (whole)",
+      "aliases": [
+        "slices-n-stix bacon",
+        "slices n stix bacon",
+        "bacon slices n stix"
+      ],
+      "macros": {
+        "protein": 116,
+        "fat": 115,
+        "carbs": 252,
+        "fiber": 13,
+        "calories": 2980
+      }
+    },
+    {
+      "name": "Slices-N-Stix Jalapeno (whole)",
+      "aliases": [
+        "slices-n-stix jalapeno",
+        "slices n stix jalapeno",
+        "jalapeno slices n stix"
+      ],
+      "macros": {
+        "protein": 107,
+        "fat": 99,
+        "carbs": 255,
+        "fiber": 15,
+        "calories": 2330
+      }
+    },
+    {
+      "name": "Thin Crust Pepperoni Pizza (whole large pizza)",
+      "aliases": [
+        "whole thin crust pepperoni",
+        "whole thin crust",
+        "whole thin crust pizza",
+        "thin crust pepperoni whole pizza",
+        "thin crust whole pizza",
+        "thin crust pizza whole pizza"
+      ],
+      "macros": {
+        "protein": 94,
+        "fat": 128,
+        "carbs": 148,
+        "fiber": 9,
+        "calories": 2130
+      }
+    },
+    {
+      "name": "Thin Crust Cheese Pizza (whole large pizza)",
+      "aliases": [
+        "whole thin crust cheese",
+        "thin crust cheese whole pizza"
+      ],
+      "macros": {
+        "protein": 99,
+        "fat": 109,
+        "carbs": 150,
+        "fiber": 10,
+        "calories": 1980
+      }
+    },
+    {
+      "name": "Detroit-Style Deep Dish Pepperoni Pizza (whole large pizza)",
+      "aliases": [
+        "whole deep dish pepperoni",
+        "whole detroit style pepperoni",
+        "whole detroit-style deep dish pepperoni",
+        "whole deep dish",
+        "whole detroit style",
+        "deep dish pepperoni whole pizza",
+        "detroit style pepperoni whole pizza",
+        "detroit-style deep dish pepperoni whole pizza",
+        "deep dish whole pizza",
+        "detroit style whole pizza"
+      ],
+      "macros": {
+        "protein": 129,
+        "fat": 111,
+        "carbs": 319,
+        "fiber": 16,
+        "calories": 2770
+      }
+    },
+    {
+      "name": "Detroit-Style Deep Dish Pepperoni Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "deep dish pepperoni",
+        "detroit style pepperoni",
+        "detroit-style deep dish pepperoni",
+        "deep dish",
+        "detroit style",
+        "slice of deep dish pepperoni",
+        "slice of detroit style pepperoni",
+        "slice of detroit-style deep dish pepperoni",
+        "slice of deep dish",
+        "slice of detroit style",
+        "deep dish pepperoni slice",
+        "detroit style pepperoni slice",
+        "detroit-style deep dish pepperoni slice",
+        "deep dish slice",
+        "detroit style slice"
+      ],
+      "macros": {
+        "protein": 16.1,
+        "fat": 13.9,
+        "carbs": 39.9,
+        "fiber": 2,
+        "calories": 346.3
+      },
+      "build": [
+        {
+          "component": "deep dish cheese pizza slice",
+          "count": 1
+        },
+        {
+          "component": "pepperoni topping (deep dish, per slice)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Detroit-Style Deep Dish Cheese Pizza (whole large pizza)",
+      "aliases": [
+        "whole deep dish cheese",
+        "whole detroit style cheese",
+        "whole detroit-style deep dish cheese",
+        "deep dish cheese whole pizza",
+        "detroit style cheese whole pizza",
+        "detroit-style deep dish cheese whole pizza"
+      ],
+      "macros": {
+        "protein": 118,
+        "fat": 85,
+        "carbs": 317,
+        "fiber": 16,
+        "calories": 2500
+      }
+    },
+    {
+      "name": "Detroit-Style Deep Dish Cheese Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "deep dish cheese",
+        "detroit style cheese",
+        "detroit-style deep dish cheese",
+        "slice of deep dish cheese",
+        "slice of detroit style cheese",
+        "slice of detroit-style deep dish cheese",
+        "deep dish cheese slice",
+        "detroit style cheese slice",
+        "detroit-style deep dish cheese slice"
+      ],
+      "macros": {
+        "protein": 14.8,
+        "fat": 10.6,
+        "carbs": 39.6,
+        "fiber": 2,
+        "calories": 312.5
+      },
+      "build": [
+        {
+          "component": "deep dish cheese pizza slice",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Detroit-Style Deep Dish Italian Sausage Pizza (whole large pizza)",
+      "aliases": [
+        "whole deep dish italian sausage",
+        "whole deep dish sausage",
+        "whole detroit style sausage",
+        "whole detroit-style deep dish italian sausage",
+        "whole detroit-style deep dish sausage",
+        "deep dish italian sausage whole pizza",
+        "deep dish sausage whole pizza",
+        "detroit style sausage whole pizza",
+        "detroit-style deep dish italian sausage whole pizza",
+        "detroit-style deep dish sausage whole pizza"
+      ],
+      "macros": {
+        "protein": 133,
+        "fat": 114,
+        "carbs": 319,
+        "fiber": 16,
+        "calories": 2820
+      }
+    },
+    {
+      "name": "Detroit-Style Deep Dish Italian Sausage Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "deep dish italian sausage",
+        "deep dish sausage",
+        "detroit style sausage",
+        "detroit-style deep dish italian sausage",
+        "detroit-style deep dish sausage",
+        "slice of deep dish italian sausage",
+        "slice of deep dish sausage",
+        "slice of detroit style sausage",
+        "slice of detroit-style deep dish italian sausage",
+        "slice of detroit-style deep dish sausage",
+        "deep dish italian sausage slice",
+        "deep dish sausage slice",
+        "detroit style sausage slice",
+        "detroit-style deep dish italian sausage slice",
+        "detroit-style deep dish sausage slice"
+      ],
+      "macros": {
+        "protein": 16.6,
+        "fat": 14.3,
+        "carbs": 39.9,
+        "fiber": 2,
+        "calories": 352.5
+      },
+      "build": [
+        {
+          "component": "deep dish cheese pizza slice",
+          "count": 1
+        },
+        {
+          "component": "italian sausage topping (deep dish, per slice)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Detroit-Style Deep Dish Ultimate Supreme Pizza (whole large pizza)",
+      "aliases": [
+        "whole deep dish ultimate supreme",
+        "whole deep dish supreme",
+        "whole detroit style supreme",
+        "whole detroit-style deep dish ultimate supreme",
+        "whole detroit-style deep dish supreme",
+        "deep dish ultimate supreme whole pizza",
+        "deep dish supreme whole pizza",
+        "detroit style supreme whole pizza",
+        "detroit-style deep dish ultimate supreme whole pizza",
+        "detroit-style deep dish supreme whole pizza"
+      ],
+      "macros": {
+        "protein": 141,
+        "fat": 130,
+        "carbs": 332,
+        "fiber": 20,
+        "calories": 3050
+      }
+    },
+    {
+      "name": "Detroit-Style Deep Dish Ultimate Supreme Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "deep dish ultimate supreme",
+        "deep dish supreme",
+        "detroit style supreme",
+        "detroit-style deep dish ultimate supreme",
+        "detroit-style deep dish supreme",
+        "slice of deep dish ultimate supreme",
+        "slice of deep dish supreme",
+        "slice of detroit style supreme",
+        "slice of detroit-style deep dish ultimate supreme",
+        "slice of detroit-style deep dish supreme",
+        "deep dish ultimate supreme slice",
+        "deep dish supreme slice",
+        "detroit style supreme slice",
+        "detroit-style deep dish ultimate supreme slice",
+        "detroit-style deep dish supreme slice"
+      ],
+      "macros": {
+        "protein": 17.6,
+        "fat": 16.3,
+        "carbs": 41.5,
+        "fiber": 2.5,
+        "calories": 381.3
+      }
+    },
+    {
+      "name": "Detroit-Style Deep Dish 3 Meat Treat Pizza (whole large pizza)",
+      "aliases": [
+        "whole deep dish 3 meat treat",
+        "whole deep dish three meat treat",
+        "whole detroit style 3 meat treat",
+        "whole detroit-style deep dish 3 meat treat",
+        "whole detroit-style deep dish three meat treat",
+        "deep dish 3 meat treat whole pizza",
+        "deep dish three meat treat whole pizza",
+        "detroit style 3 meat treat whole pizza",
+        "detroit-style deep dish 3 meat treat whole pizza",
+        "detroit-style deep dish three meat treat whole pizza"
+      ],
+      "macros": {
+        "protein": 159,
+        "fat": 175,
+        "carbs": 321,
+        "fiber": 16,
+        "calories": 3480
+      }
+    },
+    {
+      "name": "Detroit-Style Deep Dish 3 Meat Treat Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "deep dish 3 meat treat",
+        "deep dish three meat treat",
+        "detroit style 3 meat treat",
+        "detroit-style deep dish 3 meat treat",
+        "detroit-style deep dish three meat treat",
+        "slice of deep dish 3 meat treat",
+        "slice of deep dish three meat treat",
+        "slice of detroit style 3 meat treat",
+        "slice of detroit-style deep dish 3 meat treat",
+        "slice of detroit-style deep dish three meat treat",
+        "deep dish 3 meat treat slice",
+        "deep dish three meat treat slice",
+        "detroit style 3 meat treat slice",
+        "detroit-style deep dish 3 meat treat slice",
+        "detroit-style deep dish three meat treat slice"
+      ],
+      "macros": {
+        "protein": 19.9,
+        "fat": 21.9,
+        "carbs": 40.1,
+        "fiber": 2,
+        "calories": 435
+      }
+    },
+    {
+      "name": "Detroit-Style Deep Dish Hula Hawaiian Pizza (whole large pizza)",
+      "aliases": [
+        "whole deep dish hula hawaiian",
+        "whole deep dish hawaiian",
+        "whole detroit style hawaiian",
+        "whole detroit-style deep dish hula hawaiian",
+        "whole detroit-style deep dish hawaiian",
+        "deep dish hula hawaiian whole pizza",
+        "deep dish hawaiian whole pizza",
+        "detroit style hawaiian whole pizza",
+        "detroit-style deep dish hula hawaiian whole pizza",
+        "detroit-style deep dish hawaiian whole pizza"
+      ],
+      "macros": {
+        "protein": 137,
+        "fat": 88,
+        "carbs": 341,
+        "fiber": 17,
+        "calories": 2690
+      }
+    },
+    {
+      "name": "Detroit-Style Deep Dish Hula Hawaiian Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "deep dish hula hawaiian",
+        "deep dish hawaiian",
+        "detroit style hawaiian",
+        "detroit-style deep dish hula hawaiian",
+        "detroit-style deep dish hawaiian",
+        "slice of deep dish hula hawaiian",
+        "slice of deep dish hawaiian",
+        "slice of detroit style hawaiian",
+        "slice of detroit-style deep dish hula hawaiian",
+        "slice of detroit-style deep dish hawaiian",
+        "deep dish hula hawaiian slice",
+        "deep dish hawaiian slice",
+        "detroit style hawaiian slice",
+        "detroit-style deep dish hula hawaiian slice",
+        "detroit-style deep dish hawaiian slice"
+      ],
+      "macros": {
+        "protein": 17.1,
+        "fat": 11,
+        "carbs": 42.6,
+        "fiber": 2.1,
+        "calories": 336.3
+      },
+      "build": [
+        {
+          "component": "deep dish cheese pizza slice",
+          "count": 1
+        },
+        {
+          "component": "smoky ham topping (deep dish, per slice)",
+          "count": 1
+        },
+        {
+          "component": "pineapple topping (deep dish, per slice)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Detroit-Style Deep Dish Veggie Pizza (whole large pizza)",
+      "aliases": [
+        "whole deep dish veggie",
+        "whole detroit style veggie",
+        "whole detroit-style deep dish veggie",
+        "deep dish veggie whole pizza",
+        "detroit style veggie whole pizza",
+        "detroit-style deep dish veggie whole pizza"
+      ],
+      "macros": {
+        "protein": 123,
+        "fat": 99,
+        "carbs": 333,
+        "fiber": 22,
+        "calories": 2730
+      }
+    },
+    {
+      "name": "Detroit-Style Deep Dish Veggie Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "deep dish veggie",
+        "detroit style veggie",
+        "detroit-style deep dish veggie",
+        "slice of deep dish veggie",
+        "slice of detroit style veggie",
+        "slice of detroit-style deep dish veggie",
+        "deep dish veggie slice",
+        "detroit style veggie slice",
+        "detroit-style deep dish veggie slice"
+      ],
+      "macros": {
+        "protein": 15.4,
+        "fat": 12.4,
+        "carbs": 41.6,
+        "fiber": 2.8,
+        "calories": 341.3
+      }
+    },
+    {
+      "name": "Detroit-Style Deep Dish 5 Meat Feast Pizza (whole large pizza)",
+      "aliases": [
+        "whole deep dish 5 meat feast",
+        "whole deep dish five meat feast",
+        "whole detroit style 5 meat feast",
+        "whole detroit-style deep dish 5 meat feast",
+        "whole detroit-style deep dish five meat feast",
+        "deep dish 5 meat feast whole pizza",
+        "deep dish five meat feast whole pizza",
+        "detroit style 5 meat feast whole pizza",
+        "detroit-style deep dish 5 meat feast whole pizza",
+        "detroit-style deep dish five meat feast whole pizza"
+      ],
+      "macros": {
+        "protein": 171,
+        "fat": 172,
+        "carbs": 322,
+        "fiber": 16,
+        "calories": 3500
+      }
+    },
+    {
+      "name": "Detroit-Style Deep Dish 5 Meat Feast Pizza (1 slice, 1/8 pizza)",
+      "aliases": [
+        "deep dish 5 meat feast",
+        "deep dish five meat feast",
+        "detroit style 5 meat feast",
+        "detroit-style deep dish 5 meat feast",
+        "detroit-style deep dish five meat feast",
+        "slice of deep dish 5 meat feast",
+        "slice of deep dish five meat feast",
+        "slice of detroit style 5 meat feast",
+        "slice of detroit-style deep dish 5 meat feast",
+        "slice of detroit-style deep dish five meat feast",
+        "deep dish 5 meat feast slice",
+        "deep dish five meat feast slice",
+        "detroit style 5 meat feast slice",
+        "detroit-style deep dish 5 meat feast slice",
+        "detroit-style deep dish five meat feast slice"
+      ],
+      "macros": {
+        "protein": 21.4,
+        "fat": 21.5,
+        "carbs": 40.3,
+        "fiber": 2,
+        "calories": 437.5
+      }
+    },
+    {
+      "name": "Add Stuffed Crust to any round pizza (whole pizza add-on)",
+      "aliases": [
+        "add stuffed crust",
+        "stuffed crust add-on",
+        "make it stuffed crust"
+      ],
+      "macros": {
+        "protein": 29,
+        "fat": 46,
+        "carbs": 8,
+        "fiber": 0,
+        "calories": 560
+      }
+    },
+    {
+      "name": "Add Stuffed Crust to any Detroit-Style Deep Dish (whole pizza add-on)",
+      "aliases": [
+        "add stuffed crust deep dish",
+        "stuffed crust deep dish add-on"
+      ],
+      "macros": {
+        "protein": 33,
+        "fat": 40,
+        "carbs": 9,
+        "fiber": 0,
+        "calories": 530
+      }
+    },
+    {
+      "name": "Crazy Bread (8 bread sticks)",
+      "aliases": [
+        "crazy bread",
+        "crazybread",
+        "crazy bread order",
+        "crazy bread 8 piece",
+        "breadsticks",
+        "bread sticks"
+      ],
+      "macros": {
+        "protein": 25,
+        "fat": 22,
+        "carbs": 128,
+        "fiber": 5,
+        "calories": 800
+      },
+      "build": [
+        {
+          "component": "crazy bread stick",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "name": "Crazy Bread (1 bread stick)",
+      "aliases": [
+        "crazy bread stick",
+        "one crazy bread",
+        "crazy breadstick",
+        "piece of crazy bread",
+        "breadstick"
+      ],
+      "macros": {
+        "protein": 3.1,
+        "fat": 2.8,
+        "carbs": 16,
+        "fiber": 0.6,
+        "calories": 100
+      },
+      "build": [
+        {
+          "component": "crazy bread stick",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Crazy Combo (8 Crazy Bread sticks & Crazy Sauce)",
+      "aliases": [
+        "crazy combo",
+        "crazy bread combo",
+        "crazy bread and sauce",
+        "crazy bread with crazy sauce"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 22,
+        "carbs": 135,
+        "fiber": 6,
+        "calories": 840
+      },
+      "build": [
+        {
+          "component": "crazy bread stick",
+          "count": 8
+        },
+        {
+          "component": "crazy sauce cup",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Crazy Sauce (1 sauce cup)",
+      "aliases": [
+        "crazy sauce",
+        "marinara",
+        "dipping sauce",
+        "pizza sauce cup"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0,
+        "carbs": 7,
+        "fiber": 2,
+        "calories": 30
+      }
+    },
+    {
+      "name": "Italian Cheese Bread (10 bread sticks)",
+      "aliases": [
+        "italian cheese bread",
+        "cheese bread",
+        "icb",
+        "italian cheese bread order"
+      ],
+      "macros": {
+        "protein": 59,
+        "fat": 54,
+        "carbs": 156,
+        "fiber": 7,
+        "calories": 1340
+      },
+      "build": [
+        {
+          "component": "italian cheese bread stick",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "name": "Italian Cheese Bread (1 piece)",
+      "aliases": [
+        "italian cheese bread piece",
+        "piece of italian cheese bread",
+        "cheese bread piece",
+        "cheese bread stick"
+      ],
+      "macros": {
+        "protein": 5.9,
+        "fat": 5.4,
+        "carbs": 15.6,
+        "fiber": 0.7,
+        "calories": 134
+      },
+      "build": [
+        {
+          "component": "italian cheese bread stick",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Pepperoni Cheese Bread (10 bread sticks)",
+      "aliases": [
+        "pepperoni cheese bread",
+        "pepperoni italian cheese bread",
+        "pepperoni bread"
+      ],
+      "macros": {
+        "protein": 66,
+        "fat": 71,
+        "carbs": 155,
+        "fiber": 7,
+        "calories": 1520
+      },
+      "build": [
+        {
+          "component": "pepperoni cheese bread stick",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "name": "Pepperoni Cheese Bread (1 piece)",
+      "aliases": [
+        "pepperoni cheese bread piece",
+        "piece of pepperoni cheese bread"
+      ],
+      "macros": {
+        "protein": 6.6,
+        "fat": 7.1,
+        "carbs": 15.5,
+        "fiber": 0.7,
+        "calories": 152
+      },
+      "build": [
+        {
+          "component": "pepperoni cheese bread stick",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Zesty Cheese Bread (10 bread sticks)",
+      "aliases": [
+        "zesty cheese bread",
+        "zesty bread"
+      ],
+      "macros": {
+        "protein": 55,
+        "fat": 71,
+        "carbs": 158,
+        "fiber": 7,
+        "calories": 1490
+      },
+      "build": [
+        {
+          "component": "zesty cheese bread stick",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "name": "Stuffed Crazy Bread (3 bread sticks & Crazy Sauce)",
+      "aliases": [
+        "stuffed crazy bread",
+        "stuffed crazybread",
+        "stuffed bread sticks",
+        "stuffed crazy bread order"
+      ],
+      "macros": {
+        "protein": 36,
+        "fat": 38,
+        "carbs": 126,
+        "fiber": 6,
+        "calories": 980
+      },
+      "build": [
+        {
+          "component": "stuffed crazy bread stick",
+          "count": 3
+        },
+        {
+          "component": "crazy sauce cup",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Stuffed Crazy Bread (1 bread stick, no sauce)",
+      "aliases": [
+        "stuffed crazy bread stick",
+        "one stuffed crazy bread",
+        "piece of stuffed crazy bread"
+      ],
+      "macros": {
+        "protein": 11.7,
+        "fat": 12.7,
+        "carbs": 39.7,
+        "fiber": 1.3,
+        "calories": 316.7
+      },
+      "build": [
+        {
+          "component": "stuffed crazy bread stick",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Pepperoni Crazy Puffs (full order)",
+      "aliases": [
+        "pepperoni crazy puffs",
+        "crazy puffs",
+        "crazy puffs pepperoni",
+        "pepperoni puffs"
+      ],
+      "macros": {
+        "protein": 34,
+        "fat": 36,
+        "carbs": 56,
+        "fiber": 3,
+        "calories": 680
+      }
+    },
+    {
+      "name": "4 Cheese Crazy Puffs (full order)",
+      "aliases": [
+        "4 cheese crazy puffs",
+        "four cheese crazy puffs",
+        "cheese crazy puffs",
+        "crazy puffs cheese",
+        "cheese puffs"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 26,
+        "carbs": 56,
+        "fiber": 3,
+        "calories": 580
+      }
+    },
+    {
+      "name": "Caesar Wings Oven Roasted (8 pieces)",
+      "aliases": [
+        "oven roasted wings",
+        "plain wings",
+        "caesar wings",
+        "wings",
+        "oven roasted caesar wings",
+        "8 oven roasted wings",
+        "8 plain wings",
+        "8 caesar wings",
+        "8 wings",
+        "8 oven roasted caesar wings"
+      ],
+      "macros": {
+        "protein": 47,
+        "fat": 35,
+        "carbs": 3,
+        "fiber": 0,
+        "calories": 510
+      },
+      "build": [
+        {
+          "component": "oven roasted wing",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "name": "Caesar Wings Oven Roasted (1 piece)",
+      "aliases": [
+        "1 oven roasted wing",
+        "1 plain wing",
+        "1 caesar wing",
+        "1 wing",
+        "1 oven roasted caesar wing",
+        "one oven roasted wing",
+        "one plain wing",
+        "one caesar wing",
+        "one wing",
+        "one oven roasted caesar wing"
+      ],
+      "macros": {
+        "protein": 5.9,
+        "fat": 4.4,
+        "carbs": 0.4,
+        "fiber": 0,
+        "calories": 63.8
+      },
+      "build": [
+        {
+          "component": "oven roasted wing",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Caesar Wings Buffalo (8 pieces)",
+      "aliases": [
+        "buffalo wings",
+        "buffalo caesar wings",
+        "hot wings",
+        "8 buffalo wings",
+        "8 buffalo caesar wings",
+        "8 hot wings"
+      ],
+      "macros": {
+        "protein": 47,
+        "fat": 35,
+        "carbs": 7,
+        "fiber": 0,
+        "calories": 520
+      },
+      "build": [
+        {
+          "component": "buffalo wing",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "name": "Caesar Wings Buffalo (1 piece)",
+      "aliases": [
+        "1 buffalo wing",
+        "1 buffalo caesar wing",
+        "1 hot wing",
+        "one buffalo wing",
+        "one buffalo caesar wing",
+        "one hot wing"
+      ],
+      "macros": {
+        "protein": 5.9,
+        "fat": 4.4,
+        "carbs": 0.9,
+        "fiber": 0,
+        "calories": 65
+      },
+      "build": [
+        {
+          "component": "buffalo wing",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Caesar Wings BBQ (8 pieces)",
+      "aliases": [
+        "bbq wings",
+        "barbecue wings",
+        "bbq caesar wings",
+        "8 bbq wings",
+        "8 barbecue wings",
+        "8 bbq caesar wings"
+      ],
+      "macros": {
+        "protein": 48,
+        "fat": 35,
+        "carbs": 32,
+        "fiber": 0,
+        "calories": 620
+      },
+      "build": [
+        {
+          "component": "bbq wing",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "name": "Caesar Wings BBQ (1 piece)",
+      "aliases": [
+        "1 bbq wing",
+        "1 barbecue wing",
+        "1 bbq caesar wing",
+        "one bbq wing",
+        "one barbecue wing",
+        "one bbq caesar wing"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 4.4,
+        "carbs": 4,
+        "fiber": 0,
+        "calories": 77.5
+      },
+      "build": [
+        {
+          "component": "bbq wing",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Caesar Wings Garlic Parmesan (8 pieces)",
+      "aliases": [
+        "garlic parmesan wings",
+        "garlic parm wings",
+        "garlic parmesan caesar wings",
+        "8 garlic parmesan wings",
+        "8 garlic parm wings",
+        "8 garlic parmesan caesar wings"
+      ],
+      "macros": {
+        "protein": 49,
+        "fat": 51,
+        "carbs": 5,
+        "fiber": 0,
+        "calories": 670
+      },
+      "build": [
+        {
+          "component": "garlic parmesan wing",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "name": "Caesar Wings Garlic Parmesan (1 piece)",
+      "aliases": [
+        "1 garlic parmesan wing",
+        "1 garlic parm wing",
+        "1 garlic parmesan caesar wing",
+        "one garlic parmesan wing",
+        "one garlic parm wing",
+        "one garlic parmesan caesar wing"
+      ],
+      "macros": {
+        "protein": 6.1,
+        "fat": 6.4,
+        "carbs": 0.6,
+        "fiber": 0,
+        "calories": 83.8
+      },
+      "build": [
+        {
+          "component": "garlic parmesan wing",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Caesar Dip Cheezy Jalapeno (1 container)",
+      "aliases": [
+        "cheezy jalapeno dip",
+        "cheesy jalapeno dip",
+        "jalapeno dip",
+        "caesar dip jalapeno"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 21,
+        "carbs": 3,
+        "fiber": 0,
+        "calories": 210
+      }
+    },
+    {
+      "name": "Caesar Dip Ranch (1 container)",
+      "aliases": [
+        "ranch dip",
+        "ranch",
+        "caesar dip ranch",
+        "ranch dipping sauce"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 23,
+        "carbs": 4,
+        "fiber": 0,
+        "calories": 230
+      }
+    },
+    {
+      "name": "Caesar Dip Buffalo Ranch (1 container)",
+      "aliases": [
+        "buffalo ranch dip",
+        "buffalo ranch",
+        "caesar dip buffalo ranch"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 23,
+        "carbs": 4,
+        "fiber": 0,
+        "calories": 230
+      }
+    },
+    {
+      "name": "Caesar Dip Butter Garlic Flavor (1 container)",
+      "aliases": [
+        "butter garlic dip",
+        "garlic butter dip",
+        "butter garlic sauce",
+        "garlic butter",
+        "caesar dip butter garlic"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 42,
+        "carbs": 0,
+        "fiber": 0,
+        "calories": 370
+      }
+    },
+    {
+      "name": "Cheddar Cheese Sauce (1 container)",
+      "aliases": [
+        "cheddar cheese sauce",
+        "cheese sauce",
+        "cheese dip",
+        "cheddar dip"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 8,
+        "carbs": 7,
+        "fiber": 0,
+        "calories": 110
+      }
+    },
+    {
+      "name": "Cookie Dough Brownie made with M&M'S Minis (full package)",
+      "aliases": [
+        "cookie dough brownie",
+        "cookie dough brownie m&ms",
+        "m&m cookie dough brownie",
+        "m and m brownie",
+        "brownie"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 44,
+        "carbs": 96,
+        "fiber": 4,
+        "calories": 840
+      }
+    },
+    {
+      "name": "Cookie Dough Brownie made with TWIX Cookie Bar Pieces (full package)",
+      "aliases": [
+        "cookie dough brownie twix",
+        "twix cookie dough brownie",
+        "twix brownie"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 44,
+        "carbs": 120,
+        "fiber": 4,
+        "calories": 800
+      }
+    }
+  ]
+}

@@ -1,0 +1,436 @@
+{
+  "chain": "Whataburger",
+  "aliases": ["whataburger", "what-a-burger", "what a burger", "whata burger", "whatabuger", "wataburger", "whatburger", "wb"],
+  "source": "https://wbimageserver.whataburger.com/Nutrition.pdf",
+  "retrieved": "2026-10-05",
+  "notes": "Item totals are from Whataburger's own Nutritional Information PDF (linked from the footer of whataburger.com; dated March 29, 2021, still the chain's published sheet). Component macros are the per-ingredient figures Whataburger's own online-ordering nutrition calculator uses (whataburger.com menu > item > customization > Show Nutrition, served by api.whataburger.com/v2.4/locations/{id}/menu/child-recipes/{id}); counts in each build are the calculator's default 'Regular' portions. One tablespoon of sauce = the calculator's 0.5 oz portion; 'Regular' mustard/mayo/ketchup/creamy pepper/WhataSauce is 1 tablespoon, Regular Sweet & Spicy is 1.5, Regular Honey BBQ is 2.5. Bun components include the toasting oil. Items marked 'calculator' in note are not on the PDF; their totals are the calculator's default-build totals.",
+  "components": {
+    "large beef patty": { "unit": "each", "protein": 18, "fat": 19, "carbs": 0, "fiber": 0, "calories": 243, "derived": "calculator ingredient 'Beef Patty Large (5 in)'; equals Double Meat Whataburger minus Whataburger on the PDF (240 cal, 19 g fat, 18 g protein)" },
+    "small beef patty": { "unit": "each", "protein": 8.6, "fat": 9, "carbs": 0, "fiber": 0, "calories": 115, "derived": "calculator ingredient 'Beef Patty Small'; equals Double Meat Whataburger Jr. minus Whataburger Jr. on the PDF (110 cal, 9 g fat, 9 g protein)" },
+    "large bun": { "unit": "each", "protein": 9, "fat": 5.4, "carbs": 56, "fiber": 2, "calories": 308, "derived": "calculator 'Large Bun (5 in)' = White Bun Large plus toasting bun oil (shown as 310 Cal on the ordering page)" },
+    "small bun": { "unit": "each", "protein": 5, "fat": 2, "carbs": 34, "fiber": 1, "calories": 174, "derived": "calculator 'Small Bun (4 in)' = White Bun Small plus toasting bun oil (shown as 170 Cal)" },
+    "potato bun": { "unit": "each", "protein": 7, "fat": 6.1, "carbs": 39, "fiber": 1, "calories": 240, "derived": "calculator 'Potato Bun' (2.65 oz potato bun plus toasting bun oil; shown as 240 Cal)" },
+    "texas toast": { "unit": "slice", "protein": 3, "fat": 1.6, "carbs": 21, "fiber": 0, "calories": 115, "derived": "calculator 'Texas Toast Slice' plus half the toasting bun oil the calculator adds for two slices" },
+    "american cheese": { "unit": "slice", "protein": 5, "fat": 7, "carbs": 0, "fiber": 0, "calories": 90 },
+    "small american cheese": { "unit": "slice", "protein": 2.5, "fat": 3.5, "carbs": 0, "fiber": 0, "calories": 45 },
+    "monterey jack cheese": { "unit": "slice", "protein": 3, "fat": 5, "carbs": 0, "fiber": 0, "calories": 60 },
+    "bacon": { "unit": "strip", "protein": 1.9, "fat": 1.6, "carbs": 0, "fiber": 0, "calories": 23 },
+    "tomato": { "unit": "slice", "protein": 0.1, "fat": 0, "carbs": 0.6, "fiber": 0.2, "calories": 3 },
+    "lettuce": { "unit": "ounce", "protein": 0.3, "fat": 0, "carbs": 0.8, "fiber": 0.3, "calories": 4 },
+    "green leaf lettuce": { "unit": "each", "protein": 0.1, "fat": 0, "carbs": 0.1, "fiber": 0.1, "calories": 1 },
+    "pickles": { "unit": "slice", "protein": 0, "fat": 0, "carbs": 0.1, "fiber": 0, "calories": 0.6 },
+    "diced onions": { "unit": "ounce", "protein": 0.3, "fat": 0, "carbs": 2.7, "fiber": 0.5, "calories": 11 },
+    "grilled onions": { "unit": "each", "protein": 0.2, "fat": 0.9, "carbs": 2, "fiber": 0.4, "calories": 16, "derived": "calculator 'Regular Grilled Onions' = 0.75 oz diced onions plus grilling oil (shown as 20 Cal)" },
+    "jalapeno slices": { "unit": "slice", "protein": 0, "fat": 0, "carbs": 0.1, "fiber": 0.05, "calories": 0.3 },
+    "avocado": { "unit": "ounce", "protein": 0.9, "fat": 5.7, "carbs": 2.8, "fiber": 1.9, "calories": 57 },
+    "mustard": { "unit": "tablespoon", "protein": 0.7, "fat": 0.8, "carbs": 0.8, "fiber": 0.4, "calories": 15 },
+    "mayonnaise": { "unit": "tablespoon", "protein": 0.2, "fat": 5.1, "carbs": 2.2, "fiber": 0, "calories": 54 },
+    "ketchup": { "unit": "tablespoon", "protein": 0.2, "fat": 0, "carbs": 4, "fiber": 0.2, "calories": 17 },
+    "creamy pepper sauce": { "unit": "tablespoon", "protein": 0.3, "fat": 6.1, "carbs": 1, "fiber": 0.1, "calories": 60 },
+    "sweet & spicy sauce": { "unit": "tablespoon", "protein": 0.1, "fat": 0, "carbs": 6.5, "fiber": 0.1, "calories": 25 },
+    "honey bbq sauce": { "unit": "tablespoon", "protein": 0.1, "fat": 0, "carbs": 5.5, "fiber": 0.1, "calories": 22 },
+    "whatasauce": { "unit": "tablespoon", "protein": 0, "fat": 6.1, "carbs": 2, "fiber": 0, "calories": 61 },
+    "buffalo sauce": { "unit": "tablespoon", "protein": 0.1, "fat": 0.5, "carbs": 0.5, "fiber": 0.5, "calories": 8 },
+    "honey butter sauce": { "unit": "tablespoon", "protein": 0.1, "fat": 4.5, "carbs": 3.5, "fiber": 0, "calories": 55 },
+    "whatachick'n strip": { "unit": "piece", "protein": 8.4, "fat": 9.6, "carbs": 10.6, "fiber": 0.9, "calories": 162 },
+    "whatachick'n fillet": { "unit": "each", "protein": 25.8, "fat": 8.1, "carbs": 25.8, "fiber": 1.6, "calories": 274, "derived": "calculator 'Chicken Filet' x 5.68 oz, the portion in the Premium and Signature Whatachick'n sandwiches" },
+    "grilled chicken breast": { "unit": "each", "protein": 24.4, "fat": 2.7, "carbs": 2.3, "fiber": 1.1, "calories": 131 },
+    "spicy chicken fillet": { "unit": "each", "protein": 23, "fat": 12, "carbs": 13, "fiber": 1, "calories": 250 },
+    "fried egg": { "unit": "each", "protein": 7, "fat": 5.3, "carbs": 0.4, "fiber": 0, "calories": 80 },
+    "scrambled eggs": { "unit": "ounce", "protein": 3.3, "fat": 2.6, "carbs": 0.7, "fiber": 0, "calories": 39 },
+    "sausage patty": { "unit": "each", "protein": 11.1, "fat": 19.1, "carbs": 0, "fiber": 0, "calories": 211 },
+    "sausage crumbles": { "unit": "ounce", "protein": 3.3, "fat": 9.3, "carbs": 0.6, "fiber": 0.2, "calories": 100 },
+    "flour tortilla": { "unit": "each", "protein": 4, "fat": 7, "carbs": 26, "fiber": 1, "calories": 180 },
+    "buttermilk biscuit": { "unit": "each", "protein": 6, "fat": 19.5, "carbs": 34, "fiber": 1, "calories": 332, "derived": "calculator 'Biscuit' plus the liquid margarine the calculator adds to every biscuit (PDF Buttermilk Biscuit is 310 cal)" },
+    "hash brown stick": { "unit": "piece", "protein": 0.4, "fat": 2.7, "carbs": 5.2, "fiber": 0.4, "calories": 47 },
+    "french fries": { "unit": "ounce", "protein": 1.1, "fat": 4.7, "carbs": 11.6, "fiber": 1, "calories": 93 },
+    "onion rings": { "unit": "ounce", "protein": 1.4, "fat": 5.2, "carbs": 10.2, "fiber": 1.3, "calories": 93 }
+  },
+  "items": [
+    {
+      "name": "Whataburger",
+      "aliases": ["whataburger", "#1", "number 1", "number one", "original whataburger", "single whataburger", "whataburger single", "regular whataburger", "whataburger sandwich"],
+      "macros": { "protein": 29, "fat": 25, "carbs": 62, "fiber": 4, "calories": 590 },
+      "build": [
+        { "component": "large bun", "count": 1 },
+        { "component": "large beef patty", "count": 1 },
+        { "component": "tomato", "count": 3 },
+        { "component": "lettuce", "count": 1 },
+        { "component": "pickles", "count": 4 },
+        { "component": "diced onions", "count": 0.75 },
+        { "component": "mustard", "count": 1 }
+      ]
+    },
+    {
+      "name": "Double Meat Whataburger",
+      "aliases": ["double meat whataburger", "double meat", "double whataburger", "#2", "number 2", "dbl meat whataburger", "double meat burger", "whataburger double meat", "double"],
+      "macros": { "protein": 47, "fat": 44, "carbs": 62, "fiber": 4, "calories": 830 },
+      "build": [
+        { "component": "large bun", "count": 1 },
+        { "component": "large beef patty", "count": 2 },
+        { "component": "tomato", "count": 3 },
+        { "component": "lettuce", "count": 1 },
+        { "component": "pickles", "count": 4 },
+        { "component": "diced onions", "count": 0.75 },
+        { "component": "mustard", "count": 1 }
+      ]
+    },
+    {
+      "name": "Triple Meat Whataburger",
+      "aliases": ["triple meat whataburger", "triple meat", "triple whataburger", "#3", "number 3", "trpl meat whataburger", "triple"],
+      "macros": { "protein": 65, "fat": 63, "carbs": 62, "fiber": 4, "calories": 1070 },
+      "build": [
+        { "component": "large bun", "count": 1 },
+        { "component": "large beef patty", "count": 3 },
+        { "component": "tomato", "count": 3 },
+        { "component": "lettuce", "count": 1 },
+        { "component": "pickles", "count": 4 },
+        { "component": "diced onions", "count": 0.75 },
+        { "component": "mustard", "count": 1 }
+      ]
+    },
+    {
+      "name": "Jalapeño & Cheese Whataburger",
+      "aliases": ["jalapeno and cheese whataburger", "jalapeño & cheese whataburger", "jalapeno cheese whataburger", "jalapeno whataburger", "#4", "number 4", "jalapeno and cheese burger", "jalapeno & cheese"],
+      "macros": { "protein": 34, "fat": 32, "carbs": 63, "fiber": 4, "calories": 680 },
+      "build": [
+        { "component": "large bun", "count": 1 },
+        { "component": "large beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "jalapeno slices", "count": 8 },
+        { "component": "tomato", "count": 3 },
+        { "component": "lettuce", "count": 1 },
+        { "component": "pickles", "count": 4 },
+        { "component": "diced onions", "count": 0.75 },
+        { "component": "mustard", "count": 1 }
+      ]
+    },
+    {
+      "name": "Bacon & Cheese Whataburger",
+      "aliases": ["bacon and cheese whataburger", "bacon & cheese whataburger", "bacon cheese whataburger", "bacon cheeseburger", "whataburger with bacon and cheese", "#5", "number 5", "bacon and cheese burger"],
+      "macros": { "protein": 39, "fat": 37, "carbs": 62, "fiber": 4, "calories": 750 },
+      "build": [
+        { "component": "large bun", "count": 1 },
+        { "component": "large beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "bacon", "count": 3 },
+        { "component": "tomato", "count": 3 },
+        { "component": "lettuce", "count": 1 },
+        { "component": "pickles", "count": 4 },
+        { "component": "diced onions", "count": 0.75 },
+        { "component": "mustard", "count": 1 }
+      ]
+    },
+    {
+      "name": "Avocado Bacon Burger",
+      "aliases": ["avocado bacon burger", "avocado bacon", "avocado burger", "bacon avocado burger", "#6", "number 6"],
+      "macros": { "protein": 37, "fat": 52, "carbs": 52, "fiber": 4, "calories": 820 },
+      "build": [
+        { "component": "texas toast", "count": 2 },
+        { "component": "large beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "bacon", "count": 3 },
+        { "component": "avocado", "count": 1.5 },
+        { "component": "tomato", "count": 3 },
+        { "component": "diced onions", "count": 0.75 },
+        { "component": "creamy pepper sauce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Whataburger Jr.",
+      "aliases": ["whataburger jr", "whataburger junior", "jr whataburger", "junior whataburger", "#7", "number 7", "wb jr", "whataburger jr."],
+      "macros": { "protein": 14, "fat": 11, "carbs": 37, "fiber": 2, "calories": 310 },
+      "build": [
+        { "component": "small bun", "count": 1 },
+        { "component": "small beef patty", "count": 1 },
+        { "component": "tomato", "count": 2 },
+        { "component": "lettuce", "count": 0.5 },
+        { "component": "diced onions", "count": 0.25 },
+        { "component": "mustard", "count": 0.5 }
+      ]
+    },
+    {
+      "name": "Double Meat Whataburger Jr.",
+      "aliases": ["double meat whataburger jr", "double meat jr", "double meat junior", "double whataburger jr", "#8", "number 8", "dbl meat jr", "double jr"],
+      "macros": { "protein": 23, "fat": 20, "carbs": 37, "fiber": 2, "calories": 420 },
+      "build": [
+        { "component": "small bun", "count": 1 },
+        { "component": "small beef patty", "count": 2 },
+        { "component": "tomato", "count": 2 },
+        { "component": "lettuce", "count": 0.5 },
+        { "component": "diced onions", "count": 0.25 },
+        { "component": "mustard", "count": 0.5 }
+      ]
+    },
+    {
+      "name": "Whataburger Jr. with Bacon & Cheese",
+      "aliases": ["bacon and cheese whataburger jr", "bacon & cheese whataburger jr", "whataburger jr with bacon and cheese", "bacon cheese jr", "jr bacon cheeseburger", "bacon and cheese jr"],
+      "macros": { "protein": 21, "fat": 18, "carbs": 37, "fiber": 2, "calories": 400 },
+      "build": [
+        { "component": "small bun", "count": 1 },
+        { "component": "small beef patty", "count": 1 },
+        { "component": "small american cheese", "count": 1 },
+        { "component": "bacon", "count": 2 },
+        { "component": "tomato", "count": 2 },
+        { "component": "lettuce", "count": 0.5 },
+        { "component": "diced onions", "count": 0.25 },
+        { "component": "mustard", "count": 0.5 }
+      ]
+    },
+    {
+      "name": "Double Meat Whataburger Jr. with Cheese",
+      "aliases": ["double meat whataburger jr with cheese", "double meat jr with cheese", "double cheese jr", "double meat cheese jr", "jr double cheeseburger", "double meat jr cheese"],
+      "macros": { "protein": 26, "fat": 24, "carbs": 37, "fiber": 2, "calories": 470 },
+      "note": "calculator (not on the PDF)",
+      "build": [
+        { "component": "small bun", "count": 1 },
+        { "component": "small beef patty", "count": 2 },
+        { "component": "small american cheese", "count": 1 },
+        { "component": "tomato", "count": 2 },
+        { "component": "lettuce", "count": 0.5 },
+        { "component": "diced onions", "count": 0.25 },
+        { "component": "mustard", "count": 0.5 }
+      ]
+    },
+    {
+      "name": "Sweet & Spicy Bacon Burger",
+      "aliases": ["sweet and spicy bacon burger", "sweet & spicy bacon burger", "sweet n spicy bacon burger", "sweet and spicy burger", "sweet and spicy", "sweet & spicy", "sweet spicy bacon burger", "ssbb"],
+      "macros": { "protein": 60, "fat": 62, "carbs": 69, "fiber": 3, "calories": 1080 },
+      "build": [
+        { "component": "large bun", "count": 1 },
+        { "component": "large beef patty", "count": 2 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "monterey jack cheese", "count": 1 },
+        { "component": "bacon", "count": 3 },
+        { "component": "grilled onions", "count": 1 },
+        { "component": "sweet & spicy sauce", "count": 1.5 },
+        { "component": "mustard", "count": 1 }
+      ]
+    },
+    {
+      "name": "Sweet & Spicy Bacon Burger Jr.",
+      "aliases": ["sweet and spicy bacon burger jr", "jr sweet and spicy bacon burger", "sweet and spicy jr", "sweet & spicy jr", "junior sweet and spicy bacon burger"],
+      "macros": { "protein": 32, "fat": 33, "carbs": 42, "fiber": 1, "calories": 600 },
+      "build": [
+        { "component": "small bun", "count": 1 },
+        { "component": "small beef patty", "count": 2 },
+        { "component": "small american cheese", "count": 1 },
+        { "component": "monterey jack cheese", "count": 1 },
+        { "component": "bacon", "count": 2 },
+        { "component": "grilled onions", "count": 1 },
+        { "component": "sweet & spicy sauce", "count": 1 },
+        { "component": "mustard", "count": 0.5 }
+      ]
+    },
+    {
+      "name": "Whataburger Patty Melt",
+      "aliases": ["patty melt", "whataburger patty melt", "whataburger melt", "patty melt on texas toast", "paddy melt"],
+      "macros": { "protein": 49, "fat": 61, "carbs": 45, "fiber": 1, "calories": 940 },
+      "build": [
+        { "component": "texas toast", "count": 2 },
+        { "component": "large beef patty", "count": 2 },
+        { "component": "monterey jack cheese", "count": 2 },
+        { "component": "grilled onions", "count": 1 },
+        { "component": "creamy pepper sauce", "count": 1.5 }
+      ]
+    },
+    {
+      "name": "Whataburger Patty Melt Jr.",
+      "aliases": ["patty melt jr", "jr patty melt", "junior patty melt", "single patty melt", "whataburger patty melt jr"],
+      "macros": { "protein": 28, "fat": 37, "carbs": 45, "fiber": 1, "calories": 640 },
+      "build": [
+        { "component": "texas toast", "count": 2 },
+        { "component": "large beef patty", "count": 1 },
+        { "component": "monterey jack cheese", "count": 1 },
+        { "component": "grilled onions", "count": 1 },
+        { "component": "creamy pepper sauce", "count": 1.5 }
+      ]
+    },
+    {
+      "name": "Honey BBQ Chicken Strip Sandwich",
+      "aliases": ["honey bbq chicken strip sandwich", "honey bbq chicken sandwich", "honey barbecue chicken strip sandwich", "hbcss", "honey bbq strip sandwich", "chicken strip sandwich"],
+      "macros": { "protein": 38, "fat": 42, "carbs": 87, "fiber": 3, "calories": 890 },
+      "build": [
+        { "component": "texas toast", "count": 2 },
+        { "component": "whatachick'n strip", "count": 3 },
+        { "component": "monterey jack cheese", "count": 2 },
+        { "component": "honey bbq sauce", "count": 2.5 }
+      ]
+    },
+    {
+      "name": "Honey BBQ Chicken Strip Sandwich Jr.",
+      "aliases": ["honey bbq chicken strip sandwich jr", "jr honey bbq chicken strip sandwich", "honey bbq jr", "junior honey bbq chicken strip sandwich"],
+      "macros": { "protein": 28, "fat": 31, "carbs": 63, "fiber": 3, "calories": 650 },
+      "build": [
+        { "component": "small bun", "count": 1 },
+        { "component": "whatachick'n strip", "count": 2 },
+        { "component": "monterey jack cheese", "count": 2 },
+        { "component": "honey bbq sauce", "count": 1.5 }
+      ]
+    },
+    {
+      "name": "Premium Whatachick'n Sandwich",
+      "aliases": ["whatachick'n sandwich", "whatachicken sandwich", "whatachickn sandwich", "premium whatachick'n", "premium whatachicken", "chicken sandwich", "crispy chicken sandwich", "whatachick'n", "whatachicken", "#10", "number 10"],
+      "macros": { "protein": 33, "fat": 14, "carbs": 67, "fiber": 3, "calories": 524 },
+      "note": "calculator (the PDF lists the older Whatachick'n Sandwich with WhataSauce at 540 cal)",
+      "build": [
+        { "component": "potato bun", "count": 1 },
+        { "component": "whatachick'n fillet", "count": 1 },
+        { "component": "tomato", "count": 2 },
+        { "component": "green leaf lettuce", "count": 1 },
+        { "component": "pickles", "count": 4 }
+      ]
+    },
+    {
+      "name": "Signature Whatachick'n Sandwich",
+      "aliases": ["signature whatachick'n", "signature whatachicken sandwich", "signature chicken sandwich", "signature whatachickn"],
+      "macros": { "protein": 33, "fat": 14, "carbs": 65, "fiber": 3, "calories": 517 },
+      "note": "calculator (not on the PDF)",
+      "build": [
+        { "component": "potato bun", "count": 1 },
+        { "component": "whatachick'n fillet", "count": 1 },
+        { "component": "pickles", "count": 4 }
+      ]
+    },
+    {
+      "name": "Grilled Chicken Sandwich",
+      "aliases": ["grilled chicken sandwich", "grilled chicken", "grilled chx sandwich", "#11", "number 11", "grilled chicken sandwich with whatasauce"],
+      "macros": { "protein": 32, "fat": 14, "carbs": 44, "fiber": 4, "calories": 430 },
+      "build": [
+        { "component": "potato bun", "count": 1 },
+        { "component": "grilled chicken breast", "count": 1 },
+        { "component": "tomato", "count": 2 },
+        { "component": "green leaf lettuce", "count": 1 },
+        { "component": "whatasauce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Spicy Chicken Sandwich",
+      "aliases": ["spicy chicken sandwich", "spicy chicken", "spicy chx sandwich", "#12", "number 12", "spicy whatachick'n"],
+      "macros": { "protein": 31, "fat": 26, "carbs": 50, "fiber": 4, "calories": 550 },
+      "build": [
+        { "component": "potato bun", "count": 1 },
+        { "component": "spicy chicken fillet", "count": 1 },
+        { "component": "tomato", "count": 2 },
+        { "component": "green leaf lettuce", "count": 1 },
+        { "component": "pickles", "count": 4 },
+        { "component": "mayonnaise", "count": 1 }
+      ]
+    },
+    {
+      "name": "Whatachick'n Strips, 3 Piece",
+      "aliases": ["whatachick'n strips", "whatachicken strips", "chicken strips", "3 piece chicken strips", "3 pc strips", "strips", "chicken tenders", "#13", "number 13", "whatachickn strips"],
+      "macros": { "protein": 24, "fat": 27, "carbs": 30, "fiber": 1, "calories": 460 }
+    },
+    {
+      "name": "Justaburger",
+      "aliases": ["justaburger", "just a burger", "kids burger", "kids hamburger", "justaburger kids"],
+      "macros": { "protein": 14, "fat": 11, "carbs": 35, "fiber": 1, "calories": 300 },
+      "build": [
+        { "component": "small bun", "count": 1 },
+        { "component": "small beef patty", "count": 1 },
+        { "component": "mustard", "count": 0.5 }
+      ]
+    },
+    {
+      "name": "French Fries, Medium",
+      "aliases": ["fries", "french fries", "medium fries", "medium french fries", "regular fries", "whatafries"],
+      "macros": { "protein": 4, "fat": 21, "carbs": 51, "fiber": 4, "calories": 400 }
+    },
+    {
+      "name": "French Fries, Small",
+      "aliases": ["small fries", "small french fries", "sm fries"],
+      "macros": { "protein": 3, "fat": 14, "carbs": 34, "fiber": 3, "calories": 270 }
+    },
+    {
+      "name": "French Fries, Large",
+      "aliases": ["large fries", "large french fries", "lg fries"],
+      "macros": { "protein": 6, "fat": 28, "carbs": 68, "fiber": 6, "calories": 530 }
+    },
+    {
+      "name": "Onion Rings, Medium",
+      "aliases": ["onion rings", "medium onion rings", "rings", "o-rings", "onion ring"],
+      "macros": { "protein": 4, "fat": 17, "carbs": 33, "fiber": 4, "calories": 300 }
+    },
+    {
+      "name": "Breakfast On A Bun with Sausage",
+      "aliases": ["breakfast on a bun", "breakfast on a bun with sausage", "bob", "bob with sausage", "sausage breakfast on a bun", "#21", "number 21", "sausage egg and cheese bun"],
+      "macros": { "protein": 27, "fat": 28, "carbs": 35, "fiber": 1, "calories": 510 },
+      "build": [
+        { "component": "small bun", "count": 1 },
+        { "component": "sausage patty", "count": 1 },
+        { "component": "fried egg", "count": 1 },
+        { "component": "small american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Breakfast On A Bun with Bacon",
+      "aliases": ["breakfast on a bun with bacon", "bob with bacon", "bacon breakfast on a bun", "bacon egg and cheese bun", "bacon bob"],
+      "macros": { "protein": 18, "fat": 16, "carbs": 35, "fiber": 1, "calories": 360 },
+      "build": [
+        { "component": "small bun", "count": 1 },
+        { "component": "bacon", "count": 2 },
+        { "component": "fried egg", "count": 1 },
+        { "component": "small american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Taquito with Cheese & Sausage",
+      "aliases": ["taquito with cheese", "taquito", "sausage taquito", "sausage egg and cheese taquito", "taquito with cheese and sausage", "breakfast taquito", "#20", "number 20"],
+      "macros": { "protein": 19, "fat": 26, "carbs": 28, "fiber": 1, "calories": 420 },
+      "build": [
+        { "component": "flour tortilla", "count": 1 },
+        { "component": "scrambled eggs", "count": 3 },
+        { "component": "sausage crumbles", "count": 0.75 },
+        { "component": "small american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Honey Butter Chicken Biscuit",
+      "aliases": ["honey butter chicken biscuit", "hbcb", "chicken biscuit", "honey butter biscuit", "honey butter chicken", "#25", "number 25"],
+      "macros": { "protein": 13, "fat": 36, "carbs": 52, "fiber": 2, "calories": 580 },
+      "build": [
+        { "component": "buttermilk biscuit", "count": 1 },
+        { "component": "whatachick'n strip", "count": 1 },
+        { "component": "honey butter sauce", "count": 1.5 }
+      ]
+    },
+    {
+      "name": "Buttermilk Biscuit Sandwich with Sausage",
+      "aliases": ["biscuit sandwich", "biscuit sandwich with sausage", "sausage biscuit sandwich", "sausage egg and cheese biscuit", "sausage egg cheese biscuit", "#22", "number 22"],
+      "macros": { "protein": 27, "fat": 44, "carbs": 35, "fiber": 1, "calories": 640 },
+      "build": [
+        { "component": "buttermilk biscuit", "count": 1 },
+        { "component": "sausage patty", "count": 1 },
+        { "component": "fried egg", "count": 1 },
+        { "component": "small american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Buttermilk Biscuit Sandwich with Bacon",
+      "aliases": ["biscuit sandwich with bacon", "bacon biscuit sandwich", "bacon egg and cheese biscuit", "bacon egg cheese biscuit"],
+      "macros": { "protein": 18, "fat": 31, "carbs": 35, "fiber": 1, "calories": 490 },
+      "build": [
+        { "component": "buttermilk biscuit", "count": 1 },
+        { "component": "bacon", "count": 2 },
+        { "component": "fried egg", "count": 1 },
+        { "component": "small american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Breakfast Burger",
+      "aliases": ["breakfast burger", "whataburger breakfast burger", "brekkie burger"],
+      "macros": { "protein": 28, "fat": 38, "carbs": 51, "fiber": 2, "calories": 670 },
+      "note": "calculator (not on the PDF)",
+      "build": [
+        { "component": "small bun", "count": 1 },
+        { "component": "small beef patty", "count": 1 },
+        { "component": "fried egg", "count": 1 },
+        { "component": "hash brown stick", "count": 3 },
+        { "component": "small american cheese", "count": 1 },
+        { "component": "bacon", "count": 2 },
+        { "component": "creamy pepper sauce", "count": 1 }
+      ]
+    }
+  ]
+}

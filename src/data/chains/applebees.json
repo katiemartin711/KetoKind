@@ -1,0 +1,483 @@
+{
+  "chain": "Applebee's",
+  "aliases": ["applebee's", "applebees", "applebee", "apple bees", "applebee's grill + bar", "applebees neighborhood grill", "applebee's neighborhood grill & bar", "aplebees"],
+  "source": "https://www.nutritionix.com/applebees/menu/premium",
+  "retrieved": "2026-10-05",
+  "notes": "Numbers are from Applebee's official Interactive Nutrition Menu, which the chain publishes through Nutritionix and embeds in its own nutrition calculator at https://www.applebees.com/en/nutrition/calculator (applebees.com PDFs sit behind a bot check and could not be fetched). Unlike Chili's and Texas Roadhouse, Applebee's entree rows are published AS SERVED with their default sides: applebees.com item pages state that the 6 oz and 8 oz Top Sirloin and the Blackened Cajun Salmon are served with garlic mashed potatoes and broccoli; the Half Rack ribs, Riblets Plate and Chicken Tenders Plate with classic fries; the full rack ribs, Riblets Platter and Chicken Tenders Platter with signature coleslaw and fries; and every handcrafted burger with classic fries. Those sides are published separately under Sides & Extras, so the protein-only components below are derived by subtracting them (the 12 oz Ribeye page could not be loaded; its derivation assumes the same mashed potatoes + broccoli as the sirloins, which matches its carbs and fiber). Wing sauces and salad dressings are only published at catering size (serves 6-8) and are omitted; Boneless and Classic Bone-In Wings are published without sauce or dip.",
+  "components": {
+    "6 oz top sirloin (steak only)": { "unit": "each", "protein": 34, "fat": 6, "carbs": 1, "fiber": 1, "calories": 200, "derived": "6 oz. USDA Select Sirloin as served (560 cal, 25 g fat, 43 g carbs, 7 g fiber, 42 g protein) minus Garlic Mashed Potatoes minus Steamed Broccoli" },
+    "8 oz top sirloin (steak only)": { "unit": "each", "protein": 45, "fat": 8, "carbs": 2, "fiber": 1, "calories": 260, "derived": "8 oz. USDA Select Sirloin as served (620 cal, 27 g fat, 44 g carbs, 7 g fiber, 53 g protein) minus Garlic Mashed Potatoes minus Steamed Broccoli" },
+    "12 oz ribeye (steak only)": { "unit": "each", "protein": 68, "fat": 24, "carbs": 4, "fiber": 1, "calories": 510, "derived": "12 oz. Ribeye as served (870 cal, 43 g fat, 46 g carbs, 7 g fiber, 76 g protein) minus Garlic Mashed Potatoes minus Steamed Broccoli (sides assumed to match the sirloins)" },
+    "blackened cajun salmon fillet": { "unit": "each", "protein": 33, "fat": 18, "carbs": 8, "fiber": 3, "calories": 330, "derived": "Blackened Cajun Salmon as served (690 cal, 37 g fat, 50 g carbs, 9 g fiber, 41 g protein) minus Garlic Mashed Potatoes minus Steamed Broccoli" },
+    "baby back ribs half rack (ribs only, no sauce)": { "unit": "each", "protein": 38, "fat": 24, "carbs": 0, "fiber": 0, "calories": 360, "derived": "Double-Glazed Baby Back Ribs (no sauce) - Half Rack as served (760 cal, 42 g fat, 53 g carbs, 6 g fiber, 44 g protein) minus Classic Fries (Side); the subtraction leaves 0 g carbs, so the 1 g fiber remainder (a rounding artifact) is stored as 0" },
+    "baby back ribs full rack (ribs only, no sauce)": { "unit": "each", "protein": 78, "fat": 47, "carbs": 0, "fiber": 0, "calories": 730, "derived": "Double-Glazed Baby Back Ribs (no sauce) as served (1260 cal, 73 g fat, 68 g carbs, 9 g fiber, 84 g protein) minus Classic Fries (Side) minus Signature Cole Slaw; the subtraction leaves 0 g carbs, so the 2 g fiber remainder (a rounding artifact) is stored as 0" },
+    "riblets plate portion (no sauce)": { "unit": "each", "protein": 55, "fat": 35, "carbs": 3, "fiber": 1, "calories": 540, "derived": "Applebee's Riblets Plate (no sauce) as served (940 cal, 53 g fat, 56 g carbs, 6 g fiber, 61 g protein) minus Classic Fries (Side)" },
+    "riblets platter portion (no sauce)": { "unit": "each", "protein": 88, "fat": 56, "carbs": 5, "fiber": 1, "calories": 870, "derived": "Applebee's Riblets Platter (no sauce) as served (1400 cal, 82 g fat, 73 g carbs, 8 g fiber, 94 g protein) minus Classic Fries (Side) minus Signature Cole Slaw" },
+    "chicken tenders plate portion": { "unit": "each", "protein": 32, "fat": 46, "carbs": 37, "fiber": 2, "calories": 680, "derived": "Chicken Tenders Plate as served (1080 cal, 64 g fat, 90 g carbs, 7 g fiber, 38 g protein) minus Classic Fries (Side)" },
+    "chicken tenders platter portion": { "unit": "each", "protein": 46, "fat": 57, "carbs": 48, "fiber": 3, "calories": 880, "derived": "Chicken Tenders Platter as served (1410 cal, 83 g fat, 116 g carbs, 10 g fiber, 52 g protein) minus Classic Fries (Side) minus Signature Cole Slaw" },
+    "classic burger (no fries)": { "unit": "each", "protein": 37, "fat": 43, "carbs": 40, "fiber": 2, "calories": 690, "derived": "Classic Burger as served (1090 cal, 61 g fat, 93 g carbs, 7 g fiber, 43 g protein) minus Classic Fries (Side)" },
+    "cheese (classic cheeseburger)": { "unit": "each", "protein": 7, "fat": 11, "carbs": 2, "fiber": 0, "calories": 130, "derived": "Classic Cheeseburger minus Classic Burger" },
+    "bacon (big classic bacon cheeseburger)": { "unit": "each", "protein": 8, "fat": 8, "carbs": 0, "fiber": 0, "calories": 100, "derived": "Big Classic Bacon Cheeseburger minus Classic Cheeseburger" },
+    "garlic mashed potatoes": { "unit": "each", "protein": 5, "fat": 11, "carbs": 37, "fiber": 4, "calories": 260 },
+    "loaded garlic mashed potatoes": { "unit": "each", "protein": 10, "fat": 26, "carbs": 40, "fiber": 4, "calories": 440 },
+    "baked potato": { "unit": "each", "protein": 9, "fat": 31, "carbs": 59, "fiber": 4, "calories": 530 },
+    "loaded baked potato": { "unit": "each", "protein": 13, "fat": 36, "carbs": 59, "fiber": 4, "calories": 600 },
+    "steamed broccoli": { "unit": "each", "protein": 3, "fat": 8, "carbs": 5, "fiber": 2, "calories": 100 },
+    "homestyle cheesy broccoli": { "unit": "each", "protein": 10, "fat": 17, "carbs": 8, "fiber": 3, "calories": 220 },
+    "garlicky green beans": { "unit": "each", "protein": 2, "fat": 12, "carbs": 8, "fiber": 3, "calories": 150 },
+    "classic fries (side)": { "unit": "each", "protein": 6, "fat": 18, "carbs": 53, "fiber": 5, "calories": 400 },
+    "waffle fries": { "unit": "each", "protein": 2, "fat": 29, "carbs": 50, "fiber": 5, "calories": 490 },
+    "crunchy onion rings (side)": { "unit": "each", "protein": 7, "fat": 30, "carbs": 66, "fiber": 4, "calories": 560 },
+    "buttery fire-roasted corn": { "unit": "each", "protein": 3, "fat": 12, "carbs": 18, "fiber": 4, "calories": 200 },
+    "four-cheese mac & cheese with bacon": { "unit": "each", "protein": 18, "fat": 18, "carbs": 39, "fiber": 2, "calories": 390 },
+    "signature cole slaw": { "unit": "each", "protein": 0, "fat": 8, "carbs": 15, "fiber": 2, "calories": 130 },
+    "breadstick": { "unit": "each", "protein": 4, "fat": 7, "carbs": 25, "fiber": 1, "calories": 180 },
+    "caesar side salad": { "unit": "each", "protein": 5, "fat": 17, "carbs": 13, "fiber": 2, "calories": 220 },
+    "house salad (no dressing)": { "unit": "each", "protein": 6, "fat": 7, "carbs": 14, "fiber": 2, "calories": 140 }
+  },
+  "items": [
+    {
+      "name": "6 oz. USDA Select Sirloin (as served with garlic mashed potatoes & broccoli)",
+      "aliases": ["6 oz sirloin", "6oz sirloin", "6 oz top sirloin", "6 ounce sirloin", "sirloin 6 oz", "small sirloin", "6 oz steak", "6 oz select sirloin"],
+      "macros": { "protein": 42, "fat": 25, "carbs": 43, "fiber": 7, "calories": 560 },
+      "build": [
+        { "component": "6 oz top sirloin (steak only)", "count": 1 },
+        { "component": "garlic mashed potatoes", "count": 1 },
+        { "component": "steamed broccoli", "count": 1 }
+      ]
+    },
+    {
+      "name": "8 oz. USDA Select Sirloin (as served with garlic mashed potatoes & broccoli)",
+      "aliases": ["8 oz sirloin", "8oz sirloin", "8 oz top sirloin", "8 ounce sirloin", "sirloin 8 oz", "sirloin", "top sirloin", "8 oz steak"],
+      "macros": { "protein": 53, "fat": 27, "carbs": 44, "fiber": 7, "calories": 620 },
+      "build": [
+        { "component": "8 oz top sirloin (steak only)", "count": 1 },
+        { "component": "garlic mashed potatoes", "count": 1 },
+        { "component": "steamed broccoli", "count": 1 }
+      ]
+    },
+    {
+      "name": "12 oz. Ribeye (as served with garlic mashed potatoes & broccoli)",
+      "aliases": ["12 oz ribeye", "ribeye", "rib eye", "12oz ribeye", "ribeye steak", "12 oz rib eye"],
+      "macros": { "protein": 76, "fat": 43, "carbs": 46, "fiber": 7, "calories": 870 },
+      "build": [
+        { "component": "12 oz ribeye (steak only)", "count": 1 },
+        { "component": "garlic mashed potatoes", "count": 1 },
+        { "component": "steamed broccoli", "count": 1 }
+      ]
+    },
+    {
+      "name": "Shrimp 'N Parmesan Sirloin (as served)",
+      "aliases": ["shrimp n parmesan sirloin", "shrimp and parmesan sirloin", "shrimp parmesan sirloin", "shrimp 'n parmesan sirloin", "sirloin with shrimp", "shrimp parm steak"],
+      "macros": { "protein": 66, "fat": 52, "carbs": 48, "fiber": 8, "calories": 910 }
+    },
+    {
+      "name": "Applebee's Riblets Plate (no sauce, as served with fries)",
+      "aliases": ["riblets", "riblets plate", "applebees riblets", "riblet plate", "small riblets", "riblets basket"],
+      "macros": { "protein": 61, "fat": 53, "carbs": 56, "fiber": 6, "calories": 940 },
+      "build": [
+        { "component": "riblets plate portion (no sauce)", "count": 1 },
+        { "component": "classic fries (side)", "count": 1 }
+      ]
+    },
+    {
+      "name": "Applebee's Riblets Platter (no sauce, as served with fries & coleslaw)",
+      "aliases": ["riblets platter", "riblet platter", "large riblets", "applebees riblets platter", "full riblets"],
+      "macros": { "protein": 94, "fat": 82, "carbs": 73, "fiber": 8, "calories": 1400 },
+      "build": [
+        { "component": "riblets platter portion (no sauce)", "count": 1 },
+        { "component": "classic fries (side)", "count": 1 },
+        { "component": "signature cole slaw", "count": 1 }
+      ]
+    },
+    {
+      "name": "Double-Glazed Baby Back Ribs - Half Rack (no sauce, as served with fries)",
+      "aliases": ["half rack ribs", "half rack baby back ribs", "baby back ribs half rack", "half ribs", "half rack", "1/2 rack ribs", "half rack double glazed ribs"],
+      "macros": { "protein": 44, "fat": 42, "carbs": 53, "fiber": 6, "calories": 760 },
+      "build": [
+        { "component": "baby back ribs half rack (ribs only, no sauce)", "count": 1 },
+        { "component": "classic fries (side)", "count": 1 }
+      ]
+    },
+    {
+      "name": "Double-Glazed Baby Back Ribs - Full Rack (no sauce, as served with fries & coleslaw)",
+      "aliases": ["baby back ribs", "full rack ribs", "double glazed baby back ribs", "ribs", "full rack", "rack of ribs", "full rack baby back ribs", "double-glazed ribs"],
+      "macros": { "protein": 84, "fat": 73, "carbs": 68, "fiber": 9, "calories": 1260 },
+      "build": [
+        { "component": "baby back ribs full rack (ribs only, no sauce)", "count": 1 },
+        { "component": "classic fries (side)", "count": 1 },
+        { "component": "signature cole slaw", "count": 1 }
+      ]
+    },
+    {
+      "name": "Chicken Tenders Plate (as served with fries)",
+      "aliases": ["chicken tenders plate", "chicken tenders", "tenders plate", "chicken strips", "chicken fingers", "small chicken tenders"],
+      "macros": { "protein": 38, "fat": 64, "carbs": 90, "fiber": 7, "calories": 1080 },
+      "build": [
+        { "component": "chicken tenders plate portion", "count": 1 },
+        { "component": "classic fries (side)", "count": 1 }
+      ]
+    },
+    {
+      "name": "Chicken Tenders Platter (as served with fries & coleslaw)",
+      "aliases": ["chicken tenders platter", "tenders platter", "large chicken tenders", "chicken tender platter"],
+      "macros": { "protein": 52, "fat": 83, "carbs": 116, "fiber": 10, "calories": 1410 },
+      "build": [
+        { "component": "chicken tenders platter portion", "count": 1 },
+        { "component": "classic fries (side)", "count": 1 },
+        { "component": "signature cole slaw", "count": 1 }
+      ]
+    },
+    {
+      "name": "Fiesta Lime Chicken (as served)",
+      "aliases": ["fiesta lime chicken", "fiesta chicken", "lime chicken", "fiesta lime"],
+      "macros": { "protein": 60, "fat": 62, "carbs": 98, "fiber": 7, "calories": 1190 }
+    },
+    {
+      "name": "Grilled Chicken Breast (as served with two sides)",
+      "aliases": ["grilled chicken breast", "grilled chicken", "chicken breast", "grilled chicken dinner", "plain grilled chicken"],
+      "macros": { "protein": 49, "fat": 22, "carbs": 43, "fiber": 7, "calories": 560 }
+    },
+    {
+      "name": "Lemon Parmesan Chicken (as served)",
+      "aliases": ["lemon parmesan chicken", "lemon parm chicken", "parmesan chicken"],
+      "macros": { "protein": 47, "fat": 63, "carbs": 69, "fiber": 9, "calories": 1030 }
+    },
+    {
+      "name": "Blackened Cajun Salmon (as served with garlic mashed potatoes & broccoli)",
+      "aliases": ["blackened cajun salmon", "cajun salmon", "salmon", "blackened salmon", "grilled salmon", "salmon dinner"],
+      "macros": { "protein": 41, "fat": 37, "carbs": 50, "fiber": 9, "calories": 690 },
+      "build": [
+        { "component": "blackened cajun salmon fillet", "count": 1 },
+        { "component": "garlic mashed potatoes", "count": 1 },
+        { "component": "steamed broccoli", "count": 1 }
+      ]
+    },
+    {
+      "name": "Double Crunch Shrimp (as served)",
+      "aliases": ["double crunch shrimp", "fried shrimp", "crunch shrimp", "shrimp platter"],
+      "macros": { "protein": 28, "fat": 49, "carbs": 139, "fiber": 12, "calories": 1120 }
+    },
+    {
+      "name": "Hand-Battered Fish & Chips",
+      "aliases": ["fish and chips", "fish & chips", "hand battered fish and chips", "fish n chips"],
+      "macros": { "protein": 42, "fat": 95, "carbs": 115, "fiber": 10, "calories": 1470 }
+    },
+    {
+      "name": "Classic Burger (as served with fries)",
+      "aliases": ["classic burger", "burger", "hamburger", "plain burger", "classic hamburger"],
+      "macros": { "protein": 43, "fat": 61, "carbs": 93, "fiber": 7, "calories": 1090 },
+      "build": [
+        { "component": "classic burger (no fries)", "count": 1 },
+        { "component": "classic fries (side)", "count": 1 }
+      ]
+    },
+    {
+      "name": "Classic Cheeseburger (as served with fries)",
+      "aliases": ["classic cheeseburger", "cheeseburger", "cheese burger"],
+      "macros": { "protein": 50, "fat": 72, "carbs": 95, "fiber": 7, "calories": 1220 },
+      "build": [
+        { "component": "classic burger (no fries)", "count": 1 },
+        { "component": "cheese (classic cheeseburger)", "count": 1 },
+        { "component": "classic fries (side)", "count": 1 }
+      ]
+    },
+    {
+      "name": "Big Classic Bacon Cheeseburger (as served with fries)",
+      "aliases": ["classic bacon cheeseburger", "bacon cheeseburger", "big classic bacon cheeseburger", "bacon burger", "bacon cheese burger"],
+      "macros": { "protein": 58, "fat": 80, "carbs": 95, "fiber": 7, "calories": 1320 },
+      "build": [
+        { "component": "classic burger (no fries)", "count": 1 },
+        { "component": "cheese (classic cheeseburger)", "count": 1 },
+        { "component": "bacon (big classic bacon cheeseburger)", "count": 1 },
+        { "component": "classic fries (side)", "count": 1 }
+      ]
+    },
+    {
+      "name": "Quesadilla Burger (as served with fries)",
+      "aliases": ["quesadilla burger", "quesadilla cheeseburger", "quesadilla burger with fries"],
+      "macros": { "protein": 70, "fat": 103, "carbs": 94, "fiber": 9, "calories": 1580 }
+    },
+    {
+      "name": "Whisky Bacon Burger (as served with fries)",
+      "aliases": ["whisky bacon burger", "whiskey bacon burger", "whisky burger", "whiskey burger"],
+      "macros": { "protein": 63, "fat": 97, "carbs": 120, "fiber": 9, "calories": 1590 }
+    },
+    {
+      "name": "Grilled Cheese Cheeseburger (as served with fries)",
+      "aliases": ["grilled cheese cheeseburger", "grilled cheese burger"],
+      "macros": { "protein": 58, "fat": 76, "carbs": 78, "fiber": 4, "calories": 1210 }
+    },
+    {
+      "name": "Bacon Ranch Chicken Sandwich (with Grilled Chicken)",
+      "aliases": ["bacon ranch chicken sandwich", "bacon ranch grilled chicken sandwich", "chicken sandwich", "grilled chicken sandwich"],
+      "macros": { "protein": 63, "fat": 64, "carbs": 93, "fiber": 7, "calories": 1190 }
+    },
+    {
+      "name": "Bacon Ranch Crispy Chicken Sandwich (with Hand-Breaded Chicken)",
+      "aliases": ["bacon ranch crispy chicken sandwich", "crispy chicken sandwich", "fried chicken sandwich", "hand breaded chicken sandwich"],
+      "macros": { "protein": 58, "fat": 72, "carbs": 110, "fiber": 8, "calories": 1320 }
+    },
+    {
+      "name": "Clubhouse Grille",
+      "aliases": ["clubhouse grille", "clubhouse sandwich", "club sandwich", "clubhouse grill"],
+      "macros": { "protein": 56, "fat": 81, "carbs": 129, "fiber": 8, "calories": 1460 }
+    },
+    {
+      "name": "The Prime Rib Dipper",
+      "aliases": ["prime rib dipper", "prime rib sandwich", "french dip", "prime rib dip"],
+      "macros": { "protein": 73, "fat": 74, "carbs": 124, "fiber": 9, "calories": 1440 }
+    },
+    {
+      "name": "Chicken Fajita Rollup",
+      "aliases": ["chicken fajita rollup", "fajita rollup", "chicken fajita roll up", "fajita wrap"],
+      "macros": { "protein": 62, "fat": 88, "carbs": 114, "fiber": 9, "calories": 1500 }
+    },
+    {
+      "name": "Oriental Chicken Salad (with Crispy Chicken)",
+      "aliases": ["oriental chicken salad", "oriental salad", "crispy oriental chicken salad", "asian chicken salad"],
+      "macros": { "protein": 40, "fat": 47, "carbs": 82, "fiber": 12, "calories": 900 }
+    },
+    {
+      "name": "Oriental Chicken Salad (with Grilled Chicken)",
+      "aliases": ["grilled oriental chicken salad", "oriental chicken salad grilled", "oriental grilled chicken salad"],
+      "macros": { "protein": 56, "fat": 29, "carbs": 61, "fiber": 11, "calories": 710 }
+    },
+    {
+      "name": "Caesar Salad (with Grilled Chicken)",
+      "aliases": ["grilled chicken caesar salad", "chicken caesar salad", "chicken caesar", "caesar salad with chicken", "chicken ceasar salad"],
+      "macros": { "protein": 57, "fat": 57, "carbs": 56, "fiber": 8, "calories": 950 }
+    },
+    {
+      "name": "California Grilled Chicken Salad",
+      "aliases": ["california grilled chicken salad", "california chicken salad", "california salad"],
+      "macros": { "protein": 53, "fat": 19, "carbs": 23, "fiber": 7, "calories": 460 }
+    },
+    {
+      "name": "Crispy Chicken Tender Salad",
+      "aliases": ["crispy chicken tender salad", "chicken tender salad", "crispy chicken salad", "fried chicken salad"],
+      "macros": { "protein": 44, "fat": 47, "carbs": 58, "fiber": 7, "calories": 830 }
+    },
+    {
+      "name": "Strawberry Balsamic Chicken Salad",
+      "aliases": ["strawberry balsamic chicken salad", "strawberry chicken salad", "strawberry balsamic salad"],
+      "macros": { "protein": 48, "fat": 12, "carbs": 38, "fiber": 11, "calories": 430 }
+    },
+    {
+      "name": "Caesar Salad (side)",
+      "aliases": ["side caesar salad", "caesar salad", "side caesar", "caesar side salad", "ceasar salad"],
+      "macros": { "protein": 5, "fat": 17, "carbs": 13, "fiber": 2, "calories": 220 },
+      "build": [{ "component": "caesar side salad", "count": 1 }]
+    },
+    {
+      "name": "House Salad (no dressing)",
+      "aliases": ["house salad", "side salad", "side house salad", "garden salad", "house salad no dressing"],
+      "macros": { "protein": 6, "fat": 7, "carbs": 14, "fiber": 2, "calories": 140 },
+      "build": [{ "component": "house salad (no dressing)", "count": 1 }]
+    },
+    {
+      "name": "Chicken Parmesan Fettucine",
+      "aliases": ["chicken parmesan fettuccine", "chicken parm pasta", "chicken parmesan pasta", "chicken parm fettuccine"],
+      "macros": { "protein": 56, "fat": 71, "carbs": 94, "fiber": 7, "calories": 1230 }
+    },
+    {
+      "name": "Classic Broccoli Alfredo (with Grilled Chicken)",
+      "aliases": ["classic broccoli chicken alfredo", "chicken alfredo", "broccoli chicken alfredo", "chicken broccoli alfredo", "fettuccine alfredo with chicken"],
+      "macros": { "protein": 79, "fat": 79, "carbs": 107, "fiber": 9, "calories": 1440 }
+    },
+    {
+      "name": "Classic Broccoli Alfredo (with Blackened Shrimp)",
+      "aliases": ["classic broccoli shrimp alfredo", "shrimp alfredo", "blackened shrimp alfredo", "broccoli shrimp alfredo"],
+      "macros": { "protein": 54, "fat": 76, "carbs": 108, "fiber": 9, "calories": 1320 }
+    },
+    {
+      "name": "Three-Cheese Chicken Penne",
+      "aliases": ["three cheese chicken penne", "3 cheese chicken penne", "chicken penne", "three-cheese penne"],
+      "macros": { "protein": 77, "fat": 71, "carbs": 102, "fiber": 7, "calories": 1350 }
+    },
+    {
+      "name": "Four-Cheese Mac & Cheese with Honey Pepper Chicken Tenders",
+      "aliases": ["four cheese mac and cheese with honey pepper chicken", "honey pepper chicken mac and cheese", "mac and cheese with chicken tenders", "4 cheese mac and cheese honey pepper tenders"],
+      "macros": { "protein": 56, "fat": 55, "carbs": 159, "fiber": 7, "calories": 1360 }
+    },
+    {
+      "name": "Southwest Chicken Bowl",
+      "aliases": ["southwest chicken bowl", "sw chicken bowl", "irresist-a-bowl chicken", "southwest bowl"],
+      "macros": { "protein": 54, "fat": 30, "carbs": 90, "fiber": 10, "calories": 830 }
+    },
+    {
+      "name": "Tex-Mex Shrimp Bowl",
+      "aliases": ["tex mex shrimp bowl", "shrimp bowl", "tex-mex bowl"],
+      "macros": { "protein": 29, "fat": 27, "carbs": 91, "fiber": 10, "calories": 710 }
+    },
+    {
+      "name": "Boneless Wings (no flavor or dipping sauce)",
+      "aliases": ["boneless wings", "boneless chicken wings", "plain boneless wings", "boneless wings no sauce"],
+      "macros": { "protein": 38, "fat": 32, "carbs": 54, "fiber": 4, "calories": 660 }
+    },
+    {
+      "name": "Classic Bone-In Wings (no flavor or dipping sauce)",
+      "aliases": ["bone in wings", "wings", "classic wings", "bone-in wings", "traditional wings", "chicken wings"],
+      "macros": { "protein": 56, "fat": 20, "carbs": 3, "fiber": 2, "calories": 410 }
+    },
+    {
+      "name": "Spinach & Artichoke Dip",
+      "aliases": ["spinach and artichoke dip", "spinach artichoke dip", "spinach dip", "artichoke dip"],
+      "macros": { "protein": 21, "fat": 61, "carbs": 89, "fiber": 9, "calories": 990 }
+    },
+    {
+      "name": "Mozzarella Sticks",
+      "aliases": ["mozzarella sticks", "mozz sticks", "cheese sticks", "fried mozzarella"],
+      "macros": { "protein": 41, "fat": 44, "carbs": 76, "fiber": 7, "calories": 860 }
+    },
+    {
+      "name": "Chicken Quesadilla",
+      "aliases": ["chicken quesadilla", "quesadilla", "chicken quesadillas"],
+      "macros": { "protein": 48, "fat": 75, "carbs": 74, "fiber": 5, "calories": 1170 }
+    },
+    {
+      "name": "Chicken Wonton Tacos",
+      "aliases": ["chicken wonton tacos", "wonton tacos", "won ton tacos", "chicken wontons"],
+      "macros": { "protein": 30, "fat": 26, "carbs": 58, "fiber": 3, "calories": 590 }
+    },
+    {
+      "name": "Brew Pub Pretzels & Beer Cheese Dip",
+      "aliases": ["brew pub pretzels", "pretzels and beer cheese", "pretzel sticks", "soft pretzels", "beer cheese pretzels"],
+      "macros": { "protein": 34, "fat": 49, "carbs": 146, "fiber": 6, "calories": 1160 }
+    },
+    {
+      "name": "Crunchy Onion Rings (appetizer)",
+      "aliases": ["onion rings", "crunchy onion rings", "onion rings appetizer"],
+      "macros": { "protein": 15, "fat": 60, "carbs": 181, "fiber": 10, "calories": 1330 }
+    },
+    {
+      "name": "White Queso Dip & Chips",
+      "aliases": ["white queso dip", "queso and chips", "queso dip", "chips and queso", "white queso"],
+      "macros": { "protein": 28, "fat": 54, "carbs": 83, "fiber": 5, "calories": 920 }
+    },
+    {
+      "name": "Loaded Potato Waves",
+      "aliases": ["loaded potato waves", "potato waves", "loaded waffle fries", "loaded fries"],
+      "macros": { "protein": 43, "fat": 111, "carbs": 63, "fiber": 5, "calories": 1420 }
+    },
+    {
+      "name": "The Classic Combo (no flavor or dipping sauce)",
+      "aliases": ["classic combo", "appetizer sampler", "the classic combo", "combo appetizer", "sampler platter"],
+      "macros": { "protein": 83, "fat": 131, "carbs": 189, "fiber": 17, "calories": 2270 }
+    },
+    {
+      "name": "French Onion Soup",
+      "aliases": ["french onion soup", "onion soup", "french onion"],
+      "macros": { "protein": 16, "fat": 21, "carbs": 26, "fiber": 2, "calories": 370 }
+    },
+    {
+      "name": "Chicken Tortilla Soup",
+      "aliases": ["chicken tortilla soup", "tortilla soup"],
+      "macros": { "protein": 11, "fat": 15, "carbs": 26, "fiber": 2, "calories": 280 }
+    },
+    {
+      "name": "Tomato Basil Soup",
+      "aliases": ["tomato basil soup", "tomato soup", "tomato basil"],
+      "macros": { "protein": 5, "fat": 12, "carbs": 22, "fiber": 2, "calories": 210 }
+    },
+    {
+      "name": "Garlic Mashed Potatoes",
+      "aliases": ["garlic mashed potatoes", "mashed potatoes", "mashed potato", "mashed", "garlic mashed"],
+      "macros": { "protein": 5, "fat": 11, "carbs": 37, "fiber": 4, "calories": 260 },
+      "build": [{ "component": "garlic mashed potatoes", "count": 1 }]
+    },
+    {
+      "name": "Loaded Garlic Mashed Potatoes",
+      "aliases": ["loaded garlic mashed potatoes", "loaded mashed potatoes", "loaded mashed"],
+      "macros": { "protein": 10, "fat": 26, "carbs": 40, "fiber": 4, "calories": 440 },
+      "build": [{ "component": "loaded garlic mashed potatoes", "count": 1 }]
+    },
+    {
+      "name": "Baked Potato",
+      "aliases": ["baked potato", "plain baked potato", "potato"],
+      "macros": { "protein": 9, "fat": 31, "carbs": 59, "fiber": 4, "calories": 530 },
+      "build": [{ "component": "baked potato", "count": 1 }]
+    },
+    {
+      "name": "Loaded Baked Potato",
+      "aliases": ["loaded baked potato", "loaded potato", "baked potato loaded", "baked potato with everything"],
+      "macros": { "protein": 13, "fat": 36, "carbs": 59, "fiber": 4, "calories": 600 },
+      "build": [{ "component": "loaded baked potato", "count": 1 }]
+    },
+    {
+      "name": "Steamed Broccoli",
+      "aliases": ["steamed broccoli", "broccoli", "side broccoli", "brocolli"],
+      "macros": { "protein": 3, "fat": 8, "carbs": 5, "fiber": 2, "calories": 100 },
+      "build": [{ "component": "steamed broccoli", "count": 1 }]
+    },
+    {
+      "name": "Homestyle Cheesy Broccoli",
+      "aliases": ["cheesy broccoli", "homestyle cheesy broccoli", "broccoli with cheese", "broccoli and cheese"],
+      "macros": { "protein": 10, "fat": 17, "carbs": 8, "fiber": 3, "calories": 220 },
+      "build": [{ "component": "homestyle cheesy broccoli", "count": 1 }]
+    },
+    {
+      "name": "Garlicky Green Beans",
+      "aliases": ["garlicky green beans", "green beans", "garlic green beans", "side green beans"],
+      "macros": { "protein": 2, "fat": 12, "carbs": 8, "fiber": 3, "calories": 150 },
+      "build": [{ "component": "garlicky green beans", "count": 1 }]
+    },
+    {
+      "name": "Classic Fries (Side)",
+      "aliases": ["fries", "classic fries", "french fries", "side fries", "side of fries"],
+      "macros": { "protein": 6, "fat": 18, "carbs": 53, "fiber": 5, "calories": 400 },
+      "build": [{ "component": "classic fries (side)", "count": 1 }]
+    },
+    {
+      "name": "Waffle Fries",
+      "aliases": ["waffle fries", "side waffle fries"],
+      "macros": { "protein": 2, "fat": 29, "carbs": 50, "fiber": 5, "calories": 490 },
+      "build": [{ "component": "waffle fries", "count": 1 }]
+    },
+    {
+      "name": "Crunchy Onion Rings (Side)",
+      "aliases": ["side onion rings", "onion rings side", "side of onion rings"],
+      "macros": { "protein": 7, "fat": 30, "carbs": 66, "fiber": 4, "calories": 560 },
+      "build": [{ "component": "crunchy onion rings (side)", "count": 1 }]
+    },
+    {
+      "name": "Buttery Fire-Roasted Corn",
+      "aliases": ["fire roasted corn", "buttery fire-roasted corn", "corn", "roasted corn", "side corn"],
+      "macros": { "protein": 3, "fat": 12, "carbs": 18, "fiber": 4, "calories": 200 },
+      "build": [{ "component": "buttery fire-roasted corn", "count": 1 }]
+    },
+    {
+      "name": "Four-Cheese Mac & Cheese with Applewood-Smoked Bacon",
+      "aliases": ["mac and cheese", "four cheese mac and cheese", "mac n cheese", "bacon mac and cheese", "side mac and cheese", "mac & cheese"],
+      "macros": { "protein": 18, "fat": 18, "carbs": 39, "fiber": 2, "calories": 390 },
+      "build": [{ "component": "four-cheese mac & cheese with bacon", "count": 1 }]
+    },
+    {
+      "name": "Signature Cole Slaw",
+      "aliases": ["cole slaw", "coleslaw", "signature coleslaw", "slaw", "side coleslaw"],
+      "macros": { "protein": 0, "fat": 8, "carbs": 15, "fiber": 2, "calories": 130 },
+      "build": [{ "component": "signature cole slaw", "count": 1 }]
+    },
+    {
+      "name": "Breadstick",
+      "aliases": ["breadstick", "breadsticks", "bread stick", "garlic breadstick", "1 breadstick"],
+      "macros": { "protein": 4, "fat": 7, "carbs": 25, "fiber": 1, "calories": 180 },
+      "build": [{ "component": "breadstick", "count": 1 }]
+    },
+    {
+      "name": "Triple Chocolate Meltdown",
+      "aliases": ["triple chocolate meltdown", "chocolate meltdown", "molten chocolate cake", "lava cake"],
+      "macros": { "protein": 12, "fat": 48, "carbs": 116, "fiber": 5, "calories": 910 }
+    },
+    {
+      "name": "Sizzlin' Butter Pecan Blondie",
+      "aliases": ["blondie", "butter pecan blondie", "sizzlin blondie", "maple butter blondie", "sizzling blondie"],
+      "macros": { "protein": 13, "fat": 57, "carbs": 115, "fiber": 2, "calories": 1020 }
+    },
+    {
+      "name": "Brownie Bite",
+      "aliases": ["brownie bite", "brownie", "mini brownie", "brownie bites"],
+      "macros": { "protein": 4, "fat": 15, "carbs": 48, "fiber": 2, "calories": 330 }
+    }
+  ]
+}

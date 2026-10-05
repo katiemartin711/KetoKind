@@ -1,0 +1,797 @@
+{
+  "chain": "P. Terry's Burger Stand",
+  "aliases": [
+    "p. terry's",
+    "p terry's",
+    "p terrys",
+    "p. terrys",
+    "pterrys",
+    "p-terrys",
+    "pterry's",
+    "p terry",
+    "pterry",
+    "p. terry's burger stand",
+    "p terrys burger stand",
+    "pt's",
+    "pts burger"
+  ],
+  "source": "https://pterrys.com/wp-content/uploads/2025/06/PT-Nutrition-Dec-2022.pdf",
+  "retrieved": "2026-10-05",
+  "notes": "All figures from the chain's nutrition PDF (revised 3/7/2024). The PDF's lettuce-wrap rows imply an 18 g-carb bun for the beef burgers but a 31 g-carb bun for the chicken and veggie burgers, so the bun is derived from the beef pairs and the chicken/veggie patties are derived as 'bun version minus bun'; their lettuce-wrap items therefore carry published macros but no build (the component sum would miss the published carbs). Lettuce and tomato are not published separately and are folded into 'lettuce, tomato & special sauce'.",
+  "components": {
+    "beef patty": {
+      "unit": "each",
+      "protein": 21,
+      "fat": 13.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 209,
+      "derived": "Double Cheeseburger minus Cheeseburger (one patty + one cheese), minus american cheese (Cheeseburger minus Hamburger)"
+    },
+    "american cheese": {
+      "unit": "slice",
+      "protein": 4,
+      "fat": 6,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 70,
+      "derived": "Cheeseburger minus Hamburger"
+    },
+    "bun": {
+      "unit": "each",
+      "protein": 3,
+      "fat": 3.5,
+      "carbs": 18,
+      "fiber": 0,
+      "calories": 129,
+      "derived": "Average of Hamburger minus Hamburger Lettuce Wrap, Cheeseburger minus Cheeseburger Lettuce Wrap, and Double Cheeseburger minus Double Cheeseburger Lettuce Wrap (all three give 18 g carbs, 3 g protein; calories 139/94/155)"
+    },
+    "lettuce, tomato & special sauce": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 3,
+      "carbs": 9,
+      "fiber": 1.5,
+      "calories": 46,
+      "derived": "Hamburger Lettuce Wrap minus beef patty; the chain does not publish lettuce, tomato or special sauce separately (protein came out slightly negative and is floored at 0)"
+    },
+    "grilled chicken patty": {
+      "unit": "each",
+      "protein": 28,
+      "fat": 11.5,
+      "carbs": 9,
+      "fiber": 2,
+      "calories": 277,
+      "derived": "Grilled Chicken Burger minus bun; includes the swiss cheese, lettuce, tomato and mayonnaise, which the chain does not publish separately"
+    },
+    "crispy chicken patty": {
+      "unit": "each",
+      "protein": 31,
+      "fat": 25.5,
+      "carbs": 26,
+      "fiber": 2.3,
+      "calories": 477,
+      "derived": "Crispy Chicken Burger minus bun; includes the swiss cheese, lettuce, tomato, pickles and mayonnaise, which the chain does not publish separately"
+    },
+    "spicy crispy chicken patty": {
+      "unit": "each",
+      "protein": 31,
+      "fat": 25.5,
+      "carbs": 26,
+      "fiber": 2.3,
+      "calories": 492,
+      "derived": "Spicy Crispy Chicken Burger minus bun; includes the pepperjack cheese, lettuce, tomato, pickle, spicy mayo and hot sauce, which the chain does not publish separately"
+    },
+    "veggie patty": {
+      "unit": "each",
+      "protein": 5,
+      "fat": 6.5,
+      "carbs": 18,
+      "fiber": 6.5,
+      "calories": 158,
+      "derived": "Veggie Burger minus bun, american cheese, and lettuce/tomato/special sauce"
+    },
+    "bacon": {
+      "unit": "each",
+      "protein": 4.5,
+      "fat": 9,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 105,
+      "derived": "Egg Burger w/ Cheese and Bacon minus Egg Burger w/ Cheese (the bacon portion as served)"
+    },
+    "sausage patty": {
+      "unit": "each",
+      "protein": 7,
+      "fat": 16,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 170,
+      "derived": "Egg Burger w/ Cheese and Sausage minus Egg Burger w/ Cheese"
+    }
+  },
+  "items": [
+    {
+      "name": "Hamburger",
+      "aliases": [
+        "hamburger",
+        "single hamburger",
+        "burger",
+        "single burger",
+        "plain burger"
+      ],
+      "macros": {
+        "protein": 22,
+        "fat": 19.5,
+        "carbs": 27,
+        "fiber": 1.5,
+        "calories": 394
+      },
+      "build": [
+        {
+          "component": "beef patty",
+          "count": 1
+        },
+        {
+          "component": "bun",
+          "count": 1
+        },
+        {
+          "component": "lettuce, tomato & special sauce",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Hamburger Lettuce Wrap",
+      "aliases": [
+        "hamburger lettuce wrap",
+        "lettuce wrap hamburger",
+        "hamburger no bun",
+        "bunless hamburger",
+        "lettuce wrapped hamburger",
+        "burger lettuce wrap"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 16.5,
+        "carbs": 9,
+        "fiber": 1.5,
+        "calories": 255
+      },
+      "build": [
+        {
+          "component": "beef patty",
+          "count": 1
+        },
+        {
+          "component": "lettuce, tomato & special sauce",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cheeseburger",
+      "aliases": [
+        "cheeseburger",
+        "cheese burger",
+        "single cheeseburger",
+        "chzburger"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 25.5,
+        "carbs": 28,
+        "fiber": 1.5,
+        "calories": 464
+      },
+      "build": [
+        {
+          "component": "beef patty",
+          "count": 1
+        },
+        {
+          "component": "american cheese",
+          "count": 1
+        },
+        {
+          "component": "bun",
+          "count": 1
+        },
+        {
+          "component": "lettuce, tomato & special sauce",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cheeseburger Lettuce Wrap",
+      "aliases": [
+        "cheeseburger lettuce wrap",
+        "lettuce wrap cheeseburger",
+        "cheeseburger no bun",
+        "bunless cheeseburger",
+        "lettuce wrapped cheeseburger"
+      ],
+      "macros": {
+        "protein": 23,
+        "fat": 22,
+        "carbs": 10,
+        "fiber": 1.5,
+        "calories": 370
+      },
+      "build": [
+        {
+          "component": "beef patty",
+          "count": 1
+        },
+        {
+          "component": "american cheese",
+          "count": 1
+        },
+        {
+          "component": "lettuce, tomato & special sauce",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Double Cheeseburger",
+      "aliases": [
+        "double cheeseburger",
+        "double cheese burger",
+        "dbl cheeseburger",
+        "double",
+        "double burger",
+        "double hamburger with cheese"
+      ],
+      "macros": {
+        "protein": 51,
+        "fat": 45,
+        "carbs": 29,
+        "fiber": 1.5,
+        "calories": 743
+      },
+      "build": [
+        {
+          "component": "beef patty",
+          "count": 2
+        },
+        {
+          "component": "american cheese",
+          "count": 2
+        },
+        {
+          "component": "bun",
+          "count": 1
+        },
+        {
+          "component": "lettuce, tomato & special sauce",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Double Cheeseburger Lettuce Wrap",
+      "aliases": [
+        "double cheeseburger lettuce wrap",
+        "lettuce wrap double cheeseburger",
+        "double cheeseburger no bun",
+        "bunless double cheeseburger",
+        "dbl cheeseburger lettuce wrap",
+        "double lettuce wrap"
+      ],
+      "macros": {
+        "protein": 48,
+        "fat": 41,
+        "carbs": 11,
+        "fiber": 1.5,
+        "calories": 588
+      },
+      "build": [
+        {
+          "component": "beef patty",
+          "count": 2
+        },
+        {
+          "component": "american cheese",
+          "count": 2
+        },
+        {
+          "component": "lettuce, tomato & special sauce",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Grilled Chicken Burger",
+      "aliases": [
+        "grilled chicken burger",
+        "chicken burger",
+        "grilled chicken sandwich",
+        "chicken sandwich",
+        "grilled chicken"
+      ],
+      "macros": {
+        "protein": 31,
+        "fat": 15,
+        "carbs": 27,
+        "fiber": 2,
+        "calories": 406
+      },
+      "build": [
+        {
+          "component": "grilled chicken patty",
+          "count": 1
+        },
+        {
+          "component": "bun",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Grilled Chicken Burger Lettuce Wrap",
+      "aliases": [
+        "grilled chicken burger lettuce wrap",
+        "grilled chicken lettuce wrap",
+        "chicken burger lettuce wrap",
+        "grilled chicken burger no bun",
+        "bunless grilled chicken burger",
+        "chicken burger no bun"
+      ],
+      "macros": {
+        "protein": 27,
+        "fat": 12,
+        "carbs": 1,
+        "fiber": 1,
+        "calories": 236
+      },
+      "note": "PDF lists 2 g fiber against 1 g carbs; fiber capped at the published carbs.",
+      "build": [
+        {
+          "component": "grilled chicken patty",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Crispy Chicken Burger",
+      "aliases": [
+        "crispy chicken burger",
+        "crispy chicken sandwich",
+        "fried chicken burger",
+        "fried chicken sandwich",
+        "crispy chicken"
+      ],
+      "macros": {
+        "protein": 34,
+        "fat": 29,
+        "carbs": 44,
+        "fiber": 2.3,
+        "calories": 606
+      },
+      "build": [
+        {
+          "component": "crispy chicken patty",
+          "count": 1
+        },
+        {
+          "component": "bun",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Crispy Chicken Burger Lettuce Wrap",
+      "aliases": [
+        "crispy chicken burger lettuce wrap",
+        "crispy chicken lettuce wrap",
+        "crispy chicken burger no bun",
+        "bunless crispy chicken burger",
+        "fried chicken lettuce wrap"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 26,
+        "carbs": 13,
+        "fiber": 2.3,
+        "calories": 436
+      }
+    },
+    {
+      "name": "Spicy Crispy Chicken Burger",
+      "aliases": [
+        "spicy crispy chicken burger",
+        "spicy chicken burger",
+        "spicy crispy chicken sandwich",
+        "spicy chicken sandwich",
+        "spicy chicken"
+      ],
+      "macros": {
+        "protein": 34,
+        "fat": 29,
+        "carbs": 44,
+        "fiber": 2.3,
+        "calories": 621
+      },
+      "build": [
+        {
+          "component": "spicy crispy chicken patty",
+          "count": 1
+        },
+        {
+          "component": "bun",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Spicy Crispy Chicken Burger Lettuce Wrap",
+      "aliases": [
+        "spicy crispy chicken burger lettuce wrap",
+        "spicy chicken lettuce wrap",
+        "spicy crispy chicken burger no bun",
+        "bunless spicy chicken burger",
+        "spicy chicken burger no bun"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 26,
+        "carbs": 13,
+        "fiber": 2.3,
+        "calories": 451
+      }
+    },
+    {
+      "name": "Crispy Chicken Bites (8pc)",
+      "aliases": [
+        "crispy chicken bites",
+        "chicken bites",
+        "chicken bites 8 piece",
+        "8 piece chicken bites",
+        "chicken nuggets",
+        "nuggets",
+        "bites"
+      ],
+      "macros": {
+        "protein": 42,
+        "fat": 13,
+        "carbs": 13,
+        "fiber": 0,
+        "calories": 300
+      }
+    },
+    {
+      "name": "Veggie Burger",
+      "aliases": [
+        "veggie burger",
+        "veggie",
+        "vegetarian burger",
+        "house veggie burger",
+        "black bean burger",
+        "mushroom burger"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 19,
+        "carbs": 46,
+        "fiber": 8,
+        "calories": 403
+      },
+      "build": [
+        {
+          "component": "bun",
+          "count": 1
+        },
+        {
+          "component": "veggie patty",
+          "count": 1
+        },
+        {
+          "component": "american cheese",
+          "count": 1
+        },
+        {
+          "component": "lettuce, tomato & special sauce",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Veggie Burger Lettuce Wrap",
+      "aliases": [
+        "veggie burger lettuce wrap",
+        "veggie lettuce wrap",
+        "veggie burger no bun",
+        "bunless veggie burger",
+        "lettuce wrapped veggie burger"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 16,
+        "carbs": 15,
+        "fiber": 8,
+        "calories": 233
+      }
+    },
+    {
+      "name": "Egg Burger w/ Cheese",
+      "aliases": [
+        "egg burger",
+        "egg burger with cheese",
+        "egg and cheese burger",
+        "egg sandwich",
+        "egg and cheese",
+        "breakfast egg burger"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 12.5,
+        "carbs": 28,
+        "fiber": 1,
+        "calories": 280
+      },
+      "note": "Build omitted: egg macros are not published and subtraction gave implausible carbs."
+    },
+    {
+      "name": "Egg Burger w/ Cheese and Bacon",
+      "aliases": [
+        "bacon egg burger",
+        "egg burger with bacon",
+        "bacon egg and cheese",
+        "bacon egg burger with cheese",
+        "bacon egg and cheese burger",
+        "bacon egg sandwich"
+      ],
+      "macros": {
+        "protein": 17.5,
+        "fat": 21.5,
+        "carbs": 28,
+        "fiber": 1,
+        "calories": 385
+      },
+      "note": "Build omitted: egg macros are not published and subtraction gave implausible carbs."
+    },
+    {
+      "name": "Egg Burger w/ Cheese and Sausage",
+      "aliases": [
+        "sausage egg burger",
+        "egg burger with sausage",
+        "sausage egg and cheese",
+        "sausage egg burger with cheese",
+        "sausage egg and cheese burger",
+        "sausage egg sandwich"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 28.5,
+        "carbs": 28,
+        "fiber": 1,
+        "calories": 450
+      },
+      "note": "Build omitted: egg macros are not published and subtraction gave implausible carbs."
+    },
+    {
+      "name": "Spicy Egg Burger w/ Cheese",
+      "aliases": [
+        "spicy egg burger",
+        "spicy egg burger with cheese",
+        "spicy egg and cheese",
+        "egg burger with pepperjack",
+        "pepperjack egg burger"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 12.5,
+        "carbs": 28,
+        "fiber": 1,
+        "calories": 281
+      },
+      "note": "Build omitted: egg macros are not published and subtraction gave implausible carbs."
+    },
+    {
+      "name": "French Fries",
+      "aliases": [
+        "french fries",
+        "fries",
+        "fry",
+        "frys",
+        "ff"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 18,
+        "carbs": 50,
+        "fiber": 2,
+        "calories": 386
+      }
+    },
+    {
+      "name": "Breakfast Potatoes",
+      "aliases": [
+        "breakfast potatoes",
+        "breakfast fries",
+        "breakfast potato",
+        "morning fries"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 18,
+        "carbs": 50,
+        "fiber": 2,
+        "calories": 386
+      }
+    },
+    {
+      "name": "Oatmeal Chocolate Chip Cookie",
+      "aliases": [
+        "oatmeal chocolate chip cookie",
+        "cookie",
+        "chocolate chip cookie",
+        "oatmeal cookie",
+        "choc chip cookie"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 13,
+        "carbs": 27,
+        "fiber": 2,
+        "calories": 241
+      }
+    },
+    {
+      "name": "Banana Bread",
+      "aliases": [
+        "banana bread",
+        "slice of banana bread",
+        "bannana bread"
+      ],
+      "macros": {
+        "protein": 4.5,
+        "fat": 1.65,
+        "carbs": 45,
+        "fiber": 4.5,
+        "calories": 192
+      }
+    },
+    {
+      "name": "Vanilla Shake (Small)",
+      "aliases": [
+        "vanilla shake",
+        "small vanilla shake",
+        "vanilla milkshake",
+        "vanilla shake sm",
+        "small vanilla milkshake",
+        "shake",
+        "milkshake"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 14,
+        "carbs": 91,
+        "fiber": 0,
+        "calories": 555
+      }
+    },
+    {
+      "name": "Vanilla Shake (Large)",
+      "aliases": [
+        "large vanilla shake",
+        "vanilla shake lg",
+        "large vanilla milkshake",
+        "vanilla shake large"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 19,
+        "carbs": 125,
+        "fiber": 0,
+        "calories": 746
+      }
+    },
+    {
+      "name": "Strawberry Shake (Small)",
+      "aliases": [
+        "strawberry shake",
+        "small strawberry shake",
+        "strawberry milkshake",
+        "strawberry shake sm",
+        "strawberry"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 14,
+        "carbs": 91,
+        "fiber": 0,
+        "calories": 555
+      }
+    },
+    {
+      "name": "Strawberry Shake (Large)",
+      "aliases": [
+        "large strawberry shake",
+        "strawberry shake lg",
+        "large strawberry milkshake",
+        "strawberry shake large"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 19,
+        "carbs": 125,
+        "fiber": 0,
+        "calories": 746
+      }
+    },
+    {
+      "name": "Chocolate Shake (Small)",
+      "aliases": [
+        "chocolate shake",
+        "small chocolate shake",
+        "chocolate milkshake",
+        "chocolate shake sm",
+        "choc shake",
+        "chocolate"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 14,
+        "carbs": 136,
+        "fiber": 0,
+        "calories": 722
+      },
+      "note": "PDF lists fiber as '>1' (under 1 g); recorded as 0."
+    },
+    {
+      "name": "Chocolate Shake (Large)",
+      "aliases": [
+        "large chocolate shake",
+        "chocolate shake lg",
+        "large chocolate milkshake",
+        "chocolate shake large"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 19,
+        "carbs": 190,
+        "fiber": 0,
+        "calories": 991
+      },
+      "note": "PDF lists fiber as '>1' (under 1 g); recorded as 0."
+    },
+    {
+      "name": "Oreo Shake (Small)",
+      "aliases": [
+        "oreo shake",
+        "small oreo shake",
+        "oreo milkshake",
+        "oreo shake sm",
+        "cookies and cream shake",
+        "oreo"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 16,
+        "carbs": 93,
+        "fiber": 0,
+        "calories": 577
+      }
+    },
+    {
+      "name": "Oreo Shake (Large)",
+      "aliases": [
+        "large oreo shake",
+        "oreo shake lg",
+        "large oreo milkshake",
+        "oreo shake large"
+      ],
+      "macros": {
+        "protein": 22,
+        "fat": 22,
+        "carbs": 129,
+        "fiber": 1,
+        "calories": 791
+      }
+    }
+  ]
+}

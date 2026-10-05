@@ -1,0 +1,458 @@
+{
+  "chain": "Carl's Jr. / Hardee's",
+  "aliases": ["carl's jr.", "carl's jr", "carls jr", "carls junior", "carl's junior", "carls", "carl jr", "carlsjr", "hardee's", "hardees", "hardee", "hardys", "hardy's", "hardies"],
+  "source": "https://www.carlsjr.com/getContentAsset/cccf694a-3d94-4cbc-adfc-28c255939f92/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/nutritional-info.pdf?language=en-US",
+  "sources": [
+    "https://www.carlsjr.com/getContentAsset/cccf694a-3d94-4cbc-adfc-28c255939f92/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/nutritional-info.pdf?language=en-US",
+    "https://www.hardees.com/getContentAsset/6ef33a63-769c-4539-863a-21e11e30163d/dfc3d011-8f63-43f6-9ed8-4b444333a1d0/usnutritionvalues2025.jpg?language=en-US"
+  ],
+  "retrieved": "2026-10-05",
+  "notes": "Carl's Jr. items are from the Nutritional Information PDF linked from carlsjr.com (nutritional-info.pdf). Hardee's items are from the '2025 Nutritional Values' table image on https://www.hardees.com/nutritional-info (current as of 1-8-2025 per the image footer); they are labelled '(Hardee's)' because the two brands' recipes and buns differ. Neither brand publishes per-ingredient rows except dipping sauces, so the shared components (quarter-pound charbroiled patty, American cheese, Swiss cheese, bacon) are derived by subtraction as noted, and each burger's bun plus its sauces and vegetables is kept as one 'bun & toppings' component derived from that burger. Items made with the smaller value patty (Double Cheeseburger, California Classic, Jalapeno Double, Spicy Chicken Sandwich) and the hand-breaded chicken sandwiches have no derivable building blocks and are listed without a build.",
+  "components": {
+    "charbroiled beef patty": { "unit": "each", "protein": 18, "fat": 15, "carbs": 1, "fiber": 0, "calories": 210, "derived": "Carl's Jr. Famous Star with Cheese Double minus Single (260 cal, 19 g fat, 3 g carbs, 20 g protein) minus one american cheese slice; Big Carl, Western Bacon, Guacamole Bacon and El Diablo Double-minus-Single give 240-250 cal, Hardee's Big Cheeseburger Double minus Single gives 270 cal" },
+    "american cheese": { "unit": "slice", "protein": 2, "fat": 4, "carbs": 1, "fiber": 0, "calories": 50, "derived": "Hardee's Kids Meal Cheeseburger minus Kids Meal Hamburger (Carl's Jr. kids pair gives 40 cal, 4 g fat, 1 g carbs, 2 g protein)" },
+    "swiss cheese": { "unit": "slice", "protein": 3, "fat": 6, "carbs": 0, "fiber": 0, "calories": 70, "derived": "Hardee's Frisco Double minus Frisco Single minus charbroiled beef patty" },
+    "bacon": { "unit": "each", "protein": 7, "fat": 4, "carbs": 2, "fiber": 0, "calories": 80, "derived": "sandwich portion of bacon: Hardee's BLT Hand-Breaded Chicken Sandwich minus Hand-Breaded Chicken Sandwich; bacon plus swiss cheese (150 cal) matches Carl's Jr. Hand-Breaded Bacon Swiss minus Hand-Breaded Chicken Sandwich (130 cal)" },
+    "famous star bun & toppings": { "unit": "each", "protein": 8, "fat": 19, "carbs": 55, "fiber": 4, "calories": 420, "derived": "Carl's Jr. Famous Star with Cheese Single minus charbroiled beef patty minus american cheese (seeded bun, lettuce, tomato, onion, pickles, special sauce, mayo)" },
+    "western bacon bun, bbq sauce & onion rings": { "unit": "each", "protein": 8, "fat": 13, "carbs": 73, "fiber": 4, "calories": 430, "derived": "Carl's Jr. Western Bacon Cheeseburger Single minus charbroiled beef patty minus american cheese minus bacon" },
+    "big carl bun, classic sauce & lettuce": { "unit": "each", "protein": 8, "fat": 19, "carbs": 53, "fiber": 3, "calories": 410, "derived": "Carl's Jr. Big Carl Single minus charbroiled beef patty minus american cheese" },
+    "guacamole bacon bun & toppings": { "unit": "each", "protein": 7, "fat": 33, "carbs": 51, "fiber": 4, "calories": 510, "derived": "Carl's Jr. Guacamole Bacon Single minus charbroiled beef patty minus american cheese minus bacon (bun, guacamole, lettuce, tomato, onion, santa fe sauce)" },
+    "el diablo bun & toppings": { "unit": "each", "protein": 19, "fat": 21, "carbs": 76, "fiber": 4, "calories": 680, "derived": "Carl's Jr. El Diablo Single minus charbroiled beef patty minus american cheese (bun, jalapeno poppers, pepper-jack, bacon, habanero sauce)" },
+    "big cheeseburger bun & condiments": { "unit": "each", "protein": 8, "fat": 3, "carbs": 54, "fiber": 3, "calories": 280, "derived": "Carl's Jr. Big Cheeseburger minus charbroiled beef patty minus american cheese (bun, ketchup, mustard, pickles, onion)" },
+    "famous star bun & toppings (hardee's)": { "unit": "each", "protein": 10, "fat": 24, "carbs": 42, "fiber": 3, "calories": 370, "derived": "Hardee's Famous Star minus charbroiled beef patty" },
+    "frisco sourdough, tomato & mayo (hardee's)": { "unit": "each", "protein": 10, "fat": 23, "carbs": 41, "fiber": 3, "calories": 380, "derived": "Hardee's Frisco Single minus charbroiled beef patty minus swiss cheese minus bacon" },
+    "brioche bun, mayo, lettuce, tomato & onion (hardee's)": { "unit": "each", "protein": 7, "fat": 20, "carbs": 37, "fiber": 3, "calories": 300, "derived": "Hardee's Bacon Cheeseburger minus charbroiled beef patty minus american cheese minus bacon" },
+    "mushroom & swiss bun & mushroom sauce (hardee's)": { "unit": "each", "protein": 10, "fat": 17, "carbs": 39, "fiber": 2, "calories": 300, "derived": "Hardee's Mushroom & Swiss Single minus charbroiled beef patty minus swiss cheese" },
+    "big cheeseburger bun & condiments (hardee's)": { "unit": "each", "protein": 7, "fat": 14, "carbs": 38, "fiber": 1, "calories": 260, "derived": "Hardee's Big Cheeseburger Single minus charbroiled beef patty minus american cheese" },
+    "monster burger bun & mayo (hardee's)": { "unit": "each", "protein": 16, "fat": 31, "carbs": 34, "fiber": 3, "calories": 410, "derived": "Hardee's Monster Burger minus 2 charbroiled beef patties minus 2 american cheese minus bacon" },
+    "charbroiled chicken breast, honey wheat bun, lettuce, tomato & onion": { "unit": "each", "protein": 35, "fat": 13, "carbs": 36, "fiber": 2, "calories": 390, "derived": "Carl's Jr. Charbroiled BBQ Chicken Sandwich minus published Sweet & Bold BBQ Dipping Sauce" },
+    "mayo": { "unit": "each", "protein": 0, "fat": 15, "carbs": 7, "fiber": 0, "calories": 150, "derived": "Carl's Jr. Charbroiled Chicken Club minus 'charbroiled chicken breast, honey wheat bun, lettuce, tomato & onion' minus bacon minus swiss cheese" },
+    "green chile & santa fe sauce": { "unit": "each", "protein": 1, "fat": 23, "carbs": 8, "fiber": 0, "calories": 250, "derived": "Carl's Jr. Charbroiled Santa Fe Chicken Sandwich minus 'charbroiled chicken breast, honey wheat bun, lettuce, tomato & onion' minus american cheese" },
+    "sweet & bold bbq dipping sauce": { "unit": "each", "protein": 0, "fat": 0, "carbs": 12, "fiber": 0, "calories": 50 },
+    "honey mustard dipping sauce": { "unit": "each", "protein": 1, "fat": 14, "carbs": 4, "fiber": 0, "calories": 140 },
+    "buttermilk ranch dipping sauce": { "unit": "each", "protein": 0, "fat": 11, "carbs": 2, "fiber": 0, "calories": 110 },
+    "spicy buffalo dipping sauce": { "unit": "each", "protein": 0, "fat": 0, "carbs": 1, "fiber": 0, "calories": 5 },
+    "house dressing dipping cup": { "unit": "each", "protein": 0, "fat": 10, "carbs": 1, "fiber": 0, "calories": 90 }
+  },
+  "items": [
+    {
+      "name": "Famous Star with Cheese, Single",
+      "aliases": ["famous star", "famous star with cheese", "single famous star", "famous star single", "famous star cheeseburger", "famus star", "famous star burger"],
+      "macros": { "protein": 28, "fat": 38, "carbs": 57, "fiber": 4, "calories": 680 },
+      "build": [
+        { "component": "famous star bun & toppings", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Famous Star with Cheese, Double",
+      "aliases": ["double famous star", "famous star double", "double famous star with cheese", "dbl famous star"],
+      "macros": { "protein": 48, "fat": 57, "carbs": 60, "fiber": 4, "calories": 940 },
+      "build": [
+        { "component": "famous star bun & toppings", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 }
+      ]
+    },
+    {
+      "name": "Famous Star with Cheese, Triple",
+      "aliases": ["triple famous star", "famous star triple", "triple famous star with cheese", "trpl famous star"],
+      "macros": { "protein": 67, "fat": 77, "carbs": 59, "fiber": 4, "calories": 1190 },
+      "build": [
+        { "component": "famous star bun & toppings", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 3 },
+        { "component": "american cheese", "count": 3 }
+      ]
+    },
+    {
+      "name": "Western Bacon Cheeseburger, Single",
+      "aliases": ["western bacon cheeseburger", "western bacon", "western", "single western bacon cheeseburger", "western burger", "wbc"],
+      "macros": { "protein": 35, "fat": 36, "carbs": 77, "fiber": 4, "calories": 770 },
+      "build": [
+        { "component": "western bacon bun, bbq sauce & onion rings", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "bacon", "count": 1 }
+      ]
+    },
+    {
+      "name": "Western Bacon Cheeseburger, Double",
+      "aliases": ["double western bacon cheeseburger", "double western", "western bacon double", "dbl western bacon", "double western bacon"],
+      "macros": { "protein": 55, "fat": 55, "carbs": 78, "fiber": 4, "calories": 1020 },
+      "build": [
+        { "component": "western bacon bun, bbq sauce & onion rings", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "bacon", "count": 1 }
+      ]
+    },
+    {
+      "name": "Western Bacon Cheeseburger, Triple",
+      "aliases": ["triple western bacon cheeseburger", "triple western", "western bacon triple", "trpl western bacon"],
+      "macros": { "protein": 74, "fat": 75, "carbs": 79, "fiber": 4, "calories": 1280 },
+      "build": [
+        { "component": "western bacon bun, bbq sauce & onion rings", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 3 },
+        { "component": "american cheese", "count": 3 },
+        { "component": "bacon", "count": 1 }
+      ]
+    },
+    {
+      "name": "The Big Carl, Single",
+      "aliases": ["big carl", "the big carl", "single big carl", "big carl single", "big karl"],
+      "macros": { "protein": 28, "fat": 38, "carbs": 55, "fiber": 3, "calories": 670 },
+      "build": [
+        { "component": "big carl bun, classic sauce & lettuce", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "The Big Carl, Double",
+      "aliases": ["double big carl", "big carl double", "dbl big carl"],
+      "macros": { "protein": 47, "fat": 58, "carbs": 56, "fiber": 3, "calories": 920 },
+      "build": [
+        { "component": "big carl bun, classic sauce & lettuce", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 }
+      ]
+    },
+    {
+      "name": "The Big Carl, Triple",
+      "aliases": ["triple big carl", "big carl triple", "trpl big carl"],
+      "macros": { "protein": 66, "fat": 77, "carbs": 57, "fiber": 3, "calories": 1180 },
+      "build": [
+        { "component": "big carl bun, classic sauce & lettuce", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 3 },
+        { "component": "american cheese", "count": 3 }
+      ]
+    },
+    {
+      "name": "Guacamole Bacon, Single",
+      "aliases": ["guacamole bacon", "guacamole bacon burger", "guac bacon", "guac bacon burger", "single guacamole bacon", "guacamole burger"],
+      "macros": { "protein": 34, "fat": 56, "carbs": 55, "fiber": 4, "calories": 850 },
+      "build": [
+        { "component": "guacamole bacon bun & toppings", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "bacon", "count": 1 }
+      ]
+    },
+    {
+      "name": "Guacamole Bacon, Double",
+      "aliases": ["double guacamole bacon", "guacamole bacon double", "double guac bacon", "dbl guac bacon"],
+      "macros": { "protein": 54, "fat": 74, "carbs": 56, "fiber": 4, "calories": 1100 },
+      "build": [
+        { "component": "guacamole bacon bun & toppings", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "bacon", "count": 1 }
+      ]
+    },
+    {
+      "name": "El Diablo, Single",
+      "aliases": ["el diablo", "el diablo burger", "diablo", "diablo burger", "single el diablo"],
+      "macros": { "protein": 39, "fat": 40, "carbs": 78, "fiber": 4, "calories": 940 },
+      "build": [
+        { "component": "el diablo bun & toppings", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "El Diablo, Double",
+      "aliases": ["double el diablo", "el diablo double", "double diablo", "dbl el diablo"],
+      "macros": { "protein": 58, "fat": 59, "carbs": 78, "fiber": 4, "calories": 1180 },
+      "build": [
+        { "component": "el diablo bun & toppings", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 }
+      ]
+    },
+    {
+      "name": "Big Cheeseburger",
+      "aliases": ["big cheeseburger", "big cheese burger", "quarter pound cheeseburger", "big cheese"],
+      "macros": { "protein": 28, "fat": 22, "carbs": 56, "fiber": 3, "calories": 540 },
+      "build": [
+        { "component": "big cheeseburger bun & condiments", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Double Cheeseburger",
+      "aliases": ["double cheeseburger", "dbl cheeseburger", "value double cheeseburger", "small double cheeseburger"],
+      "macros": { "protein": 19, "fat": 21, "carbs": 34, "fiber": 1, "calories": 370 }
+    },
+    {
+      "name": "California Classic Double Cheeseburger",
+      "aliases": ["california classic", "california classic double cheeseburger", "cali classic", "california double cheeseburger", "california classic cheeseburger"],
+      "macros": { "protein": 19, "fat": 36, "carbs": 37, "fiber": 2, "calories": 520 }
+    },
+    {
+      "name": "Jalapeno Double Cheeseburger",
+      "aliases": ["jalapeno double cheeseburger", "jalapeño double cheeseburger", "jalapeno cheeseburger", "jalapeno double", "jalapeno burger"],
+      "macros": { "protein": 19, "fat": 36, "carbs": 32, "fiber": 2, "calories": 510 }
+    },
+    {
+      "name": "Hand-Breaded Chicken Sandwich",
+      "aliases": ["hand-breaded chicken sandwich", "hand breaded chicken sandwich", "hand breaded chicken", "chicken sandwich", "crispy chicken sandwich", "fried chicken sandwich"],
+      "macros": { "protein": 31, "fat": 37, "carbs": 50, "fiber": 0, "calories": 660 }
+    },
+    {
+      "name": "Hand-Breaded Bacon Swiss Chicken Sandwich",
+      "aliases": ["hand-breaded bacon swiss chicken sandwich", "bacon swiss chicken sandwich", "bacon swiss chicken", "hand breaded bacon swiss", "bacon swiss"],
+      "macros": { "protein": 40, "fat": 47, "carbs": 53, "fiber": 0, "calories": 790 }
+    },
+    {
+      "name": "Charbroiled Chicken Club Sandwich",
+      "aliases": ["charbroiled chicken club", "chicken club", "chicken club sandwich", "grilled chicken club", "charbroiled club"],
+      "macros": { "protein": 43, "fat": 38, "carbs": 45, "fiber": 2, "calories": 690 },
+      "build": [
+        { "component": "charbroiled chicken breast, honey wheat bun, lettuce, tomato & onion", "count": 1 },
+        { "component": "bacon", "count": 1 },
+        { "component": "swiss cheese", "count": 1 },
+        { "component": "mayo", "count": 1 }
+      ]
+    },
+    {
+      "name": "Charbroiled Santa Fe Chicken Sandwich",
+      "aliases": ["charbroiled santa fe chicken", "santa fe chicken sandwich", "santa fe chicken", "santa fe", "santa fe sandwich"],
+      "macros": { "protein": 38, "fat": 40, "carbs": 45, "fiber": 2, "calories": 690 },
+      "build": [
+        { "component": "charbroiled chicken breast, honey wheat bun, lettuce, tomato & onion", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "green chile & santa fe sauce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Charbroiled BBQ Chicken Sandwich",
+      "aliases": ["charbroiled bbq chicken", "bbq chicken sandwich", "bbq chicken", "grilled bbq chicken sandwich", "barbecue chicken sandwich", "grilled chicken sandwich"],
+      "macros": { "protein": 35, "fat": 13, "carbs": 48, "fiber": 2, "calories": 440 },
+      "build": [
+        { "component": "charbroiled chicken breast, honey wheat bun, lettuce, tomato & onion", "count": 1 },
+        { "component": "sweet & bold bbq dipping sauce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Spicy Chicken Sandwich",
+      "aliases": ["spicy chicken sandwich", "spicy chicken", "value spicy chicken", "spicy chicken burger"],
+      "macros": { "protein": 14, "fat": 29, "carbs": 43, "fiber": 4, "calories": 490 }
+    },
+    {
+      "name": "Hand-Breaded Chicken Tenders, 3 Piece",
+      "aliases": ["3 piece chicken tenders", "3 pc tenders", "3pc tenders", "hand-breaded chicken tenders", "hand breaded tenders", "chicken tenders", "tenders", "3 tenders"],
+      "macros": { "protein": 25, "fat": 13, "carbs": 13, "fiber": 2, "calories": 260 }
+    },
+    {
+      "name": "Hand-Breaded Chicken Tenders, 5 Piece",
+      "aliases": ["5 piece chicken tenders", "5 pc tenders", "5pc tenders", "5 tenders", "5 piece hand-breaded chicken tenders"],
+      "macros": { "protein": 41, "fat": 21, "carbs": 21, "fiber": 3, "calories": 440 }
+    },
+    {
+      "name": "Chicken Stars, 6 Piece",
+      "aliases": ["chicken stars", "6 piece chicken stars", "6 pc chicken stars", "chicken star nuggets", "star nuggets", "nuggets"],
+      "macros": { "protein": 14, "fat": 15, "carbs": 19, "fiber": 3, "calories": 270 }
+    },
+    {
+      "name": "Natural-Cut Fries, Small",
+      "aliases": ["small fries", "small natural-cut fries", "natural cut fries small", "sm fries"],
+      "macros": { "protein": 3, "fat": 14, "carbs": 36, "fiber": 3, "calories": 280 }
+    },
+    {
+      "name": "Natural-Cut Fries, Medium",
+      "aliases": ["fries", "medium fries", "natural-cut fries", "natural cut fries", "french fries", "med fries"],
+      "macros": { "protein": 4, "fat": 19, "carbs": 51, "fiber": 5, "calories": 400 }
+    },
+    {
+      "name": "Natural-Cut Fries, Large",
+      "aliases": ["large fries", "large natural-cut fries", "lg fries"],
+      "macros": { "protein": 5, "fat": 22, "carbs": 59, "fiber": 6, "calories": 450 }
+    },
+    {
+      "name": "Onion Rings",
+      "aliases": ["onion rings", "rings", "o-rings", "onion ring"],
+      "macros": { "protein": 9, "fat": 30, "carbs": 66, "fiber": 4, "calories": 560 }
+    },
+    {
+      "name": "Waffle Fries",
+      "aliases": ["waffle fries", "waffle cut fries", "waffle fry"],
+      "macros": { "protein": 5, "fat": 25, "carbs": 36, "fiber": 0, "calories": 380 }
+    },
+    {
+      "name": "Jalapeno Poppers Bites, 6 Piece",
+      "aliases": ["jalapeno poppers", "jalapeño poppers", "jalapeno popper bites", "poppers", "6 piece jalapeno poppers", "popper bites"],
+      "macros": { "protein": 9, "fat": 19, "carbs": 40, "fiber": 3, "calories": 370 }
+    },
+    {
+      "name": "Honey Mustard Dipping Sauce",
+      "aliases": ["honey mustard", "honey mustard sauce", "honey mustard dipping sauce"],
+      "macros": { "protein": 1, "fat": 14, "carbs": 4, "fiber": 0, "calories": 140 }
+    },
+    {
+      "name": "Sweet & Bold BBQ Dipping Sauce",
+      "aliases": ["bbq sauce", "sweet and bold bbq", "sweet & bold bbq sauce", "barbecue sauce", "bbq dipping sauce"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 12, "fiber": 0, "calories": 50 }
+    },
+    {
+      "name": "Buttermilk Ranch Dipping Sauce",
+      "aliases": ["ranch", "ranch sauce", "buttermilk ranch", "ranch dipping sauce", "ranch dressing"],
+      "macros": { "protein": 0, "fat": 11, "carbs": 2, "fiber": 0, "calories": 110 }
+    },
+    {
+      "name": "Spicy Buffalo Dipping Sauce",
+      "aliases": ["buffalo sauce", "spicy buffalo", "spicy buffalo sauce", "buffalo dipping sauce"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 1, "fiber": 0, "calories": 5 }
+    },
+    {
+      "name": "Vanilla Hand-Scooped Ice Cream Shake",
+      "aliases": ["vanilla shake", "vanilla milkshake", "hand-scooped vanilla shake", "hand scooped shake", "shake"],
+      "macros": { "protein": 13, "fat": 36, "carbs": 87, "fiber": 2, "calories": 720 }
+    },
+    {
+      "name": "Chocolate Hand-Scooped Ice Cream Shake",
+      "aliases": ["chocolate shake", "chocolate milkshake", "hand-scooped chocolate shake"],
+      "macros": { "protein": 13, "fat": 36, "carbs": 86, "fiber": 1, "calories": 710 }
+    },
+    {
+      "name": "Famous Star (Hardee's)",
+      "aliases": ["hardee's famous star", "hardees famous star", "famous star hardees", "hardees famous star burger"],
+      "macros": { "protein": 28, "fat": 39, "carbs": 43, "fiber": 3, "calories": 580 },
+      "build": [
+        { "component": "famous star bun & toppings (hardee's)", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 1 }
+      ]
+    },
+    {
+      "name": "Super Star (Hardee's)",
+      "aliases": ["super star", "superstar", "hardee's super star", "hardees super star", "super star burger", "super star with cheese"],
+      "macros": { "protein": 49, "fat": 60, "carbs": 43, "fiber": 4, "calories": 850 },
+      "build": [
+        { "component": "famous star bun & toppings (hardee's)", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 }
+      ]
+    },
+    {
+      "name": "Frisco Burger, Single (Hardee's)",
+      "aliases": ["frisco", "frisco burger", "frisco single", "single frisco", "hardee's frisco", "hardees frisco burger", "frisco thickburger"],
+      "macros": { "protein": 38, "fat": 48, "carbs": 43, "fiber": 3, "calories": 740 },
+      "build": [
+        { "component": "frisco sourdough, tomato & mayo (hardee's)", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 1 },
+        { "component": "swiss cheese", "count": 1 },
+        { "component": "bacon", "count": 1 }
+      ]
+    },
+    {
+      "name": "Frisco Burger, Double (Hardee's)",
+      "aliases": ["frisco double", "double frisco", "double frisco burger", "dbl frisco"],
+      "macros": { "protein": 59, "fat": 69, "carbs": 44, "fiber": 4, "calories": 1020 },
+      "build": [
+        { "component": "frisco sourdough, tomato & mayo (hardee's)", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 2 },
+        { "component": "swiss cheese", "count": 2 },
+        { "component": "bacon", "count": 1 }
+      ]
+    },
+    {
+      "name": "Bacon Cheeseburger (Hardee's)",
+      "aliases": ["bacon cheeseburger", "hardee's bacon cheeseburger", "hardees bacon cheeseburger", "bacon cheese angus burger", "single bacon cheeseburger"],
+      "macros": { "protein": 34, "fat": 43, "carbs": 40, "fiber": 3, "calories": 640 },
+      "build": [
+        { "component": "brioche bun, mayo, lettuce, tomato & onion (hardee's)", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "bacon", "count": 1 }
+      ]
+    },
+    {
+      "name": "Double Bacon Cheeseburger (Hardee's)",
+      "aliases": ["double bacon cheeseburger", "hardee's double bacon cheeseburger", "hardees double bacon cheeseburger", "dbl bacon cheeseburger"],
+      "macros": { "protein": 55, "fat": 64, "carbs": 41, "fiber": 4, "calories": 910 },
+      "build": [
+        { "component": "brioche bun, mayo, lettuce, tomato & onion (hardee's)", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "bacon", "count": 1 }
+      ]
+    },
+    {
+      "name": "Mushroom & Swiss, Single (Hardee's)",
+      "aliases": ["mushroom and swiss", "mushroom swiss", "mushroom & swiss burger", "hardee's mushroom and swiss", "hardees mushroom swiss", "single mushroom and swiss", "shroom and swiss"],
+      "macros": { "protein": 31, "fat": 38, "carbs": 40, "fiber": 2, "calories": 580 },
+      "build": [
+        { "component": "mushroom & swiss bun & mushroom sauce (hardee's)", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 1 },
+        { "component": "swiss cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Mushroom & Swiss, Double (Hardee's)",
+      "aliases": ["double mushroom and swiss", "double mushroom swiss", "mushroom and swiss double", "dbl mushroom swiss"],
+      "macros": { "protein": 52, "fat": 60, "carbs": 41, "fiber": 3, "calories": 860 },
+      "build": [
+        { "component": "mushroom & swiss bun & mushroom sauce (hardee's)", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 2 },
+        { "component": "swiss cheese", "count": 2 }
+      ]
+    },
+    {
+      "name": "Big Cheeseburger, Single (Hardee's)",
+      "aliases": ["hardee's big cheeseburger", "hardees big cheeseburger", "big cheeseburger single", "single big cheeseburger"],
+      "macros": { "protein": 27, "fat": 33, "carbs": 40, "fiber": 1, "calories": 520 },
+      "build": [
+        { "component": "big cheeseburger bun & condiments (hardee's)", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Big Cheeseburger, Double (Hardee's)",
+      "aliases": ["hardee's double big cheeseburger", "hardees big cheeseburger double", "big cheeseburger double", "double big cheeseburger"],
+      "macros": { "protein": 48, "fat": 54, "carbs": 40, "fiber": 3, "calories": 790 },
+      "build": [
+        { "component": "big cheeseburger bun & condiments (hardee's)", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 }
+      ]
+    },
+    {
+      "name": "Monster Burger (Hardee's)",
+      "aliases": ["monster burger", "monster", "hardee's monster burger", "hardees monster burger", "monster thickburger", "monster angus burger"],
+      "macros": { "protein": 63, "fat": 73, "carbs": 40, "fiber": 3, "calories": 1010 },
+      "build": [
+        { "component": "monster burger bun & mayo (hardee's)", "count": 1 },
+        { "component": "charbroiled beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "bacon", "count": 1 }
+      ]
+    },
+    {
+      "name": "Big Hot Ham 'N' Cheese (Hardee's)",
+      "aliases": ["big hot ham and cheese", "big hot ham n cheese", "hot ham and cheese", "hot ham n cheese", "ham and cheese", "big hot ham & cheese"],
+      "macros": { "protein": 29, "fat": 23, "carbs": 39, "fiber": 2, "calories": 450 }
+    },
+    {
+      "name": "Hand-Breaded Chicken Sandwich (Hardee's)",
+      "aliases": ["hardee's hand-breaded chicken sandwich", "hardees hand breaded chicken sandwich", "hardees chicken sandwich", "hardee's chicken sandwich"],
+      "macros": { "protein": 30, "fat": 32, "carbs": 48, "fiber": 2, "calories": 560 }
+    },
+    {
+      "name": "Nashville Hot Hand-Breaded Chicken Sandwich (Hardee's)",
+      "aliases": ["nashville hot chicken sandwich", "nashville hot", "nashville hot hand-breaded chicken", "nashville chicken sandwich", "hot chicken sandwich"],
+      "macros": { "protein": 30, "fat": 32, "carbs": 49, "fiber": 2, "calories": 570 }
+    },
+    {
+      "name": "BLT Hand-Breaded Chicken Sandwich (Hardee's)",
+      "aliases": ["blt hand-breaded chicken sandwich", "blt chicken sandwich", "chicken blt", "hand breaded blt chicken", "blt chicken"],
+      "macros": { "protein": 37, "fat": 36, "carbs": 50, "fiber": 2, "calories": 640 }
+    },
+    {
+      "name": "Crispy Curls, Medium (Hardee's)",
+      "aliases": ["crispy curls", "curly fries", "medium crispy curls", "hardee's crispy curls", "hardees curly fries", "curls"],
+      "macros": { "protein": 4, "fat": 17, "carbs": 43, "fiber": 4, "calories": 340 }
+    }
+  ]
+}

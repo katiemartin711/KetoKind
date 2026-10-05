@@ -1,0 +1,378 @@
+{
+  "chain": "McDonald's",
+  "aliases": ["mcdonald's", "mcdonalds", "mcdonald", "mcd", "mcds", "mickey d's", "mickey ds", "mickey dees", "macdonalds", "mcdonals", "maccas", "golden arches", "mcdo"],
+  "source": "https://www.mcdonalds.com/us/en-us/about-our-food/nutrition-calculator.html",
+  "retrieved": "2026-10-05",
+  "notes": "Item totals are McDonald's own published figures as served by mcdonalds.com's nutrition calculator / product pages (data endpoint www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&item={id}; e.g. Big Mac = item 200463). McDonald's publishes only CALORIES per ingredient (e.g. Regular Bun 140, 100% Beef Patty 90, Quarter Pound Patty 220, American Cheese 50, Big Mac Sauce 140, Mayonnaise 100, Bacon 110 on the Bacon Quarter Pounder, Egg 80, Folded Egg 70, Sausage Patty 190, English Muffin 140, Biscuit 260, Griddle Cakes 240, Potato Roll 170, Crispy Chicken Fillet 250, McChicken Patty 150); component protein/fat/carbs are derived by subtraction between published items as noted and cross-checked against those published component calories. Components whose macros could not be separated (Filet-O-Fish patty + tartar sauce, McCrispy fillet vs potato roll) are combined or scaled as noted. Medium/large fries and 6/10-piece McNuggets were not exposed by the calculator's item list and are omitted.",
+  "components": {
+    "regular bun": { "unit": "each", "protein": 5, "fat": 2, "carbs": 26, "fiber": 1, "calories": 140, "derived": "Hamburger minus 100% beef patty minus ketchup (published Regular Bun 140 cal)" },
+    "quarter pound bun": { "unit": "each", "protein": 6, "fat": 2, "carbs": 34, "fiber": 2, "calories": 180, "derived": "Quarter Pounder with Cheese minus quarter pound patty, two cheese slices and ketchup (published Quarter Pound Bun 180 cal)" },
+    "big mac bun": { "unit": "each", "protein": 6.8, "fat": 2.7, "carbs": 35, "fiber": 1.4, "calories": 190, "derived": "Regular Bun scaled to the Big Mac Bun's published 190 cal (three-piece bun)" },
+    "potato roll": { "unit": "each", "protein": 6.1, "fat": 2.4, "carbs": 31.6, "fiber": 1.2, "calories": 170, "derived": "Regular Bun scaled to the Potato Roll's published 170 cal" },
+    "english muffin": { "unit": "each", "protein": 4.2, "fat": 1.1, "carbs": 25, "fiber": 2, "calories": 140, "derived": "Sausage McMuffin minus sausage patty, cheese slice and butter (published English Muffin 140 cal)" },
+    "biscuit": { "unit": "each", "protein": 4.2, "fat": 11.3, "carbs": 35, "fiber": 2, "calories": 270, "derived": "Sausage Biscuit minus sausage patty (published Biscuit 260 cal plus its 10 cal of butter)" },
+    "griddle cakes": { "unit": "each", "protein": 4.2, "fat": 5.3, "carbs": 39.4, "fiber": 2, "calories": 240, "derived": "Sausage McGriddles minus sausage patty (published Griddle Cakes 240 cal); two cakes" },
+    "100% beef patty": { "unit": "each", "protein": 7, "fat": 7, "carbs": 1, "fiber": 0, "calories": 90, "derived": "McDouble minus Cheeseburger (published 100% Beef Patty 90 cal)" },
+    "quarter pound beef patty": { "unit": "each", "protein": 18, "fat": 16, "carbs": 1, "fiber": 0, "calories": 220, "derived": "Double Quarter Pounder with Cheese minus Quarter Pounder with Cheese (published Quarter Pound 100% Beef Patty 220 cal)" },
+    "american cheese": { "unit": "slice", "protein": 3, "fat": 4, "carbs": 2, "fiber": 0, "calories": 50, "derived": "Double Cheeseburger minus McDouble (published Pasteurized Process American Cheese 50 cal); Cheeseburger minus Hamburger agrees" },
+    "applewood smoked bacon": { "unit": "ounce", "protein": 8.3, "fat": 12.4, "carbs": 1.4, "fiber": 0, "calories": 152, "derived": "Bacon Quarter Pounder with Cheese minus Quarter Pounder with Cheese (110 cal for the Bacon QPC's 20.6 g portion), per ounce; the breakfast portion is 13.7 g = 0.48 oz (published 70 cal)" },
+    "big mac sauce": { "unit": "each", "protein": 1.2, "fat": 13.3, "carbs": 6, "fiber": 1.6, "calories": 160, "derived": "Big Mac minus two 100% beef patties, one cheese slice and the Big Mac bun (published Big Mac Sauce 140 cal; difference is rounding)" },
+    "mayonnaise": { "unit": "each", "protein": 0, "fat": 11, "carbs": 0, "fiber": 0, "calories": 100, "derived": "Daily Double minus McDouble (published Mayonnaise 100 cal; one sandwich portion)" },
+    "ketchup": { "unit": "each", "protein": 0, "fat": 0, "carbs": 2, "fiber": 0, "calories": 10, "derived": "published Ketchup 10 cal on the Hamburger (one burger portion, about 8 g; the Quarter Pounder gets 1.5 portions = 15 cal) and published Ketchup Packet 10 cal / 2 g carbs" },
+    "mustard": { "unit": "each", "protein": 0, "fat": 0, "carbs": 0, "fiber": 0, "calories": 0 },
+    "pickle slices": { "unit": "each", "protein": 0, "fat": 0, "carbs": 0, "fiber": 0, "calories": 0 },
+    "onions": { "unit": "each", "protein": 0, "fat": 0, "carbs": 0, "fiber": 0, "calories": 0 },
+    "shredded lettuce": { "unit": "each", "protein": 0, "fat": 0, "carbs": 0, "fiber": 0, "calories": 0 },
+    "tomato & lettuce": { "unit": "each", "protein": 0, "fat": 0, "carbs": 2, "fiber": 1, "calories": 10, "derived": "Quarter Pounder with Cheese Deluxe minus Quarter Pounder with Cheese minus mayonnaise (the Deluxe's Roma tomato and shredded lettuce)" },
+    "salted butter": { "unit": "teaspoon", "protein": 0, "fat": 3.8, "carbs": 0, "fiber": 0, "calories": 34, "derived": "published Salted Butter calories (20 on a McMuffin, 45 on a McCrispy) treated as all fat; one teaspoon = 4.7 g" },
+    "crispy chicken fillet": { "unit": "each", "protein": 20, "fat": 12.6, "carbs": 14.4, "fiber": 0, "calories": 250, "derived": "McCrispy minus potato roll (scaled Regular Bun) minus salted butter (published Crispy Chicken Fillet 250 cal)" },
+    "spicy pepper sauce": { "unit": "each", "protein": 1, "fat": 11, "carbs": 2, "fiber": 1, "calories": 110, "derived": "Spicy McCrispy minus (McCrispy minus salted butter) (published Spicy Pepper Sauce 110 cal)" },
+    "mcchicken patty": { "unit": "each", "protein": 9, "fat": 8, "carbs": 12, "fiber": 0, "calories": 150, "derived": "McChicken minus regular bun minus mayonnaise (published McChicken Patty 150 cal)" },
+    "fish filet patty with tartar sauce": { "unit": "each", "protein": 9.5, "fat": 15, "carbs": 11, "fiber": 0, "calories": 215, "derived": "Filet-O-Fish minus regular bun minus half slice of cheese (published Fish Filet Patty 120 cal + Tartar Sauce 90 cal; their macros cannot be separated)" },
+    "round egg": { "unit": "each", "protein": 6, "fat": 5, "carbs": 1, "fiber": 0, "calories": 80, "derived": "Sausage McMuffin with Egg minus Sausage McMuffin (published Egg 80 cal)" },
+    "folded egg": { "unit": "each", "protein": 6, "fat": 5, "carbs": 1, "fiber": 0, "calories": 70, "derived": "Sausage Biscuit with Egg minus Sausage Biscuit (published Folded Egg 70 cal)" },
+    "sausage patty": { "unit": "each", "protein": 6.8, "fat": 18.7, "carbs": 1.6, "fiber": 0, "calories": 190, "derived": "Sausage Biscuit minus (Bacon, Egg & Cheese Biscuit minus folded egg, cheese slice and bacon) (published Sausage Patty 190 cal)" },
+    "canadian bacon": { "unit": "each", "protein": 3.8, "fat": 0.7, "carbs": 1, "fiber": 0, "calories": 15, "derived": "Egg McMuffin minus english muffin, round egg, cheese slice and butter (published Canadian Bacon 15 cal)" }
+  },
+  "items": [
+    {
+      "name": "Big Mac",
+      "aliases": ["big mac", "bigmac", "big mack", "big mac burger"],
+      "macros": { "protein": 25, "fat": 34, "carbs": 45, "fiber": 3, "calories": 580 },
+      "build": [
+        { "component": "big mac bun", "count": 1 },
+        { "component": "100% beef patty", "count": 2 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "big mac sauce", "count": 1 },
+        { "component": "shredded lettuce", "count": 1 },
+        { "component": "pickle slices", "count": 1 },
+        { "component": "onions", "count": 1 }
+      ]
+    },
+    {
+      "name": "Quarter Pounder with Cheese",
+      "aliases": ["quarter pounder with cheese", "quarter pounder", "qpc", "qp with cheese", "quarter pounder cheese", "1/4 pounder with cheese", "quarter pounder w/ cheese", "qp"],
+      "macros": { "protein": 30, "fat": 26, "carbs": 42, "fiber": 2, "calories": 520 },
+      "build": [
+        { "component": "quarter pound bun", "count": 1 },
+        { "component": "quarter pound beef patty", "count": 1 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "ketchup", "count": 1.5 },
+        { "component": "pickle slices", "count": 1 },
+        { "component": "onions", "count": 1 },
+        { "component": "mustard", "count": 1 }
+      ]
+    },
+    {
+      "name": "Double Quarter Pounder with Cheese",
+      "aliases": ["double quarter pounder with cheese", "double quarter pounder", "double qpc", "dqpc", "double qp", "double quarter pounder cheese"],
+      "macros": { "protein": 48, "fat": 42, "carbs": 43, "fiber": 2, "calories": 740 },
+      "build": [
+        { "component": "quarter pound bun", "count": 1 },
+        { "component": "quarter pound beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "ketchup", "count": 1.5 },
+        { "component": "pickle slices", "count": 1 },
+        { "component": "onions", "count": 1 },
+        { "component": "mustard", "count": 1 }
+      ]
+    },
+    {
+      "name": "Quarter Pounder with Cheese Deluxe",
+      "aliases": ["quarter pounder deluxe", "quarter pounder with cheese deluxe", "qpc deluxe", "deluxe quarter pounder", "deluxe qpc", "qp deluxe"],
+      "macros": { "protein": 30, "fat": 37, "carbs": 44, "fiber": 3, "calories": 630 },
+      "build": [
+        { "component": "quarter pound bun", "count": 1 },
+        { "component": "quarter pound beef patty", "count": 1 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "mayonnaise", "count": 1 },
+        { "component": "tomato & lettuce", "count": 1 },
+        { "component": "ketchup", "count": 1.5 },
+        { "component": "pickle slices", "count": 1 },
+        { "component": "onions", "count": 1 },
+        { "component": "mustard", "count": 1 }
+      ]
+    },
+    {
+      "name": "Bacon Quarter Pounder with Cheese",
+      "aliases": ["bacon quarter pounder with cheese", "bacon quarter pounder", "bacon qpc", "quarter pounder with bacon", "qpc with bacon", "bacon qp"],
+      "macros": { "protein": 36, "fat": 35, "carbs": 43, "fiber": 3, "calories": 630 },
+      "build": [
+        { "component": "quarter pound bun", "count": 1 },
+        { "component": "quarter pound beef patty", "count": 1 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "applewood smoked bacon", "count": 0.73 },
+        { "component": "ketchup", "count": 1.5 },
+        { "component": "pickle slices", "count": 1 },
+        { "component": "onions", "count": 1 },
+        { "component": "mustard", "count": 1 }
+      ]
+    },
+    {
+      "name": "McDouble",
+      "aliases": ["mcdouble", "mc double", "double mc", "mcdbl"],
+      "macros": { "protein": 22, "fat": 20, "carbs": 32, "fiber": 2, "calories": 390 },
+      "build": [
+        { "component": "regular bun", "count": 1 },
+        { "component": "100% beef patty", "count": 2 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "ketchup", "count": 1 },
+        { "component": "pickle slices", "count": 1 },
+        { "component": "onions", "count": 1 },
+        { "component": "mustard", "count": 1 }
+      ]
+    },
+    {
+      "name": "Daily Double",
+      "aliases": ["daily double", "daily dbl"],
+      "macros": { "protein": 22, "fat": 31, "carbs": 30, "fiber": 2, "calories": 490 },
+      "build": [
+        { "component": "regular bun", "count": 1 },
+        { "component": "100% beef patty", "count": 2 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "mayonnaise", "count": 1 },
+        { "component": "tomato & lettuce", "count": 1 },
+        { "component": "onions", "count": 1 }
+      ]
+    },
+    {
+      "name": "Cheeseburger",
+      "aliases": ["cheeseburger", "cheese burger", "mcdonalds cheeseburger", "single cheeseburger"],
+      "macros": { "protein": 15, "fat": 13, "carbs": 31, "fiber": 2, "calories": 300 },
+      "build": [
+        { "component": "regular bun", "count": 1 },
+        { "component": "100% beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "ketchup", "count": 1 },
+        { "component": "pickle slices", "count": 1 },
+        { "component": "onions", "count": 1 },
+        { "component": "mustard", "count": 1 }
+      ]
+    },
+    {
+      "name": "Double Cheeseburger",
+      "aliases": ["double cheeseburger", "dbl cheeseburger", "double cheese", "2 cheeseburger"],
+      "macros": { "protein": 25, "fat": 24, "carbs": 34, "fiber": 2, "calories": 440 },
+      "build": [
+        { "component": "regular bun", "count": 1 },
+        { "component": "100% beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "ketchup", "count": 1 },
+        { "component": "pickle slices", "count": 1 },
+        { "component": "onions", "count": 1 },
+        { "component": "mustard", "count": 1 }
+      ]
+    },
+    {
+      "name": "Hamburger",
+      "aliases": ["hamburger", "plain hamburger", "mcdonalds hamburger", "burger", "regular hamburger"],
+      "macros": { "protein": 12, "fat": 9, "carbs": 30, "fiber": 1, "calories": 250 },
+      "build": [
+        { "component": "regular bun", "count": 1 },
+        { "component": "100% beef patty", "count": 1 },
+        { "component": "ketchup", "count": 1 },
+        { "component": "pickle slices", "count": 1 },
+        { "component": "onions", "count": 1 },
+        { "component": "mustard", "count": 1 }
+      ]
+    },
+    {
+      "name": "McCrispy",
+      "aliases": ["mccrispy", "mc crispy", "mccrispy chicken sandwich", "crispy chicken sandwich", "mccrispy original", "chicken sandwich"],
+      "macros": { "protein": 26, "fat": 20, "carbs": 46, "fiber": 1, "calories": 470 },
+      "build": [
+        { "component": "potato roll", "count": 1 },
+        { "component": "crispy chicken fillet", "count": 1 },
+        { "component": "salted butter", "count": 1.3 },
+        { "component": "pickle slices", "count": 1 }
+      ]
+    },
+    {
+      "name": "Deluxe McCrispy",
+      "aliases": ["deluxe mccrispy", "mccrispy deluxe", "deluxe crispy chicken sandwich", "mccrispy with lettuce and tomato"],
+      "macros": { "protein": 27, "fat": 26, "carbs": 48, "fiber": 2, "calories": 530 },
+      "build": [
+        { "component": "potato roll", "count": 1 },
+        { "component": "crispy chicken fillet", "count": 1 },
+        { "component": "mayonnaise", "count": 1 },
+        { "component": "tomato & lettuce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Spicy McCrispy",
+      "aliases": ["spicy mccrispy", "mccrispy spicy", "spicy crispy chicken sandwich", "spicy chicken sandwich"],
+      "macros": { "protein": 27, "fat": 26, "carbs": 48, "fiber": 2, "calories": 530 },
+      "build": [
+        { "component": "potato roll", "count": 1 },
+        { "component": "crispy chicken fillet", "count": 1 },
+        { "component": "spicy pepper sauce", "count": 1 },
+        { "component": "pickle slices", "count": 1 }
+      ]
+    },
+    {
+      "name": "Spicy Deluxe McCrispy",
+      "aliases": ["spicy deluxe mccrispy", "spicy mccrispy deluxe", "deluxe spicy mccrispy", "spicy deluxe chicken sandwich"],
+      "macros": { "protein": 27, "fat": 26, "carbs": 49, "fiber": 2, "calories": 530 },
+      "build": [
+        { "component": "potato roll", "count": 1 },
+        { "component": "crispy chicken fillet", "count": 1 },
+        { "component": "spicy pepper sauce", "count": 1 },
+        { "component": "tomato & lettuce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Filet-O-Fish",
+      "aliases": ["filet-o-fish", "filet o fish", "fillet o fish", "fish filet", "fish sandwich", "fof", "filet of fish"],
+      "macros": { "protein": 16, "fat": 19, "carbs": 38, "fiber": 1, "calories": 380 },
+      "build": [
+        { "component": "regular bun", "count": 1 },
+        { "component": "fish filet patty with tartar sauce", "count": 1 },
+        { "component": "american cheese", "count": 0.5 }
+      ]
+    },
+    {
+      "name": "McChicken",
+      "aliases": ["mcchicken", "mc chicken", "mcchicken sandwich", "chicken sandwich mcchicken"],
+      "macros": { "protein": 14, "fat": 21, "carbs": 38, "fiber": 1, "calories": 390 },
+      "build": [
+        { "component": "regular bun", "count": 1 },
+        { "component": "mcchicken patty", "count": 1 },
+        { "component": "mayonnaise", "count": 1 },
+        { "component": "shredded lettuce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Egg McMuffin",
+      "aliases": ["egg mcmuffin", "egg mc muffin", "mcmuffin", "egg muffin", "egg mcmuffin sandwich"],
+      "macros": { "protein": 17, "fat": 13, "carbs": 30, "fiber": 2, "calories": 310 },
+      "build": [
+        { "component": "english muffin", "count": 1 },
+        { "component": "round egg", "count": 1 },
+        { "component": "canadian bacon", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "salted butter", "count": 0.6 }
+      ]
+    },
+    {
+      "name": "Sausage McMuffin",
+      "aliases": ["sausage mcmuffin", "sausage mc muffin", "sausage muffin", "sausage and cheese mcmuffin"],
+      "macros": { "protein": 14, "fat": 26, "carbs": 29, "fiber": 2, "calories": 400 },
+      "build": [
+        { "component": "english muffin", "count": 1 },
+        { "component": "sausage patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "salted butter", "count": 0.6 }
+      ]
+    },
+    {
+      "name": "Sausage McMuffin with Egg",
+      "aliases": ["sausage mcmuffin with egg", "sausage egg mcmuffin", "sausage egg and cheese mcmuffin", "sausage mcmuffin egg", "sausage egg muffin"],
+      "macros": { "protein": 20, "fat": 31, "carbs": 30, "fiber": 2, "calories": 480 },
+      "build": [
+        { "component": "english muffin", "count": 1 },
+        { "component": "sausage patty", "count": 1 },
+        { "component": "round egg", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "salted butter", "count": 0.6 }
+      ]
+    },
+    {
+      "name": "Sausage Biscuit",
+      "aliases": ["sausage biscuit", "sausage biscuit sandwich", "biscuit with sausage"],
+      "macros": { "protein": 11, "fat": 30, "carbs": 37, "fiber": 2, "calories": 460 },
+      "build": [
+        { "component": "biscuit", "count": 1 },
+        { "component": "sausage patty", "count": 1 }
+      ]
+    },
+    {
+      "name": "Sausage Biscuit with Egg",
+      "aliases": ["sausage biscuit with egg", "sausage egg biscuit", "sausage and egg biscuit", "sausage biscuit egg"],
+      "macros": { "protein": 17, "fat": 35, "carbs": 38, "fiber": 2, "calories": 530 },
+      "build": [
+        { "component": "biscuit", "count": 1 },
+        { "component": "sausage patty", "count": 1 },
+        { "component": "folded egg", "count": 1 }
+      ]
+    },
+    {
+      "name": "Bacon, Egg & Cheese Biscuit",
+      "aliases": ["bacon egg and cheese biscuit", "bacon egg cheese biscuit", "bec biscuit", "bacon egg & cheese biscuit", "bacon biscuit"],
+      "macros": { "protein": 17, "fat": 26, "carbs": 39, "fiber": 2, "calories": 460 },
+      "build": [
+        { "component": "biscuit", "count": 1 },
+        { "component": "folded egg", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "applewood smoked bacon", "count": 0.48 }
+      ]
+    },
+    {
+      "name": "Bacon, Egg & Cheese McGriddles",
+      "aliases": ["bacon egg and cheese mcgriddles", "bacon egg cheese mcgriddle", "bec mcgriddle", "bacon mcgriddle", "bacon egg & cheese mcgriddles", "mcgriddle"],
+      "macros": { "protein": 17, "fat": 21, "carbs": 44, "fiber": 2, "calories": 430 },
+      "build": [
+        { "component": "griddle cakes", "count": 1 },
+        { "component": "folded egg", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "applewood smoked bacon", "count": 0.48 }
+      ]
+    },
+    {
+      "name": "Sausage McGriddles",
+      "aliases": ["sausage mcgriddles", "sausage mcgriddle", "mcgriddle sausage"],
+      "macros": { "protein": 11, "fat": 24, "carbs": 41, "fiber": 2, "calories": 430 },
+      "build": [
+        { "component": "griddle cakes", "count": 1 },
+        { "component": "sausage patty", "count": 1 }
+      ]
+    },
+    {
+      "name": "Sausage, Egg & Cheese McGriddles",
+      "aliases": ["sausage egg and cheese mcgriddles", "sausage egg cheese mcgriddle", "sec mcgriddle", "sausage egg & cheese mcgriddles", "sausage egg mcgriddle"],
+      "macros": { "protein": 19, "fat": 33, "carbs": 44, "fiber": 2, "calories": 550 },
+      "build": [
+        { "component": "griddle cakes", "count": 1 },
+        { "component": "sausage patty", "count": 1 },
+        { "component": "folded egg", "count": 1 },
+        { "component": "american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Hash Browns",
+      "aliases": ["hash browns", "hash brown", "hashbrown", "hashbrowns"],
+      "macros": { "protein": 2, "fat": 8, "carbs": 18, "fiber": 2, "calories": 140 }
+    },
+    {
+      "name": "Small French Fries",
+      "aliases": ["small fries", "small french fries", "fries", "french fries", "world famous fries", "sm fries"],
+      "macros": { "protein": 3, "fat": 11, "carbs": 31, "fiber": 3, "calories": 230 }
+    },
+    {
+      "name": "Chicken McNuggets, 4 Piece",
+      "aliases": ["chicken mcnuggets", "mcnuggets", "4 piece mcnuggets", "4pc nuggets", "nuggets", "chicken nuggets", "4 piece chicken mcnuggets", "mcnuggets 4 piece"],
+      "macros": { "protein": 9, "fat": 10, "carbs": 10, "fiber": 0, "calories": 170 }
+    },
+    {
+      "name": "Spicy Chicken McNuggets, 10 Piece",
+      "aliases": ["spicy chicken mcnuggets", "spicy mcnuggets", "10 piece spicy mcnuggets", "spicy nuggets", "10pc spicy nuggets"],
+      "macros": { "protein": 26, "fat": 30, "carbs": 28, "fiber": 2, "calories": 490 }
+    },
+    {
+      "name": "McCrispy Strips, 3 Piece",
+      "aliases": ["mccrispy strips", "chicken strips", "3 piece mccrispy strips", "crispy strips", "chicken tenders", "3pc strips"],
+      "macros": { "protein": 31, "fat": 20, "carbs": 24, "fiber": 2, "calories": 400 }
+    },
+    {
+      "name": "Ranch Snack Wrap",
+      "aliases": ["ranch snack wrap", "snack wrap", "mccrispy ranch snack wrap", "snack wrap ranch"],
+      "macros": { "protein": 17, "fat": 23, "carbs": 32, "fiber": 1, "calories": 400 },
+      "note": "components (McCrispy strip, flour tortilla, ranch sauce, shredded cheese) are published only as calories, so no build"
+    },
+    {
+      "name": "Spicy Snack Wrap",
+      "aliases": ["spicy snack wrap", "mccrispy spicy snack wrap", "snack wrap spicy"],
+      "macros": { "protein": 17, "fat": 22, "carbs": 32, "fiber": 2, "calories": 390 },
+      "note": "components are published only as calories, so no build"
+    }
+  ]
+}

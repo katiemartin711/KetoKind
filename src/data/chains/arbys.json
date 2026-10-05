@@ -1,0 +1,402 @@
+{
+  "chain": "Arby's",
+  "aliases": ["arby's", "arbys", "arby", "arbies", "arbeys", "arby's roast beef", "arbys roast beef"],
+  "source": "https://assets.ctfassets.net/30q5w5l98nbx/7tnKsXR1Kif6Uc7NiDwDmn/f1032e4b9027b7e61be6a93a911c0bf2/Arbys_Nutritional_and_Allergen_SEPT_2026.pdf",
+  "sources": [
+    "https://assets.ctfassets.net/30q5w5l98nbx/7tnKsXR1Kif6Uc7NiDwDmn/f1032e4b9027b7e61be6a93a911c0bf2/Arbys_Nutritional_and_Allergen_SEPT_2026.pdf",
+    "https://www.arbys.com/nutrition/"
+  ],
+  "retrieved": "2026-10-05",
+  "notes": "All numbers are from the Arby's Nutrition & Allergen Information (U.S.) PDF, September 2026 (effective August 2026), linked from arbys.com/nutrition. The PDF's TOPPINGS section publishes the 4-inch sesame seed bun, bacon (3 half strips), cheddar cheese slice, processed Swiss slice, cheddar cheese sauce (0.75 oz), red ranch sauce (0.5 oz), crispy onions, tomato and red onion; those are used directly. One roast beef serving is derived as Double Roast Beef minus Classic Roast Beef (Half Pound minus Classic gives the same per-ounce figures, so the Half Pound sandwiches use 2.67 servings). Beef 'n Cheddar is served on an onion roll that the PDF does not publish; the builds use the published sesame seed bun as a stand-in because Beef 'n Cheddar minus Roast Beef matches cheddar cheese sauce plus red ranch within rounding. Crafted/Market Fresh sandwiches, gyros, chicken sandwiches, sliders and wraps are published only as whole sandwiches, so they have no build. Sauce rows marked 'Adds' are the packet or cup sizes.",
+  "components": {
+    "roast beef": { "unit": "each", "protein": 15, "fat": 10, "carbs": 1, "fiber": 0, "calories": 150, "derived": "Double Roast Beef minus Classic Roast Beef (one roast beef serving, about 3 oz)" },
+    "sesame seed bun": { "unit": "each", "protein": 7, "fat": 3.5, "carbs": 36, "fiber": 2, "calories": 210 },
+    "cheddar cheese sauce": { "unit": "each", "protein": 0, "fat": 2, "carbs": 2, "fiber": 0, "calories": 25 },
+    "red ranch sauce": { "unit": "each", "protein": 0, "fat": 6, "carbs": 5, "fiber": 0, "calories": 70 },
+    "cheddar cheese": { "unit": "slice", "protein": 5, "fat": 6, "carbs": 0, "fiber": 0, "calories": 80 },
+    "swiss cheese": { "unit": "slice", "protein": 3, "fat": 3, "carbs": 0, "fiber": 0, "calories": 40 },
+    "bacon": { "unit": "each", "protein": 5, "fat": 5, "carbs": 1, "fiber": 0, "calories": 70 },
+    "crispy onions": { "unit": "each", "protein": 1, "fat": 5, "carbs": 6, "fiber": 0, "calories": 70 },
+    "tomato": { "unit": "each", "protein": 0, "fat": 0, "carbs": 2, "fiber": 0, "calories": 5 },
+    "red onion": { "unit": "each", "protein": 0, "fat": 0, "carbs": 0, "fiber": 0, "calories": 0 },
+    "arby's sauce": { "unit": "each", "protein": 0, "fat": 0, "carbs": 3, "fiber": 0, "calories": 15 },
+    "horsey sauce": { "unit": "each", "protein": 0, "fat": 5, "carbs": 3, "fiber": 0, "calories": 60 },
+    "cheddar cheese sauce cup": { "unit": "each", "protein": 1, "fat": 3.5, "carbs": 4, "fiber": 0, "calories": 50 },
+    "bbq dipping sauce": { "unit": "each", "protein": 0, "fat": 0, "carbs": 16, "fiber": 0, "calories": 70 },
+    "buffalo dipping sauce": { "unit": "each", "protein": 0, "fat": 1, "carbs": 2, "fiber": 0, "calories": 10 },
+    "honey mustard dipping sauce": { "unit": "each", "protein": 0, "fat": 13, "carbs": 5, "fiber": 0, "calories": 130 },
+    "ranch dipping sauce": { "unit": "each", "protein": 1, "fat": 10, "carbs": 1, "fiber": 0, "calories": 100 },
+    "horsey ranch dipping sauce": { "unit": "each", "protein": 0, "fat": 13, "carbs": 1, "fiber": 0, "calories": 120 },
+    "marinara sauce": { "unit": "each", "protein": 1, "fat": 0, "carbs": 4, "fiber": 1, "calories": 20 },
+    "bronco berry sauce": { "unit": "each", "protein": 0, "fat": 0, "carbs": 15, "fiber": 0, "calories": 60 },
+    "ketchup": { "unit": "each", "protein": 0, "fat": 0, "carbs": 3, "fiber": 0, "calories": 10 }
+  },
+  "items": [
+    {
+      "name": "Classic Roast Beef",
+      "aliases": ["classic roast beef", "roast beef", "roast beef sandwich", "regular roast beef", "classic roast beef sandwich", "rb", "classic rb", "roastbeef", "single roast beef"],
+      "macros": { "protein": 23, "fat": 14, "carbs": 37, "fiber": 2, "calories": 360 },
+      "build": [
+        { "component": "sesame seed bun", "count": 1 },
+        { "component": "roast beef", "count": 1 }
+      ]
+    },
+    {
+      "name": "Double Roast Beef",
+      "aliases": ["double roast beef", "double rb", "dbl roast beef", "roast beef double", "double meat roast beef", "double roast beef sandwich"],
+      "macros": { "protein": 38, "fat": 24, "carbs": 38, "fiber": 2, "calories": 510 },
+      "build": [
+        { "component": "sesame seed bun", "count": 1 },
+        { "component": "roast beef", "count": 2 }
+      ]
+    },
+    {
+      "name": "Half Pound Roast Beef",
+      "aliases": ["half pound roast beef", "1/2 lb roast beef", "half pounder", "half lb roast beef", "half pound rb", "1/2 pound roast beef", "half pound roast beef sandwich"],
+      "macros": { "protein": 48, "fat": 30, "carbs": 38, "fiber": 2, "calories": 610 },
+      "build": [
+        { "component": "sesame seed bun", "count": 1 },
+        { "component": "roast beef", "count": 2.67 }
+      ]
+    },
+    {
+      "name": "Classic Beef 'n Cheddar",
+      "aliases": ["beef n cheddar", "beef and cheddar", "classic beef n cheddar", "beef 'n cheddar", "beef & cheddar", "bnc", "beef and cheese", "beef n cheese", "classic beef and cheddar", "beef n chedder"],
+      "macros": { "protein": 23, "fat": 20, "carbs": 45, "fiber": 2, "calories": 450 },
+      "build": [
+        { "component": "sesame seed bun", "count": 1 },
+        { "component": "roast beef", "count": 1 },
+        { "component": "cheddar cheese sauce", "count": 1 },
+        { "component": "red ranch sauce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Double Beef 'n Cheddar",
+      "aliases": ["double beef n cheddar", "double beef and cheddar", "dbl beef n cheddar", "double bnc", "double beef 'n cheddar", "beef n cheddar double", "double beef and cheese"],
+      "macros": { "protein": 39, "fat": 32, "carbs": 48, "fiber": 2, "calories": 630 },
+      "build": [
+        { "component": "sesame seed bun", "count": 1 },
+        { "component": "roast beef", "count": 2 },
+        { "component": "cheddar cheese sauce", "count": 1 },
+        { "component": "red ranch sauce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Half Pound Beef 'n Cheddar",
+      "aliases": ["half pound beef n cheddar", "half pound beef and cheddar", "1/2 lb beef n cheddar", "half lb beef n cheddar", "half pound bnc", "1/2 pound beef and cheddar", "half pound beef 'n cheddar"],
+      "macros": { "protein": 49, "fat": 39, "carbs": 48, "fiber": 2, "calories": 740 },
+      "build": [
+        { "component": "sesame seed bun", "count": 1 },
+        { "component": "roast beef", "count": 2.67 },
+        { "component": "cheddar cheese sauce", "count": 1 },
+        { "component": "red ranch sauce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Super Roast Beef",
+      "aliases": ["super roast beef", "super rb", "super roast beef sandwich"],
+      "macros": { "protein": 23, "fat": 19, "carbs": 43, "fiber": 3, "calories": 440 },
+      "build": [
+        { "component": "sesame seed bun", "count": 1 },
+        { "component": "roast beef", "count": 1 },
+        { "component": "red ranch sauce", "count": 1 },
+        { "component": "tomato", "count": 1 }
+      ]
+    },
+    {
+      "name": "Arby's Melt",
+      "aliases": ["arby's melt", "arbys melt", "melt", "roast beef melt", "cheddar melt"],
+      "macros": { "protein": 18, "fat": 12, "carbs": 39, "fiber": 2, "calories": 330 }
+    },
+    {
+      "name": "Classic French Dip & Swiss",
+      "aliases": ["french dip", "french dip and swiss", "classic french dip", "french dip & swiss", "french dip with au jus", "french dip sandwich", "frech dip"],
+      "macros": { "protein": 34, "fat": 21, "carbs": 50, "fiber": 2, "calories": 530 }
+    },
+    {
+      "name": "Roast Beef Gyro",
+      "aliases": ["roast beef gyro", "beef gyro", "rb gyro"],
+      "macros": { "protein": 24, "fat": 29, "carbs": 48, "fiber": 3, "calories": 540 }
+    },
+    {
+      "name": "Greek Gyro",
+      "aliases": ["greek gyro", "gyro", "traditional gyro", "lamb gyro", "arbys gyro"],
+      "macros": { "protein": 23, "fat": 44, "carbs": 55, "fiber": 4, "calories": 700 }
+    },
+    {
+      "name": "Reuben",
+      "aliases": ["reuben", "rueben", "reuben sandwich", "corned beef reuben", "arbys reuben"],
+      "macros": { "protein": 37, "fat": 31, "carbs": 62, "fiber": 4, "calories": 680 }
+    },
+    {
+      "name": "Turkey Ranch & Bacon Sandwich",
+      "aliases": ["turkey ranch and bacon", "turkey ranch & bacon", "market fresh turkey ranch and bacon", "turkey bacon ranch", "turkey ranch bacon sandwich", "market fresh sandwich", "market fresh turkey"],
+      "macros": { "protein": 46, "fat": 34, "carbs": 79, "fiber": 5, "calories": 800 }
+    },
+    {
+      "name": "Ham & Swiss Melt",
+      "aliases": ["ham and swiss melt", "ham & swiss melt", "ham melt", "ham and swiss", "ham swiss melt"],
+      "macros": { "protein": 26, "fat": 13, "carbs": 40, "fiber": 2, "calories": 380 }
+    },
+    {
+      "name": "Ham & Swiss Sandwich",
+      "aliases": ["ham and swiss sandwich", "market fresh ham and swiss", "ham & swiss sandwich", "market fresh ham"],
+      "macros": { "protein": 37, "fat": 29, "carbs": 81, "fiber": 5, "calories": 730 }
+    },
+    {
+      "name": "Angus Cheesesteak",
+      "aliases": ["cheesesteak", "angus cheesesteak", "philly cheesesteak", "steak sandwich", "angus steak sandwich", "cheese steak"],
+      "macros": { "protein": 38, "fat": 34, "carbs": 61, "fiber": 4, "calories": 690 }
+    },
+    {
+      "name": "Angus Half Pound Cheesesteak",
+      "aliases": ["half pound cheesesteak", "angus half pound cheesesteak", "1/2 lb cheesesteak", "half lb cheesesteak", "double cheesesteak"],
+      "macros": { "protein": 66, "fat": 63, "carbs": 72, "fiber": 5, "calories": 1110 }
+    },
+    {
+      "name": "Crispy Chicken Sandwich",
+      "aliases": ["crispy chicken", "crispy chicken sandwich", "chicken sandwich", "classic crispy chicken", "fried chicken sandwich", "crispy chx sandwich"],
+      "macros": { "protein": 24, "fat": 22, "carbs": 59, "fiber": 4, "calories": 530 }
+    },
+    {
+      "name": "Buffalo Chicken Sandwich",
+      "aliases": ["buffalo chicken", "buffalo chicken sandwich", "buffalo crispy chicken", "buffalo chx sandwich"],
+      "macros": { "protein": 24, "fat": 22, "carbs": 59, "fiber": 4, "calories": 530 }
+    },
+    {
+      "name": "Chicken Bacon Swiss",
+      "aliases": ["chicken bacon swiss", "chicken bacon and swiss", "chicken bacon swiss sandwich", "cbs", "crispy chicken bacon swiss"],
+      "macros": { "protein": 35, "fat": 30, "carbs": 61, "fiber": 4, "calories": 650 }
+    },
+    {
+      "name": "Chicken Cordon Bleu",
+      "aliases": ["chicken cordon bleu", "cordon bleu", "cordon blue", "chicken cordon bleu sandwich", "crispy chicken cordon bleu"],
+      "macros": { "protein": 35, "fat": 30, "carbs": 59, "fiber": 4, "calories": 650 }
+    },
+    {
+      "name": "Chicken Tenders (3)",
+      "aliases": ["chicken tenders", "3 chicken tenders", "3pc tenders", "3 pc tenders", "3 piece tenders", "tenders", "three tenders", "prime cut tenders", "3 tenders"],
+      "macros": { "protein": 23, "fat": 18, "carbs": 28, "fiber": 2, "calories": 370 }
+    },
+    {
+      "name": "Chicken Tenders (5)",
+      "aliases": ["5 chicken tenders", "5pc tenders", "5 pc tenders", "5 piece tenders", "five tenders", "5 tenders"],
+      "macros": { "protein": 39, "fat": 30, "carbs": 47, "fiber": 3, "calories": 610 }
+    },
+    {
+      "name": "Chicken Tenders (2)",
+      "aliases": ["2 chicken tenders", "2pc tenders", "2 piece tenders", "kids tenders", "two tenders", "2 tenders"],
+      "macros": { "protein": 13, "fat": 9, "carbs": 7, "fiber": 1, "calories": 160 }
+    },
+    {
+      "name": "Roast Beef Slider",
+      "aliases": ["roast beef slider", "rb slider", "slider", "beef slider", "roast beef sliders"],
+      "macros": { "protein": 11, "fat": 7, "carbs": 18, "fiber": 1, "calories": 180 }
+    },
+    {
+      "name": "Chicken Slider",
+      "aliases": ["chicken slider", "crispy chicken slider", "chicken sliders"],
+      "macros": { "protein": 11, "fat": 9, "carbs": 25, "fiber": 1, "calories": 230 }
+    },
+    {
+      "name": "Ham Slider",
+      "aliases": ["ham slider", "ham sliders", "ham and cheese slider"],
+      "macros": { "protein": 11, "fat": 6, "carbs": 19, "fiber": 0, "calories": 170 }
+    },
+    {
+      "name": "Buffalo Chicken Slider",
+      "aliases": ["buffalo chicken slider", "buffalo slider", "buffalo chicken sliders"],
+      "macros": { "protein": 10, "fat": 12, "carbs": 26, "fiber": 1, "calories": 260 }
+    },
+    {
+      "name": "Ranch Chicken Wrap",
+      "aliases": ["ranch chicken wrap", "chicken wrap", "ranch wrap", "crispy chicken ranch wrap"],
+      "macros": { "protein": 16, "fat": 23, "carbs": 32, "fiber": 1, "calories": 400 }
+    },
+    {
+      "name": "Honey Mustard Chicken Wrap",
+      "aliases": ["honey mustard chicken wrap", "honey mustard wrap", "chicken honey mustard wrap"],
+      "macros": { "protein": 15, "fat": 21, "carbs": 34, "fiber": 1, "calories": 380 }
+    },
+    {
+      "name": "Steak Nuggets (5)",
+      "aliases": ["steak nuggets", "5 steak nuggets", "5pc steak nuggets", "5 piece steak nuggets", "steak bites"],
+      "macros": { "protein": 20, "fat": 5, "carbs": 2, "fiber": 1, "calories": 140 }
+    },
+    {
+      "name": "Steak Nuggets (9)",
+      "aliases": ["9 steak nuggets", "9pc steak nuggets", "9 piece steak nuggets"],
+      "macros": { "protein": 36, "fat": 10, "carbs": 3, "fiber": 2, "calories": 240 }
+    },
+    {
+      "name": "Steak 'n Potato Bowl",
+      "aliases": ["steak n potato bowl", "steak and potato bowl", "steak potato bowl", "steak bowl", "steak 'n potato bowl"],
+      "macros": { "protein": 26, "fat": 47, "carbs": 50, "fiber": 6, "calories": 770 }
+    },
+    {
+      "name": "Steak 'n Mac Bowl",
+      "aliases": ["steak n mac bowl", "steak and mac bowl", "steak mac bowl", "steak mac and cheese bowl", "steak 'n mac bowl"],
+      "macros": { "protein": 37, "fat": 38, "carbs": 47, "fiber": 3, "calories": 680 }
+    },
+    {
+      "name": "Curly Fries, Small",
+      "aliases": ["small curly fries", "sm curly fries", "small fries", "kids curly fries", "small curly fry"],
+      "macros": { "protein": 3, "fat": 13, "carbs": 29, "fiber": 3, "calories": 250 }
+    },
+    {
+      "name": "Curly Fries, Medium",
+      "aliases": ["curly fries", "medium curly fries", "med curly fries", "fries", "regular curly fries", "curly fry", "curlies", "medium fries"],
+      "macros": { "protein": 5, "fat": 22, "carbs": 49, "fiber": 5, "calories": 410 }
+    },
+    {
+      "name": "Curly Fries, Large",
+      "aliases": ["large curly fries", "lg curly fries", "large fries", "large curly fry"],
+      "macros": { "protein": 6, "fat": 29, "carbs": 65, "fiber": 6, "calories": 550 }
+    },
+    {
+      "name": "Curly Fries, XL",
+      "aliases": ["xl curly fries", "extra large curly fries", "xl fries", "extra large fries"],
+      "macros": { "protein": 7, "fat": 32, "carbs": 71, "fiber": 7, "calories": 600 }
+    },
+    {
+      "name": "Crinkle Fries, Small",
+      "aliases": ["small crinkle fries", "sm crinkle fries", "small crinkle cut fries"],
+      "macros": { "protein": 3, "fat": 12, "carbs": 32, "fiber": 0, "calories": 250 }
+    },
+    {
+      "name": "Crinkle Fries, Medium",
+      "aliases": ["crinkle fries", "medium crinkle fries", "crinkle cut fries", "med crinkle fries", "regular crinkle fries"],
+      "macros": { "protein": 5, "fat": 19, "carbs": 49, "fiber": 0, "calories": 390 }
+    },
+    {
+      "name": "Crinkle Fries, Large",
+      "aliases": ["large crinkle fries", "lg crinkle fries", "large crinkle cut fries"],
+      "macros": { "protein": 7, "fat": 26, "carbs": 68, "fiber": 0, "calories": 530 }
+    },
+    {
+      "name": "Mozzarella Sticks (4)",
+      "aliases": ["mozzarella sticks", "4 mozzarella sticks", "mozz sticks", "4pc mozzarella sticks", "cheese sticks", "mozzarella stick"],
+      "macros": { "protein": 19, "fat": 23, "carbs": 37, "fiber": 2, "calories": 440 }
+    },
+    {
+      "name": "Mozzarella Sticks (6)",
+      "aliases": ["6 mozzarella sticks", "6pc mozzarella sticks", "6 mozz sticks", "large mozzarella sticks"],
+      "macros": { "protein": 29, "fat": 35, "carbs": 56, "fiber": 3, "calories": 650 }
+    },
+    {
+      "name": "Jalapeno Bites (5)",
+      "aliases": ["jalapeno bites", "5 jalapeno bites", "jalapeño bites", "jalapeno poppers", "5pc jalapeno bites"],
+      "macros": { "protein": 5, "fat": 17, "carbs": 31, "fiber": 2, "calories": 290 }
+    },
+    {
+      "name": "Jalapeno Bites (8)",
+      "aliases": ["8 jalapeno bites", "8pc jalapeno bites", "large jalapeno bites"],
+      "macros": { "protein": 8, "fat": 27, "carbs": 50, "fiber": 3, "calories": 470 }
+    },
+    {
+      "name": "Potato Cakes (2)",
+      "aliases": ["potato cakes", "2 potato cakes", "potato cake", "hash browns", "2pc potato cakes"],
+      "macros": { "protein": 2, "fat": 14, "carbs": 23, "fiber": 2, "calories": 250 }
+    },
+    {
+      "name": "Potato Cakes (3)",
+      "aliases": ["3 potato cakes", "3pc potato cakes", "medium potato cakes"],
+      "macros": { "protein": 3, "fat": 21, "carbs": 35, "fiber": 4, "calories": 370 }
+    },
+    {
+      "name": "White Cheddar Mac 'n Cheese",
+      "aliases": ["mac and cheese", "mac n cheese", "white cheddar mac and cheese", "white cheddar mac n cheese", "macaroni and cheese", "mac & cheese"],
+      "macros": { "protein": 17, "fat": 27, "carbs": 40, "fiber": 1, "calories": 470 }
+    },
+    {
+      "name": "Jamocha Shake, Small",
+      "aliases": ["jamocha shake", "small jamocha shake", "jamocha", "mocha shake", "jamoca shake", "small jamocha"],
+      "macros": { "protein": 12, "fat": 16, "carbs": 88, "fiber": 1, "calories": 540 }
+    },
+    {
+      "name": "Jamocha Shake, Medium",
+      "aliases": ["medium jamocha shake", "med jamocha shake", "medium jamocha"],
+      "macros": { "protein": 15, "fat": 20, "carbs": 116, "fiber": 1, "calories": 700 }
+    },
+    {
+      "name": "Chocolate Shake, Small",
+      "aliases": ["chocolate shake", "small chocolate shake", "chocolate milkshake", "small chocolate"],
+      "macros": { "protein": 12, "fat": 17, "carbs": 86, "fiber": 1, "calories": 540 }
+    },
+    {
+      "name": "Vanilla Shake, Small",
+      "aliases": ["vanilla shake", "small vanilla shake", "vanilla milkshake", "small vanilla"],
+      "macros": { "protein": 12, "fat": 17, "carbs": 70, "fiber": 0, "calories": 480 }
+    },
+    {
+      "name": "Apple Turnover",
+      "aliases": ["apple turnover", "apple pie", "turnover"],
+      "macros": { "protein": 4, "fat": 18, "carbs": 65, "fiber": 2, "calories": 430 }
+    },
+    {
+      "name": "Cherry Turnover",
+      "aliases": ["cherry turnover", "cherry pie"],
+      "macros": { "protein": 4, "fat": 13, "carbs": 65, "fiber": 2, "calories": 390 }
+    },
+    {
+      "name": "Arby's Sauce",
+      "aliases": ["arby's sauce", "arbys sauce", "arby sauce", "red sauce", "arbys bbq sauce packet"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 3, "fiber": 0, "calories": 15 }
+    },
+    {
+      "name": "Horsey Sauce",
+      "aliases": ["horsey sauce", "horsey", "horseradish sauce", "horsy sauce"],
+      "macros": { "protein": 0, "fat": 5, "carbs": 3, "fiber": 0, "calories": 60 }
+    },
+    {
+      "name": "Red Ranch Sauce",
+      "aliases": ["red ranch", "red ranch sauce"],
+      "macros": { "protein": 0, "fat": 6, "carbs": 5, "fiber": 0, "calories": 70 }
+    },
+    {
+      "name": "Cheddar Cheese Sauce Cup",
+      "aliases": ["cheddar cheese sauce", "cheese sauce", "side of cheese sauce", "cheddar sauce", "cheese sauce cup"],
+      "macros": { "protein": 1, "fat": 3.5, "carbs": 4, "fiber": 0, "calories": 50 }
+    },
+    {
+      "name": "BBQ Dipping Sauce",
+      "aliases": ["bbq sauce", "bbq dipping sauce", "barbecue sauce", "barbeque dipping sauce"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 16, "fiber": 0, "calories": 70 }
+    },
+    {
+      "name": "Buffalo Dipping Sauce",
+      "aliases": ["buffalo sauce", "buffalo dipping sauce"],
+      "macros": { "protein": 0, "fat": 1, "carbs": 2, "fiber": 0, "calories": 10 }
+    },
+    {
+      "name": "Honey Mustard Dipping Sauce",
+      "aliases": ["honey mustard", "honey mustard sauce", "honey mustard dipping sauce"],
+      "macros": { "protein": 0, "fat": 13, "carbs": 5, "fiber": 0, "calories": 130 }
+    },
+    {
+      "name": "Ranch Dipping Sauce",
+      "aliases": ["ranch", "ranch sauce", "ranch dipping sauce", "ranch cup"],
+      "macros": { "protein": 1, "fat": 10, "carbs": 1, "fiber": 0, "calories": 100 }
+    },
+    {
+      "name": "Horsey Ranch Dipping Sauce",
+      "aliases": ["horsey ranch", "horsey ranch sauce", "horsey ranch dipping sauce"],
+      "macros": { "protein": 0, "fat": 13, "carbs": 1, "fiber": 0, "calories": 120 }
+    },
+    {
+      "name": "Marinara Sauce",
+      "aliases": ["marinara", "marinara sauce", "marinara cup"],
+      "macros": { "protein": 1, "fat": 0, "carbs": 4, "fiber": 1, "calories": 20 }
+    },
+    {
+      "name": "Bronco Berry Sauce",
+      "aliases": ["bronco berry", "bronco berry sauce", "bronco sauce"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 15, "fiber": 0, "calories": 60 }
+    },
+    {
+      "name": "Ketchup",
+      "aliases": ["ketchup", "ketchup packet", "catsup"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 3, "fiber": 0, "calories": 10 }
+    }
+  ]
+}

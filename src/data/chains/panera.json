@@ -1,0 +1,3623 @@
+{
+  "chain": "Panera Bread",
+  "aliases": [
+    "panera",
+    "panera bread",
+    "panerabread",
+    "st louis bread co",
+    "saint louis bread company",
+    "bread co",
+    "you pick two",
+    "pick 2",
+    "pick two"
+  ],
+  "source": "https://www.panerabread.com/content/dam/panerabread/documents/c8-26-nutrition-guide.pdf",
+  "retrieved": "2026-10-05",
+  "components": {
+    "plain bagel": {
+      "unit": "each",
+      "protein": 7,
+      "fat": 1,
+      "carbs": 59,
+      "fiber": 3,
+      "calories": 280
+    },
+    "everything bagel": {
+      "unit": "each",
+      "protein": 8,
+      "fat": 2.5,
+      "carbs": 61,
+      "fiber": 3,
+      "calories": 300
+    },
+    "asiago cheese bagel": {
+      "unit": "each",
+      "protein": 14,
+      "fat": 9,
+      "carbs": 55,
+      "fiber": 3,
+      "calories": 350
+    },
+    "asiago everything bagel": {
+      "unit": "each",
+      "protein": 15,
+      "fat": 9,
+      "carbs": 55,
+      "fiber": 3,
+      "calories": 370
+    },
+    "sesame bagel": {
+      "unit": "each",
+      "protein": 8,
+      "fat": 3.5,
+      "carbs": 61,
+      "fiber": 3,
+      "calories": 310
+    },
+    "blueberry bagel": {
+      "unit": "each",
+      "protein": 10,
+      "fat": 1.5,
+      "carbs": 60,
+      "fiber": 3,
+      "calories": 290
+    },
+    "chocolate chip bagel": {
+      "unit": "each",
+      "protein": 10,
+      "fat": 4.5,
+      "carbs": 65,
+      "fiber": 3,
+      "calories": 330
+    },
+    "cinnamon crunch bagel": {
+      "unit": "each",
+      "protein": 13,
+      "fat": 7,
+      "carbs": 78,
+      "fiber": 3,
+      "calories": 430
+    },
+    "cinnamon swirl raisin bagel": {
+      "unit": "each",
+      "protein": 8,
+      "fat": 1.5,
+      "carbs": 65,
+      "fiber": 3,
+      "calories": 300
+    },
+    "multigrain bagel flat": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 2.5,
+      "carbs": 35,
+      "fiber": 0,
+      "calories": 190
+    },
+    "plain cream cheese": {
+      "unit": "each",
+      "protein": 3,
+      "fat": 10,
+      "carbs": 3,
+      "fiber": 0,
+      "calories": 110,
+      "note": "1.5 oz container"
+    },
+    "honey walnut cream cheese": {
+      "unit": "each",
+      "protein": 4,
+      "fat": 10,
+      "carbs": 9,
+      "fiber": 0,
+      "calories": 130,
+      "note": "1.5 oz container"
+    },
+    "country rustic sourdough": {
+      "unit": "slice",
+      "protein": 5,
+      "fat": 0.5,
+      "carbs": 30,
+      "fiber": 1,
+      "calories": 140,
+      "note": "2 oz slice"
+    },
+    "black pepper focaccia": {
+      "unit": "slice",
+      "protein": 5,
+      "fat": 2.5,
+      "carbs": 30,
+      "fiber": 1,
+      "calories": 160,
+      "note": "2 oz slice"
+    },
+    "artisan ciabatta": {
+      "unit": "slice",
+      "protein": 5,
+      "fat": 1.5,
+      "carbs": 30,
+      "fiber": 1,
+      "calories": 150,
+      "note": "2 oz slice"
+    },
+    "classic white loaf": {
+      "unit": "slice",
+      "protein": 6,
+      "fat": 3.5,
+      "carbs": 32,
+      "fiber": 3,
+      "calories": 190,
+      "note": "2.2 oz slice"
+    },
+    "tomato basil miche": {
+      "unit": "slice",
+      "protein": 5,
+      "fat": 0.5,
+      "carbs": 30,
+      "fiber": 2,
+      "calories": 150,
+      "note": "2 oz slice"
+    },
+    "french baguette": {
+      "unit": "slice",
+      "protein": 5,
+      "fat": 0.5,
+      "carbs": 32,
+      "fiber": 1,
+      "calories": 150,
+      "note": "2 oz slice"
+    },
+    "italian style roll": {
+      "unit": "slice",
+      "protein": 5,
+      "fat": 2,
+      "carbs": 28,
+      "fiber": 1,
+      "calories": 150,
+      "note": "2 oz slice"
+    },
+    "whole grain lahvash": {
+      "unit": "each",
+      "protein": 12,
+      "fat": 4,
+      "carbs": 25,
+      "fiber": 9,
+      "calories": 170
+    },
+    "croissant": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 12,
+      "carbs": 32,
+      "fiber": 2,
+      "calories": 260
+    },
+    "sourdough bread bowl": {
+      "unit": "each",
+      "protein": 21,
+      "fat": 2.5,
+      "carbs": 136,
+      "fiber": 5,
+      "calories": 650,
+      "note": "Sourdough Soup Bowl, empty"
+    },
+    "breakfast portion artisan ciabatta": {
+      "unit": "each",
+      "protein": 8,
+      "fat": 2,
+      "carbs": 49,
+      "fiber": 2,
+      "calories": 250,
+      "note": "1/3 loaf"
+    },
+    "breakfast portion black pepper focaccia": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 3.5,
+      "carbs": 40,
+      "fiber": 1,
+      "calories": 210,
+      "note": "1/4 loaf"
+    },
+    "scrambled egg": {
+      "unit": "each",
+      "protein": 8,
+      "fat": 7,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 90
+    },
+    "egg whites": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 30,
+      "note": "1 portion"
+    },
+    "cheese slice": {
+      "unit": "slice",
+      "protein": 4,
+      "fat": 7,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 90,
+      "derived": "Egg & Cheese on Artisan Ciabatta minus Breakfast Portion - Artisan Ciabatta minus Scrambled Egg"
+    },
+    "bacon": {
+      "unit": "each",
+      "protein": 3,
+      "fat": 4,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 40,
+      "derived": "Bacon, Egg & Cheese on Artisan Ciabatta minus Egg & Cheese on Artisan Ciabatta (same result from the croissant pair and Bacon Mac & Cheese cup minus Mac & Cheese cup)"
+    },
+    "sausage patty": {
+      "unit": "each",
+      "protein": 8,
+      "fat": 17,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 180,
+      "derived": "Sausage, Egg & Cheese on Artisan Ciabatta minus Egg & Cheese on Artisan Ciabatta"
+    },
+    "ham": {
+      "unit": "each",
+      "protein": 5,
+      "fat": 1,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 30,
+      "derived": "Ham, Egg & Cheese on Ciabatta minus Egg & Cheese on Artisan Ciabatta"
+    },
+    "steak": {
+      "unit": "each",
+      "protein": 12,
+      "fat": 4,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 90,
+      "derived": "Steak & Wake on Ciabatta minus Egg & Cheese on Artisan Ciabatta"
+    },
+    "grilled chicken": {
+      "unit": "scoop",
+      "protein": 11,
+      "fat": 1,
+      "carbs": 3,
+      "fiber": 0,
+      "calories": 70,
+      "derived": "Caesar with Chicken Salad - Half minus Caesar Salad - Half (matches Greek, Harvest Medley and Fuji Apple pairs); one scoop = half-salad portion, whole salads use 2"
+    },
+    "pecans": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 5,
+      "carbs": 1,
+      "fiber": 1,
+      "calories": 50,
+      "derived": "Fuji Apple Chicken Salad - Half minus Fuji Apple Chicken Salad without pecans - Half; half-salad portion"
+    },
+    "almonds": {
+      "unit": "each",
+      "protein": 2,
+      "fat": 3,
+      "carbs": 1,
+      "fiber": 1,
+      "calories": 40,
+      "derived": "Asian Sesame Chicken - Half minus Asian Sesame Chicken - Half (no nuts); half-salad portion"
+    },
+    "caesar salad base": {
+      "unit": "each",
+      "protein": 7,
+      "fat": 22,
+      "carbs": 11,
+      "fiber": 2,
+      "calories": 270,
+      "note": "Caesar Salad - Half (no chicken)"
+    },
+    "greek salad base": {
+      "unit": "each",
+      "protein": 4,
+      "fat": 30,
+      "carbs": 9,
+      "fiber": 2,
+      "calories": 310,
+      "note": "Greek Salad - Half (no chicken)"
+    },
+    "fuji apple salad base": {
+      "unit": "each",
+      "protein": 2,
+      "fat": 16,
+      "carbs": 21,
+      "fiber": 2,
+      "calories": 230,
+      "note": "Catering Fuji Apple without pecans - Half (no chicken, no pecans)"
+    },
+    "harvest medley salad base": {
+      "unit": "each",
+      "protein": 5,
+      "fat": 17,
+      "carbs": 38,
+      "fiber": 3,
+      "calories": 320,
+      "note": "Harvest Medley Salad - Half - No Pecans (no chicken)"
+    },
+    "asian sesame salad base": {
+      "unit": "each",
+      "protein": 2,
+      "fat": 10,
+      "carbs": 13,
+      "fiber": 2,
+      "calories": 150,
+      "note": "Catering Asian Sesame Salad - Half (no nuts and no chicken)"
+    },
+    "broccoli cheddar soup": {
+      "unit": "cup",
+      "protein": 8,
+      "fat": 20,
+      "carbs": 17,
+      "fiber": 1,
+      "calories": 280
+    },
+    "homestyle chicken noodle soup": {
+      "unit": "cup",
+      "protein": 10,
+      "fat": 3,
+      "carbs": 14,
+      "fiber": 0,
+      "calories": 120
+    },
+    "creamy tomato soup": {
+      "unit": "cup",
+      "protein": 3,
+      "fat": 16,
+      "carbs": 21,
+      "fiber": 1,
+      "calories": 240,
+      "note": "Vegetarian Creamy Tomato Soup with Croissant Croutons"
+    },
+    "bistro french onion soup": {
+      "unit": "cup",
+      "protein": 6,
+      "fat": 10,
+      "carbs": 22,
+      "fiber": 1,
+      "calories": 200
+    },
+    "rustic baked potato soup": {
+      "unit": "cup",
+      "protein": 9,
+      "fat": 16,
+      "carbs": 25,
+      "fiber": 1,
+      "calories": 280
+    },
+    "hearty fireside chili": {
+      "unit": "cup",
+      "protein": 13,
+      "fat": 10,
+      "carbs": 32,
+      "fiber": 6,
+      "calories": 270
+    },
+    "three cheese lasagna soup": {
+      "unit": "cup",
+      "protein": 12,
+      "fat": 11,
+      "carbs": 22,
+      "fiber": 2,
+      "calories": 230
+    },
+    "autumn squash soup": {
+      "unit": "cup",
+      "protein": 5,
+      "fat": 11,
+      "carbs": 27,
+      "fiber": 3,
+      "calories": 220
+    },
+    "cream of chicken and wild rice soup": {
+      "unit": "cup",
+      "protein": 6,
+      "fat": 11,
+      "carbs": 19,
+      "fiber": 2,
+      "calories": 200
+    },
+    "mac and cheese": {
+      "unit": "cup",
+      "protein": 16,
+      "fat": 32,
+      "carbs": 34,
+      "fiber": 0,
+      "calories": 490
+    },
+    "mayonnaise": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 14,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 130,
+      "note": "sandwich portion"
+    },
+    "chipotle aioli": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 11,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 100,
+      "note": "sandwich portion"
+    },
+    "garlic aioli": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 12,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 110,
+      "note": "sandwich portion"
+    },
+    "signature sauce": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 8,
+      "carbs": 4,
+      "fiber": 0,
+      "calories": 90,
+      "note": "sandwich portion"
+    },
+    "farmhouse ranch sauce": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 11,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 110,
+      "note": "sandwich portion"
+    },
+    "creamy pesto": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 2,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 25,
+      "note": "sandwich portion"
+    },
+    "hummus": {
+      "unit": "each",
+      "protein": 2,
+      "fat": 4.5,
+      "carbs": 4,
+      "fiber": 1,
+      "calories": 60,
+      "note": "sandwich portion"
+    },
+    "apple cider vinegar bbq sauce": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 5,
+      "fiber": 0,
+      "calories": 20,
+      "note": "sandwich portion"
+    },
+    "balsamic glaze": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 5,
+      "fiber": 0,
+      "calories": 20,
+      "note": "sandwich portion"
+    },
+    "green goddess sauce": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 2,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 30,
+      "note": "sandwich portion"
+    },
+    "greek dressing sauce": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 4,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 40,
+      "note": "sandwich portion"
+    },
+    "green chile salsa verde": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 5,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 60,
+      "note": "sandwich portion"
+    },
+    "cheese hollandaise": {
+      "unit": "each",
+      "protein": 2,
+      "fat": 4.5,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 50,
+      "note": "breakfast sandwich portion"
+    },
+    "caesar dressing": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 16,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 160,
+      "note": "1 dressing cup (half portion)"
+    },
+    "greek dressing": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 24,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 220,
+      "note": "1 dressing cup (half portion)"
+    },
+    "green goddess dressing": {
+      "unit": "each",
+      "protein": 2,
+      "fat": 6,
+      "carbs": 4,
+      "fiber": 0,
+      "calories": 80,
+      "note": "1 dressing cup (half portion)"
+    },
+    "farmhouse ranch dressing": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 17,
+      "carbs": 3,
+      "fiber": 0,
+      "calories": 170,
+      "note": "1 dressing cup (half portion)"
+    },
+    "asian sesame vinaigrette": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 7,
+      "carbs": 5,
+      "fiber": 0,
+      "calories": 80,
+      "note": "1 dressing cup (half portion)"
+    },
+    "white balsamic apple vinaigrette": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 12,
+      "carbs": 10,
+      "fiber": 0,
+      "calories": 150,
+      "note": "1 dressing cup (half portion)"
+    },
+    "balsamic vinaigrette": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 7,
+      "carbs": 8,
+      "fiber": 0,
+      "calories": 100,
+      "note": "1 dressing cup (half portion)"
+    },
+    "sesame ginger dressing": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 16,
+      "carbs": 6,
+      "fiber": 0,
+      "calories": 170,
+      "note": "1 dressing cup (half portion)"
+    },
+    "creamy garden herb dressing": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 17,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 160,
+      "note": "1 dressing cup (half portion)"
+    },
+    "zesty smoky lemon vinaigrette": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 18,
+      "carbs": 4,
+      "fiber": 0,
+      "calories": 180,
+      "note": "1 dressing cup (half portion)"
+    }
+  },
+  "items": [
+    {
+      "name": "Plain Bagel",
+      "aliases": [
+        "plain bagel"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 1,
+        "carbs": 59,
+        "fiber": 3,
+        "calories": 280
+      },
+      "build": [
+        {
+          "component": "plain bagel",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Everything Bagel",
+      "aliases": [
+        "everything bagel"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 2.5,
+        "carbs": 61,
+        "fiber": 3,
+        "calories": 300
+      },
+      "build": [
+        {
+          "component": "everything bagel",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Asiago Cheese Bagel",
+      "aliases": [
+        "asiago cheese bagel",
+        "asiago bagel"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 9,
+        "carbs": 55,
+        "fiber": 3,
+        "calories": 350
+      },
+      "build": [
+        {
+          "component": "asiago cheese bagel",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Asiago Everything Bagel",
+      "aliases": [
+        "asiago everything bagel"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 9,
+        "carbs": 55,
+        "fiber": 3,
+        "calories": 370
+      },
+      "build": [
+        {
+          "component": "asiago everything bagel",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Sesame Bagel",
+      "aliases": [
+        "sesame bagel"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 3.5,
+        "carbs": 61,
+        "fiber": 3,
+        "calories": 310
+      },
+      "build": [
+        {
+          "component": "sesame bagel",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Blueberry Bagel",
+      "aliases": [
+        "blueberry bagel"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 1.5,
+        "carbs": 60,
+        "fiber": 3,
+        "calories": 290
+      },
+      "build": [
+        {
+          "component": "blueberry bagel",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Chocolate Chip Bagel",
+      "aliases": [
+        "chocolate chip bagel",
+        "choc chip bagel"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 4.5,
+        "carbs": 65,
+        "fiber": 3,
+        "calories": 330
+      },
+      "build": [
+        {
+          "component": "chocolate chip bagel",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cinnamon Crunch Bagel",
+      "aliases": [
+        "cinnamon crunch bagel",
+        "cinnamon bagel",
+        "cin crunch bagel"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 7,
+        "carbs": 78,
+        "fiber": 3,
+        "calories": 430
+      },
+      "build": [
+        {
+          "component": "cinnamon crunch bagel",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cinnamon Swirl Raisin Bagel",
+      "aliases": [
+        "cinnamon swirl raisin bagel",
+        "cinnamon raisin bagel",
+        "raisin bagel"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 1.5,
+        "carbs": 65,
+        "fiber": 3,
+        "calories": 300
+      },
+      "build": [
+        {
+          "component": "cinnamon swirl raisin bagel",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Multigrain Bagel Flat",
+      "aliases": [
+        "multigrain bagel flat",
+        "bagel flat",
+        "multigrain flat"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 2.5,
+        "carbs": 35,
+        "fiber": 0,
+        "calories": 190
+      },
+      "build": [
+        {
+          "component": "multigrain bagel flat",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Plain Cream Cheese Spread",
+      "aliases": [
+        "plain cream cheese",
+        "cream cheese",
+        "cream cheese spread"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 10,
+        "carbs": 3,
+        "fiber": 0,
+        "calories": 110
+      }
+    },
+    {
+      "name": "Honey Walnut Cream Cheese Spread",
+      "aliases": [
+        "honey walnut cream cheese",
+        "honey walnut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 10,
+        "carbs": 9,
+        "fiber": 0,
+        "calories": 130
+      }
+    },
+    {
+      "name": "Bacon, Egg & Cheese on Artisan Ciabatta",
+      "aliases": [
+        "bacon egg and cheese ciabatta",
+        "bacon egg cheese",
+        "bacon egg and cheese",
+        "bec ciabatta"
+      ],
+      "macros": {
+        "protein": 23,
+        "fat": 20,
+        "carbs": 51,
+        "fiber": 2,
+        "calories": 470
+      },
+      "build": [
+        {
+          "component": "breakfast portion artisan ciabatta",
+          "count": 1
+        },
+        {
+          "component": "scrambled egg",
+          "count": 1
+        },
+        {
+          "component": "cheese slice",
+          "count": 1
+        },
+        {
+          "component": "bacon",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Bacon, Egg & Cheese on Croissant",
+      "aliases": [
+        "bacon egg and cheese croissant",
+        "bec croissant"
+      ],
+      "macros": {
+        "protein": 22,
+        "fat": 29,
+        "carbs": 33,
+        "fiber": 2,
+        "calories": 480
+      },
+      "build": [
+        {
+          "component": "croissant",
+          "count": 1
+        },
+        {
+          "component": "scrambled egg",
+          "count": 1
+        },
+        {
+          "component": "cheese slice",
+          "count": 1
+        },
+        {
+          "component": "bacon",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Sausage, Egg & Cheese on Artisan Ciabatta",
+      "aliases": [
+        "sausage egg and cheese ciabatta",
+        "sausage egg cheese",
+        "sausage egg and cheese"
+      ],
+      "macros": {
+        "protein": 28,
+        "fat": 33,
+        "carbs": 51,
+        "fiber": 2,
+        "calories": 610
+      },
+      "build": [
+        {
+          "component": "breakfast portion artisan ciabatta",
+          "count": 1
+        },
+        {
+          "component": "scrambled egg",
+          "count": 1
+        },
+        {
+          "component": "cheese slice",
+          "count": 1
+        },
+        {
+          "component": "sausage patty",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Sausage, Egg & Cheese on Croissant",
+      "aliases": [
+        "sausage egg and cheese croissant"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 42,
+        "carbs": 33,
+        "fiber": 2,
+        "calories": 620
+      },
+      "build": [
+        {
+          "component": "croissant",
+          "count": 1
+        },
+        {
+          "component": "scrambled egg",
+          "count": 1
+        },
+        {
+          "component": "cheese slice",
+          "count": 1
+        },
+        {
+          "component": "sausage patty",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Ham, Egg & Cheese on Ciabatta",
+      "aliases": [
+        "ham egg and cheese",
+        "ham egg cheese ciabatta"
+      ],
+      "macros": {
+        "protein": 25,
+        "fat": 17,
+        "carbs": 51,
+        "fiber": 2,
+        "calories": 460
+      },
+      "build": [
+        {
+          "component": "breakfast portion artisan ciabatta",
+          "count": 1
+        },
+        {
+          "component": "scrambled egg",
+          "count": 1
+        },
+        {
+          "component": "cheese slice",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Egg & Cheese on Artisan Ciabatta",
+      "aliases": [
+        "egg and cheese ciabatta",
+        "egg and cheese"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 16,
+        "carbs": 51,
+        "fiber": 2,
+        "calories": 430
+      },
+      "build": [
+        {
+          "component": "breakfast portion artisan ciabatta",
+          "count": 1
+        },
+        {
+          "component": "scrambled egg",
+          "count": 1
+        },
+        {
+          "component": "cheese slice",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Egg & Cheese on Croissant",
+      "aliases": [
+        "egg and cheese croissant"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 25,
+        "carbs": 33,
+        "fiber": 2,
+        "calories": 440
+      },
+      "build": [
+        {
+          "component": "croissant",
+          "count": 1
+        },
+        {
+          "component": "scrambled egg",
+          "count": 1
+        },
+        {
+          "component": "cheese slice",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Steak & Wake on Ciabatta",
+      "aliases": [
+        "steak and wake",
+        "steak egg and cheese",
+        "steak and egg ciabatta"
+      ],
+      "macros": {
+        "protein": 32,
+        "fat": 20,
+        "carbs": 53,
+        "fiber": 2,
+        "calories": 520
+      },
+      "build": [
+        {
+          "component": "breakfast portion artisan ciabatta",
+          "count": 1
+        },
+        {
+          "component": "scrambled egg",
+          "count": 1
+        },
+        {
+          "component": "cheese slice",
+          "count": 1
+        },
+        {
+          "component": "steak",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Chipotle Chicken, Egg & Avo on Artisan Ciabatta",
+      "aliases": [
+        "chipotle chicken egg and avocado",
+        "chipotle chicken egg avo",
+        "chicken egg avo ciabatta"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 31,
+        "carbs": 55,
+        "fiber": 4,
+        "calories": 600
+      }
+    },
+    {
+      "name": "Bacon Double Take on Black Pepper Focaccia",
+      "aliases": [
+        "bacon double take",
+        "double bacon breakfast"
+      ],
+      "macros": {
+        "protein": 28,
+        "fat": 29,
+        "carbs": 43,
+        "fiber": 1,
+        "calories": 550
+      }
+    },
+    {
+      "name": "Ham Croissant Benny",
+      "aliases": [
+        "croissant benny",
+        "ham benny",
+        "eggs benedict croissant"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 24,
+        "carbs": 34,
+        "fiber": 2,
+        "calories": 430
+      }
+    },
+    {
+      "name": "Asiago Bagel Stack - Sausage & Egg",
+      "aliases": [
+        "sausage bagel stack",
+        "asiago bagel stack sausage"
+      ],
+      "macros": {
+        "protein": 33,
+        "fat": 50,
+        "carbs": 58,
+        "fiber": 3,
+        "calories": 810
+      }
+    },
+    {
+      "name": "Asiago Everything Bagel Stack - Wake-Up BLT",
+      "aliases": [
+        "wake up blt",
+        "wake-up blt",
+        "blt bagel stack"
+      ],
+      "macros": {
+        "protein": 27,
+        "fat": 24,
+        "carbs": 59,
+        "fiber": 3,
+        "calories": 570
+      }
+    },
+    {
+      "name": "Breakfast Asiago Bagel Stack - Farmhouse Duo",
+      "aliases": [
+        "farmhouse duo",
+        "farmhouse duo bagel stack"
+      ],
+      "macros": {
+        "protein": 34,
+        "fat": 40,
+        "carbs": 58,
+        "fiber": 3,
+        "calories": 730
+      }
+    },
+    {
+      "name": "Souffle - Four Cheese",
+      "aliases": [
+        "four cheese souffle",
+        "4 cheese souffle",
+        "cheese souffle"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 30,
+        "carbs": 36,
+        "fiber": 1,
+        "calories": 470
+      }
+    },
+    {
+      "name": "Souffle - Spinach & Bacon",
+      "aliases": [
+        "spinach and bacon souffle",
+        "spinach bacon souffle"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 37,
+        "carbs": 36,
+        "fiber": 1,
+        "calories": 550
+      }
+    },
+    {
+      "name": "Frittata - Broccoli Cheddar",
+      "aliases": [
+        "broccoli cheddar frittata",
+        "crustless frittata"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 19,
+        "carbs": 11,
+        "fiber": 1,
+        "calories": 280
+      }
+    },
+    {
+      "name": "Frittata - Five Cheese & Bacon",
+      "aliases": [
+        "five cheese and bacon frittata",
+        "bacon frittata"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 22,
+        "carbs": 9,
+        "fiber": 0,
+        "calories": 300
+      }
+    },
+    {
+      "name": "Steel Cut Oatmeal with Strawberries, Pecans & Cinnamon Crunch Topping",
+      "aliases": [
+        "oatmeal",
+        "steel cut oatmeal",
+        "strawberry oatmeal"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 13,
+        "carbs": 51,
+        "fiber": 7,
+        "calories": 330
+      }
+    },
+    {
+      "name": "Bacon Turkey Bravo on Tomato Basil - Half",
+      "aliases": [
+        "half bacon turkey bravo",
+        "half btb",
+        "half turkey bravo",
+        "half bacon turkey bravo sandwich",
+        "bacon turkey bravo half",
+        "btb half",
+        "turkey bravo half",
+        "bacon turkey bravo sandwich half"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 20,
+        "carbs": 40,
+        "fiber": 3,
+        "calories": 430
+      }
+    },
+    {
+      "name": "Bacon Turkey Bravo on Tomato Basil - Whole",
+      "aliases": [
+        "bacon turkey bravo",
+        "btb",
+        "turkey bravo",
+        "bacon turkey bravo sandwich",
+        "whole bacon turkey bravo",
+        "whole btb",
+        "whole turkey bravo",
+        "whole bacon turkey bravo sandwich"
+      ],
+      "macros": {
+        "protein": 47,
+        "fat": 39,
+        "carbs": 80,
+        "fiber": 6,
+        "calories": 860
+      }
+    },
+    {
+      "name": "Chipotle Chicken Avo Melt on Black Pepper Focaccia - Half",
+      "aliases": [
+        "half chipotle chicken avocado melt",
+        "half chipotle chicken avo melt",
+        "half chicken avo melt",
+        "half chipotle chicken melt",
+        "chipotle chicken avocado melt half",
+        "chipotle chicken avo melt half",
+        "chicken avo melt half",
+        "chipotle chicken melt half"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 26,
+        "carbs": 45,
+        "fiber": 3,
+        "calories": 500
+      }
+    },
+    {
+      "name": "Chipotle Chicken Avo Melt on Black Pepper Focaccia - Whole",
+      "aliases": [
+        "chipotle chicken avocado melt",
+        "chipotle chicken avo melt",
+        "chicken avo melt",
+        "chipotle chicken melt",
+        "whole chipotle chicken avocado melt",
+        "whole chipotle chicken avo melt",
+        "whole chicken avo melt",
+        "whole chipotle chicken melt"
+      ],
+      "macros": {
+        "protein": 43,
+        "fat": 52,
+        "carbs": 90,
+        "fiber": 7,
+        "calories": 1000
+      }
+    },
+    {
+      "name": "Toasted Frontega Chicken on Black Pepper Focaccia - Half",
+      "aliases": [
+        "half frontega chicken",
+        "half frontega",
+        "half toasted frontega",
+        "frontega chicken half",
+        "frontega half",
+        "toasted frontega half"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 19,
+        "carbs": 43,
+        "fiber": 2,
+        "calories": 430
+      }
+    },
+    {
+      "name": "Toasted Frontega Chicken on Black Pepper Focaccia - Whole",
+      "aliases": [
+        "frontega chicken",
+        "frontega",
+        "toasted frontega",
+        "whole frontega chicken",
+        "whole frontega",
+        "whole toasted frontega"
+      ],
+      "macros": {
+        "protein": 40,
+        "fat": 39,
+        "carbs": 87,
+        "fiber": 4,
+        "calories": 860
+      }
+    },
+    {
+      "name": "Smokehouse BBQ Chicken on Artisan Ciabatta - Half",
+      "aliases": [
+        "half smokehouse bbq chicken",
+        "half bbq chicken sandwich",
+        "half smokehouse chicken",
+        "smokehouse bbq chicken half",
+        "bbq chicken sandwich half",
+        "smokehouse chicken half"
+      ],
+      "macros": {
+        "protein": 22,
+        "fat": 11,
+        "carbs": 56,
+        "fiber": 2,
+        "calories": 410
+      }
+    },
+    {
+      "name": "Smokehouse BBQ Chicken on Artisan Ciabatta - Whole",
+      "aliases": [
+        "smokehouse bbq chicken",
+        "bbq chicken sandwich",
+        "smokehouse chicken",
+        "whole smokehouse bbq chicken",
+        "whole bbq chicken sandwich",
+        "whole smokehouse chicken"
+      ],
+      "macros": {
+        "protein": 45,
+        "fat": 21,
+        "carbs": 113,
+        "fiber": 4,
+        "calories": 820
+      }
+    },
+    {
+      "name": "Ciabatta Cheesesteak - Half",
+      "aliases": [
+        "half cheesesteak",
+        "half ciabatta cheese steak",
+        "half philly cheesesteak",
+        "cheesesteak half",
+        "ciabatta cheese steak half",
+        "philly cheesesteak half"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 27,
+        "carbs": 58,
+        "fiber": 3,
+        "calories": 580
+      }
+    },
+    {
+      "name": "Ciabatta Cheesesteak - Whole",
+      "aliases": [
+        "cheesesteak",
+        "ciabatta cheese steak",
+        "philly cheesesteak",
+        "whole cheesesteak",
+        "whole ciabatta cheese steak",
+        "whole philly cheesesteak"
+      ],
+      "macros": {
+        "protein": 52,
+        "fat": 54,
+        "carbs": 117,
+        "fiber": 5,
+        "calories": 1160
+      }
+    },
+    {
+      "name": "Mediterranean Veggie on Tomato Basil - Half",
+      "aliases": [
+        "half mediterranean veggie",
+        "half med veggie",
+        "half mediterranean veggie sandwich",
+        "half veggie sandwich",
+        "mediterranean veggie half",
+        "med veggie half",
+        "mediterranean veggie sandwich half",
+        "veggie sandwich half"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 7,
+        "carbs": 41,
+        "fiber": 4,
+        "calories": 260
+      }
+    },
+    {
+      "name": "Mediterranean Veggie on Tomato Basil - Whole",
+      "aliases": [
+        "mediterranean veggie",
+        "med veggie",
+        "mediterranean veggie sandwich",
+        "veggie sandwich",
+        "whole mediterranean veggie",
+        "whole med veggie",
+        "whole mediterranean veggie sandwich",
+        "whole veggie sandwich"
+      ],
+      "macros": {
+        "protein": 18,
+        "fat": 14,
+        "carbs": 83,
+        "fiber": 8,
+        "calories": 520
+      }
+    },
+    {
+      "name": "Grilled Chicken & Avo BLT on Country Rustic Sourdough - Half",
+      "aliases": [
+        "half chicken avocado blt",
+        "half grilled chicken and avo blt",
+        "half chicken avo blt",
+        "half chicken blt",
+        "chicken avocado blt half",
+        "grilled chicken and avo blt half",
+        "chicken avo blt half",
+        "chicken blt half"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 27,
+        "carbs": 33,
+        "fiber": 3,
+        "calories": 470
+      }
+    },
+    {
+      "name": "Grilled Chicken & Avo BLT on Country Rustic Sourdough - Whole",
+      "aliases": [
+        "chicken avocado blt",
+        "grilled chicken and avo blt",
+        "chicken avo blt",
+        "chicken blt",
+        "whole chicken avocado blt",
+        "whole grilled chicken and avo blt",
+        "whole chicken avo blt",
+        "whole chicken blt"
+      ],
+      "macros": {
+        "protein": 48,
+        "fat": 55,
+        "carbs": 66,
+        "fiber": 7,
+        "calories": 940
+      }
+    },
+    {
+      "name": "Chicken Bacon Rancher on Black Pepper Focaccia - Half",
+      "aliases": [
+        "half chicken bacon rancher",
+        "half chicken bacon ranch sandwich",
+        "half bacon rancher",
+        "chicken bacon rancher half",
+        "chicken bacon ranch sandwich half",
+        "bacon rancher half"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 26,
+        "carbs": 44,
+        "fiber": 2,
+        "calories": 510
+      }
+    },
+    {
+      "name": "Chicken Bacon Rancher on Black Pepper Focaccia - Whole",
+      "aliases": [
+        "chicken bacon rancher",
+        "chicken bacon ranch sandwich",
+        "bacon rancher",
+        "whole chicken bacon rancher",
+        "whole chicken bacon ranch sandwich",
+        "whole bacon rancher"
+      ],
+      "macros": {
+        "protein": 52,
+        "fat": 51,
+        "carbs": 87,
+        "fiber": 3,
+        "calories": 1010
+      }
+    },
+    {
+      "name": "Toasted Italiano on Baguette - Half",
+      "aliases": [
+        "half toasted italiano",
+        "half italiano",
+        "half italian sandwich",
+        "toasted italiano half",
+        "italiano half",
+        "italian sandwich half"
+      ],
+      "macros": {
+        "protein": 29,
+        "fat": 32,
+        "carbs": 65,
+        "fiber": 3,
+        "calories": 670
+      }
+    },
+    {
+      "name": "Toasted Italiano on Baguette - Whole",
+      "aliases": [
+        "toasted italiano",
+        "italiano",
+        "italian sandwich",
+        "whole toasted italiano",
+        "whole italiano",
+        "whole italian sandwich"
+      ],
+      "macros": {
+        "protein": 58,
+        "fat": 64,
+        "carbs": 130,
+        "fiber": 5,
+        "calories": 1330
+      }
+    },
+    {
+      "name": "Grilled Cheese on Classic White Loaf - Half",
+      "aliases": [
+        "half grilled cheese",
+        "half classic grilled cheese",
+        "grilled cheese half",
+        "classic grilled cheese half"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 21,
+        "carbs": 37,
+        "fiber": 3,
+        "calories": 400
+      }
+    },
+    {
+      "name": "Grilled Cheese on Classic White Loaf - Whole",
+      "aliases": [
+        "grilled cheese",
+        "classic grilled cheese",
+        "whole grilled cheese",
+        "whole classic grilled cheese"
+      ],
+      "macros": {
+        "protein": 32,
+        "fat": 42,
+        "carbs": 74,
+        "fiber": 5,
+        "calories": 810
+      }
+    },
+    {
+      "name": "Tuna Salad on Country Rustic Sourdough - Half",
+      "aliases": [
+        "half tuna salad sandwich",
+        "half tuna sandwich",
+        "half tuna",
+        "tuna salad sandwich half",
+        "tuna sandwich half",
+        "tuna half"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 14,
+        "carbs": 30,
+        "fiber": 2,
+        "calories": 300
+      }
+    },
+    {
+      "name": "Tuna Salad on Country Rustic Sourdough - Whole",
+      "aliases": [
+        "tuna salad sandwich",
+        "tuna sandwich",
+        "tuna",
+        "whole tuna salad sandwich",
+        "whole tuna sandwich",
+        "whole tuna"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 29,
+        "carbs": 60,
+        "fiber": 4,
+        "calories": 590
+      }
+    },
+    {
+      "name": "Turkey & Cheddar on Country Rustic Sourdough - Half",
+      "aliases": [
+        "half turkey and cheddar",
+        "half turkey cheddar",
+        "half turkey sandwich",
+        "turkey and cheddar half",
+        "turkey cheddar half",
+        "turkey sandwich half"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 24,
+        "carbs": 31,
+        "fiber": 2,
+        "calories": 420
+      }
+    },
+    {
+      "name": "Turkey & Cheddar on Country Rustic Sourdough - Whole",
+      "aliases": [
+        "turkey and cheddar",
+        "turkey cheddar",
+        "turkey sandwich",
+        "whole turkey and cheddar",
+        "whole turkey cheddar",
+        "whole turkey sandwich"
+      ],
+      "macros": {
+        "protein": 40,
+        "fat": 47,
+        "carbs": 63,
+        "fiber": 3,
+        "calories": 840
+      }
+    },
+    {
+      "name": "Tomato Basil BLT on Tomato Basil Miche - Half",
+      "aliases": [
+        "half tomato basil blt",
+        "half blt",
+        "half blt sandwich",
+        "tomato basil blt half",
+        "blt half",
+        "blt sandwich half"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 22,
+        "carbs": 35,
+        "fiber": 3,
+        "calories": 390
+      }
+    },
+    {
+      "name": "Tomato Basil BLT on Tomato Basil Miche - Whole",
+      "aliases": [
+        "tomato basil blt",
+        "blt",
+        "blt sandwich",
+        "whole tomato basil blt",
+        "whole blt",
+        "whole blt sandwich"
+      ],
+      "macros": {
+        "protein": 23,
+        "fat": 45,
+        "carbs": 71,
+        "fiber": 6,
+        "calories": 780
+      }
+    },
+    {
+      "name": "Cranberry Walnut Chicken Salad on Country Rustic - Half",
+      "aliases": [
+        "half cranberry walnut chicken salad sandwich",
+        "half chicken salad sandwich",
+        "cranberry walnut chicken salad sandwich half",
+        "chicken salad sandwich half"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 16,
+        "carbs": 34,
+        "fiber": 2,
+        "calories": 350
+      }
+    },
+    {
+      "name": "Cranberry Walnut Chicken Salad on Country Rustic - Whole",
+      "aliases": [
+        "cranberry walnut chicken salad sandwich",
+        "chicken salad sandwich",
+        "whole cranberry walnut chicken salad sandwich",
+        "whole chicken salad sandwich"
+      ],
+      "macros": {
+        "protein": 32,
+        "fat": 33,
+        "carbs": 68,
+        "fiber": 5,
+        "calories": 690
+      }
+    },
+    {
+      "name": "Spicy Fiesta Chicken on Ciabatta - Half",
+      "aliases": [
+        "half spicy fiesta chicken",
+        "half fiesta chicken",
+        "spicy fiesta chicken half",
+        "fiesta chicken half"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 16,
+        "carbs": 56,
+        "fiber": 3,
+        "calories": 470
+      }
+    },
+    {
+      "name": "Spicy Fiesta Chicken on Ciabatta - Whole",
+      "aliases": [
+        "spicy fiesta chicken",
+        "fiesta chicken",
+        "whole spicy fiesta chicken",
+        "whole fiesta chicken"
+      ],
+      "macros": {
+        "protein": 51,
+        "fat": 32,
+        "carbs": 112,
+        "fiber": 6,
+        "calories": 940
+      }
+    },
+    {
+      "name": "Toasted Caprese Focaccia - Half",
+      "aliases": [
+        "half caprese focaccia",
+        "half caprese sandwich",
+        "half caprese",
+        "caprese focaccia half",
+        "caprese sandwich half",
+        "caprese half"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 13,
+        "carbs": 48,
+        "fiber": 2,
+        "calories": 370
+      }
+    },
+    {
+      "name": "Toasted Caprese Focaccia - Whole",
+      "aliases": [
+        "caprese focaccia",
+        "caprese sandwich",
+        "caprese",
+        "whole caprese focaccia",
+        "whole caprese sandwich",
+        "whole caprese"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 27,
+        "carbs": 97,
+        "fiber": 4,
+        "calories": 740
+      }
+    },
+    {
+      "name": "French Ciabatta Dipper - Half",
+      "aliases": [
+        "half french dip",
+        "half ciabatta dipper",
+        "half french dipper",
+        "french dip half",
+        "ciabatta dipper half",
+        "french dipper half"
+      ],
+      "macros": {
+        "protein": 34,
+        "fat": 30,
+        "carbs": 61,
+        "fiber": 2,
+        "calories": 640
+      }
+    },
+    {
+      "name": "French Ciabatta Dipper - Whole",
+      "aliases": [
+        "french dip",
+        "ciabatta dipper",
+        "french dipper",
+        "whole french dip",
+        "whole ciabatta dipper",
+        "whole french dipper"
+      ],
+      "macros": {
+        "protein": 66,
+        "fat": 58,
+        "carbs": 114,
+        "fiber": 4,
+        "calories": 1240
+      }
+    },
+    {
+      "name": "Chicken Pesto Ciabatta Dipper - Half",
+      "aliases": [
+        "half chicken pesto dipper",
+        "half pesto dipper",
+        "chicken pesto dipper half",
+        "pesto dipper half"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 21,
+        "carbs": 61,
+        "fiber": 3,
+        "calories": 560
+      }
+    },
+    {
+      "name": "Chicken Pesto Ciabatta Dipper - Whole",
+      "aliases": [
+        "chicken pesto dipper",
+        "pesto dipper",
+        "whole chicken pesto dipper",
+        "whole pesto dipper"
+      ],
+      "macros": {
+        "protein": 59,
+        "fat": 35,
+        "carbs": 114,
+        "fiber": 5,
+        "calories": 1010
+      }
+    },
+    {
+      "name": "Asiago Bagel Stack Sandwich - Chicken Roma",
+      "aliases": [
+        "chicken roma",
+        "chicken roma bagel stack"
+      ],
+      "macros": {
+        "protein": 31,
+        "fat": 27,
+        "carbs": 59,
+        "fiber": 3,
+        "calories": 610
+      }
+    },
+    {
+      "name": "Asiago Bagel Stack Sandwich - Spicy Steak",
+      "aliases": [
+        "spicy steak bagel stack",
+        "spicy steak"
+      ],
+      "macros": {
+        "protein": 39,
+        "fat": 26,
+        "carbs": 62,
+        "fiber": 4,
+        "calories": 630
+      }
+    },
+    {
+      "name": "Caesar Salad - Half",
+      "aliases": [
+        "half caesar salad",
+        "caesar salad half",
+        "half caesar"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 22,
+        "carbs": 11,
+        "fiber": 2,
+        "calories": 270
+      },
+      "build": [
+        {
+          "component": "caesar salad base",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Caesar Salad - Whole",
+      "aliases": [
+        "caesar salad",
+        "caesar",
+        "whole caesar salad"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 44,
+        "carbs": 22,
+        "fiber": 4,
+        "calories": 530
+      },
+      "build": [
+        {
+          "component": "caesar salad base",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Caesar with Chicken Salad - Half",
+      "aliases": [
+        "half chicken caesar",
+        "half caesar with chicken",
+        "chicken caesar half"
+      ],
+      "macros": {
+        "protein": 18,
+        "fat": 23,
+        "carbs": 14,
+        "fiber": 2,
+        "calories": 340
+      },
+      "build": [
+        {
+          "component": "caesar salad base",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Caesar with Chicken Salad - Whole",
+      "aliases": [
+        "chicken caesar salad",
+        "caesar with chicken",
+        "chicken caesar",
+        "caesar salad with chicken"
+      ],
+      "macros": {
+        "protein": 35,
+        "fat": 47,
+        "carbs": 27,
+        "fiber": 4,
+        "calories": 670
+      },
+      "build": [
+        {
+          "component": "caesar salad base",
+          "count": 2
+        },
+        {
+          "component": "grilled chicken",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Greek Salad - Half",
+      "aliases": [
+        "half greek salad",
+        "greek salad half"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 30,
+        "carbs": 9,
+        "fiber": 2,
+        "calories": 310
+      },
+      "build": [
+        {
+          "component": "greek salad base",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Greek Salad - Whole",
+      "aliases": [
+        "greek salad",
+        "greek",
+        "whole greek salad"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 59,
+        "carbs": 17,
+        "fiber": 5,
+        "calories": 630
+      },
+      "build": [
+        {
+          "component": "greek salad base",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Greek Salad with Chicken - Half",
+      "aliases": [
+        "half greek salad with chicken",
+        "half greek chicken salad"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 31,
+        "carbs": 11,
+        "fiber": 3,
+        "calories": 380
+      },
+      "build": [
+        {
+          "component": "greek salad base",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Greek Salad with Chicken - Whole",
+      "aliases": [
+        "greek salad with chicken",
+        "greek chicken salad",
+        "chicken greek salad"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 62,
+        "carbs": 22,
+        "fiber": 5,
+        "calories": 760
+      },
+      "build": [
+        {
+          "component": "greek salad base",
+          "count": 2
+        },
+        {
+          "component": "grilled chicken",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Fuji Apple Chicken Salad - Half",
+      "aliases": [
+        "half fuji apple chicken salad",
+        "half fuji apple salad",
+        "fuji apple half"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 22,
+        "carbs": 24,
+        "fiber": 3,
+        "calories": 350
+      },
+      "build": [
+        {
+          "component": "fuji apple salad base",
+          "count": 1
+        },
+        {
+          "component": "pecans",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Fuji Apple Chicken Salad - Whole",
+      "aliases": [
+        "fuji apple chicken salad",
+        "fuji apple salad",
+        "fuji apple",
+        "fuji chicken salad",
+        "apple chicken salad"
+      ],
+      "macros": {
+        "protein": 28,
+        "fat": 44,
+        "carbs": 49,
+        "fiber": 5,
+        "calories": 710
+      },
+      "build": [
+        {
+          "component": "fuji apple salad base",
+          "count": 2
+        },
+        {
+          "component": "pecans",
+          "count": 2
+        },
+        {
+          "component": "grilled chicken",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Harvest Medley Chicken Salad - Half",
+      "aliases": [
+        "half harvest medley chicken salad",
+        "half harvest medley"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 23,
+        "carbs": 41,
+        "fiber": 3,
+        "calories": 440
+      },
+      "build": [
+        {
+          "component": "harvest medley salad base",
+          "count": 1
+        },
+        {
+          "component": "pecans",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Harvest Medley Chicken Salad - Whole",
+      "aliases": [
+        "harvest medley chicken salad",
+        "harvest medley salad with chicken",
+        "harvest medley"
+      ],
+      "macros": {
+        "protein": 34,
+        "fat": 47,
+        "carbs": 83,
+        "fiber": 7,
+        "calories": 880
+      },
+      "build": [
+        {
+          "component": "harvest medley salad base",
+          "count": 2
+        },
+        {
+          "component": "pecans",
+          "count": 2
+        },
+        {
+          "component": "grilled chicken",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Harvest Medley Salad - Half",
+      "aliases": [
+        "half harvest medley salad",
+        "harvest medley salad half"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 22,
+        "carbs": 39,
+        "fiber": 3,
+        "calories": 370
+      },
+      "build": [
+        {
+          "component": "harvest medley salad base",
+          "count": 1
+        },
+        {
+          "component": "pecans",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Harvest Medley Salad - Whole",
+      "aliases": [
+        "harvest medley salad",
+        "harvest medley no chicken"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 44,
+        "carbs": 78,
+        "fiber": 7,
+        "calories": 750
+      },
+      "build": [
+        {
+          "component": "harvest medley salad base",
+          "count": 2
+        },
+        {
+          "component": "pecans",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Asian Sesame Chicken Salad - Half",
+      "aliases": [
+        "half asian sesame chicken salad",
+        "half asian sesame salad",
+        "asian sesame half"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 15,
+        "carbs": 17,
+        "fiber": 3,
+        "calories": 260
+      },
+      "build": [
+        {
+          "component": "asian sesame salad base",
+          "count": 1
+        },
+        {
+          "component": "almonds",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Asian Sesame Chicken Salad - Whole",
+      "aliases": [
+        "asian sesame chicken salad",
+        "asian sesame salad",
+        "asian chicken salad",
+        "sesame chicken salad"
+      ],
+      "macros": {
+        "protein": 29,
+        "fat": 31,
+        "carbs": 35,
+        "fiber": 6,
+        "calories": 530
+      },
+      "build": [
+        {
+          "component": "asian sesame salad base",
+          "count": 2
+        },
+        {
+          "component": "almonds",
+          "count": 2
+        },
+        {
+          "component": "grilled chicken",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Green Goddess Cobb Salad with Chicken - Half",
+      "aliases": [
+        "half green goddess cobb",
+        "half green goddess salad",
+        "green goddess half"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 17,
+        "carbs": 15,
+        "fiber": 4,
+        "calories": 290
+      }
+    },
+    {
+      "name": "Green Goddess Cobb Salad with Chicken - Whole",
+      "aliases": [
+        "green goddess cobb salad",
+        "green goddess cobb",
+        "green goddess salad",
+        "green goddess",
+        "cobb salad"
+      ],
+      "macros": {
+        "protein": 40,
+        "fat": 34,
+        "carbs": 30,
+        "fiber": 7,
+        "calories": 580
+      }
+    },
+    {
+      "name": "Southwest Chicken Ranch Salad - Half",
+      "aliases": [
+        "half southwest chicken ranch salad",
+        "half southwest salad"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 30,
+        "carbs": 20,
+        "fiber": 5,
+        "calories": 400
+      }
+    },
+    {
+      "name": "Southwest Chicken Ranch Salad - Whole",
+      "aliases": [
+        "southwest chicken ranch salad",
+        "southwest salad",
+        "southwest chicken salad",
+        "southwest caesar"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 59,
+        "carbs": 40,
+        "fiber": 10,
+        "calories": 810
+      }
+    },
+    {
+      "name": "Ranch Parm BLT Salad - Half",
+      "aliases": [
+        "half ranch parm blt salad",
+        "half blt salad"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 31,
+        "carbs": 14,
+        "fiber": 2,
+        "calories": 380
+      }
+    },
+    {
+      "name": "Ranch Parm BLT Salad - Whole",
+      "aliases": [
+        "ranch parm blt salad",
+        "blt salad",
+        "ranch parmesan blt salad"
+      ],
+      "macros": {
+        "protein": 23,
+        "fat": 62,
+        "carbs": 28,
+        "fiber": 4,
+        "calories": 750
+      }
+    },
+    {
+      "name": "Farmhouse Crunch Salad - Half",
+      "aliases": [
+        "half farmhouse crunch salad",
+        "half farmhouse salad"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 31,
+        "carbs": 25,
+        "fiber": 5,
+        "calories": 400
+      }
+    },
+    {
+      "name": "Farmhouse Crunch Salad - Whole",
+      "aliases": [
+        "farmhouse crunch salad",
+        "farmhouse salad",
+        "farmhouse crunch"
+      ],
+      "macros": {
+        "protein": 18,
+        "fat": 61,
+        "carbs": 49,
+        "fiber": 11,
+        "calories": 790
+      }
+    },
+    {
+      "name": "Ultimate Garden Steak Salad - Half",
+      "aliases": [
+        "half garden steak salad",
+        "half steak salad"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 26,
+        "carbs": 26,
+        "fiber": 4,
+        "calories": 400
+      }
+    },
+    {
+      "name": "Ultimate Garden Steak Salad - Whole",
+      "aliases": [
+        "ultimate garden steak salad",
+        "garden steak salad",
+        "steak salad"
+      ],
+      "macros": {
+        "protein": 33,
+        "fat": 52,
+        "carbs": 53,
+        "fiber": 7,
+        "calories": 800
+      }
+    },
+    {
+      "name": "Broccoli Cheddar Soup - Cup",
+      "aliases": [
+        "cup of broccoli cheddar",
+        "cup of broc cheddar",
+        "cup of broccoli cheese soup",
+        "cup of brocolli cheddar",
+        "broccoli cheddar cup",
+        "broc cheddar cup",
+        "broccoli cheese soup cup",
+        "brocolli cheddar cup"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 20,
+        "carbs": 17,
+        "fiber": 1,
+        "calories": 280
+      },
+      "build": [
+        {
+          "component": "broccoli cheddar soup",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Broccoli Cheddar Soup - Bowl",
+      "aliases": [
+        "broccoli cheddar",
+        "broc cheddar",
+        "broccoli cheese soup",
+        "brocolli cheddar",
+        "bowl of broccoli cheddar",
+        "bowl of broc cheddar",
+        "bowl of broccoli cheese soup",
+        "bowl of brocolli cheddar",
+        "broccoli cheddar bowl",
+        "broc cheddar bowl",
+        "broccoli cheese soup bowl",
+        "brocolli cheddar bowl"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 31,
+        "carbs": 25,
+        "fiber": 1,
+        "calories": 420
+      },
+      "build": [
+        {
+          "component": "broccoli cheddar soup",
+          "count": 1.5
+        }
+      ]
+    },
+    {
+      "name": "Broccoli Cheddar Soup - Bread Bowl",
+      "aliases": [
+        "broccoli cheddar bread bowl",
+        "broc cheddar bread bowl",
+        "broccoli cheese soup bread bowl",
+        "brocolli cheddar bread bowl",
+        "broccoli cheddar in a bread bowl",
+        "broc cheddar in a bread bowl",
+        "broccoli cheese soup in a bread bowl",
+        "brocolli cheddar in a bread bowl"
+      ],
+      "macros": {
+        "protein": 29,
+        "fat": 23,
+        "carbs": 152,
+        "fiber": 6,
+        "calories": 930
+      },
+      "build": [
+        {
+          "component": "sourdough bread bowl",
+          "count": 1
+        },
+        {
+          "component": "broccoli cheddar soup",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Homestyle Chicken Noodle Soup - Cup",
+      "aliases": [
+        "cup of chicken noodle soup",
+        "cup of chicken noodle",
+        "chicken noodle soup cup",
+        "chicken noodle cup"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 3,
+        "carbs": 14,
+        "fiber": 0,
+        "calories": 120
+      },
+      "build": [
+        {
+          "component": "homestyle chicken noodle soup",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Homestyle Chicken Noodle Soup - Bowl",
+      "aliases": [
+        "chicken noodle soup",
+        "chicken noodle",
+        "bowl of chicken noodle soup",
+        "bowl of chicken noodle",
+        "chicken noodle soup bowl",
+        "chicken noodle bowl"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 4.5,
+        "carbs": 21,
+        "fiber": 0,
+        "calories": 180
+      },
+      "build": [
+        {
+          "component": "homestyle chicken noodle soup",
+          "count": 1.5
+        }
+      ]
+    },
+    {
+      "name": "Homestyle Chicken Noodle Soup - Bread Bowl",
+      "aliases": [
+        "chicken noodle soup bread bowl",
+        "chicken noodle bread bowl",
+        "chicken noodle soup in a bread bowl",
+        "chicken noodle in a bread bowl"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 5,
+        "carbs": 150,
+        "fiber": 5,
+        "calories": 770
+      },
+      "build": [
+        {
+          "component": "sourdough bread bowl",
+          "count": 1
+        },
+        {
+          "component": "homestyle chicken noodle soup",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Vegetarian Creamy Tomato Soup - Cup",
+      "aliases": [
+        "cup of creamy tomato soup",
+        "cup of tomato soup",
+        "cup of creamy tomato",
+        "creamy tomato soup cup",
+        "tomato soup cup",
+        "creamy tomato cup"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 16,
+        "carbs": 21,
+        "fiber": 1,
+        "calories": 240
+      },
+      "build": [
+        {
+          "component": "creamy tomato soup",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Vegetarian Creamy Tomato Soup - Bowl",
+      "aliases": [
+        "creamy tomato soup",
+        "tomato soup",
+        "creamy tomato",
+        "bowl of creamy tomato soup",
+        "bowl of tomato soup",
+        "bowl of creamy tomato",
+        "creamy tomato soup bowl",
+        "tomato soup bowl",
+        "creamy tomato bowl"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 23,
+        "carbs": 30,
+        "fiber": 1,
+        "calories": 340
+      },
+      "build": [
+        {
+          "component": "creamy tomato soup",
+          "count": 1.5
+        }
+      ]
+    },
+    {
+      "name": "Vegetarian Creamy Tomato Soup - Bread Bowl",
+      "aliases": [
+        "creamy tomato soup bread bowl",
+        "tomato soup bread bowl",
+        "creamy tomato bread bowl",
+        "creamy tomato soup in a bread bowl",
+        "tomato soup in a bread bowl",
+        "creamy tomato in a bread bowl"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 18,
+        "carbs": 157,
+        "fiber": 6,
+        "calories": 880
+      },
+      "build": [
+        {
+          "component": "sourdough bread bowl",
+          "count": 1
+        },
+        {
+          "component": "creamy tomato soup",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Bistro French Onion Soup - Cup",
+      "aliases": [
+        "cup of french onion soup",
+        "cup of french onion",
+        "cup of bistro french onion",
+        "french onion soup cup",
+        "french onion cup",
+        "bistro french onion cup"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 10,
+        "carbs": 22,
+        "fiber": 1,
+        "calories": 200
+      },
+      "build": [
+        {
+          "component": "bistro french onion soup",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Bistro French Onion Soup - Bowl",
+      "aliases": [
+        "french onion soup",
+        "french onion",
+        "bistro french onion",
+        "bowl of french onion soup",
+        "bowl of french onion",
+        "bowl of bistro french onion",
+        "french onion soup bowl",
+        "french onion bowl",
+        "bistro french onion bowl"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 14,
+        "carbs": 33,
+        "fiber": 1,
+        "calories": 300
+      },
+      "build": [
+        {
+          "component": "bistro french onion soup",
+          "count": 1.5
+        }
+      ]
+    },
+    {
+      "name": "Bistro French Onion Soup - Bread Bowl",
+      "aliases": [
+        "french onion soup bread bowl",
+        "french onion bread bowl",
+        "bistro french onion bread bowl",
+        "french onion soup in a bread bowl",
+        "french onion in a bread bowl",
+        "bistro french onion in a bread bowl"
+      ],
+      "macros": {
+        "protein": 27,
+        "fat": 12,
+        "carbs": 158,
+        "fiber": 5,
+        "calories": 850
+      },
+      "build": [
+        {
+          "component": "sourdough bread bowl",
+          "count": 1
+        },
+        {
+          "component": "bistro french onion soup",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Rustic Baked Potato Soup - Cup",
+      "aliases": [
+        "cup of baked potato soup",
+        "cup of potato soup",
+        "baked potato soup cup",
+        "potato soup cup"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 16,
+        "carbs": 25,
+        "fiber": 1,
+        "calories": 280
+      },
+      "build": [
+        {
+          "component": "rustic baked potato soup",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Rustic Baked Potato Soup - Bowl",
+      "aliases": [
+        "baked potato soup",
+        "potato soup",
+        "bowl of baked potato soup",
+        "bowl of potato soup",
+        "baked potato soup bowl",
+        "potato soup bowl"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 26,
+        "carbs": 38,
+        "fiber": 2,
+        "calories": 430
+      },
+      "build": [
+        {
+          "component": "rustic baked potato soup",
+          "count": 1.5
+        }
+      ]
+    },
+    {
+      "name": "Rustic Baked Potato Soup - Bread Bowl",
+      "aliases": [
+        "baked potato soup bread bowl",
+        "potato soup bread bowl",
+        "baked potato soup in a bread bowl",
+        "potato soup in a bread bowl"
+      ],
+      "macros": {
+        "protein": 29,
+        "fat": 19,
+        "carbs": 161,
+        "fiber": 6,
+        "calories": 920
+      },
+      "build": [
+        {
+          "component": "sourdough bread bowl",
+          "count": 1
+        },
+        {
+          "component": "rustic baked potato soup",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Hearty Fireside Chili - Cup",
+      "aliases": [
+        "cup of fireside chili",
+        "cup of chili",
+        "cup of turkey chili",
+        "fireside chili cup",
+        "chili cup",
+        "turkey chili cup"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 10,
+        "carbs": 32,
+        "fiber": 6,
+        "calories": 270
+      },
+      "build": [
+        {
+          "component": "hearty fireside chili",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Hearty Fireside Chili - Bowl",
+      "aliases": [
+        "fireside chili",
+        "chili",
+        "turkey chili",
+        "bowl of fireside chili",
+        "bowl of chili",
+        "bowl of turkey chili",
+        "fireside chili bowl",
+        "chili bowl",
+        "turkey chili bowl"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 15,
+        "carbs": 49,
+        "fiber": 9,
+        "calories": 410
+      },
+      "build": [
+        {
+          "component": "hearty fireside chili",
+          "count": 1.5
+        }
+      ]
+    },
+    {
+      "name": "Hearty Fireside Chili - Bread Bowl",
+      "aliases": [
+        "fireside chili bread bowl",
+        "chili bread bowl",
+        "turkey chili bread bowl",
+        "fireside chili in a bread bowl",
+        "chili in a bread bowl",
+        "turkey chili in a bread bowl"
+      ],
+      "macros": {
+        "protein": 40,
+        "fat": 14,
+        "carbs": 163,
+        "fiber": 11,
+        "calories": 940
+      },
+      "build": [
+        {
+          "component": "sourdough bread bowl",
+          "count": 1
+        },
+        {
+          "component": "hearty fireside chili",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Three Cheese Lasagna Soup - Cup",
+      "aliases": [
+        "cup of lasagna soup",
+        "cup of 3 cheese lasagna soup",
+        "lasagna soup cup",
+        "3 cheese lasagna soup cup"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 11,
+        "carbs": 22,
+        "fiber": 2,
+        "calories": 230
+      },
+      "build": [
+        {
+          "component": "three cheese lasagna soup",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Three Cheese Lasagna Soup - Bowl",
+      "aliases": [
+        "lasagna soup",
+        "3 cheese lasagna soup",
+        "bowl of lasagna soup",
+        "bowl of 3 cheese lasagna soup",
+        "lasagna soup bowl",
+        "3 cheese lasagna soup bowl"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 17,
+        "carbs": 33,
+        "fiber": 3,
+        "calories": 360
+      },
+      "build": [
+        {
+          "component": "three cheese lasagna soup",
+          "count": 1.5
+        }
+      ]
+    },
+    {
+      "name": "Three Cheese Lasagna Soup - Bread Bowl",
+      "aliases": [
+        "lasagna soup bread bowl",
+        "3 cheese lasagna soup bread bowl",
+        "lasagna soup in a bread bowl",
+        "3 cheese lasagna soup in a bread bowl"
+      ],
+      "macros": {
+        "protein": 33,
+        "fat": 13,
+        "carbs": 158,
+        "fiber": 7,
+        "calories": 880
+      },
+      "build": [
+        {
+          "component": "sourdough bread bowl",
+          "count": 1
+        },
+        {
+          "component": "three cheese lasagna soup",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Vegetarian Autumn Squash Soup - Cup",
+      "aliases": [
+        "cup of autumn squash soup",
+        "cup of squash soup",
+        "cup of butternut squash soup",
+        "autumn squash soup cup",
+        "squash soup cup",
+        "butternut squash soup cup"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 11,
+        "carbs": 27,
+        "fiber": 3,
+        "calories": 220
+      },
+      "build": [
+        {
+          "component": "autumn squash soup",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Vegetarian Autumn Squash Soup - Bowl",
+      "aliases": [
+        "autumn squash soup",
+        "squash soup",
+        "butternut squash soup",
+        "bowl of autumn squash soup",
+        "bowl of squash soup",
+        "bowl of butternut squash soup",
+        "autumn squash soup bowl",
+        "squash soup bowl",
+        "butternut squash soup bowl"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 17,
+        "carbs": 41,
+        "fiber": 5,
+        "calories": 330
+      },
+      "build": [
+        {
+          "component": "autumn squash soup",
+          "count": 1.5
+        }
+      ]
+    },
+    {
+      "name": "Vegetarian Autumn Squash Soup - Bread Bowl",
+      "aliases": [
+        "autumn squash soup bread bowl",
+        "squash soup bread bowl",
+        "butternut squash soup bread bowl",
+        "autumn squash soup in a bread bowl",
+        "squash soup in a bread bowl",
+        "butternut squash soup in a bread bowl"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 13,
+        "carbs": 163,
+        "fiber": 8,
+        "calories": 860
+      },
+      "build": [
+        {
+          "component": "sourdough bread bowl",
+          "count": 1
+        },
+        {
+          "component": "autumn squash soup",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cream of Chicken & Wild Rice Soup - Cup",
+      "aliases": [
+        "cup of chicken and wild rice soup",
+        "cup of cream of chicken wild rice",
+        "cup of wild rice soup",
+        "chicken and wild rice soup cup",
+        "cream of chicken wild rice cup",
+        "wild rice soup cup"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 11,
+        "carbs": 19,
+        "fiber": 2,
+        "calories": 200
+      },
+      "build": [
+        {
+          "component": "cream of chicken and wild rice soup",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cream of Chicken & Wild Rice Soup - Bowl",
+      "aliases": [
+        "chicken and wild rice soup",
+        "cream of chicken wild rice",
+        "wild rice soup",
+        "bowl of chicken and wild rice soup",
+        "bowl of cream of chicken wild rice",
+        "bowl of wild rice soup",
+        "chicken and wild rice soup bowl",
+        "cream of chicken wild rice bowl",
+        "wild rice soup bowl"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 16,
+        "carbs": 29,
+        "fiber": 3,
+        "calories": 300
+      },
+      "build": [
+        {
+          "component": "cream of chicken and wild rice soup",
+          "count": 1.5
+        }
+      ]
+    },
+    {
+      "name": "Cream of Chicken & Wild Rice Soup - Bread Bowl",
+      "aliases": [
+        "chicken and wild rice soup bread bowl",
+        "cream of chicken wild rice bread bowl",
+        "wild rice soup bread bowl",
+        "chicken and wild rice soup in a bread bowl",
+        "cream of chicken wild rice in a bread bowl",
+        "wild rice soup in a bread bowl"
+      ],
+      "macros": {
+        "protein": 27,
+        "fat": 13,
+        "carbs": 155,
+        "fiber": 7,
+        "calories": 850
+      },
+      "build": [
+        {
+          "component": "sourdough bread bowl",
+          "count": 1
+        },
+        {
+          "component": "cream of chicken and wild rice soup",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Mac & Cheese - Cup",
+      "aliases": [
+        "cup of mac and cheese",
+        "mac and cheese cup",
+        "mac n cheese cup",
+        "small mac and cheese"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 32,
+        "carbs": 34,
+        "fiber": 0,
+        "calories": 490
+      },
+      "build": [
+        {
+          "component": "mac and cheese",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Mac & Cheese - Bowl",
+      "aliases": [
+        "mac and cheese",
+        "mac n cheese",
+        "mac & cheese",
+        "macaroni and cheese",
+        "large mac and cheese",
+        "mac and cheese bowl"
+      ],
+      "macros": {
+        "protein": 32,
+        "fat": 64,
+        "carbs": 68,
+        "fiber": 0,
+        "calories": 980
+      },
+      "build": [
+        {
+          "component": "mac and cheese",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Mac & Cheese - Bread Bowl",
+      "aliases": [
+        "mac and cheese bread bowl",
+        "mac n cheese bread bowl"
+      ],
+      "macros": {
+        "protein": 37,
+        "fat": 34,
+        "carbs": 170,
+        "fiber": 5,
+        "calories": 1140
+      },
+      "build": [
+        {
+          "component": "sourdough bread bowl",
+          "count": 1
+        },
+        {
+          "component": "mac and cheese",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Bacon Mac & Cheese - Cup",
+      "aliases": [
+        "bacon mac and cheese cup",
+        "cup of bacon mac"
+      ],
+      "macros": {
+        "protein": 18,
+        "fat": 35,
+        "carbs": 34,
+        "fiber": 0,
+        "calories": 530
+      },
+      "build": [
+        {
+          "component": "mac and cheese",
+          "count": 1
+        },
+        {
+          "component": "bacon",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Bacon Mac & Cheese - Bowl",
+      "aliases": [
+        "bacon mac and cheese",
+        "bacon mac n cheese",
+        "bacon mac"
+      ],
+      "macros": {
+        "protein": 36,
+        "fat": 71,
+        "carbs": 68,
+        "fiber": 0,
+        "calories": 1050
+      },
+      "build": [
+        {
+          "component": "mac and cheese",
+          "count": 2
+        },
+        {
+          "component": "bacon",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Sourdough Bread Bowl (empty)",
+      "aliases": [
+        "bread bowl",
+        "sourdough bread bowl",
+        "empty bread bowl"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 2.5,
+        "carbs": 136,
+        "fiber": 5,
+        "calories": 650
+      },
+      "build": [
+        {
+          "component": "sourdough bread bowl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Market Bowl - Sesame Ginger Chicken - Half",
+      "aliases": [
+        "half sesame ginger chicken bowl",
+        "half sesame ginger bowl"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 22,
+        "carbs": 47,
+        "fiber": 5,
+        "calories": 470
+      }
+    },
+    {
+      "name": "Market Bowl - Sesame Ginger Chicken - Whole",
+      "aliases": [
+        "sesame ginger chicken bowl",
+        "sesame ginger bowl",
+        "sesame chicken bowl",
+        "teriyaki chicken bowl"
+      ],
+      "macros": {
+        "protein": 38,
+        "fat": 44,
+        "carbs": 95,
+        "fiber": 11,
+        "calories": 930
+      }
+    },
+    {
+      "name": "Market Bowl - Carnitas Elote - Half",
+      "aliases": [
+        "half carnitas elote bowl",
+        "half carnitas bowl"
+      ],
+      "macros": {
+        "protein": 22,
+        "fat": 32,
+        "carbs": 43,
+        "fiber": 6,
+        "calories": 550
+      }
+    },
+    {
+      "name": "Market Bowl - Carnitas Elote - Whole",
+      "aliases": [
+        "carnitas elote bowl",
+        "carnitas bowl",
+        "elote bowl",
+        "baja bowl"
+      ],
+      "macros": {
+        "protein": 44,
+        "fat": 63,
+        "carbs": 86,
+        "fiber": 11,
+        "calories": 1100
+      }
+    },
+    {
+      "name": "Market Bowl - All-In Veggie - Half",
+      "aliases": [
+        "half all in veggie bowl",
+        "half veggie bowl"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 24,
+        "carbs": 50,
+        "fiber": 5,
+        "calories": 450
+      }
+    },
+    {
+      "name": "Market Bowl - All-In Veggie - Whole",
+      "aliases": [
+        "all in veggie bowl",
+        "all-in veggie bowl",
+        "veggie bowl",
+        "mediterranean bowl"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 49,
+        "carbs": 101,
+        "fiber": 10,
+        "calories": 910
+      }
+    },
+    {
+      "name": "Kettle Cooked Potato Chips",
+      "aliases": [
+        "chips",
+        "kettle chips",
+        "potato chips"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 9,
+        "carbs": 17,
+        "fiber": 1,
+        "calories": 150
+      }
+    },
+    {
+      "name": "French Baguette - Side Portion",
+      "aliases": [
+        "side baguette",
+        "baguette side",
+        "bread side"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 0.5,
+        "carbs": 41,
+        "fiber": 1,
+        "calories": 190
+      }
+    },
+    {
+      "name": "Side - Apple",
+      "aliases": [
+        "apple",
+        "side apple"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 22,
+        "fiber": 5,
+        "calories": 80
+      }
+    },
+    {
+      "name": "Greek Yogurt with Berries",
+      "aliases": [
+        "greek yogurt parfait",
+        "yogurt parfait",
+        "yogurt with berries"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 10,
+        "carbs": 27,
+        "fiber": 2,
+        "calories": 250
+      }
+    },
+    {
+      "name": "Cookie - Chocolate Chipper",
+      "aliases": [
+        "chocolate chipper",
+        "chocolate chip cookie",
+        "choc chip cookie"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 18,
+        "carbs": 52,
+        "fiber": 1,
+        "calories": 390
+      }
+    },
+    {
+      "name": "Cookie - Kitchen Sink",
+      "aliases": [
+        "kitchen sink cookie"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 42,
+        "carbs": 100,
+        "fiber": 3,
+        "calories": 810
+      }
+    },
+    {
+      "name": "Brownie",
+      "aliases": [
+        "chocolate brownie",
+        "fudge brownie"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 24,
+        "carbs": 70,
+        "fiber": 4,
+        "calories": 520
+      }
+    },
+    {
+      "name": "Cinnamon Roll",
+      "aliases": [
+        "cinnamon bun"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 18,
+        "carbs": 97,
+        "fiber": 2,
+        "calories": 580
+      }
+    },
+    {
+      "name": "Pastry - Chocolate Croissant",
+      "aliases": [
+        "chocolate croissant",
+        "pain au chocolat"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 20,
+        "carbs": 51,
+        "fiber": 2,
+        "calories": 410
+      }
+    },
+    {
+      "name": "Muffin - Blueberry",
+      "aliases": [
+        "blueberry muffin"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 22,
+        "carbs": 75,
+        "fiber": 2,
+        "calories": 530
+      }
+    },
+    {
+      "name": "Scone - Orange",
+      "aliases": [
+        "orange scone",
+        "scone"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 21,
+        "carbs": 77,
+        "fiber": 2,
+        "calories": 540
+      }
+    },
+    {
+      "name": "Mini Scone - Orange",
+      "aliases": [
+        "mini orange scone",
+        "mini scone"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 7,
+        "carbs": 25,
+        "fiber": 1,
+        "calories": 180
+      }
+    },
+    {
+      "name": "Pastry - Pecan Braid",
+      "aliases": [
+        "pecan braid"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 25,
+        "carbs": 51,
+        "fiber": 3,
+        "calories": 450
+      }
+    }
+  ]
+}

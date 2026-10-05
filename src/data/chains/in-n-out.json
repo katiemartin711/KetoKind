@@ -1,0 +1,118 @@
+{
+  "chain": "In-N-Out Burger",
+  "aliases": ["in-n-out", "in n out", "in and out", "in-n-out burger", "innout", "in n out burger", "in and out burger", "in-and-out", "inno"],
+  "source": "https://www.in-n-out.com/docs/default-source/downloads/nutrition_info.pdf?sfvrsn=332aab37_36",
+  "retrieved": "2026-10-05",
+  "notes": "Item totals are from In-N-Out's own Nutrition Facts PDF (linked from https://www.in-n-out.com/menu/nutrition-info). in-n-out.com could not be fetched directly from the build environment (DNS failure), so the PDF's figures were read through search-engine excerpts of that PDF restricted to in-n-out.com; only rows that were reported consistently across several queries were kept. Values are for burgers 'with onion' and spread as served. In-N-Out publishes no ingredient-level nutrition, so every component is derived by subtraction as noted. Not-So-Secret-Menu items (Animal Style, 3x3, 4x4, Flying Dutchman) have no published totals and are omitted; a 3x3 or Flying Dutchman can still be computed from the components.",
+  "components": {
+    "beef patty": { "unit": "each", "protein": 10, "fat": 8, "carbs": 0, "fiber": 0, "calories": 110, "derived": "Double-Double minus Cheeseburger (180 cal, 13 g fat, 2 g carbs, 14 g protein) minus one cheese slice; Double-Double Protein Style minus Cheeseburger Protein Style gives the same" },
+    "american cheese": { "unit": "slice", "protein": 4, "fat": 5, "carbs": 2, "fiber": 0, "calories": 70, "derived": "Cheeseburger minus Hamburger (same as Cheeseburger Protein Style minus Hamburger Protein Style)" },
+    "bun": { "unit": "each", "protein": 4, "fat": 2, "carbs": 29, "fiber": 0, "calories": 150, "derived": "Hamburger minus Hamburger Protein Style (Protein Style replaces the bun with lettuce, so this is the bun net of the extra lettuce)" },
+    "spread": { "unit": "each", "protein": 0, "fat": 6, "carbs": 1, "fiber": 0, "calories": 50, "derived": "Cheeseburger minus Cheeseburger with mustard & ketchup instead of spread (the spread portion, net of the mustard & ketchup that replace it)" },
+    "lettuce, tomato & onion": { "unit": "each", "protein": 2, "fat": 0, "carbs": 8, "fiber": 2, "calories": 50, "derived": "Hamburger minus bun minus beef patty minus spread (the burger's fresh toppings)" },
+    "protein style lettuce wrap": { "unit": "each", "protein": 0, "fat": 0, "carbs": 0, "fiber": 0, "calories": 0, "derived": "Hamburger Protein Style minus beef patty, spread and lettuce, tomato & onion leaves 0 cal; the extra lettuce that replaces the bun carries no published calories" }
+  },
+  "items": [
+    {
+      "name": "Hamburger",
+      "aliases": ["hamburger", "in n out hamburger", "single", "plain burger", "burger", "hamburger with onion"],
+      "macros": { "protein": 16, "fat": 16, "carbs": 38, "fiber": 2, "calories": 360 },
+      "build": [
+        { "component": "bun", "count": 1 },
+        { "component": "beef patty", "count": 1 },
+        { "component": "spread", "count": 1 },
+        { "component": "lettuce, tomato & onion", "count": 1 }
+      ]
+    },
+    {
+      "name": "Cheeseburger",
+      "aliases": ["cheeseburger", "cheese burger", "single cheeseburger", "in n out cheeseburger", "cheeseburger with onion"],
+      "macros": { "protein": 20, "fat": 21, "carbs": 40, "fiber": 2, "calories": 430 },
+      "build": [
+        { "component": "bun", "count": 1 },
+        { "component": "beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "spread", "count": 1 },
+        { "component": "lettuce, tomato & onion", "count": 1 }
+      ]
+    },
+    {
+      "name": "Double-Double",
+      "aliases": ["double double", "double-double", "dbl dbl", "double dbl", "dd", "double double burger", "double double with onion", "doubledouble"],
+      "macros": { "protein": 34, "fat": 34, "carbs": 42, "fiber": 2, "calories": 610 },
+      "build": [
+        { "component": "bun", "count": 1 },
+        { "component": "beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "spread", "count": 1 },
+        { "component": "lettuce, tomato & onion", "count": 1 }
+      ]
+    },
+    {
+      "name": "Hamburger Protein Style",
+      "aliases": ["hamburger protein style", "protein style hamburger", "protein style burger", "protein style", "lettuce wrapped hamburger", "hamburger lettuce wrap", "hamburger no bun", "bunless hamburger"],
+      "macros": { "protein": 12, "fat": 14, "carbs": 9, "fiber": 2, "calories": 210 },
+      "build": [
+        { "component": "protein style lettuce wrap", "count": 1 },
+        { "component": "beef patty", "count": 1 },
+        { "component": "spread", "count": 1 },
+        { "component": "lettuce, tomato & onion", "count": 1 }
+      ]
+    },
+    {
+      "name": "Cheeseburger Protein Style",
+      "aliases": ["cheeseburger protein style", "protein style cheeseburger", "lettuce wrapped cheeseburger", "cheeseburger lettuce wrap", "cheeseburger no bun", "bunless cheeseburger"],
+      "macros": { "protein": 16, "fat": 19, "carbs": 11, "fiber": 2, "calories": 280 },
+      "build": [
+        { "component": "protein style lettuce wrap", "count": 1 },
+        { "component": "beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "spread", "count": 1 },
+        { "component": "lettuce, tomato & onion", "count": 1 }
+      ]
+    },
+    {
+      "name": "Double-Double Protein Style",
+      "aliases": ["double double protein style", "protein style double double", "double-double protein style", "lettuce wrapped double double", "double double lettuce wrap", "double double no bun", "bunless double double", "dd protein style"],
+      "macros": { "protein": 30, "fat": 32, "carbs": 12, "fiber": 2, "calories": 460 },
+      "build": [
+        { "component": "protein style lettuce wrap", "count": 1 },
+        { "component": "beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "spread", "count": 1 },
+        { "component": "lettuce, tomato & onion", "count": 1 }
+      ]
+    },
+    {
+      "name": "Cheeseburger with Mustard & Ketchup Instead of Spread",
+      "aliases": ["cheeseburger mustard and ketchup", "cheeseburger no spread", "cheeseburger with mustard and ketchup instead of spread", "cheeseburger mustard ketchup"],
+      "macros": { "protein": 20, "fat": 15, "carbs": 39, "fiber": 2, "calories": 380 },
+      "build": [
+        { "component": "bun", "count": 1 },
+        { "component": "beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "lettuce, tomato & onion", "count": 1 }
+      ]
+    },
+    {
+      "name": "French Fries",
+      "aliases": ["fries", "french fries", "in n out fries", "fresh cut fries"],
+      "macros": { "protein": 6, "fat": 15, "carbs": 49, "fiber": 6, "calories": 360 }
+    },
+    {
+      "name": "Vanilla Shake",
+      "aliases": ["vanilla shake", "vanilla milkshake", "shake vanilla"],
+      "macros": { "protein": 16, "fat": 31, "carbs": 66, "fiber": 0, "calories": 590 }
+    },
+    {
+      "name": "Chocolate Shake",
+      "aliases": ["chocolate shake", "chocolate milkshake", "shake chocolate"],
+      "macros": { "protein": 16, "fat": 30, "carbs": 74, "fiber": 0, "calories": 610 }
+    },
+    {
+      "name": "Strawberry Shake",
+      "aliases": ["strawberry shake", "strawberry milkshake", "shake strawberry"],
+      "macros": { "protein": 15, "fat": 30, "carbs": 74, "fiber": 0, "calories": 610 }
+    }
+  ]
+}

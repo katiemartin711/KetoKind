@@ -1,0 +1,496 @@
+{
+  "chain": "Chipotle",
+  "aliases": ["chipotle", "chipotle mexican grill", "chipotles", "chipolte", "chipotlé", "chiptole", "chipotle grill"],
+  "source": "https://www.chipotle.com/content/dam/chipotle/menu/nutrition/US-Nutrition-Facts-Paper-Menu-3-2025.pdf",
+  "sources": [
+    "https://www.chipotle.com/content/dam/chipotle/menu/nutrition/US-Nutrition-Facts-Paper-Menu-3-2025.pdf",
+    "https://www.chipotle.com/nutrition-calculator",
+    "https://www.chipotle.com/lifestyle-bowls"
+  ],
+  "retrieved": "2026-10-05",
+  "notes": "Chipotle publishes nutrition per ingredient, not per entree. Every component here is a row from Chipotle's US Nutrition Facts PDF (the 'Full Nutrition Facts' sheet the nutrition calculator at chipotle.com/nutrition-calculator links to), with one unit = the standard serving the PDF lists (see 'portion'). The quesadilla cheese portion (330 cal, 24 g fat, 18 g protein, 3 g carbs) and the cheese-only quesadilla total (650 cal) are from the calculator's Quesadilla page. Because Chipotle has no published entree totals, each entree item's macros are the sum of its published components for the default build shown (bowl/burrito: rice, black beans, meat, fresh tomato salsa, cheese, sour cream, and lettuce on bowls; salad: supergreens, meat, black beans, fresh tomato salsa, cheese, vinaigrette; keto bowl: supergreens, meat, tomatillo-red chili salsa, cheese, guacamole; tacos: 3 soft flour tortillas, meat, fresh tomato salsa, cheese, lettuce; quesadilla: tortilla, quesadilla cheese, meat, not counting the included sides). The High Protein-Low Calorie Bowl is Chipotle's published lifestyle bowl (its ingredient list and 36 g protein match the component sum). Swap or remove components to match the actual order.",
+  "components": {
+    "chicken": { "unit": "scoop", "portion": "4 oz", "protein": 32, "fat": 7, "carbs": 0, "fiber": 0, "calories": 180 },
+    "steak": { "unit": "scoop", "portion": "4 oz", "protein": 21, "fat": 6, "carbs": 1, "fiber": 1, "calories": 150 },
+    "barbacoa": { "unit": "scoop", "portion": "4 oz", "protein": 24, "fat": 7, "carbs": 2, "fiber": 1, "calories": 170 },
+    "carnitas": { "unit": "scoop", "portion": "4 oz", "protein": 23, "fat": 12, "carbs": 0, "fiber": 0, "calories": 210 },
+    "sofritas": { "unit": "scoop", "portion": "4 oz", "protein": 8, "fat": 10, "carbs": 9, "fiber": 3, "calories": 150 },
+    "cilantro-lime white rice": { "unit": "scoop", "portion": "4 oz", "protein": 4, "fat": 4, "carbs": 40, "fiber": 1, "calories": 210 },
+    "cilantro-lime brown rice": { "unit": "scoop", "portion": "4 oz", "protein": 4, "fat": 6, "carbs": 36, "fiber": 2, "calories": 210 },
+    "black beans": { "unit": "scoop", "portion": "4 oz", "protein": 8, "fat": 1.5, "carbs": 22, "fiber": 7, "calories": 130 },
+    "pinto beans": { "unit": "scoop", "portion": "4 oz", "protein": 8, "fat": 1.5, "carbs": 21, "fiber": 8, "calories": 130 },
+    "fajita veggies": { "unit": "scoop", "portion": "2 oz", "protein": 1, "fat": 0, "carbs": 5, "fiber": 1, "calories": 20 },
+    "fresh tomato salsa": { "unit": "scoop", "portion": "4 oz", "protein": 0, "fat": 0, "carbs": 4, "fiber": 1, "calories": 25 },
+    "roasted chili-corn salsa": { "unit": "scoop", "portion": "4 oz", "protein": 3, "fat": 1.5, "carbs": 16, "fiber": 3, "calories": 80 },
+    "tomatillo-green chili salsa": { "unit": "scoop", "portion": "2 fl oz", "protein": 0, "fat": 0, "carbs": 4, "fiber": 0, "calories": 15 },
+    "tomatillo-red chili salsa": { "unit": "scoop", "portion": "2 fl oz", "protein": 0, "fat": 0, "carbs": 4, "fiber": 1, "calories": 30 },
+    "cheese": { "unit": "scoop", "portion": "1 oz", "protein": 6, "fat": 8, "carbs": 1, "fiber": 0, "calories": 110 },
+    "quesadilla cheese": { "unit": "scoop", "portion": "3 oz (quesadilla portion)", "protein": 18, "fat": 24, "carbs": 3, "fiber": 0, "calories": 330 },
+    "sour cream": { "unit": "scoop", "portion": "2 oz", "protein": 2, "fat": 9, "carbs": 2, "fiber": 0, "calories": 110 },
+    "guacamole": { "unit": "scoop", "portion": "4 oz", "protein": 2, "fat": 22, "carbs": 8, "fiber": 6, "calories": 230 },
+    "queso blanco": { "unit": "scoop", "portion": "2 oz (entree)", "protein": 5, "fat": 9, "carbs": 4, "fiber": 0, "calories": 120 },
+    "queso blanco side": { "unit": "each", "portion": "4 oz", "protein": 10, "fat": 18, "carbs": 7, "fiber": 0, "calories": 240 },
+    "supergreens lettuce blend": { "unit": "scoop", "portion": "3 oz", "protein": 1, "fat": 0, "carbs": 3, "fiber": 2, "calories": 15 },
+    "romaine lettuce": { "unit": "scoop", "portion": "1 oz", "protein": 0, "fat": 0, "carbs": 1, "fiber": 1, "calories": 5 },
+    "flour tortilla (burrito)": { "unit": "each", "portion": "1 tortilla", "protein": 8, "fat": 9, "carbs": 50, "fiber": 3, "calories": 320 },
+    "flour tortilla (taco)": { "unit": "each", "portion": "1 tortilla", "protein": 2, "fat": 2.5, "carbs": 13, "fiber": 0.5, "calories": 80 },
+    "crispy corn tortilla": { "unit": "each", "portion": "1 tortilla", "protein": 1, "fat": 3, "carbs": 10, "fiber": 1, "calories": 70 },
+    "chips": { "unit": "each", "portion": "4 oz bag (regular)", "protein": 7, "fat": 25, "carbs": 73, "fiber": 7, "calories": 540 },
+    "chips (large)": { "unit": "each", "portion": "6 oz bag", "protein": 11, "fat": 38, "carbs": 110, "fiber": 11, "calories": 810 },
+    "chipotle-honey vinaigrette": { "unit": "each", "portion": "2 fl oz", "protein": 1, "fat": 16, "carbs": 18, "fiber": 1, "calories": 220 }
+  },
+  "items": [
+    {
+      "name": "Chicken Burrito Bowl",
+      "aliases": ["chicken bowl", "chicken burrito bowl", "burrito bowl", "chicken rice bowl", "bowl with chicken", "chicken bowl with rice and beans", "chx bowl"],
+      "macros": { "protein": 52, "fat": 29.5, "carbs": 70, "fiber": 10, "calories": 770 },
+      "build": [
+        { "component": "cilantro-lime white rice", "count": 1 },
+        { "component": "black beans", "count": 1 },
+        { "component": "chicken", "count": 1 },
+        { "component": "fresh tomato salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "sour cream", "count": 1 },
+        { "component": "romaine lettuce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Steak Burrito Bowl",
+      "aliases": ["steak bowl", "steak burrito bowl", "steak rice bowl", "bowl with steak"],
+      "macros": { "protein": 41, "fat": 28.5, "carbs": 71, "fiber": 11, "calories": 740 },
+      "build": [
+        { "component": "cilantro-lime white rice", "count": 1 },
+        { "component": "black beans", "count": 1 },
+        { "component": "steak", "count": 1 },
+        { "component": "fresh tomato salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "sour cream", "count": 1 },
+        { "component": "romaine lettuce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Carnitas Burrito Bowl",
+      "aliases": ["carnitas bowl", "carnitas burrito bowl", "pork bowl", "bowl with carnitas"],
+      "macros": { "protein": 43, "fat": 34.5, "carbs": 70, "fiber": 10, "calories": 800 },
+      "build": [
+        { "component": "cilantro-lime white rice", "count": 1 },
+        { "component": "black beans", "count": 1 },
+        { "component": "carnitas", "count": 1 },
+        { "component": "fresh tomato salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "sour cream", "count": 1 },
+        { "component": "romaine lettuce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Barbacoa Burrito Bowl",
+      "aliases": ["barbacoa bowl", "barbacoa burrito bowl", "beef barbacoa bowl", "bowl with barbacoa", "barbocoa bowl"],
+      "macros": { "protein": 44, "fat": 29.5, "carbs": 72, "fiber": 11, "calories": 760 },
+      "build": [
+        { "component": "cilantro-lime white rice", "count": 1 },
+        { "component": "black beans", "count": 1 },
+        { "component": "barbacoa", "count": 1 },
+        { "component": "fresh tomato salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "sour cream", "count": 1 },
+        { "component": "romaine lettuce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Sofritas Burrito Bowl",
+      "aliases": ["sofritas bowl", "sofritas burrito bowl", "tofu bowl", "vegan bowl", "bowl with sofritas"],
+      "macros": { "protein": 28, "fat": 32.5, "carbs": 79, "fiber": 13, "calories": 740 },
+      "build": [
+        { "component": "cilantro-lime white rice", "count": 1 },
+        { "component": "black beans", "count": 1 },
+        { "component": "sofritas", "count": 1 },
+        { "component": "fresh tomato salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "sour cream", "count": 1 },
+        { "component": "romaine lettuce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Chicken Burrito",
+      "aliases": ["chicken burrito", "burrito", "burrito with chicken", "chx burrito"],
+      "macros": { "protein": 60, "fat": 38.5, "carbs": 119, "fiber": 12, "calories": 1085 },
+      "build": [
+        { "component": "flour tortilla (burrito)", "count": 1 },
+        { "component": "cilantro-lime white rice", "count": 1 },
+        { "component": "black beans", "count": 1 },
+        { "component": "chicken", "count": 1 },
+        { "component": "fresh tomato salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "sour cream", "count": 1 }
+      ]
+    },
+    {
+      "name": "Steak Burrito",
+      "aliases": ["steak burrito", "burrito with steak"],
+      "macros": { "protein": 49, "fat": 37.5, "carbs": 120, "fiber": 13, "calories": 1055 },
+      "build": [
+        { "component": "flour tortilla (burrito)", "count": 1 },
+        { "component": "cilantro-lime white rice", "count": 1 },
+        { "component": "black beans", "count": 1 },
+        { "component": "steak", "count": 1 },
+        { "component": "fresh tomato salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "sour cream", "count": 1 }
+      ]
+    },
+    {
+      "name": "Carnitas Burrito",
+      "aliases": ["carnitas burrito", "pork burrito", "burrito with carnitas"],
+      "macros": { "protein": 51, "fat": 43.5, "carbs": 119, "fiber": 12, "calories": 1115 },
+      "build": [
+        { "component": "flour tortilla (burrito)", "count": 1 },
+        { "component": "cilantro-lime white rice", "count": 1 },
+        { "component": "black beans", "count": 1 },
+        { "component": "carnitas", "count": 1 },
+        { "component": "fresh tomato salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "sour cream", "count": 1 }
+      ]
+    },
+    {
+      "name": "Barbacoa Burrito",
+      "aliases": ["barbacoa burrito", "beef barbacoa burrito", "burrito with barbacoa"],
+      "macros": { "protein": 52, "fat": 38.5, "carbs": 121, "fiber": 13, "calories": 1075 },
+      "build": [
+        { "component": "flour tortilla (burrito)", "count": 1 },
+        { "component": "cilantro-lime white rice", "count": 1 },
+        { "component": "black beans", "count": 1 },
+        { "component": "barbacoa", "count": 1 },
+        { "component": "fresh tomato salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "sour cream", "count": 1 }
+      ]
+    },
+    {
+      "name": "Chicken Salad",
+      "aliases": ["chicken salad", "salad with chicken", "chicken salad bowl", "salad"],
+      "macros": { "protein": 48, "fat": 32.5, "carbs": 48, "fiber": 11, "calories": 680 },
+      "build": [
+        { "component": "supergreens lettuce blend", "count": 1 },
+        { "component": "chicken", "count": 1 },
+        { "component": "black beans", "count": 1 },
+        { "component": "fresh tomato salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "chipotle-honey vinaigrette", "count": 1 }
+      ]
+    },
+    {
+      "name": "Steak Salad",
+      "aliases": ["steak salad", "salad with steak", "steak salad bowl"],
+      "macros": { "protein": 37, "fat": 31.5, "carbs": 49, "fiber": 12, "calories": 650 },
+      "build": [
+        { "component": "supergreens lettuce blend", "count": 1 },
+        { "component": "steak", "count": 1 },
+        { "component": "black beans", "count": 1 },
+        { "component": "fresh tomato salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "chipotle-honey vinaigrette", "count": 1 }
+      ]
+    },
+    {
+      "name": "Carnitas Salad",
+      "aliases": ["carnitas salad", "salad with carnitas", "pork salad"],
+      "macros": { "protein": 39, "fat": 37.5, "carbs": 48, "fiber": 11, "calories": 710 },
+      "build": [
+        { "component": "supergreens lettuce blend", "count": 1 },
+        { "component": "carnitas", "count": 1 },
+        { "component": "black beans", "count": 1 },
+        { "component": "fresh tomato salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "chipotle-honey vinaigrette", "count": 1 }
+      ]
+    },
+    {
+      "name": "Barbacoa Salad",
+      "aliases": ["barbacoa salad", "salad with barbacoa"],
+      "macros": { "protein": 40, "fat": 32.5, "carbs": 50, "fiber": 12, "calories": 670 },
+      "build": [
+        { "component": "supergreens lettuce blend", "count": 1 },
+        { "component": "barbacoa", "count": 1 },
+        { "component": "black beans", "count": 1 },
+        { "component": "fresh tomato salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "chipotle-honey vinaigrette", "count": 1 }
+      ]
+    },
+    {
+      "name": "Chicken Keto Bowl",
+      "aliases": ["keto bowl", "chicken keto bowl", "keto salad bowl", "keto chicken bowl", "low carb chicken bowl", "chicken bowl no rice no beans", "keto"],
+      "macros": { "protein": 41, "fat": 37, "carbs": 16, "fiber": 9, "calories": 565 },
+      "build": [
+        { "component": "supergreens lettuce blend", "count": 1 },
+        { "component": "chicken", "count": 1 },
+        { "component": "tomatillo-red chili salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "guacamole", "count": 1 }
+      ]
+    },
+    {
+      "name": "Steak Keto Bowl",
+      "aliases": ["steak keto bowl", "keto steak bowl", "low carb steak bowl", "steak bowl no rice no beans"],
+      "macros": { "protein": 30, "fat": 36, "carbs": 17, "fiber": 10, "calories": 535 },
+      "build": [
+        { "component": "supergreens lettuce blend", "count": 1 },
+        { "component": "steak", "count": 1 },
+        { "component": "tomatillo-red chili salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "guacamole", "count": 1 }
+      ]
+    },
+    {
+      "name": "Carnitas Keto Bowl",
+      "aliases": ["carnitas keto bowl", "keto carnitas bowl", "low carb carnitas bowl", "carnitas bowl no rice no beans"],
+      "macros": { "protein": 32, "fat": 42, "carbs": 16, "fiber": 9, "calories": 595 },
+      "build": [
+        { "component": "supergreens lettuce blend", "count": 1 },
+        { "component": "carnitas", "count": 1 },
+        { "component": "tomatillo-red chili salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "guacamole", "count": 1 }
+      ]
+    },
+    {
+      "name": "Barbacoa Keto Bowl",
+      "aliases": ["barbacoa keto bowl", "keto barbacoa bowl", "low carb barbacoa bowl", "barbacoa bowl no rice no beans"],
+      "macros": { "protein": 33, "fat": 37, "carbs": 18, "fiber": 10, "calories": 555 },
+      "build": [
+        { "component": "supergreens lettuce blend", "count": 1 },
+        { "component": "barbacoa", "count": 1 },
+        { "component": "tomatillo-red chili salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "guacamole", "count": 1 }
+      ]
+    },
+    {
+      "name": "High Protein-Low Calorie Bowl (Chicken)",
+      "aliases": ["high protein low calorie bowl", "high protein bowl", "glp-1 bowl", "low calorie bowl", "high protein low cal bowl", "lifestyle bowl"],
+      "macros": { "protein": 36, "fat": 29, "carbs": 20, "fiber": 10, "calories": 470 },
+      "build": [
+        { "component": "chicken", "count": 1 },
+        { "component": "supergreens lettuce blend", "count": 1 },
+        { "component": "fajita veggies", "count": 1 },
+        { "component": "fresh tomato salsa", "count": 1 },
+        { "component": "guacamole", "count": 1 }
+      ]
+    },
+    {
+      "name": "Chicken Tacos (3 Soft)",
+      "aliases": ["chicken tacos", "3 chicken tacos", "chicken soft tacos", "tacos", "soft tacos", "chicken taco"],
+      "macros": { "protein": 44, "fat": 22.5, "carbs": 45, "fiber": 3.5, "calories": 560 },
+      "build": [
+        { "component": "flour tortilla (taco)", "count": 3 },
+        { "component": "chicken", "count": 1 },
+        { "component": "fresh tomato salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "romaine lettuce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Steak Tacos (3 Soft)",
+      "aliases": ["steak tacos", "3 steak tacos", "steak soft tacos", "steak taco"],
+      "macros": { "protein": 33, "fat": 21.5, "carbs": 46, "fiber": 4.5, "calories": 530 },
+      "build": [
+        { "component": "flour tortilla (taco)", "count": 3 },
+        { "component": "steak", "count": 1 },
+        { "component": "fresh tomato salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "romaine lettuce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Carnitas Tacos (3 Soft)",
+      "aliases": ["carnitas tacos", "3 carnitas tacos", "pork tacos", "carnitas taco"],
+      "macros": { "protein": 35, "fat": 27.5, "carbs": 45, "fiber": 3.5, "calories": 590 },
+      "build": [
+        { "component": "flour tortilla (taco)", "count": 3 },
+        { "component": "carnitas", "count": 1 },
+        { "component": "fresh tomato salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "romaine lettuce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Barbacoa Tacos (3 Soft)",
+      "aliases": ["barbacoa tacos", "3 barbacoa tacos", "barbacoa soft tacos", "barbacoa taco"],
+      "macros": { "protein": 36, "fat": 22.5, "carbs": 47, "fiber": 4.5, "calories": 550 },
+      "build": [
+        { "component": "flour tortilla (taco)", "count": 3 },
+        { "component": "barbacoa", "count": 1 },
+        { "component": "fresh tomato salsa", "count": 1 },
+        { "component": "cheese", "count": 1 },
+        { "component": "romaine lettuce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Chicken Quesadilla",
+      "aliases": ["chicken quesadilla", "quesadilla", "quesadilla with chicken", "chicken quesadia", "chx quesadilla"],
+      "macros": { "protein": 58, "fat": 40, "carbs": 53, "fiber": 3, "calories": 830 },
+      "build": [
+        { "component": "flour tortilla (burrito)", "count": 1 },
+        { "component": "quesadilla cheese", "count": 1 },
+        { "component": "chicken", "count": 1 }
+      ]
+    },
+    {
+      "name": "Steak Quesadilla",
+      "aliases": ["steak quesadilla", "quesadilla with steak"],
+      "macros": { "protein": 47, "fat": 39, "carbs": 54, "fiber": 4, "calories": 800 },
+      "build": [
+        { "component": "flour tortilla (burrito)", "count": 1 },
+        { "component": "quesadilla cheese", "count": 1 },
+        { "component": "steak", "count": 1 }
+      ]
+    },
+    {
+      "name": "Carnitas Quesadilla",
+      "aliases": ["carnitas quesadilla", "pork quesadilla", "quesadilla with carnitas"],
+      "macros": { "protein": 49, "fat": 45, "carbs": 53, "fiber": 3, "calories": 860 },
+      "build": [
+        { "component": "flour tortilla (burrito)", "count": 1 },
+        { "component": "quesadilla cheese", "count": 1 },
+        { "component": "carnitas", "count": 1 }
+      ]
+    },
+    {
+      "name": "Barbacoa Quesadilla",
+      "aliases": ["barbacoa quesadilla", "quesadilla with barbacoa"],
+      "macros": { "protein": 50, "fat": 40, "carbs": 55, "fiber": 4, "calories": 820 },
+      "build": [
+        { "component": "flour tortilla (burrito)", "count": 1 },
+        { "component": "quesadilla cheese", "count": 1 },
+        { "component": "barbacoa", "count": 1 }
+      ]
+    },
+    {
+      "name": "Cheese Quesadilla",
+      "aliases": ["cheese quesadilla", "plain quesadilla", "quesadilla no meat", "cheese only quesadilla"],
+      "macros": { "protein": 26, "fat": 33, "carbs": 53, "fiber": 3, "calories": 650 },
+      "build": [
+        { "component": "flour tortilla (burrito)", "count": 1 },
+        { "component": "quesadilla cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Chips",
+      "aliases": ["chips", "tortilla chips", "bag of chips", "regular chips", "side of chips"],
+      "macros": { "protein": 7, "fat": 25, "carbs": 73, "fiber": 7, "calories": 540 }
+    },
+    {
+      "name": "Chips, Large",
+      "aliases": ["large chips", "large bag of chips", "big chips"],
+      "macros": { "protein": 11, "fat": 38, "carbs": 110, "fiber": 11, "calories": 810 }
+    },
+    {
+      "name": "Chips & Guacamole",
+      "aliases": ["chips and guac", "chips and guacamole", "chips & guac", "chips with guac", "guac and chips"],
+      "macros": { "protein": 9, "fat": 47, "carbs": 81, "fiber": 13, "calories": 770 },
+      "build": [
+        { "component": "chips", "count": 1 },
+        { "component": "guacamole", "count": 1 }
+      ]
+    },
+    {
+      "name": "Chips & Queso Blanco",
+      "aliases": ["chips and queso", "chips and queso blanco", "chips & queso", "chips with queso", "queso and chips"],
+      "macros": { "protein": 17, "fat": 43, "carbs": 80, "fiber": 7, "calories": 780 },
+      "build": [
+        { "component": "chips", "count": 1 },
+        { "component": "queso blanco side", "count": 1 }
+      ]
+    },
+    {
+      "name": "Chips & Fresh Tomato Salsa",
+      "aliases": ["chips and salsa", "chips & salsa", "chips with salsa", "chips and tomato salsa", "chips and pico"],
+      "macros": { "protein": 7, "fat": 25, "carbs": 77, "fiber": 8, "calories": 565 },
+      "build": [
+        { "component": "chips", "count": 1 },
+        { "component": "fresh tomato salsa", "count": 1 }
+      ]
+    },
+    {
+      "name": "Side of Guacamole",
+      "aliases": ["side of guac", "guacamole", "guac", "side guacamole", "extra guac", "guacamole side"],
+      "macros": { "protein": 2, "fat": 22, "carbs": 8, "fiber": 6, "calories": 230 }
+    },
+    {
+      "name": "Side of Queso Blanco",
+      "aliases": ["side of queso", "queso", "queso blanco", "side queso", "queso side"],
+      "macros": { "protein": 10, "fat": 18, "carbs": 7, "fiber": 0, "calories": 240 }
+    },
+    {
+      "name": "Flour Tortilla on the Side",
+      "aliases": ["tortilla on the side", "side tortilla", "flour tortilla", "burrito tortilla", "extra tortilla"],
+      "macros": { "protein": 8, "fat": 9, "carbs": 50, "fiber": 3, "calories": 320 }
+    },
+    {
+      "name": "Side of Chicken",
+      "aliases": ["side of chicken", "extra chicken", "chicken side", "4 oz chicken", "double chicken add"],
+      "macros": { "protein": 32, "fat": 7, "carbs": 0, "fiber": 0, "calories": 180 }
+    },
+    {
+      "name": "Side of Steak",
+      "aliases": ["side of steak", "extra steak", "steak side", "4 oz steak"],
+      "macros": { "protein": 21, "fat": 6, "carbs": 1, "fiber": 1, "calories": 150 }
+    },
+    {
+      "name": "Side of Carnitas",
+      "aliases": ["side of carnitas", "extra carnitas", "carnitas side", "4 oz carnitas"],
+      "macros": { "protein": 23, "fat": 12, "carbs": 0, "fiber": 0, "calories": 210 }
+    },
+    {
+      "name": "Side of Barbacoa",
+      "aliases": ["side of barbacoa", "extra barbacoa", "barbacoa side", "4 oz barbacoa"],
+      "macros": { "protein": 24, "fat": 7, "carbs": 2, "fiber": 1, "calories": 170 }
+    },
+    {
+      "name": "Side of Sofritas",
+      "aliases": ["side of sofritas", "extra sofritas", "sofritas side", "4 oz sofritas"],
+      "macros": { "protein": 8, "fat": 10, "carbs": 9, "fiber": 3, "calories": 150 }
+    },
+    {
+      "name": "Side of Cilantro-Lime White Rice",
+      "aliases": ["side of rice", "side of white rice", "white rice", "cilantro lime rice", "extra rice", "rice"],
+      "macros": { "protein": 4, "fat": 4, "carbs": 40, "fiber": 1, "calories": 210 }
+    },
+    {
+      "name": "Side of Cilantro-Lime Brown Rice",
+      "aliases": ["side of brown rice", "brown rice", "cilantro lime brown rice", "extra brown rice"],
+      "macros": { "protein": 4, "fat": 6, "carbs": 36, "fiber": 2, "calories": 210 }
+    },
+    {
+      "name": "Side of Black Beans",
+      "aliases": ["side of black beans", "black beans", "extra black beans", "beans"],
+      "macros": { "protein": 8, "fat": 1.5, "carbs": 22, "fiber": 7, "calories": 130 }
+    },
+    {
+      "name": "Side of Pinto Beans",
+      "aliases": ["side of pinto beans", "pinto beans", "extra pinto beans", "pintos"],
+      "macros": { "protein": 8, "fat": 1.5, "carbs": 21, "fiber": 8, "calories": 130 }
+    },
+    {
+      "name": "Side of Fajita Veggies",
+      "aliases": ["fajita veggies", "fajita vegetables", "side of fajita veggies", "peppers and onions", "extra veggies"],
+      "macros": { "protein": 1, "fat": 0, "carbs": 5, "fiber": 1, "calories": 20 }
+    },
+    {
+      "name": "Side of Sour Cream",
+      "aliases": ["sour cream", "side of sour cream", "extra sour cream"],
+      "macros": { "protein": 2, "fat": 9, "carbs": 2, "fiber": 0, "calories": 110 }
+    },
+    {
+      "name": "Side of Cheese",
+      "aliases": ["cheese", "side of cheese", "extra cheese", "monterey jack cheese", "shredded cheese"],
+      "macros": { "protein": 6, "fat": 8, "carbs": 1, "fiber": 0, "calories": 110 }
+    },
+    {
+      "name": "Chipotle-Honey Vinaigrette",
+      "aliases": ["vinaigrette", "chipotle honey vinaigrette", "salad dressing", "dressing", "honey vinaigrette"],
+      "macros": { "protein": 1, "fat": 16, "carbs": 18, "fiber": 1, "calories": 220 }
+    }
+  ]
+}

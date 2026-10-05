@@ -1,0 +1,5492 @@
+{
+  "chain": "Panda Express",
+  "aliases": [
+    "panda express",
+    "panda",
+    "pandaexpress",
+    "panda expres",
+    "panda xpress",
+    "panda express chinese"
+  ],
+  "source": "https://www.pandaexpress.com/nutritioninformation",
+  "retrieved": "2026-10-05",
+  "notes": [
+    "All figures transcribed from the Nutrition & Allergen Information table on pandaexpress.com (2026-10-05). Entrees and sides are published as single servings (entree ~5.6-6.7 oz, side 12 oz / Super Greens 10 oz); those serving-size items have no build.",
+    "Bowl = 1 side + 1 entree; Plate = 1 side + 2 entrees; Bigger Plate = 1 side + 3 entrees. Panda does not publish combo totals, so combo macros are the sum of the published side and entree servings. A half-and-half side is 0.5 of each side component. A la carte and family-size portions are not published and are omitted.",
+    "Items marked regional/limited-time on the site (Chow Fun, Quinoa Fried Rice, Eggplant Tofu, Black Pepper Chicken, SweetFire Chicken Breast, Chicken Potsticker, Hot & Sour Soup) are included as published. Promotional entrees and Panda Crafted Beverages (published only as a range) are omitted; fountain drinks are omitted."
+  ],
+  "components": {
+    "chow mein": {
+      "unit": "each",
+      "protein": 14,
+      "fat": 12,
+      "carbs": 89,
+      "fiber": 5,
+      "calories": 520,
+      "note": "One full side portion (12 oz) as published."
+    },
+    "chow fun": {
+      "unit": "each",
+      "protein": 13,
+      "fat": 13,
+      "carbs": 103,
+      "fiber": 1,
+      "calories": 580,
+      "note": "One full side portion (12 oz) as published."
+    },
+    "fried rice": {
+      "unit": "each",
+      "protein": 15,
+      "fat": 13,
+      "carbs": 109,
+      "fiber": 3,
+      "calories": 610,
+      "note": "One full side portion (12 oz) as published."
+    },
+    "white steamed rice": {
+      "unit": "each",
+      "protein": 11,
+      "fat": 0,
+      "carbs": 129,
+      "fiber": 0,
+      "calories": 570,
+      "note": "One full side portion (12 oz) as published."
+    },
+    "quinoa fried rice": {
+      "unit": "each",
+      "protein": 15,
+      "fat": 19,
+      "carbs": 91,
+      "fiber": 4,
+      "calories": 600,
+      "note": "One full side portion (12 oz) as published."
+    },
+    "super greens": {
+      "unit": "each",
+      "protein": 8,
+      "fat": 9,
+      "carbs": 17,
+      "fiber": 8,
+      "calories": 180,
+      "note": "One full side portion (10 oz) as published."
+    },
+    "eggplant tofu": {
+      "unit": "each",
+      "protein": 8,
+      "fat": 21,
+      "carbs": 23,
+      "fiber": 4,
+      "calories": 310,
+      "note": "One entree serving (6.1 oz) as published."
+    },
+    "super greens (entree)": {
+      "unit": "each",
+      "protein": 3,
+      "fat": 2,
+      "carbs": 5,
+      "fiber": 3,
+      "calories": 45,
+      "note": "One entree serving (3.5 oz) as published."
+    },
+    "black pepper chicken": {
+      "unit": "each",
+      "protein": 15,
+      "fat": 12,
+      "carbs": 9,
+      "fiber": 1,
+      "calories": 200,
+      "note": "One entree serving (6.3 oz) as published."
+    },
+    "kung pao chicken": {
+      "unit": "each",
+      "protein": 20,
+      "fat": 14,
+      "carbs": 16,
+      "fiber": 2,
+      "calories": 270,
+      "note": "One entree serving (6.7 oz) as published."
+    },
+    "grilled teriyaki chicken": {
+      "unit": "each",
+      "protein": 38,
+      "fat": 9,
+      "carbs": 13,
+      "fiber": 0,
+      "calories": 280,
+      "note": "One entree serving (6.1 oz) as published."
+    },
+    "mushroom chicken": {
+      "unit": "each",
+      "protein": 13,
+      "fat": 9,
+      "carbs": 12,
+      "fiber": 1,
+      "calories": 180,
+      "note": "One entree serving (5.7 oz) as published."
+    },
+    "the original orange chicken": {
+      "unit": "each",
+      "protein": 19,
+      "fat": 25,
+      "carbs": 63,
+      "fiber": 1,
+      "calories": 560,
+      "note": "One entree serving (6.2 oz) as published."
+    },
+    "honey sesame chicken breast": {
+      "unit": "each",
+      "protein": 16,
+      "fat": 20,
+      "carbs": 44,
+      "fiber": 2,
+      "calories": 420,
+      "note": "One entree serving (6.2 oz) as published."
+    },
+    "string bean chicken breast": {
+      "unit": "each",
+      "protein": 15,
+      "fat": 10,
+      "carbs": 15,
+      "fiber": 3,
+      "calories": 210,
+      "note": "One entree serving (5.6 oz) as published."
+    },
+    "sweetfire chicken breast": {
+      "unit": "each",
+      "protein": 15,
+      "fat": 15,
+      "carbs": 40,
+      "fiber": 2,
+      "calories": 360,
+      "note": "One entree serving (5.8 oz) as published."
+    },
+    "beijing beef": {
+      "unit": "each",
+      "protein": 14,
+      "fat": 27,
+      "carbs": 46,
+      "fiber": 2,
+      "calories": 480,
+      "note": "One entree serving (5.6 oz) as published."
+    },
+    "broccoli beef": {
+      "unit": "each",
+      "protein": 17,
+      "fat": 7,
+      "carbs": 14,
+      "fiber": 2,
+      "calories": 190,
+      "note": "One entree serving (6.3 oz) as published."
+    },
+    "black pepper sirloin steak": {
+      "unit": "each",
+      "protein": 17,
+      "fat": 8,
+      "carbs": 15,
+      "fiber": 1,
+      "calories": 200,
+      "note": "One entree serving (5.9 oz) as published."
+    },
+    "honey walnut shrimp": {
+      "unit": "each",
+      "protein": 13,
+      "fat": 20,
+      "carbs": 28,
+      "fiber": 1,
+      "calories": 340,
+      "note": "One entree serving (4.4 oz) as published."
+    }
+  },
+  "items": [
+    {
+      "name": "Chow Mein (side, 12 oz)",
+      "aliases": [
+        "chow mein",
+        "chowmein",
+        "lo mein",
+        "noodles",
+        "chow mien",
+        "chow mein side",
+        "side of chow mein"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 12,
+        "carbs": 89,
+        "fiber": 5,
+        "calories": 520
+      }
+    },
+    {
+      "name": "Chow Fun (side, 12 oz)",
+      "aliases": [
+        "chow fun",
+        "chowfun",
+        "wide noodles",
+        "chow fun side",
+        "side of chow fun"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 13,
+        "carbs": 103,
+        "fiber": 1,
+        "calories": 580
+      }
+    },
+    {
+      "name": "Fried Rice (side, 12 oz)",
+      "aliases": [
+        "fried rice",
+        "friedrice",
+        "fried rice side",
+        "side of fried rice"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 13,
+        "carbs": 109,
+        "fiber": 3,
+        "calories": 610
+      }
+    },
+    {
+      "name": "White Steamed Rice (side, 12 oz)",
+      "aliases": [
+        "white steamed rice",
+        "white rice",
+        "steamed rice",
+        "plain rice",
+        "rice",
+        "white steamed rice side",
+        "side of white steamed rice"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 0,
+        "carbs": 129,
+        "fiber": 0,
+        "calories": 570
+      }
+    },
+    {
+      "name": "Quinoa Fried Rice (side, 12 oz)",
+      "aliases": [
+        "quinoa fried rice",
+        "quinoa rice",
+        "quinoa fried rice side",
+        "side of quinoa fried rice"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 19,
+        "carbs": 91,
+        "fiber": 4,
+        "calories": 600
+      }
+    },
+    {
+      "name": "Super Greens (side, 10 oz)",
+      "aliases": [
+        "super greens",
+        "supergreens",
+        "mixed veggies",
+        "mixed vegetables",
+        "veggies side",
+        "super greens side",
+        "super greens side",
+        "side of super greens"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 9,
+        "carbs": 17,
+        "fiber": 8,
+        "calories": 180
+      }
+    },
+    {
+      "name": "Eggplant Tofu (entree, 6.1 oz)",
+      "aliases": [
+        "eggplant tofu",
+        "eggplant and tofu",
+        "tofu",
+        "eggplant tofu entree",
+        "eggplant tofu a la carte"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 21,
+        "carbs": 23,
+        "fiber": 4,
+        "calories": 310
+      }
+    },
+    {
+      "name": "Super Greens (Entree) (entree, 3.5 oz)",
+      "aliases": [
+        "super greens entree",
+        "super greens as entree",
+        "veggie entree",
+        "mixed veggies entree",
+        "super greens entree entree",
+        "super greens entree a la carte"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 2,
+        "carbs": 5,
+        "fiber": 3,
+        "calories": 45
+      }
+    },
+    {
+      "name": "Black Pepper Chicken (entree, 6.3 oz)",
+      "aliases": [
+        "black pepper chicken",
+        "blk pepper chicken",
+        "pepper chicken",
+        "black pepper chicken entree",
+        "black pepper chicken a la carte"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 12,
+        "carbs": 9,
+        "fiber": 1,
+        "calories": 200
+      }
+    },
+    {
+      "name": "Kung Pao Chicken (entree, 6.7 oz)",
+      "aliases": [
+        "kung pao chicken",
+        "kung pao",
+        "kungpao chicken",
+        "kung pow chicken",
+        "kung pow",
+        "kung pao chicken entree",
+        "kung pao chicken a la carte"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 14,
+        "carbs": 16,
+        "fiber": 2,
+        "calories": 270
+      }
+    },
+    {
+      "name": "Grilled Teriyaki Chicken (entree, 6.1 oz)",
+      "aliases": [
+        "grilled teriyaki chicken",
+        "teriyaki chicken",
+        "teriyaki",
+        "teryaki chicken",
+        "grilled chicken",
+        "grilled teriyaki chicken entree",
+        "grilled teriyaki chicken a la carte"
+      ],
+      "macros": {
+        "protein": 38,
+        "fat": 9,
+        "carbs": 13,
+        "fiber": 0,
+        "calories": 280
+      }
+    },
+    {
+      "name": "Mushroom Chicken (entree, 5.7 oz)",
+      "aliases": [
+        "mushroom chicken",
+        "chicken with mushrooms",
+        "mushroom chicken entree",
+        "mushroom chicken a la carte"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 9,
+        "carbs": 12,
+        "fiber": 1,
+        "calories": 180
+      }
+    },
+    {
+      "name": "The Original Orange Chicken (entree, 6.2 oz)",
+      "aliases": [
+        "orange chicken",
+        "original orange chicken",
+        "the original orange chicken",
+        "orange chkn",
+        "orange chicken entree",
+        "orange chicken entree",
+        "orange chicken a la carte"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 25,
+        "carbs": 63,
+        "fiber": 1,
+        "calories": 560
+      }
+    },
+    {
+      "name": "Honey Sesame Chicken Breast (entree, 6.2 oz)",
+      "aliases": [
+        "honey sesame chicken breast",
+        "honey sesame chicken",
+        "honey sesame",
+        "sesame chicken",
+        "honey sesame chicken breast entree",
+        "honey sesame chicken breast a la carte"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 20,
+        "carbs": 44,
+        "fiber": 2,
+        "calories": 420
+      }
+    },
+    {
+      "name": "String Bean Chicken Breast (entree, 5.6 oz)",
+      "aliases": [
+        "string bean chicken breast",
+        "string bean chicken",
+        "string bean",
+        "green bean chicken",
+        "stringbean chicken",
+        "string bean chicken breast entree",
+        "string bean chicken breast a la carte"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 10,
+        "carbs": 15,
+        "fiber": 3,
+        "calories": 210
+      }
+    },
+    {
+      "name": "SweetFire Chicken Breast (entree, 5.8 oz)",
+      "aliases": [
+        "sweetfire chicken breast",
+        "sweetfire chicken",
+        "sweet fire chicken",
+        "sweetfire",
+        "sweet fire",
+        "sweetfire chicken breast entree",
+        "sweetfire chicken breast a la carte"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 15,
+        "carbs": 40,
+        "fiber": 2,
+        "calories": 360
+      }
+    },
+    {
+      "name": "Beijing Beef (entree, 5.6 oz)",
+      "aliases": [
+        "beijing beef",
+        "bejing beef",
+        "peking beef",
+        "bejing",
+        "beijing beef entree",
+        "beijing beef a la carte"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 27,
+        "carbs": 46,
+        "fiber": 2,
+        "calories": 480
+      }
+    },
+    {
+      "name": "Broccoli Beef (entree, 6.3 oz)",
+      "aliases": [
+        "broccoli beef",
+        "beef and broccoli",
+        "beef broccoli",
+        "brocoli beef",
+        "broccoli and beef",
+        "broccoli beef entree",
+        "broccoli beef a la carte"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 7,
+        "carbs": 14,
+        "fiber": 2,
+        "calories": 190
+      }
+    },
+    {
+      "name": "Black Pepper Sirloin Steak (entree, 5.9 oz)",
+      "aliases": [
+        "black pepper sirloin steak",
+        "black pepper steak",
+        "sirloin steak",
+        "pepper steak",
+        "black pepper angus steak",
+        "angus steak",
+        "black pepper sirloin steak entree",
+        "black pepper sirloin steak a la carte"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 8,
+        "carbs": 15,
+        "fiber": 1,
+        "calories": 200
+      }
+    },
+    {
+      "name": "Honey Walnut Shrimp (entree, 4.4 oz)",
+      "aliases": [
+        "honey walnut shrimp",
+        "walnut shrimp",
+        "honey walnut",
+        "shrimp",
+        "honey walnut shrimp entree",
+        "honey walnut shrimp a la carte"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 20,
+        "carbs": 28,
+        "fiber": 1,
+        "calories": 340
+      }
+    },
+    {
+      "name": "Chicken Egg Roll (1 roll)",
+      "aliases": [
+        "chicken egg roll",
+        "egg roll",
+        "eggroll",
+        "chicken eggroll"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 10,
+        "carbs": 20,
+        "fiber": 2,
+        "calories": 200
+      }
+    },
+    {
+      "name": "Chicken Potsticker (3 pieces)",
+      "aliases": [
+        "chicken potsticker",
+        "potstickers",
+        "potsticker",
+        "chicken potstickers",
+        "pot stickers",
+        "dumplings"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 6,
+        "carbs": 20,
+        "fiber": 1,
+        "calories": 160
+      }
+    },
+    {
+      "name": "Cream Cheese Rangoon (3 pieces)",
+      "aliases": [
+        "cream cheese rangoon",
+        "rangoon",
+        "rangoons",
+        "crab rangoon",
+        "cream cheese rangoons",
+        "cream cheese wonton"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 8,
+        "carbs": 24,
+        "fiber": 2,
+        "calories": 190
+      }
+    },
+    {
+      "name": "Vegetable Spring Roll (2 rolls)",
+      "aliases": [
+        "vegetable spring roll",
+        "veggie spring roll",
+        "spring roll",
+        "spring rolls",
+        "veggie spring rolls"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 14,
+        "carbs": 24,
+        "fiber": 2,
+        "calories": 240
+      }
+    },
+    {
+      "name": "Hot & Sour Soup (Cup)",
+      "aliases": [
+        "hot and sour soup cup",
+        "hot & sour soup cup",
+        "hot and sour soup",
+        "hot sour soup",
+        "soup cup"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 4,
+        "carbs": 16,
+        "fiber": 1,
+        "calories": 140
+      }
+    },
+    {
+      "name": "Hot & Sour Soup (Bowl)",
+      "aliases": [
+        "hot and sour soup bowl",
+        "hot & sour soup bowl",
+        "large hot and sour soup",
+        "soup bowl"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 6,
+        "carbs": 20,
+        "fiber": 1,
+        "calories": 170
+      }
+    },
+    {
+      "name": "Teriyaki Sauce (1.8 oz)",
+      "aliases": [
+        "teriyaki sauce",
+        "teriyaki sauce cup",
+        "side of teriyaki sauce"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 16,
+        "fiber": 0,
+        "calories": 70
+      }
+    },
+    {
+      "name": "Sweet & Sour Sauce (1.8 oz)",
+      "aliases": [
+        "sweet and sour sauce",
+        "sweet & sour sauce",
+        "sweet n sour sauce",
+        "sweet sour sauce"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 21,
+        "fiber": 0,
+        "calories": 70
+      }
+    },
+    {
+      "name": "Chili Sauce (1 packet)",
+      "aliases": [
+        "chili sauce",
+        "chili sauce packet",
+        "hot sauce packet"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 10
+      }
+    },
+    {
+      "name": "Soy Sauce (1 packet)",
+      "aliases": [
+        "soy sauce",
+        "soy sauce packet"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 0,
+        "fiber": 0,
+        "calories": 5
+      }
+    },
+    {
+      "name": "Potsticker Sauce (1 packet)",
+      "aliases": [
+        "potsticker sauce",
+        "potsticker sauce packet",
+        "dumpling sauce"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 3,
+        "fiber": 0,
+        "calories": 10
+      }
+    },
+    {
+      "name": "Hot Mustard (1 packet)",
+      "aliases": [
+        "hot mustard",
+        "hot mustard packet",
+        "mustard packet"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 1,
+        "carbs": 0,
+        "fiber": 0,
+        "calories": 10
+      }
+    },
+    {
+      "name": "Fortune Cookie (1 piece)",
+      "aliases": [
+        "fortune cookie",
+        "fortune cookies",
+        "cookie"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 5,
+        "fiber": 0,
+        "calories": 20
+      }
+    },
+    {
+      "name": "Tree Top Apple Crisps",
+      "aliases": [
+        "apple crisps",
+        "tree top apple crisps",
+        "apple chips"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 10,
+        "fiber": 1,
+        "calories": 40
+      }
+    },
+    {
+      "name": "Cub Meal White Steamed Rice (2.5 oz)",
+      "aliases": [
+        "cub meal white rice",
+        "kids white rice",
+        "cub white steamed rice",
+        "kids rice"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 0,
+        "carbs": 27,
+        "fiber": 0,
+        "calories": 120
+      }
+    },
+    {
+      "name": "Cub Meal Super Greens (2.6 oz)",
+      "aliases": [
+        "cub meal super greens",
+        "kids super greens",
+        "cub super greens",
+        "kids veggies"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 2,
+        "carbs": 4,
+        "fiber": 2,
+        "calories": 45
+      }
+    },
+    {
+      "name": "Cub Meal Chow Mein (2.3 oz)",
+      "aliases": [
+        "cub meal chow mein",
+        "kids chow mein",
+        "cub chow mein"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 2,
+        "carbs": 17,
+        "fiber": 1,
+        "calories": 100
+      }
+    },
+    {
+      "name": "Cub Meal Orange Chicken (4 oz)",
+      "aliases": [
+        "cub meal orange chicken",
+        "kids orange chicken",
+        "cub orange chicken",
+        "kids meal orange chicken"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 16,
+        "carbs": 41,
+        "fiber": 1,
+        "calories": 360
+      }
+    },
+    {
+      "name": "Cub Meal Grilled Teriyaki Chicken (3.3 oz)",
+      "aliases": [
+        "cub meal teriyaki chicken",
+        "kids teriyaki chicken",
+        "cub teriyaki chicken",
+        "kids meal teriyaki chicken"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 5,
+        "carbs": 7,
+        "fiber": 0,
+        "calories": 150
+      }
+    },
+    {
+      "name": "Cub Meal Broccoli Beef (4.7 oz)",
+      "aliases": [
+        "cub meal broccoli beef",
+        "kids broccoli beef",
+        "cub broccoli beef",
+        "kids meal broccoli beef"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 5,
+        "carbs": 10,
+        "fiber": 2,
+        "calories": 140
+      }
+    },
+    {
+      "name": "Honest Kids Appley Ever After Juice",
+      "aliases": [
+        "honest kids juice",
+        "appley ever after",
+        "kids apple juice",
+        "apple juice"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 9,
+        "fiber": 0,
+        "calories": 35
+      }
+    },
+    {
+      "name": "Bowl: The Original Orange Chicken with Chow Mein",
+      "aliases": [
+        "orange chicken bowl with chow mein",
+        "orange chicken bowl chow mein",
+        "bowl orange chicken chow mein",
+        "chow mein and orange chicken bowl"
+      ],
+      "macros": {
+        "protein": 33,
+        "fat": 37,
+        "carbs": 152,
+        "fiber": 6,
+        "calories": 1080
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: The Original Orange Chicken with Fried Rice",
+      "aliases": [
+        "orange chicken bowl with fried rice",
+        "orange chicken bowl fried rice",
+        "bowl orange chicken fried rice",
+        "fried rice and orange chicken bowl"
+      ],
+      "macros": {
+        "protein": 34,
+        "fat": 38,
+        "carbs": 172,
+        "fiber": 4,
+        "calories": 1170
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: The Original Orange Chicken with White Steamed Rice",
+      "aliases": [
+        "orange chicken bowl with white steamed rice",
+        "orange chicken bowl white steamed rice",
+        "bowl orange chicken white steamed rice",
+        "white steamed rice and orange chicken bowl"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 25,
+        "carbs": 192,
+        "fiber": 1,
+        "calories": 1130
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: The Original Orange Chicken with Super Greens",
+      "aliases": [
+        "orange chicken bowl with super greens",
+        "orange chicken bowl super greens",
+        "bowl orange chicken super greens",
+        "super greens and orange chicken bowl"
+      ],
+      "macros": {
+        "protein": 27,
+        "fat": 34,
+        "carbs": 80,
+        "fiber": 9,
+        "calories": 740
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Grilled Teriyaki Chicken with Chow Mein",
+      "aliases": [
+        "grilled teriyaki chicken bowl with chow mein",
+        "grilled teriyaki chicken bowl chow mein",
+        "bowl grilled teriyaki chicken chow mein",
+        "chow mein and grilled teriyaki chicken bowl"
+      ],
+      "macros": {
+        "protein": 52,
+        "fat": 21,
+        "carbs": 102,
+        "fiber": 5,
+        "calories": 800
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Grilled Teriyaki Chicken with Fried Rice",
+      "aliases": [
+        "grilled teriyaki chicken bowl with fried rice",
+        "grilled teriyaki chicken bowl fried rice",
+        "bowl grilled teriyaki chicken fried rice",
+        "fried rice and grilled teriyaki chicken bowl"
+      ],
+      "macros": {
+        "protein": 53,
+        "fat": 22,
+        "carbs": 122,
+        "fiber": 3,
+        "calories": 890
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Grilled Teriyaki Chicken with White Steamed Rice",
+      "aliases": [
+        "grilled teriyaki chicken bowl with white steamed rice",
+        "grilled teriyaki chicken bowl white steamed rice",
+        "bowl grilled teriyaki chicken white steamed rice",
+        "white steamed rice and grilled teriyaki chicken bowl"
+      ],
+      "macros": {
+        "protein": 49,
+        "fat": 9,
+        "carbs": 142,
+        "fiber": 0,
+        "calories": 850
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Grilled Teriyaki Chicken with Super Greens",
+      "aliases": [
+        "grilled teriyaki chicken bowl with super greens",
+        "grilled teriyaki chicken bowl super greens",
+        "bowl grilled teriyaki chicken super greens",
+        "super greens and grilled teriyaki chicken bowl"
+      ],
+      "macros": {
+        "protein": 46,
+        "fat": 18,
+        "carbs": 30,
+        "fiber": 8,
+        "calories": 460
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Broccoli Beef with Chow Mein",
+      "aliases": [
+        "broccoli beef bowl with chow mein",
+        "broccoli beef bowl chow mein",
+        "bowl broccoli beef chow mein",
+        "chow mein and broccoli beef bowl"
+      ],
+      "macros": {
+        "protein": 31,
+        "fat": 19,
+        "carbs": 103,
+        "fiber": 7,
+        "calories": 710
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Broccoli Beef with Fried Rice",
+      "aliases": [
+        "broccoli beef bowl with fried rice",
+        "broccoli beef bowl fried rice",
+        "bowl broccoli beef fried rice",
+        "fried rice and broccoli beef bowl"
+      ],
+      "macros": {
+        "protein": 32,
+        "fat": 20,
+        "carbs": 123,
+        "fiber": 5,
+        "calories": 800
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Broccoli Beef with White Steamed Rice",
+      "aliases": [
+        "broccoli beef bowl with white steamed rice",
+        "broccoli beef bowl white steamed rice",
+        "bowl broccoli beef white steamed rice",
+        "white steamed rice and broccoli beef bowl"
+      ],
+      "macros": {
+        "protein": 28,
+        "fat": 7,
+        "carbs": 143,
+        "fiber": 2,
+        "calories": 760
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Broccoli Beef with Super Greens",
+      "aliases": [
+        "broccoli beef bowl with super greens",
+        "broccoli beef bowl super greens",
+        "bowl broccoli beef super greens",
+        "super greens and broccoli beef bowl"
+      ],
+      "macros": {
+        "protein": 25,
+        "fat": 16,
+        "carbs": 31,
+        "fiber": 10,
+        "calories": 370
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Kung Pao Chicken with Chow Mein",
+      "aliases": [
+        "kung pao chicken bowl with chow mein",
+        "kung pao chicken bowl chow mein",
+        "bowl kung pao chicken chow mein",
+        "chow mein and kung pao chicken bowl"
+      ],
+      "macros": {
+        "protein": 34,
+        "fat": 26,
+        "carbs": 105,
+        "fiber": 7,
+        "calories": 790
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Kung Pao Chicken with Fried Rice",
+      "aliases": [
+        "kung pao chicken bowl with fried rice",
+        "kung pao chicken bowl fried rice",
+        "bowl kung pao chicken fried rice",
+        "fried rice and kung pao chicken bowl"
+      ],
+      "macros": {
+        "protein": 35,
+        "fat": 27,
+        "carbs": 125,
+        "fiber": 5,
+        "calories": 880
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Kung Pao Chicken with White Steamed Rice",
+      "aliases": [
+        "kung pao chicken bowl with white steamed rice",
+        "kung pao chicken bowl white steamed rice",
+        "bowl kung pao chicken white steamed rice",
+        "white steamed rice and kung pao chicken bowl"
+      ],
+      "macros": {
+        "protein": 31,
+        "fat": 14,
+        "carbs": 145,
+        "fiber": 2,
+        "calories": 840
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Kung Pao Chicken with Super Greens",
+      "aliases": [
+        "kung pao chicken bowl with super greens",
+        "kung pao chicken bowl super greens",
+        "bowl kung pao chicken super greens",
+        "super greens and kung pao chicken bowl"
+      ],
+      "macros": {
+        "protein": 28,
+        "fat": 23,
+        "carbs": 33,
+        "fiber": 10,
+        "calories": 450
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Beijing Beef with Chow Mein",
+      "aliases": [
+        "beijing beef bowl with chow mein",
+        "beijing beef bowl chow mein",
+        "bowl beijing beef chow mein",
+        "chow mein and beijing beef bowl"
+      ],
+      "macros": {
+        "protein": 28,
+        "fat": 39,
+        "carbs": 135,
+        "fiber": 7,
+        "calories": 1000
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Beijing Beef with Fried Rice",
+      "aliases": [
+        "beijing beef bowl with fried rice",
+        "beijing beef bowl fried rice",
+        "bowl beijing beef fried rice",
+        "fried rice and beijing beef bowl"
+      ],
+      "macros": {
+        "protein": 29,
+        "fat": 40,
+        "carbs": 155,
+        "fiber": 5,
+        "calories": 1090
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Beijing Beef with White Steamed Rice",
+      "aliases": [
+        "beijing beef bowl with white steamed rice",
+        "beijing beef bowl white steamed rice",
+        "bowl beijing beef white steamed rice",
+        "white steamed rice and beijing beef bowl"
+      ],
+      "macros": {
+        "protein": 25,
+        "fat": 27,
+        "carbs": 175,
+        "fiber": 2,
+        "calories": 1050
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Beijing Beef with Super Greens",
+      "aliases": [
+        "beijing beef bowl with super greens",
+        "beijing beef bowl super greens",
+        "bowl beijing beef super greens",
+        "super greens and beijing beef bowl"
+      ],
+      "macros": {
+        "protein": 22,
+        "fat": 36,
+        "carbs": 63,
+        "fiber": 10,
+        "calories": 660
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Honey Walnut Shrimp with Chow Mein",
+      "aliases": [
+        "honey walnut shrimp bowl with chow mein",
+        "honey walnut shrimp bowl chow mein",
+        "bowl honey walnut shrimp chow mein",
+        "chow mein and honey walnut shrimp bowl"
+      ],
+      "macros": {
+        "protein": 27,
+        "fat": 32,
+        "carbs": 117,
+        "fiber": 6,
+        "calories": 860
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "honey walnut shrimp",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Honey Walnut Shrimp with Fried Rice",
+      "aliases": [
+        "honey walnut shrimp bowl with fried rice",
+        "honey walnut shrimp bowl fried rice",
+        "bowl honey walnut shrimp fried rice",
+        "fried rice and honey walnut shrimp bowl"
+      ],
+      "macros": {
+        "protein": 28,
+        "fat": 33,
+        "carbs": 137,
+        "fiber": 4,
+        "calories": 950
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "honey walnut shrimp",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Honey Walnut Shrimp with White Steamed Rice",
+      "aliases": [
+        "honey walnut shrimp bowl with white steamed rice",
+        "honey walnut shrimp bowl white steamed rice",
+        "bowl honey walnut shrimp white steamed rice",
+        "white steamed rice and honey walnut shrimp bowl"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 20,
+        "carbs": 157,
+        "fiber": 1,
+        "calories": 910
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "honey walnut shrimp",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Honey Walnut Shrimp with Super Greens",
+      "aliases": [
+        "honey walnut shrimp bowl with super greens",
+        "honey walnut shrimp bowl super greens",
+        "bowl honey walnut shrimp super greens",
+        "super greens and honey walnut shrimp bowl"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 29,
+        "carbs": 45,
+        "fiber": 9,
+        "calories": 520
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "honey walnut shrimp",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: String Bean Chicken Breast with Chow Mein",
+      "aliases": [
+        "string bean chicken breast bowl with chow mein",
+        "string bean chicken breast bowl chow mein",
+        "bowl string bean chicken breast chow mein",
+        "chow mein and string bean chicken breast bowl"
+      ],
+      "macros": {
+        "protein": 29,
+        "fat": 22,
+        "carbs": 104,
+        "fiber": 8,
+        "calories": 730
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "string bean chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: String Bean Chicken Breast with Fried Rice",
+      "aliases": [
+        "string bean chicken breast bowl with fried rice",
+        "string bean chicken breast bowl fried rice",
+        "bowl string bean chicken breast fried rice",
+        "fried rice and string bean chicken breast bowl"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 23,
+        "carbs": 124,
+        "fiber": 6,
+        "calories": 820
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "string bean chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: String Bean Chicken Breast with White Steamed Rice",
+      "aliases": [
+        "string bean chicken breast bowl with white steamed rice",
+        "string bean chicken breast bowl white steamed rice",
+        "bowl string bean chicken breast white steamed rice",
+        "white steamed rice and string bean chicken breast bowl"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 10,
+        "carbs": 144,
+        "fiber": 3,
+        "calories": 780
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "string bean chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: String Bean Chicken Breast with Super Greens",
+      "aliases": [
+        "string bean chicken breast bowl with super greens",
+        "string bean chicken breast bowl super greens",
+        "bowl string bean chicken breast super greens",
+        "super greens and string bean chicken breast bowl"
+      ],
+      "macros": {
+        "protein": 23,
+        "fat": 19,
+        "carbs": 32,
+        "fiber": 11,
+        "calories": 390
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "string bean chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Mushroom Chicken with Chow Mein",
+      "aliases": [
+        "mushroom chicken bowl with chow mein",
+        "mushroom chicken bowl chow mein",
+        "bowl mushroom chicken chow mein",
+        "chow mein and mushroom chicken bowl"
+      ],
+      "macros": {
+        "protein": 27,
+        "fat": 21,
+        "carbs": 101,
+        "fiber": 6,
+        "calories": 700
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "mushroom chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Mushroom Chicken with Fried Rice",
+      "aliases": [
+        "mushroom chicken bowl with fried rice",
+        "mushroom chicken bowl fried rice",
+        "bowl mushroom chicken fried rice",
+        "fried rice and mushroom chicken bowl"
+      ],
+      "macros": {
+        "protein": 28,
+        "fat": 22,
+        "carbs": 121,
+        "fiber": 4,
+        "calories": 790
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "mushroom chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Mushroom Chicken with White Steamed Rice",
+      "aliases": [
+        "mushroom chicken bowl with white steamed rice",
+        "mushroom chicken bowl white steamed rice",
+        "bowl mushroom chicken white steamed rice",
+        "white steamed rice and mushroom chicken bowl"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 9,
+        "carbs": 141,
+        "fiber": 1,
+        "calories": 750
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "mushroom chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Mushroom Chicken with Super Greens",
+      "aliases": [
+        "mushroom chicken bowl with super greens",
+        "mushroom chicken bowl super greens",
+        "bowl mushroom chicken super greens",
+        "super greens and mushroom chicken bowl"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 18,
+        "carbs": 29,
+        "fiber": 9,
+        "calories": 360
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "mushroom chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Black Pepper Chicken with Chow Mein",
+      "aliases": [
+        "black pepper chicken bowl with chow mein",
+        "black pepper chicken bowl chow mein",
+        "bowl black pepper chicken chow mein",
+        "chow mein and black pepper chicken bowl"
+      ],
+      "macros": {
+        "protein": 29,
+        "fat": 24,
+        "carbs": 98,
+        "fiber": 6,
+        "calories": 720
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "black pepper chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Black Pepper Chicken with Fried Rice",
+      "aliases": [
+        "black pepper chicken bowl with fried rice",
+        "black pepper chicken bowl fried rice",
+        "bowl black pepper chicken fried rice",
+        "fried rice and black pepper chicken bowl"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 25,
+        "carbs": 118,
+        "fiber": 4,
+        "calories": 810
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "black pepper chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Black Pepper Chicken with White Steamed Rice",
+      "aliases": [
+        "black pepper chicken bowl with white steamed rice",
+        "black pepper chicken bowl white steamed rice",
+        "bowl black pepper chicken white steamed rice",
+        "white steamed rice and black pepper chicken bowl"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 12,
+        "carbs": 138,
+        "fiber": 1,
+        "calories": 770
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "black pepper chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Black Pepper Chicken with Super Greens",
+      "aliases": [
+        "black pepper chicken bowl with super greens",
+        "black pepper chicken bowl super greens",
+        "bowl black pepper chicken super greens",
+        "super greens and black pepper chicken bowl"
+      ],
+      "macros": {
+        "protein": 23,
+        "fat": 21,
+        "carbs": 26,
+        "fiber": 9,
+        "calories": 380
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "black pepper chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: SweetFire Chicken Breast with Chow Mein",
+      "aliases": [
+        "sweetfire chicken breast bowl with chow mein",
+        "sweetfire chicken breast bowl chow mein",
+        "bowl sweetfire chicken breast chow mein",
+        "chow mein and sweetfire chicken breast bowl"
+      ],
+      "macros": {
+        "protein": 29,
+        "fat": 27,
+        "carbs": 129,
+        "fiber": 7,
+        "calories": 880
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "sweetfire chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: SweetFire Chicken Breast with Fried Rice",
+      "aliases": [
+        "sweetfire chicken breast bowl with fried rice",
+        "sweetfire chicken breast bowl fried rice",
+        "bowl sweetfire chicken breast fried rice",
+        "fried rice and sweetfire chicken breast bowl"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 28,
+        "carbs": 149,
+        "fiber": 5,
+        "calories": 970
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "sweetfire chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: SweetFire Chicken Breast with White Steamed Rice",
+      "aliases": [
+        "sweetfire chicken breast bowl with white steamed rice",
+        "sweetfire chicken breast bowl white steamed rice",
+        "bowl sweetfire chicken breast white steamed rice",
+        "white steamed rice and sweetfire chicken breast bowl"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 15,
+        "carbs": 169,
+        "fiber": 2,
+        "calories": 930
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "sweetfire chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: SweetFire Chicken Breast with Super Greens",
+      "aliases": [
+        "sweetfire chicken breast bowl with super greens",
+        "sweetfire chicken breast bowl super greens",
+        "bowl sweetfire chicken breast super greens",
+        "super greens and sweetfire chicken breast bowl"
+      ],
+      "macros": {
+        "protein": 23,
+        "fat": 24,
+        "carbs": 57,
+        "fiber": 10,
+        "calories": 540
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "sweetfire chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Honey Sesame Chicken Breast with Chow Mein",
+      "aliases": [
+        "honey sesame chicken breast bowl with chow mein",
+        "honey sesame chicken breast bowl chow mein",
+        "bowl honey sesame chicken breast chow mein",
+        "chow mein and honey sesame chicken breast bowl"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 32,
+        "carbs": 133,
+        "fiber": 7,
+        "calories": 940
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "honey sesame chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Honey Sesame Chicken Breast with Fried Rice",
+      "aliases": [
+        "honey sesame chicken breast bowl with fried rice",
+        "honey sesame chicken breast bowl fried rice",
+        "bowl honey sesame chicken breast fried rice",
+        "fried rice and honey sesame chicken breast bowl"
+      ],
+      "macros": {
+        "protein": 31,
+        "fat": 33,
+        "carbs": 153,
+        "fiber": 5,
+        "calories": 1030
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "honey sesame chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Honey Sesame Chicken Breast with White Steamed Rice",
+      "aliases": [
+        "honey sesame chicken breast bowl with white steamed rice",
+        "honey sesame chicken breast bowl white steamed rice",
+        "bowl honey sesame chicken breast white steamed rice",
+        "white steamed rice and honey sesame chicken breast bowl"
+      ],
+      "macros": {
+        "protein": 27,
+        "fat": 20,
+        "carbs": 173,
+        "fiber": 2,
+        "calories": 990
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "honey sesame chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Honey Sesame Chicken Breast with Super Greens",
+      "aliases": [
+        "honey sesame chicken breast bowl with super greens",
+        "honey sesame chicken breast bowl super greens",
+        "bowl honey sesame chicken breast super greens",
+        "super greens and honey sesame chicken breast bowl"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 29,
+        "carbs": 61,
+        "fiber": 10,
+        "calories": 600
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "honey sesame chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Black Pepper Sirloin Steak with Chow Mein",
+      "aliases": [
+        "black pepper sirloin steak bowl with chow mein",
+        "black pepper sirloin steak bowl chow mein",
+        "bowl black pepper sirloin steak chow mein",
+        "chow mein and black pepper sirloin steak bowl"
+      ],
+      "macros": {
+        "protein": 31,
+        "fat": 20,
+        "carbs": 104,
+        "fiber": 6,
+        "calories": 720
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "black pepper sirloin steak",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Black Pepper Sirloin Steak with Fried Rice",
+      "aliases": [
+        "black pepper sirloin steak bowl with fried rice",
+        "black pepper sirloin steak bowl fried rice",
+        "bowl black pepper sirloin steak fried rice",
+        "fried rice and black pepper sirloin steak bowl"
+      ],
+      "macros": {
+        "protein": 32,
+        "fat": 21,
+        "carbs": 124,
+        "fiber": 4,
+        "calories": 810
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "black pepper sirloin steak",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Black Pepper Sirloin Steak with White Steamed Rice",
+      "aliases": [
+        "black pepper sirloin steak bowl with white steamed rice",
+        "black pepper sirloin steak bowl white steamed rice",
+        "bowl black pepper sirloin steak white steamed rice",
+        "white steamed rice and black pepper sirloin steak bowl"
+      ],
+      "macros": {
+        "protein": 28,
+        "fat": 8,
+        "carbs": 144,
+        "fiber": 1,
+        "calories": 770
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "black pepper sirloin steak",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Black Pepper Sirloin Steak with Super Greens",
+      "aliases": [
+        "black pepper sirloin steak bowl with super greens",
+        "black pepper sirloin steak bowl super greens",
+        "bowl black pepper sirloin steak super greens",
+        "super greens and black pepper sirloin steak bowl"
+      ],
+      "macros": {
+        "protein": 25,
+        "fat": 17,
+        "carbs": 32,
+        "fiber": 9,
+        "calories": 380
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "black pepper sirloin steak",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Eggplant Tofu with Chow Mein",
+      "aliases": [
+        "eggplant tofu bowl with chow mein",
+        "eggplant tofu bowl chow mein",
+        "bowl eggplant tofu chow mein",
+        "chow mein and eggplant tofu bowl"
+      ],
+      "macros": {
+        "protein": 22,
+        "fat": 33,
+        "carbs": 112,
+        "fiber": 9,
+        "calories": 830
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "eggplant tofu",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Eggplant Tofu with Fried Rice",
+      "aliases": [
+        "eggplant tofu bowl with fried rice",
+        "eggplant tofu bowl fried rice",
+        "bowl eggplant tofu fried rice",
+        "fried rice and eggplant tofu bowl"
+      ],
+      "macros": {
+        "protein": 23,
+        "fat": 34,
+        "carbs": 132,
+        "fiber": 7,
+        "calories": 920
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "eggplant tofu",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Eggplant Tofu with White Steamed Rice",
+      "aliases": [
+        "eggplant tofu bowl with white steamed rice",
+        "eggplant tofu bowl white steamed rice",
+        "bowl eggplant tofu white steamed rice",
+        "white steamed rice and eggplant tofu bowl"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 21,
+        "carbs": 152,
+        "fiber": 4,
+        "calories": 880
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "eggplant tofu",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: Eggplant Tofu with Super Greens",
+      "aliases": [
+        "eggplant tofu bowl with super greens",
+        "eggplant tofu bowl super greens",
+        "bowl eggplant tofu super greens",
+        "super greens and eggplant tofu bowl"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 30,
+        "carbs": 40,
+        "fiber": 12,
+        "calories": 490
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "eggplant tofu",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl: The Original Orange Chicken with Half Chow Mein Half Fried Rice",
+      "aliases": [
+        "orange chicken bowl half and half",
+        "orange chicken bowl half chow mein half fried rice",
+        "half and half orange chicken bowl"
+      ],
+      "macros": {
+        "protein": 33.5,
+        "fat": 37.5,
+        "carbs": 162,
+        "fiber": 5,
+        "calories": 1125
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 0.5
+        },
+        {
+          "component": "fried rice",
+          "count": 0.5
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Grilled Teriyaki Chicken with Chow Mein",
+      "aliases": [
+        "orange chicken and grilled teriyaki chicken plate with chow mein",
+        "orange chicken and grilled teriyaki chicken plate chow mein",
+        "plate orange chicken and grilled teriyaki chicken chow mein",
+        "chow mein orange chicken and grilled teriyaki chicken plate"
+      ],
+      "macros": {
+        "protein": 71,
+        "fat": 46,
+        "carbs": 165,
+        "fiber": 6,
+        "calories": 1360
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Grilled Teriyaki Chicken with Fried Rice",
+      "aliases": [
+        "orange chicken and grilled teriyaki chicken plate with fried rice",
+        "orange chicken and grilled teriyaki chicken plate fried rice",
+        "plate orange chicken and grilled teriyaki chicken fried rice",
+        "fried rice orange chicken and grilled teriyaki chicken plate"
+      ],
+      "macros": {
+        "protein": 72,
+        "fat": 47,
+        "carbs": 185,
+        "fiber": 4,
+        "calories": 1450
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Grilled Teriyaki Chicken with White Steamed Rice",
+      "aliases": [
+        "orange chicken and grilled teriyaki chicken plate with white steamed rice",
+        "orange chicken and grilled teriyaki chicken plate white steamed rice",
+        "plate orange chicken and grilled teriyaki chicken white steamed rice",
+        "white steamed rice orange chicken and grilled teriyaki chicken plate"
+      ],
+      "macros": {
+        "protein": 68,
+        "fat": 34,
+        "carbs": 205,
+        "fiber": 1,
+        "calories": 1410
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Grilled Teriyaki Chicken with Super Greens",
+      "aliases": [
+        "orange chicken and grilled teriyaki chicken plate with super greens",
+        "orange chicken and grilled teriyaki chicken plate super greens",
+        "plate orange chicken and grilled teriyaki chicken super greens",
+        "super greens orange chicken and grilled teriyaki chicken plate"
+      ],
+      "macros": {
+        "protein": 65,
+        "fat": 43,
+        "carbs": 93,
+        "fiber": 9,
+        "calories": 1020
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Broccoli Beef with Chow Mein",
+      "aliases": [
+        "orange chicken and broccoli beef plate with chow mein",
+        "orange chicken and broccoli beef plate chow mein",
+        "plate orange chicken and broccoli beef chow mein",
+        "chow mein orange chicken and broccoli beef plate"
+      ],
+      "macros": {
+        "protein": 50,
+        "fat": 44,
+        "carbs": 166,
+        "fiber": 8,
+        "calories": 1270
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Broccoli Beef with Fried Rice",
+      "aliases": [
+        "orange chicken and broccoli beef plate with fried rice",
+        "orange chicken and broccoli beef plate fried rice",
+        "plate orange chicken and broccoli beef fried rice",
+        "fried rice orange chicken and broccoli beef plate"
+      ],
+      "macros": {
+        "protein": 51,
+        "fat": 45,
+        "carbs": 186,
+        "fiber": 6,
+        "calories": 1360
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Broccoli Beef with White Steamed Rice",
+      "aliases": [
+        "orange chicken and broccoli beef plate with white steamed rice",
+        "orange chicken and broccoli beef plate white steamed rice",
+        "plate orange chicken and broccoli beef white steamed rice",
+        "white steamed rice orange chicken and broccoli beef plate"
+      ],
+      "macros": {
+        "protein": 47,
+        "fat": 32,
+        "carbs": 206,
+        "fiber": 3,
+        "calories": 1320
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Broccoli Beef with Super Greens",
+      "aliases": [
+        "orange chicken and broccoli beef plate with super greens",
+        "orange chicken and broccoli beef plate super greens",
+        "plate orange chicken and broccoli beef super greens",
+        "super greens orange chicken and broccoli beef plate"
+      ],
+      "macros": {
+        "protein": 44,
+        "fat": 41,
+        "carbs": 94,
+        "fiber": 11,
+        "calories": 930
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Beijing Beef with Chow Mein",
+      "aliases": [
+        "orange chicken and beijing beef plate with chow mein",
+        "orange chicken and beijing beef plate chow mein",
+        "plate orange chicken and beijing beef chow mein",
+        "chow mein orange chicken and beijing beef plate"
+      ],
+      "macros": {
+        "protein": 47,
+        "fat": 64,
+        "carbs": 198,
+        "fiber": 8,
+        "calories": 1560
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Beijing Beef with Fried Rice",
+      "aliases": [
+        "orange chicken and beijing beef plate with fried rice",
+        "orange chicken and beijing beef plate fried rice",
+        "plate orange chicken and beijing beef fried rice",
+        "fried rice orange chicken and beijing beef plate"
+      ],
+      "macros": {
+        "protein": 48,
+        "fat": 65,
+        "carbs": 218,
+        "fiber": 6,
+        "calories": 1650
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Beijing Beef with White Steamed Rice",
+      "aliases": [
+        "orange chicken and beijing beef plate with white steamed rice",
+        "orange chicken and beijing beef plate white steamed rice",
+        "plate orange chicken and beijing beef white steamed rice",
+        "white steamed rice orange chicken and beijing beef plate"
+      ],
+      "macros": {
+        "protein": 44,
+        "fat": 52,
+        "carbs": 238,
+        "fiber": 3,
+        "calories": 1610
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Beijing Beef with Super Greens",
+      "aliases": [
+        "orange chicken and beijing beef plate with super greens",
+        "orange chicken and beijing beef plate super greens",
+        "plate orange chicken and beijing beef super greens",
+        "super greens orange chicken and beijing beef plate"
+      ],
+      "macros": {
+        "protein": 41,
+        "fat": 61,
+        "carbs": 126,
+        "fiber": 11,
+        "calories": 1220
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Kung Pao Chicken with Chow Mein",
+      "aliases": [
+        "orange chicken and kung pao chicken plate with chow mein",
+        "orange chicken and kung pao chicken plate chow mein",
+        "plate orange chicken and kung pao chicken chow mein",
+        "chow mein orange chicken and kung pao chicken plate"
+      ],
+      "macros": {
+        "protein": 53,
+        "fat": 51,
+        "carbs": 168,
+        "fiber": 8,
+        "calories": 1350
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Kung Pao Chicken with Fried Rice",
+      "aliases": [
+        "orange chicken and kung pao chicken plate with fried rice",
+        "orange chicken and kung pao chicken plate fried rice",
+        "plate orange chicken and kung pao chicken fried rice",
+        "fried rice orange chicken and kung pao chicken plate"
+      ],
+      "macros": {
+        "protein": 54,
+        "fat": 52,
+        "carbs": 188,
+        "fiber": 6,
+        "calories": 1440
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Kung Pao Chicken with White Steamed Rice",
+      "aliases": [
+        "orange chicken and kung pao chicken plate with white steamed rice",
+        "orange chicken and kung pao chicken plate white steamed rice",
+        "plate orange chicken and kung pao chicken white steamed rice",
+        "white steamed rice orange chicken and kung pao chicken plate"
+      ],
+      "macros": {
+        "protein": 50,
+        "fat": 39,
+        "carbs": 208,
+        "fiber": 3,
+        "calories": 1400
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Kung Pao Chicken with Super Greens",
+      "aliases": [
+        "orange chicken and kung pao chicken plate with super greens",
+        "orange chicken and kung pao chicken plate super greens",
+        "plate orange chicken and kung pao chicken super greens",
+        "super greens orange chicken and kung pao chicken plate"
+      ],
+      "macros": {
+        "protein": 47,
+        "fat": 48,
+        "carbs": 96,
+        "fiber": 11,
+        "calories": 1010
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Honey Walnut Shrimp with Chow Mein",
+      "aliases": [
+        "orange chicken and honey walnut shrimp plate with chow mein",
+        "orange chicken and honey walnut shrimp plate chow mein",
+        "plate orange chicken and honey walnut shrimp chow mein",
+        "chow mein orange chicken and honey walnut shrimp plate"
+      ],
+      "macros": {
+        "protein": 46,
+        "fat": 57,
+        "carbs": 180,
+        "fiber": 7,
+        "calories": 1420
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "honey walnut shrimp",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Honey Walnut Shrimp with Fried Rice",
+      "aliases": [
+        "orange chicken and honey walnut shrimp plate with fried rice",
+        "orange chicken and honey walnut shrimp plate fried rice",
+        "plate orange chicken and honey walnut shrimp fried rice",
+        "fried rice orange chicken and honey walnut shrimp plate"
+      ],
+      "macros": {
+        "protein": 47,
+        "fat": 58,
+        "carbs": 200,
+        "fiber": 5,
+        "calories": 1510
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "honey walnut shrimp",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Honey Walnut Shrimp with White Steamed Rice",
+      "aliases": [
+        "orange chicken and honey walnut shrimp plate with white steamed rice",
+        "orange chicken and honey walnut shrimp plate white steamed rice",
+        "plate orange chicken and honey walnut shrimp white steamed rice",
+        "white steamed rice orange chicken and honey walnut shrimp plate"
+      ],
+      "macros": {
+        "protein": 43,
+        "fat": 45,
+        "carbs": 220,
+        "fiber": 2,
+        "calories": 1470
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "honey walnut shrimp",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Honey Walnut Shrimp with Super Greens",
+      "aliases": [
+        "orange chicken and honey walnut shrimp plate with super greens",
+        "orange chicken and honey walnut shrimp plate super greens",
+        "plate orange chicken and honey walnut shrimp super greens",
+        "super greens orange chicken and honey walnut shrimp plate"
+      ],
+      "macros": {
+        "protein": 40,
+        "fat": 54,
+        "carbs": 108,
+        "fiber": 10,
+        "calories": 1080
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "honey walnut shrimp",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and String Bean Chicken Breast with Chow Mein",
+      "aliases": [
+        "orange chicken and string bean chicken breast plate with chow mein",
+        "orange chicken and string bean chicken breast plate chow mein",
+        "plate orange chicken and string bean chicken breast chow mein",
+        "chow mein orange chicken and string bean chicken breast plate"
+      ],
+      "macros": {
+        "protein": 48,
+        "fat": 47,
+        "carbs": 167,
+        "fiber": 9,
+        "calories": 1290
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "string bean chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and String Bean Chicken Breast with Fried Rice",
+      "aliases": [
+        "orange chicken and string bean chicken breast plate with fried rice",
+        "orange chicken and string bean chicken breast plate fried rice",
+        "plate orange chicken and string bean chicken breast fried rice",
+        "fried rice orange chicken and string bean chicken breast plate"
+      ],
+      "macros": {
+        "protein": 49,
+        "fat": 48,
+        "carbs": 187,
+        "fiber": 7,
+        "calories": 1380
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "string bean chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and String Bean Chicken Breast with White Steamed Rice",
+      "aliases": [
+        "orange chicken and string bean chicken breast plate with white steamed rice",
+        "orange chicken and string bean chicken breast plate white steamed rice",
+        "plate orange chicken and string bean chicken breast white steamed rice",
+        "white steamed rice orange chicken and string bean chicken breast plate"
+      ],
+      "macros": {
+        "protein": 45,
+        "fat": 35,
+        "carbs": 207,
+        "fiber": 4,
+        "calories": 1340
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "string bean chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and String Bean Chicken Breast with Super Greens",
+      "aliases": [
+        "orange chicken and string bean chicken breast plate with super greens",
+        "orange chicken and string bean chicken breast plate super greens",
+        "plate orange chicken and string bean chicken breast super greens",
+        "super greens orange chicken and string bean chicken breast plate"
+      ],
+      "macros": {
+        "protein": 42,
+        "fat": 44,
+        "carbs": 95,
+        "fiber": 12,
+        "calories": 950
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "string bean chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Mushroom Chicken with Chow Mein",
+      "aliases": [
+        "orange chicken and mushroom chicken plate with chow mein",
+        "orange chicken and mushroom chicken plate chow mein",
+        "plate orange chicken and mushroom chicken chow mein",
+        "chow mein orange chicken and mushroom chicken plate"
+      ],
+      "macros": {
+        "protein": 46,
+        "fat": 46,
+        "carbs": 164,
+        "fiber": 7,
+        "calories": 1260
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "mushroom chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Mushroom Chicken with Fried Rice",
+      "aliases": [
+        "orange chicken and mushroom chicken plate with fried rice",
+        "orange chicken and mushroom chicken plate fried rice",
+        "plate orange chicken and mushroom chicken fried rice",
+        "fried rice orange chicken and mushroom chicken plate"
+      ],
+      "macros": {
+        "protein": 47,
+        "fat": 47,
+        "carbs": 184,
+        "fiber": 5,
+        "calories": 1350
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "mushroom chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Mushroom Chicken with White Steamed Rice",
+      "aliases": [
+        "orange chicken and mushroom chicken plate with white steamed rice",
+        "orange chicken and mushroom chicken plate white steamed rice",
+        "plate orange chicken and mushroom chicken white steamed rice",
+        "white steamed rice orange chicken and mushroom chicken plate"
+      ],
+      "macros": {
+        "protein": 43,
+        "fat": 34,
+        "carbs": 204,
+        "fiber": 2,
+        "calories": 1310
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "mushroom chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Mushroom Chicken with Super Greens",
+      "aliases": [
+        "orange chicken and mushroom chicken plate with super greens",
+        "orange chicken and mushroom chicken plate super greens",
+        "plate orange chicken and mushroom chicken super greens",
+        "super greens orange chicken and mushroom chicken plate"
+      ],
+      "macros": {
+        "protein": 40,
+        "fat": 43,
+        "carbs": 92,
+        "fiber": 10,
+        "calories": 920
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "mushroom chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Black Pepper Chicken with Chow Mein",
+      "aliases": [
+        "orange chicken and black pepper chicken plate with chow mein",
+        "orange chicken and black pepper chicken plate chow mein",
+        "plate orange chicken and black pepper chicken chow mein",
+        "chow mein orange chicken and black pepper chicken plate"
+      ],
+      "macros": {
+        "protein": 48,
+        "fat": 49,
+        "carbs": 161,
+        "fiber": 7,
+        "calories": 1280
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "black pepper chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Black Pepper Chicken with Fried Rice",
+      "aliases": [
+        "orange chicken and black pepper chicken plate with fried rice",
+        "orange chicken and black pepper chicken plate fried rice",
+        "plate orange chicken and black pepper chicken fried rice",
+        "fried rice orange chicken and black pepper chicken plate"
+      ],
+      "macros": {
+        "protein": 49,
+        "fat": 50,
+        "carbs": 181,
+        "fiber": 5,
+        "calories": 1370
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "black pepper chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Black Pepper Chicken with White Steamed Rice",
+      "aliases": [
+        "orange chicken and black pepper chicken plate with white steamed rice",
+        "orange chicken and black pepper chicken plate white steamed rice",
+        "plate orange chicken and black pepper chicken white steamed rice",
+        "white steamed rice orange chicken and black pepper chicken plate"
+      ],
+      "macros": {
+        "protein": 45,
+        "fat": 37,
+        "carbs": 201,
+        "fiber": 2,
+        "calories": 1330
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "black pepper chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Black Pepper Chicken with Super Greens",
+      "aliases": [
+        "orange chicken and black pepper chicken plate with super greens",
+        "orange chicken and black pepper chicken plate super greens",
+        "plate orange chicken and black pepper chicken super greens",
+        "super greens orange chicken and black pepper chicken plate"
+      ],
+      "macros": {
+        "protein": 42,
+        "fat": 46,
+        "carbs": 89,
+        "fiber": 10,
+        "calories": 940
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "black pepper chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Double The Original Orange Chicken with Chow Mein",
+      "aliases": [
+        "double orange chicken plate with chow mein",
+        "double orange chicken plate chow mein",
+        "plate double orange chicken chow mein",
+        "chow mein double orange chicken plate"
+      ],
+      "macros": {
+        "protein": 52,
+        "fat": 62,
+        "carbs": 215,
+        "fiber": 7,
+        "calories": 1640
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 2
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Double The Original Orange Chicken with Fried Rice",
+      "aliases": [
+        "double orange chicken plate with fried rice",
+        "double orange chicken plate fried rice",
+        "plate double orange chicken fried rice",
+        "fried rice double orange chicken plate"
+      ],
+      "macros": {
+        "protein": 53,
+        "fat": 63,
+        "carbs": 235,
+        "fiber": 5,
+        "calories": 1730
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 2
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Double The Original Orange Chicken with White Steamed Rice",
+      "aliases": [
+        "double orange chicken plate with white steamed rice",
+        "double orange chicken plate white steamed rice",
+        "plate double orange chicken white steamed rice",
+        "white steamed rice double orange chicken plate"
+      ],
+      "macros": {
+        "protein": 49,
+        "fat": 50,
+        "carbs": 255,
+        "fiber": 2,
+        "calories": 1690
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 2
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Double The Original Orange Chicken with Super Greens",
+      "aliases": [
+        "double orange chicken plate with super greens",
+        "double orange chicken plate super greens",
+        "plate double orange chicken super greens",
+        "super greens double orange chicken plate"
+      ],
+      "macros": {
+        "protein": 46,
+        "fat": 59,
+        "carbs": 143,
+        "fiber": 10,
+        "calories": 1300
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 2
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Grilled Teriyaki Chicken and Broccoli Beef with Chow Mein",
+      "aliases": [
+        "grilled teriyaki chicken and broccoli beef plate with chow mein",
+        "grilled teriyaki chicken and broccoli beef plate chow mein",
+        "plate grilled teriyaki chicken and broccoli beef chow mein",
+        "chow mein grilled teriyaki chicken and broccoli beef plate"
+      ],
+      "macros": {
+        "protein": 69,
+        "fat": 28,
+        "carbs": 116,
+        "fiber": 7,
+        "calories": 990
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Grilled Teriyaki Chicken and Broccoli Beef with Fried Rice",
+      "aliases": [
+        "grilled teriyaki chicken and broccoli beef plate with fried rice",
+        "grilled teriyaki chicken and broccoli beef plate fried rice",
+        "plate grilled teriyaki chicken and broccoli beef fried rice",
+        "fried rice grilled teriyaki chicken and broccoli beef plate"
+      ],
+      "macros": {
+        "protein": 70,
+        "fat": 29,
+        "carbs": 136,
+        "fiber": 5,
+        "calories": 1080
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Grilled Teriyaki Chicken and Broccoli Beef with White Steamed Rice",
+      "aliases": [
+        "grilled teriyaki chicken and broccoli beef plate with white steamed rice",
+        "grilled teriyaki chicken and broccoli beef plate white steamed rice",
+        "plate grilled teriyaki chicken and broccoli beef white steamed rice",
+        "white steamed rice grilled teriyaki chicken and broccoli beef plate"
+      ],
+      "macros": {
+        "protein": 66,
+        "fat": 16,
+        "carbs": 156,
+        "fiber": 2,
+        "calories": 1040
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Grilled Teriyaki Chicken and Broccoli Beef with Super Greens",
+      "aliases": [
+        "grilled teriyaki chicken and broccoli beef plate with super greens",
+        "grilled teriyaki chicken and broccoli beef plate super greens",
+        "plate grilled teriyaki chicken and broccoli beef super greens",
+        "super greens grilled teriyaki chicken and broccoli beef plate"
+      ],
+      "macros": {
+        "protein": 63,
+        "fat": 25,
+        "carbs": 44,
+        "fiber": 10,
+        "calories": 650
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Grilled Teriyaki Chicken and Beijing Beef with Chow Mein",
+      "aliases": [
+        "grilled teriyaki chicken and beijing beef plate with chow mein",
+        "grilled teriyaki chicken and beijing beef plate chow mein",
+        "plate grilled teriyaki chicken and beijing beef chow mein",
+        "chow mein grilled teriyaki chicken and beijing beef plate"
+      ],
+      "macros": {
+        "protein": 66,
+        "fat": 48,
+        "carbs": 148,
+        "fiber": 7,
+        "calories": 1280
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Grilled Teriyaki Chicken and Beijing Beef with Fried Rice",
+      "aliases": [
+        "grilled teriyaki chicken and beijing beef plate with fried rice",
+        "grilled teriyaki chicken and beijing beef plate fried rice",
+        "plate grilled teriyaki chicken and beijing beef fried rice",
+        "fried rice grilled teriyaki chicken and beijing beef plate"
+      ],
+      "macros": {
+        "protein": 67,
+        "fat": 49,
+        "carbs": 168,
+        "fiber": 5,
+        "calories": 1370
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Grilled Teriyaki Chicken and Beijing Beef with White Steamed Rice",
+      "aliases": [
+        "grilled teriyaki chicken and beijing beef plate with white steamed rice",
+        "grilled teriyaki chicken and beijing beef plate white steamed rice",
+        "plate grilled teriyaki chicken and beijing beef white steamed rice",
+        "white steamed rice grilled teriyaki chicken and beijing beef plate"
+      ],
+      "macros": {
+        "protein": 63,
+        "fat": 36,
+        "carbs": 188,
+        "fiber": 2,
+        "calories": 1330
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Grilled Teriyaki Chicken and Beijing Beef with Super Greens",
+      "aliases": [
+        "grilled teriyaki chicken and beijing beef plate with super greens",
+        "grilled teriyaki chicken and beijing beef plate super greens",
+        "plate grilled teriyaki chicken and beijing beef super greens",
+        "super greens grilled teriyaki chicken and beijing beef plate"
+      ],
+      "macros": {
+        "protein": 60,
+        "fat": 45,
+        "carbs": 76,
+        "fiber": 10,
+        "calories": 940
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Grilled Teriyaki Chicken and Kung Pao Chicken with Chow Mein",
+      "aliases": [
+        "grilled teriyaki chicken and kung pao chicken plate with chow mein",
+        "grilled teriyaki chicken and kung pao chicken plate chow mein",
+        "plate grilled teriyaki chicken and kung pao chicken chow mein",
+        "chow mein grilled teriyaki chicken and kung pao chicken plate"
+      ],
+      "macros": {
+        "protein": 72,
+        "fat": 35,
+        "carbs": 118,
+        "fiber": 7,
+        "calories": 1070
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Grilled Teriyaki Chicken and Kung Pao Chicken with Fried Rice",
+      "aliases": [
+        "grilled teriyaki chicken and kung pao chicken plate with fried rice",
+        "grilled teriyaki chicken and kung pao chicken plate fried rice",
+        "plate grilled teriyaki chicken and kung pao chicken fried rice",
+        "fried rice grilled teriyaki chicken and kung pao chicken plate"
+      ],
+      "macros": {
+        "protein": 73,
+        "fat": 36,
+        "carbs": 138,
+        "fiber": 5,
+        "calories": 1160
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Grilled Teriyaki Chicken and Kung Pao Chicken with White Steamed Rice",
+      "aliases": [
+        "grilled teriyaki chicken and kung pao chicken plate with white steamed rice",
+        "grilled teriyaki chicken and kung pao chicken plate white steamed rice",
+        "plate grilled teriyaki chicken and kung pao chicken white steamed rice",
+        "white steamed rice grilled teriyaki chicken and kung pao chicken plate"
+      ],
+      "macros": {
+        "protein": 69,
+        "fat": 23,
+        "carbs": 158,
+        "fiber": 2,
+        "calories": 1120
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Grilled Teriyaki Chicken and Kung Pao Chicken with Super Greens",
+      "aliases": [
+        "grilled teriyaki chicken and kung pao chicken plate with super greens",
+        "grilled teriyaki chicken and kung pao chicken plate super greens",
+        "plate grilled teriyaki chicken and kung pao chicken super greens",
+        "super greens grilled teriyaki chicken and kung pao chicken plate"
+      ],
+      "macros": {
+        "protein": 66,
+        "fat": 32,
+        "carbs": 46,
+        "fiber": 10,
+        "calories": 730
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Grilled Teriyaki Chicken and String Bean Chicken Breast with Chow Mein",
+      "aliases": [
+        "grilled teriyaki chicken and string bean chicken breast plate with chow mein",
+        "grilled teriyaki chicken and string bean chicken breast plate chow mein",
+        "plate grilled teriyaki chicken and string bean chicken breast chow mein",
+        "chow mein grilled teriyaki chicken and string bean chicken breast plate"
+      ],
+      "macros": {
+        "protein": 67,
+        "fat": 31,
+        "carbs": 117,
+        "fiber": 8,
+        "calories": 1010
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "string bean chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Grilled Teriyaki Chicken and String Bean Chicken Breast with Fried Rice",
+      "aliases": [
+        "grilled teriyaki chicken and string bean chicken breast plate with fried rice",
+        "grilled teriyaki chicken and string bean chicken breast plate fried rice",
+        "plate grilled teriyaki chicken and string bean chicken breast fried rice",
+        "fried rice grilled teriyaki chicken and string bean chicken breast plate"
+      ],
+      "macros": {
+        "protein": 68,
+        "fat": 32,
+        "carbs": 137,
+        "fiber": 6,
+        "calories": 1100
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "string bean chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Grilled Teriyaki Chicken and String Bean Chicken Breast with White Steamed Rice",
+      "aliases": [
+        "grilled teriyaki chicken and string bean chicken breast plate with white steamed rice",
+        "grilled teriyaki chicken and string bean chicken breast plate white steamed rice",
+        "plate grilled teriyaki chicken and string bean chicken breast white steamed rice",
+        "white steamed rice grilled teriyaki chicken and string bean chicken breast plate"
+      ],
+      "macros": {
+        "protein": 64,
+        "fat": 19,
+        "carbs": 157,
+        "fiber": 3,
+        "calories": 1060
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "string bean chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Grilled Teriyaki Chicken and String Bean Chicken Breast with Super Greens",
+      "aliases": [
+        "grilled teriyaki chicken and string bean chicken breast plate with super greens",
+        "grilled teriyaki chicken and string bean chicken breast plate super greens",
+        "plate grilled teriyaki chicken and string bean chicken breast super greens",
+        "super greens grilled teriyaki chicken and string bean chicken breast plate"
+      ],
+      "macros": {
+        "protein": 61,
+        "fat": 28,
+        "carbs": 45,
+        "fiber": 11,
+        "calories": 670
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "string bean chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Double Grilled Teriyaki Chicken with Chow Mein",
+      "aliases": [
+        "double grilled teriyaki chicken plate with chow mein",
+        "double grilled teriyaki chicken plate chow mein",
+        "plate double grilled teriyaki chicken chow mein",
+        "chow mein double grilled teriyaki chicken plate"
+      ],
+      "macros": {
+        "protein": 90,
+        "fat": 30,
+        "carbs": 115,
+        "fiber": 5,
+        "calories": 1080
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 2
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Double Grilled Teriyaki Chicken with Fried Rice",
+      "aliases": [
+        "double grilled teriyaki chicken plate with fried rice",
+        "double grilled teriyaki chicken plate fried rice",
+        "plate double grilled teriyaki chicken fried rice",
+        "fried rice double grilled teriyaki chicken plate"
+      ],
+      "macros": {
+        "protein": 91,
+        "fat": 31,
+        "carbs": 135,
+        "fiber": 3,
+        "calories": 1170
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 2
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Double Grilled Teriyaki Chicken with White Steamed Rice",
+      "aliases": [
+        "double grilled teriyaki chicken plate with white steamed rice",
+        "double grilled teriyaki chicken plate white steamed rice",
+        "plate double grilled teriyaki chicken white steamed rice",
+        "white steamed rice double grilled teriyaki chicken plate"
+      ],
+      "macros": {
+        "protein": 87,
+        "fat": 18,
+        "carbs": 155,
+        "fiber": 0,
+        "calories": 1130
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 2
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Double Grilled Teriyaki Chicken with Super Greens",
+      "aliases": [
+        "double grilled teriyaki chicken plate with super greens",
+        "double grilled teriyaki chicken plate super greens",
+        "plate double grilled teriyaki chicken super greens",
+        "super greens double grilled teriyaki chicken plate"
+      ],
+      "macros": {
+        "protein": 84,
+        "fat": 27,
+        "carbs": 43,
+        "fiber": 8,
+        "calories": 740
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 2
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Broccoli Beef and Kung Pao Chicken with Chow Mein",
+      "aliases": [
+        "broccoli beef and kung pao chicken plate with chow mein",
+        "broccoli beef and kung pao chicken plate chow mein",
+        "plate broccoli beef and kung pao chicken chow mein",
+        "chow mein broccoli beef and kung pao chicken plate"
+      ],
+      "macros": {
+        "protein": 51,
+        "fat": 33,
+        "carbs": 119,
+        "fiber": 9,
+        "calories": 980
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Broccoli Beef and Kung Pao Chicken with Fried Rice",
+      "aliases": [
+        "broccoli beef and kung pao chicken plate with fried rice",
+        "broccoli beef and kung pao chicken plate fried rice",
+        "plate broccoli beef and kung pao chicken fried rice",
+        "fried rice broccoli beef and kung pao chicken plate"
+      ],
+      "macros": {
+        "protein": 52,
+        "fat": 34,
+        "carbs": 139,
+        "fiber": 7,
+        "calories": 1070
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Broccoli Beef and Kung Pao Chicken with White Steamed Rice",
+      "aliases": [
+        "broccoli beef and kung pao chicken plate with white steamed rice",
+        "broccoli beef and kung pao chicken plate white steamed rice",
+        "plate broccoli beef and kung pao chicken white steamed rice",
+        "white steamed rice broccoli beef and kung pao chicken plate"
+      ],
+      "macros": {
+        "protein": 48,
+        "fat": 21,
+        "carbs": 159,
+        "fiber": 4,
+        "calories": 1030
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Broccoli Beef and Kung Pao Chicken with Super Greens",
+      "aliases": [
+        "broccoli beef and kung pao chicken plate with super greens",
+        "broccoli beef and kung pao chicken plate super greens",
+        "plate broccoli beef and kung pao chicken super greens",
+        "super greens broccoli beef and kung pao chicken plate"
+      ],
+      "macros": {
+        "protein": 45,
+        "fat": 30,
+        "carbs": 47,
+        "fiber": 12,
+        "calories": 640
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Broccoli Beef and Beijing Beef with Chow Mein",
+      "aliases": [
+        "broccoli beef and beijing beef plate with chow mein",
+        "broccoli beef and beijing beef plate chow mein",
+        "plate broccoli beef and beijing beef chow mein",
+        "chow mein broccoli beef and beijing beef plate"
+      ],
+      "macros": {
+        "protein": 45,
+        "fat": 46,
+        "carbs": 149,
+        "fiber": 9,
+        "calories": 1190
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Broccoli Beef and Beijing Beef with Fried Rice",
+      "aliases": [
+        "broccoli beef and beijing beef plate with fried rice",
+        "broccoli beef and beijing beef plate fried rice",
+        "plate broccoli beef and beijing beef fried rice",
+        "fried rice broccoli beef and beijing beef plate"
+      ],
+      "macros": {
+        "protein": 46,
+        "fat": 47,
+        "carbs": 169,
+        "fiber": 7,
+        "calories": 1280
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Broccoli Beef and Beijing Beef with White Steamed Rice",
+      "aliases": [
+        "broccoli beef and beijing beef plate with white steamed rice",
+        "broccoli beef and beijing beef plate white steamed rice",
+        "plate broccoli beef and beijing beef white steamed rice",
+        "white steamed rice broccoli beef and beijing beef plate"
+      ],
+      "macros": {
+        "protein": 42,
+        "fat": 34,
+        "carbs": 189,
+        "fiber": 4,
+        "calories": 1240
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Broccoli Beef and Beijing Beef with Super Greens",
+      "aliases": [
+        "broccoli beef and beijing beef plate with super greens",
+        "broccoli beef and beijing beef plate super greens",
+        "plate broccoli beef and beijing beef super greens",
+        "super greens broccoli beef and beijing beef plate"
+      ],
+      "macros": {
+        "protein": 39,
+        "fat": 43,
+        "carbs": 77,
+        "fiber": 12,
+        "calories": 850
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Broccoli Beef and Honey Walnut Shrimp with Chow Mein",
+      "aliases": [
+        "broccoli beef and honey walnut shrimp plate with chow mein",
+        "broccoli beef and honey walnut shrimp plate chow mein",
+        "plate broccoli beef and honey walnut shrimp chow mein",
+        "chow mein broccoli beef and honey walnut shrimp plate"
+      ],
+      "macros": {
+        "protein": 44,
+        "fat": 39,
+        "carbs": 131,
+        "fiber": 8,
+        "calories": 1050
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "honey walnut shrimp",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Broccoli Beef and Honey Walnut Shrimp with Fried Rice",
+      "aliases": [
+        "broccoli beef and honey walnut shrimp plate with fried rice",
+        "broccoli beef and honey walnut shrimp plate fried rice",
+        "plate broccoli beef and honey walnut shrimp fried rice",
+        "fried rice broccoli beef and honey walnut shrimp plate"
+      ],
+      "macros": {
+        "protein": 45,
+        "fat": 40,
+        "carbs": 151,
+        "fiber": 6,
+        "calories": 1140
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "honey walnut shrimp",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Broccoli Beef and Honey Walnut Shrimp with White Steamed Rice",
+      "aliases": [
+        "broccoli beef and honey walnut shrimp plate with white steamed rice",
+        "broccoli beef and honey walnut shrimp plate white steamed rice",
+        "plate broccoli beef and honey walnut shrimp white steamed rice",
+        "white steamed rice broccoli beef and honey walnut shrimp plate"
+      ],
+      "macros": {
+        "protein": 41,
+        "fat": 27,
+        "carbs": 171,
+        "fiber": 3,
+        "calories": 1100
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "honey walnut shrimp",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: Broccoli Beef and Honey Walnut Shrimp with Super Greens",
+      "aliases": [
+        "broccoli beef and honey walnut shrimp plate with super greens",
+        "broccoli beef and honey walnut shrimp plate super greens",
+        "plate broccoli beef and honey walnut shrimp super greens",
+        "super greens broccoli beef and honey walnut shrimp plate"
+      ],
+      "macros": {
+        "protein": 38,
+        "fat": 36,
+        "carbs": 59,
+        "fiber": 11,
+        "calories": 710
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "honey walnut shrimp",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Grilled Teriyaki Chicken with Half Chow Mein Half Fried Rice",
+      "aliases": [
+        "orange chicken and grilled teriyaki chicken plate half and half",
+        "orange chicken grilled teriyaki chicken plate half chow mein half fried rice",
+        "half and half orange chicken grilled teriyaki chicken plate"
+      ],
+      "macros": {
+        "protein": 71.5,
+        "fat": 46.5,
+        "carbs": 175,
+        "fiber": 5,
+        "calories": 1405
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 0.5
+        },
+        {
+          "component": "fried rice",
+          "count": 0.5
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Broccoli Beef with Half Chow Mein Half Fried Rice",
+      "aliases": [
+        "orange chicken and broccoli beef plate half and half",
+        "orange chicken broccoli beef plate half chow mein half fried rice",
+        "half and half orange chicken broccoli beef plate"
+      ],
+      "macros": {
+        "protein": 50.5,
+        "fat": 44.5,
+        "carbs": 176,
+        "fiber": 7,
+        "calories": 1315
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 0.5
+        },
+        {
+          "component": "fried rice",
+          "count": 0.5
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Beijing Beef with Half Chow Mein Half Fried Rice",
+      "aliases": [
+        "orange chicken and beijing beef plate half and half",
+        "orange chicken beijing beef plate half chow mein half fried rice",
+        "half and half orange chicken beijing beef plate"
+      ],
+      "macros": {
+        "protein": 47.5,
+        "fat": 64.5,
+        "carbs": 208,
+        "fiber": 7,
+        "calories": 1605
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 0.5
+        },
+        {
+          "component": "fried rice",
+          "count": 0.5
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Kung Pao Chicken with Half Chow Mein Half Fried Rice",
+      "aliases": [
+        "orange chicken and kung pao chicken plate half and half",
+        "orange chicken kung pao chicken plate half chow mein half fried rice",
+        "half and half orange chicken kung pao chicken plate"
+      ],
+      "macros": {
+        "protein": 53.5,
+        "fat": 51.5,
+        "carbs": 178,
+        "fiber": 7,
+        "calories": 1395
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 0.5
+        },
+        {
+          "component": "fried rice",
+          "count": 0.5
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Plate: The Original Orange Chicken and Honey Walnut Shrimp with Half Chow Mein Half Fried Rice",
+      "aliases": [
+        "orange chicken and honey walnut shrimp plate half and half",
+        "orange chicken honey walnut shrimp plate half chow mein half fried rice",
+        "half and half orange chicken honey walnut shrimp plate"
+      ],
+      "macros": {
+        "protein": 46.5,
+        "fat": 57.5,
+        "carbs": 190,
+        "fiber": 6,
+        "calories": 1465
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 0.5
+        },
+        {
+          "component": "fried rice",
+          "count": 0.5
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "honey walnut shrimp",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Grilled Teriyaki Chicken, Broccoli Beef with Chow Mein",
+      "aliases": [
+        "orange chicken, grilled teriyaki chicken, broccoli beef bigger plate with chow mein",
+        "bigger plate orange chicken, grilled teriyaki chicken, broccoli beef chow mein",
+        "orange chicken grilled teriyaki chicken broccoli beef bigger plate chow mein"
+      ],
+      "macros": {
+        "protein": 88,
+        "fat": 53,
+        "carbs": 179,
+        "fiber": 8,
+        "calories": 1550
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Grilled Teriyaki Chicken, Broccoli Beef with Fried Rice",
+      "aliases": [
+        "orange chicken, grilled teriyaki chicken, broccoli beef bigger plate with fried rice",
+        "bigger plate orange chicken, grilled teriyaki chicken, broccoli beef fried rice",
+        "orange chicken grilled teriyaki chicken broccoli beef bigger plate fried rice"
+      ],
+      "macros": {
+        "protein": 89,
+        "fat": 54,
+        "carbs": 199,
+        "fiber": 6,
+        "calories": 1640
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Grilled Teriyaki Chicken, Broccoli Beef with White Steamed Rice",
+      "aliases": [
+        "orange chicken, grilled teriyaki chicken, broccoli beef bigger plate with white steamed rice",
+        "bigger plate orange chicken, grilled teriyaki chicken, broccoli beef white steamed rice",
+        "orange chicken grilled teriyaki chicken broccoli beef bigger plate white steamed rice"
+      ],
+      "macros": {
+        "protein": 85,
+        "fat": 41,
+        "carbs": 219,
+        "fiber": 3,
+        "calories": 1600
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Grilled Teriyaki Chicken, Broccoli Beef with Super Greens",
+      "aliases": [
+        "orange chicken, grilled teriyaki chicken, broccoli beef bigger plate with super greens",
+        "bigger plate orange chicken, grilled teriyaki chicken, broccoli beef super greens",
+        "orange chicken grilled teriyaki chicken broccoli beef bigger plate super greens"
+      ],
+      "macros": {
+        "protein": 82,
+        "fat": 50,
+        "carbs": 107,
+        "fiber": 11,
+        "calories": 1210
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Beijing Beef, Kung Pao Chicken with Chow Mein",
+      "aliases": [
+        "orange chicken, beijing beef, kung pao chicken bigger plate with chow mein",
+        "bigger plate orange chicken, beijing beef, kung pao chicken chow mein",
+        "orange chicken beijing beef kung pao chicken bigger plate chow mein"
+      ],
+      "macros": {
+        "protein": 67,
+        "fat": 78,
+        "carbs": 214,
+        "fiber": 10,
+        "calories": 1830
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Beijing Beef, Kung Pao Chicken with Fried Rice",
+      "aliases": [
+        "orange chicken, beijing beef, kung pao chicken bigger plate with fried rice",
+        "bigger plate orange chicken, beijing beef, kung pao chicken fried rice",
+        "orange chicken beijing beef kung pao chicken bigger plate fried rice"
+      ],
+      "macros": {
+        "protein": 68,
+        "fat": 79,
+        "carbs": 234,
+        "fiber": 8,
+        "calories": 1920
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Beijing Beef, Kung Pao Chicken with White Steamed Rice",
+      "aliases": [
+        "orange chicken, beijing beef, kung pao chicken bigger plate with white steamed rice",
+        "bigger plate orange chicken, beijing beef, kung pao chicken white steamed rice",
+        "orange chicken beijing beef kung pao chicken bigger plate white steamed rice"
+      ],
+      "macros": {
+        "protein": 64,
+        "fat": 66,
+        "carbs": 254,
+        "fiber": 5,
+        "calories": 1880
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Beijing Beef, Kung Pao Chicken with Super Greens",
+      "aliases": [
+        "orange chicken, beijing beef, kung pao chicken bigger plate with super greens",
+        "bigger plate orange chicken, beijing beef, kung pao chicken super greens",
+        "orange chicken beijing beef kung pao chicken bigger plate super greens"
+      ],
+      "macros": {
+        "protein": 61,
+        "fat": 75,
+        "carbs": 142,
+        "fiber": 13,
+        "calories": 1490
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Grilled Teriyaki Chicken, Beijing Beef with Chow Mein",
+      "aliases": [
+        "orange chicken, grilled teriyaki chicken, beijing beef bigger plate with chow mein",
+        "bigger plate orange chicken, grilled teriyaki chicken, beijing beef chow mein",
+        "orange chicken grilled teriyaki chicken beijing beef bigger plate chow mein"
+      ],
+      "macros": {
+        "protein": 85,
+        "fat": 73,
+        "carbs": 211,
+        "fiber": 8,
+        "calories": 1840
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Grilled Teriyaki Chicken, Beijing Beef with Fried Rice",
+      "aliases": [
+        "orange chicken, grilled teriyaki chicken, beijing beef bigger plate with fried rice",
+        "bigger plate orange chicken, grilled teriyaki chicken, beijing beef fried rice",
+        "orange chicken grilled teriyaki chicken beijing beef bigger plate fried rice"
+      ],
+      "macros": {
+        "protein": 86,
+        "fat": 74,
+        "carbs": 231,
+        "fiber": 6,
+        "calories": 1930
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Grilled Teriyaki Chicken, Beijing Beef with White Steamed Rice",
+      "aliases": [
+        "orange chicken, grilled teriyaki chicken, beijing beef bigger plate with white steamed rice",
+        "bigger plate orange chicken, grilled teriyaki chicken, beijing beef white steamed rice",
+        "orange chicken grilled teriyaki chicken beijing beef bigger plate white steamed rice"
+      ],
+      "macros": {
+        "protein": 82,
+        "fat": 61,
+        "carbs": 251,
+        "fiber": 3,
+        "calories": 1890
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Grilled Teriyaki Chicken, Beijing Beef with Super Greens",
+      "aliases": [
+        "orange chicken, grilled teriyaki chicken, beijing beef bigger plate with super greens",
+        "bigger plate orange chicken, grilled teriyaki chicken, beijing beef super greens",
+        "orange chicken grilled teriyaki chicken beijing beef bigger plate super greens"
+      ],
+      "macros": {
+        "protein": 79,
+        "fat": 70,
+        "carbs": 139,
+        "fiber": 11,
+        "calories": 1500
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "beijing beef",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Honey Walnut Shrimp, Grilled Teriyaki Chicken with Chow Mein",
+      "aliases": [
+        "orange chicken, honey walnut shrimp, grilled teriyaki chicken bigger plate with chow mein",
+        "bigger plate orange chicken, honey walnut shrimp, grilled teriyaki chicken chow mein",
+        "orange chicken honey walnut shrimp grilled teriyaki chicken bigger plate chow mein"
+      ],
+      "macros": {
+        "protein": 84,
+        "fat": 66,
+        "carbs": 193,
+        "fiber": 7,
+        "calories": 1700
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "honey walnut shrimp",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Honey Walnut Shrimp, Grilled Teriyaki Chicken with Fried Rice",
+      "aliases": [
+        "orange chicken, honey walnut shrimp, grilled teriyaki chicken bigger plate with fried rice",
+        "bigger plate orange chicken, honey walnut shrimp, grilled teriyaki chicken fried rice",
+        "orange chicken honey walnut shrimp grilled teriyaki chicken bigger plate fried rice"
+      ],
+      "macros": {
+        "protein": 85,
+        "fat": 67,
+        "carbs": 213,
+        "fiber": 5,
+        "calories": 1790
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "honey walnut shrimp",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Honey Walnut Shrimp, Grilled Teriyaki Chicken with White Steamed Rice",
+      "aliases": [
+        "orange chicken, honey walnut shrimp, grilled teriyaki chicken bigger plate with white steamed rice",
+        "bigger plate orange chicken, honey walnut shrimp, grilled teriyaki chicken white steamed rice",
+        "orange chicken honey walnut shrimp grilled teriyaki chicken bigger plate white steamed rice"
+      ],
+      "macros": {
+        "protein": 81,
+        "fat": 54,
+        "carbs": 233,
+        "fiber": 2,
+        "calories": 1750
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "honey walnut shrimp",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Honey Walnut Shrimp, Grilled Teriyaki Chicken with Super Greens",
+      "aliases": [
+        "orange chicken, honey walnut shrimp, grilled teriyaki chicken bigger plate with super greens",
+        "bigger plate orange chicken, honey walnut shrimp, grilled teriyaki chicken super greens",
+        "orange chicken honey walnut shrimp grilled teriyaki chicken bigger plate super greens"
+      ],
+      "macros": {
+        "protein": 78,
+        "fat": 63,
+        "carbs": 121,
+        "fiber": 10,
+        "calories": 1360
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "honey walnut shrimp",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Broccoli Beef, Kung Pao Chicken with Chow Mein",
+      "aliases": [
+        "orange chicken, broccoli beef, kung pao chicken bigger plate with chow mein",
+        "bigger plate orange chicken, broccoli beef, kung pao chicken chow mein",
+        "orange chicken broccoli beef kung pao chicken bigger plate chow mein"
+      ],
+      "macros": {
+        "protein": 70,
+        "fat": 58,
+        "carbs": 182,
+        "fiber": 10,
+        "calories": 1540
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Broccoli Beef, Kung Pao Chicken with Fried Rice",
+      "aliases": [
+        "orange chicken, broccoli beef, kung pao chicken bigger plate with fried rice",
+        "bigger plate orange chicken, broccoli beef, kung pao chicken fried rice",
+        "orange chicken broccoli beef kung pao chicken bigger plate fried rice"
+      ],
+      "macros": {
+        "protein": 71,
+        "fat": 59,
+        "carbs": 202,
+        "fiber": 8,
+        "calories": 1630
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Broccoli Beef, Kung Pao Chicken with White Steamed Rice",
+      "aliases": [
+        "orange chicken, broccoli beef, kung pao chicken bigger plate with white steamed rice",
+        "bigger plate orange chicken, broccoli beef, kung pao chicken white steamed rice",
+        "orange chicken broccoli beef kung pao chicken bigger plate white steamed rice"
+      ],
+      "macros": {
+        "protein": 67,
+        "fat": 46,
+        "carbs": 222,
+        "fiber": 5,
+        "calories": 1590
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: The Original Orange Chicken, Broccoli Beef, Kung Pao Chicken with Super Greens",
+      "aliases": [
+        "orange chicken, broccoli beef, kung pao chicken bigger plate with super greens",
+        "bigger plate orange chicken, broccoli beef, kung pao chicken super greens",
+        "orange chicken broccoli beef kung pao chicken bigger plate super greens"
+      ],
+      "macros": {
+        "protein": 64,
+        "fat": 55,
+        "carbs": 110,
+        "fiber": 13,
+        "calories": 1200
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "kung pao chicken",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: Grilled Teriyaki Chicken, Broccoli Beef, String Bean Chicken Breast with Chow Mein",
+      "aliases": [
+        "grilled teriyaki chicken, broccoli beef, string bean chicken breast bigger plate with chow mein",
+        "bigger plate grilled teriyaki chicken, broccoli beef, string bean chicken breast chow mein",
+        "grilled teriyaki chicken broccoli beef string bean chicken breast bigger plate chow mein"
+      ],
+      "macros": {
+        "protein": 84,
+        "fat": 38,
+        "carbs": 131,
+        "fiber": 10,
+        "calories": 1200
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "string bean chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: Grilled Teriyaki Chicken, Broccoli Beef, String Bean Chicken Breast with Fried Rice",
+      "aliases": [
+        "grilled teriyaki chicken, broccoli beef, string bean chicken breast bigger plate with fried rice",
+        "bigger plate grilled teriyaki chicken, broccoli beef, string bean chicken breast fried rice",
+        "grilled teriyaki chicken broccoli beef string bean chicken breast bigger plate fried rice"
+      ],
+      "macros": {
+        "protein": 85,
+        "fat": 39,
+        "carbs": 151,
+        "fiber": 8,
+        "calories": 1290
+      },
+      "build": [
+        {
+          "component": "fried rice",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "string bean chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: Grilled Teriyaki Chicken, Broccoli Beef, String Bean Chicken Breast with White Steamed Rice",
+      "aliases": [
+        "grilled teriyaki chicken, broccoli beef, string bean chicken breast bigger plate with white steamed rice",
+        "bigger plate grilled teriyaki chicken, broccoli beef, string bean chicken breast white steamed rice",
+        "grilled teriyaki chicken broccoli beef string bean chicken breast bigger plate white steamed rice"
+      ],
+      "macros": {
+        "protein": 81,
+        "fat": 26,
+        "carbs": 171,
+        "fiber": 5,
+        "calories": 1250
+      },
+      "build": [
+        {
+          "component": "white steamed rice",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "string bean chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bigger Plate: Grilled Teriyaki Chicken, Broccoli Beef, String Bean Chicken Breast with Super Greens",
+      "aliases": [
+        "grilled teriyaki chicken, broccoli beef, string bean chicken breast bigger plate with super greens",
+        "bigger plate grilled teriyaki chicken, broccoli beef, string bean chicken breast super greens",
+        "grilled teriyaki chicken broccoli beef string bean chicken breast bigger plate super greens"
+      ],
+      "macros": {
+        "protein": 78,
+        "fat": 35,
+        "carbs": 59,
+        "fiber": 13,
+        "calories": 860
+      },
+      "build": [
+        {
+          "component": "super greens",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        },
+        {
+          "component": "string bean chicken breast",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published side and entree servings; Panda Express does not publish combo totals."
+    },
+    {
+      "name": "Bowl (default: Orange Chicken with Chow Mein)",
+      "aliases": [
+        "bowl",
+        "panda bowl",
+        "a bowl",
+        "orange chicken bowl",
+        "chow mein bowl"
+      ],
+      "macros": {
+        "protein": 33,
+        "fat": 37,
+        "carbs": 152,
+        "fiber": 6,
+        "calories": 1080
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        }
+      ],
+      "note": "Default bowl = 1 side + 1 entree. Macros are the sum of published side and entree servings; swap components for the ordered side/entree."
+    },
+    {
+      "name": "Plate (default: Orange Chicken and Grilled Teriyaki Chicken with Chow Mein)",
+      "aliases": [
+        "plate",
+        "panda plate",
+        "a plate",
+        "2 entree plate",
+        "two entree plate",
+        "orange chicken plate",
+        "teriyaki chicken plate"
+      ],
+      "macros": {
+        "protein": 71,
+        "fat": 46,
+        "carbs": 165,
+        "fiber": 6,
+        "calories": 1360
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        }
+      ],
+      "note": "Default plate = 1 side + 2 entrees. Macros are the sum of published side and entree servings; swap components for the ordered side/entrees."
+    },
+    {
+      "name": "Bigger Plate (default: Orange Chicken, Grilled Teriyaki Chicken and Broccoli Beef with Chow Mein)",
+      "aliases": [
+        "bigger plate",
+        "panda bigger plate",
+        "3 entree plate",
+        "three entree plate",
+        "big plate"
+      ],
+      "macros": {
+        "protein": 88,
+        "fat": 53,
+        "carbs": 179,
+        "fiber": 8,
+        "calories": 1550
+      },
+      "build": [
+        {
+          "component": "chow mein",
+          "count": 1
+        },
+        {
+          "component": "the original orange chicken",
+          "count": 1
+        },
+        {
+          "component": "grilled teriyaki chicken",
+          "count": 1
+        },
+        {
+          "component": "broccoli beef",
+          "count": 1
+        }
+      ],
+      "note": "Default bigger plate = 1 side + 3 entrees. Macros are the sum of published side and entree servings; swap components for the ordered side/entrees."
+    }
+  ]
+}

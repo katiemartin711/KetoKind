@@ -1,0 +1,5261 @@
+{
+  "chain": "Dunkin'",
+  "aliases": [
+    "dunkin",
+    "dunkin'",
+    "dunkin donuts",
+    "dunkin' donuts",
+    "dunkin doughnuts",
+    "dunkin dounuts",
+    "dunkins",
+    "dd",
+    "dunkies",
+    "duncan donuts",
+    "dunken donuts"
+  ],
+  "source": "https://assets.ctfassets.net/ubkcphxhphh0/3qEP8wMU2IFmLsLyEeWLuc/7bdae361f785d1611d25c4d859f8c721/DD_W7_nutrition_guide.pdf",
+  "retrieved": "2026-10-05",
+  "notes": [
+    "All figures transcribed from the Dunkin' Nutrition Guide PDF (\"last updated 09-21-2026\") linked as \"Get Nutrition PDF\" from https://www.dunkindonuts.com/nutrition/. Drinks are the Medium size with the guide's listed milk/sweetener; food is one unit as sold. Munchkins are per donut hole.",
+    "Dunkin' publishes finished-drink variants (e.g. Hot Coffee, Hot Coffee with Cream, Hot Coffee with Cream and Sugar) rather than per-add-in nutrition, so the cream, sugar, milk, swirl and cold-foam components here are derived by subtracting one published medium drink from another (see each component's \"derived\"). Swirl flavors and sweeteners are the medium-size default pumps. Unsweetened flavor shots are not in the guide and are omitted.",
+    "Sandwich components (egg and cheese filling, bacon, sausage, turkey sausage) are likewise derived by subtracting published sandwiches on the same bread. Sausage, Egg and Cheese on Croissant is not a row in this guide; it is the only item whose macros are built rather than published.",
+    "Omitted because the guide publishes them only as regional/limited-time Halloween items, or not at all: Frozen Coffee (no row in this guide), Hot Caramel Craze/other signature lattes beyond Caramel Craze and Cocoa Mocha, Dunkin’ Energy, Daydream/protein refreshers, kolaches, kosher items."
+  ],
+  "components": {
+    "hot coffee (medium, black)": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 5
+    },
+    "iced coffee (medium, black)": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 5
+    },
+    "cold brew (medium, black)": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 5
+    },
+    "espresso shot": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "hot latte with whole milk (medium)": {
+      "unit": "each",
+      "protein": 9,
+      "fat": 9,
+      "carbs": 14,
+      "fiber": 0,
+      "calories": 170
+    },
+    "hot latte with skim milk (medium)": {
+      "unit": "each",
+      "protein": 9,
+      "fat": 0,
+      "carbs": 15,
+      "fiber": 0,
+      "calories": 100
+    },
+    "iced latte with whole milk (medium)": {
+      "unit": "each",
+      "protein": 9,
+      "fat": 9,
+      "carbs": 14,
+      "fiber": 0,
+      "calories": 170
+    },
+    "iced latte with skim milk (medium)": {
+      "unit": "each",
+      "protein": 9,
+      "fat": 0,
+      "carbs": 15,
+      "fiber": 0,
+      "calories": 100
+    },
+    "hot macchiato with whole milk (medium)": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 6,
+      "carbs": 10,
+      "fiber": 0,
+      "calories": 120
+    },
+    "hot macchiato with skim milk (medium)": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 0,
+      "carbs": 11,
+      "fiber": 0,
+      "calories": 70
+    },
+    "iced macchiato with whole milk (medium)": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 6,
+      "carbs": 10,
+      "fiber": 0,
+      "calories": 120
+    },
+    "iced macchiato with skim milk (medium)": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 0,
+      "carbs": 11,
+      "fiber": 0,
+      "calories": 70
+    },
+    "cappuccino with whole milk (medium)": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 6,
+      "carbs": 10,
+      "fiber": 0,
+      "calories": 120
+    },
+    "cappuccino with skim milk (medium)": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 0,
+      "carbs": 10,
+      "fiber": 0,
+      "calories": 70
+    },
+    "cream": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 9,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 85,
+      "derived": "Hot Coffee with Cream (Medium) minus Hot Coffee (Medium)"
+    },
+    "sugar": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 26,
+      "fiber": 0,
+      "calories": 100,
+      "derived": "Hot Coffee with Cream and Sugar (Medium) minus Hot Coffee with Cream (Medium)"
+    },
+    "whole milk": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 1.5,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 25,
+      "derived": "Hot Coffee with Whole Milk (Medium) minus Hot Coffee (Medium)"
+    },
+    "skim milk": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 0,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 15,
+      "derived": "Hot Coffee with Skim Milk (Medium) minus Hot Coffee (Medium)"
+    },
+    "oatmilk": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 1,
+      "carbs": 5,
+      "fiber": 1,
+      "calories": 25,
+      "derived": "Hot Coffee with Oatmilk (Medium) minus Hot Coffee (Medium)"
+    },
+    "almondmilk": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0.5,
+      "carbs": 4,
+      "fiber": 0,
+      "calories": 20,
+      "derived": "Hot Coffee with AlmondMilk (Medium) minus Hot Coffee (Medium)"
+    },
+    "french vanilla swirl": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 0,
+      "carbs": 38,
+      "fiber": 0,
+      "calories": 165,
+      "derived": "French Vanilla Swirl Hot Coffee (Medium) minus Hot Coffee (Medium)"
+    },
+    "caramel swirl": {
+      "unit": "each",
+      "protein": 2,
+      "fat": 0,
+      "carbs": 39,
+      "fiber": 0,
+      "calories": 165,
+      "derived": "Caramel Swirl Hot Coffee with Black (Medium) minus Hot Coffee (Medium)"
+    },
+    "mocha swirl": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 0.5,
+      "carbs": 38,
+      "fiber": 2,
+      "calories": 155,
+      "derived": "Mocha Swirl Hot Coffee (Medium) minus Hot Coffee (Medium)"
+    },
+    "butter pecan swirl": {
+      "unit": "each",
+      "protein": 2,
+      "fat": 0,
+      "carbs": 38,
+      "fiber": 0,
+      "calories": 165,
+      "derived": "Butter Pecan Swirl Hot Coffee with Black (Medium) minus Hot Coffee (Medium)"
+    },
+    "dunkin cold foam": {
+      "unit": "each",
+      "protein": 2,
+      "fat": 3.5,
+      "carbs": 13,
+      "fiber": 0,
+      "calories": 85,
+      "derived": "Cold Brew with Dunkin' Cold Foam, Black (Medium) minus Cold Brew Coffee (Medium)"
+    },
+    "plain butter croissant": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 15,
+      "carbs": 31,
+      "fiber": 1,
+      "calories": 280
+    },
+    "english muffin": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 2,
+      "carbs": 35,
+      "fiber": 1,
+      "calories": 190
+    },
+    "plain bagel": {
+      "unit": "each",
+      "protein": 11,
+      "fat": 1,
+      "carbs": 64,
+      "fiber": 4,
+      "calories": 300
+    },
+    "everything bagel": {
+      "unit": "each",
+      "protein": 12,
+      "fat": 3,
+      "carbs": 67,
+      "fiber": 5,
+      "calories": 340
+    },
+    "cinnamon raisin bagel": {
+      "unit": "each",
+      "protein": 11,
+      "fat": 1,
+      "carbs": 67,
+      "fiber": 4,
+      "calories": 320
+    },
+    "multigrain bagel": {
+      "unit": "each",
+      "protein": 15,
+      "fat": 8,
+      "carbs": 63,
+      "fiber": 8,
+      "calories": 380
+    },
+    "sesame seed bagel": {
+      "unit": "each",
+      "protein": 12,
+      "fat": 5,
+      "carbs": 64,
+      "fiber": 5,
+      "calories": 350
+    },
+    "plain cream cheese spread": {
+      "unit": "each",
+      "protein": 2,
+      "fat": 12,
+      "carbs": 3,
+      "fiber": 0,
+      "calories": 120
+    },
+    "garden veggie cream cheese spread": {
+      "unit": "each",
+      "protein": 2,
+      "fat": 10,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 100
+    },
+    "strawberry cream cheese spread": {
+      "unit": "each",
+      "protein": 2,
+      "fat": 10,
+      "carbs": 9,
+      "fiber": 0,
+      "calories": 130
+    },
+    "avocado spread": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 7,
+      "carbs": 4,
+      "fiber": 3,
+      "calories": 80
+    },
+    "egg and cheese (sandwich filling)": {
+      "unit": "each",
+      "protein": 8,
+      "fat": 13,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 160,
+      "derived": "Egg and Cheese on Croissant minus Plain Butter Croissant"
+    },
+    "bacon (sandwich portion)": {
+      "unit": "each",
+      "protein": 5,
+      "fat": 6,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 80,
+      "derived": "Bacon, Egg and Cheese on Croissant minus Egg and Cheese on Croissant"
+    },
+    "sausage patty": {
+      "unit": "each",
+      "protein": 7,
+      "fat": 20,
+      "carbs": 2,
+      "fiber": 1,
+      "calories": 220,
+      "derived": "Sausage, Egg and Cheese on English Muffin minus Egg and Cheese on English Muffin"
+    },
+    "turkey sausage patty": {
+      "unit": "each",
+      "protein": 8,
+      "fat": 9,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 120,
+      "derived": "Turkey Sausage Sandwich on English Muffin minus Egg and Cheese on English Muffin"
+    },
+    "egg and cheese wake-up wrap": {
+      "unit": "each",
+      "protein": 7,
+      "fat": 10,
+      "carbs": 14,
+      "fiber": 0,
+      "calories": 180
+    },
+    "bacon (wake-up wrap portion)": {
+      "unit": "each",
+      "protein": 3,
+      "fat": 3,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 40,
+      "derived": "Bacon, Egg and Cheese Wake-Up Wrap minus Egg and Cheese Wake-Up Wrap"
+    },
+    "sausage (wake-up wrap portion)": {
+      "unit": "each",
+      "protein": 3,
+      "fat": 10,
+      "carbs": 1,
+      "fiber": 1,
+      "calories": 100,
+      "derived": "Sausage, Egg and Cheese Wake-Up Wrap minus Egg and Cheese Wake-Up Wrap"
+    },
+    "turkey sausage (wake-up wrap portion)": {
+      "unit": "each",
+      "protein": 4,
+      "fat": 5,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 50,
+      "derived": "Turkey Sausage Wake Up Wrap minus Egg and Cheese Wake-Up Wrap"
+    },
+    "hash browns": {
+      "unit": "piece",
+      "protein": 0.2,
+      "fat": 1,
+      "carbs": 2.2,
+      "fiber": 0.2,
+      "calories": 18.3,
+      "derived": "Hash Browns (6 Pieces) divided by 6"
+    },
+    "avocado toast": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 11,
+      "carbs": 34,
+      "fiber": 6,
+      "calories": 240
+    }
+  },
+  "items": [
+    {
+      "name": "Hot Coffee (Medium, black)",
+      "aliases": [
+        "hot coffee",
+        "coffee",
+        "black coffee",
+        "medium coffee",
+        "regular coffee",
+        "original blend",
+        "medium hot coffee"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0,
+        "carbs": 0,
+        "fiber": 0,
+        "calories": 5
+      },
+      "build": [
+        {
+          "component": "hot coffee (medium, black)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Hot Coffee with Cream (Medium)",
+      "aliases": [
+        "hot coffee with cream",
+        "coffee with cream",
+        "coffee cream",
+        "coffee light"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 9,
+        "carbs": 1,
+        "fiber": 0,
+        "calories": 90
+      },
+      "build": [
+        {
+          "component": "hot coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "cream",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Hot Coffee with Cream and Sugar (Medium)",
+      "aliases": [
+        "hot coffee with cream and sugar",
+        "coffee with cream and sugar",
+        "coffee cream and sugar",
+        "coffee regular",
+        "coffee light and sweet"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 9,
+        "carbs": 27,
+        "fiber": 0,
+        "calories": 190
+      },
+      "build": [
+        {
+          "component": "hot coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "cream",
+          "count": 1
+        },
+        {
+          "component": "sugar",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Hot Coffee with Sugar (Medium)",
+      "aliases": [
+        "hot coffee with sugar",
+        "coffee with sugar",
+        "black coffee with sugar"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0,
+        "carbs": 26,
+        "fiber": 0,
+        "calories": 110
+      },
+      "build": [
+        {
+          "component": "hot coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "sugar",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Hot Coffee with Whole Milk (Medium)",
+      "aliases": [
+        "hot coffee with whole milk",
+        "coffee with whole milk",
+        "coffee with milk"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 1.5,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 30
+      },
+      "build": [
+        {
+          "component": "hot coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "whole milk",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Hot Coffee with Skim Milk (Medium)",
+      "aliases": [
+        "hot coffee with skim milk",
+        "coffee with skim milk",
+        "coffee with skim"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 0,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 20
+      },
+      "build": [
+        {
+          "component": "hot coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "skim milk",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Hot Coffee with Oatmilk (Medium)",
+      "aliases": [
+        "hot coffee with oatmilk",
+        "coffee with oatmilk",
+        "coffee with oat milk"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 1,
+        "carbs": 5,
+        "fiber": 1,
+        "calories": 30
+      },
+      "build": [
+        {
+          "component": "hot coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "oatmilk",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Hot Coffee with Almondmilk (Medium)",
+      "aliases": [
+        "hot coffee with almondmilk",
+        "coffee with almondmilk",
+        "coffee with almond milk"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0.5,
+        "carbs": 4,
+        "fiber": 0,
+        "calories": 25
+      },
+      "build": [
+        {
+          "component": "hot coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "almondmilk",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "French Vanilla Swirl Hot Coffee (Medium)",
+      "aliases": [
+        "french vanilla swirl hot coffee",
+        "french vanilla coffee",
+        "french vanilla swirl coffee",
+        "vanilla swirl coffee"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 0,
+        "carbs": 38,
+        "fiber": 0,
+        "calories": 170
+      },
+      "build": [
+        {
+          "component": "hot coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "french vanilla swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "French Vanilla Swirl Hot Coffee with Cream (Medium)",
+      "aliases": [
+        "french vanilla swirl hot coffee with cream",
+        "french vanilla coffee with cream",
+        "french vanilla swirl coffee with cream"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 9,
+        "carbs": 40,
+        "fiber": 0,
+        "calories": 250
+      },
+      "build": [
+        {
+          "component": "hot coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "french vanilla swirl",
+          "count": 1
+        },
+        {
+          "component": "cream",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Caramel Swirl Hot Coffee (Medium)",
+      "aliases": [
+        "caramel swirl hot coffee",
+        "caramel coffee",
+        "caramel swirl coffee"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 0,
+        "carbs": 39,
+        "fiber": 0,
+        "calories": 170
+      },
+      "build": [
+        {
+          "component": "hot coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "caramel swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Caramel Swirl Hot Coffee with Cream (Medium)",
+      "aliases": [
+        "caramel swirl hot coffee with cream",
+        "caramel coffee with cream",
+        "caramel swirl coffee with cream"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 9,
+        "carbs": 40,
+        "fiber": 0,
+        "calories": 260
+      },
+      "build": [
+        {
+          "component": "hot coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "caramel swirl",
+          "count": 1
+        },
+        {
+          "component": "cream",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Mocha Swirl Hot Coffee (Medium)",
+      "aliases": [
+        "mocha swirl hot coffee",
+        "mocha coffee",
+        "mocha swirl coffee"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 0.5,
+        "carbs": 38,
+        "fiber": 2,
+        "calories": 160
+      },
+      "build": [
+        {
+          "component": "hot coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "mocha swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Mocha Swirl Hot Coffee with Cream (Medium)",
+      "aliases": [
+        "mocha swirl hot coffee with cream",
+        "mocha coffee with cream"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 9,
+        "carbs": 39,
+        "fiber": 2,
+        "calories": 240
+      },
+      "build": [
+        {
+          "component": "hot coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "mocha swirl",
+          "count": 1
+        },
+        {
+          "component": "cream",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Butter Pecan Swirl Hot Coffee (Medium)",
+      "aliases": [
+        "butter pecan swirl hot coffee",
+        "butter pecan coffee",
+        "butter pecan swirl coffee"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 0,
+        "carbs": 38,
+        "fiber": 0,
+        "calories": 170
+      },
+      "build": [
+        {
+          "component": "hot coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "butter pecan swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Butter Pecan Swirl Hot Coffee with Cream (Medium)",
+      "aliases": [
+        "butter pecan swirl hot coffee with cream",
+        "butter pecan coffee with cream"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 9,
+        "carbs": 39,
+        "fiber": 0,
+        "calories": 250
+      },
+      "build": [
+        {
+          "component": "hot coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "butter pecan swirl",
+          "count": 1
+        },
+        {
+          "component": "cream",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Coffee (Medium, black)",
+      "aliases": [
+        "iced coffee",
+        "medium iced coffee",
+        "black iced coffee",
+        "ice coffee",
+        "iced coffee black"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 0,
+        "fiber": 0,
+        "calories": 5
+      },
+      "build": [
+        {
+          "component": "iced coffee (medium, black)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Coffee with Cream (Medium)",
+      "aliases": [
+        "iced coffee with cream",
+        "iced coffee cream",
+        "iced coffee light"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 9,
+        "carbs": 1,
+        "fiber": 0,
+        "calories": 90
+      },
+      "build": [
+        {
+          "component": "iced coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "cream",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Coffee with Cream and Sugar (Medium)",
+      "aliases": [
+        "iced coffee with cream and sugar",
+        "iced coffee cream and sugar",
+        "iced coffee regular",
+        "iced coffee light and sweet"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 9,
+        "carbs": 27,
+        "fiber": 0,
+        "calories": 190
+      },
+      "build": [
+        {
+          "component": "iced coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "cream",
+          "count": 1
+        },
+        {
+          "component": "sugar",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Coffee with Sugar (Medium)",
+      "aliases": [
+        "iced coffee with sugar"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 26,
+        "fiber": 0,
+        "calories": 110
+      },
+      "build": [
+        {
+          "component": "iced coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "sugar",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Coffee with Whole Milk (Medium)",
+      "aliases": [
+        "iced coffee with whole milk",
+        "iced coffee with milk"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 1.5,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 30
+      },
+      "build": [
+        {
+          "component": "iced coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "whole milk",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Coffee with Skim Milk (Medium)",
+      "aliases": [
+        "iced coffee with skim milk",
+        "iced coffee with skim"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 0,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 20
+      },
+      "build": [
+        {
+          "component": "iced coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "skim milk",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Coffee with Oatmilk (Medium)",
+      "aliases": [
+        "iced coffee with oatmilk",
+        "iced coffee with oat milk"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 1,
+        "carbs": 5,
+        "fiber": 1,
+        "calories": 30
+      },
+      "build": [
+        {
+          "component": "iced coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "oatmilk",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Coffee with Almondmilk (Medium)",
+      "aliases": [
+        "iced coffee with almondmilk",
+        "iced coffee with almond milk"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0.5,
+        "carbs": 4,
+        "fiber": 0,
+        "calories": 25
+      },
+      "build": [
+        {
+          "component": "iced coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "almondmilk",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "French Vanilla Swirl Iced Coffee (Medium)",
+      "aliases": [
+        "french vanilla swirl iced coffee",
+        "french vanilla iced coffee",
+        "vanilla iced coffee"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 0,
+        "carbs": 38,
+        "fiber": 0,
+        "calories": 170
+      },
+      "build": [
+        {
+          "component": "iced coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "french vanilla swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "French Vanilla Swirl Iced Coffee with Cream (Medium)",
+      "aliases": [
+        "french vanilla swirl iced coffee with cream",
+        "french vanilla iced coffee with cream"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 9,
+        "carbs": 40,
+        "fiber": 0,
+        "calories": 250
+      },
+      "build": [
+        {
+          "component": "iced coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "french vanilla swirl",
+          "count": 1
+        },
+        {
+          "component": "cream",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Caramel Swirl Iced Coffee (Medium)",
+      "aliases": [
+        "caramel swirl iced coffee",
+        "caramel iced coffee"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 0,
+        "carbs": 39,
+        "fiber": 0,
+        "calories": 170
+      },
+      "build": [
+        {
+          "component": "iced coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "caramel swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Caramel Swirl Iced Coffee with Cream (Medium)",
+      "aliases": [
+        "caramel swirl iced coffee with cream",
+        "caramel iced coffee with cream"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 9,
+        "carbs": 40,
+        "fiber": 0,
+        "calories": 260
+      },
+      "build": [
+        {
+          "component": "iced coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "caramel swirl",
+          "count": 1
+        },
+        {
+          "component": "cream",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Mocha Swirl Iced Coffee (Medium)",
+      "aliases": [
+        "mocha swirl iced coffee",
+        "mocha iced coffee"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 0.5,
+        "carbs": 38,
+        "fiber": 2,
+        "calories": 160
+      },
+      "build": [
+        {
+          "component": "iced coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "mocha swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Mocha Swirl Iced Coffee with Cream (Medium)",
+      "aliases": [
+        "mocha swirl iced coffee with cream",
+        "mocha iced coffee with cream"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 9,
+        "carbs": 39,
+        "fiber": 2,
+        "calories": 240
+      },
+      "build": [
+        {
+          "component": "iced coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "mocha swirl",
+          "count": 1
+        },
+        {
+          "component": "cream",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Butter Pecan Swirl Iced Coffee (Medium)",
+      "aliases": [
+        "butter pecan swirl iced coffee",
+        "butter pecan iced coffee"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 0,
+        "carbs": 38,
+        "fiber": 0,
+        "calories": 170
+      },
+      "build": [
+        {
+          "component": "iced coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "butter pecan swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Butter Pecan Swirl Iced Coffee with Cream (Medium)",
+      "aliases": [
+        "butter pecan swirl iced coffee with cream",
+        "butter pecan iced coffee with cream"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 9,
+        "carbs": 39,
+        "fiber": 0,
+        "calories": 250
+      },
+      "build": [
+        {
+          "component": "iced coffee (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "butter pecan swirl",
+          "count": 1
+        },
+        {
+          "component": "cream",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Café Au Lait with Whole Milk (Medium)",
+      "aliases": [
+        "iced cafe au lait",
+        "iced cafe au lait with whole milk",
+        "cafe au lait"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 6,
+        "carbs": 9,
+        "fiber": 0,
+        "calories": 110
+      }
+    },
+    {
+      "name": "Iced Café Au Lait with Skim Milk (Medium)",
+      "aliases": [
+        "iced cafe au lait with skim milk",
+        "cafe au lait skim"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 0,
+        "carbs": 9,
+        "fiber": 0,
+        "calories": 60
+      }
+    },
+    {
+      "name": "Cold Brew Coffee (Medium, black)",
+      "aliases": [
+        "cold brew",
+        "cold brew coffee",
+        "medium cold brew",
+        "black cold brew"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 0,
+        "fiber": 0,
+        "calories": 5
+      },
+      "build": [
+        {
+          "component": "cold brew (medium, black)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cold Brew Coffee with Cream (Medium)",
+      "aliases": [
+        "cold brew with cream",
+        "cold brew cream"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 9,
+        "carbs": 1,
+        "fiber": 0,
+        "calories": 90
+      },
+      "build": [
+        {
+          "component": "cold brew (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "cream",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cold Brew Coffee with Cream and Sugar (Medium)",
+      "aliases": [
+        "cold brew with cream and sugar",
+        "cold brew cream and sugar"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 9,
+        "carbs": 27,
+        "fiber": 0,
+        "calories": 190
+      },
+      "build": [
+        {
+          "component": "cold brew (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "cream",
+          "count": 1
+        },
+        {
+          "component": "sugar",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cold Brew Coffee with Oatmilk (Medium)",
+      "aliases": [
+        "cold brew with oatmilk",
+        "cold brew with oat milk"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 1,
+        "carbs": 5,
+        "fiber": 1,
+        "calories": 30
+      },
+      "build": [
+        {
+          "component": "cold brew (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "oatmilk",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cold Brew with Dunkin' Cold Foam, Black (Medium)",
+      "aliases": [
+        "cold brew with cold foam",
+        "cold foam cold brew",
+        "cold brew cold foam black",
+        "sweet cold foam cold brew"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 3.5,
+        "carbs": 13,
+        "fiber": 0,
+        "calories": 90
+      },
+      "build": [
+        {
+          "component": "cold brew (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "dunkin cold foam",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cold Brew with Dunkin' Cold Foam and Cream (Medium)",
+      "aliases": [
+        "cold brew with cold foam and cream",
+        "cold foam cold brew with cream"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 12,
+        "carbs": 14,
+        "fiber": 0,
+        "calories": 170
+      },
+      "build": [
+        {
+          "component": "cold brew (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "dunkin cold foam",
+          "count": 1
+        },
+        {
+          "component": "cream",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Caramel Cold Brew with Dunkin' Cold Foam (Medium)",
+      "aliases": [
+        "caramel cold brew with cold foam",
+        "caramel cold foam cold brew",
+        "caramel cold brew"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 3,
+        "carbs": 51,
+        "fiber": 0,
+        "calories": 250
+      },
+      "build": [
+        {
+          "component": "cold brew (medium, black)",
+          "count": 1
+        },
+        {
+          "component": "dunkin cold foam",
+          "count": 1
+        },
+        {
+          "component": "caramel swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Vanilla Cream Cold Brew (Medium)",
+      "aliases": [
+        "vanilla cream cold brew"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 9,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 100
+      }
+    },
+    {
+      "name": "Vanilla Creme Cold Brew (Medium)",
+      "aliases": [
+        "vanilla creme cold brew",
+        "vanilla crème cold brew"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 3,
+        "carbs": 38,
+        "fiber": 0,
+        "calories": 190
+      }
+    },
+    {
+      "name": "Americano (Medium)",
+      "aliases": [
+        "americano",
+        "hot americano",
+        "medium americano",
+        "caffe americano"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 10
+      },
+      "build": [
+        {
+          "component": "espresso shot",
+          "count": 2
+        }
+      ],
+      "note": "Build approximates the published drink as two espresso shots over water."
+    },
+    {
+      "name": "Iced Americano (Medium)",
+      "aliases": [
+        "iced americano",
+        "medium iced americano"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 10
+      },
+      "build": [
+        {
+          "component": "espresso shot",
+          "count": 2
+        }
+      ],
+      "note": "Build approximates the published drink as two espresso shots over water and ice."
+    },
+    {
+      "name": "Hot Espresso (Single Shot)",
+      "aliases": [
+        "espresso",
+        "espresso shot",
+        "single espresso",
+        "shot of espresso"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 1,
+        "fiber": 0,
+        "calories": 5
+      }
+    },
+    {
+      "name": "Espresso with Sugar (Single Shot)",
+      "aliases": [
+        "espresso with sugar"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 15,
+        "fiber": 0,
+        "calories": 60
+      }
+    },
+    {
+      "name": "Café con Leche (Medium)",
+      "aliases": [
+        "cafe con leche",
+        "café con leche"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 9,
+        "carbs": 35,
+        "fiber": 0,
+        "calories": 250
+      }
+    },
+    {
+      "name": "Hot Latte with Whole Milk (Medium)",
+      "aliases": [
+        "hot latte",
+        "latte",
+        "medium latte",
+        "latte with whole milk",
+        "hot latte with whole milk"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 9,
+        "carbs": 14,
+        "fiber": 0,
+        "calories": 170
+      },
+      "build": [
+        {
+          "component": "hot latte with whole milk (medium)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Hot Latte with Skim Milk (Medium)",
+      "aliases": [
+        "hot latte with skim milk",
+        "skim latte",
+        "latte with skim milk",
+        "skinny latte"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 0,
+        "carbs": 15,
+        "fiber": 0,
+        "calories": 100
+      },
+      "build": [
+        {
+          "component": "hot latte with skim milk (medium)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Hot Latte with Oatmilk (Medium)",
+      "aliases": [
+        "hot latte with oatmilk",
+        "oatmilk latte",
+        "oat milk latte",
+        "latte with oatmilk"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 4,
+        "carbs": 24,
+        "fiber": 3,
+        "calories": 130
+      }
+    },
+    {
+      "name": "Hot Latte with Almondmilk (Medium)",
+      "aliases": [
+        "hot latte with almondmilk",
+        "almondmilk latte",
+        "almond milk latte"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 3,
+        "carbs": 17,
+        "fiber": 1,
+        "calories": 100
+      }
+    },
+    {
+      "name": "Hot Latte with Whole Milk and Sugar (Medium)",
+      "aliases": [
+        "hot latte with sugar",
+        "latte with sugar",
+        "latte with whole milk and sugar"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 9,
+        "carbs": 40,
+        "fiber": 0,
+        "calories": 270
+      },
+      "build": [
+        {
+          "component": "hot latte with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "sugar",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "French Vanilla Swirl Hot Latte with Whole Milk (Medium)",
+      "aliases": [
+        "french vanilla swirl hot latte",
+        "french vanilla latte",
+        "vanilla latte",
+        "french vanilla swirl latte"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 9,
+        "carbs": 52,
+        "fiber": 0,
+        "calories": 330
+      },
+      "build": [
+        {
+          "component": "hot latte with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "french vanilla swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "French Vanilla Swirl Hot Latte with Skim Milk (Medium)",
+      "aliases": [
+        "french vanilla swirl hot latte with skim milk",
+        "french vanilla skim latte"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 0,
+        "carbs": 53,
+        "fiber": 0,
+        "calories": 260
+      },
+      "build": [
+        {
+          "component": "hot latte with skim milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "french vanilla swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Caramel Swirl Hot Latte with Whole Milk (Medium)",
+      "aliases": [
+        "caramel swirl hot latte",
+        "caramel latte",
+        "caramel swirl latte"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 9,
+        "carbs": 53,
+        "fiber": 0,
+        "calories": 340
+      },
+      "build": [
+        {
+          "component": "hot latte with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "caramel swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Mocha Swirl Hot Latte with Whole Milk (Medium)",
+      "aliases": [
+        "mocha swirl hot latte",
+        "mocha latte",
+        "mocha swirl latte"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 10,
+        "carbs": 52,
+        "fiber": 2,
+        "calories": 330
+      },
+      "build": [
+        {
+          "component": "hot latte with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "mocha swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Butter Pecan Swirl Hot Latte with Whole Milk (Medium)",
+      "aliases": [
+        "butter pecan swirl hot latte",
+        "butter pecan latte"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 9,
+        "carbs": 52,
+        "fiber": 0,
+        "calories": 330
+      },
+      "build": [
+        {
+          "component": "hot latte with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "butter pecan swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Caramel Craze Signature Hot Latte with Whole Milk (Medium)",
+      "aliases": [
+        "caramel craze signature latte",
+        "caramel craze latte",
+        "caramel craze",
+        "signature caramel latte"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 14,
+        "carbs": 61,
+        "fiber": 0,
+        "calories": 410
+      }
+    },
+    {
+      "name": "Cocoa Mocha Signature Hot Latte with Whole Milk (Medium)",
+      "aliases": [
+        "cocoa mocha signature latte",
+        "cocoa mocha latte",
+        "signature mocha latte"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 14,
+        "carbs": 60,
+        "fiber": 2,
+        "calories": 400
+      }
+    },
+    {
+      "name": "Pumpkin Spice Hot Signature Latte (Medium)",
+      "aliases": [
+        "pumpkin spice signature latte",
+        "pumpkin spice latte",
+        "psl",
+        "pumpkin latte",
+        "hot pumpkin spice latte"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 14,
+        "carbs": 59,
+        "fiber": 0,
+        "calories": 420
+      }
+    },
+    {
+      "name": "Chai Hot Latte with Whole Milk (Medium)",
+      "aliases": [
+        "chai latte",
+        "hot chai latte",
+        "chai",
+        "chai tea latte"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 9,
+        "carbs": 43,
+        "fiber": 2,
+        "calories": 290
+      }
+    },
+    {
+      "name": "Matcha Hot Latte with Whole Milk (Medium)",
+      "aliases": [
+        "matcha latte",
+        "hot matcha latte",
+        "matcha",
+        "green tea latte"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 9,
+        "carbs": 33,
+        "fiber": 1,
+        "calories": 250
+      }
+    },
+    {
+      "name": "Hot Dunkalatte (Medium)",
+      "aliases": [
+        "dunkalatte",
+        "hot dunkalatte",
+        "dunka latte"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 10,
+        "carbs": 45,
+        "fiber": 0,
+        "calories": 310
+      }
+    },
+    {
+      "name": "Iced Latte with Whole Milk (Medium)",
+      "aliases": [
+        "iced latte",
+        "medium iced latte",
+        "iced latte with whole milk"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 9,
+        "carbs": 14,
+        "fiber": 0,
+        "calories": 170
+      },
+      "build": [
+        {
+          "component": "iced latte with whole milk (medium)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Latte with Skim Milk (Medium)",
+      "aliases": [
+        "iced latte with skim milk",
+        "iced skim latte",
+        "skinny iced latte"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 0,
+        "carbs": 15,
+        "fiber": 0,
+        "calories": 100
+      },
+      "build": [
+        {
+          "component": "iced latte with skim milk (medium)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Latte with Oatmilk (Medium)",
+      "aliases": [
+        "iced latte with oatmilk",
+        "iced oatmilk latte",
+        "iced oat milk latte"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 4,
+        "carbs": 24,
+        "fiber": 3,
+        "calories": 130
+      }
+    },
+    {
+      "name": "Iced Latte with Almondmilk (Medium)",
+      "aliases": [
+        "iced latte with almondmilk",
+        "iced almondmilk latte",
+        "iced almond milk latte"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 3,
+        "carbs": 17,
+        "fiber": 1,
+        "calories": 100
+      }
+    },
+    {
+      "name": "Iced Latte with Whole Milk and Sugar (Medium)",
+      "aliases": [
+        "iced latte with sugar",
+        "iced latte with whole milk and sugar"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 9,
+        "carbs": 40,
+        "fiber": 0,
+        "calories": 270
+      },
+      "build": [
+        {
+          "component": "iced latte with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "sugar",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "French Vanilla Swirl Iced Latte with Whole Milk (Medium)",
+      "aliases": [
+        "french vanilla swirl iced latte",
+        "french vanilla iced latte",
+        "iced vanilla latte",
+        "iced french vanilla latte"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 9,
+        "carbs": 52,
+        "fiber": 0,
+        "calories": 330
+      },
+      "build": [
+        {
+          "component": "iced latte with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "french vanilla swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "French Vanilla Swirl Iced Latte with Skim Milk (Medium)",
+      "aliases": [
+        "french vanilla swirl iced latte with skim milk",
+        "french vanilla iced skim latte"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 0,
+        "carbs": 53,
+        "fiber": 0,
+        "calories": 260
+      },
+      "build": [
+        {
+          "component": "iced latte with skim milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "french vanilla swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Caramel Swirl Iced Latte with Whole Milk (Medium)",
+      "aliases": [
+        "caramel swirl iced latte",
+        "caramel iced latte",
+        "iced caramel latte"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 9,
+        "carbs": 53,
+        "fiber": 0,
+        "calories": 340
+      },
+      "build": [
+        {
+          "component": "iced latte with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "caramel swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Mocha Swirl Iced Latte with Whole Milk (Medium)",
+      "aliases": [
+        "mocha swirl iced latte",
+        "mocha iced latte",
+        "iced mocha latte"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 10,
+        "carbs": 52,
+        "fiber": 2,
+        "calories": 330
+      },
+      "build": [
+        {
+          "component": "iced latte with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "mocha swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Butter Pecan Swirl Iced Latte with Whole Milk (Medium)",
+      "aliases": [
+        "butter pecan swirl iced latte",
+        "butter pecan iced latte"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 9,
+        "carbs": 52,
+        "fiber": 0,
+        "calories": 330
+      },
+      "build": [
+        {
+          "component": "iced latte with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "butter pecan swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Caramel Craze Signature Iced Latte with Whole Milk (Medium)",
+      "aliases": [
+        "caramel craze signature iced latte",
+        "iced caramel craze latte",
+        "iced caramel craze"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 14,
+        "carbs": 61,
+        "fiber": 0,
+        "calories": 410
+      }
+    },
+    {
+      "name": "Cocoa Mocha Signature Iced Latte with Whole Milk (Medium)",
+      "aliases": [
+        "cocoa mocha signature iced latte",
+        "iced cocoa mocha latte"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 14,
+        "carbs": 60,
+        "fiber": 2,
+        "calories": 400
+      }
+    },
+    {
+      "name": "Pumpkin Spice Iced Signature Latte (Medium)",
+      "aliases": [
+        "pumpkin spice iced signature latte",
+        "iced pumpkin spice latte",
+        "iced psl",
+        "iced pumpkin latte"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 14,
+        "carbs": 59,
+        "fiber": 0,
+        "calories": 420
+      }
+    },
+    {
+      "name": "Chai Iced Latte with Whole Milk (Medium)",
+      "aliases": [
+        "iced chai latte",
+        "iced chai",
+        "iced chai tea latte"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 9,
+        "carbs": 43,
+        "fiber": 2,
+        "calories": 290
+      }
+    },
+    {
+      "name": "Matcha Iced Latte with Whole Milk (Medium)",
+      "aliases": [
+        "iced matcha latte",
+        "iced matcha",
+        "iced green tea latte"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 9,
+        "carbs": 33,
+        "fiber": 1,
+        "calories": 250
+      }
+    },
+    {
+      "name": "Almondmilk Iced Matcha Latte (Medium)",
+      "aliases": [
+        "almondmilk iced matcha latte",
+        "iced matcha with almondmilk",
+        "iced matcha almond milk"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 2.5,
+        "carbs": 36,
+        "fiber": 2,
+        "calories": 180
+      }
+    },
+    {
+      "name": "Iced Dunkalatte (Medium)",
+      "aliases": [
+        "iced dunkalatte",
+        "iced dunka latte"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 10,
+        "carbs": 45,
+        "fiber": 0,
+        "calories": 310
+      }
+    },
+    {
+      "name": "Brown Sugar Hazelnut Oat Iced Latte (Medium)",
+      "aliases": [
+        "brown sugar hazelnut oat iced latte",
+        "brown sugar hazelnut latte",
+        "hazelnut oat latte"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 4,
+        "carbs": 53,
+        "fiber": 3,
+        "calories": 250
+      }
+    },
+    {
+      "name": "Iced Vanilla Chai Latte with Sweet Cold Foam (Medium)",
+      "aliases": [
+        "iced vanilla chai latte with sweet cold foam",
+        "vanilla chai with cold foam"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 12,
+        "carbs": 56,
+        "fiber": 2,
+        "calories": 380
+      }
+    },
+    {
+      "name": "Iced Vanilla Matcha with Sweet Cold Foam (Medium)",
+      "aliases": [
+        "iced vanilla matcha with sweet cold foam",
+        "vanilla matcha with cold foam"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 12,
+        "carbs": 46,
+        "fiber": 2,
+        "calories": 340
+      }
+    },
+    {
+      "name": "Hot Macchiato with Whole Milk (Medium)",
+      "aliases": [
+        "hot macchiato",
+        "macchiato",
+        "medium macchiato",
+        "hot macchiato with whole milk"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 6,
+        "carbs": 10,
+        "fiber": 0,
+        "calories": 120
+      },
+      "build": [
+        {
+          "component": "hot macchiato with whole milk (medium)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Hot Macchiato with Skim Milk (Medium)",
+      "aliases": [
+        "hot macchiato with skim milk",
+        "skim macchiato"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 0,
+        "carbs": 11,
+        "fiber": 0,
+        "calories": 70
+      },
+      "build": [
+        {
+          "component": "hot macchiato with skim milk (medium)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Hot Macchiato with Oatmilk (Medium)",
+      "aliases": [
+        "hot macchiato with oatmilk",
+        "oatmilk macchiato"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 2.5,
+        "carbs": 17,
+        "fiber": 2,
+        "calories": 90
+      }
+    },
+    {
+      "name": "Caramel Swirl Hot Macchiato with Whole Milk (Medium)",
+      "aliases": [
+        "caramel swirl hot macchiato",
+        "caramel macchiato",
+        "hot caramel macchiato"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 6,
+        "carbs": 49,
+        "fiber": 0,
+        "calories": 290
+      },
+      "build": [
+        {
+          "component": "hot macchiato with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "caramel swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "French Vanilla Swirl Hot Macchiato with Whole Milk (Medium)",
+      "aliases": [
+        "french vanilla swirl hot macchiato",
+        "french vanilla macchiato",
+        "vanilla macchiato"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 6,
+        "carbs": 49,
+        "fiber": 0,
+        "calories": 280
+      },
+      "build": [
+        {
+          "component": "hot macchiato with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "french vanilla swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Mocha Swirl Hot Macchiato with Whole Milk (Medium)",
+      "aliases": [
+        "mocha swirl hot macchiato",
+        "mocha macchiato"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 7,
+        "carbs": 48,
+        "fiber": 2,
+        "calories": 280
+      },
+      "build": [
+        {
+          "component": "hot macchiato with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "mocha swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Macchiato with Whole Milk (Medium)",
+      "aliases": [
+        "iced macchiato",
+        "medium iced macchiato",
+        "iced macchiato with whole milk"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 6,
+        "carbs": 10,
+        "fiber": 0,
+        "calories": 120
+      },
+      "build": [
+        {
+          "component": "iced macchiato with whole milk (medium)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Macchiato with Skim Milk (Medium)",
+      "aliases": [
+        "iced macchiato with skim milk",
+        "iced skim macchiato"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 0,
+        "carbs": 11,
+        "fiber": 0,
+        "calories": 70
+      },
+      "build": [
+        {
+          "component": "iced macchiato with skim milk (medium)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Macchiato with Oatmilk (Medium)",
+      "aliases": [
+        "iced macchiato with oatmilk",
+        "iced oatmilk macchiato"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 2.5,
+        "carbs": 17,
+        "fiber": 2,
+        "calories": 90
+      }
+    },
+    {
+      "name": "Caramel Swirl Iced Macchiato with Whole Milk (Medium)",
+      "aliases": [
+        "caramel swirl iced macchiato",
+        "iced caramel macchiato",
+        "caramel iced macchiato"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 6,
+        "carbs": 49,
+        "fiber": 0,
+        "calories": 290
+      },
+      "build": [
+        {
+          "component": "iced macchiato with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "caramel swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "French Vanilla Swirl Iced Macchiato with Whole Milk (Medium)",
+      "aliases": [
+        "french vanilla swirl iced macchiato",
+        "iced french vanilla macchiato",
+        "iced vanilla macchiato"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 6,
+        "carbs": 49,
+        "fiber": 0,
+        "calories": 280
+      },
+      "build": [
+        {
+          "component": "iced macchiato with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "french vanilla swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Mocha Swirl Iced Macchiato with Whole Milk (Medium)",
+      "aliases": [
+        "mocha swirl iced macchiato",
+        "iced mocha macchiato"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 7,
+        "carbs": 48,
+        "fiber": 2,
+        "calories": 280
+      },
+      "build": [
+        {
+          "component": "iced macchiato with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "mocha swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cappuccino with Whole Milk (Medium)",
+      "aliases": [
+        "cappuccino",
+        "hot cappuccino",
+        "medium cappuccino",
+        "cappuccino with whole milk",
+        "capuccino"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 6,
+        "carbs": 10,
+        "fiber": 0,
+        "calories": 120
+      },
+      "build": [
+        {
+          "component": "cappuccino with whole milk (medium)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cappuccino with Skim Milk (Medium)",
+      "aliases": [
+        "cappuccino with skim milk",
+        "skim cappuccino"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 0,
+        "carbs": 10,
+        "fiber": 0,
+        "calories": 70
+      },
+      "build": [
+        {
+          "component": "cappuccino with skim milk (medium)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cappuccino with Whole Milk and Sugar (Medium)",
+      "aliases": [
+        "cappuccino with sugar",
+        "cappuccino with whole milk and sugar"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 6,
+        "carbs": 36,
+        "fiber": 0,
+        "calories": 220
+      },
+      "build": [
+        {
+          "component": "cappuccino with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "sugar",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "French Vanilla Swirl Hot Cappuccino with Whole Milk (Medium)",
+      "aliases": [
+        "french vanilla swirl cappuccino",
+        "french vanilla cappuccino",
+        "vanilla cappuccino"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 6,
+        "carbs": 48,
+        "fiber": 0,
+        "calories": 280
+      },
+      "build": [
+        {
+          "component": "cappuccino with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "french vanilla swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Caramel Swirl Hot Cappuccino with Whole Milk (Medium)",
+      "aliases": [
+        "caramel swirl cappuccino",
+        "caramel cappuccino"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 6,
+        "carbs": 48,
+        "fiber": 0,
+        "calories": 280
+      },
+      "build": [
+        {
+          "component": "cappuccino with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "caramel swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Cappuccino with Whole Milk (Medium)",
+      "aliases": [
+        "iced cappuccino",
+        "medium iced cappuccino",
+        "iced cappuccino with whole milk"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 6,
+        "carbs": 10,
+        "fiber": 0,
+        "calories": 120
+      },
+      "build": [
+        {
+          "component": "cappuccino with whole milk (medium)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Cappuccino with Skim Milk (Medium)",
+      "aliases": [
+        "iced cappuccino with skim milk"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 0,
+        "carbs": 10,
+        "fiber": 0,
+        "calories": 70
+      },
+      "build": [
+        {
+          "component": "cappuccino with skim milk (medium)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Cappuccino with Almondmilk (Medium)",
+      "aliases": [
+        "iced cappuccino with almondmilk",
+        "iced almondmilk cappuccino"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 2,
+        "carbs": 11,
+        "fiber": 0,
+        "calories": 60
+      }
+    },
+    {
+      "name": "French Vanilla Swirl Iced Cappuccino with Whole Milk (Medium)",
+      "aliases": [
+        "french vanilla swirl iced cappuccino",
+        "iced french vanilla cappuccino"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 6,
+        "carbs": 48,
+        "fiber": 0,
+        "calories": 280
+      },
+      "build": [
+        {
+          "component": "cappuccino with whole milk (medium)",
+          "count": 1
+        },
+        {
+          "component": "french vanilla swirl",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Shakin' Espresso (Medium)",
+      "aliases": [
+        "shakin espresso",
+        "shakin' espresso",
+        "shaken espresso",
+        "shaking espresso"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 4.5,
+        "carbs": 8,
+        "fiber": 0,
+        "calories": 90
+      }
+    },
+    {
+      "name": "Brown Sugar Shakin' Espresso (Medium)",
+      "aliases": [
+        "brown sugar shakin espresso",
+        "brown sugar shaken espresso",
+        "brown sugar espresso"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 2,
+        "carbs": 40,
+        "fiber": 2,
+        "calories": 180
+      }
+    },
+    {
+      "name": "Original Hot Chocolate (Medium)",
+      "aliases": [
+        "hot chocolate",
+        "original hot chocolate",
+        "medium hot chocolate",
+        "hot cocoa",
+        "cocoa"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 10,
+        "carbs": 59,
+        "fiber": 2,
+        "calories": 330
+      }
+    },
+    {
+      "name": "Hot Chocolate with Espresso Shot (Medium)",
+      "aliases": [
+        "hot chocolate with espresso shot",
+        "hot chocolate with espresso",
+        "dunkin mocha hot chocolate"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 9,
+        "carbs": 51,
+        "fiber": 2,
+        "calories": 280
+      }
+    },
+    {
+      "name": "Iced Tea Unsweetened (Medium)",
+      "aliases": [
+        "iced tea unsweetened",
+        "unsweetened iced tea",
+        "iced tea",
+        "unsweet tea",
+        "unsweetened tea",
+        "black iced tea"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 1,
+        "fiber": 0,
+        "calories": 5
+      }
+    },
+    {
+      "name": "Iced Tea Sweetened (Medium)",
+      "aliases": [
+        "iced tea sweetened",
+        "sweetened iced tea",
+        "sweet iced tea"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 26,
+        "fiber": 0,
+        "calories": 100
+      }
+    },
+    {
+      "name": "Sweet Tea (Medium)",
+      "aliases": [
+        "sweet tea",
+        "medium sweet tea",
+        "southern sweet tea"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 60,
+        "fiber": 0,
+        "calories": 230
+      }
+    },
+    {
+      "name": "Iced Green Tea Unsweetened (Medium)",
+      "aliases": [
+        "iced green tea unsweetened",
+        "unsweetened iced green tea",
+        "iced green tea",
+        "green tea"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0,
+        "carbs": 0,
+        "fiber": 0,
+        "calories": 5
+      }
+    },
+    {
+      "name": "Iced Green Tea Sweetened (Medium)",
+      "aliases": [
+        "iced green tea sweetened",
+        "sweetened iced green tea"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0,
+        "carbs": 25,
+        "fiber": 0,
+        "calories": 100
+      }
+    },
+    {
+      "name": "Iced Tea Unsweetened Blueberry Flavored (Medium)",
+      "aliases": [
+        "blueberry iced tea unsweetened",
+        "unsweetened blueberry iced tea",
+        "blueberry iced tea"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 10
+      }
+    },
+    {
+      "name": "Iced Tea Unsweetened Raspberry Flavored (Medium)",
+      "aliases": [
+        "raspberry iced tea unsweetened",
+        "unsweetened raspberry iced tea",
+        "raspberry iced tea"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 4,
+        "fiber": 0,
+        "calories": 15
+      }
+    },
+    {
+      "name": "Iced Tea Lemonade (Medium)",
+      "aliases": [
+        "iced tea lemonade",
+        "half and half tea lemonade",
+        "arnold palmer"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 30,
+        "fiber": 0,
+        "calories": 120
+      }
+    },
+    {
+      "name": "Lemonade (Medium)",
+      "aliases": [
+        "lemonade",
+        "medium lemonade"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 45,
+        "fiber": 0,
+        "calories": 180
+      }
+    },
+    {
+      "name": "Matcha Lemonade (Medium)",
+      "aliases": [
+        "matcha lemonade"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0,
+        "carbs": 65,
+        "fiber": 1,
+        "calories": 270
+      }
+    },
+    {
+      "name": "Strawberry Dragonfruit Dunkin' Refresher (Medium)",
+      "aliases": [
+        "strawberry dragonfruit refresher",
+        "strawberry dragonfruit",
+        "dragonfruit refresher",
+        "strawberry refresher",
+        "dunkin refresher"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0,
+        "carbs": 29,
+        "fiber": 0,
+        "calories": 130
+      }
+    },
+    {
+      "name": "Mango Pineapple Dunkin' Refresher (Medium)",
+      "aliases": [
+        "mango pineapple refresher",
+        "mango pineapple",
+        "mango refresher",
+        "pineapple refresher"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0,
+        "carbs": 32,
+        "fiber": 0,
+        "calories": 130
+      }
+    },
+    {
+      "name": "Strawberry Dragonfruit Dunkin' Lemonade Refresher (Medium)",
+      "aliases": [
+        "strawberry dragonfruit lemonade refresher",
+        "strawberry dragonfruit lemonade"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 56,
+        "fiber": 0,
+        "calories": 230
+      }
+    },
+    {
+      "name": "Mango Pineapple Dunkin' Lemonade Refresher (Medium)",
+      "aliases": [
+        "mango pineapple lemonade refresher",
+        "mango pineapple lemonade"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 60,
+        "fiber": 0,
+        "calories": 240
+      }
+    },
+    {
+      "name": "Strawberry Dragonfruit Sparkling Dunkin' Refresher (Medium)",
+      "aliases": [
+        "strawberry dragonfruit sparkling refresher",
+        "sparkling strawberry dragonfruit"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 29,
+        "fiber": 0,
+        "calories": 130
+      }
+    },
+    {
+      "name": "Mango Pineapple Sparkling Dunkin' Refresher (Medium)",
+      "aliases": [
+        "mango pineapple sparkling refresher",
+        "sparkling mango pineapple"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 32,
+        "fiber": 0,
+        "calories": 130
+      }
+    },
+    {
+      "name": "Berry Sangria Refresher (Medium)",
+      "aliases": [
+        "berry sangria refresher",
+        "berry sangria"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0,
+        "carbs": 30,
+        "fiber": 0,
+        "calories": 120
+      }
+    },
+    {
+      "name": "Berry Clementine Refresher (Medium)",
+      "aliases": [
+        "berry clementine refresher",
+        "berry clementine"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0,
+        "carbs": 43,
+        "fiber": 0,
+        "calories": 170
+      }
+    },
+    {
+      "name": "Blackberry Tangerine Dunkin' Zero (Medium)",
+      "aliases": [
+        "blackberry tangerine dunkin zero",
+        "dunkin zero",
+        "blackberry tangerine zero",
+        "zero sugar refresher"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 9,
+        "fiber": 1,
+        "calories": 20
+      }
+    },
+    {
+      "name": "Tropical Mango Dunkin' Zero (Medium)",
+      "aliases": [
+        "tropical mango dunkin zero",
+        "tropical mango zero"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 9,
+        "fiber": 0,
+        "calories": 20
+      }
+    },
+    {
+      "name": "Juicy Peach Dunkin' Zero (Medium)",
+      "aliases": [
+        "juicy peach dunkin zero",
+        "juicy peach zero",
+        "peach zero"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 8,
+        "fiber": 1,
+        "calories": 20
+      }
+    },
+    {
+      "name": "Green Apple Dunkin' Zero (Medium)",
+      "aliases": [
+        "green apple dunkin zero",
+        "green apple zero"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 9,
+        "fiber": 0,
+        "calories": 25
+      }
+    },
+    {
+      "name": "Frozen Coffee - see note",
+      "aliases": [
+        "frozen coffee"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 15,
+        "carbs": 134,
+        "fiber": 3,
+        "calories": 690
+      },
+      "note": "Dunkin’ publishes Frozen Chocolate (Medium) but no plain Frozen Coffee row in the current guide; this entry carries the Frozen Chocolate (Medium) figures as the closest published frozen-blended item."
+    },
+    {
+      "name": "Frozen Chocolate (Medium)",
+      "aliases": [
+        "frozen chocolate",
+        "medium frozen chocolate",
+        "frozen hot chocolate"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 15,
+        "carbs": 134,
+        "fiber": 3,
+        "calories": 690
+      }
+    },
+    {
+      "name": "Caramel Swirl Frozen Chocolate (Medium)",
+      "aliases": [
+        "caramel swirl frozen chocolate",
+        "caramel frozen chocolate"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 14,
+        "carbs": 135,
+        "fiber": 1,
+        "calories": 700
+      }
+    },
+    {
+      "name": "Frozen Chai Latte (Medium)",
+      "aliases": [
+        "frozen chai latte",
+        "frozen chai"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 9,
+        "carbs": 99,
+        "fiber": 2,
+        "calories": 520
+      }
+    },
+    {
+      "name": "Frozen Matcha Latte with Whole Milk (Medium)",
+      "aliases": [
+        "frozen matcha latte",
+        "frozen matcha"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 4.5,
+        "carbs": 83,
+        "fiber": 1,
+        "calories": 390
+      }
+    },
+    {
+      "name": "Vanilla Bean Coolatta (Medium)",
+      "aliases": [
+        "vanilla bean coolatta",
+        "coolatta",
+        "vanilla coolatta",
+        "coolata"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 4.5,
+        "carbs": 129,
+        "fiber": 0,
+        "calories": 590
+      }
+    },
+    {
+      "name": "Strawberry Coolatta (Medium)",
+      "aliases": [
+        "strawberry coolatta",
+        "strawberry coolata"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 86,
+        "fiber": 1,
+        "calories": 350
+      }
+    },
+    {
+      "name": "Blue Raspberry Coolatta (Medium)",
+      "aliases": [
+        "blue raspberry coolatta",
+        "blue raspberry coolata"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 84,
+        "fiber": 0,
+        "calories": 350
+      }
+    },
+    {
+      "name": "Glazed Donut",
+      "aliases": [
+        "glazed donut",
+        "glazed",
+        "glaze donut",
+        "original glazed"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 11,
+        "carbs": 33,
+        "fiber": 1,
+        "calories": 240
+      }
+    },
+    {
+      "name": "Boston Kreme Donut",
+      "aliases": [
+        "boston kreme donut",
+        "boston kreme",
+        "boston cream donut",
+        "boston cream",
+        "boston creme"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 11,
+        "carbs": 39,
+        "fiber": 1,
+        "calories": 270
+      }
+    },
+    {
+      "name": "Chocolate Frosted Donut",
+      "aliases": [
+        "chocolate frosted donut",
+        "chocolate frosted",
+        "chocolate glazed donut",
+        "chocolate donut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 11,
+        "carbs": 34,
+        "fiber": 1,
+        "calories": 260
+      }
+    },
+    {
+      "name": "Chocolate Frosted with Sprinkles Donut",
+      "aliases": [
+        "chocolate frosted with sprinkles donut",
+        "chocolate sprinkles donut",
+        "chocolate frosted sprinkles",
+        "chocolate sprinkle donut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 12,
+        "carbs": 36,
+        "fiber": 1,
+        "calories": 270
+      }
+    },
+    {
+      "name": "Vanilla Frosted Donut",
+      "aliases": [
+        "vanilla frosted donut",
+        "vanilla frosted",
+        "vanilla donut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 11,
+        "carbs": 34,
+        "fiber": 1,
+        "calories": 260
+      }
+    },
+    {
+      "name": "Vanilla Frosted Sprinkles Donut",
+      "aliases": [
+        "vanilla frosted sprinkles donut",
+        "vanilla sprinkles donut",
+        "vanilla frosted with sprinkles",
+        "sprinkle donut",
+        "sprinkles donut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 11,
+        "carbs": 37,
+        "fiber": 1,
+        "calories": 270
+      }
+    },
+    {
+      "name": "Strawberry Frosted Donut",
+      "aliases": [
+        "strawberry frosted donut",
+        "strawberry frosted",
+        "strawberry donut",
+        "pink donut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 11,
+        "carbs": 35,
+        "fiber": 1,
+        "calories": 260
+      }
+    },
+    {
+      "name": "Strawberry Frosted with Sprinkles Donut",
+      "aliases": [
+        "strawberry frosted with sprinkles donut",
+        "strawberry sprinkles donut",
+        "strawberry frosted sprinkles"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 12,
+        "carbs": 37,
+        "fiber": 1,
+        "calories": 270
+      }
+    },
+    {
+      "name": "Maple Frosted Donut",
+      "aliases": [
+        "maple frosted donut",
+        "maple frosted",
+        "maple donut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 11,
+        "carbs": 35,
+        "fiber": 1,
+        "calories": 260
+      }
+    },
+    {
+      "name": "Bavarian Kreme Donut",
+      "aliases": [
+        "bavarian kreme donut",
+        "bavarian kreme",
+        "bavarian cream donut",
+        "bavarian creme"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 11,
+        "carbs": 31,
+        "fiber": 1,
+        "calories": 240
+      }
+    },
+    {
+      "name": "Jelly Donut",
+      "aliases": [
+        "jelly donut",
+        "jelly filled donut",
+        "jelly"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 10,
+        "carbs": 36,
+        "fiber": 1,
+        "calories": 250
+      }
+    },
+    {
+      "name": "Glazed Jelly Donut",
+      "aliases": [
+        "glazed jelly donut",
+        "glazed jelly"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 10,
+        "carbs": 44,
+        "fiber": 1,
+        "calories": 280
+      }
+    },
+    {
+      "name": "Glazed Strawberry Donut",
+      "aliases": [
+        "glazed strawberry donut",
+        "strawberry glazed donut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 10,
+        "carbs": 44,
+        "fiber": 1,
+        "calories": 280
+      }
+    },
+    {
+      "name": "Lemon Donut",
+      "aliases": [
+        "lemon donut",
+        "lemon filled donut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 10,
+        "carbs": 31,
+        "fiber": 1,
+        "calories": 230
+      }
+    },
+    {
+      "name": "Apple 'n Spice Donut",
+      "aliases": [
+        "apple n spice donut",
+        "apple 'n spice donut",
+        "apple spice donut",
+        "apple filled donut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 10,
+        "carbs": 31,
+        "fiber": 1,
+        "calories": 230
+      }
+    },
+    {
+      "name": "Apple Crumb Donut",
+      "aliases": [
+        "apple crumb donut",
+        "apple crumb"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 11,
+        "carbs": 44,
+        "fiber": 1,
+        "calories": 290
+      }
+    },
+    {
+      "name": "Apple Fritter",
+      "aliases": [
+        "apple fritter",
+        "fritter"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 28,
+        "carbs": 47,
+        "fiber": 2,
+        "calories": 470
+      }
+    },
+    {
+      "name": "Blueberry Glazed Donut",
+      "aliases": [
+        "glazed blueberry donut",
+        "blueberry donut",
+        "blueberry glazed donut",
+        "blueberry cake donut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 18,
+        "carbs": 44,
+        "fiber": 1,
+        "calories": 350
+      }
+    },
+    {
+      "name": "Glazed Chocolate Donut",
+      "aliases": [
+        "glazed chocolate donut",
+        "chocolate glazed cake donut",
+        "glazed chocolate cake donut",
+        "chocolate cake donut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 23,
+        "carbs": 41,
+        "fiber": 1,
+        "calories": 370
+      }
+    },
+    {
+      "name": "Chocolate Frosted Cake Donut",
+      "aliases": [
+        "chocolate frosted cake donut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 20,
+        "carbs": 41,
+        "fiber": 1,
+        "calories": 360
+      }
+    },
+    {
+      "name": "Double Chocolate Donut",
+      "aliases": [
+        "double chocolate donut",
+        "double chocolate"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 23,
+        "carbs": 41,
+        "fiber": 1,
+        "calories": 380
+      }
+    },
+    {
+      "name": "Old Fashioned Donut",
+      "aliases": [
+        "old fashioned donut",
+        "old fashioned",
+        "plain cake donut",
+        "old fashion donut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 19,
+        "carbs": 30,
+        "fiber": 1,
+        "calories": 310
+      }
+    },
+    {
+      "name": "Sour Cream Donut",
+      "aliases": [
+        "sour cream donut",
+        "sour cream"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 17,
+        "carbs": 49,
+        "fiber": 1,
+        "calories": 360
+      }
+    },
+    {
+      "name": "Cinnamon Donut",
+      "aliases": [
+        "cinnamon donut",
+        "cinnamon sugar donut",
+        "cinnamon cake donut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 20,
+        "carbs": 34,
+        "fiber": 1,
+        "calories": 330
+      }
+    },
+    {
+      "name": "Powdered Donut",
+      "aliases": [
+        "powdered donut",
+        "powdered sugar donut",
+        "powdered"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 20,
+        "carbs": 34,
+        "fiber": 1,
+        "calories": 330
+      }
+    },
+    {
+      "name": "Sugared Donut",
+      "aliases": [
+        "sugared donut",
+        "sugar donut",
+        "sugar raised donut",
+        "sugared"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 11,
+        "carbs": 24,
+        "fiber": 1,
+        "calories": 210
+      }
+    },
+    {
+      "name": "French Cruller",
+      "aliases": [
+        "french cruller",
+        "cruller",
+        "crueller"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 14,
+        "carbs": 21,
+        "fiber": 0,
+        "calories": 230
+      }
+    },
+    {
+      "name": "Chocolate Dipped French Cruller",
+      "aliases": [
+        "chocolate dipped french cruller",
+        "chocolate cruller"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 15,
+        "carbs": 33,
+        "fiber": 0,
+        "calories": 280
+      }
+    },
+    {
+      "name": "Coconut Donut",
+      "aliases": [
+        "coconut donut",
+        "coconut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 21,
+        "carbs": 50,
+        "fiber": 1,
+        "calories": 410
+      }
+    },
+    {
+      "name": "Toasted Coconut Donut",
+      "aliases": [
+        "toasted coconut donut",
+        "toasted coconut"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 22,
+        "carbs": 52,
+        "fiber": 3,
+        "calories": 430
+      }
+    },
+    {
+      "name": "Butternut Donut",
+      "aliases": [
+        "butternut donut",
+        "butternut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 21,
+        "carbs": 57,
+        "fiber": 1,
+        "calories": 430
+      }
+    },
+    {
+      "name": "Chocolate Butternut Donut",
+      "aliases": [
+        "chocolate butternut donut",
+        "chocolate butternut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 24,
+        "carbs": 57,
+        "fiber": 1,
+        "calories": 450
+      }
+    },
+    {
+      "name": "Peanut Donut",
+      "aliases": [
+        "peanut donut",
+        "peanut"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 27,
+        "carbs": 50,
+        "fiber": 2,
+        "calories": 470
+      }
+    },
+    {
+      "name": "Vanilla Crème Donut",
+      "aliases": [
+        "vanilla creme donut",
+        "vanilla cream donut",
+        "vanilla crème donut",
+        "cream filled donut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 15,
+        "carbs": 37,
+        "fiber": 1,
+        "calories": 300
+      }
+    },
+    {
+      "name": "Frosted Vanilla Crème Donut",
+      "aliases": [
+        "frosted vanilla creme donut",
+        "frosted vanilla cream donut"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 16,
+        "carbs": 44,
+        "fiber": 1,
+        "calories": 330
+      }
+    },
+    {
+      "name": "Chocolate Crème Donut",
+      "aliases": [
+        "chocolate creme donut",
+        "chocolate cream donut",
+        "chocolate crème donut"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 14,
+        "carbs": 36,
+        "fiber": 1,
+        "calories": 290
+      }
+    },
+    {
+      "name": "Maple Crème Donut",
+      "aliases": [
+        "maple creme donut",
+        "maple cream donut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 14,
+        "carbs": 38,
+        "fiber": 1,
+        "calories": 290
+      }
+    },
+    {
+      "name": "Maple Vanilla Crème Donut",
+      "aliases": [
+        "maple vanilla creme donut",
+        "maple vanilla cream donut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 15,
+        "carbs": 45,
+        "fiber": 1,
+        "calories": 330
+      }
+    },
+    {
+      "name": "Chocolate Long John",
+      "aliases": [
+        "chocolate long john",
+        "long john",
+        "chocolate eclair donut"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 15,
+        "carbs": 41,
+        "fiber": 1,
+        "calories": 320
+      }
+    },
+    {
+      "name": "Vanilla Long John",
+      "aliases": [
+        "vanilla long john"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 15,
+        "carbs": 42,
+        "fiber": 1,
+        "calories": 320
+      }
+    },
+    {
+      "name": "Éclair",
+      "aliases": [
+        "eclair",
+        "éclair",
+        "chocolate eclair"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 16,
+        "carbs": 50,
+        "fiber": 1,
+        "calories": 360
+      }
+    },
+    {
+      "name": "Bismark",
+      "aliases": [
+        "bismark",
+        "bismarck"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 22,
+        "carbs": 63,
+        "fiber": 1,
+        "calories": 480
+      }
+    },
+    {
+      "name": "Coffee Roll",
+      "aliases": [
+        "coffee roll",
+        "cinnamon roll",
+        "coffee cake roll"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 19,
+        "carbs": 48,
+        "fiber": 2,
+        "calories": 390
+      }
+    },
+    {
+      "name": "Glazed Stick",
+      "aliases": [
+        "glazed stick",
+        "glazed donut stick",
+        "donut stick"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 30,
+        "carbs": 48,
+        "fiber": 1,
+        "calories": 470
+      }
+    },
+    {
+      "name": "Glazed Chocolate Stick",
+      "aliases": [
+        "glazed chocolate stick",
+        "chocolate stick",
+        "chocolate donut stick"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 25,
+        "carbs": 42,
+        "fiber": 2,
+        "calories": 410
+      }
+    },
+    {
+      "name": "Jelly Stick",
+      "aliases": [
+        "jelly stick",
+        "jelly donut stick"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 30,
+        "carbs": 57,
+        "fiber": 1,
+        "calories": 500
+      }
+    },
+    {
+      "name": "Glazed Jelly Stick",
+      "aliases": [
+        "glazed jelly stick"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 30,
+        "carbs": 66,
+        "fiber": 1,
+        "calories": 540
+      }
+    },
+    {
+      "name": "Cinnamon Stick",
+      "aliases": [
+        "cinnamon stick",
+        "cinnamon donut stick"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 30,
+        "carbs": 39,
+        "fiber": 1,
+        "calories": 430
+      }
+    },
+    {
+      "name": "Powdered Stick",
+      "aliases": [
+        "powdered stick",
+        "powdered donut stick"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 30,
+        "carbs": 42,
+        "fiber": 1,
+        "calories": 440
+      }
+    },
+    {
+      "name": "Sugared Stick",
+      "aliases": [
+        "sugared stick",
+        "sugar stick"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 30,
+        "carbs": 39,
+        "fiber": 1,
+        "calories": 430
+      }
+    },
+    {
+      "name": "Plain Stick",
+      "aliases": [
+        "plain stick",
+        "plain donut stick"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 30,
+        "carbs": 36,
+        "fiber": 1,
+        "calories": 420
+      }
+    },
+    {
+      "name": "Apple Stick",
+      "aliases": [
+        "apple stick"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 30,
+        "carbs": 50,
+        "fiber": 1,
+        "calories": 470
+      }
+    },
+    {
+      "name": "Lemon Stick",
+      "aliases": [
+        "lemon stick"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 30,
+        "carbs": 50,
+        "fiber": 1,
+        "calories": 480
+      }
+    },
+    {
+      "name": "Maple Crème Stick",
+      "aliases": [
+        "maple creme stick",
+        "maple cream stick"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 22,
+        "carbs": 59,
+        "fiber": 1,
+        "calories": 460
+      }
+    },
+    {
+      "name": "Chocolate Headlight Donut",
+      "aliases": [
+        "chocolate headlight donut",
+        "chocolate headlight"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 14,
+        "carbs": 41,
+        "fiber": 1,
+        "calories": 310
+      }
+    },
+    {
+      "name": "Vanilla Headlight Donut",
+      "aliases": [
+        "vanilla headlight donut",
+        "vanilla headlight"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 15,
+        "carbs": 41,
+        "fiber": 1,
+        "calories": 310
+      }
+    },
+    {
+      "name": "Taillight Donut",
+      "aliases": [
+        "taillight donut",
+        "taillight",
+        "tail light donut"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 15,
+        "carbs": 41,
+        "fiber": 1,
+        "calories": 320
+      }
+    },
+    {
+      "name": "Pumpkin Donut",
+      "aliases": [
+        "pumpkin donut",
+        "pumpkin cake donut",
+        "pumpkin spice donut"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 22,
+        "carbs": 41,
+        "fiber": 1,
+        "calories": 380
+      }
+    },
+    {
+      "name": "Spider Donut",
+      "aliases": [
+        "spider donut",
+        "halloween spider donut"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 14,
+        "carbs": 44,
+        "fiber": 1,
+        "calories": 320
+      }
+    },
+    {
+      "name": "Glazed Munchkins (1 donut hole)",
+      "aliases": [
+        "glazed munchkins",
+        "glazed munchkin",
+        "munchkins",
+        "munchkin",
+        "donut holes",
+        "donut hole",
+        "glazed donut hole",
+        "timbits"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 3,
+        "carbs": 7,
+        "fiber": 0,
+        "calories": 60
+      },
+      "note": "Per single Munchkin; multiply by the count ordered (sold in 10, 25 and 50 counts)."
+    },
+    {
+      "name": "Glazed Chocolate Munchkins (1 donut hole)",
+      "aliases": [
+        "glazed chocolate munchkins",
+        "chocolate munchkins",
+        "chocolate munchkin",
+        "chocolate donut hole"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 3.5,
+        "carbs": 8,
+        "fiber": 0,
+        "calories": 60
+      },
+      "note": "Per single Munchkin; multiply by the count ordered (sold in 10, 25 and 50 counts)."
+    },
+    {
+      "name": "Glazed Blueberry Munchkins (1 donut hole)",
+      "aliases": [
+        "glazed blueberry munchkins",
+        "blueberry munchkins",
+        "blueberry munchkin"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 2.5,
+        "carbs": 9,
+        "fiber": 0,
+        "calories": 60
+      },
+      "note": "Per single Munchkin; multiply by the count ordered (sold in 10, 25 and 50 counts)."
+    },
+    {
+      "name": "Glazed Old Fashioned Munchkins (1 donut hole)",
+      "aliases": [
+        "glazed old fashioned munchkins",
+        "glazed old fashioned munchkin"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 3,
+        "carbs": 8,
+        "fiber": 0,
+        "calories": 70
+      },
+      "note": "Per single Munchkin; multiply by the count ordered (sold in 10, 25 and 50 counts)."
+    },
+    {
+      "name": "Old Fashioned Munchkins (1 donut hole)",
+      "aliases": [
+        "old fashioned munchkins",
+        "old fashioned munchkin",
+        "plain munchkins"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 3,
+        "carbs": 6,
+        "fiber": 0,
+        "calories": 50
+      },
+      "note": "Per single Munchkin; multiply by the count ordered (sold in 10, 25 and 50 counts)."
+    },
+    {
+      "name": "Jelly Munchkins (1 donut hole)",
+      "aliases": [
+        "jelly munchkins",
+        "jelly munchkin"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 3,
+        "carbs": 8,
+        "fiber": 0,
+        "calories": 60
+      },
+      "note": "Per single Munchkin; multiply by the count ordered (sold in 10, 25 and 50 counts)."
+    },
+    {
+      "name": "Powdered Munchkins (1 donut hole)",
+      "aliases": [
+        "powdered munchkins",
+        "powdered munchkin",
+        "powdered sugar munchkins"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 3.5,
+        "carbs": 7,
+        "fiber": 0,
+        "calories": 60
+      },
+      "note": "Per single Munchkin; multiply by the count ordered (sold in 10, 25 and 50 counts)."
+    },
+    {
+      "name": "Cinnamon Munchkins (1 donut hole)",
+      "aliases": [
+        "cinnamon munchkins",
+        "cinnamon munchkin"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 3.5,
+        "carbs": 6,
+        "fiber": 0,
+        "calories": 60
+      },
+      "note": "Per single Munchkin; multiply by the count ordered (sold in 10, 25 and 50 counts)."
+    },
+    {
+      "name": "Pumpkin Munchkins (1 donut hole)",
+      "aliases": [
+        "pumpkin munchkins",
+        "pumpkin munchkin"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 4,
+        "carbs": 8,
+        "fiber": 0,
+        "calories": 70
+      },
+      "note": "Per single Munchkin; multiply by the count ordered (sold in 10, 25 and 50 counts)."
+    },
+    {
+      "name": "Plain Bagel",
+      "aliases": [
+        "plain bagel",
+        "bagel",
+        "plain bagel no cream cheese"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 1,
+        "carbs": 64,
+        "fiber": 4,
+        "calories": 300
+      },
+      "build": [
+        {
+          "component": "plain bagel",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Everything Bagel",
+      "aliases": [
+        "everything bagel",
+        "everything"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 3,
+        "carbs": 67,
+        "fiber": 5,
+        "calories": 340
+      },
+      "build": [
+        {
+          "component": "everything bagel",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cinnamon Raisin Bagel",
+      "aliases": [
+        "cinnamon raisin bagel",
+        "cinnamon raisin",
+        "raisin bagel"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 1,
+        "carbs": 67,
+        "fiber": 4,
+        "calories": 320
+      },
+      "build": [
+        {
+          "component": "cinnamon raisin bagel",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Multigrain Bagel",
+      "aliases": [
+        "multigrain bagel",
+        "multi grain bagel",
+        "wheat bagel"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 8,
+        "carbs": 63,
+        "fiber": 8,
+        "calories": 380
+      },
+      "build": [
+        {
+          "component": "multigrain bagel",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Sesame Seed Bagel",
+      "aliases": [
+        "sesame seed bagel",
+        "sesame bagel"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 5,
+        "carbs": 64,
+        "fiber": 5,
+        "calories": 350
+      },
+      "build": [
+        {
+          "component": "sesame seed bagel",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "White Cheddar Bagel Twist",
+      "aliases": [
+        "white cheddar bagel twist",
+        "bagel twist",
+        "cheddar bagel twist"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 8,
+        "carbs": 64,
+        "fiber": 4,
+        "calories": 390
+      }
+    },
+    {
+      "name": "Plain Bagel with Plain Cream Cheese",
+      "aliases": [
+        "plain bagel with cream cheese",
+        "bagel with cream cheese",
+        "bagel and cream cheese",
+        "plain bagel cream cheese",
+        "bagel cream cheese"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 13,
+        "carbs": 67,
+        "fiber": 4,
+        "calories": 420
+      },
+      "build": [
+        {
+          "component": "plain bagel",
+          "count": 1
+        },
+        {
+          "component": "plain cream cheese spread",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published Plain Bagel and Classic Plain Cream Cheese Spread rows."
+    },
+    {
+      "name": "Everything Bagel with Plain Cream Cheese",
+      "aliases": [
+        "everything bagel with cream cheese",
+        "everything bagel cream cheese",
+        "everything bagel and cream cheese"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 15,
+        "carbs": 70,
+        "fiber": 5,
+        "calories": 460
+      },
+      "build": [
+        {
+          "component": "everything bagel",
+          "count": 1
+        },
+        {
+          "component": "plain cream cheese spread",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published Everything Bagel and Classic Plain Cream Cheese Spread rows."
+    },
+    {
+      "name": "Cinnamon Raisin Bagel with Plain Cream Cheese",
+      "aliases": [
+        "cinnamon raisin bagel with cream cheese",
+        "cinnamon raisin bagel cream cheese"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 13,
+        "carbs": 70,
+        "fiber": 4,
+        "calories": 440
+      },
+      "build": [
+        {
+          "component": "cinnamon raisin bagel",
+          "count": 1
+        },
+        {
+          "component": "plain cream cheese spread",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published Cinnamon Raisin Bagel and Classic Plain Cream Cheese Spread rows."
+    },
+    {
+      "name": "Classic Plain Cream Cheese Spread",
+      "aliases": [
+        "plain cream cheese",
+        "cream cheese",
+        "classic plain cream cheese spread",
+        "cream cheese spread"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 12,
+        "carbs": 3,
+        "fiber": 0,
+        "calories": 120
+      }
+    },
+    {
+      "name": "Garden Veggie Cream Cheese Spread",
+      "aliases": [
+        "garden veggie cream cheese",
+        "veggie cream cheese",
+        "vegetable cream cheese"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 10,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 100
+      }
+    },
+    {
+      "name": "Strawberry Cream Cheese Spread",
+      "aliases": [
+        "strawberry cream cheese"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 10,
+        "carbs": 9,
+        "fiber": 0,
+        "calories": 130
+      }
+    },
+    {
+      "name": "Stuffed Bagel Minis - Plain (2 minis)",
+      "aliases": [
+        "stuffed bagel minis plain",
+        "plain stuffed bagel minis",
+        "stuffed bagel minis",
+        "bagel minis"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 10,
+        "carbs": 32,
+        "fiber": 2,
+        "calories": 240
+      }
+    },
+    {
+      "name": "Stuffed Bagel Minis - Everything (2 minis)",
+      "aliases": [
+        "stuffed bagel minis everything",
+        "everything stuffed bagel minis",
+        "everything bagel minis"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 12,
+        "carbs": 34,
+        "fiber": 3,
+        "calories": 260
+      }
+    },
+    {
+      "name": "Bacon, Egg and Cheese on Croissant",
+      "aliases": [
+        "bacon egg and cheese croissant",
+        "bacon egg cheese croissant",
+        "bec croissant",
+        "bacon egg and cheese on croissant",
+        "bacon egg and cheese"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 34,
+        "carbs": 34,
+        "fiber": 1,
+        "calories": 520
+      },
+      "build": [
+        {
+          "component": "plain butter croissant",
+          "count": 1
+        },
+        {
+          "component": "egg and cheese (sandwich filling)",
+          "count": 1
+        },
+        {
+          "component": "bacon (sandwich portion)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Bacon, Egg and Cheese on English Muffin",
+      "aliases": [
+        "bacon egg and cheese english muffin",
+        "bacon egg cheese english muffin",
+        "bec english muffin",
+        "bacon egg and cheese on english muffin"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 21,
+        "carbs": 39,
+        "fiber": 1,
+        "calories": 420
+      },
+      "build": [
+        {
+          "component": "english muffin",
+          "count": 1
+        },
+        {
+          "component": "egg and cheese (sandwich filling)",
+          "count": 1
+        },
+        {
+          "component": "bacon (sandwich portion)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Bacon, Egg and Cheese on a Plain Bagel",
+      "aliases": [
+        "bacon egg and cheese bagel",
+        "bacon egg cheese bagel",
+        "bec bagel",
+        "bacon egg and cheese on a plain bagel",
+        "bacon egg and cheese on bagel"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 19,
+        "carbs": 67,
+        "fiber": 4,
+        "calories": 540
+      },
+      "build": [
+        {
+          "component": "plain bagel",
+          "count": 1
+        },
+        {
+          "component": "egg and cheese (sandwich filling)",
+          "count": 1
+        },
+        {
+          "component": "bacon (sandwich portion)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Sausage, Egg and Cheese on Croissant",
+      "aliases": [
+        "sausage egg and cheese croissant",
+        "sausage egg cheese croissant",
+        "sec croissant",
+        "sausage egg and cheese",
+        "sausage egg and cheese on croissant"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 48,
+        "carbs": 35,
+        "fiber": 2,
+        "calories": 660
+      },
+      "build": [
+        {
+          "component": "plain butter croissant",
+          "count": 1
+        },
+        {
+          "component": "egg and cheese (sandwich filling)",
+          "count": 1
+        },
+        {
+          "component": "sausage patty",
+          "count": 1
+        }
+      ],
+      "note": "Not listed as its own row in the current guide; macros are the sum of the published Egg and Cheese on Croissant and the sausage patty derived from Sausage, Egg and Cheese on English Muffin minus Egg and Cheese on English Muffin."
+    },
+    {
+      "name": "Sausage, Egg and Cheese on English Muffin",
+      "aliases": [
+        "sausage egg and cheese english muffin",
+        "sausage egg cheese english muffin",
+        "sec english muffin",
+        "sausage egg and cheese on english muffin"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 35,
+        "carbs": 40,
+        "fiber": 2,
+        "calories": 560
+      },
+      "build": [
+        {
+          "component": "english muffin",
+          "count": 1
+        },
+        {
+          "component": "egg and cheese (sandwich filling)",
+          "count": 1
+        },
+        {
+          "component": "sausage patty",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Sausage, Egg and Cheese on a Plain Bagel",
+      "aliases": [
+        "sausage egg and cheese bagel",
+        "sausage egg cheese bagel",
+        "sec bagel",
+        "sausage egg and cheese on a plain bagel",
+        "sausage egg and cheese on bagel"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 34,
+        "carbs": 68,
+        "fiber": 5,
+        "calories": 680
+      },
+      "build": [
+        {
+          "component": "plain bagel",
+          "count": 1
+        },
+        {
+          "component": "egg and cheese (sandwich filling)",
+          "count": 1
+        },
+        {
+          "component": "sausage patty",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Egg and Cheese on Croissant",
+      "aliases": [
+        "egg and cheese croissant",
+        "egg cheese croissant",
+        "egg and cheese on croissant",
+        "egg and cheese"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 28,
+        "carbs": 33,
+        "fiber": 1,
+        "calories": 440
+      },
+      "build": [
+        {
+          "component": "plain butter croissant",
+          "count": 1
+        },
+        {
+          "component": "egg and cheese (sandwich filling)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Egg and Cheese on English Muffin",
+      "aliases": [
+        "egg and cheese english muffin",
+        "egg cheese english muffin",
+        "egg and cheese on english muffin"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 15,
+        "carbs": 38,
+        "fiber": 1,
+        "calories": 340
+      },
+      "build": [
+        {
+          "component": "english muffin",
+          "count": 1
+        },
+        {
+          "component": "egg and cheese (sandwich filling)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Egg and Cheese on a Plain Bagel",
+      "aliases": [
+        "egg and cheese bagel",
+        "egg cheese bagel",
+        "egg and cheese on a plain bagel",
+        "egg and cheese on bagel"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 13,
+        "carbs": 66,
+        "fiber": 4,
+        "calories": 460
+      },
+      "build": [
+        {
+          "component": "plain bagel",
+          "count": 1
+        },
+        {
+          "component": "egg and cheese (sandwich filling)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Turkey Sausage Sandwich on English Muffin",
+      "aliases": [
+        "turkey sausage sandwich",
+        "turkey sausage egg and cheese",
+        "turkey sausage english muffin",
+        "turkey sausage sandwich on english muffin",
+        "turkey sausage egg white"
+      ],
+      "macros": {
+        "protein": 22,
+        "fat": 24,
+        "carbs": 39,
+        "fiber": 1,
+        "calories": 460
+      },
+      "build": [
+        {
+          "component": "english muffin",
+          "count": 1
+        },
+        {
+          "component": "egg and cheese (sandwich filling)",
+          "count": 1
+        },
+        {
+          "component": "turkey sausage patty",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Sourdough Breakfast Sandwich",
+      "aliases": [
+        "sourdough breakfast sandwich",
+        "sourdough sandwich",
+        "sourdough bacon egg and cheese"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 31,
+        "carbs": 58,
+        "fiber": 3,
+        "calories": 630
+      }
+    },
+    {
+      "name": "Double Sausage Breakfast Sandwich",
+      "aliases": [
+        "double sausage breakfast sandwich",
+        "double sausage sandwich",
+        "double sausage"
+      ],
+      "macros": {
+        "protein": 33,
+        "fat": 54,
+        "carbs": 70,
+        "fiber": 5,
+        "calories": 900
+      }
+    },
+    {
+      "name": "Spam Breakfast Sandwich",
+      "aliases": [
+        "spam breakfast sandwich",
+        "spam sandwich",
+        "spam egg and cheese"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 42,
+        "carbs": 41,
+        "fiber": 1,
+        "calories": 630
+      }
+    },
+    {
+      "name": "Maple Brown Sugar Breakfast Sandwich",
+      "aliases": [
+        "maple brown sugar breakfast sandwich",
+        "maple brown sugar sandwich",
+        "maple sugar bacon sandwich"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 36,
+        "carbs": 38,
+        "fiber": 1,
+        "calories": 560
+      }
+    },
+    {
+      "name": "Grilled Cheese",
+      "aliases": [
+        "grilled cheese",
+        "grilled cheese sandwich",
+        "sourdough grilled cheese"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 20,
+        "carbs": 54,
+        "fiber": 3,
+        "calories": 480
+      }
+    },
+    {
+      "name": "Ham & Cheese Croissant Stuffer",
+      "aliases": [
+        "ham and cheese croissant stuffer",
+        "croissant stuffer",
+        "ham cheese stuffer",
+        "ham and cheese stuffer"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 17,
+        "carbs": 30,
+        "fiber": 2,
+        "calories": 330
+      }
+    },
+    {
+      "name": "Egg and Cheese Wake-Up Wrap",
+      "aliases": [
+        "egg and cheese wake up wrap",
+        "egg and cheese wake-up wrap",
+        "wake up wrap",
+        "wake-up wrap",
+        "wakeup wrap",
+        "egg cheese wrap"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 10,
+        "carbs": 14,
+        "fiber": 0,
+        "calories": 180
+      },
+      "build": [
+        {
+          "component": "egg and cheese wake-up wrap",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Bacon, Egg and Cheese Wake-Up Wrap",
+      "aliases": [
+        "bacon egg and cheese wake up wrap",
+        "bacon wake up wrap",
+        "bacon wake-up wrap",
+        "bacon egg cheese wrap",
+        "bec wake up wrap"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 13,
+        "carbs": 15,
+        "fiber": 0,
+        "calories": 220
+      },
+      "build": [
+        {
+          "component": "egg and cheese wake-up wrap",
+          "count": 1
+        },
+        {
+          "component": "bacon (wake-up wrap portion)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Sausage, Egg and Cheese Wake-Up Wrap",
+      "aliases": [
+        "sausage egg and cheese wake up wrap",
+        "sausage wake up wrap",
+        "sausage wake-up wrap",
+        "sausage egg cheese wrap",
+        "sec wake up wrap"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 20,
+        "carbs": 15,
+        "fiber": 1,
+        "calories": 280
+      },
+      "build": [
+        {
+          "component": "egg and cheese wake-up wrap",
+          "count": 1
+        },
+        {
+          "component": "sausage (wake-up wrap portion)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Turkey Sausage Wake-Up Wrap",
+      "aliases": [
+        "turkey sausage wake up wrap",
+        "turkey sausage wake-up wrap",
+        "turkey sausage wrap",
+        "turkey wake up wrap"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 15,
+        "carbs": 15,
+        "fiber": 0,
+        "calories": 230
+      },
+      "build": [
+        {
+          "component": "egg and cheese wake-up wrap",
+          "count": 1
+        },
+        {
+          "component": "turkey sausage (wake-up wrap portion)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Chipotle Hash Brown Wake-Up Wrap",
+      "aliases": [
+        "chipotle hash brown wake up wrap",
+        "chipotle wake up wrap",
+        "chipotle hash brown wrap"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 24,
+        "carbs": 22,
+        "fiber": 1,
+        "calories": 340
+      }
+    },
+    {
+      "name": "Sausage Hash Brown Wake-Up Wrap",
+      "aliases": [
+        "sausage hash brown wake up wrap",
+        "sausage hash brown wrap"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 32,
+        "carbs": 23,
+        "fiber": 1,
+        "calories": 430
+      }
+    },
+    {
+      "name": "Maple Brown Sugar Wake-Up Wrap",
+      "aliases": [
+        "maple brown sugar wake up wrap",
+        "maple sugar bacon wrap",
+        "maple brown sugar wrap"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 16,
+        "carbs": 17,
+        "fiber": 0,
+        "calories": 260
+      }
+    },
+    {
+      "name": "Hash Browns (6 pieces)",
+      "aliases": [
+        "hash browns",
+        "hashbrowns",
+        "hash brown",
+        "hashbrown",
+        "order of hash browns",
+        "6 hash browns"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 6,
+        "carbs": 13,
+        "fiber": 1,
+        "calories": 110
+      },
+      "build": [
+        {
+          "component": "hash browns",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "name": "Loaded Hash Browns",
+      "aliases": [
+        "loaded hash browns",
+        "loaded hashbrowns",
+        "hash brown bowl"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 22,
+        "carbs": 24,
+        "fiber": 2,
+        "calories": 320
+      }
+    },
+    {
+      "name": "Chipotle Loaded Hash Browns",
+      "aliases": [
+        "chipotle loaded hash browns",
+        "chipotle hash browns"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 30,
+        "carbs": 22,
+        "fiber": 2,
+        "calories": 380
+      }
+    },
+    {
+      "name": "Bacon & Cheddar Omelet Bites (2 bites)",
+      "aliases": [
+        "bacon and cheddar omelet bites",
+        "omelet bites",
+        "bacon cheddar omelet bites",
+        "egg bites",
+        "omelette bites",
+        "bacon omelet bites"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 19,
+        "carbs": 7,
+        "fiber": 0,
+        "calories": 280
+      }
+    },
+    {
+      "name": "Snackin' Bacon (8 pieces)",
+      "aliases": [
+        "snackin bacon",
+        "snackin' bacon",
+        "snacking bacon",
+        "maple brown sugar snackin bacon",
+        "bacon snack",
+        "side of bacon"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 12,
+        "carbs": 10,
+        "fiber": 0,
+        "calories": 190
+      }
+    },
+    {
+      "name": "Avocado Toast",
+      "aliases": [
+        "avocado toast",
+        "avo toast"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 11,
+        "carbs": 34,
+        "fiber": 6,
+        "calories": 240
+      },
+      "build": [
+        {
+          "component": "avocado toast",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Bacon Topped Avocado Toast",
+      "aliases": [
+        "bacon topped avocado toast",
+        "avocado toast with bacon",
+        "bacon avocado toast"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 14,
+        "carbs": 32,
+        "fiber": 5,
+        "calories": 290
+      }
+    },
+    {
+      "name": "Plain Butter Croissant",
+      "aliases": [
+        "plain butter croissant",
+        "croissant",
+        "butter croissant",
+        "plain croissant"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 15,
+        "carbs": 31,
+        "fiber": 1,
+        "calories": 280
+      }
+    },
+    {
+      "name": "English Muffin",
+      "aliases": [
+        "english muffin",
+        "plain english muffin"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 2,
+        "carbs": 35,
+        "fiber": 1,
+        "calories": 190
+      }
+    },
+    {
+      "name": "Blueberry Muffin",
+      "aliases": [
+        "blueberry muffin"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 15,
+        "carbs": 77,
+        "fiber": 1,
+        "calories": 460
+      }
+    },
+    {
+      "name": "Chocolate Chip Muffin",
+      "aliases": [
+        "chocolate chip muffin",
+        "choc chip muffin"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 21,
+        "carbs": 85,
+        "fiber": 2,
+        "calories": 550
+      }
+    },
+    {
+      "name": "Coffee Cake Muffin",
+      "aliases": [
+        "coffee cake muffin"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 24,
+        "carbs": 88,
+        "fiber": 2,
+        "calories": 590
+      }
+    },
+    {
+      "name": "Corn Muffin",
+      "aliases": [
+        "corn muffin",
+        "corn bread muffin"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 16,
+        "carbs": 73,
+        "fiber": 1,
+        "calories": 460
+      }
+    },
+    {
+      "name": "Pumpkin Muffin",
+      "aliases": [
+        "pumpkin muffin"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 24,
+        "carbs": 77,
+        "fiber": 2,
+        "calories": 550
+      }
+    },
+    {
+      "name": "Butter Packet",
+      "aliases": [
+        "butter packet",
+        "butter",
+        "pat of butter"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 4,
+        "carbs": 0,
+        "fiber": 0,
+        "calories": 35
+      }
+    }
+  ]
+}

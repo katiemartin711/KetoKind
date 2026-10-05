@@ -1,0 +1,5651 @@
+{
+  "chain": "Jersey Mike's Subs",
+  "aliases": [
+    "jersey mikes",
+    "jersey mike's",
+    "jersey mike",
+    "jerseymikes",
+    "jersey mike's subs",
+    "jersey mikes subs",
+    "mikes subs"
+  ],
+  "source": "https://subs.jerseymikes.com/nutrition",
+  "retrieved": "2026-10-05",
+  "note": "Numbers come from Jersey Mike's nutrition calculator API (https://subs.jerseymikes.com/nutrition/data and https://subs.jerseymikes.com/nutrition/{productId}/{sizeId}), which lists each ingredient's nutrition per product and size. Component units are the published regular-sub portion ('each'); build counts are the published portion on that item divided by the component portion (e.g. the #13 uses half the ham of a #3). Item macros are the sum of the item's default ingredients as the calculator reports them. Bowl = Sub in a Tub.",
+  "components": {
+    "white bread (mini)": {
+      "unit": "each",
+      "protein": 7.7,
+      "fat": 1.9,
+      "carbs": 38.7,
+      "fiber": 1.6,
+      "calories": 204,
+      "note": "one mini sub roll"
+    },
+    "white bread (regular)": {
+      "unit": "each",
+      "protein": 11.6,
+      "fat": 2.9,
+      "carbs": 58.7,
+      "fiber": 2.4,
+      "calories": 309,
+      "note": "one regular sub roll"
+    },
+    "white bread (giant)": {
+      "unit": "each",
+      "protein": 23.2,
+      "fat": 5.8,
+      "carbs": 117.3,
+      "fiber": 4.8,
+      "calories": 617,
+      "note": "one giant sub roll"
+    },
+    "wheat bread (regular)": {
+      "unit": "each",
+      "protein": 11.9,
+      "fat": 3.1,
+      "carbs": 59,
+      "fiber": 4.7,
+      "calories": 307,
+      "note": "one regular sub roll"
+    },
+    "wheat bread (giant)": {
+      "unit": "each",
+      "protein": 23.7,
+      "fat": 6.1,
+      "carbs": 118,
+      "fiber": 9.5,
+      "calories": 615,
+      "note": "one giant sub roll"
+    },
+    "rosemary parmesan bread (regular)": {
+      "unit": "each",
+      "protein": 13.8,
+      "fat": 5,
+      "carbs": 59.7,
+      "fiber": 3,
+      "calories": 340,
+      "note": "one regular sub roll"
+    },
+    "rosemary parmesan bread (giant)": {
+      "unit": "each",
+      "protein": 27.6,
+      "fat": 10,
+      "carbs": 119.3,
+      "fiber": 6,
+      "calories": 679,
+      "note": "one giant sub roll"
+    },
+    "gluten free bread (regular)": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 7,
+      "carbs": 39.5,
+      "fiber": 2,
+      "calories": 235,
+      "note": "one regular gluten-free roll"
+    },
+    "gluten free bread (giant)": {
+      "unit": "each",
+      "protein": 12,
+      "fat": 14,
+      "carbs": 79,
+      "fiber": 4,
+      "calories": 470,
+      "note": "one giant gluten-free roll"
+    },
+    "seeded italian bread (regular)": {
+      "unit": "each",
+      "protein": 10.1,
+      "fat": 3.1,
+      "carbs": 49.8,
+      "fiber": 2,
+      "calories": 269,
+      "note": "one regular sub roll"
+    },
+    "ham": {
+      "unit": "each",
+      "protein": 16.7,
+      "fat": 4.2,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 111,
+      "note": "meat portion on a regular #3 Ham and Provolone"
+    },
+    "cappacuolo": {
+      "unit": "each",
+      "protein": 3.8,
+      "fat": 0.7,
+      "carbs": 1.1,
+      "fiber": 0,
+      "calories": 26,
+      "note": "portion on a regular #2"
+    },
+    "prosciuttini": {
+      "unit": "each",
+      "protein": 7.9,
+      "fat": 1.2,
+      "carbs": 2.1,
+      "fiber": 0,
+      "calories": 50,
+      "note": "portion on a regular #5 Super Sub"
+    },
+    "pepperoni": {
+      "unit": "each",
+      "protein": 2.1,
+      "fat": 4.7,
+      "carbs": 0.5,
+      "fiber": 0.1,
+      "calories": 53,
+      "note": "portion on a regular #13 Original Italian"
+    },
+    "hard salami": {
+      "unit": "each",
+      "protein": 4,
+      "fat": 7.7,
+      "carbs": 0.8,
+      "fiber": 0,
+      "calories": 89,
+      "note": "portion on a regular #11 Stickball Special"
+    },
+    "turkey": {
+      "unit": "each",
+      "protein": 23.8,
+      "fat": 1.2,
+      "carbs": 0.6,
+      "fiber": 0,
+      "calories": 111,
+      "note": "meat portion on a regular #7 Turkey and Provolone"
+    },
+    "roast beef": {
+      "unit": "each",
+      "protein": 35.4,
+      "fat": 6.1,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 207,
+      "note": "meat portion on a regular #6 Roast Beef and Provolone"
+    },
+    "tuna salad": {
+      "unit": "each",
+      "protein": 20.1,
+      "fat": 43.6,
+      "carbs": 1.9,
+      "fiber": 0.4,
+      "calories": 474,
+      "note": "portion on a regular #10 Tuna Fish"
+    },
+    "bacon": {
+      "unit": "each",
+      "protein": 5.1,
+      "fat": 5.2,
+      "carbs": 0.1,
+      "fiber": 0,
+      "calories": 65,
+      "note": "bacon portion on a regular #8 Club Sub"
+    },
+    "pastrami": {
+      "unit": "each",
+      "protein": 22.3,
+      "fat": 4,
+      "carbs": 6.1,
+      "fiber": 0,
+      "calories": 142,
+      "note": "portion on a regular #20 Grilled Pastrami Reuben"
+    },
+    "grilled steak": {
+      "unit": "each",
+      "protein": 26.9,
+      "fat": 14.3,
+      "carbs": 4.7,
+      "fiber": 0,
+      "calories": 255,
+      "note": "Philly beef portion on a regular #17 Mike's Famous Philly"
+    },
+    "grilled chicken": {
+      "unit": "each",
+      "protein": 29.3,
+      "fat": 5.7,
+      "carbs": 3.6,
+      "fiber": 0,
+      "calories": 191,
+      "note": "Philly chicken portion on a regular #16 Mike's Chicken Philly"
+    },
+    "provolone": {
+      "unit": "each",
+      "protein": 8.5,
+      "fat": 9,
+      "carbs": 0.7,
+      "fiber": 0,
+      "calories": 118,
+      "note": "cheese portion on a regular cold sub"
+    },
+    "swiss": {
+      "unit": "each",
+      "protein": 7.1,
+      "fat": 7.4,
+      "carbs": 0.6,
+      "fiber": 0,
+      "calories": 98,
+      "note": "cheese portion on a regular #9 Club Supreme"
+    },
+    "white american cheese": {
+      "unit": "each",
+      "protein": 7,
+      "fat": 13,
+      "carbs": 3.1,
+      "fiber": 0,
+      "calories": 153,
+      "note": "cheese portion on a regular cheese steak"
+    },
+    "blue cheese dressing": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 21.9,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 209,
+      "note": "portion on a regular #44"
+    },
+    "lettuce": {
+      "unit": "each",
+      "protein": 0.8,
+      "fat": 0.1,
+      "carbs": 2.5,
+      "fiber": 1,
+      "calories": 12,
+      "note": "regular sub portion"
+    },
+    "tomatoes": {
+      "unit": "each",
+      "protein": 0.5,
+      "fat": 0.1,
+      "carbs": 2.3,
+      "fiber": 0.7,
+      "calories": 10,
+      "note": "regular sub portion"
+    },
+    "onions": {
+      "unit": "each",
+      "protein": 0.1,
+      "fat": 0,
+      "carbs": 0.8,
+      "fiber": 0.1,
+      "calories": 3,
+      "note": "regular sub portion"
+    },
+    "grilled onions": {
+      "unit": "each",
+      "protein": 0.4,
+      "fat": 0,
+      "carbs": 3.3,
+      "fiber": 0.6,
+      "calories": 14,
+      "note": "regular cheese steak portion"
+    },
+    "red and green pepper strips": {
+      "unit": "each",
+      "protein": 0.1,
+      "fat": 0,
+      "carbs": 4.3,
+      "fiber": 0.2,
+      "calories": 17,
+      "note": "regular cheese steak portion"
+    },
+    "green bell pepper": {
+      "unit": "each",
+      "protein": 0.3,
+      "fat": 0.1,
+      "carbs": 1.5,
+      "fiber": 0.5,
+      "calories": 6,
+      "note": "regular #14 Veggie portion"
+    },
+    "mushrooms": {
+      "unit": "each",
+      "protein": 0.3,
+      "fat": 0,
+      "carbs": 0.4,
+      "fiber": 0.1,
+      "calories": 2,
+      "note": "regular Big Kahuna portion"
+    },
+    "grilled portabella mushroom": {
+      "unit": "each",
+      "protein": 0.6,
+      "fat": 0.1,
+      "carbs": 1.1,
+      "fiber": 0.4,
+      "calories": 6,
+      "note": "add-on portion for a regular sub"
+    },
+    "jalapeno peppers": {
+      "unit": "each",
+      "protein": 0.1,
+      "fat": 0.1,
+      "carbs": 0.9,
+      "fiber": 0.4,
+      "calories": 4,
+      "note": "regular sub portion"
+    },
+    "banana peppers": {
+      "unit": "each",
+      "protein": 0.1,
+      "fat": 0,
+      "carbs": 0.9,
+      "fiber": 0.2,
+      "calories": 4,
+      "note": "regular sub portion"
+    },
+    "dill pickles": {
+      "unit": "each",
+      "protein": 0.4,
+      "fat": 0,
+      "carbs": 1.3,
+      "fiber": 0.3,
+      "calories": 6,
+      "note": "regular sub portion"
+    },
+    "hot chopped pepper relish": {
+      "unit": "each",
+      "protein": 0.2,
+      "fat": 0,
+      "carbs": 1.3,
+      "fiber": 0.5,
+      "calories": 6,
+      "note": "regular sub portion"
+    },
+    "sauerkraut": {
+      "unit": "each",
+      "protein": 0.7,
+      "fat": 0,
+      "carbs": 4.2,
+      "fiber": 3.1,
+      "calories": 20,
+      "note": "regular Reuben portion"
+    },
+    "avocado": {
+      "unit": "each",
+      "protein": 1.1,
+      "fat": 8.3,
+      "carbs": 4.8,
+      "fiber": 3.8,
+      "calories": 91,
+      "note": "portion on a regular California Club"
+    },
+    "olive oil blend": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 28,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 250,
+      "note": "regular sub portion (part of Mike's Way)"
+    },
+    "red wine vinegar": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0.6,
+      "fiber": 0,
+      "calories": 3,
+      "note": "regular sub portion (part of Mike's Way)"
+    },
+    "oregano": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0.3,
+      "fiber": 0.2,
+      "calories": 1,
+      "note": "regular sub portion (part of Mike's Way)"
+    },
+    "salt": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0,
+      "note": "regular sub portion (part of Mike's Way)"
+    },
+    "mayo": {
+      "unit": "each",
+      "protein": 0.3,
+      "fat": 29,
+      "carbs": 0.7,
+      "fiber": 0,
+      "calories": 261,
+      "note": "regular sub portion"
+    },
+    "chipotle mayo": {
+      "unit": "each",
+      "protein": 0.5,
+      "fat": 31.7,
+      "carbs": 1.7,
+      "fiber": 0.1,
+      "calories": 289,
+      "note": "regular sub portion"
+    },
+    "ranch": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 19.8,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 188,
+      "note": "regular sub portion"
+    },
+    "yellow mustard": {
+      "unit": "each",
+      "protein": 1.8,
+      "fat": 1.8,
+      "carbs": 1.9,
+      "fiber": 1.4,
+      "calories": 28,
+      "note": "regular sub portion"
+    },
+    "spicy brown mustard": {
+      "unit": "each",
+      "protein": 1.5,
+      "fat": 1.7,
+      "carbs": 1.7,
+      "fiber": 1.5,
+      "calories": 43,
+      "note": "regular sub portion"
+    },
+    "honey mustard": {
+      "unit": "each",
+      "protein": 1.4,
+      "fat": 1.7,
+      "carbs": 2.3,
+      "fiber": 0.9,
+      "calories": 32,
+      "note": "regular sub portion"
+    },
+    "buffalo sauce": {
+      "unit": "each",
+      "protein": 0.4,
+      "fat": 0.8,
+      "carbs": 1.6,
+      "fiber": 0.4,
+      "calories": 15,
+      "note": "regular sub portion"
+    },
+    "thousand island": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 15.4,
+      "carbs": 4.7,
+      "fiber": 0,
+      "calories": 154,
+      "note": "regular sub portion"
+    },
+    "bbq sauce": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 0.3,
+      "carbs": 28.7,
+      "fiber": 1.2,
+      "calories": 121,
+      "note": "regular sub portion"
+    },
+    "hot honey": {
+      "unit": "each",
+      "protein": 0.1,
+      "fat": 0,
+      "carbs": 23.4,
+      "fiber": 0,
+      "calories": 94,
+      "note": "add-on portion for a regular sub"
+    },
+    "mike's way": {
+      "unit": "each",
+      "protein": 1.4,
+      "fat": 28.3,
+      "carbs": 6.4,
+      "fiber": 2,
+      "calories": 280,
+      "note": "regular sub portion; use instead of listing the seven parts separately",
+      "derived": "sum of the published regular-sub portions of lettuce, tomatoes, onions, oregano, salt, olive oil blend, red wine vinegar"
+    }
+  },
+  "items": [
+    {
+      "name": "#1 BLT",
+      "aliases": [
+        "#1 blt",
+        "blt",
+        "bacon lettuce tomato",
+        "bacon lettuce and tomato",
+        "#1",
+        "number 1",
+        "1",
+        "no. 1",
+        "no 1"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 28.6,
+        "fat": 47.8,
+        "carbs": 64.3,
+        "fiber": 4.1,
+        "calories": 788
+      },
+      "build": [
+        {
+          "component": "bacon",
+          "count": 3
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#1 BLT Sub in a Tub",
+      "aliases": [
+        "#1 blt sub in a tub",
+        "#1 blt in a tub",
+        "#1 blt bowl",
+        "blt sub in a tub",
+        "blt in a tub",
+        "blt bowl",
+        "bacon lettuce tomato sub in a tub",
+        "bacon lettuce tomato in a tub",
+        "bacon lettuce tomato bowl",
+        "bacon lettuce and tomato sub in a tub",
+        "bacon lettuce and tomato in a tub",
+        "bacon lettuce and tomato bowl",
+        "#1 sub in a tub",
+        "#1 in a tub",
+        "#1 bowl",
+        "number 1 sub in a tub",
+        "number 1 in a tub",
+        "number 1 bowl",
+        "no. 1 sub in a tub",
+        "no. 1 in a tub",
+        "no. 1 bowl",
+        "no 1 sub in a tub",
+        "no 1 in a tub",
+        "no 1 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 16.9,
+        "fat": 44.8,
+        "carbs": 5.3,
+        "fiber": 1.5,
+        "calories": 478
+      },
+      "build": [
+        {
+          "component": "bacon",
+          "count": 3
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 0.83
+        }
+      ]
+    },
+    {
+      "name": "#2 Jersey Shore's Favorite",
+      "aliases": [
+        "#2 jersey shore's favorite",
+        "jersey shore's favorite",
+        "jersey shore favorite",
+        "jersey shores favorite",
+        "shore favorite",
+        "ham cappacuolo and provolone",
+        "#2",
+        "number 2",
+        "2",
+        "no. 2",
+        "no 2"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 39.2,
+        "fat": 44.4,
+        "carbs": 68.6,
+        "fiber": 4.4,
+        "calories": 824
+      },
+      "build": [
+        {
+          "component": "ham",
+          "count": 0.83
+        },
+        {
+          "component": "cappacuolo",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#2 Jersey Shore's Favorite (Giant)",
+      "aliases": [
+        "#2 jersey shore's favorite giant",
+        "jersey shore's favorite giant",
+        "jersey shore favorite giant",
+        "jersey shores favorite giant",
+        "shore favorite giant",
+        "ham cappacuolo and provolone giant",
+        "#2 giant",
+        "number 2 giant",
+        "2 giant",
+        "no. 2 giant",
+        "no 2 giant",
+        "giant jersey shore's favorite"
+      ],
+      "size": "giant",
+      "macros": {
+        "protein": 68.4,
+        "fat": 84,
+        "carbs": 134,
+        "fiber": 8.2,
+        "calories": 1554
+      },
+      "build": [
+        {
+          "component": "ham",
+          "count": 1.34
+        },
+        {
+          "component": "cappacuolo",
+          "count": 1.65
+        },
+        {
+          "component": "provolone",
+          "count": 1.67
+        },
+        {
+          "component": "olive oil blend",
+          "count": 2
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 2
+        },
+        {
+          "component": "oregano",
+          "count": 2
+        },
+        {
+          "component": "salt",
+          "count": 2
+        },
+        {
+          "component": "white bread (giant)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1.67
+        },
+        {
+          "component": "tomatoes",
+          "count": 1.67
+        },
+        {
+          "component": "onions",
+          "count": 1.67
+        }
+      ]
+    },
+    {
+      "name": "#2 Jersey Shore's Favorite Sub in a Tub",
+      "aliases": [
+        "#2 jersey shore's favorite sub in a tub",
+        "#2 jersey shore's favorite in a tub",
+        "#2 jersey shore's favorite bowl",
+        "jersey shore's favorite sub in a tub",
+        "jersey shore's favorite in a tub",
+        "jersey shore's favorite bowl",
+        "jersey shore favorite sub in a tub",
+        "jersey shore favorite in a tub",
+        "jersey shore favorite bowl",
+        "jersey shores favorite sub in a tub",
+        "jersey shores favorite in a tub",
+        "jersey shores favorite bowl",
+        "shore favorite sub in a tub",
+        "shore favorite in a tub",
+        "shore favorite bowl",
+        "ham cappacuolo and provolone sub in a tub",
+        "ham cappacuolo and provolone in a tub",
+        "ham cappacuolo and provolone bowl",
+        "#2 sub in a tub",
+        "#2 in a tub",
+        "#2 bowl",
+        "number 2 sub in a tub",
+        "number 2 in a tub",
+        "number 2 bowl",
+        "no. 2 sub in a tub",
+        "no. 2 in a tub",
+        "no. 2 bowl",
+        "no 2 sub in a tub",
+        "no 2 in a tub",
+        "no 2 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 27.6,
+        "fat": 41.4,
+        "carbs": 9.9,
+        "fiber": 2,
+        "calories": 515
+      },
+      "build": [
+        {
+          "component": "ham",
+          "count": 0.83
+        },
+        {
+          "component": "cappacuolo",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#3 Ham and Provolone",
+      "aliases": [
+        "#3 ham and provolone",
+        "ham and provolone",
+        "ham & provolone",
+        "ham provolone",
+        "ham sub",
+        "ham and cheese",
+        "#3",
+        "number 3",
+        "3",
+        "no. 3",
+        "no 3"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 38.2,
+        "fat": 44.4,
+        "carbs": 67.9,
+        "fiber": 4.4,
+        "calories": 817
+      },
+      "build": [
+        {
+          "component": "ham",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#3 Ham and Provolone (Giant)",
+      "aliases": [
+        "#3 ham and provolone giant",
+        "ham and provolone giant",
+        "ham & provolone giant",
+        "ham provolone giant",
+        "ham giant",
+        "ham and cheese giant",
+        "#3 giant",
+        "number 3 giant",
+        "3 giant",
+        "no. 3 giant",
+        "no 3 giant",
+        "giant ham and provolone"
+      ],
+      "size": "giant",
+      "macros": {
+        "protein": 67.8,
+        "fat": 84.3,
+        "carbs": 132.9,
+        "fiber": 8.2,
+        "calories": 1550
+      },
+      "build": [
+        {
+          "component": "ham",
+          "count": 1.68
+        },
+        {
+          "component": "provolone",
+          "count": 1.67
+        },
+        {
+          "component": "olive oil blend",
+          "count": 2
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 2
+        },
+        {
+          "component": "oregano",
+          "count": 2
+        },
+        {
+          "component": "salt",
+          "count": 2
+        },
+        {
+          "component": "white bread (giant)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1.67
+        },
+        {
+          "component": "tomatoes",
+          "count": 1.67
+        },
+        {
+          "component": "onions",
+          "count": 1.67
+        }
+      ]
+    },
+    {
+      "name": "#3 Ham and Provolone Sub in a Tub",
+      "aliases": [
+        "#3 ham and provolone sub in a tub",
+        "#3 ham and provolone in a tub",
+        "#3 ham and provolone bowl",
+        "ham and provolone sub in a tub",
+        "ham and provolone in a tub",
+        "ham and provolone bowl",
+        "ham & provolone sub in a tub",
+        "ham & provolone in a tub",
+        "ham & provolone bowl",
+        "ham provolone sub in a tub",
+        "ham provolone in a tub",
+        "ham provolone bowl",
+        "ham sub in a tub",
+        "ham in a tub",
+        "ham bowl",
+        "ham and cheese sub in a tub",
+        "ham and cheese in a tub",
+        "ham and cheese bowl",
+        "#3 sub in a tub",
+        "#3 in a tub",
+        "#3 bowl",
+        "number 3 sub in a tub",
+        "number 3 in a tub",
+        "number 3 bowl",
+        "no. 3 sub in a tub",
+        "no. 3 in a tub",
+        "no. 3 bowl",
+        "no 3 sub in a tub",
+        "no 3 in a tub",
+        "no 3 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 26.6,
+        "fat": 41.4,
+        "carbs": 9.2,
+        "fiber": 2,
+        "calories": 508
+      },
+      "build": [
+        {
+          "component": "ham",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#4 The Number Four",
+      "aliases": [
+        "#4 the number four",
+        "the number four",
+        "number four",
+        "prosciuttini cappacuolo and provolone",
+        "#4",
+        "number 4",
+        "4",
+        "no. 4",
+        "no 4"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 37.2,
+        "fat": 42.6,
+        "carbs": 70,
+        "fiber": 4.4,
+        "calories": 806
+      },
+      "build": [
+        {
+          "component": "cappacuolo",
+          "count": 1
+        },
+        {
+          "component": "prosciuttini",
+          "count": 1.5
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#4 The Number Four Sub in a Tub",
+      "aliases": [
+        "#4 the number four sub in a tub",
+        "#4 the number four in a tub",
+        "#4 the number four bowl",
+        "the number four sub in a tub",
+        "the number four in a tub",
+        "the number four bowl",
+        "number four sub in a tub",
+        "number four in a tub",
+        "number four bowl",
+        "prosciuttini cappacuolo and provolone sub in a tub",
+        "prosciuttini cappacuolo and provolone in a tub",
+        "prosciuttini cappacuolo and provolone bowl",
+        "#4 sub in a tub",
+        "#4 in a tub",
+        "#4 bowl",
+        "number 4 sub in a tub",
+        "number 4 in a tub",
+        "number 4 bowl",
+        "no. 4 sub in a tub",
+        "no. 4 in a tub",
+        "no. 4 bowl",
+        "no 4 sub in a tub",
+        "no 4 in a tub",
+        "no 4 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 25.6,
+        "fat": 39.7,
+        "carbs": 11.4,
+        "fiber": 2,
+        "calories": 497
+      },
+      "build": [
+        {
+          "component": "cappacuolo",
+          "count": 1
+        },
+        {
+          "component": "prosciuttini",
+          "count": 1.5
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#5 The Super Sub",
+      "aliases": [
+        "#5 the super sub",
+        "the super sub",
+        "super sub",
+        "super",
+        "#5",
+        "number 5",
+        "5",
+        "no. 5",
+        "no 5"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 41.7,
+        "fat": 44.2,
+        "carbs": 70,
+        "fiber": 4.4,
+        "calories": 837
+      },
+      "build": [
+        {
+          "component": "ham",
+          "count": 0.5
+        },
+        {
+          "component": "cappacuolo",
+          "count": 1
+        },
+        {
+          "component": "prosciuttini",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#5 The Super Sub (Giant)",
+      "aliases": [
+        "#5 the super giant",
+        "the super giant",
+        "super giant",
+        "#5 giant",
+        "number 5 giant",
+        "5 giant",
+        "no. 5 giant",
+        "no 5 giant",
+        "giant the super"
+      ],
+      "size": "giant",
+      "macros": {
+        "protein": 73.7,
+        "fat": 83.9,
+        "carbs": 136.7,
+        "fiber": 8.2,
+        "calories": 1585
+      },
+      "build": [
+        {
+          "component": "ham",
+          "count": 0.83
+        },
+        {
+          "component": "cappacuolo",
+          "count": 1.65
+        },
+        {
+          "component": "prosciuttini",
+          "count": 1.75
+        },
+        {
+          "component": "provolone",
+          "count": 1.67
+        },
+        {
+          "component": "olive oil blend",
+          "count": 2
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 2
+        },
+        {
+          "component": "oregano",
+          "count": 2
+        },
+        {
+          "component": "salt",
+          "count": 2
+        },
+        {
+          "component": "white bread (giant)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1.67
+        },
+        {
+          "component": "tomatoes",
+          "count": 1.67
+        },
+        {
+          "component": "onions",
+          "count": 1.67
+        }
+      ]
+    },
+    {
+      "name": "#5 The Super Sub Sub in a Tub",
+      "aliases": [
+        "#5 the super sub in a tub",
+        "#5 the super in a tub",
+        "#5 the super bowl",
+        "the super sub in a tub",
+        "the super in a tub",
+        "the super bowl",
+        "super sub in a tub",
+        "super in a tub",
+        "super bowl",
+        "#5 sub in a tub",
+        "#5 in a tub",
+        "#5 bowl",
+        "number 5 sub in a tub",
+        "number 5 in a tub",
+        "number 5 bowl",
+        "no. 5 sub in a tub",
+        "no. 5 in a tub",
+        "no. 5 bowl",
+        "no 5 sub in a tub",
+        "no 5 in a tub",
+        "no 5 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 30.1,
+        "fat": 41.2,
+        "carbs": 11.4,
+        "fiber": 2,
+        "calories": 529
+      },
+      "build": [
+        {
+          "component": "ham",
+          "count": 0.5
+        },
+        {
+          "component": "cappacuolo",
+          "count": 1
+        },
+        {
+          "component": "prosciuttini",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#6 Famous Roast Beef and Provolone",
+      "aliases": [
+        "#6 famous roast beef and provolone",
+        "famous roast beef and provolone",
+        "roast beef and provolone",
+        "roast beef & provolone",
+        "famous roast beef",
+        "roast beef sub",
+        "roast beef",
+        "#6",
+        "number 6",
+        "6",
+        "no. 6",
+        "no 6"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 56.9,
+        "fat": 46.2,
+        "carbs": 65.8,
+        "fiber": 4.4,
+        "calories": 913
+      },
+      "build": [
+        {
+          "component": "roast beef",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#6 Famous Roast Beef and Provolone (Giant)",
+      "aliases": [
+        "#6 famous roast beef and provolone giant",
+        "famous roast beef and provolone giant",
+        "roast beef and provolone giant",
+        "roast beef & provolone giant",
+        "famous roast beef giant",
+        "roast beef giant",
+        "#6 giant",
+        "number 6 giant",
+        "6 giant",
+        "no. 6 giant",
+        "no 6 giant",
+        "giant famous roast beef and provolone"
+      ],
+      "size": "giant",
+      "macros": {
+        "protein": 110.1,
+        "fat": 89.3,
+        "carbs": 129.5,
+        "fiber": 8.2,
+        "calories": 1776
+      },
+      "build": [
+        {
+          "component": "roast beef",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 1.67
+        },
+        {
+          "component": "olive oil blend",
+          "count": 2
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 2
+        },
+        {
+          "component": "oregano",
+          "count": 2
+        },
+        {
+          "component": "salt",
+          "count": 2
+        },
+        {
+          "component": "white bread (giant)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1.67
+        },
+        {
+          "component": "tomatoes",
+          "count": 1.67
+        },
+        {
+          "component": "onions",
+          "count": 1.67
+        }
+      ]
+    },
+    {
+      "name": "#6 Famous Roast Beef and Provolone Sub in a Tub",
+      "aliases": [
+        "#6 famous roast beef and provolone sub in a tub",
+        "#6 famous roast beef and provolone in a tub",
+        "#6 famous roast beef and provolone bowl",
+        "famous roast beef and provolone sub in a tub",
+        "famous roast beef and provolone in a tub",
+        "famous roast beef and provolone bowl",
+        "roast beef and provolone sub in a tub",
+        "roast beef and provolone in a tub",
+        "roast beef and provolone bowl",
+        "roast beef & provolone sub in a tub",
+        "roast beef & provolone in a tub",
+        "roast beef & provolone bowl",
+        "famous roast beef sub in a tub",
+        "famous roast beef in a tub",
+        "famous roast beef bowl",
+        "roast beef sub in a tub",
+        "roast beef in a tub",
+        "roast beef bowl",
+        "#6 sub in a tub",
+        "#6 in a tub",
+        "#6 bowl",
+        "number 6 sub in a tub",
+        "number 6 in a tub",
+        "number 6 bowl",
+        "no. 6 sub in a tub",
+        "no. 6 in a tub",
+        "no. 6 bowl",
+        "no 6 sub in a tub",
+        "no 6 in a tub",
+        "no 6 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 45.3,
+        "fat": 43.3,
+        "carbs": 7.2,
+        "fiber": 2,
+        "calories": 605
+      },
+      "build": [
+        {
+          "component": "roast beef",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#7 Turkey and Provolone",
+      "aliases": [
+        "#7 turkey and provolone",
+        "turkey and provolone",
+        "turkey & provolone",
+        "turkey provolone",
+        "turkey sub",
+        "turkey",
+        "#7",
+        "number 7",
+        "7",
+        "no. 7",
+        "no 7"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 45.4,
+        "fat": 41.4,
+        "carbs": 66.5,
+        "fiber": 4.4,
+        "calories": 817
+      },
+      "build": [
+        {
+          "component": "turkey",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#7 Turkey and Provolone (Giant)",
+      "aliases": [
+        "#7 turkey and provolone giant",
+        "turkey and provolone giant",
+        "turkey & provolone giant",
+        "turkey provolone giant",
+        "turkey giant",
+        "#7 giant",
+        "number 7 giant",
+        "7 giant",
+        "no. 7 giant",
+        "no 7 giant",
+        "giant turkey and provolone"
+      ],
+      "size": "giant",
+      "macros": {
+        "protein": 79.7,
+        "fat": 79.3,
+        "carbs": 130.6,
+        "fiber": 8.2,
+        "calories": 1550
+      },
+      "build": [
+        {
+          "component": "turkey",
+          "count": 1.67
+        },
+        {
+          "component": "provolone",
+          "count": 1.67
+        },
+        {
+          "component": "olive oil blend",
+          "count": 2
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 2
+        },
+        {
+          "component": "oregano",
+          "count": 2
+        },
+        {
+          "component": "salt",
+          "count": 2
+        },
+        {
+          "component": "white bread (giant)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1.67
+        },
+        {
+          "component": "tomatoes",
+          "count": 1.67
+        },
+        {
+          "component": "onions",
+          "count": 1.67
+        }
+      ]
+    },
+    {
+      "name": "#7 Turkey and Provolone Sub in a Tub",
+      "aliases": [
+        "#7 turkey and provolone sub in a tub",
+        "#7 turkey and provolone in a tub",
+        "#7 turkey and provolone bowl",
+        "turkey and provolone sub in a tub",
+        "turkey and provolone in a tub",
+        "turkey and provolone bowl",
+        "turkey & provolone sub in a tub",
+        "turkey & provolone in a tub",
+        "turkey & provolone bowl",
+        "turkey provolone sub in a tub",
+        "turkey provolone in a tub",
+        "turkey provolone bowl",
+        "turkey sub in a tub",
+        "turkey in a tub",
+        "turkey bowl",
+        "#7 sub in a tub",
+        "#7 in a tub",
+        "#7 bowl",
+        "number 7 sub in a tub",
+        "number 7 in a tub",
+        "number 7 bowl",
+        "no. 7 sub in a tub",
+        "no. 7 in a tub",
+        "no. 7 bowl",
+        "no 7 sub in a tub",
+        "no 7 in a tub",
+        "no 7 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 29.9,
+        "fat": 38.3,
+        "carbs": 7.7,
+        "fiber": 2,
+        "calories": 490
+      },
+      "build": [
+        {
+          "component": "turkey",
+          "count": 0.84
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#8 Club Sub",
+      "aliases": [
+        "#8 club sub",
+        "club sub",
+        "club",
+        "the club",
+        "turkey ham bacon club",
+        "#8",
+        "number 8",
+        "8",
+        "no. 8",
+        "no 8"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 50.2,
+        "fat": 77.8,
+        "carbs": 68.3,
+        "fiber": 4.4,
+        "calories": 1163
+      },
+      "build": [
+        {
+          "component": "bacon",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 0.68
+        },
+        {
+          "component": "turkey",
+          "count": 0.5
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#8 Club Sub (Giant)",
+      "aliases": [
+        "#8 club giant",
+        "club giant",
+        "the club giant",
+        "turkey ham bacon club giant",
+        "#8 giant",
+        "number 8 giant",
+        "8 giant",
+        "no. 8 giant",
+        "no 8 giant",
+        "giant club"
+      ],
+      "size": "giant",
+      "macros": {
+        "protein": 87.2,
+        "fat": 150.9,
+        "carbs": 133.7,
+        "fiber": 8.2,
+        "calories": 2221
+      },
+      "build": [
+        {
+          "component": "bacon",
+          "count": 2
+        },
+        {
+          "component": "ham",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 0.84
+        },
+        {
+          "component": "provolone",
+          "count": 1.67
+        },
+        {
+          "component": "olive oil blend",
+          "count": 2
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 2
+        },
+        {
+          "component": "mayo",
+          "count": 2
+        },
+        {
+          "component": "oregano",
+          "count": 2
+        },
+        {
+          "component": "salt",
+          "count": 2
+        },
+        {
+          "component": "white bread (giant)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1.67
+        },
+        {
+          "component": "tomatoes",
+          "count": 1.67
+        },
+        {
+          "component": "onions",
+          "count": 1.67
+        }
+      ]
+    },
+    {
+      "name": "#8 Club Sub Sub in a Tub",
+      "aliases": [
+        "#8 club sub in a tub",
+        "#8 club in a tub",
+        "#8 club bowl",
+        "club sub in a tub",
+        "club in a tub",
+        "club bowl",
+        "the club sub in a tub",
+        "the club in a tub",
+        "the club bowl",
+        "turkey ham bacon club sub in a tub",
+        "turkey ham bacon club in a tub",
+        "turkey ham bacon club bowl",
+        "#8 sub in a tub",
+        "#8 in a tub",
+        "#8 bowl",
+        "number 8 sub in a tub",
+        "number 8 in a tub",
+        "number 8 bowl",
+        "no. 8 sub in a tub",
+        "no. 8 in a tub",
+        "no. 8 bowl",
+        "no 8 sub in a tub",
+        "no 8 in a tub",
+        "no 8 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 35.7,
+        "fat": 74.2,
+        "carbs": 9.3,
+        "fiber": 2,
+        "calories": 836
+      },
+      "build": [
+        {
+          "component": "bacon",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 0.5
+        },
+        {
+          "component": "turkey",
+          "count": 0.5
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#9 Club Supreme",
+      "aliases": [
+        "#9 club supreme",
+        "club supreme",
+        "supreme club",
+        "roast beef turkey bacon club",
+        "#9",
+        "number 9",
+        "9",
+        "no. 9",
+        "no 9"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 59.3,
+        "fat": 76.7,
+        "carbs": 66.9,
+        "fiber": 4.4,
+        "calories": 1191
+      },
+      "build": [
+        {
+          "component": "bacon",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 0.67
+        },
+        {
+          "component": "roast beef",
+          "count": 0.5
+        },
+        {
+          "component": "swiss",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#9 Club Supreme (Giant)",
+      "aliases": [
+        "#9 club supreme giant",
+        "club supreme giant",
+        "supreme club giant",
+        "roast beef turkey bacon club giant",
+        "#9 giant",
+        "number 9 giant",
+        "9 giant",
+        "no. 9 giant",
+        "no 9 giant",
+        "giant club supreme"
+      ],
+      "size": "giant",
+      "macros": {
+        "protein": 101.4,
+        "fat": 149.4,
+        "carbs": 131.5,
+        "fiber": 8.2,
+        "calories": 2267
+      },
+      "build": [
+        {
+          "component": "bacon",
+          "count": 2
+        },
+        {
+          "component": "turkey",
+          "count": 1
+        },
+        {
+          "component": "roast beef",
+          "count": 0.83
+        },
+        {
+          "component": "swiss",
+          "count": 1.67
+        },
+        {
+          "component": "olive oil blend",
+          "count": 2
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 2
+        },
+        {
+          "component": "mayo",
+          "count": 2
+        },
+        {
+          "component": "oregano",
+          "count": 2
+        },
+        {
+          "component": "salt",
+          "count": 2
+        },
+        {
+          "component": "white bread (giant)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1.67
+        },
+        {
+          "component": "tomatoes",
+          "count": 1.67
+        },
+        {
+          "component": "onions",
+          "count": 1.67
+        }
+      ]
+    },
+    {
+      "name": "#9 Club Supreme Sub in a Tub",
+      "aliases": [
+        "#9 club supreme sub in a tub",
+        "#9 club supreme in a tub",
+        "#9 club supreme bowl",
+        "club supreme sub in a tub",
+        "club supreme in a tub",
+        "club supreme bowl",
+        "supreme club sub in a tub",
+        "supreme club in a tub",
+        "supreme club bowl",
+        "roast beef turkey bacon club sub in a tub",
+        "roast beef turkey bacon club in a tub",
+        "roast beef turkey bacon club bowl",
+        "#9 sub in a tub",
+        "#9 in a tub",
+        "#9 bowl",
+        "number 9 sub in a tub",
+        "number 9 in a tub",
+        "number 9 bowl",
+        "no. 9 sub in a tub",
+        "no. 9 in a tub",
+        "no. 9 bowl",
+        "no 9 sub in a tub",
+        "no 9 in a tub",
+        "no 9 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 47.7,
+        "fat": 73.8,
+        "carbs": 8.2,
+        "fiber": 2,
+        "calories": 882
+      },
+      "build": [
+        {
+          "component": "bacon",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 0.67
+        },
+        {
+          "component": "roast beef",
+          "count": 0.5
+        },
+        {
+          "component": "swiss",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#10 Tuna Fish",
+      "aliases": [
+        "#10 tuna fish",
+        "tuna fish",
+        "tuna",
+        "tuna sub",
+        "tuna salad sub",
+        "#10",
+        "number 10",
+        "10",
+        "no. 10",
+        "no 10"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 33.1,
+        "fat": 74.7,
+        "carbs": 67,
+        "fiber": 4.8,
+        "calories": 1062
+      },
+      "build": [
+        {
+          "component": "tuna salad",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#10 Tuna Fish (Giant)",
+      "aliases": [
+        "#10 tuna fish giant",
+        "tuna fish giant",
+        "tuna giant",
+        "tuna salad giant",
+        "#10 giant",
+        "number 10 giant",
+        "10 giant",
+        "no. 10 giant",
+        "no 10 giant",
+        "giant tuna fish"
+      ],
+      "size": "giant",
+      "macros": {
+        "protein": 62.1,
+        "fat": 141.5,
+        "carbs": 131.7,
+        "fiber": 8.9,
+        "calories": 2029
+      },
+      "build": [
+        {
+          "component": "tuna salad",
+          "count": 1.82
+        },
+        {
+          "component": "olive oil blend",
+          "count": 2
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 2
+        },
+        {
+          "component": "oregano",
+          "count": 2
+        },
+        {
+          "component": "salt",
+          "count": 2
+        },
+        {
+          "component": "white bread (giant)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1.67
+        },
+        {
+          "component": "tomatoes",
+          "count": 1.67
+        },
+        {
+          "component": "onions",
+          "count": 1.67
+        }
+      ]
+    },
+    {
+      "name": "#10 Tuna Fish Sub in a Tub",
+      "aliases": [
+        "#10 tuna fish sub in a tub",
+        "#10 tuna fish in a tub",
+        "#10 tuna fish bowl",
+        "tuna fish sub in a tub",
+        "tuna fish in a tub",
+        "tuna fish bowl",
+        "tuna sub in a tub",
+        "tuna in a tub",
+        "tuna bowl",
+        "tuna salad sub in a tub",
+        "tuna salad in a tub",
+        "tuna salad bowl",
+        "#10 sub in a tub",
+        "#10 in a tub",
+        "#10 bowl",
+        "number 10 sub in a tub",
+        "number 10 in a tub",
+        "number 10 bowl",
+        "no. 10 sub in a tub",
+        "no. 10 in a tub",
+        "no. 10 bowl",
+        "no 10 sub in a tub",
+        "no 10 in a tub",
+        "no 10 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 21.5,
+        "fat": 71.8,
+        "carbs": 8.3,
+        "fiber": 2.4,
+        "calories": 753
+      },
+      "build": [
+        {
+          "component": "tuna salad",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#11 Stickball Special",
+      "aliases": [
+        "#11 stickball special",
+        "stickball special",
+        "stickball",
+        "stick ball special",
+        "ham and salami",
+        "#11",
+        "number 11",
+        "11",
+        "no. 11",
+        "no 11"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 39.4,
+        "fat": 51.3,
+        "carbs": 68.3,
+        "fiber": 4.4,
+        "calories": 887
+      },
+      "build": [
+        {
+          "component": "ham",
+          "count": 0.83
+        },
+        {
+          "component": "hard salami",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#11 Stickball Special Sub in a Tub",
+      "aliases": [
+        "#11 stickball special sub in a tub",
+        "#11 stickball special in a tub",
+        "#11 stickball special bowl",
+        "stickball special sub in a tub",
+        "stickball special in a tub",
+        "stickball special bowl",
+        "stickball sub in a tub",
+        "stickball in a tub",
+        "stickball bowl",
+        "stick ball special sub in a tub",
+        "stick ball special in a tub",
+        "stick ball special bowl",
+        "ham and salami sub in a tub",
+        "ham and salami in a tub",
+        "ham and salami bowl",
+        "#11 sub in a tub",
+        "#11 in a tub",
+        "#11 bowl",
+        "number 11 sub in a tub",
+        "number 11 in a tub",
+        "number 11 bowl",
+        "no. 11 sub in a tub",
+        "no. 11 in a tub",
+        "no. 11 bowl",
+        "no 11 sub in a tub",
+        "no 11 in a tub",
+        "no 11 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 27.8,
+        "fat": 48.4,
+        "carbs": 9.6,
+        "fiber": 2,
+        "calories": 579
+      },
+      "build": [
+        {
+          "component": "ham",
+          "count": 0.83
+        },
+        {
+          "component": "hard salami",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#12 Cancro Special",
+      "aliases": [
+        "#12 cancro special",
+        "cancro special",
+        "cancro",
+        "roast beef and pepperoni",
+        "#12",
+        "number 12",
+        "12",
+        "no. 12",
+        "no 12"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 59.1,
+        "fat": 51,
+        "carbs": 66.3,
+        "fiber": 4.5,
+        "calories": 966
+      },
+      "build": [
+        {
+          "component": "pepperoni",
+          "count": 1
+        },
+        {
+          "component": "roast beef",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#12 Cancro Special Sub in a Tub",
+      "aliases": [
+        "#12 cancro special sub in a tub",
+        "#12 cancro special in a tub",
+        "#12 cancro special bowl",
+        "cancro special sub in a tub",
+        "cancro special in a tub",
+        "cancro special bowl",
+        "cancro sub in a tub",
+        "cancro in a tub",
+        "cancro bowl",
+        "roast beef and pepperoni sub in a tub",
+        "roast beef and pepperoni in a tub",
+        "roast beef and pepperoni bowl",
+        "#12 sub in a tub",
+        "#12 in a tub",
+        "#12 bowl",
+        "number 12 sub in a tub",
+        "number 12 in a tub",
+        "number 12 bowl",
+        "no. 12 sub in a tub",
+        "no. 12 in a tub",
+        "no. 12 bowl",
+        "no 12 sub in a tub",
+        "no 12 in a tub",
+        "no 12 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 47.4,
+        "fat": 48,
+        "carbs": 7.7,
+        "fiber": 2,
+        "calories": 658
+      },
+      "build": [
+        {
+          "component": "pepperoni",
+          "count": 1
+        },
+        {
+          "component": "roast beef",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#13 The Original Italian",
+      "aliases": [
+        "#13 the original italian",
+        "the original italian",
+        "original italian",
+        "italian sub",
+        "italian",
+        "orginal italian",
+        "original italien",
+        "#13",
+        "number 13",
+        "13",
+        "no. 13",
+        "no 13"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 46.8,
+        "fat": 54.5,
+        "carbs": 71.1,
+        "fiber": 4.5,
+        "calories": 956
+      },
+      "build": [
+        {
+          "component": "ham",
+          "count": 0.5
+        },
+        {
+          "component": "cappacuolo",
+          "count": 1
+        },
+        {
+          "component": "pepperoni",
+          "count": 1
+        },
+        {
+          "component": "prosciuttini",
+          "count": 1
+        },
+        {
+          "component": "hard salami",
+          "count": 0.73
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#13 The Original Italian (Giant)",
+      "aliases": [
+        "#13 the original italian giant",
+        "the original italian giant",
+        "original italian giant",
+        "italian giant",
+        "orginal italian giant",
+        "original italien giant",
+        "#13 giant",
+        "number 13 giant",
+        "13 giant",
+        "no. 13 giant",
+        "no 13 giant",
+        "giant the original italian"
+      ],
+      "size": "giant",
+      "macros": {
+        "protein": 83.6,
+        "fat": 104.1,
+        "carbs": 138.7,
+        "fiber": 8.3,
+        "calories": 1816
+      },
+      "build": [
+        {
+          "component": "ham",
+          "count": 0.83
+        },
+        {
+          "component": "cappacuolo",
+          "count": 1.65
+        },
+        {
+          "component": "pepperoni",
+          "count": 1.87
+        },
+        {
+          "component": "prosciuttini",
+          "count": 1.75
+        },
+        {
+          "component": "hard salami",
+          "count": 1.47
+        },
+        {
+          "component": "provolone",
+          "count": 1.67
+        },
+        {
+          "component": "olive oil blend",
+          "count": 2
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 2
+        },
+        {
+          "component": "oregano",
+          "count": 2
+        },
+        {
+          "component": "salt",
+          "count": 2
+        },
+        {
+          "component": "white bread (giant)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1.67
+        },
+        {
+          "component": "tomatoes",
+          "count": 1.67
+        },
+        {
+          "component": "onions",
+          "count": 1.67
+        }
+      ]
+    },
+    {
+      "name": "#13 The Original Italian Sub in a Tub",
+      "aliases": [
+        "#13 the original italian sub in a tub",
+        "#13 the original italian in a tub",
+        "#13 the original italian bowl",
+        "the original italian sub in a tub",
+        "the original italian in a tub",
+        "the original italian bowl",
+        "original italian sub in a tub",
+        "original italian in a tub",
+        "original italian bowl",
+        "italian sub in a tub",
+        "italian in a tub",
+        "italian bowl",
+        "orginal italian sub in a tub",
+        "orginal italian in a tub",
+        "orginal italian bowl",
+        "original italien sub in a tub",
+        "original italien in a tub",
+        "original italien bowl",
+        "#13 sub in a tub",
+        "#13 in a tub",
+        "#13 bowl",
+        "number 13 sub in a tub",
+        "number 13 in a tub",
+        "number 13 bowl",
+        "no. 13 sub in a tub",
+        "no. 13 in a tub",
+        "no. 13 bowl",
+        "no 13 sub in a tub",
+        "no 13 in a tub",
+        "no 13 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 35.2,
+        "fat": 51.6,
+        "carbs": 12.4,
+        "fiber": 2.1,
+        "calories": 647
+      },
+      "build": [
+        {
+          "component": "ham",
+          "count": 0.5
+        },
+        {
+          "component": "cappacuolo",
+          "count": 1
+        },
+        {
+          "component": "pepperoni",
+          "count": 1
+        },
+        {
+          "component": "prosciuttini",
+          "count": 1
+        },
+        {
+          "component": "hard salami",
+          "count": 0.73
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#14 The Veggie",
+      "aliases": [
+        "#14 the veggie",
+        "the veggie",
+        "veggie",
+        "veggie sub",
+        "vegetarian sub",
+        "veggie and cheese",
+        "#14",
+        "number 14",
+        "14",
+        "no. 14",
+        "no 14"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 39.3,
+        "fat": 58.6,
+        "carbs": 68.7,
+        "fiber": 4.9,
+        "calories": 954
+      },
+      "build": [
+        {
+          "component": "provolone",
+          "count": 1.67
+        },
+        {
+          "component": "swiss",
+          "count": 1.67
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "green bell pepper",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#14 The Veggie (Giant)",
+      "aliases": [
+        "#14 the veggie giant",
+        "the veggie giant",
+        "veggie giant",
+        "vegetarian giant",
+        "veggie and cheese giant",
+        "#14 giant",
+        "number 14 giant",
+        "14 giant",
+        "no. 14 giant",
+        "no 14 giant",
+        "giant the veggie"
+      ],
+      "size": "giant",
+      "macros": {
+        "protein": 78.1,
+        "fat": 117,
+        "carbs": 135.1,
+        "fiber": 9.1,
+        "calories": 1896
+      },
+      "build": [
+        {
+          "component": "provolone",
+          "count": 3.33
+        },
+        {
+          "component": "swiss",
+          "count": 3.33
+        },
+        {
+          "component": "olive oil blend",
+          "count": 2
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 2
+        },
+        {
+          "component": "oregano",
+          "count": 2
+        },
+        {
+          "component": "salt",
+          "count": 2
+        },
+        {
+          "component": "white bread (giant)",
+          "count": 1
+        },
+        {
+          "component": "green bell pepper",
+          "count": 1.67
+        },
+        {
+          "component": "lettuce",
+          "count": 1.67
+        },
+        {
+          "component": "tomatoes",
+          "count": 1.67
+        },
+        {
+          "component": "onions",
+          "count": 1.67
+        }
+      ]
+    },
+    {
+      "name": "#14 The Veggie Sub in a Tub",
+      "aliases": [
+        "#14 the veggie sub in a tub",
+        "#14 the veggie in a tub",
+        "#14 the veggie bowl",
+        "the veggie sub in a tub",
+        "the veggie in a tub",
+        "the veggie bowl",
+        "veggie sub in a tub",
+        "veggie in a tub",
+        "veggie bowl",
+        "vegetarian sub in a tub",
+        "vegetarian in a tub",
+        "vegetarian bowl",
+        "veggie and cheese sub in a tub",
+        "veggie and cheese in a tub",
+        "veggie and cheese bowl",
+        "#14 sub in a tub",
+        "#14 in a tub",
+        "#14 bowl",
+        "number 14 sub in a tub",
+        "number 14 in a tub",
+        "number 14 bowl",
+        "no. 14 sub in a tub",
+        "no. 14 in a tub",
+        "no. 14 bowl",
+        "no 14 sub in a tub",
+        "no 14 in a tub",
+        "no 14 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 27.7,
+        "fat": 55.6,
+        "carbs": 10.1,
+        "fiber": 2.5,
+        "calories": 645
+      },
+      "build": [
+        {
+          "component": "provolone",
+          "count": 1.67
+        },
+        {
+          "component": "swiss",
+          "count": 1.67
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "green bell pepper",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Chipotle Turkey",
+      "aliases": [
+        "chipotle turkey",
+        "chipotle turkey sub"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 42,
+        "fat": 72.9,
+        "carbs": 68.1,
+        "fiber": 4.5,
+        "calories": 1089
+      },
+      "build": [
+        {
+          "component": "turkey",
+          "count": 0.84
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "chipotle mayo",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Chipotle Turkey Sub in a Tub",
+      "aliases": [
+        "chipotle turkey sub in a tub",
+        "chipotle turkey in a tub",
+        "chipotle turkey bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 30.1,
+        "fat": 70.3,
+        "carbs": 9.4,
+        "fiber": 2.1,
+        "calories": 782
+      },
+      "build": [
+        {
+          "component": "turkey",
+          "count": 0.81
+        },
+        {
+          "component": "provolone",
+          "count": 1.04
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "chipotle mayo",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Pepperoni and Cheese",
+      "aliases": [
+        "pepperoni and cheese",
+        "pepperoni & cheese",
+        "pepperoni sub",
+        "pepperoni cheese"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 33.5,
+        "fat": 66.7,
+        "carbs": 68.6,
+        "fiber": 4.7,
+        "calories": 1004
+      },
+      "build": [
+        {
+          "component": "pepperoni",
+          "count": 5.62
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Pepperoni and Cheese Sub in a Tub",
+      "aliases": [
+        "pepperoni and cheese sub in a tub",
+        "pepperoni and cheese in a tub",
+        "pepperoni and cheese bowl",
+        "pepperoni & cheese sub in a tub",
+        "pepperoni & cheese in a tub",
+        "pepperoni & cheese bowl",
+        "pepperoni sub in a tub",
+        "pepperoni in a tub",
+        "pepperoni bowl",
+        "pepperoni cheese sub in a tub",
+        "pepperoni cheese in a tub",
+        "pepperoni cheese bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 22.2,
+        "fat": 64.1,
+        "carbs": 10,
+        "fiber": 2.3,
+        "calories": 700
+      },
+      "build": [
+        {
+          "component": "pepperoni",
+          "count": 5.62
+        },
+        {
+          "component": "provolone",
+          "count": 1.04
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "California Club",
+      "aliases": [
+        "california club",
+        "california club sub",
+        "cali club",
+        "avocado club",
+        "turkey bacon avocado"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 52,
+        "fat": 55.3,
+        "carbs": 71.4,
+        "fiber": 8.2,
+        "calories": 978
+      },
+      "build": [
+        {
+          "component": "bacon",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1.04
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        },
+        {
+          "component": "avocado",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "California Club Sub in a Tub",
+      "aliases": [
+        "california club sub in a tub",
+        "california club in a tub",
+        "california club bowl",
+        "cali club sub in a tub",
+        "cali club in a tub",
+        "cali club bowl",
+        "avocado club sub in a tub",
+        "avocado club in a tub",
+        "avocado club bowl",
+        "turkey bacon avocado sub in a tub",
+        "turkey bacon avocado in a tub",
+        "turkey bacon avocado bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 40.4,
+        "fat": 52.3,
+        "carbs": 12.7,
+        "fiber": 5.8,
+        "calories": 669
+      },
+      "build": [
+        {
+          "component": "bacon",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1.04
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        },
+        {
+          "component": "avocado",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Turkey Club",
+      "aliases": [
+        "turkey club",
+        "turkey club sub",
+        "turkey bacon club"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 46.7,
+        "fat": 75.7,
+        "carbs": 67.2,
+        "fiber": 4.4,
+        "calories": 1128
+      },
+      "build": [
+        {
+          "component": "bacon",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 0.81
+        },
+        {
+          "component": "provolone",
+          "count": 1.04
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Turkey Club Sub in a Tub",
+      "aliases": [
+        "turkey club sub in a tub",
+        "turkey club in a tub",
+        "turkey club bowl",
+        "turkey bacon club sub in a tub",
+        "turkey bacon club in a tub",
+        "turkey bacon club bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 35.1,
+        "fat": 72.8,
+        "carbs": 8.5,
+        "fiber": 2,
+        "calories": 819
+      },
+      "build": [
+        {
+          "component": "bacon",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 0.81
+        },
+        {
+          "component": "provolone",
+          "count": 1.04
+        },
+        {
+          "component": "olive oil blend",
+          "count": 1
+        },
+        {
+          "component": "red wine vinegar",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        },
+        {
+          "component": "oregano",
+          "count": 1
+        },
+        {
+          "component": "salt",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#16 Mike's Chicken Philly",
+      "aliases": [
+        "#16 mike's chicken philly",
+        "mike's chicken philly",
+        "chicken philly",
+        "mikes chicken philly",
+        "chicken cheesesteak",
+        "chicken cheese steak",
+        "chicken philly cheesesteak",
+        "#16",
+        "number 16",
+        "16",
+        "no. 16",
+        "no 16"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 48.3,
+        "fat": 21.7,
+        "carbs": 73,
+        "fiber": 3.2,
+        "calories": 684
+      },
+      "build": [
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "white american cheese",
+          "count": 1
+        },
+        {
+          "component": "red and green pepper strips",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "grilled onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#16 Mike's Chicken Philly (Giant)",
+      "aliases": [
+        "#16 mike's chicken philly giant",
+        "mike's chicken philly giant",
+        "chicken philly giant",
+        "mikes chicken philly giant",
+        "chicken cheesesteak giant",
+        "chicken cheese steak giant",
+        "chicken philly cheesesteak giant",
+        "#16 giant",
+        "number 16 giant",
+        "16 giant",
+        "no. 16 giant",
+        "no 16 giant",
+        "giant mike's chicken philly"
+      ],
+      "size": "giant",
+      "macros": {
+        "protein": 96.7,
+        "fat": 43.3,
+        "carbs": 146,
+        "fiber": 6.4,
+        "calories": 1368
+      },
+      "build": [
+        {
+          "component": "grilled chicken",
+          "count": 2
+        },
+        {
+          "component": "white american cheese",
+          "count": 2
+        },
+        {
+          "component": "red and green pepper strips",
+          "count": 2
+        },
+        {
+          "component": "white bread (giant)",
+          "count": 1
+        },
+        {
+          "component": "grilled onions",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "#16 Mike's Chicken Philly Sub in a Tub",
+      "aliases": [
+        "#16 mike's chicken philly sub in a tub",
+        "#16 mike's chicken philly in a tub",
+        "#16 mike's chicken philly bowl",
+        "mike's chicken philly sub in a tub",
+        "mike's chicken philly in a tub",
+        "mike's chicken philly bowl",
+        "chicken philly sub in a tub",
+        "chicken philly in a tub",
+        "chicken philly bowl",
+        "mikes chicken philly sub in a tub",
+        "mikes chicken philly in a tub",
+        "mikes chicken philly bowl",
+        "chicken cheesesteak sub in a tub",
+        "chicken cheesesteak in a tub",
+        "chicken cheesesteak bowl",
+        "chicken cheese steak sub in a tub",
+        "chicken cheese steak in a tub",
+        "chicken cheese steak bowl",
+        "chicken philly cheesesteak sub in a tub",
+        "chicken philly cheesesteak in a tub",
+        "chicken philly cheesesteak bowl",
+        "#16 sub in a tub",
+        "#16 in a tub",
+        "#16 bowl",
+        "number 16 sub in a tub",
+        "number 16 in a tub",
+        "number 16 bowl",
+        "no. 16 sub in a tub",
+        "no. 16 in a tub",
+        "no. 16 bowl",
+        "no 16 sub in a tub",
+        "no 16 in a tub",
+        "no 16 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 36.7,
+        "fat": 18.7,
+        "carbs": 14.3,
+        "fiber": 0.8,
+        "calories": 375
+      },
+      "build": [
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "white american cheese",
+          "count": 1
+        },
+        {
+          "component": "red and green pepper strips",
+          "count": 1
+        },
+        {
+          "component": "grilled onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#17 Mike's Famous Philly",
+      "aliases": [
+        "#17 mike's famous philly",
+        "mike's famous philly",
+        "famous philly",
+        "mikes famous philly",
+        "philly",
+        "philly cheesesteak",
+        "philly cheese steak",
+        "cheesesteak",
+        "cheese steak",
+        "steak philly",
+        "#17",
+        "number 17",
+        "17",
+        "no. 17",
+        "no 17"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 45.9,
+        "fat": 30.3,
+        "carbs": 74,
+        "fiber": 3.2,
+        "calories": 748
+      },
+      "build": [
+        {
+          "component": "grilled steak",
+          "count": 1
+        },
+        {
+          "component": "white american cheese",
+          "count": 1
+        },
+        {
+          "component": "red and green pepper strips",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "grilled onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#17 Mike's Famous Philly (Giant)",
+      "aliases": [
+        "#17 mike's famous philly giant",
+        "mike's famous philly giant",
+        "famous philly giant",
+        "mikes famous philly giant",
+        "philly giant",
+        "philly cheesesteak giant",
+        "philly cheese steak giant",
+        "cheesesteak giant",
+        "cheese steak giant",
+        "steak philly giant",
+        "#17 giant",
+        "number 17 giant",
+        "17 giant",
+        "no. 17 giant",
+        "no 17 giant",
+        "giant mike's famous philly"
+      ],
+      "size": "giant",
+      "macros": {
+        "protein": 91.9,
+        "fat": 60.6,
+        "carbs": 148,
+        "fiber": 6.4,
+        "calories": 1497
+      },
+      "build": [
+        {
+          "component": "grilled steak",
+          "count": 2
+        },
+        {
+          "component": "white american cheese",
+          "count": 2
+        },
+        {
+          "component": "red and green pepper strips",
+          "count": 2
+        },
+        {
+          "component": "white bread (giant)",
+          "count": 1
+        },
+        {
+          "component": "grilled onions",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "#17 Mike's Famous Philly Sub in a Tub",
+      "aliases": [
+        "#17 mike's famous philly sub in a tub",
+        "#17 mike's famous philly in a tub",
+        "#17 mike's famous philly bowl",
+        "mike's famous philly sub in a tub",
+        "mike's famous philly in a tub",
+        "mike's famous philly bowl",
+        "famous philly sub in a tub",
+        "famous philly in a tub",
+        "famous philly bowl",
+        "mikes famous philly sub in a tub",
+        "mikes famous philly in a tub",
+        "mikes famous philly bowl",
+        "philly sub in a tub",
+        "philly in a tub",
+        "philly bowl",
+        "philly cheesesteak sub in a tub",
+        "philly cheesesteak in a tub",
+        "philly cheesesteak bowl",
+        "philly cheese steak sub in a tub",
+        "philly cheese steak in a tub",
+        "philly cheese steak bowl",
+        "cheesesteak sub in a tub",
+        "cheesesteak in a tub",
+        "cheesesteak bowl",
+        "cheese steak sub in a tub",
+        "cheese steak in a tub",
+        "cheese steak bowl",
+        "steak philly sub in a tub",
+        "steak philly in a tub",
+        "steak philly bowl",
+        "#17 sub in a tub",
+        "#17 in a tub",
+        "#17 bowl",
+        "number 17 sub in a tub",
+        "number 17 in a tub",
+        "number 17 bowl",
+        "no. 17 sub in a tub",
+        "no. 17 in a tub",
+        "no. 17 bowl",
+        "no 17 sub in a tub",
+        "no 17 in a tub",
+        "no 17 bowl",
+        "steak bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 34.3,
+        "fat": 27.4,
+        "carbs": 15.3,
+        "fiber": 0.8,
+        "calories": 440
+      },
+      "build": [
+        {
+          "component": "grilled steak",
+          "count": 1
+        },
+        {
+          "component": "white american cheese",
+          "count": 1
+        },
+        {
+          "component": "red and green pepper strips",
+          "count": 1
+        },
+        {
+          "component": "grilled onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#19 BBQ Beef",
+      "aliases": [
+        "#19 bbq beef",
+        "bbq beef",
+        "barbecue beef",
+        "bbq roast beef",
+        "#19",
+        "number 19",
+        "19",
+        "no. 19",
+        "no 19"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 60.1,
+        "fat": 11.4,
+        "carbs": 87.4,
+        "fiber": 3.6,
+        "calories": 708
+      },
+      "build": [
+        {
+          "component": "roast beef",
+          "count": 1.34
+        },
+        {
+          "component": "bbq sauce",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#19 BBQ Beef Sub in a Tub",
+      "aliases": [
+        "#19 bbq beef sub in a tub",
+        "#19 bbq beef in a tub",
+        "#19 bbq beef bowl",
+        "bbq beef sub in a tub",
+        "bbq beef in a tub",
+        "bbq beef bowl",
+        "barbecue beef sub in a tub",
+        "barbecue beef in a tub",
+        "barbecue beef bowl",
+        "bbq roast beef sub in a tub",
+        "bbq roast beef in a tub",
+        "bbq roast beef bowl",
+        "#19 sub in a tub",
+        "#19 in a tub",
+        "#19 bowl",
+        "number 19 sub in a tub",
+        "number 19 in a tub",
+        "number 19 bowl",
+        "no. 19 sub in a tub",
+        "no. 19 in a tub",
+        "no. 19 bowl",
+        "no 19 sub in a tub",
+        "no 19 in a tub",
+        "no 19 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 48.5,
+        "fat": 8.4,
+        "carbs": 28.7,
+        "fiber": 1.2,
+        "calories": 399
+      },
+      "build": [
+        {
+          "component": "roast beef",
+          "count": 1.34
+        },
+        {
+          "component": "bbq sauce",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#20 Grilled Pastrami Reuben",
+      "aliases": [
+        "#20 grilled pastrami reuben",
+        "grilled pastrami reuben",
+        "pastrami reuben",
+        "reuben",
+        "rueben",
+        "pastrami",
+        "#20",
+        "number 20",
+        "20",
+        "no. 20",
+        "no 20"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 41.7,
+        "fat": 29.8,
+        "carbs": 74.2,
+        "fiber": 5.5,
+        "calories": 721
+      },
+      "build": [
+        {
+          "component": "pastrami",
+          "count": 1
+        },
+        {
+          "component": "swiss",
+          "count": 1
+        },
+        {
+          "component": "sauerkraut",
+          "count": 1
+        },
+        {
+          "component": "thousand island",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#20 Grilled Pastrami Reuben Sub in a Tub",
+      "aliases": [
+        "#20 grilled pastrami reuben sub in a tub",
+        "#20 grilled pastrami reuben in a tub",
+        "#20 grilled pastrami reuben bowl",
+        "grilled pastrami reuben sub in a tub",
+        "grilled pastrami reuben in a tub",
+        "grilled pastrami reuben bowl",
+        "pastrami reuben sub in a tub",
+        "pastrami reuben in a tub",
+        "pastrami reuben bowl",
+        "reuben sub in a tub",
+        "reuben in a tub",
+        "reuben bowl",
+        "rueben sub in a tub",
+        "rueben in a tub",
+        "rueben bowl",
+        "pastrami sub in a tub",
+        "pastrami in a tub",
+        "pastrami bowl",
+        "#20 sub in a tub",
+        "#20 in a tub",
+        "#20 bowl",
+        "number 20 sub in a tub",
+        "number 20 in a tub",
+        "number 20 bowl",
+        "no. 20 sub in a tub",
+        "no. 20 in a tub",
+        "no. 20 bowl",
+        "no 20 sub in a tub",
+        "no 20 in a tub",
+        "no 20 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 30.1,
+        "fat": 26.8,
+        "carbs": 15.6,
+        "fiber": 3.1,
+        "calories": 413
+      },
+      "build": [
+        {
+          "component": "pastrami",
+          "count": 1
+        },
+        {
+          "component": "swiss",
+          "count": 1
+        },
+        {
+          "component": "sauerkraut",
+          "count": 1
+        },
+        {
+          "component": "thousand island",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#26 Bacon Ranch Chicken Cheese Steak",
+      "aliases": [
+        "#26 bacon ranch chicken cheese steak",
+        "bacon ranch chicken cheese steak",
+        "bacon ranch chicken cheesesteak",
+        "bacon ranch chicken",
+        "bacon ranch",
+        "#26",
+        "number 26",
+        "26",
+        "no. 26",
+        "no 26"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 55.1,
+        "fat": 46.8,
+        "carbs": 71.4,
+        "fiber": 3.7,
+        "calories": 924
+      },
+      "build": [
+        {
+          "component": "bacon",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "white american cheese",
+          "count": 1
+        },
+        {
+          "component": "ranch",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 0.67
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#26 Bacon Ranch Chicken Cheese Steak (Giant)",
+      "aliases": [
+        "#26 bacon ranch chicken cheese steak giant",
+        "bacon ranch chicken cheese steak giant",
+        "bacon ranch chicken cheesesteak giant",
+        "bacon ranch chicken giant",
+        "bacon ranch giant",
+        "#26 giant",
+        "number 26 giant",
+        "26 giant",
+        "no. 26 giant",
+        "no 26 giant",
+        "giant bacon ranch chicken cheese steak"
+      ],
+      "size": "giant",
+      "macros": {
+        "protein": 109.9,
+        "fat": 93.6,
+        "carbs": 142,
+        "fiber": 7.3,
+        "calories": 1844
+      },
+      "build": [
+        {
+          "component": "bacon",
+          "count": 2
+        },
+        {
+          "component": "grilled chicken",
+          "count": 2
+        },
+        {
+          "component": "white american cheese",
+          "count": 2
+        },
+        {
+          "component": "ranch",
+          "count": 2
+        },
+        {
+          "component": "white bread (giant)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1.33
+        },
+        {
+          "component": "tomatoes",
+          "count": 1.67
+        }
+      ]
+    },
+    {
+      "name": "#26 Bacon Ranch Chicken Cheese Steak Sub in a Tub",
+      "aliases": [
+        "#26 bacon ranch chicken cheese steak sub in a tub",
+        "#26 bacon ranch chicken cheese steak in a tub",
+        "#26 bacon ranch chicken cheese steak bowl",
+        "bacon ranch chicken cheese steak sub in a tub",
+        "bacon ranch chicken cheese steak in a tub",
+        "bacon ranch chicken cheese steak bowl",
+        "bacon ranch chicken cheesesteak sub in a tub",
+        "bacon ranch chicken cheesesteak in a tub",
+        "bacon ranch chicken cheesesteak bowl",
+        "bacon ranch chicken sub in a tub",
+        "bacon ranch chicken in a tub",
+        "bacon ranch chicken bowl",
+        "bacon ranch sub in a tub",
+        "bacon ranch in a tub",
+        "bacon ranch bowl",
+        "#26 sub in a tub",
+        "#26 in a tub",
+        "#26 bowl",
+        "number 26 sub in a tub",
+        "number 26 in a tub",
+        "number 26 bowl",
+        "no. 26 sub in a tub",
+        "no. 26 in a tub",
+        "no. 26 bowl",
+        "no 26 sub in a tub",
+        "no 26 in a tub",
+        "no 26 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 43.4,
+        "fat": 43.9,
+        "carbs": 12.7,
+        "fiber": 1.3,
+        "calories": 615
+      },
+      "build": [
+        {
+          "component": "bacon",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "white american cheese",
+          "count": 1
+        },
+        {
+          "component": "ranch",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 0.67
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#31 California Chicken Cheese Steak",
+      "aliases": [
+        "#31 california chicken cheese steak",
+        "california chicken cheese steak",
+        "california chicken cheesesteak",
+        "california chicken",
+        "cali chicken cheesesteak",
+        "#31",
+        "number 31",
+        "31",
+        "no. 31",
+        "no 31"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 49.2,
+        "fat": 50.8,
+        "carbs": 70,
+        "fiber": 3.7,
+        "calories": 932
+      },
+      "build": [
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "white american cheese",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 0.67
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#31 California Chicken Cheese Steak (Giant)",
+      "aliases": [
+        "#31 california chicken cheese steak giant",
+        "california chicken cheese steak giant",
+        "california chicken cheesesteak giant",
+        "california chicken giant",
+        "cali chicken cheesesteak giant",
+        "#31 giant",
+        "number 31 giant",
+        "31 giant",
+        "no. 31 giant",
+        "no 31 giant",
+        "giant california chicken cheese steak"
+      ],
+      "size": "giant",
+      "macros": {
+        "protein": 98.2,
+        "fat": 101.6,
+        "carbs": 139.3,
+        "fiber": 7.3,
+        "calories": 1860
+      },
+      "build": [
+        {
+          "component": "grilled chicken",
+          "count": 2
+        },
+        {
+          "component": "white american cheese",
+          "count": 2
+        },
+        {
+          "component": "mayo",
+          "count": 2
+        },
+        {
+          "component": "white bread (giant)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1.33
+        },
+        {
+          "component": "tomatoes",
+          "count": 1.67
+        }
+      ]
+    },
+    {
+      "name": "#31 California Chicken Cheese Steak Sub in a Tub",
+      "aliases": [
+        "#31 california chicken cheese steak sub in a tub",
+        "#31 california chicken cheese steak in a tub",
+        "#31 california chicken cheese steak bowl",
+        "california chicken cheese steak sub in a tub",
+        "california chicken cheese steak in a tub",
+        "california chicken cheese steak bowl",
+        "california chicken cheesesteak sub in a tub",
+        "california chicken cheesesteak in a tub",
+        "california chicken cheesesteak bowl",
+        "california chicken sub in a tub",
+        "california chicken in a tub",
+        "california chicken bowl",
+        "cali chicken cheesesteak sub in a tub",
+        "cali chicken cheesesteak in a tub",
+        "cali chicken cheesesteak bowl",
+        "#31 sub in a tub",
+        "#31 in a tub",
+        "#31 bowl",
+        "number 31 sub in a tub",
+        "number 31 in a tub",
+        "number 31 bowl",
+        "no. 31 sub in a tub",
+        "no. 31 in a tub",
+        "no. 31 bowl",
+        "no 31 sub in a tub",
+        "no 31 in a tub",
+        "no 31 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 37.6,
+        "fat": 47.9,
+        "carbs": 11.4,
+        "fiber": 1.3,
+        "calories": 623
+      },
+      "build": [
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "white american cheese",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 0.67
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#42 Chipotle Chicken Cheese Steak",
+      "aliases": [
+        "#42 chipotle chicken cheese steak",
+        "chipotle chicken cheese steak",
+        "chipotle chicken cheesesteak",
+        "chipotle chicken",
+        "#42",
+        "number 42",
+        "42",
+        "no. 42",
+        "no 42"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 48.8,
+        "fat": 53.4,
+        "carbs": 74.7,
+        "fiber": 3.3,
+        "calories": 973
+      },
+      "build": [
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "white american cheese",
+          "count": 1
+        },
+        {
+          "component": "red and green pepper strips",
+          "count": 1
+        },
+        {
+          "component": "chipotle mayo",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "grilled onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#42 Chipotle Chicken Cheese Steak (Giant)",
+      "aliases": [
+        "#42 chipotle chicken cheese steak giant",
+        "chipotle chicken cheese steak giant",
+        "chipotle chicken cheesesteak giant",
+        "chipotle chicken giant",
+        "#42 giant",
+        "number 42 giant",
+        "42 giant",
+        "no. 42 giant",
+        "no 42 giant",
+        "giant chipotle chicken cheese steak"
+      ],
+      "size": "giant",
+      "macros": {
+        "protein": 97.6,
+        "fat": 106.8,
+        "carbs": 149.3,
+        "fiber": 6.6,
+        "calories": 1947
+      },
+      "build": [
+        {
+          "component": "grilled chicken",
+          "count": 2
+        },
+        {
+          "component": "white american cheese",
+          "count": 2
+        },
+        {
+          "component": "red and green pepper strips",
+          "count": 2
+        },
+        {
+          "component": "chipotle mayo",
+          "count": 2
+        },
+        {
+          "component": "white bread (giant)",
+          "count": 1
+        },
+        {
+          "component": "grilled onions",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "#42 Chipotle Chicken Cheese Steak Sub in a Tub",
+      "aliases": [
+        "#42 chipotle chicken cheese steak sub in a tub",
+        "#42 chipotle chicken cheese steak in a tub",
+        "#42 chipotle chicken cheese steak bowl",
+        "chipotle chicken cheese steak sub in a tub",
+        "chipotle chicken cheese steak in a tub",
+        "chipotle chicken cheese steak bowl",
+        "chipotle chicken cheesesteak sub in a tub",
+        "chipotle chicken cheesesteak in a tub",
+        "chipotle chicken cheesesteak bowl",
+        "chipotle chicken sub in a tub",
+        "chipotle chicken in a tub",
+        "chipotle chicken bowl",
+        "#42 sub in a tub",
+        "#42 in a tub",
+        "#42 bowl",
+        "number 42 sub in a tub",
+        "number 42 in a tub",
+        "number 42 bowl",
+        "no. 42 sub in a tub",
+        "no. 42 in a tub",
+        "no. 42 bowl",
+        "no 42 sub in a tub",
+        "no 42 in a tub",
+        "no 42 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 37.2,
+        "fat": 50.5,
+        "carbs": 16,
+        "fiber": 0.9,
+        "calories": 665
+      },
+      "build": [
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "white american cheese",
+          "count": 1
+        },
+        {
+          "component": "red and green pepper strips",
+          "count": 1
+        },
+        {
+          "component": "chipotle mayo",
+          "count": 1
+        },
+        {
+          "component": "grilled onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#43 Chipotle Cheese Steak",
+      "aliases": [
+        "#43 chipotle cheese steak",
+        "chipotle cheese steak",
+        "chipotle cheesesteak",
+        "chipotle steak",
+        "#43",
+        "number 43",
+        "43",
+        "no. 43",
+        "no 43"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 46.4,
+        "fat": 62,
+        "carbs": 75.7,
+        "fiber": 3.3,
+        "calories": 1038
+      },
+      "build": [
+        {
+          "component": "grilled steak",
+          "count": 1
+        },
+        {
+          "component": "white american cheese",
+          "count": 1
+        },
+        {
+          "component": "red and green pepper strips",
+          "count": 1
+        },
+        {
+          "component": "chipotle mayo",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "grilled onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#43 Chipotle Cheese Steak (Giant)",
+      "aliases": [
+        "#43 chipotle cheese steak giant",
+        "chipotle cheese steak giant",
+        "chipotle cheesesteak giant",
+        "chipotle steak giant",
+        "#43 giant",
+        "number 43 giant",
+        "43 giant",
+        "no. 43 giant",
+        "no 43 giant",
+        "giant chipotle cheese steak"
+      ],
+      "size": "giant",
+      "macros": {
+        "protein": 92.8,
+        "fat": 124.1,
+        "carbs": 151.4,
+        "fiber": 6.6,
+        "calories": 2076
+      },
+      "build": [
+        {
+          "component": "grilled steak",
+          "count": 2
+        },
+        {
+          "component": "white american cheese",
+          "count": 2
+        },
+        {
+          "component": "red and green pepper strips",
+          "count": 2
+        },
+        {
+          "component": "chipotle mayo",
+          "count": 2
+        },
+        {
+          "component": "white bread (giant)",
+          "count": 1
+        },
+        {
+          "component": "grilled onions",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "#43 Chipotle Cheese Steak Sub in a Tub",
+      "aliases": [
+        "#43 chipotle cheese steak sub in a tub",
+        "#43 chipotle cheese steak in a tub",
+        "#43 chipotle cheese steak bowl",
+        "chipotle cheese steak sub in a tub",
+        "chipotle cheese steak in a tub",
+        "chipotle cheese steak bowl",
+        "chipotle cheesesteak sub in a tub",
+        "chipotle cheesesteak in a tub",
+        "chipotle cheesesteak bowl",
+        "chipotle steak sub in a tub",
+        "chipotle steak in a tub",
+        "chipotle steak bowl",
+        "#43 sub in a tub",
+        "#43 in a tub",
+        "#43 bowl",
+        "number 43 sub in a tub",
+        "number 43 in a tub",
+        "number 43 bowl",
+        "no. 43 sub in a tub",
+        "no. 43 in a tub",
+        "no. 43 bowl",
+        "no 43 sub in a tub",
+        "no 43 in a tub",
+        "no 43 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 34.8,
+        "fat": 59.1,
+        "carbs": 17,
+        "fiber": 0.9,
+        "calories": 729
+      },
+      "build": [
+        {
+          "component": "grilled steak",
+          "count": 1
+        },
+        {
+          "component": "white american cheese",
+          "count": 1
+        },
+        {
+          "component": "red and green pepper strips",
+          "count": 1
+        },
+        {
+          "component": "chipotle mayo",
+          "count": 1
+        },
+        {
+          "component": "grilled onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#44 Buffalo Chicken Cheese Steak",
+      "aliases": [
+        "#44 buffalo chicken cheese steak",
+        "buffalo chicken cheese steak",
+        "buffalo chicken cheesesteak",
+        "buffalo chicken",
+        "#44",
+        "number 44",
+        "44",
+        "no. 44",
+        "no 44"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 50.3,
+        "fat": 44.5,
+        "carbs": 72.9,
+        "fiber": 4.1,
+        "calories": 894
+      },
+      "build": [
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "white american cheese",
+          "count": 1
+        },
+        {
+          "component": "blue cheese dressing",
+          "count": 1
+        },
+        {
+          "component": "buffalo sauce",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 0.67
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#44 Buffalo Chicken Cheese Steak (Giant)",
+      "aliases": [
+        "#44 buffalo chicken cheese steak giant",
+        "buffalo chicken cheese steak giant",
+        "buffalo chicken cheesesteak giant",
+        "buffalo chicken giant",
+        "#44 giant",
+        "number 44 giant",
+        "44 giant",
+        "no. 44 giant",
+        "no 44 giant",
+        "giant buffalo chicken cheese steak"
+      ],
+      "size": "giant",
+      "macros": {
+        "protein": 100.5,
+        "fat": 88.9,
+        "carbs": 145.1,
+        "fiber": 8.1,
+        "calories": 1785
+      },
+      "build": [
+        {
+          "component": "grilled chicken",
+          "count": 2
+        },
+        {
+          "component": "white american cheese",
+          "count": 2
+        },
+        {
+          "component": "blue cheese dressing",
+          "count": 2
+        },
+        {
+          "component": "buffalo sauce",
+          "count": 2
+        },
+        {
+          "component": "white bread (giant)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1.33
+        },
+        {
+          "component": "tomatoes",
+          "count": 1.67
+        }
+      ]
+    },
+    {
+      "name": "#44 Buffalo Chicken Cheese Steak Sub in a Tub",
+      "aliases": [
+        "#44 buffalo chicken cheese steak sub in a tub",
+        "#44 buffalo chicken cheese steak in a tub",
+        "#44 buffalo chicken cheese steak bowl",
+        "buffalo chicken cheese steak sub in a tub",
+        "buffalo chicken cheese steak in a tub",
+        "buffalo chicken cheese steak bowl",
+        "buffalo chicken cheesesteak sub in a tub",
+        "buffalo chicken cheesesteak in a tub",
+        "buffalo chicken cheesesteak bowl",
+        "buffalo chicken sub in a tub",
+        "buffalo chicken in a tub",
+        "buffalo chicken bowl",
+        "#44 sub in a tub",
+        "#44 in a tub",
+        "#44 bowl",
+        "number 44 sub in a tub",
+        "number 44 in a tub",
+        "number 44 bowl",
+        "no. 44 sub in a tub",
+        "no. 44 in a tub",
+        "no. 44 bowl",
+        "no 44 sub in a tub",
+        "no 44 in a tub",
+        "no 44 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 38.7,
+        "fat": 41.5,
+        "carbs": 14.3,
+        "fiber": 1.7,
+        "calories": 586
+      },
+      "build": [
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "white american cheese",
+          "count": 1
+        },
+        {
+          "component": "blue cheese dressing",
+          "count": 1
+        },
+        {
+          "component": "buffalo sauce",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 0.67
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#55 Big Kahuna Chicken Cheese Steak",
+      "aliases": [
+        "#55 big kahuna chicken cheese steak",
+        "big kahuna chicken cheese steak",
+        "big kahuna chicken cheesesteak",
+        "big kahuna chicken",
+        "kahuna chicken",
+        "#55",
+        "number 55",
+        "55",
+        "no. 55",
+        "no 55"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 51.1,
+        "fat": 26.1,
+        "carbs": 75.2,
+        "fiber": 3.7,
+        "calories": 741
+      },
+      "build": [
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "white american cheese",
+          "count": 1.33
+        },
+        {
+          "component": "jalapeno peppers",
+          "count": 1
+        },
+        {
+          "component": "mushrooms",
+          "count": 1
+        },
+        {
+          "component": "red and green pepper strips",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "grilled onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "#55 Big Kahuna Chicken Cheese Steak (Giant)",
+      "aliases": [
+        "#55 big kahuna chicken cheese steak giant",
+        "big kahuna chicken cheese steak giant",
+        "big kahuna chicken cheesesteak giant",
+        "big kahuna chicken giant",
+        "kahuna chicken giant",
+        "#55 giant",
+        "number 55 giant",
+        "55 giant",
+        "no. 55 giant",
+        "no 55 giant",
+        "giant big kahuna chicken cheese steak"
+      ],
+      "size": "giant",
+      "macros": {
+        "protein": 102.2,
+        "fat": 52.2,
+        "carbs": 150.4,
+        "fiber": 7.3,
+        "calories": 1483
+      },
+      "build": [
+        {
+          "component": "grilled chicken",
+          "count": 2
+        },
+        {
+          "component": "white american cheese",
+          "count": 2.67
+        },
+        {
+          "component": "jalapeno peppers",
+          "count": 2
+        },
+        {
+          "component": "mushrooms",
+          "count": 2
+        },
+        {
+          "component": "red and green pepper strips",
+          "count": 2
+        },
+        {
+          "component": "white bread (giant)",
+          "count": 1
+        },
+        {
+          "component": "grilled onions",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "#55 Big Kahuna Chicken Cheese Steak Sub in a Tub",
+      "aliases": [
+        "#55 big kahuna chicken cheese steak sub in a tub",
+        "#55 big kahuna chicken cheese steak in a tub",
+        "#55 big kahuna chicken cheese steak bowl",
+        "big kahuna chicken cheese steak sub in a tub",
+        "big kahuna chicken cheese steak in a tub",
+        "big kahuna chicken cheese steak bowl",
+        "big kahuna chicken cheesesteak sub in a tub",
+        "big kahuna chicken cheesesteak in a tub",
+        "big kahuna chicken cheesesteak bowl",
+        "big kahuna chicken sub in a tub",
+        "big kahuna chicken in a tub",
+        "big kahuna chicken bowl",
+        "kahuna chicken sub in a tub",
+        "kahuna chicken in a tub",
+        "kahuna chicken bowl",
+        "#55 sub in a tub",
+        "#55 in a tub",
+        "#55 bowl",
+        "number 55 sub in a tub",
+        "number 55 in a tub",
+        "number 55 bowl",
+        "no. 55 sub in a tub",
+        "no. 55 in a tub",
+        "no. 55 bowl",
+        "no 55 sub in a tub",
+        "no 55 in a tub",
+        "no 55 bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 39.4,
+        "fat": 23.2,
+        "carbs": 15.9,
+        "fiber": 1.1,
+        "calories": 430
+      },
+      "build": [
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "white american cheese",
+          "count": 1.33
+        },
+        {
+          "component": "jalapeno peppers",
+          "count": 1
+        },
+        {
+          "component": "mushrooms",
+          "count": 1
+        },
+        {
+          "component": "red and green pepper strips",
+          "count": 1
+        },
+        {
+          "component": "grilled onions",
+          "count": 0.8
+        }
+      ]
+    },
+    {
+      "name": "#56 Big Kahuna Cheese Steak",
+      "aliases": [
+        "#56 big kahuna cheese steak",
+        "big kahuna cheese steak",
+        "big kahuna cheesesteak",
+        "big kahuna",
+        "kahuna",
+        "big kahuna steak",
+        "#56",
+        "number 56",
+        "56",
+        "no. 56",
+        "no 56"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 48.7,
+        "fat": 34.7,
+        "carbs": 75.6,
+        "fiber": 3.5,
+        "calories": 803
+      },
+      "build": [
+        {
+          "component": "grilled steak",
+          "count": 1
+        },
+        {
+          "component": "white american cheese",
+          "count": 1.33
+        },
+        {
+          "component": "jalapeno peppers",
+          "count": 1
+        },
+        {
+          "component": "mushrooms",
+          "count": 1
+        },
+        {
+          "component": "red and green pepper strips",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "grilled onions",
+          "count": 0.8
+        }
+      ]
+    },
+    {
+      "name": "#56 Big Kahuna Cheese Steak (Giant)",
+      "aliases": [
+        "#56 big kahuna cheese steak giant",
+        "big kahuna cheese steak giant",
+        "big kahuna cheesesteak giant",
+        "big kahuna giant",
+        "kahuna giant",
+        "big kahuna steak giant",
+        "#56 giant",
+        "number 56 giant",
+        "56 giant",
+        "no. 56 giant",
+        "no 56 giant",
+        "giant big kahuna cheese steak"
+      ],
+      "size": "giant",
+      "macros": {
+        "protein": 97.4,
+        "fat": 69.5,
+        "carbs": 151.8,
+        "fiber": 7.2,
+        "calories": 1609
+      },
+      "build": [
+        {
+          "component": "grilled steak",
+          "count": 2
+        },
+        {
+          "component": "white american cheese",
+          "count": 2.67
+        },
+        {
+          "component": "jalapeno peppers",
+          "count": 2
+        },
+        {
+          "component": "mushrooms",
+          "count": 2
+        },
+        {
+          "component": "red and green pepper strips",
+          "count": 2
+        },
+        {
+          "component": "white bread (giant)",
+          "count": 1
+        },
+        {
+          "component": "grilled onions",
+          "count": 1.8
+        }
+      ]
+    },
+    {
+      "name": "#56 Big Kahuna Cheese Steak Sub in a Tub",
+      "aliases": [
+        "#56 big kahuna cheese steak sub in a tub",
+        "#56 big kahuna cheese steak in a tub",
+        "#56 big kahuna cheese steak bowl",
+        "big kahuna cheese steak sub in a tub",
+        "big kahuna cheese steak in a tub",
+        "big kahuna cheese steak bowl",
+        "big kahuna cheesesteak sub in a tub",
+        "big kahuna cheesesteak in a tub",
+        "big kahuna cheesesteak bowl",
+        "big kahuna sub in a tub",
+        "big kahuna in a tub",
+        "big kahuna bowl",
+        "kahuna sub in a tub",
+        "kahuna in a tub",
+        "kahuna bowl",
+        "big kahuna steak sub in a tub",
+        "big kahuna steak in a tub",
+        "big kahuna steak bowl",
+        "#56 sub in a tub",
+        "#56 in a tub",
+        "#56 bowl",
+        "number 56 sub in a tub",
+        "number 56 in a tub",
+        "number 56 bowl",
+        "no. 56 sub in a tub",
+        "no. 56 in a tub",
+        "no. 56 bowl",
+        "no 56 sub in a tub",
+        "no 56 in a tub",
+        "no 56 bowl",
+        "#99 big kahuna steak bowl",
+        "#99",
+        "number 99"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 37,
+        "fat": 31.8,
+        "carbs": 16.9,
+        "fiber": 1.1,
+        "calories": 494
+      },
+      "build": [
+        {
+          "component": "grilled steak",
+          "count": 1
+        },
+        {
+          "component": "white american cheese",
+          "count": 1.33
+        },
+        {
+          "component": "jalapeno peppers",
+          "count": 1
+        },
+        {
+          "component": "mushrooms",
+          "count": 1
+        },
+        {
+          "component": "red and green pepper strips",
+          "count": 1
+        },
+        {
+          "component": "grilled onions",
+          "count": 0.8
+        }
+      ]
+    },
+    {
+      "name": "Mike's Hot Italian",
+      "aliases": [
+        "mike's hot italian",
+        "mikes hot italian",
+        "hot italian",
+        "hot italian sub"
+      ],
+      "size": "regular",
+      "macros": {
+        "protein": 42.6,
+        "fat": 29.3,
+        "carbs": 71.5,
+        "fiber": 5,
+        "calories": 716
+      },
+      "build": [
+        {
+          "component": "ham",
+          "count": 0.85
+        },
+        {
+          "component": "pepperoni",
+          "count": 1.25
+        },
+        {
+          "component": "hard salami",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "white bread (regular)",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 0.67
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "hot chopped pepper relish",
+          "count": 1.33
+        },
+        {
+          "component": "grilled onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Mike's Hot Italian Sub in a Tub",
+      "aliases": [
+        "mike's hot italian sub in a tub",
+        "mike's hot italian in a tub",
+        "mike's hot italian bowl",
+        "mikes hot italian sub in a tub",
+        "mikes hot italian in a tub",
+        "mikes hot italian bowl",
+        "hot italian sub in a tub",
+        "hot italian in a tub",
+        "hot italian bowl"
+      ],
+      "size": "bowl",
+      "note": "Bowl / Sub in a Tub size as published: the regular sub without the roll",
+      "macros": {
+        "protein": 31,
+        "fat": 26.4,
+        "carbs": 12.8,
+        "fiber": 2.6,
+        "calories": 408
+      },
+      "build": [
+        {
+          "component": "ham",
+          "count": 0.85
+        },
+        {
+          "component": "pepperoni",
+          "count": 1.25
+        },
+        {
+          "component": "hard salami",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 0.67
+        },
+        {
+          "component": "tomatoes",
+          "count": 1
+        },
+        {
+          "component": "hot chopped pepper relish",
+          "count": 1.33
+        },
+        {
+          "component": "grilled onions",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

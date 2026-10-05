@@ -1,0 +1,3218 @@
+{
+  "chain": "Jimmy John's",
+  "aliases": [
+    "jimmy johns",
+    "jimmy john's",
+    "jimmy john",
+    "jimmyjohns",
+    "jj's",
+    "jjs",
+    "jimmy jons",
+    "jimmy jon's",
+    "jimmy johns subs"
+  ],
+  "source": "https://resources.jimmyjohns.com/downloadable-files/NutritionGuide.pdf",
+  "retrieved": "2026-10-05",
+  "notes": "Numbers from the Jimmy John's Nutrition Guide PDF (effective 07.22.2024). One component unit is one REG portion for an 8\" sub, Unwich or sliced wheat; giant (16\") builds use the 16\" bread with 2 regular portions of each filling (the guide's 16\" REG portions are twice the 8\" ones). Originals (#1-#6, J.J.B.L.T., #7, #13) are served on the standard scooped 8\"/16\" French bread; Favorites (#8-#17, Gargantuan) and Slims are on French bread with the bread left in, which is what the published totals reproduce. '<1' in the guide is recorded as 0.5. Unless noted, sandwiches come with lettuce, tomato and mayo; Totally Tuna, Vito and Club Tuna have no mayo; Jimmy Cubano has no lettuce or tomato.",
+  "components": {
+    "8\" french bread": {
+      "unit": "each",
+      "protein": 9,
+      "fat": 1.5,
+      "carbs": 44,
+      "fiber": 3,
+      "calories": 230
+    },
+    "8\" french bread (bread left in)": {
+      "unit": "each",
+      "protein": 13,
+      "fat": 2,
+      "carbs": 66,
+      "fiber": 4,
+      "calories": 350
+    },
+    "16\" french bread": {
+      "unit": "each",
+      "protein": 17,
+      "fat": 2,
+      "carbs": 87,
+      "fiber": 6,
+      "calories": 470
+    },
+    "16\" french bread (bread left in)": {
+      "unit": "each",
+      "protein": 27,
+      "fat": 4.5,
+      "carbs": 133,
+      "fiber": 9,
+      "calories": 710
+    },
+    "little john french bread": {
+      "unit": "each",
+      "protein": 4,
+      "fat": 0.5,
+      "carbs": 22,
+      "fiber": 1,
+      "calories": 120
+    },
+    "thick-sliced wheat bread": {
+      "unit": "each",
+      "protein": 12,
+      "fat": 5,
+      "carbs": 47,
+      "fiber": 5,
+      "calories": 290
+    },
+    "unwich lettuce wrap": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 0,
+      "derived": "guide lists the Unwich lettuce wrap as <1 g carbs; Turkey Tom Unwich minus turkey, lettuce, tomato and mayo, and Slim 4 Unwich minus turkey, both leave 1 g carbs"
+    },
+    "ham": {
+      "unit": "each",
+      "protein": 11,
+      "fat": 1.5,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 70
+    },
+    "roast beef": {
+      "unit": "each",
+      "protein": 16,
+      "fat": 3,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 90
+    },
+    "turkey": {
+      "unit": "each",
+      "protein": 14,
+      "fat": 0.5,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 60
+    },
+    "salami & capicola": {
+      "unit": "each",
+      "protein": 14,
+      "fat": 11,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 160
+    },
+    "salami": {
+      "unit": "each",
+      "protein": 8,
+      "fat": 7,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 100
+    },
+    "capicola": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 4,
+      "carbs": 0.5,
+      "fiber": 0,
+      "calories": 60
+    },
+    "tuna salad": {
+      "unit": "each",
+      "protein": 11,
+      "fat": 20,
+      "carbs": 4,
+      "fiber": 0.5,
+      "calories": 260
+    },
+    "bacon": {
+      "unit": "each",
+      "protein": 7,
+      "fat": 7,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 90
+    },
+    "all-natural chicken": {
+      "unit": "each",
+      "protein": 18,
+      "fat": 3.5,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 110
+    },
+    "provolone": {
+      "unit": "each",
+      "protein": 8,
+      "fat": 9,
+      "carbs": 0.5,
+      "fiber": 0,
+      "calories": 120
+    },
+    "shaved parmesan": {
+      "unit": "each",
+      "protein": 5,
+      "fat": 4,
+      "carbs": 0.5,
+      "fiber": 0.5,
+      "calories": 60
+    },
+    "avocado spread": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 2,
+      "carbs": 2,
+      "fiber": 1,
+      "calories": 25
+    },
+    "mayo": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 16,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 160
+    },
+    "oil & vinegar": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 40
+    },
+    "yellow mustard": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "oregano-basil": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0.5,
+      "fiber": 0,
+      "calories": 0
+    },
+    "sliced pickles": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "onion": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 5
+    },
+    "jimmy peppers": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0.5,
+      "fiber": 0.5,
+      "calories": 0
+    },
+    "cucumber": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0.5,
+      "fiber": 0,
+      "calories": 0
+    },
+    "tomato": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 2,
+      "fiber": 0.5,
+      "calories": 10
+    },
+    "lettuce": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0.5,
+      "calories": 5
+    },
+    "caesar dressing": {
+      "unit": "each",
+      "protein": 0.5,
+      "fat": 14,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 130
+    },
+    "jalapeno ranch": {
+      "unit": "each",
+      "protein": 0.5,
+      "fat": 10,
+      "carbs": 0.5,
+      "fiber": 0,
+      "calories": 100
+    },
+    "mini croutons": {
+      "unit": "each",
+      "protein": 3,
+      "fat": 3,
+      "carbs": 20,
+      "fiber": 0.5,
+      "calories": 120
+    },
+    "crispy jalapenos": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 8,
+      "carbs": 9,
+      "fiber": 0.5,
+      "calories": 110
+    },
+    "ranch seasoning": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0.5,
+      "fiber": 0,
+      "calories": 0
+    },
+    "red pepper flakes": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 0
+    },
+    "jumbo kosher dill pickle": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 0,
+      "carbs": 3,
+      "fiber": 2,
+      "calories": 20
+    },
+    "side of avocado spread": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 6,
+      "carbs": 4,
+      "fiber": 3,
+      "calories": 70
+    },
+    "side of jalapeno ranch": {
+      "unit": "each",
+      "protein": 2,
+      "fat": 15,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 150
+    }
+  },
+  "items": [
+    {
+      "name": "The Pepe",
+      "aliases": [
+        "pepe",
+        "the pepe",
+        "ham and provolone",
+        "#1",
+        "number 1",
+        "no 1",
+        "no. 1",
+        "1",
+        "the pepe 8 inch",
+        "the pepe regular"
+      ],
+      "macros": {
+        "protein": 29,
+        "fat": 29,
+        "carbs": 50,
+        "fiber": 4,
+        "calories": 600
+      },
+      "build": [
+        {
+          "component": "8\" french bread",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Big John",
+      "aliases": [
+        "big john",
+        "bigjohn",
+        "roast beef sub",
+        "#2",
+        "number 2",
+        "no 2",
+        "no. 2",
+        "2",
+        "big john 8 inch",
+        "big john regular"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 21,
+        "carbs": 47,
+        "fiber": 4,
+        "calories": 500
+      },
+      "build": [
+        {
+          "component": "8\" french bread",
+          "count": 1
+        },
+        {
+          "component": "roast beef",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Totally Tuna",
+      "aliases": [
+        "totally tuna",
+        "tuna",
+        "tuna sub",
+        "tuna salad sub",
+        "#3",
+        "number 3",
+        "no 3",
+        "no. 3",
+        "3",
+        "totally tuna 8 inch",
+        "totally tuna regular"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 22,
+        "carbs": 51,
+        "fiber": 5,
+        "calories": 510
+      },
+      "build": [
+        {
+          "component": "8\" french bread",
+          "count": 1
+        },
+        {
+          "component": "tuna salad",
+          "count": 1
+        },
+        {
+          "component": "cucumber",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Turkey Tom",
+      "aliases": [
+        "turkey tom",
+        "turkeytom",
+        "turkey sub",
+        "turkey tom sub",
+        "#4",
+        "number 4",
+        "no 4",
+        "no. 4",
+        "4",
+        "turkey tom 8 inch",
+        "turkey tom regular"
+      ],
+      "macros": {
+        "protein": 23,
+        "fat": 19,
+        "carbs": 48,
+        "fiber": 4,
+        "calories": 480
+      },
+      "build": [
+        {
+          "component": "8\" french bread",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Vito",
+      "aliases": [
+        "vito",
+        "the vito",
+        "italian sub",
+        "#5",
+        "number 5",
+        "no 5",
+        "no. 5",
+        "5",
+        "vito 8 inch",
+        "vito regular"
+      ],
+      "macros": {
+        "protein": 32,
+        "fat": 26,
+        "carbs": 52,
+        "fiber": 5,
+        "calories": 570
+      },
+      "build": [
+        {
+          "component": "8\" french bread",
+          "count": 1
+        },
+        {
+          "component": "salami & capicola",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "onion",
+          "count": 1
+        },
+        {
+          "component": "oil & vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano-basil",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "The Veggie",
+      "aliases": [
+        "veggie",
+        "the veggie",
+        "veggie sub",
+        "vegetarian",
+        "#6",
+        "number 6",
+        "no 6",
+        "no. 6",
+        "6",
+        "the veggie 8 inch",
+        "the veggie regular"
+      ],
+      "macros": {
+        "protein": 27,
+        "fat": 38,
+        "carbs": 50,
+        "fiber": 5,
+        "calories": 670
+      },
+      "build": [
+        {
+          "component": "8\" french bread",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "avocado spread",
+          "count": 1
+        },
+        {
+          "component": "cucumber",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "J.J.B.L.T.",
+      "aliases": [
+        "jjblt",
+        "jj blt",
+        "j.j.b.l.t.",
+        "blt",
+        "jj b.l.t.",
+        "bacon lettuce tomato",
+        "j.j.b.l.t. 8 inch",
+        "j.j.b.l.t. regular"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 32,
+        "carbs": 47,
+        "fiber": 4,
+        "calories": 590
+      },
+      "build": [
+        {
+          "component": "8\" french bread",
+          "count": 1
+        },
+        {
+          "component": "bacon",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Spicy East Coast Italian",
+      "aliases": [
+        "spicy east coast italian",
+        "east coast italian",
+        "spicy italian",
+        "east coast",
+        "#7",
+        "number 7",
+        "no 7",
+        "no. 7",
+        "7",
+        "spicy east coast italian 8 inch",
+        "spicy east coast italian regular"
+      ],
+      "macros": {
+        "protein": 46,
+        "fat": 49,
+        "carbs": 53,
+        "fiber": 5,
+        "calories": 850
+      },
+      "build": [
+        {
+          "component": "8\" french bread",
+          "count": 1
+        },
+        {
+          "component": "salami & capicola",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "jimmy peppers",
+          "count": 1
+        },
+        {
+          "component": "onion",
+          "count": 1
+        },
+        {
+          "component": "oil & vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano-basil",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Billy Club",
+      "aliases": [
+        "billy club",
+        "billyclub",
+        "billy",
+        "#8",
+        "number 8",
+        "no 8",
+        "no. 8",
+        "8",
+        "billy club 8 inch",
+        "billy club regular"
+      ],
+      "macros": {
+        "protein": 50,
+        "fat": 32,
+        "carbs": 73,
+        "fiber": 6,
+        "calories": 810
+      },
+      "build": [
+        {
+          "component": "8\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "roast beef",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "yellow mustard",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Italian Night Club",
+      "aliases": [
+        "italian night club",
+        "italian nightclub",
+        "night club",
+        "nightclub",
+        "inc",
+        "#9",
+        "number 9",
+        "no 9",
+        "no. 9",
+        "9",
+        "italian night club 8 inch",
+        "italian night club regular"
+      ],
+      "macros": {
+        "protein": 48,
+        "fat": 46,
+        "carbs": 77,
+        "fiber": 6,
+        "calories": 930
+      },
+      "build": [
+        {
+          "component": "8\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "salami & capicola",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "onion",
+          "count": 1
+        },
+        {
+          "component": "oil & vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano-basil",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Hunter's Club",
+      "aliases": [
+        "hunters club",
+        "hunter's club",
+        "hunter club",
+        "hunters",
+        "#10",
+        "number 10",
+        "no 10",
+        "no. 10",
+        "10",
+        "hunter's club 8 inch",
+        "hunter's club regular"
+      ],
+      "macros": {
+        "protein": 55,
+        "fat": 34,
+        "carbs": 70,
+        "fiber": 6,
+        "calories": 830
+      },
+      "build": [
+        {
+          "component": "8\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "roast beef",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Country Club",
+      "aliases": [
+        "country club",
+        "countryclub",
+        "#11",
+        "number 11",
+        "no 11",
+        "no. 11",
+        "11",
+        "country club 8 inch",
+        "country club regular"
+      ],
+      "macros": {
+        "protein": 48,
+        "fat": 30,
+        "carbs": 74,
+        "fiber": 6,
+        "calories": 780
+      },
+      "build": [
+        {
+          "component": "8\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Beach Club",
+      "aliases": [
+        "beach club",
+        "beachclub",
+        "beach",
+        "#12",
+        "number 12",
+        "no 12",
+        "no. 12",
+        "12",
+        "beach club 8 inch",
+        "beach club regular"
+      ],
+      "macros": {
+        "protein": 45,
+        "fat": 39,
+        "carbs": 75,
+        "fiber": 7,
+        "calories": 850
+      },
+      "build": [
+        {
+          "component": "8\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "avocado spread",
+          "count": 1
+        },
+        {
+          "component": "cucumber",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Jimmy Cubano",
+      "aliases": [
+        "jimmy cubano",
+        "cubano",
+        "cuban",
+        "#13",
+        "number 13",
+        "no 13",
+        "no. 13",
+        "13",
+        "jimmy cubano 8 inch",
+        "jimmy cubano regular"
+      ],
+      "macros": {
+        "protein": 38,
+        "fat": 38,
+        "carbs": 48,
+        "fiber": 4,
+        "calories": 710
+      },
+      "build": [
+        {
+          "component": "8\" french bread",
+          "count": 1
+        },
+        {
+          "component": "bacon",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "sliced pickles",
+          "count": 1
+        },
+        {
+          "component": "yellow mustard",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Bootlegger Club",
+      "aliases": [
+        "bootlegger club",
+        "bootlegger",
+        "boot legger",
+        "#14",
+        "number 14",
+        "no 14",
+        "no. 14",
+        "14",
+        "bootlegger club 8 inch",
+        "bootlegger club regular"
+      ],
+      "macros": {
+        "protein": 44,
+        "fat": 23,
+        "carbs": 71,
+        "fiber": 6,
+        "calories": 680
+      },
+      "build": [
+        {
+          "component": "8\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "roast beef",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Club Tuna",
+      "aliases": [
+        "club tuna",
+        "tuna club",
+        "#15",
+        "number 15",
+        "no 15",
+        "no. 15",
+        "15",
+        "club tuna 8 inch",
+        "club tuna regular"
+      ],
+      "macros": {
+        "protein": 42,
+        "fat": 40,
+        "carbs": 76,
+        "fiber": 7,
+        "calories": 860
+      },
+      "build": [
+        {
+          "component": "8\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "tuna salad",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "cucumber",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Club Lulu",
+      "aliases": [
+        "club lulu",
+        "lulu",
+        "club lu lu",
+        "#16",
+        "number 16",
+        "no 16",
+        "no. 16",
+        "16",
+        "club lulu 8 inch",
+        "club lulu regular"
+      ],
+      "macros": {
+        "protein": 35,
+        "fat": 26,
+        "carbs": 71,
+        "fiber": 6,
+        "calories": 690
+      },
+      "build": [
+        {
+          "component": "8\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 1
+        },
+        {
+          "component": "bacon",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Ultimate Porker",
+      "aliases": [
+        "ultimate porker",
+        "porker",
+        "the porker",
+        "#17",
+        "number 17",
+        "no 17",
+        "no. 17",
+        "17",
+        "ultimate porker 8 inch",
+        "ultimate porker regular"
+      ],
+      "macros": {
+        "protein": 33,
+        "fat": 28,
+        "carbs": 72,
+        "fiber": 6,
+        "calories": 690
+      },
+      "build": [
+        {
+          "component": "8\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 1
+        },
+        {
+          "component": "bacon",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "The J.J. Gargantuan",
+      "aliases": [
+        "gargantuan",
+        "jj gargantuan",
+        "j.j. gargantuan",
+        "the gargantuan",
+        "garg",
+        "gargantuin",
+        "gargantua",
+        "the j.j. gargantuan 8 inch",
+        "the j.j. gargantuan regular"
+      ],
+      "macros": {
+        "protein": 78,
+        "fat": 49,
+        "carbs": 78,
+        "fiber": 6,
+        "calories": 1080
+      },
+      "build": [
+        {
+          "component": "8\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "salami & capicola",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 1
+        },
+        {
+          "component": "roast beef",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "onion",
+          "count": 1
+        },
+        {
+          "component": "oil & vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano-basil",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "The Pepe Unwich",
+      "aliases": [
+        "pepe unwich",
+        "the pepe unwich",
+        "ham and provolone unwich",
+        "pepe lettuce wrap",
+        "the pepe lettuce wrap",
+        "#1 unwich",
+        "number 1 unwich",
+        "1 unwich",
+        "unwich #1",
+        "unwich 1",
+        "the pepe no bread"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 27,
+        "carbs": 7,
+        "fiber": 2,
+        "calories": 370
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Big John Unwich",
+      "aliases": [
+        "big john unwich",
+        "bigjohn unwich",
+        "roast beef sub unwich",
+        "big john lettuce wrap",
+        "bigjohn lettuce wrap",
+        "#2 unwich",
+        "number 2 unwich",
+        "2 unwich",
+        "unwich #2",
+        "unwich 2",
+        "big john no bread"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 20,
+        "carbs": 4,
+        "fiber": 2,
+        "calories": 270
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "roast beef",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Totally Tuna Unwich",
+      "aliases": [
+        "totally tuna unwich",
+        "tuna unwich",
+        "tuna sub unwich",
+        "tuna salad sub unwich",
+        "totally tuna lettuce wrap",
+        "tuna lettuce wrap",
+        "#3 unwich",
+        "number 3 unwich",
+        "3 unwich",
+        "unwich #3",
+        "unwich 3",
+        "totally tuna no bread"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 20,
+        "carbs": 9,
+        "fiber": 3,
+        "calories": 280
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "tuna salad",
+          "count": 1
+        },
+        {
+          "component": "cucumber",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Turkey Tom Unwich",
+      "aliases": [
+        "turkey tom unwich",
+        "turkeytom unwich",
+        "turkey sub unwich",
+        "turkey tom sub unwich",
+        "turkey tom lettuce wrap",
+        "turkeytom lettuce wrap",
+        "#4 unwich",
+        "number 4 unwich",
+        "4 unwich",
+        "unwich #4",
+        "unwich 4",
+        "turkey tom no bread"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 17,
+        "carbs": 5,
+        "fiber": 2,
+        "calories": 250
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Vito Unwich",
+      "aliases": [
+        "vito unwich",
+        "the vito unwich",
+        "italian sub unwich",
+        "vito lettuce wrap",
+        "the vito lettuce wrap",
+        "#5 unwich",
+        "number 5 unwich",
+        "5 unwich",
+        "unwich #5",
+        "unwich 5",
+        "vito no bread"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 25,
+        "carbs": 9,
+        "fiber": 2,
+        "calories": 350
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "salami & capicola",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "onion",
+          "count": 1
+        },
+        {
+          "component": "oil & vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano-basil",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "The Veggie Unwich",
+      "aliases": [
+        "veggie unwich",
+        "the veggie unwich",
+        "veggie sub unwich",
+        "vegetarian unwich",
+        "veggie lettuce wrap",
+        "the veggie lettuce wrap",
+        "#6 unwich",
+        "number 6 unwich",
+        "6 unwich",
+        "unwich #6",
+        "unwich 6",
+        "the veggie no bread"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 36,
+        "carbs": 8,
+        "fiber": 3,
+        "calories": 440
+      }
+    },
+    {
+      "name": "J.J.B.L.T. Unwich",
+      "aliases": [
+        "jjblt unwich",
+        "jj blt unwich",
+        "j.j.b.l.t. unwich",
+        "blt unwich",
+        "jj b.l.t. unwich",
+        "bacon lettuce tomato unwich",
+        "jjblt lettuce wrap",
+        "jj blt lettuce wrap",
+        "j.j.b.l.t. no bread"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 31,
+        "carbs": 4,
+        "fiber": 2,
+        "calories": 360
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "bacon",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Spicy East Coast Italian Unwich",
+      "aliases": [
+        "spicy east coast italian unwich",
+        "east coast italian unwich",
+        "spicy italian unwich",
+        "east coast unwich",
+        "spicy east coast italian lettuce wrap",
+        "east coast italian lettuce wrap",
+        "#7 unwich",
+        "number 7 unwich",
+        "7 unwich",
+        "unwich #7",
+        "unwich 7",
+        "spicy east coast italian no bread"
+      ],
+      "macros": {
+        "protein": 37,
+        "fat": 48,
+        "carbs": 11,
+        "fiber": 2,
+        "calories": 620
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "salami & capicola",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "jimmy peppers",
+          "count": 1
+        },
+        {
+          "component": "onion",
+          "count": 1
+        },
+        {
+          "component": "oil & vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano-basil",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Billy Club Unwich",
+      "aliases": [
+        "billy club unwich",
+        "billyclub unwich",
+        "billy unwich",
+        "billy club lettuce wrap",
+        "billyclub lettuce wrap",
+        "#8 unwich",
+        "number 8 unwich",
+        "8 unwich",
+        "unwich #8",
+        "unwich 8",
+        "billy club no bread"
+      ],
+      "macros": {
+        "protein": 37,
+        "fat": 30,
+        "carbs": 7,
+        "fiber": 2,
+        "calories": 460
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "roast beef",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "yellow mustard",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Italian Night Club Unwich",
+      "aliases": [
+        "italian night club unwich",
+        "italian nightclub unwich",
+        "night club unwich",
+        "nightclub unwich",
+        "inc unwich",
+        "italian night club lettuce wrap",
+        "italian nightclub lettuce wrap",
+        "#9 unwich",
+        "number 9 unwich",
+        "9 unwich",
+        "unwich #9",
+        "unwich 9",
+        "italian night club no bread"
+      ],
+      "macros": {
+        "protein": 35,
+        "fat": 44,
+        "carbs": 11,
+        "fiber": 2,
+        "calories": 580
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "salami & capicola",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "onion",
+          "count": 1
+        },
+        {
+          "component": "oil & vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano-basil",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Hunter's Club Unwich",
+      "aliases": [
+        "hunters club unwich",
+        "hunter's club unwich",
+        "hunter club unwich",
+        "hunters unwich",
+        "hunters club lettuce wrap",
+        "hunter's club lettuce wrap",
+        "#10 unwich",
+        "number 10 unwich",
+        "10 unwich",
+        "unwich #10",
+        "unwich 10",
+        "hunter's club no bread"
+      ],
+      "macros": {
+        "protein": 42,
+        "fat": 32,
+        "carbs": 5,
+        "fiber": 2,
+        "calories": 480
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "roast beef",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Country Club Unwich",
+      "aliases": [
+        "country club unwich",
+        "countryclub unwich",
+        "country club lettuce wrap",
+        "countryclub lettuce wrap",
+        "#11 unwich",
+        "number 11 unwich",
+        "11 unwich",
+        "unwich #11",
+        "unwich 11",
+        "country club no bread"
+      ],
+      "macros": {
+        "protein": 35,
+        "fat": 28,
+        "carbs": 8,
+        "fiber": 2,
+        "calories": 430
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Beach Club Unwich",
+      "aliases": [
+        "beach club unwich",
+        "beachclub unwich",
+        "beach unwich",
+        "beach club lettuce wrap",
+        "beachclub lettuce wrap",
+        "#12 unwich",
+        "number 12 unwich",
+        "12 unwich",
+        "unwich #12",
+        "unwich 12",
+        "beach club no bread"
+      ],
+      "macros": {
+        "protein": 32,
+        "fat": 37,
+        "carbs": 9,
+        "fiber": 3,
+        "calories": 500
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "avocado spread",
+          "count": 1
+        },
+        {
+          "component": "cucumber",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Jimmy Cubano Unwich",
+      "aliases": [
+        "jimmy cubano unwich",
+        "cubano unwich",
+        "cuban unwich",
+        "jimmy cubano lettuce wrap",
+        "cubano lettuce wrap",
+        "#13 unwich",
+        "number 13 unwich",
+        "13 unwich",
+        "unwich #13",
+        "unwich 13",
+        "jimmy cubano no bread"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 36,
+        "carbs": 5,
+        "fiber": 1,
+        "calories": 480
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "bacon",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "sliced pickles",
+          "count": 1
+        },
+        {
+          "component": "yellow mustard",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Bootlegger Club Unwich",
+      "aliases": [
+        "bootlegger club unwich",
+        "bootlegger unwich",
+        "boot legger unwich",
+        "bootlegger club lettuce wrap",
+        "bootlegger lettuce wrap",
+        "#14 unwich",
+        "number 14 unwich",
+        "14 unwich",
+        "unwich #14",
+        "unwich 14",
+        "bootlegger club no bread"
+      ],
+      "macros": {
+        "protein": 31,
+        "fat": 20,
+        "carbs": 5,
+        "fiber": 2,
+        "calories": 330
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "roast beef",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Club Tuna Unwich",
+      "aliases": [
+        "club tuna unwich",
+        "tuna club unwich",
+        "club tuna lettuce wrap",
+        "tuna club lettuce wrap",
+        "#15 unwich",
+        "number 15 unwich",
+        "15 unwich",
+        "unwich #15",
+        "unwich 15",
+        "club tuna no bread"
+      ],
+      "macros": {
+        "protein": 29,
+        "fat": 38,
+        "carbs": 10,
+        "fiber": 3,
+        "calories": 510
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "tuna salad",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "cucumber",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Club Lulu Unwich",
+      "aliases": [
+        "club lulu unwich",
+        "lulu unwich",
+        "club lu lu unwich",
+        "club lulu lettuce wrap",
+        "lulu lettuce wrap",
+        "#16 unwich",
+        "number 16 unwich",
+        "16 unwich",
+        "unwich #16",
+        "unwich 16",
+        "club lulu no bread"
+      ],
+      "macros": {
+        "protein": 22,
+        "fat": 24,
+        "carbs": 5,
+        "fiber": 2,
+        "calories": 340
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 1
+        },
+        {
+          "component": "bacon",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Ultimate Porker Unwich",
+      "aliases": [
+        "ultimate porker unwich",
+        "porker unwich",
+        "the porker unwich",
+        "ultimate porker lettuce wrap",
+        "porker lettuce wrap",
+        "#17 unwich",
+        "number 17 unwich",
+        "17 unwich",
+        "unwich #17",
+        "unwich 17",
+        "ultimate porker no bread"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 25,
+        "carbs": 6,
+        "fiber": 2,
+        "calories": 340
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 1
+        },
+        {
+          "component": "bacon",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "The J.J. Gargantuan Unwich",
+      "aliases": [
+        "gargantuan unwich",
+        "jj gargantuan unwich",
+        "j.j. gargantuan unwich",
+        "the gargantuan unwich",
+        "garg unwich",
+        "gargantuin unwich",
+        "gargantua unwich",
+        "gargantuan lettuce wrap",
+        "jj gargantuan lettuce wrap",
+        "the j.j. gargantuan no bread"
+      ],
+      "macros": {
+        "protein": 65,
+        "fat": 47,
+        "carbs": 12,
+        "fiber": 2,
+        "calories": 730
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "salami & capicola",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 1
+        },
+        {
+          "component": "roast beef",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        },
+        {
+          "component": "onion",
+          "count": 1
+        },
+        {
+          "component": "oil & vinegar",
+          "count": 1
+        },
+        {
+          "component": "oregano-basil",
+          "count": 1
+        },
+        {
+          "component": "lettuce",
+          "count": 1
+        },
+        {
+          "component": "tomato",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "The Pepe Giant (16\")",
+      "aliases": [
+        "pepe giant",
+        "the pepe giant",
+        "ham and provolone giant",
+        "giant pepe",
+        "giant the pepe",
+        "giant ham and provolone",
+        "pepe 16 inch",
+        "the pepe 16 inch",
+        "#1 giant",
+        "giant #1",
+        "giant 1",
+        "1 giant"
+      ],
+      "macros": {
+        "protein": 59,
+        "fat": 57,
+        "carbs": 100,
+        "fiber": 8,
+        "calories": 1190
+      },
+      "build": [
+        {
+          "component": "16\" french bread",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 2
+        },
+        {
+          "component": "tomato",
+          "count": 2
+        },
+        {
+          "component": "mayo",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Big John Giant (16\")",
+      "aliases": [
+        "big john giant",
+        "bigjohn giant",
+        "roast beef sub giant",
+        "giant big john",
+        "giant bigjohn",
+        "giant roast beef sub",
+        "big john 16 inch",
+        "bigjohn 16 inch",
+        "#2 giant",
+        "giant #2",
+        "giant 2",
+        "2 giant"
+      ],
+      "macros": {
+        "protein": 52,
+        "fat": 42,
+        "carbs": 94,
+        "fiber": 8,
+        "calories": 1000
+      },
+      "build": [
+        {
+          "component": "16\" french bread",
+          "count": 1
+        },
+        {
+          "component": "roast beef",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 2
+        },
+        {
+          "component": "tomato",
+          "count": 2
+        },
+        {
+          "component": "mayo",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Turkey Tom Giant (16\")",
+      "aliases": [
+        "turkey tom giant",
+        "turkeytom giant",
+        "turkey sub giant",
+        "turkey tom sub giant",
+        "giant turkey tom",
+        "giant turkeytom",
+        "giant turkey sub",
+        "giant turkey tom sub",
+        "turkey tom 16 inch",
+        "turkeytom 16 inch",
+        "#4 giant",
+        "giant #4",
+        "giant 4",
+        "4 giant"
+      ],
+      "macros": {
+        "protein": 47,
+        "fat": 37,
+        "carbs": 96,
+        "fiber": 8,
+        "calories": 950
+      },
+      "build": [
+        {
+          "component": "16\" french bread",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 2
+        },
+        {
+          "component": "tomato",
+          "count": 2
+        },
+        {
+          "component": "mayo",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Italian Night Club Giant (16\")",
+      "aliases": [
+        "italian night club giant",
+        "italian nightclub giant",
+        "night club giant",
+        "nightclub giant",
+        "inc giant",
+        "giant italian night club",
+        "giant italian nightclub",
+        "giant night club",
+        "giant nightclub",
+        "giant inc",
+        "italian night club 16 inch",
+        "italian nightclub 16 inch",
+        "#9 giant",
+        "giant #9",
+        "giant 9",
+        "9 giant"
+      ],
+      "macros": {
+        "protein": 96,
+        "fat": 91,
+        "carbs": 153,
+        "fiber": 12,
+        "calories": 1860
+      },
+      "build": [
+        {
+          "component": "16\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "salami & capicola",
+          "count": 2
+        },
+        {
+          "component": "ham",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "onion",
+          "count": 2
+        },
+        {
+          "component": "oil & vinegar",
+          "count": 2
+        },
+        {
+          "component": "oregano-basil",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 2
+        },
+        {
+          "component": "tomato",
+          "count": 2
+        },
+        {
+          "component": "mayo",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Hunter's Club Giant (16\")",
+      "aliases": [
+        "hunters club giant",
+        "hunter's club giant",
+        "hunter club giant",
+        "hunters giant",
+        "giant hunters club",
+        "giant hunter's club",
+        "giant hunter club",
+        "giant hunters",
+        "hunters club 16 inch",
+        "hunter's club 16 inch",
+        "#10 giant",
+        "giant #10",
+        "giant 10",
+        "10 giant"
+      ],
+      "macros": {
+        "protein": 110,
+        "fat": 69,
+        "carbs": 141,
+        "fiber": 11,
+        "calories": 1650
+      },
+      "build": [
+        {
+          "component": "16\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "roast beef",
+          "count": 4
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 2
+        },
+        {
+          "component": "tomato",
+          "count": 2
+        },
+        {
+          "component": "mayo",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Beach Club Giant (16\")",
+      "aliases": [
+        "beach club giant",
+        "beachclub giant",
+        "beach giant",
+        "giant beach club",
+        "giant beachclub",
+        "giant beach",
+        "beach club 16 inch",
+        "beachclub 16 inch",
+        "#12 giant",
+        "giant #12",
+        "giant 12",
+        "12 giant"
+      ],
+      "macros": {
+        "protein": 91,
+        "fat": 78,
+        "carbs": 149,
+        "fiber": 13,
+        "calories": 1710
+      },
+      "build": [
+        {
+          "component": "16\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 4
+        },
+        {
+          "component": "avocado spread",
+          "count": 2
+        },
+        {
+          "component": "cucumber",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 2
+        },
+        {
+          "component": "tomato",
+          "count": 2
+        },
+        {
+          "component": "mayo",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "The J.J. Gargantuan Giant (16\")",
+      "aliases": [
+        "gargantuan giant",
+        "jj gargantuan giant",
+        "j.j. gargantuan giant",
+        "the gargantuan giant",
+        "garg giant",
+        "gargantuin giant",
+        "gargantua giant",
+        "giant gargantuan",
+        "giant jj gargantuan",
+        "giant j.j. gargantuan",
+        "giant the gargantuan",
+        "giant garg",
+        "giant gargantuin",
+        "giant gargantua",
+        "gargantuan 16 inch",
+        "jj gargantuan 16 inch"
+      ],
+      "macros": {
+        "protein": 156,
+        "fat": 98,
+        "carbs": 156,
+        "fiber": 13,
+        "calories": 2160
+      },
+      "build": [
+        {
+          "component": "16\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "salami & capicola",
+          "count": 2
+        },
+        {
+          "component": "ham",
+          "count": 2
+        },
+        {
+          "component": "roast beef",
+          "count": 2
+        },
+        {
+          "component": "turkey",
+          "count": 2
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        },
+        {
+          "component": "onion",
+          "count": 2
+        },
+        {
+          "component": "oil & vinegar",
+          "count": 2
+        },
+        {
+          "component": "oregano-basil",
+          "count": 2
+        },
+        {
+          "component": "lettuce",
+          "count": 2
+        },
+        {
+          "component": "tomato",
+          "count": 2
+        },
+        {
+          "component": "mayo",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Slim 1",
+      "aliases": [
+        "slim 1",
+        "slim #1",
+        "#1 slim",
+        "slim1",
+        "slim number 1",
+        "ham and provolone only"
+      ],
+      "macros": {
+        "protein": 33,
+        "fat": 13,
+        "carbs": 69,
+        "fiber": 4,
+        "calories": 540
+      },
+      "build": [
+        {
+          "component": "8\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Slim 2",
+      "aliases": [
+        "slim 2",
+        "slim #2",
+        "#2 slim",
+        "slim2",
+        "slim number 2",
+        "roast beef only"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 5,
+        "carbs": 66,
+        "fiber": 4,
+        "calories": 440
+      },
+      "build": [
+        {
+          "component": "8\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "roast beef",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Slim 3",
+      "aliases": [
+        "slim 3",
+        "slim #3",
+        "#3 slim",
+        "slim3",
+        "slim number 3",
+        "tuna only"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 23,
+        "carbs": 70,
+        "fiber": 5,
+        "calories": 600
+      },
+      "build": [
+        {
+          "component": "8\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "tuna salad",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Slim 4",
+      "aliases": [
+        "slim 4",
+        "slim #4",
+        "#4 slim",
+        "slim4",
+        "slim number 4",
+        "turkey only",
+        "plain turkey"
+      ],
+      "macros": {
+        "protein": 27,
+        "fat": 3,
+        "carbs": 68,
+        "fiber": 4,
+        "calories": 420
+      },
+      "build": [
+        {
+          "component": "8\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Slim 5",
+      "aliases": [
+        "slim 5",
+        "slim #5",
+        "#5 slim",
+        "slim5",
+        "slim number 5",
+        "salami capicola provolone"
+      ],
+      "macros": {
+        "protein": 35,
+        "fat": 23,
+        "carbs": 69,
+        "fiber": 4,
+        "calories": 630
+      },
+      "build": [
+        {
+          "component": "8\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "salami & capicola",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Slim 6",
+      "aliases": [
+        "slim 6",
+        "slim #6",
+        "#6 slim",
+        "slim6",
+        "slim number 6",
+        "double provolone",
+        "cheese only"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 21,
+        "carbs": 68,
+        "fiber": 4,
+        "calories": 590
+      },
+      "build": [
+        {
+          "component": "8\" french bread (bread left in)",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Slim 1 Unwich",
+      "aliases": [
+        "slim 1 unwich",
+        "unwich slim 1",
+        "slim #1 unwich",
+        "slim 1 lettuce wrap",
+        "ham and provolone only unwich"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 11,
+        "carbs": 4,
+        "fiber": 0,
+        "calories": 190
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "ham",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Slim 2 Unwich",
+      "aliases": [
+        "slim 2 unwich",
+        "unwich slim 2",
+        "slim #2 unwich",
+        "slim 2 lettuce wrap",
+        "roast beef only unwich"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 3,
+        "carbs": 0.5,
+        "fiber": 0,
+        "calories": 90
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "roast beef",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Slim 3 Unwich",
+      "aliases": [
+        "slim 3 unwich",
+        "unwich slim 3",
+        "slim #3 unwich",
+        "slim 3 lettuce wrap",
+        "tuna only unwich"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 20,
+        "carbs": 5,
+        "fiber": 1,
+        "calories": 250
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "tuna salad",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Slim 4 Unwich",
+      "aliases": [
+        "slim 4 unwich",
+        "unwich slim 4",
+        "slim #4 unwich",
+        "slim 4 lettuce wrap",
+        "turkey only unwich",
+        "plain turkey unwich"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 0.5,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 70
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "turkey",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Slim 5 Unwich",
+      "aliases": [
+        "slim 5 unwich",
+        "unwich slim 5",
+        "slim #5 unwich",
+        "slim 5 lettuce wrap",
+        "salami capicola provolone unwich"
+      ],
+      "macros": {
+        "protein": 22,
+        "fat": 20,
+        "carbs": 3,
+        "fiber": 0,
+        "calories": 280
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "salami & capicola",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Slim 6 Unwich",
+      "aliases": [
+        "slim 6 unwich",
+        "unwich slim 6",
+        "slim #6 unwich",
+        "slim 6 lettuce wrap",
+        "double provolone unwich",
+        "cheese only unwich"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 19,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 240
+      },
+      "build": [
+        {
+          "component": "unwich lettuce wrap",
+          "count": 1
+        },
+        {
+          "component": "provolone",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Regular Jimmy Chips",
+      "aliases": [
+        "jimmy chips",
+        "regular chips",
+        "chips",
+        "regular jimmy chips",
+        "plain chips"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 18,
+        "carbs": 33,
+        "fiber": 2,
+        "calories": 300
+      }
+    },
+    {
+      "name": "BBQ Jimmy Chips",
+      "aliases": [
+        "bbq chips",
+        "bbq jimmy chips",
+        "barbecue chips"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 16,
+        "carbs": 34,
+        "fiber": 2,
+        "calories": 290
+      }
+    },
+    {
+      "name": "Jalapeno Jimmy Chips",
+      "aliases": [
+        "jalapeno chips",
+        "jalapeño chips",
+        "jalapeno jimmy chips"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 17,
+        "carbs": 33,
+        "fiber": 2,
+        "calories": 290
+      }
+    },
+    {
+      "name": "Salt & Vinegar Jimmy Chips",
+      "aliases": [
+        "salt and vinegar chips",
+        "salt & vinegar chips",
+        "s&v chips"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 17,
+        "carbs": 33,
+        "fiber": 2,
+        "calories": 290
+      }
+    },
+    {
+      "name": "Thinny Chips",
+      "aliases": [
+        "thinny chips",
+        "thinnies",
+        "thin chips"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 11,
+        "carbs": 39,
+        "fiber": 3,
+        "calories": 260
+      }
+    },
+    {
+      "name": "Jumbo Kosher Dill Pickle",
+      "aliases": [
+        "pickle",
+        "jimmy pickle",
+        "jumbo pickle",
+        "kosher dill pickle",
+        "side pickle",
+        "dill pickle"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0,
+        "carbs": 3,
+        "fiber": 2,
+        "calories": 20
+      }
+    },
+    {
+      "name": "Side of Avocado Spread",
+      "aliases": [
+        "side of avocado spread",
+        "avocado spread side",
+        "side avocado",
+        "side of guac"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 6,
+        "carbs": 4,
+        "fiber": 3,
+        "calories": 70
+      }
+    },
+    {
+      "name": "Side of Jalapeno Ranch",
+      "aliases": [
+        "side of jalapeno ranch",
+        "jalapeno ranch side",
+        "side ranch",
+        "side of jalapeño ranch"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 15,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 150
+      }
+    },
+    {
+      "name": "Chocolate Chip Cookie",
+      "aliases": [
+        "chocolate chip cookie",
+        "cookie",
+        "choc chip cookie"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 19,
+        "carbs": 56,
+        "fiber": 0.5,
+        "calories": 410
+      }
+    },
+    {
+      "name": "Oatmeal Raisin Cookie",
+      "aliases": [
+        "oatmeal raisin cookie",
+        "oatmeal cookie"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 13,
+        "carbs": 57,
+        "fiber": 3,
+        "calories": 370
+      }
+    },
+    {
+      "name": "Fudge Chocolate Brownie",
+      "aliases": [
+        "brownie",
+        "fudge brownie",
+        "fudge chocolate brownie"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 19,
+        "carbs": 46,
+        "fiber": 2,
+        "calories": 350
+      }
+    }
+  ]
+}

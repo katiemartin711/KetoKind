@@ -1,0 +1,1278 @@
+{
+  "chain": "Sonic Drive-In",
+  "aliases": [
+    "sonic",
+    "sonic drive-in",
+    "sonic drive in",
+    "sonic drivein",
+    "sonics",
+    "sonic burger",
+    "sonic's"
+  ],
+  "source": "https://assets.ctfassets.net/whnlxz6bna9d/665Hn9SdgyT53pJgF9cmkK/090ae5fe05d8cd9643fb98fcde32ef1a/61667-1_FEE_0926_NUTBRO_SEPTEMBER_FA_rg_WCAG.pdf",
+  "retrieved": "2026-10-05",
+  "notes": "SONIC Nutritional Information brochure, Summer 2026 (NAT.SUM26.BRO), linked from sonicdrivein.com menu pages as the Nutrition Guide. Columns used: calories, total fat, total carbohydrate, dietary fiber, protein. Sonic does not publish bunless/lettuce-wrapped versions; remove the bun component instead.",
+  "components": {
+    "american cheese": {
+      "unit": "slice",
+      "protein": 3,
+      "fat": 6,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 70
+    },
+    "bacon": {
+      "unit": "each",
+      "protein": 4,
+      "fat": 5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 60
+    },
+    "hot chili": {
+      "unit": "each",
+      "protein": 3,
+      "fat": 4,
+      "carbs": 3,
+      "fiber": 1,
+      "calories": 60
+    },
+    "grilled onions": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 1,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 15
+    },
+    "jalapenos": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "hatch green chiles": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 5
+    },
+    "ketchup": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 3,
+      "fiber": 0,
+      "calories": 10
+    },
+    "mustard": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 5
+    },
+    "mayo": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 3,
+      "carbs": 3,
+      "fiber": 0,
+      "calories": 40
+    },
+    "sweet relish": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 3,
+      "fiber": 0,
+      "calories": 10
+    },
+    "smasher sauce": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 3.5,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 35
+    },
+    "signature cheese sauce": {
+      "unit": "each",
+      "protein": 2,
+      "fat": 11,
+      "carbs": 6,
+      "fiber": 0,
+      "calories": 130
+    },
+    "beef patty": {
+      "unit": "each",
+      "protein": 17,
+      "fat": 21,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 270,
+      "derived": "SuperSONIC Double Cheeseburger with Ketchup & Mayo minus SONIC Cheeseburger with Ketchup & Mayo (one patty + one cheese: 340 cal / 27 fat / 2 carbs / 20 protein), minus one published American cheese slice"
+    },
+    "bun": {
+      "unit": "each",
+      "protein": 10,
+      "fat": 11,
+      "carbs": 44,
+      "fiber": 2,
+      "calories": 310,
+      "derived": "SONIC Cheeseburger with Ketchup & Mayo minus beef patty, American cheese, ketchup and mayo; Sonic does not publish lettuce, tomato, pickles or onion separately, so this remainder includes those toppings"
+    },
+    "smash patty": {
+      "unit": "each",
+      "protein": 13,
+      "fat": 14,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 180,
+      "derived": "Original SONIC Smasher (Triple) minus Original SONIC Smasher (Double); All-American Smasher Triple minus Double gives the same 180 cal / 15 fat / 1 carb / 13 protein. One seasoned Angus smash patty with the cheese that comes with it"
+    },
+    "potato bun": {
+      "unit": "each",
+      "protein": 9,
+      "fat": 5.5,
+      "carbs": 27,
+      "fiber": 1,
+      "calories": 205,
+      "derived": "Original SONIC Smasher (Double) minus two smash patties and one Smasher Sauce; includes the pickles and onions, which are not published separately"
+    },
+    "jr beef patty": {
+      "unit": "each",
+      "protein": 6,
+      "fat": 5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 80,
+      "derived": "Jr Double Cheeseburger minus Jr Cheeseburger (one patty + one jr cheese: 100 cal / 7 fat / 0 carbs / 8 protein), minus jr american cheese"
+    },
+    "jr american cheese": {
+      "unit": "slice",
+      "protein": 2,
+      "fat": 2,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 20,
+      "derived": "Jr Cheeseburger minus Jr Burger"
+    },
+    "jr bun": {
+      "unit": "each",
+      "protein": 5,
+      "fat": 9,
+      "carbs": 21,
+      "fiber": 1,
+      "calories": 175,
+      "derived": "Jr Burger minus jr beef patty, ketchup and mustard; includes the pickles and chopped onions, which are not published separately"
+    },
+    "crispy chicken fillet": {
+      "unit": "each",
+      "protein": 14,
+      "fat": 10,
+      "carbs": 5,
+      "fiber": 2,
+      "calories": 170,
+      "derived": "Crispy Chicken Sandwich minus bun and mayo"
+    },
+    "crispy tender": {
+      "unit": "piece",
+      "protein": 7,
+      "fat": 4,
+      "carbs": 5.5,
+      "fiber": 0.5,
+      "calories": 85,
+      "derived": "Crispy Tenders (5 pc.) minus Crispy Tenders (3 pc.) = 170 cal / 8 fat / 11 carbs / 1 fiber / 14 protein for two pieces (matches the published 2 pc. kids portion), halved"
+    },
+    "hot dog with bun": {
+      "unit": "each",
+      "protein": 12,
+      "fat": 21,
+      "carbs": 31,
+      "fiber": 2,
+      "calories": 360,
+      "derived": "Regular Hot Dog as published; Sonic does not publish the 6-inch all-beef hot dog and its bun separately"
+    },
+    "footlong coney dog with bun": {
+      "unit": "each",
+      "protein": 25,
+      "fat": 40,
+      "carbs": 51,
+      "fiber": 2,
+      "calories": 660,
+      "derived": "Footlong Quarter Pound Coney minus one hot chili and one shredded cheddar; the quarter-pound footlong and its bun are not published separately"
+    },
+    "shredded cheddar": {
+      "unit": "each",
+      "protein": 3,
+      "fat": 4,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 50,
+      "derived": "Chili Cheese Coney minus Regular Hot Dog (110 cal / 8 fat / 3 carbs / 6 protein) minus published hot chili"
+    },
+    "chopped onions": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 0,
+      "carbs": 5,
+      "fiber": 0,
+      "calories": 25,
+      "derived": "All-American Hot Dog minus Regular Hot Dog (50 cal / 0 fat / 11 carbs / 1 protein) minus ketchup, mustard and sweet relish"
+    }
+  },
+  "items": [
+    {
+      "name": "SONIC Cheeseburger with Ketchup & Mayo",
+      "aliases": [
+        "sonic cheeseburger",
+        "cheeseburger",
+        "sonic burger with cheese",
+        "single cheeseburger",
+        "cheese burger"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 41,
+        "carbs": 52,
+        "fiber": 2,
+        "calories": 700
+      },
+      "build": [
+        {
+          "component": "beef patty",
+          "count": 1
+        },
+        {
+          "component": "american cheese",
+          "count": 1
+        },
+        {
+          "component": "bun",
+          "count": 1
+        },
+        {
+          "component": "ketchup",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "SuperSONIC Double Cheeseburger with Ketchup & Mayo",
+      "aliases": [
+        "supersonic double cheeseburger",
+        "supersonic",
+        "super sonic double",
+        "supersonic double",
+        "dbl cheeseburger",
+        "double cheeseburger",
+        "super sonic cheeseburger",
+        "supersonic cheeseburger"
+      ],
+      "macros": {
+        "protein": 50,
+        "fat": 68,
+        "carbs": 54,
+        "fiber": 2,
+        "calories": 1040
+      },
+      "build": [
+        {
+          "component": "beef patty",
+          "count": 2
+        },
+        {
+          "component": "american cheese",
+          "count": 2
+        },
+        {
+          "component": "bun",
+          "count": 1
+        },
+        {
+          "component": "ketchup",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "SuperSONIC Jalapeno Double Cheeseburger with Mustard",
+      "aliases": [
+        "supersonic jalapeno double cheeseburger",
+        "jalapeno double cheeseburger",
+        "jalapeno double",
+        "supersonic jalapeno",
+        "jalapeño double cheeseburger"
+      ],
+      "macros": {
+        "protein": 51,
+        "fat": 61,
+        "carbs": 51,
+        "fiber": 1,
+        "calories": 970
+      },
+      "build": [
+        {
+          "component": "beef patty",
+          "count": 2
+        },
+        {
+          "component": "american cheese",
+          "count": 2
+        },
+        {
+          "component": "bun",
+          "count": 1
+        },
+        {
+          "component": "mustard",
+          "count": 1
+        },
+        {
+          "component": "jalapenos",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Hatch Green Chile Cheeseburger with Mustard",
+      "aliases": [
+        "hatch green chile cheeseburger",
+        "hatch chile cheeseburger",
+        "green chile cheeseburger",
+        "hatch burger"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 35,
+        "carbs": 50,
+        "fiber": 2,
+        "calories": 650
+      },
+      "build": [
+        {
+          "component": "beef patty",
+          "count": 1
+        },
+        {
+          "component": "american cheese",
+          "count": 1
+        },
+        {
+          "component": "bun",
+          "count": 1
+        },
+        {
+          "component": "mustard",
+          "count": 1
+        },
+        {
+          "component": "hatch green chiles",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Jr Burger",
+      "aliases": [
+        "jr burger",
+        "junior burger",
+        "jr. burger",
+        "jr hamburger",
+        "kids burger"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 14,
+        "carbs": 24,
+        "fiber": 1,
+        "calories": 270
+      },
+      "build": [
+        {
+          "component": "jr beef patty",
+          "count": 1
+        },
+        {
+          "component": "jr bun",
+          "count": 1
+        },
+        {
+          "component": "ketchup",
+          "count": 1
+        },
+        {
+          "component": "mustard",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Jr Cheeseburger",
+      "aliases": [
+        "jr cheeseburger",
+        "junior cheeseburger",
+        "jr. cheeseburger",
+        "kids cheeseburger"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 16,
+        "carbs": 25,
+        "fiber": 2,
+        "calories": 290
+      },
+      "build": [
+        {
+          "component": "jr beef patty",
+          "count": 1
+        },
+        {
+          "component": "jr american cheese",
+          "count": 1
+        },
+        {
+          "component": "jr bun",
+          "count": 1
+        },
+        {
+          "component": "ketchup",
+          "count": 1
+        },
+        {
+          "component": "mustard",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Jr Double Cheeseburger",
+      "aliases": [
+        "jr double cheeseburger",
+        "junior double cheeseburger",
+        "jr dbl cheeseburger",
+        "jr double",
+        "jr. double cheeseburger"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 23,
+        "carbs": 25,
+        "fiber": 2,
+        "calories": 390
+      },
+      "build": [
+        {
+          "component": "jr beef patty",
+          "count": 2
+        },
+        {
+          "component": "jr american cheese",
+          "count": 2
+        },
+        {
+          "component": "jr bun",
+          "count": 1
+        },
+        {
+          "component": "ketchup",
+          "count": 1
+        },
+        {
+          "component": "mustard",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Jr Bacon Cheeseburger",
+      "aliases": [
+        "jr bacon cheeseburger",
+        "junior bacon cheeseburger",
+        "jr. bacon cheeseburger",
+        "jr bacon"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 26,
+        "carbs": 27,
+        "fiber": 1,
+        "calories": 400
+      },
+      "build": [
+        {
+          "component": "jr beef patty",
+          "count": 1
+        },
+        {
+          "component": "jr american cheese",
+          "count": 1
+        },
+        {
+          "component": "jr bun",
+          "count": 1
+        },
+        {
+          "component": "bacon",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Original SONIC Smasher (Double)",
+      "aliases": [
+        "original sonic smasher",
+        "sonic smasher",
+        "smasher",
+        "smasher double",
+        "original smasher",
+        "smash burger",
+        "smashburger"
+      ],
+      "macros": {
+        "protein": 35,
+        "fat": 37,
+        "carbs": 30,
+        "fiber": 1,
+        "calories": 600
+      },
+      "build": [
+        {
+          "component": "smash patty",
+          "count": 2
+        },
+        {
+          "component": "potato bun",
+          "count": 1
+        },
+        {
+          "component": "smasher sauce",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Original SONIC Smasher (Triple)",
+      "aliases": [
+        "original sonic smasher triple",
+        "triple smasher",
+        "smasher triple",
+        "original smasher triple"
+      ],
+      "macros": {
+        "protein": 48,
+        "fat": 51,
+        "carbs": 31,
+        "fiber": 1,
+        "calories": 780
+      },
+      "build": [
+        {
+          "component": "smash patty",
+          "count": 3
+        },
+        {
+          "component": "potato bun",
+          "count": 1
+        },
+        {
+          "component": "smasher sauce",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "All-American SONIC Smasher (Double)",
+      "aliases": [
+        "all-american sonic smasher",
+        "all american smasher",
+        "all-american smasher",
+        "all american sonic smasher double"
+      ],
+      "macros": {
+        "protein": 35,
+        "fat": 37,
+        "carbs": 32,
+        "fiber": 2,
+        "calories": 610
+      },
+      "build": [
+        {
+          "component": "smash patty",
+          "count": 2
+        },
+        {
+          "component": "potato bun",
+          "count": 1
+        },
+        {
+          "component": "ketchup",
+          "count": 1
+        },
+        {
+          "component": "mustard",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "All-American Bacon SONIC Smasher (Double)",
+      "aliases": [
+        "all-american bacon sonic smasher",
+        "all american bacon smasher",
+        "bacon smasher",
+        "bacon smasher double"
+      ],
+      "macros": {
+        "protein": 39,
+        "fat": 42,
+        "carbs": 32,
+        "fiber": 2,
+        "calories": 670
+      },
+      "build": [
+        {
+          "component": "smash patty",
+          "count": 2
+        },
+        {
+          "component": "potato bun",
+          "count": 1
+        },
+        {
+          "component": "bacon",
+          "count": 1
+        },
+        {
+          "component": "ketchup",
+          "count": 1
+        },
+        {
+          "component": "mustard",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Regular Hot Dog",
+      "aliases": [
+        "regular hot dog",
+        "hot dog",
+        "hotdog",
+        "plain hot dog",
+        "6 inch hot dog",
+        "all beef hot dog"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 21,
+        "carbs": 31,
+        "fiber": 2,
+        "calories": 360
+      },
+      "build": [
+        {
+          "component": "hot dog with bun",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "All-American Hot Dog",
+      "aliases": [
+        "all-american hot dog",
+        "all american dog",
+        "all-american dog",
+        "all american hot dog",
+        "american dog"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 21,
+        "carbs": 42,
+        "fiber": 2,
+        "calories": 410
+      },
+      "build": [
+        {
+          "component": "hot dog with bun",
+          "count": 1
+        },
+        {
+          "component": "ketchup",
+          "count": 1
+        },
+        {
+          "component": "mustard",
+          "count": 1
+        },
+        {
+          "component": "sweet relish",
+          "count": 1
+        },
+        {
+          "component": "chopped onions",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Chili Cheese Coney",
+      "aliases": [
+        "chili cheese coney",
+        "coney",
+        "chili cheese dog",
+        "chili dog",
+        "chilli cheese coney",
+        "coney dog"
+      ],
+      "macros": {
+        "protein": 18,
+        "fat": 29,
+        "carbs": 34,
+        "fiber": 2,
+        "calories": 470
+      },
+      "build": [
+        {
+          "component": "hot dog with bun",
+          "count": 1
+        },
+        {
+          "component": "hot chili",
+          "count": 1
+        },
+        {
+          "component": "shredded cheddar",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Footlong Quarter Pound Coney",
+      "aliases": [
+        "footlong quarter pound coney",
+        "footlong coney",
+        "footlong chili cheese coney",
+        "foot long coney",
+        "footlong",
+        "footlong chili dog"
+      ],
+      "macros": {
+        "protein": 31,
+        "fat": 48,
+        "carbs": 54,
+        "fiber": 3,
+        "calories": 770
+      },
+      "build": [
+        {
+          "component": "footlong coney dog with bun",
+          "count": 1
+        },
+        {
+          "component": "hot chili",
+          "count": 1
+        },
+        {
+          "component": "shredded cheddar",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Crispy Chicken Sandwich",
+      "aliases": [
+        "crispy chicken sandwich",
+        "chicken sandwich",
+        "fried chicken sandwich",
+        "classic crispy chicken sandwich"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 24,
+        "carbs": 52,
+        "fiber": 4,
+        "calories": 520
+      },
+      "build": [
+        {
+          "component": "crispy chicken fillet",
+          "count": 1
+        },
+        {
+          "component": "bun",
+          "count": 1
+        },
+        {
+          "component": "mayo",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Crispy Tenders (3 pc.)",
+      "aliases": [
+        "crispy tenders 3 piece",
+        "3 piece tenders",
+        "chicken strips",
+        "3 chicken strips",
+        "tenders",
+        "crispy tenders",
+        "chicken tenders",
+        "3 pc tenders"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 12,
+        "carbs": 16,
+        "fiber": 2,
+        "calories": 260
+      }
+    },
+    {
+      "name": "Crispy Tenders (5 pc.)",
+      "aliases": [
+        "crispy tenders 5 piece",
+        "5 piece tenders",
+        "5 chicken strips",
+        "5 pc tenders",
+        "5 tenders"
+      ],
+      "macros": {
+        "protein": 35,
+        "fat": 20,
+        "carbs": 27,
+        "fiber": 3,
+        "calories": 430
+      }
+    },
+    {
+      "name": "Premium Chicken Bites (Small)",
+      "aliases": [
+        "premium chicken bites small",
+        "chicken bites",
+        "popcorn chicken",
+        "small chicken bites",
+        "small popcorn chicken"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 12,
+        "carbs": 19,
+        "fiber": 1,
+        "calories": 240
+      }
+    },
+    {
+      "name": "Premium Chicken Bites (Medium)",
+      "aliases": [
+        "premium chicken bites medium",
+        "medium chicken bites",
+        "medium popcorn chicken"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 18,
+        "carbs": 28,
+        "fiber": 2,
+        "calories": 350
+      }
+    },
+    {
+      "name": "Grilled Cheese Sandwich",
+      "aliases": [
+        "grilled cheese sandwich",
+        "grilled cheese"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 20,
+        "carbs": 42,
+        "fiber": 3,
+        "calories": 390
+      }
+    },
+    {
+      "name": "Tots (Small)",
+      "aliases": [
+        "tots small",
+        "small tots",
+        "tots",
+        "tater tots",
+        "small tater tots"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 13,
+        "carbs": 30,
+        "fiber": 3,
+        "calories": 250
+      }
+    },
+    {
+      "name": "Tots (Medium)",
+      "aliases": [
+        "tots medium",
+        "medium tots",
+        "medium tater tots"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 19,
+        "carbs": 43,
+        "fiber": 4,
+        "calories": 360
+      }
+    },
+    {
+      "name": "Tots (Large)",
+      "aliases": [
+        "tots large",
+        "large tots",
+        "large tater tots"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 31,
+        "carbs": 69,
+        "fiber": 6,
+        "calories": 580
+      }
+    },
+    {
+      "name": "Chili Cheese Tots (Small)",
+      "aliases": [
+        "chili cheese tots small",
+        "chili cheese tots",
+        "small chili cheese tots"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 22,
+        "carbs": 32,
+        "fiber": 3,
+        "calories": 350
+      }
+    },
+    {
+      "name": "Groovy Fries (Small)",
+      "aliases": [
+        "groovy fries small",
+        "small fries",
+        "fries",
+        "french fries",
+        "groovy fries"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 16,
+        "carbs": 28,
+        "fiber": 4,
+        "calories": 260
+      }
+    },
+    {
+      "name": "Groovy Fries (Medium)",
+      "aliases": [
+        "groovy fries medium",
+        "medium fries",
+        "medium groovy fries"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 22,
+        "carbs": 39,
+        "fiber": 5,
+        "calories": 370
+      }
+    },
+    {
+      "name": "Groovy Fries (Large)",
+      "aliases": [
+        "groovy fries large",
+        "large fries",
+        "large groovy fries"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 31,
+        "carbs": 56,
+        "fiber": 7,
+        "calories": 520
+      }
+    },
+    {
+      "name": "Onion Rings (Small)",
+      "aliases": [
+        "onion rings small",
+        "small onion rings",
+        "onion rings",
+        "handmade onion rings",
+        "o rings"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 21,
+        "carbs": 55,
+        "fiber": 3,
+        "calories": 440
+      }
+    },
+    {
+      "name": "Onion Rings (Medium)",
+      "aliases": [
+        "onion rings medium",
+        "medium onion rings"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 29,
+        "carbs": 74,
+        "fiber": 4,
+        "calories": 580
+      }
+    },
+    {
+      "name": "Onion Rings (Large)",
+      "aliases": [
+        "onion rings large",
+        "large onion rings"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 39,
+        "carbs": 101,
+        "fiber": 5,
+        "calories": 800
+      }
+    },
+    {
+      "name": "Mozzarella Sticks (4 pc.)",
+      "aliases": [
+        "mozzarella sticks",
+        "mozzarella sticks small",
+        "mozz sticks",
+        "cheese sticks",
+        "4 mozzarella sticks",
+        "mozzarella stix"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 19,
+        "carbs": 36,
+        "fiber": 2,
+        "calories": 370
+      }
+    },
+    {
+      "name": "Ched 'R' Peppers (4 pc.)",
+      "aliases": [
+        "ched r peppers",
+        "ched 'r' peppers",
+        "cheddar peppers",
+        "jalapeno poppers",
+        "chedr peppers",
+        "ched r peppers small"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 17,
+        "carbs": 36,
+        "fiber": 2,
+        "calories": 330
+      }
+    },
+    {
+      "name": "Corn Dog",
+      "aliases": [
+        "corn dog",
+        "corndog"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 13,
+        "carbs": 23,
+        "fiber": 1,
+        "calories": 230
+      }
+    },
+    {
+      "name": "Breakfast Burrito Bacon",
+      "aliases": [
+        "breakfast burrito bacon",
+        "bacon breakfast burrito",
+        "bacon burrito"
+      ],
+      "macros": {
+        "protein": 25,
+        "fat": 25,
+        "carbs": 35,
+        "fiber": 1,
+        "calories": 470
+      }
+    },
+    {
+      "name": "Breakfast Burrito Sausage",
+      "aliases": [
+        "breakfast burrito sausage",
+        "sausage breakfast burrito",
+        "sausage burrito"
+      ],
+      "macros": {
+        "protein": 23,
+        "fat": 28,
+        "carbs": 35,
+        "fiber": 1,
+        "calories": 490
+      }
+    },
+    {
+      "name": "Jr Breakfast Burrito Bacon",
+      "aliases": [
+        "jr breakfast burrito bacon",
+        "jr breakfast burrito",
+        "junior breakfast burrito",
+        "jr bacon breakfast burrito"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 14,
+        "carbs": 22,
+        "fiber": 1,
+        "calories": 270
+      }
+    },
+    {
+      "name": "SuperSONIC Breakfast Burrito",
+      "aliases": [
+        "supersonic breakfast burrito",
+        "super sonic breakfast burrito",
+        "supersonic burrito"
+      ],
+      "macros": {
+        "protein": 24,
+        "fat": 33,
+        "carbs": 49,
+        "fiber": 3,
+        "calories": 590
+      }
+    },
+    {
+      "name": "Ultimate Meat & Cheese Breakfast Burrito",
+      "aliases": [
+        "ultimate meat and cheese breakfast burrito",
+        "ultimate meat & cheese burrito",
+        "ultimate breakfast burrito",
+        "meat and cheese burrito"
+      ],
+      "macros": {
+        "protein": 29,
+        "fat": 56,
+        "carbs": 47,
+        "fiber": 2,
+        "calories": 820
+      }
+    },
+    {
+      "name": "Breakfast Toaster Bacon",
+      "aliases": [
+        "breakfast toaster bacon",
+        "bacon breakfast toaster",
+        "bacon toaster",
+        "bacon egg and cheese toaster"
+      ],
+      "macros": {
+        "protein": 22,
+        "fat": 24,
+        "carbs": 42,
+        "fiber": 3,
+        "calories": 470
+      }
+    },
+    {
+      "name": "Breakfast Toaster Sausage",
+      "aliases": [
+        "breakfast toaster sausage",
+        "sausage breakfast toaster",
+        "sausage toaster",
+        "sausage egg and cheese toaster"
+      ],
+      "macros": {
+        "protein": 23,
+        "fat": 34,
+        "carbs": 42,
+        "fiber": 3,
+        "calories": 570
+      }
+    },
+    {
+      "name": "Vanilla Shake (Small)",
+      "aliases": [
+        "vanilla shake small",
+        "vanilla shake",
+        "small vanilla shake",
+        "vanilla milkshake"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 22,
+        "carbs": 85,
+        "fiber": 0,
+        "calories": 570
+      }
+    },
+    {
+      "name": "Chocolate Shake (Small)",
+      "aliases": [
+        "chocolate shake small",
+        "chocolate shake",
+        "small chocolate shake",
+        "chocolate milkshake"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 22,
+        "carbs": 87,
+        "fiber": 1,
+        "calories": 570
+      }
+    },
+    {
+      "name": "SONIC Blast with Oreo Cookie Pieces (Small)",
+      "aliases": [
+        "oreo blast small",
+        "oreo blast",
+        "sonic blast oreo",
+        "oreo sonic blast",
+        "small oreo blast",
+        "blast"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 21,
+        "carbs": 92,
+        "fiber": 1,
+        "calories": 580
+      }
+    }
+  ]
+}

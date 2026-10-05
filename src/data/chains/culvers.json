@@ -1,0 +1,335 @@
+{
+  "chain": "Culver's",
+  "aliases": ["culver's", "culvers", "culver", "culvers butterburger", "culver's butterburgers", "colvers", "culvers restaurant"],
+  "source": "https://cdn.culvers.com/page-content/menu/nutrition-guide.pdf",
+  "retrieved": "2026-10-05",
+  "notes": "All numbers are from Culver's own Nutrition & Allergen Guide PDF (linked from https://www.culvers.com/nutrition-and-allergen-guide). Published condiment rows (American cheese slice, bacon 2 slices, mayonnaise, ketchup, mustard, pickles, 4-inch Kaiser bun, hoagie bun, sourdough and rye bread) are used directly; other components are derived by subtraction between published items as noted. Calories on culvers.com item pages (e.g. ButterBurger Single 390 / Double 560 / Triple 730) match the PDF.",
+  "components": {
+    "beef patty": { "unit": "each", "protein": 14, "fat": 13, "carbs": 0, "fiber": 0, "calories": 170, "derived": "ButterBurger The Original Double minus Single (same as Triple minus Double)" },
+    "kaiser bun": { "unit": "each", "protein": 6, "fat": 4, "carbs": 39, "fiber": 1, "calories": 200 },
+    "bun butter": { "unit": "each", "protein": 0, "fat": 2, "carbs": 0, "fiber": 0, "calories": 20, "derived": "ButterBurger The Original Single minus Kaiser Bun minus beef patty (butter on the toasted bun)" },
+    "american cheese": { "unit": "slice", "protein": 3, "fat": 6, "carbs": 1, "fiber": 0, "calories": 70 },
+    "swiss cheese": { "unit": "slice", "protein": 6, "fat": 6, "carbs": 0, "fiber": 0, "calories": 80, "derived": "Swiss ButterBurger Single minus ButterBurger The Original Single" },
+    "bacon": { "unit": "strip", "protein": 2, "fat": 1.5, "carbs": 0, "fiber": 0, "calories": 20, "derived": "published Bacon, 2 Slices (40 cal, 3 g fat, 4 g protein) divided by 2; equals Bacon Deluxe minus Deluxe" },
+    "mayo": { "unit": "tablespoon", "protein": 0, "fat": 8, "carbs": 1, "fiber": 0, "calories": 80 },
+    "ketchup": { "unit": "tablespoon", "protein": 0, "fat": 0, "carbs": 5, "fiber": 0, "calories": 20 },
+    "mustard": { "unit": "each", "protein": 0, "fat": 0, "carbs": 0, "fiber": 0, "calories": 0 },
+    "pickles": { "unit": "each", "protein": 0, "fat": 0, "carbs": 0, "fiber": 0, "calories": 0 },
+    "lettuce, tomato & onion": { "unit": "each", "protein": 0, "fat": 3, "carbs": 1, "fiber": 0, "calories": 30, "derived": "The Culver's Deluxe Single minus ButterBurger Cheese Single minus mayonnaise minus pickles (the Deluxe's fresh toppings)" },
+    "sauteed mushrooms": { "unit": "each", "protein": 0, "fat": 2, "carbs": 1, "fiber": 0, "calories": 20, "derived": "Mushroom & Swiss Single minus Swiss ButterBurger Single" },
+    "sourdough bread": { "unit": "slice", "protein": 3, "fat": 1, "carbs": 18, "fiber": 0.5, "calories": 90, "derived": "published Sourdough Bread, 2 Slices divided by 2" },
+    "rye bread": { "unit": "slice", "protein": 3, "fat": 1, "carbs": 19, "fiber": 2, "calories": 100, "derived": "published Rye Bread, 2 Slices divided by 2" },
+    "hoagie bun": { "unit": "each", "protein": 7, "fat": 3, "carbs": 39, "fiber": 1, "calories": 210 },
+    "crispy chicken fillet": { "unit": "each", "protein": 19, "fat": 4, "carbs": 17, "fiber": 0, "calories": 180, "derived": "Crispy Chicken Sandwich minus Kaiser Bun minus mayonnaise" },
+    "grilled chicken breast": { "unit": "each", "protein": 35, "fat": 4, "carbs": 0, "fiber": 0, "calories": 190, "derived": "Grilled Chicken Sandwich minus Kaiser Bun" },
+    "cod fillet with tartar sauce": { "unit": "each", "protein": 20, "fat": 31, "carbs": 9, "fiber": 0, "calories": 389, "derived": "North Atlantic Cod Filet Sandwich minus Hoagie Bun (includes the sandwich's tartar sauce and lettuce)" }
+  },
+  "items": [
+    {
+      "name": "ButterBurger The Original, Single",
+      "aliases": ["butterburger", "butterburger single", "single butterburger", "original butterburger", "the original", "butter burger", "single"],
+      "macros": { "protein": 20, "fat": 19, "carbs": 39, "fiber": 1, "calories": 390 },
+      "build": [
+        { "component": "kaiser bun", "count": 1 },
+        { "component": "bun butter", "count": 1 },
+        { "component": "beef patty", "count": 1 }
+      ]
+    },
+    {
+      "name": "ButterBurger The Original, Double",
+      "aliases": ["double butterburger", "butterburger double", "dbl butterburger", "double original", "dbl"],
+      "macros": { "protein": 34, "fat": 32, "carbs": 39, "fiber": 1, "calories": 560 },
+      "build": [
+        { "component": "kaiser bun", "count": 1 },
+        { "component": "bun butter", "count": 1 },
+        { "component": "beef patty", "count": 2 }
+      ]
+    },
+    {
+      "name": "ButterBurger The Original, Triple",
+      "aliases": ["triple butterburger", "butterburger triple", "trpl butterburger", "triple original"],
+      "macros": { "protein": 48, "fat": 45, "carbs": 39, "fiber": 1, "calories": 730 },
+      "build": [
+        { "component": "kaiser bun", "count": 1 },
+        { "component": "bun butter", "count": 1 },
+        { "component": "beef patty", "count": 3 }
+      ]
+    },
+    {
+      "name": "ButterBurger Cheese, Single",
+      "aliases": ["butterburger cheese", "cheese butterburger", "single cheeseburger", "single butterburger cheese", "cheeseburger", "single with cheese"],
+      "macros": { "protein": 23, "fat": 25, "carbs": 40, "fiber": 1, "calories": 460 },
+      "build": [
+        { "component": "kaiser bun", "count": 1 },
+        { "component": "bun butter", "count": 1 },
+        { "component": "beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "ButterBurger Cheese, Double",
+      "aliases": ["double butterburger cheese", "double cheeseburger", "dbl cheese butterburger", "double cheese butterburger", "dbl cheeseburger"],
+      "macros": { "protein": 40, "fat": 44, "carbs": 41, "fiber": 1, "calories": 700 },
+      "build": [
+        { "component": "kaiser bun", "count": 1 },
+        { "component": "bun butter", "count": 1 },
+        { "component": "beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 }
+      ]
+    },
+    {
+      "name": "ButterBurger Cheese, Triple",
+      "aliases": ["triple butterburger cheese", "triple cheeseburger", "triple cheese butterburger", "trpl cheeseburger"],
+      "macros": { "protein": 57, "fat": 63, "carbs": 42, "fiber": 1, "calories": 940 },
+      "build": [
+        { "component": "kaiser bun", "count": 1 },
+        { "component": "bun butter", "count": 1 },
+        { "component": "beef patty", "count": 3 },
+        { "component": "american cheese", "count": 3 }
+      ]
+    },
+    {
+      "name": "The Culver's Deluxe, Single",
+      "aliases": ["culver's deluxe", "culvers deluxe", "deluxe", "deluxe single", "single deluxe", "deluxe butterburger"],
+      "macros": { "protein": 23, "fat": 36, "carbs": 42, "fiber": 1, "calories": 570 },
+      "build": [
+        { "component": "kaiser bun", "count": 1 },
+        { "component": "bun butter", "count": 1 },
+        { "component": "beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "mayo", "count": 1 },
+        { "component": "pickles", "count": 1 },
+        { "component": "lettuce, tomato & onion", "count": 1 }
+      ]
+    },
+    {
+      "name": "The Culver's Deluxe, Double",
+      "aliases": ["double deluxe", "deluxe double", "dbl deluxe", "double culver's deluxe", "double culvers deluxe"],
+      "macros": { "protein": 40, "fat": 55, "carbs": 43, "fiber": 1, "calories": 810 },
+      "build": [
+        { "component": "kaiser bun", "count": 1 },
+        { "component": "bun butter", "count": 1 },
+        { "component": "beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "mayo", "count": 1 },
+        { "component": "pickles", "count": 1 },
+        { "component": "lettuce, tomato & onion", "count": 1 }
+      ]
+    },
+    {
+      "name": "The Culver's Bacon Deluxe, Single",
+      "aliases": ["bacon deluxe", "culver's bacon deluxe", "culvers bacon deluxe", "bacon deluxe single", "single bacon deluxe", "bacon deluxe butterburger"],
+      "macros": { "protein": 27, "fat": 39, "carbs": 42, "fiber": 1, "calories": 610 },
+      "build": [
+        { "component": "kaiser bun", "count": 1 },
+        { "component": "bun butter", "count": 1 },
+        { "component": "beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "bacon", "count": 2 },
+        { "component": "mayo", "count": 1 },
+        { "component": "pickles", "count": 1 },
+        { "component": "lettuce, tomato & onion", "count": 1 }
+      ]
+    },
+    {
+      "name": "The Culver's Bacon Deluxe, Double",
+      "aliases": ["double bacon deluxe", "bacon deluxe double", "dbl bacon deluxe", "double culver's bacon deluxe"],
+      "macros": { "protein": 44, "fat": 58, "carbs": 43, "fiber": 1, "calories": 850 },
+      "build": [
+        { "component": "kaiser bun", "count": 1 },
+        { "component": "bun butter", "count": 1 },
+        { "component": "beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "bacon", "count": 2 },
+        { "component": "mayo", "count": 1 },
+        { "component": "pickles", "count": 1 },
+        { "component": "lettuce, tomato & onion", "count": 1 }
+      ]
+    },
+    {
+      "name": "The Culver's Bacon Deluxe, Triple",
+      "aliases": ["triple bacon deluxe", "bacon deluxe triple", "trpl bacon deluxe", "triple culver's bacon deluxe"],
+      "macros": { "protein": 61, "fat": 77, "carbs": 44, "fiber": 1, "calories": 1090 },
+      "build": [
+        { "component": "kaiser bun", "count": 1 },
+        { "component": "bun butter", "count": 1 },
+        { "component": "beef patty", "count": 3 },
+        { "component": "american cheese", "count": 3 },
+        { "component": "bacon", "count": 2 },
+        { "component": "mayo", "count": 1 },
+        { "component": "pickles", "count": 1 },
+        { "component": "lettuce, tomato & onion", "count": 1 }
+      ]
+    },
+    {
+      "name": "Mushroom & Swiss, Single",
+      "aliases": ["mushroom and swiss", "mushroom swiss", "mushroom & swiss butterburger", "mushroom swiss burger", "single mushroom and swiss", "shroom and swiss"],
+      "macros": { "protein": 26, "fat": 27, "carbs": 40, "fiber": 1, "calories": 490 },
+      "build": [
+        { "component": "kaiser bun", "count": 1 },
+        { "component": "bun butter", "count": 1 },
+        { "component": "beef patty", "count": 1 },
+        { "component": "swiss cheese", "count": 1 },
+        { "component": "sauteed mushrooms", "count": 1 }
+      ]
+    },
+    {
+      "name": "Mushroom & Swiss, Double",
+      "aliases": ["double mushroom and swiss", "double mushroom swiss", "dbl mushroom swiss", "mushroom and swiss double"],
+      "macros": { "protein": 46, "fat": 48, "carbs": 41, "fiber": 1, "calories": 760 },
+      "build": [
+        { "component": "kaiser bun", "count": 1 },
+        { "component": "bun butter", "count": 1 },
+        { "component": "beef patty", "count": 2 },
+        { "component": "swiss cheese", "count": 2 },
+        { "component": "sauteed mushrooms", "count": 2 }
+      ]
+    },
+    {
+      "name": "Mushroom & Swiss, Triple",
+      "aliases": ["triple mushroom and swiss", "triple mushroom swiss", "trpl mushroom swiss", "mushroom and swiss triple"],
+      "macros": { "protein": 66, "fat": 69, "carbs": 42, "fiber": 1, "calories": 1030 },
+      "build": [
+        { "component": "kaiser bun", "count": 1 },
+        { "component": "bun butter", "count": 1 },
+        { "component": "beef patty", "count": 3 },
+        { "component": "swiss cheese", "count": 3 },
+        { "component": "sauteed mushrooms", "count": 3 }
+      ]
+    },
+    {
+      "name": "Sourdough Melt, Single",
+      "aliases": ["sourdough melt", "sour dough melt", "sourdough butterburger", "single sourdough melt", "sourdough"],
+      "macros": { "protein": 25, "fat": 26, "carbs": 36, "fiber": 1, "calories": 460 },
+      "build": [
+        { "component": "sourdough bread", "count": 2 },
+        { "component": "bun butter", "count": 2 },
+        { "component": "beef patty", "count": 1 },
+        { "component": "american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Sourdough Melt, Double",
+      "aliases": ["double sourdough melt", "sourdough melt double", "dbl sourdough melt"],
+      "macros": { "protein": 44, "fat": 46, "carbs": 36, "fiber": 1, "calories": 710 },
+      "build": [
+        { "component": "sourdough bread", "count": 2 },
+        { "component": "bun butter", "count": 2 },
+        { "component": "beef patty", "count": 2 },
+        { "component": "american cheese", "count": 2 }
+      ]
+    },
+    {
+      "name": "Sourdough Melt, Triple",
+      "aliases": ["triple sourdough melt", "sourdough melt triple", "trpl sourdough melt"],
+      "macros": { "protein": 63, "fat": 66, "carbs": 36, "fiber": 1, "calories": 970 },
+      "build": [
+        { "component": "sourdough bread", "count": 2 },
+        { "component": "bun butter", "count": 2 },
+        { "component": "beef patty", "count": 3 },
+        { "component": "american cheese", "count": 3 }
+      ]
+    },
+    {
+      "name": "Wisconsin Swiss Melt, Single",
+      "aliases": ["wisconsin swiss melt", "swiss melt", "wisconsin swiss", "swiss melt on rye", "single wisconsin swiss melt", "wisconsin melt"],
+      "macros": { "protein": 26, "fat": 24, "carbs": 38, "fiber": 4, "calories": 480 },
+      "build": [
+        { "component": "rye bread", "count": 2 },
+        { "component": "bun butter", "count": 1 },
+        { "component": "beef patty", "count": 1 },
+        { "component": "swiss cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Wisconsin Swiss Melt, Double",
+      "aliases": ["double wisconsin swiss melt", "double swiss melt", "dbl swiss melt", "wisconsin swiss melt double"],
+      "macros": { "protein": 46, "fat": 44, "carbs": 38, "fiber": 4, "calories": 730 },
+      "build": [
+        { "component": "rye bread", "count": 2 },
+        { "component": "bun butter", "count": 1 },
+        { "component": "beef patty", "count": 2 },
+        { "component": "swiss cheese", "count": 2 }
+      ]
+    },
+    {
+      "name": "Wisconsin Swiss Melt, Triple",
+      "aliases": ["triple wisconsin swiss melt", "triple swiss melt", "trpl swiss melt", "wisconsin swiss melt triple"],
+      "macros": { "protein": 66, "fat": 62, "carbs": 38, "fiber": 4, "calories": 990 },
+      "build": [
+        { "component": "rye bread", "count": 2 },
+        { "component": "bun butter", "count": 1 },
+        { "component": "beef patty", "count": 3 },
+        { "component": "swiss cheese", "count": 3 }
+      ]
+    },
+    {
+      "name": "Crispy Chicken Sandwich",
+      "aliases": ["crispy chicken", "crispy chicken sandwich", "fried chicken sandwich", "chicken sandwich crispy", "crispy chx sandwich"],
+      "macros": { "protein": 25, "fat": 16, "carbs": 57, "fiber": 1, "calories": 460 },
+      "build": [
+        { "component": "kaiser bun", "count": 1 },
+        { "component": "crispy chicken fillet", "count": 1 },
+        { "component": "mayo", "count": 1 }
+      ]
+    },
+    {
+      "name": "Grilled Chicken Sandwich",
+      "aliases": ["grilled chicken", "grilled chicken sandwich", "chicken sandwich grilled", "grilled chx sandwich", "chicken sandwich"],
+      "macros": { "protein": 41, "fat": 8, "carbs": 39, "fiber": 1, "calories": 390 },
+      "build": [
+        { "component": "kaiser bun", "count": 1 },
+        { "component": "grilled chicken breast", "count": 1 }
+      ]
+    },
+    {
+      "name": "North Atlantic Cod Filet Sandwich",
+      "aliases": ["cod sandwich", "north atlantic cod", "cod filet sandwich", "cod fillet sandwich", "fish sandwich", "cod"],
+      "macros": { "protein": 27, "fat": 34, "carbs": 48, "fiber": 1, "calories": 599 },
+      "build": [
+        { "component": "hoagie bun", "count": 1 },
+        { "component": "cod fillet with tartar sauce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Chicken Tenders, 4 Piece",
+      "aliases": ["chicken tenders", "tenders", "4 piece chicken tenders", "4pc tenders", "chicken strips", "chicken fingers"],
+      "macros": { "protein": 40, "fat": 24, "carbs": 42, "fiber": 2, "calories": 540 }
+    },
+    {
+      "name": "Crinkle Cut Fries, Regular",
+      "aliases": ["fries", "crinkle cut fries", "crinkle fries", "regular fries", "french fries", "medium fries"],
+      "macros": { "protein": 6, "fat": 14, "carbs": 53, "fiber": 4, "calories": 360 }
+    },
+    {
+      "name": "Crinkle Cut Fries, Small",
+      "aliases": ["small fries", "small crinkle cut fries", "kids fries", "sm fries"],
+      "macros": { "protein": 4, "fat": 9, "carbs": 35, "fiber": 3, "calories": 240 }
+    },
+    {
+      "name": "Wisconsin Cheese Curds",
+      "aliases": ["cheese curds", "curds", "wisconsin cheese curds", "fried cheese curds", "cheese curd"],
+      "macros": { "protein": 20, "fat": 25, "carbs": 51, "fiber": 0, "calories": 510 }
+    },
+    {
+      "name": "Onion Rings",
+      "aliases": ["onion rings", "rings", "o-rings", "onion ring"],
+      "macros": { "protein": 6, "fat": 22, "carbs": 44, "fiber": 3, "calories": 400 }
+    },
+    {
+      "name": "Vanilla Fresh Frozen Custard, Dish, 1 Scoop",
+      "aliases": ["vanilla custard", "vanilla frozen custard", "vanilla custard dish", "1 scoop vanilla", "single scoop vanilla custard", "vanilla dish"],
+      "macros": { "protein": 6, "fat": 18, "carbs": 31, "fiber": 0, "calories": 310 }
+    },
+    {
+      "name": "Chocolate Fresh Frozen Custard, Dish, 1 Scoop",
+      "aliases": ["chocolate custard", "chocolate frozen custard", "chocolate custard dish", "1 scoop chocolate", "single scoop chocolate custard", "chocolate dish"],
+      "macros": { "protein": 6, "fat": 14, "carbs": 35, "fiber": 1, "calories": 280 }
+    },
+    {
+      "name": "Oreo Chocolate Concrete Mixer, Short",
+      "aliases": ["oreo concrete mixer", "concrete mixer", "oreo chocolate concrete mixer", "oreo mixer", "short concrete mixer", "concrete"],
+      "macros": { "protein": 13, "fat": 34, "carbs": 88, "fiber": 3, "calories": 680 }
+    }
+  ]
+}

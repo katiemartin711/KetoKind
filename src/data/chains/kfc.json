@@ -1,0 +1,485 @@
+{
+  "chain": "KFC",
+  "aliases": ["kfc", "kentucky fried chicken", "kentucky fried", "k.f.c.", "kfc chicken", "the colonel", "colonel sanders"],
+  "source": "https://www.kfc.com/full-nutrition-guide",
+  "sources": [
+    "https://www.kfc.com/full-nutrition-guide",
+    "https://www.nutritionix.com/kfc/menu/premium"
+  ],
+  "retrieved": "2026-10-05",
+  "notes": "All numbers are from KFC's Full Nutrition Guide at kfc.com/full-nutrition-guide (the page embeds the Interactive Nutrition Menu at nutritionix.com/kfc/menu/premium, last updated 10/02/2026). KFC publishes each chicken piece, the Original Recipe Tender, the Kentucky Fried Nugget and the Hot & Spicy Wing per piece, so multi-piece items here are those published per-piece numbers multiplied by the count. Gravy is derived as Mashed Potatoes With Gravy minus Mashed Potatoes. The guide lists '<1' for some fiber values; those are recorded as 0.5. KFC does not publish the sandwich fillet, bun, Famous Bowl layers or Pot Pie parts separately, so those items have no build.",
+  "components": {
+    "original recipe breast": { "unit": "piece", "protein": 39, "fat": 21, "carbs": 11, "fiber": 2, "calories": 390 },
+    "original recipe drumstick": { "unit": "piece", "protein": 12, "fat": 8, "carbs": 4, "fiber": 1, "calories": 130 },
+    "original recipe thigh": { "unit": "piece", "protein": 19, "fat": 19, "carbs": 8, "fiber": 1, "calories": 280 },
+    "original recipe whole wing": { "unit": "piece", "protein": 10, "fat": 8, "carbs": 3, "fiber": 0, "calories": 130 },
+    "extra crispy breast": { "unit": "piece", "protein": 35, "fat": 35, "carbs": 18, "fiber": 0, "calories": 530 },
+    "extra crispy drumstick": { "unit": "piece", "protein": 10, "fat": 12, "carbs": 5, "fiber": 0, "calories": 170 },
+    "extra crispy thigh": { "unit": "piece", "protein": 22, "fat": 23, "carbs": 9, "fiber": 0, "calories": 330 },
+    "extra crispy whole wing": { "unit": "piece", "protein": 10, "fat": 13, "carbs": 5, "fiber": 0, "calories": 170 },
+    "kentucky grilled breast": { "unit": "piece", "protein": 38, "fat": 7, "carbs": 0, "fiber": 0, "calories": 210 },
+    "kentucky grilled drumstick": { "unit": "piece", "protein": 11, "fat": 4, "carbs": 0, "fiber": 0, "calories": 80 },
+    "kentucky grilled thigh": { "unit": "piece", "protein": 17, "fat": 9, "carbs": 0, "fiber": 0, "calories": 150 },
+    "kentucky grilled whole wing": { "unit": "piece", "protein": 9, "fat": 3, "carbs": 0, "fiber": 0, "calories": 70 },
+    "spicy crispy breast": { "unit": "piece", "protein": 30, "fat": 20, "carbs": 11, "fiber": 1, "calories": 350 },
+    "spicy crispy drumstick": { "unit": "piece", "protein": 9, "fat": 8, "carbs": 5, "fiber": 1, "calories": 130 },
+    "spicy crispy thigh": { "unit": "piece", "protein": 13, "fat": 20, "carbs": 10, "fiber": 1, "calories": 270 },
+    "spicy crispy whole wing": { "unit": "piece", "protein": 7, "fat": 8, "carbs": 5, "fiber": 0, "calories": 120 },
+    "original recipe tender": { "unit": "piece", "protein": 11, "fat": 6, "carbs": 20, "fiber": 0, "calories": 170 },
+    "kentucky fried nugget": { "unit": "piece", "protein": 3, "fat": 1.5, "carbs": 1, "fiber": 0, "calories": 35 },
+    "hot & spicy wing": { "unit": "piece", "protein": 5, "fat": 6, "carbs": 3, "fiber": 0, "calories": 90 },
+    "honey bbq hot & spicy wing": { "unit": "piece", "protein": 5, "fat": 6, "carbs": 9, "fiber": 0, "calories": 110 },
+    "biscuit": { "unit": "each", "protein": 4, "fat": 8, "carbs": 22, "fiber": 1, "calories": 180 },
+    "mashed potatoes": { "unit": "each", "protein": 2, "fat": 3.5, "carbs": 17, "fiber": 1, "calories": 110 },
+    "gravy": { "unit": "each", "protein": 1, "fat": 1, "carbs": 3, "fiber": 0, "calories": 20, "derived": "Mashed Potatoes With Gravy minus Mashed Potatoes (individual)" },
+    "colonel's buttery spread": { "unit": "each", "protein": 0, "fat": 4, "carbs": 0, "fiber": 0, "calories": 35 },
+    "bbq dipping sauce": { "unit": "each", "protein": 0, "fat": 0, "carbs": 11, "fiber": 0, "calories": 45 },
+    "buffalo ranch dipping sauce": { "unit": "each", "protein": 1, "fat": 13, "carbs": 2, "fiber": 0, "calories": 120 },
+    "comeback sauce": { "unit": "each", "protein": 0, "fat": 12, "carbs": 2, "fiber": 0, "calories": 120 },
+    "honey mustard dipping sauce": { "unit": "each", "protein": 0, "fat": 9, "carbs": 6, "fiber": 0, "calories": 110 },
+    "honey sauce packet": { "unit": "each", "protein": 0, "fat": 0, "carbs": 8, "fiber": 0, "calories": 30 },
+    "ketchup": { "unit": "each", "protein": 0, "fat": 0, "carbs": 8, "fiber": 0, "calories": 30 },
+    "kfc sauce": { "unit": "each", "protein": 0, "fat": 8, "carbs": 5, "fiber": 0, "calories": 90 },
+    "ranch dipping sauce": { "unit": "each", "protein": 0, "fat": 14, "carbs": 2, "fiber": 0, "calories": 130 },
+    "sticky chicky sweet n' sour sauce": { "unit": "each", "protein": 0, "fat": 0, "carbs": 11, "fiber": 0, "calories": 45 },
+    "grape jelly packet": { "unit": "each", "protein": 0, "fat": 0, "carbs": 9, "fiber": 0, "calories": 35 },
+    "strawberry jam packet": { "unit": "each", "protein": 0, "fat": 0, "carbs": 9, "fiber": 0, "calories": 35 },
+    "parmesan garlic croutons": { "unit": "each", "protein": 2, "fat": 3, "carbs": 8, "fiber": 0.5, "calories": 60 },
+    "heinz buttermilk dressing": { "unit": "each", "protein": 0, "fat": 17, "carbs": 1, "fiber": 0, "calories": 160 },
+    "creamy parmesan caesar dressing": { "unit": "each", "protein": 2, "fat": 26, "carbs": 4, "fiber": 0, "calories": 260 },
+    "light italian dressing": { "unit": "each", "protein": 0, "fat": 0.5, "carbs": 2, "fiber": 0, "calories": 15 },
+    "fat free ranch dressing": { "unit": "each", "protein": 1, "fat": 0, "carbs": 8, "fiber": 0, "calories": 35 }
+  },
+  "items": [
+    {
+      "name": "Original Recipe Chicken Breast",
+      "aliases": ["original recipe breast", "or breast", "breast", "chicken breast", "original breast", "original recipe chicken breast", "og breast"],
+      "macros": { "protein": 39, "fat": 21, "carbs": 11, "fiber": 2, "calories": 390 }
+    },
+    {
+      "name": "Original Recipe Chicken Drumstick",
+      "aliases": ["original recipe drumstick", "or drumstick", "drumstick", "drum", "leg", "original recipe leg", "original drumstick", "chicken leg"],
+      "macros": { "protein": 12, "fat": 8, "carbs": 4, "fiber": 1, "calories": 130 }
+    },
+    {
+      "name": "Original Recipe Chicken Thigh",
+      "aliases": ["original recipe thigh", "or thigh", "thigh", "original thigh", "chicken thigh"],
+      "macros": { "protein": 19, "fat": 19, "carbs": 8, "fiber": 1, "calories": 280 }
+    },
+    {
+      "name": "Original Recipe Chicken Whole Wing",
+      "aliases": ["original recipe wing", "or wing", "wing", "whole wing", "original wing", "chicken wing", "original recipe whole wing"],
+      "macros": { "protein": 10, "fat": 8, "carbs": 3, "fiber": 0, "calories": 130 }
+    },
+    {
+      "name": "Original Recipe 2 Piece, Drumstick & Thigh",
+      "aliases": ["2 piece original recipe", "2pc original recipe dark", "original recipe drum and thigh", "2 piece drum and thigh", "2pc dark original", "drum and thigh original recipe"],
+      "macros": { "protein": 31, "fat": 27, "carbs": 12, "fiber": 2, "calories": 410 },
+      "build": [
+        { "component": "original recipe drumstick", "count": 1 },
+        { "component": "original recipe thigh", "count": 1 }
+      ]
+    },
+    {
+      "name": "Original Recipe 2 Piece, Breast & Wing",
+      "aliases": ["2pc original recipe white", "original recipe breast and wing", "2 piece breast and wing", "2pc white original", "breast and wing original recipe"],
+      "macros": { "protein": 49, "fat": 29, "carbs": 14, "fiber": 2, "calories": 520 },
+      "build": [
+        { "component": "original recipe breast", "count": 1 },
+        { "component": "original recipe whole wing", "count": 1 }
+      ]
+    },
+    {
+      "name": "Extra Crispy Chicken Breast",
+      "aliases": ["extra crispy breast", "ec breast", "crispy breast", "extra crispy chicken breast", "xtra crispy breast"],
+      "macros": { "protein": 35, "fat": 35, "carbs": 18, "fiber": 0, "calories": 530 }
+    },
+    {
+      "name": "Extra Crispy Chicken Drumstick",
+      "aliases": ["extra crispy drumstick", "ec drumstick", "crispy drumstick", "extra crispy leg", "crispy leg", "extra crispy drum"],
+      "macros": { "protein": 10, "fat": 12, "carbs": 5, "fiber": 0, "calories": 170 }
+    },
+    {
+      "name": "Extra Crispy Chicken Thigh",
+      "aliases": ["extra crispy thigh", "ec thigh", "crispy thigh", "extra crispy chicken thigh"],
+      "macros": { "protein": 22, "fat": 23, "carbs": 9, "fiber": 0, "calories": 330 }
+    },
+    {
+      "name": "Extra Crispy Chicken Whole Wing",
+      "aliases": ["extra crispy wing", "ec wing", "crispy wing", "extra crispy whole wing"],
+      "macros": { "protein": 10, "fat": 13, "carbs": 5, "fiber": 0, "calories": 170 }
+    },
+    {
+      "name": "Extra Crispy 2 Piece, Drumstick & Thigh",
+      "aliases": ["2 piece extra crispy", "2pc extra crispy dark", "extra crispy drum and thigh", "2pc crispy dark", "drum and thigh extra crispy"],
+      "macros": { "protein": 32, "fat": 35, "carbs": 14, "fiber": 0, "calories": 500 },
+      "build": [
+        { "component": "extra crispy drumstick", "count": 1 },
+        { "component": "extra crispy thigh", "count": 1 }
+      ]
+    },
+    {
+      "name": "Kentucky Grilled Chicken Breast",
+      "aliases": ["grilled breast", "grilled chicken breast", "kentucky grilled breast", "kgc breast"],
+      "macros": { "protein": 38, "fat": 7, "carbs": 0, "fiber": 0, "calories": 210 }
+    },
+    {
+      "name": "Kentucky Grilled Chicken Drumstick",
+      "aliases": ["grilled drumstick", "grilled leg", "grilled chicken drumstick", "kentucky grilled drumstick", "kgc drumstick"],
+      "macros": { "protein": 11, "fat": 4, "carbs": 0, "fiber": 0, "calories": 80 }
+    },
+    {
+      "name": "Kentucky Grilled Chicken Thigh",
+      "aliases": ["grilled thigh", "grilled chicken thigh", "kentucky grilled thigh", "kgc thigh"],
+      "macros": { "protein": 17, "fat": 9, "carbs": 0, "fiber": 0, "calories": 150 }
+    },
+    {
+      "name": "Kentucky Grilled Chicken Whole Wing",
+      "aliases": ["grilled wing", "grilled chicken wing", "kentucky grilled wing", "kgc wing"],
+      "macros": { "protein": 9, "fat": 3, "carbs": 0, "fiber": 0, "calories": 70 }
+    },
+    {
+      "name": "Kentucky Grilled Chicken 2 Piece, Drumstick & Thigh",
+      "aliases": ["2 piece grilled", "2pc grilled dark", "grilled drum and thigh", "2pc grilled chicken", "grilled 2 piece"],
+      "macros": { "protein": 28, "fat": 13, "carbs": 0, "fiber": 0, "calories": 230 },
+      "build": [
+        { "component": "kentucky grilled drumstick", "count": 1 },
+        { "component": "kentucky grilled thigh", "count": 1 }
+      ]
+    },
+    {
+      "name": "Spicy Crispy Chicken Breast",
+      "aliases": ["spicy crispy breast", "spicy breast", "spicy chicken breast", "hot and spicy breast"],
+      "macros": { "protein": 30, "fat": 20, "carbs": 11, "fiber": 1, "calories": 350 }
+    },
+    {
+      "name": "Spicy Crispy Chicken Drumstick",
+      "aliases": ["spicy crispy drumstick", "spicy drumstick", "spicy leg", "spicy drum"],
+      "macros": { "protein": 9, "fat": 8, "carbs": 5, "fiber": 1, "calories": 130 }
+    },
+    {
+      "name": "Spicy Crispy Chicken Thigh",
+      "aliases": ["spicy crispy thigh", "spicy thigh", "spicy chicken thigh"],
+      "macros": { "protein": 13, "fat": 20, "carbs": 10, "fiber": 1, "calories": 270 }
+    },
+    {
+      "name": "Spicy Crispy Chicken Whole Wing",
+      "aliases": ["spicy crispy wing", "spicy wing", "spicy whole wing"],
+      "macros": { "protein": 7, "fat": 8, "carbs": 5, "fiber": 0, "calories": 120 }
+    },
+    {
+      "name": "Original Recipe Tender (1)",
+      "aliases": ["tender", "1 tender", "original recipe tender", "chicken tender", "one tender", "single tender", "crispy tender"],
+      "macros": { "protein": 11, "fat": 6, "carbs": 20, "fiber": 0, "calories": 170 },
+      "build": [
+        { "component": "original recipe tender", "count": 1 }
+      ]
+    },
+    {
+      "name": "Original Recipe Tenders, 3 Piece",
+      "aliases": ["3 tenders", "3pc tenders", "3 pc tenders", "3 piece tenders", "three tenders", "tenders", "chicken tenders", "3 piece chicken tenders", "original recipe tenders"],
+      "macros": { "protein": 33, "fat": 18, "carbs": 60, "fiber": 0, "calories": 510 },
+      "build": [
+        { "component": "original recipe tender", "count": 3 }
+      ]
+    },
+    {
+      "name": "Original Recipe Tenders, 4 Piece",
+      "aliases": ["4 tenders", "4pc tenders", "4 pc tenders", "4 piece tenders", "four tenders", "4 piece chicken tenders"],
+      "macros": { "protein": 44, "fat": 24, "carbs": 80, "fiber": 0, "calories": 680 },
+      "build": [
+        { "component": "original recipe tender", "count": 4 }
+      ]
+    },
+    {
+      "name": "Original Recipe Tenders, 5 Piece",
+      "aliases": ["5 tenders", "5pc tenders", "5 pc tenders", "5 piece tenders", "five tenders", "5 piece chicken tenders"],
+      "macros": { "protein": 55, "fat": 30, "carbs": 100, "fiber": 0, "calories": 850 },
+      "build": [
+        { "component": "original recipe tender", "count": 5 }
+      ]
+    },
+    {
+      "name": "Kentucky Fried Nuggets, 8 Piece",
+      "aliases": ["8 nuggets", "8pc nuggets", "8 piece nuggets", "nuggets", "chicken nuggets", "kentucky fried nuggets", "8 piece chicken nuggets", "kfc nuggets"],
+      "macros": { "protein": 24, "fat": 12, "carbs": 8, "fiber": 0, "calories": 280 },
+      "build": [
+        { "component": "kentucky fried nugget", "count": 8 }
+      ]
+    },
+    {
+      "name": "Kentucky Fried Nuggets, 12 Piece",
+      "aliases": ["12 nuggets", "12pc nuggets", "12 piece nuggets", "12 piece chicken nuggets"],
+      "macros": { "protein": 36, "fat": 18, "carbs": 12, "fiber": 0, "calories": 420 },
+      "build": [
+        { "component": "kentucky fried nugget", "count": 12 }
+      ]
+    },
+    {
+      "name": "Hot & Spicy Wings, 6 Piece",
+      "aliases": ["hot and spicy wings", "6 hot and spicy wings", "6pc hot wings", "hot wings", "spicy wings", "6 piece wings", "6pc wings", "hot n spicy wings"],
+      "macros": { "protein": 30, "fat": 36, "carbs": 18, "fiber": 0, "calories": 540 },
+      "build": [
+        { "component": "hot & spicy wing", "count": 6 }
+      ]
+    },
+    {
+      "name": "Honey BBQ Hot & Spicy Wings, 6 Piece",
+      "aliases": ["honey bbq wings", "6 honey bbq wings", "6pc honey bbq wings", "bbq wings", "honey bbq hot and spicy wings"],
+      "macros": { "protein": 30, "fat": 36, "carbs": 54, "fiber": 0, "calories": 660 },
+      "build": [
+        { "component": "honey bbq hot & spicy wing", "count": 6 }
+      ]
+    },
+    {
+      "name": "Classic Chicken Sandwich",
+      "aliases": ["classic chicken sandwich", "chicken sandwich", "kfc chicken sandwich", "classic sandwich", "kfc sandwich", "chx sandwich"],
+      "macros": { "protein": 34, "fat": 35, "carbs": 49, "fiber": 1, "calories": 650 }
+    },
+    {
+      "name": "Spicy Chicken Sandwich",
+      "aliases": ["spicy chicken sandwich", "spicy sandwich", "kfc spicy chicken sandwich", "spicy chx sandwich"],
+      "macros": { "protein": 34, "fat": 33, "carbs": 49, "fiber": 1, "calories": 620 }
+    },
+    {
+      "name": "KFC Snacker",
+      "aliases": ["snacker", "kfc snacker", "chicken snacker", "snacker sandwich"],
+      "macros": { "protein": 15, "fat": 16, "carbs": 39, "fiber": 0.5, "calories": 350 }
+    },
+    {
+      "name": "Twister",
+      "aliases": ["twister", "twister wrap", "chicken twister", "kfc twister", "twister sandwich"],
+      "macros": { "protein": 29, "fat": 31, "carbs": 74, "fiber": 0.5, "calories": 680 }
+    },
+    {
+      "name": "KFC Famous Bowl",
+      "aliases": ["famous bowl", "kfc famous bowl", "bowl", "kfc bowl", "mashed potato bowl", "famous bowl original", "chicken bowl"],
+      "macros": { "protein": 31, "fat": 22, "carbs": 67, "fiber": 4, "calories": 590 }
+    },
+    {
+      "name": "Chicken Pot Pie",
+      "aliases": ["pot pie", "chicken pot pie", "kfc pot pie", "potpie"],
+      "macros": { "protein": 26, "fat": 41, "carbs": 60, "fiber": 7, "calories": 720 }
+    },
+    {
+      "name": "Popcorn Chicken",
+      "aliases": ["popcorn chicken", "popcorn nuggets", "popcorn chicken individual", "popcorn bites"],
+      "macros": { "protein": 23, "fat": 41, "carbs": 40, "fiber": 2, "calories": 620 }
+    },
+    {
+      "name": "Biscuit",
+      "aliases": ["biscuit", "kfc biscuit", "buttermilk biscuit", "1 biscuit", "biscuits"],
+      "macros": { "protein": 4, "fat": 8, "carbs": 22, "fiber": 1, "calories": 180 },
+      "build": [
+        { "component": "biscuit", "count": 1 }
+      ]
+    },
+    {
+      "name": "Mashed Potatoes",
+      "aliases": ["mashed potatoes", "mashed potatoes no gravy", "plain mashed potatoes", "mashed potatos", "individual mashed potatoes"],
+      "macros": { "protein": 2, "fat": 3.5, "carbs": 17, "fiber": 1, "calories": 110 },
+      "build": [
+        { "component": "mashed potatoes", "count": 1 }
+      ]
+    },
+    {
+      "name": "Mashed Potatoes With Gravy",
+      "aliases": ["mashed potatoes with gravy", "mashed potatoes and gravy", "potatoes and gravy", "mashed potatoes gravy", "mashed potatoes w gravy", "mash and gravy"],
+      "macros": { "protein": 3, "fat": 4.5, "carbs": 20, "fiber": 1, "calories": 130 },
+      "build": [
+        { "component": "mashed potatoes", "count": 1 },
+        { "component": "gravy", "count": 1 }
+      ]
+    },
+    {
+      "name": "Mashed Potatoes With Gravy, Medium",
+      "aliases": ["medium mashed potatoes with gravy", "medium mashed potatoes", "medium mashed potatoes and gravy", "med mashed potatoes"],
+      "macros": { "protein": 4, "fat": 6, "carbs": 27, "fiber": 2, "calories": 180 }
+    },
+    {
+      "name": "Macaroni & Cheese",
+      "aliases": ["mac and cheese", "mac n cheese", "macaroni and cheese", "mac & cheese", "individual mac and cheese", "mac"],
+      "macros": { "protein": 5, "fat": 6, "carbs": 17, "fiber": 1, "calories": 140 }
+    },
+    {
+      "name": "Coleslaw",
+      "aliases": ["coleslaw", "cole slaw", "slaw", "kfc coleslaw", "individual coleslaw"],
+      "macros": { "protein": 1, "fat": 12, "carbs": 14, "fiber": 4, "calories": 170 }
+    },
+    {
+      "name": "Secret Recipe Fries",
+      "aliases": ["fries", "secret recipe fries", "french fries", "kfc fries", "individual fries", "seasoned fries"],
+      "macros": { "protein": 5, "fat": 15, "carbs": 41, "fiber": 3, "calories": 320 }
+    },
+    {
+      "name": "Corn on the Cob",
+      "aliases": ["corn on the cob", "corn cob", "cob of corn", "corn"],
+      "macros": { "protein": 2, "fat": 0.5, "carbs": 17, "fiber": 2, "calories": 70 }
+    },
+    {
+      "name": "Sweet Kernel Corn",
+      "aliases": ["sweet kernel corn", "kernel corn", "sweet corn", "corn kernels", "individual corn"],
+      "macros": { "protein": 2, "fat": 0.5, "carbs": 16, "fiber": 2, "calories": 70 }
+    },
+    {
+      "name": "Green Beans",
+      "aliases": ["green beans", "greenbeans", "individual green beans", "beans"],
+      "macros": { "protein": 1, "fat": 0, "carbs": 5, "fiber": 3, "calories": 25 }
+    },
+    {
+      "name": "BBQ Baked Beans",
+      "aliases": ["baked beans", "bbq baked beans", "bbq beans", "individual baked beans"],
+      "macros": { "protein": 11, "fat": 1, "carbs": 34, "fiber": 7, "calories": 190 }
+    },
+    {
+      "name": "Cheese Curds",
+      "aliases": ["cheese curds", "fried cheese curds", "curds", "kfc cheese curds"],
+      "macros": { "protein": 17, "fat": 23, "carbs": 17, "fiber": 0, "calories": 350 }
+    },
+    {
+      "name": "KFC Cornbread Muffin",
+      "aliases": ["cornbread muffin", "cornbread", "corn bread", "corn muffin", "kfc cornbread"],
+      "macros": { "protein": 3, "fat": 9, "carbs": 28, "fiber": 0.5, "calories": 210 }
+    },
+    {
+      "name": "Potato Wedges",
+      "aliases": ["potato wedges", "wedges", "kfc wedges", "seasoned wedges", "individual wedges"],
+      "macros": { "protein": 5, "fat": 15, "carbs": 40, "fiber": 4, "calories": 320 }
+    },
+    {
+      "name": "House Side Salad",
+      "aliases": ["house side salad", "side salad", "house salad", "garden salad"],
+      "macros": { "protein": 1, "fat": 0, "carbs": 3, "fiber": 2, "calories": 15 }
+    },
+    {
+      "name": "Caesar Side Salad",
+      "aliases": ["caesar side salad", "caesar salad", "side caesar", "caesar"],
+      "macros": { "protein": 3, "fat": 2, "carbs": 2, "fiber": 1, "calories": 40 }
+    },
+    {
+      "name": "BBQ Dipping Sauce Cup",
+      "aliases": ["bbq sauce", "bbq dipping sauce", "barbecue sauce", "bbq sauce cup", "barbeque sauce"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 11, "fiber": 0, "calories": 45 }
+    },
+    {
+      "name": "Buffalo Ranch Dipping Sauce Cup",
+      "aliases": ["buffalo ranch", "buffalo ranch sauce", "buffalo ranch dipping sauce", "buffalo sauce"],
+      "macros": { "protein": 1, "fat": 13, "carbs": 2, "fiber": 0, "calories": 120 }
+    },
+    {
+      "name": "Comeback Sauce Dipping Sauce Cup",
+      "aliases": ["comeback sauce", "comeback dipping sauce", "come back sauce"],
+      "macros": { "protein": 0, "fat": 12, "carbs": 2, "fiber": 0, "calories": 120 }
+    },
+    {
+      "name": "Honey Mustard Dipping Sauce Cup",
+      "aliases": ["honey mustard", "honey mustard sauce", "honey mustard dipping sauce"],
+      "macros": { "protein": 0, "fat": 9, "carbs": 6, "fiber": 0, "calories": 110 }
+    },
+    {
+      "name": "KFC Sauce Dipping Sauce Cup",
+      "aliases": ["kfc sauce", "kfc dipping sauce", "kfc signature sauce", "signature sauce"],
+      "macros": { "protein": 0, "fat": 8, "carbs": 5, "fiber": 0, "calories": 90 }
+    },
+    {
+      "name": "Ranch Dipping Sauce Cup",
+      "aliases": ["ranch", "ranch sauce", "ranch dipping sauce", "ranch cup"],
+      "macros": { "protein": 0, "fat": 14, "carbs": 2, "fiber": 0, "calories": 130 }
+    },
+    {
+      "name": "Sticky Chicky Sweet n' Sour Dipping Sauce Cup",
+      "aliases": ["sweet and sour sauce", "sticky chicky", "sweet n sour", "sweet and sour dipping sauce", "sticky chicky sauce"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 11, "fiber": 0, "calories": 45 }
+    },
+    {
+      "name": "Honey Sauce Packet",
+      "aliases": ["honey", "honey packet", "honey sauce"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 8, "fiber": 0, "calories": 30 }
+    },
+    {
+      "name": "Colonel's Buttery Spread",
+      "aliases": ["butter", "buttery spread", "colonels buttery spread", "butter packet"],
+      "macros": { "protein": 0, "fat": 4, "carbs": 0, "fiber": 0, "calories": 35 }
+    },
+    {
+      "name": "Ketchup",
+      "aliases": ["ketchup", "ketchup packet", "catsup"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 8, "fiber": 0, "calories": 30 }
+    },
+    {
+      "name": "Grape Jelly Packet",
+      "aliases": ["grape jelly", "jelly", "jelly packet"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 9, "fiber": 0, "calories": 35 }
+    },
+    {
+      "name": "Strawberry Jam Packet",
+      "aliases": ["strawberry jam", "jam", "jam packet"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 9, "fiber": 0, "calories": 35 }
+    },
+    {
+      "name": "Heinz Buttermilk Dressing",
+      "aliases": ["buttermilk dressing", "buttermilk ranch dressing", "ranch dressing", "heinz buttermilk dressing"],
+      "macros": { "protein": 0, "fat": 17, "carbs": 1, "fiber": 0, "calories": 160 }
+    },
+    {
+      "name": "KFC Creamy Parmesan Caesar Dressing",
+      "aliases": ["caesar dressing", "creamy parmesan caesar dressing", "parmesan caesar dressing"],
+      "macros": { "protein": 2, "fat": 26, "carbs": 4, "fiber": 0, "calories": 260 }
+    },
+    {
+      "name": "Marzetti Light Italian Dressing",
+      "aliases": ["light italian dressing", "italian dressing", "marzetti light italian"],
+      "macros": { "protein": 0, "fat": 0.5, "carbs": 2, "fiber": 0, "calories": 15 }
+    },
+    {
+      "name": "Hidden Valley The Original Ranch Fat Free Dressing",
+      "aliases": ["fat free ranch", "fat free ranch dressing", "hidden valley fat free ranch", "light ranch dressing"],
+      "macros": { "protein": 1, "fat": 0, "carbs": 8, "fiber": 0, "calories": 35 }
+    },
+    {
+      "name": "Parmesan Garlic Croutons",
+      "aliases": ["croutons", "parmesan garlic croutons", "garlic croutons"],
+      "macros": { "protein": 2, "fat": 3, "carbs": 8, "fiber": 0.5, "calories": 60 }
+    },
+    {
+      "name": "Chocolate Chunk Cookie",
+      "aliases": ["chocolate chunk cookie", "cookie", "chocolate chip cookie", "kfc cookie"],
+      "macros": { "protein": 2, "fat": 9, "carbs": 26, "fiber": 1, "calories": 190 }
+    },
+    {
+      "name": "Apple Turnover",
+      "aliases": ["apple turnover", "apple pie", "turnover"],
+      "macros": { "protein": 2, "fat": 10, "carbs": 32, "fiber": 0.5, "calories": 230 }
+    },
+    {
+      "name": "Cafe Valley Chocolate Chip Cake (1 Slice)",
+      "aliases": ["chocolate chip cake", "chocolate chip cake slice", "cafe valley chocolate chip cake", "chocolate cake"],
+      "macros": { "protein": 4, "fat": 15, "carbs": 39, "fiber": 1, "calories": 300 }
+    },
+    {
+      "name": "Cafe Valley Lemon Cake (1 Slice)",
+      "aliases": ["lemon cake", "lemon cake slice", "cafe valley lemon cake"],
+      "macros": { "protein": 2, "fat": 10, "carbs": 30, "fiber": 0, "calories": 220 }
+    },
+    {
+      "name": "KFC Gizzards",
+      "aliases": ["gizzards", "kfc gizzards", "chicken gizzards", "fried gizzards"],
+      "macros": { "protein": 20, "fat": 16, "carbs": 18, "fiber": 0.5, "calories": 300 }
+    },
+    {
+      "name": "KFC Livers",
+      "aliases": ["livers", "kfc livers", "chicken livers", "fried livers"],
+      "macros": { "protein": 17, "fat": 13, "carbs": 12, "fiber": 0, "calories": 230 }
+    },
+    {
+      "name": "Country Fried Steak with Peppered White Gravy",
+      "aliases": ["country fried steak", "country fried steak with gravy", "chicken fried steak", "cfs with gravy"],
+      "macros": { "protein": 13, "fat": 26, "carbs": 26, "fiber": 2, "calories": 390 }
+    },
+    {
+      "name": "Country Fried Steak without Peppered White Gravy",
+      "aliases": ["country fried steak no gravy", "country fried steak without gravy", "chicken fried steak no gravy", "cfs no gravy"],
+      "macros": { "protein": 13, "fat": 24, "carbs": 22, "fiber": 2, "calories": 360 }
+    }
+  ]
+}

@@ -1,0 +1,336 @@
+{
+  "chain": "Chick-fil-A",
+  "aliases": ["chick-fil-a", "chick fil a", "chickfila", "chik fil a", "chic fil a", "chick-fil-a", "cfa", "chick fila", "chickfil-a", "chik-fil-a", "chicken fillet a"],
+  "source": "https://www.chick-fil-a.com/nutrition-allergens",
+  "retrieved": "2026-10-05",
+  "notes": "All numbers are from the Nutrition & Allergens guide at chick-fil-a.com/nutrition-allergens (per-item serving size, calories, fat, carbohydrates, fiber, protein), read 2026-10-05. Chick-fil-A publishes its building blocks directly (Chick-fil-A Filet, Spicy Filet, Grilled Filet, Buttery White Bun, Multigrain Brioche Bun, Gluten Free Bun, American/Pepper Jack/Colby Jack cheese, Bacon, Lettuce, Tomato, every sauce and dressing); pickles, per-piece nuggets and strips, and the salad bases are derived by subtraction as noted. Salad totals include the default dressing (the Cobb Salad menu page states 'Nutrition values are per Salad (includes toppings and dressing)'), so salad builds list the dressing as a separate component. Waffle fries and Mac & Cheese are the medium size unless named otherwise.",
+  "components": {
+    "chick-fil-a filet": { "unit": "each", "protein": 24, "fat": 12, "carbs": 12, "fiber": 0, "calories": 250 },
+    "spicy filet": { "unit": "each", "protein": 23, "fat": 13, "carbs": 16, "fiber": 1, "calories": 280 },
+    "grilled filet": { "unit": "each", "protein": 21, "fat": 2, "carbs": 1, "fiber": 0, "calories": 110 },
+    "buttery white bun": { "unit": "each", "protein": 5, "fat": 6, "carbs": 29, "fiber": 1, "calories": 180 },
+    "white bun (unbuttered)": { "unit": "each", "protein": 5, "fat": 1, "carbs": 28, "fiber": 1, "calories": 150 },
+    "multigrain brioche bun": { "unit": "each", "protein": 7, "fat": 4.5, "carbs": 38, "fiber": 3, "calories": 210 },
+    "gluten free bun": { "unit": "each", "protein": 3, "fat": 3.5, "carbs": 37, "fiber": 2, "calories": 180 },
+    "pickles": { "unit": "each", "protein": 0, "fat": 0, "carbs": 0, "fiber": 0, "calories": 0, "derived": "Chick-fil-A Chicken Sandwich minus Chick-fil-A Filet minus Buttery White Bun (rounds to zero)" },
+    "american cheese": { "unit": "slice", "protein": 3, "fat": 4.5, "carbs": 1, "fiber": 0, "calories": 50 },
+    "pepper jack cheese": { "unit": "slice", "protein": 4, "fat": 6, "carbs": 0, "fiber": 0, "calories": 80 },
+    "colby jack cheese": { "unit": "slice", "protein": 5, "fat": 7, "carbs": 0, "fiber": 0, "calories": 80 },
+    "bacon": { "unit": "each", "protein": 4, "fat": 3.5, "carbs": 0, "fiber": 0, "calories": 50 },
+    "lettuce": { "unit": "each", "protein": 0, "fat": 0, "carbs": 1, "fiber": 0, "calories": 5 },
+    "tomato": { "unit": "each", "protein": 0, "fat": 0, "carbs": 1, "fiber": 0, "calories": 5 },
+    "nugget": { "unit": "piece", "protein": 3.25, "fat": 1.5, "carbs": 1.25, "fiber": 0, "calories": 32.5, "derived": "(12 ct Chick-fil-A Nuggets minus 8 ct Chick-fil-A Nuggets) divided by 4" },
+    "grilled nugget": { "unit": "piece", "protein": 3.25, "fat": 0.4, "carbs": 0.25, "fiber": 0, "calories": 17.5, "derived": "(12 ct Grilled Nuggets minus 8 ct Grilled Nuggets) divided by 4" },
+    "chick-n-strip": { "unit": "piece", "protein": 10, "fat": 5, "carbs": 6, "fiber": 0, "calories": 100, "derived": "4 ct Chick-n-Strips minus 3 ct Chick-n-Strips" },
+    "chick-fil-a sauce": { "unit": "each", "protein": 0, "fat": 13, "carbs": 6, "fiber": 0, "calories": 140 },
+    "polynesian sauce": { "unit": "each", "protein": 0, "fat": 6, "carbs": 14, "fiber": 0, "calories": 110 },
+    "barbeque sauce": { "unit": "each", "protein": 0, "fat": 0, "carbs": 11, "fiber": 0, "calories": 45 },
+    "honey mustard sauce": { "unit": "each", "protein": 0, "fat": 0, "carbs": 11, "fiber": 0, "calories": 50 },
+    "garden herb ranch sauce": { "unit": "each", "protein": 0, "fat": 11, "carbs": 1, "fiber": 0, "calories": 100 },
+    "zesty buffalo sauce": { "unit": "each", "protein": 0, "fat": 2.5, "carbs": 1, "fiber": 0, "calories": 25 },
+    "sweet & spicy sriracha sauce": { "unit": "each", "protein": 0, "fat": 0, "carbs": 11, "fiber": 0, "calories": 45 },
+    "honey roasted bbq sauce": { "unit": "each", "protein": 0, "fat": 5, "carbs": 3, "fiber": 0, "calories": 60 },
+    "avocado lime ranch dressing": { "unit": "each", "protein": 1, "fat": 32, "carbs": 3, "fiber": 1, "calories": 310 },
+    "zesty apple cider vinaigrette dressing": { "unit": "each", "protein": 0, "fat": 19, "carbs": 16, "fiber": 0, "calories": 230 },
+    "creamy salsa dressing": { "unit": "each", "protein": 1, "fat": 31, "carbs": 2, "fiber": 0, "calories": 290 },
+    "garden herb ranch dressing": { "unit": "each", "protein": 1, "fat": 29, "carbs": 2, "fiber": 0, "calories": 280 },
+    "light italian dressing": { "unit": "each", "protein": 0, "fat": 1, "carbs": 3, "fiber": 0, "calories": 25 },
+    "light balsamic vinaigrette dressing": { "unit": "each", "protein": 0, "fat": 4, "carbs": 10, "fiber": 0, "calories": 80 },
+    "fat-free honey mustard dressing": { "unit": "each", "protein": 0, "fat": 0, "carbs": 22, "fiber": 1, "calories": 90 },
+    "cobb salad base": { "unit": "each", "protein": 13, "fat": 10, "carbs": 12, "fiber": 4, "calories": 190, "derived": "Cobb Salad w/ No Chicken minus Avocado Lime Ranch Dressing (greens, corn, cheese, bacon, egg, tomatoes)" },
+    "cobb salad nuggets portion": { "unit": "each", "protein": 27, "fat": 18, "carbs": 16, "fiber": 0, "calories": 330, "derived": "Cobb Salad minus Cobb Salad w/ No Chicken (the sliced nuggets on the salad)" },
+    "market salad base": { "unit": "each", "protein": 7, "fat": 10, "carbs": 24, "fiber": 5, "calories": 210, "derived": "Market Salad w/ No Chicken minus Zesty Apple Cider Vinaigrette Dressing (greens, apples, berries, blue cheese, granola, almonds)" },
+    "spicy southwest salad base": { "unit": "each", "protein": 13, "fat": 16, "carbs": 23, "fiber": 7, "calories": 280, "derived": "Spicy Southwest Salad w/ No Chicken minus Creamy Salsa Dressing (greens, corn, beans, peppers, cheese, tortilla strips, pepitas)" }
+  },
+  "items": [
+    {
+      "name": "Chick-fil-A Chicken Sandwich",
+      "aliases": ["chicken sandwich", "chick-fil-a chicken sandwich", "cfa sandwich", "original chicken sandwich", "classic chicken sandwich", "cfa chicken sandwich", "the original", "regular chicken sandwich"],
+      "macros": { "protein": 29, "fat": 16, "carbs": 41, "fiber": 1, "calories": 420 },
+      "build": [
+        { "component": "buttery white bun", "count": 1 },
+        { "component": "chick-fil-a filet", "count": 1 },
+        { "component": "pickles", "count": 1 }
+      ]
+    },
+    {
+      "name": "Chick-fil-A Deluxe Sandwich",
+      "aliases": ["deluxe sandwich", "chick-fil-a deluxe sandwich", "deluxe chicken sandwich", "cfa deluxe", "deluxe", "chicken deluxe"],
+      "macros": { "protein": 32, "fat": 21, "carbs": 43, "fiber": 1, "calories": 490 },
+      "build": [
+        { "component": "buttery white bun", "count": 1 },
+        { "component": "chick-fil-a filet", "count": 1 },
+        { "component": "pickles", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "lettuce", "count": 1 },
+        { "component": "tomato", "count": 1 }
+      ]
+    },
+    {
+      "name": "Spicy Chicken Sandwich",
+      "aliases": ["spicy chicken sandwich", "spicy chicken", "spicy sandwich", "spicy", "cfa spicy chicken sandwich", "spicy chick-fil-a sandwich"],
+      "macros": { "protein": 28, "fat": 18, "carbs": 44, "fiber": 1, "calories": 450 },
+      "build": [
+        { "component": "buttery white bun", "count": 1 },
+        { "component": "spicy filet", "count": 1 },
+        { "component": "pickles", "count": 1 }
+      ]
+    },
+    {
+      "name": "Spicy Deluxe Sandwich",
+      "aliases": ["spicy deluxe sandwich", "spicy deluxe", "spicy deluxe chicken sandwich", "spicy chicken deluxe", "deluxe spicy"],
+      "macros": { "protein": 34, "fat": 24, "carbs": 46, "fiber": 2, "calories": 540 },
+      "build": [
+        { "component": "buttery white bun", "count": 1 },
+        { "component": "spicy filet", "count": 1 },
+        { "component": "pickles", "count": 1 },
+        { "component": "pepper jack cheese", "count": 1 },
+        { "component": "lettuce", "count": 1 },
+        { "component": "tomato", "count": 1 }
+      ]
+    },
+    {
+      "name": "Grilled Chicken Sandwich",
+      "aliases": ["grilled chicken sandwich", "grilled chicken", "grilled sandwich", "cfa grilled chicken sandwich", "grilled chicken on multigrain"],
+      "macros": { "protein": 28, "fat": 11, "carbs": 45, "fiber": 3, "calories": 390 },
+      "build": [
+        { "component": "multigrain brioche bun", "count": 1 },
+        { "component": "grilled filet", "count": 1 },
+        { "component": "lettuce", "count": 1 },
+        { "component": "tomato", "count": 1 },
+        { "component": "honey roasted bbq sauce", "count": 1 }
+      ]
+    },
+    {
+      "name": "Chick-fil-A Grilled Chicken Club Sandwich",
+      "aliases": ["grilled chicken club", "grilled chicken club sandwich", "grilled club", "chicken club", "club sandwich", "grilled club sandwich"],
+      "macros": { "protein": 37, "fat": 22, "carbs": 45, "fiber": 3, "calories": 520 },
+      "build": [
+        { "component": "multigrain brioche bun", "count": 1 },
+        { "component": "grilled filet", "count": 1 },
+        { "component": "lettuce", "count": 1 },
+        { "component": "tomato", "count": 1 },
+        { "component": "honey roasted bbq sauce", "count": 1 },
+        { "component": "colby jack cheese", "count": 1 },
+        { "component": "bacon", "count": 1 }
+      ]
+    },
+    {
+      "name": "Chick-fil-A Filet",
+      "aliases": ["chicken filet", "chick-fil-a filet", "filet only", "fried filet", "chicken fillet", "filet no bun", "chicken sandwich no bun", "sandwich no bun"],
+      "macros": { "protein": 24, "fat": 12, "carbs": 12, "fiber": 0, "calories": 250 },
+      "build": [
+        { "component": "chick-fil-a filet", "count": 1 }
+      ]
+    },
+    {
+      "name": "Grilled Filet",
+      "aliases": ["grilled filet", "grilled chicken filet", "grilled fillet", "grilled chicken breast", "grilled filet only", "grilled chicken no bun", "grilled sandwich no bun"],
+      "macros": { "protein": 21, "fat": 2, "carbs": 1, "fiber": 0, "calories": 110 },
+      "build": [
+        { "component": "grilled filet", "count": 1 }
+      ]
+    },
+    {
+      "name": "8 ct Chick-fil-A Nuggets",
+      "aliases": ["8 count nuggets", "8 ct nuggets", "8 piece nuggets", "8 nuggets", "nuggets", "chicken nuggets", "chick-fil-a nuggets", "8pc nuggets", "nuggs"],
+      "macros": { "protein": 27, "fat": 11, "carbs": 11, "fiber": 0, "calories": 250 },
+      "build": [
+        { "component": "nugget", "count": 8 }
+      ]
+    },
+    {
+      "name": "12 ct Chick-fil-A Nuggets",
+      "aliases": ["12 count nuggets", "12 ct nuggets", "12 piece nuggets", "12 nuggets", "12pc nuggets"],
+      "macros": { "protein": 40, "fat": 17, "carbs": 16, "fiber": 0, "calories": 380 },
+      "build": [
+        { "component": "nugget", "count": 12 }
+      ]
+    },
+    {
+      "name": "30 ct Chick-fil-A Nuggets",
+      "aliases": ["30 count nuggets", "30 ct nuggets", "30 piece nuggets", "30 nuggets", "nugget tray 30", "30pc nuggets"],
+      "macros": { "protein": 100, "fat": 43, "carbs": 41, "fiber": 0, "calories": 950 },
+      "build": [
+        { "component": "nugget", "count": 30 }
+      ]
+    },
+    {
+      "name": "8 ct Grilled Nuggets",
+      "aliases": ["8 count grilled nuggets", "8 ct grilled nuggets", "grilled nuggets", "8 grilled nuggets", "8 piece grilled nuggets", "grilled nuggs", "8pc grilled nuggets"],
+      "macros": { "protein": 25, "fat": 3, "carbs": 1, "fiber": 0, "calories": 130 },
+      "build": [
+        { "component": "grilled nugget", "count": 8 }
+      ]
+    },
+    {
+      "name": "12 ct Grilled Nuggets",
+      "aliases": ["12 count grilled nuggets", "12 ct grilled nuggets", "12 grilled nuggets", "12 piece grilled nuggets", "12pc grilled nuggets"],
+      "macros": { "protein": 38, "fat": 4.5, "carbs": 2, "fiber": 0, "calories": 200 },
+      "build": [
+        { "component": "grilled nugget", "count": 12 }
+      ]
+    },
+    {
+      "name": "3 ct Chick-n-Strips",
+      "aliases": ["3 count chick-n-strips", "chick-n-strips", "chicken strips", "3 strips", "3 ct strips", "chick n strips", "3 piece strips", "tenders"],
+      "macros": { "protein": 29, "fat": 14, "carbs": 16, "fiber": 0, "calories": 310 },
+      "build": [
+        { "component": "chick-n-strip", "count": 3 }
+      ]
+    },
+    {
+      "name": "4 ct Chick-n-Strips",
+      "aliases": ["4 count chick-n-strips", "4 strips", "4 ct strips", "4 piece strips", "4 chick n strips"],
+      "macros": { "protein": 39, "fat": 19, "carbs": 22, "fiber": 0, "calories": 410 },
+      "build": [
+        { "component": "chick-n-strip", "count": 4 }
+      ]
+    },
+    {
+      "name": "Cobb Salad",
+      "aliases": ["cobb salad", "cobb", "cobb salad with nuggets", "cob salad", "chicken cobb salad"],
+      "macros": { "protein": 41, "fat": 60, "carbs": 31, "fiber": 5, "calories": 830 },
+      "build": [
+        { "component": "cobb salad base", "count": 1 },
+        { "component": "cobb salad nuggets portion", "count": 1 },
+        { "component": "avocado lime ranch dressing", "count": 1 }
+      ]
+    },
+    {
+      "name": "Cobb Salad w/ Grilled Filet (Warm)",
+      "aliases": ["cobb salad with grilled chicken", "cobb salad grilled", "grilled cobb salad", "cobb with grilled filet", "cobb salad with grilled filet"],
+      "macros": { "protein": 35, "fat": 44, "carbs": 16, "fiber": 5, "calories": 600 },
+      "build": [
+        { "component": "cobb salad base", "count": 1 },
+        { "component": "grilled filet", "count": 1 },
+        { "component": "avocado lime ranch dressing", "count": 1 }
+      ]
+    },
+    {
+      "name": "Market Salad",
+      "aliases": ["market salad", "grilled market salad", "market salad with grilled chicken", "fruit salad with chicken", "apple salad"],
+      "macros": { "protein": 28, "fat": 31, "carbs": 42, "fiber": 5, "calories": 550 },
+      "build": [
+        { "component": "market salad base", "count": 1 },
+        { "component": "grilled filet", "count": 1 },
+        { "component": "zesty apple cider vinaigrette dressing", "count": 1 }
+      ]
+    },
+    {
+      "name": "Spicy Southwest Salad",
+      "aliases": ["spicy southwest salad", "southwest salad", "spicy southwest", "southwest chicken salad", "sw salad"],
+      "macros": { "protein": 33, "fat": 49, "carbs": 27, "fiber": 7, "calories": 680 },
+      "build": [
+        { "component": "spicy southwest salad base", "count": 1 },
+        { "component": "grilled filet", "count": 1 },
+        { "component": "creamy salsa dressing", "count": 1 }
+      ]
+    },
+    {
+      "name": "Chick-fil-A Cool Wrap",
+      "aliases": ["cool wrap", "grilled cool wrap", "chicken wrap", "chick-fil-a cool wrap", "cfa wrap", "grilled chicken cool wrap"],
+      "macros": { "protein": 43, "fat": 45, "carbs": 32, "fiber": 14, "calories": 660 }
+    },
+    {
+      "name": "Side Salad",
+      "aliases": ["side salad", "small salad", "garden side salad"],
+      "macros": { "protein": 6, "fat": 42, "carbs": 14, "fiber": 4, "calories": 470 }
+    },
+    {
+      "name": "Medium Chick-fil-A Waffle Potato Fries",
+      "aliases": ["waffle fries", "medium waffle fries", "fries", "waffle potato fries", "medium fries", "chick-fil-a fries", "cfa fries"],
+      "macros": { "protein": 5, "fat": 24, "carbs": 45, "fiber": 5, "calories": 420 }
+    },
+    {
+      "name": "Small Chick-fil-A Waffle Potato Fries",
+      "aliases": ["small waffle fries", "small fries", "sm fries", "kids fries"],
+      "macros": { "protein": 4, "fat": 19, "carbs": 35, "fiber": 4, "calories": 320 }
+    },
+    {
+      "name": "Large Chick-fil-A Waffle Potato Fries",
+      "aliases": ["large waffle fries", "large fries", "lg fries"],
+      "macros": { "protein": 7, "fat": 35, "carbs": 65, "fiber": 7, "calories": 600 }
+    },
+    {
+      "name": "Medium Mac & Cheese",
+      "aliases": ["mac and cheese", "mac & cheese", "medium mac and cheese", "mac n cheese", "macaroni and cheese", "mac"],
+      "macros": { "protein": 20, "fat": 29, "carbs": 28, "fiber": 3, "calories": 450 }
+    },
+    {
+      "name": "Small Mac & Cheese",
+      "aliases": ["small mac and cheese", "small mac & cheese", "small mac n cheese", "kids mac and cheese"],
+      "macros": { "protein": 12, "fat": 17, "carbs": 17, "fiber": 2, "calories": 270 }
+    },
+    {
+      "name": "Kale Crunch Side",
+      "aliases": ["kale crunch", "kale crunch side", "kale salad", "kale side", "kale"],
+      "macros": { "protein": 4, "fat": 12, "carbs": 13, "fiber": 4, "calories": 170 }
+    },
+    {
+      "name": "Medium Fruit Cup",
+      "aliases": ["fruit cup", "medium fruit cup", "fruit", "side of fruit"],
+      "macros": { "protein": 1, "fat": 0, "carbs": 16, "fiber": 2, "calories": 70 }
+    },
+    {
+      "name": "Chick-fil-A Sauce",
+      "aliases": ["chick-fil-a sauce", "cfa sauce", "chick fil a sauce", "signature sauce", "chickfila sauce"],
+      "macros": { "protein": 0, "fat": 13, "carbs": 6, "fiber": 0, "calories": 140 }
+    },
+    {
+      "name": "Polynesian Sauce",
+      "aliases": ["polynesian sauce", "polynesian", "polynesian dipping sauce", "polynesean sauce"],
+      "macros": { "protein": 0, "fat": 6, "carbs": 14, "fiber": 0, "calories": 110 }
+    },
+    {
+      "name": "Barbeque Sauce",
+      "aliases": ["barbeque sauce", "bbq sauce", "barbecue sauce", "bbq"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 11, "fiber": 0, "calories": 45 }
+    },
+    {
+      "name": "Honey Mustard Sauce",
+      "aliases": ["honey mustard sauce", "honey mustard", "honey mustard dipping sauce"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 11, "fiber": 0, "calories": 50 }
+    },
+    {
+      "name": "Garden Herb Ranch Sauce",
+      "aliases": ["garden herb ranch sauce", "ranch sauce", "ranch", "garden herb ranch", "ranch dipping sauce"],
+      "macros": { "protein": 0, "fat": 11, "carbs": 1, "fiber": 0, "calories": 100 }
+    },
+    {
+      "name": "Zesty Buffalo Sauce",
+      "aliases": ["zesty buffalo sauce", "buffalo sauce", "zesty buffalo", "buffalo"],
+      "macros": { "protein": 0, "fat": 2.5, "carbs": 1, "fiber": 0, "calories": 25 }
+    },
+    {
+      "name": "Sweet & Spicy Sriracha Sauce",
+      "aliases": ["sweet and spicy sriracha", "sriracha sauce", "sweet & spicy sriracha sauce", "sriracha"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 11, "fiber": 0, "calories": 45 }
+    },
+    {
+      "name": "Honey Roasted BBQ Sauce",
+      "aliases": ["honey roasted bbq sauce", "honey roasted bbq", "honey roasted barbeque sauce", "grilled sandwich sauce"],
+      "macros": { "protein": 0, "fat": 5, "carbs": 3, "fiber": 0, "calories": 60 }
+    },
+    {
+      "name": "Medium Chick-fil-A Lemonade",
+      "aliases": ["lemonade", "medium lemonade", "chick-fil-a lemonade", "cfa lemonade", "regular lemonade"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 66, "fiber": 0, "calories": 260 }
+    },
+    {
+      "name": "Medium Chick-fil-A Diet Lemonade",
+      "aliases": ["diet lemonade", "medium diet lemonade", "sugar free lemonade", "cfa diet lemonade"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 15, "fiber": 0, "calories": 60 }
+    },
+    {
+      "name": "Frosted Lemonade",
+      "aliases": ["frosted lemonade", "frosted lemonaid", "frozen lemonade", "icedream lemonade"],
+      "macros": { "protein": 7, "fat": 7, "carbs": 67, "fiber": 0, "calories": 350 }
+    },
+    {
+      "name": "Cookies & Cream Milkshake",
+      "aliases": ["cookies and cream milkshake", "cookies & cream shake", "cookies and cream shake", "oreo milkshake", "milkshake"],
+      "macros": { "protein": 13, "fat": 25, "carbs": 91, "fiber": 1, "calories": 630 }
+    }
+  ]
+}

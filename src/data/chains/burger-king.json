@@ -1,0 +1,519 @@
+{
+  "chain": "Burger King",
+  "aliases": ["burger king", "bk", "burgerking", "burger kng", "burger king restaurant", "the king", "b.k."],
+  "source": "https://www.bk.com/nutrition-explorer",
+  "retrieved": "2026-10-05",
+  "notes": "Item totals are from Burger King's own Nutrition Explorer on bk.com (its 'nutrition with modifiers' figures, which match the BK USA Nutrition Information PDF at https://www.bk.com/services/pdf/download/nutrition where items overlap). Component figures are the per-ingredient nutrition BK's menu data attaches to each item's modifier options (American cheese slice 40 cal, Swiss 90, Whopper patty 270, Whopper Jr. patty 110, bacon portion 60, mayo, ketchup, mustard, lettuce, tomato, onion, pickles, Royal sauce, tartar sauce, spicy glaze, egg) and each item's base figure (the bun). Where BK does not expose a bun separately (potato bun, specialty bun), the bun and its protein are kept as one combined component so the sandwich can still be adjusted for sauce, cheese and bacon. BK's tomato figure carries 1 g fat per slice as published. One tablespoon of sauce = 14.2 g.",
+  "components": {
+    "sesame seed bun": { "unit": "each", "protein": 12, "fat": 4.8, "carbs": 52, "fiber": 3.7, "calories": 257, "derived": "the Whopper's base figure in BK's menu data = Whopper minus its default patty, mayo, ketchup, lettuce, tomato, onion and pickles" },
+    "small sesame seed bun": { "unit": "each", "protein": 6, "fat": 2.4, "carbs": 26.7, "fiber": 1.8, "calories": 135, "derived": "the Whopper Jr.'s base figure = Whopper Jr. minus its default patty, mayo, ketchup, lettuce, tomato, onion and pickles; Hamburger minus patty, ketchup, mustard and pickles agrees" },
+    "croissant": { "unit": "each", "protein": 4, "fat": 8.5, "carbs": 26, "fiber": 2.8, "calories": 190, "derived": "Egg & Cheese Croissan'wich minus egg minus american cheese slice" },
+    "biscuit": { "unit": "each", "protein": 5, "fat": 13.5, "carbs": 29, "fiber": 1.8, "calories": 260, "derived": "Egg & Cheese Biscuit minus egg minus american cheese slice (includes the buttery spread); Sausage Biscuit minus sausage patty agrees" },
+    "whopper patty": { "unit": "each", "protein": 22, "fat": 20, "carbs": 0.4, "fiber": 0.2, "calories": 270 },
+    "whopper jr. patty": { "unit": "each", "protein": 9, "fat": 8, "carbs": 0.2, "fiber": 0.1, "calories": 110 },
+    "impossible whopper patty": { "unit": "each", "protein": 21, "fat": 13, "carbs": 8, "fiber": 4, "calories": 230 },
+    "american cheese": { "unit": "slice", "protein": 2, "fat": 3.5, "carbs": 0.7, "fiber": 0.1, "calories": 40 },
+    "swiss cheese": { "unit": "slice", "protein": 4, "fat": 8, "carbs": 2, "fiber": 0, "calories": 90 },
+    "bacon": { "unit": "each", "protein": 5, "fat": 5, "carbs": 0.2, "fiber": 0, "calories": 60, "derived": "the bacon portion BK adds to a Whopper (12 g); the Bacon Cheeseburger and Whopper Jr. get 2/3 of it (40 cal), the Bacon King 2 of them, breakfast sandwiches about 0.83 (50 cal = Bacon, Egg & Cheese Croissan'wich minus Egg & Cheese Croissan'wich)" },
+    "sausage patty": { "unit": "each", "protein": 7, "fat": 17, "carbs": 0, "fiber": 0, "calories": 190, "derived": "Sausage, Egg & Cheese Croissan'wich minus Egg & Cheese Croissan'wich" },
+    "ham": { "unit": "each", "protein": 6, "fat": 2, "carbs": 1, "fiber": 0, "calories": 40, "derived": "Ham, Egg & Cheese Croissan'wich minus Egg & Cheese Croissan'wich" },
+    "egg": { "unit": "each", "protein": 6, "fat": 5, "carbs": 1, "fiber": 0.1, "calories": 80 },
+    "mayonnaise": { "unit": "tablespoon", "protein": 0.2, "fat": 11.5, "carbs": 0.5, "fiber": 0, "calories": 105 },
+    "ketchup": { "unit": "tablespoon", "protein": 0.1, "fat": 0, "carbs": 3.5, "fiber": 0.2, "calories": 15 },
+    "mustard": { "unit": "teaspoon", "protein": 0.2, "fat": 0.2, "carbs": 0.3, "fiber": 0.2, "calories": 4 },
+    "bbq sauce": { "unit": "tablespoon", "protein": 0.3, "fat": 0, "carbs": 6, "fiber": 0.1, "calories": 25 },
+    "savory royal sauce": { "unit": "tablespoon", "protein": 0.2, "fat": 8, "carbs": 0.5, "fiber": 0, "calories": 75 },
+    "spicy glaze": { "unit": "each", "protein": 0, "fat": 16, "carbs": 4, "fiber": 0, "calories": 160 },
+    "tartar sauce": { "unit": "tablespoon", "protein": 0.1, "fat": 8.5, "carbs": 1.5, "fiber": 0.1, "calories": 85 },
+    "lettuce": { "unit": "ounce", "protein": 0.2, "fat": 0.1, "carbs": 0.8, "fiber": 0.3, "calories": 4 },
+    "tomato": { "unit": "slice", "protein": 0.1, "fat": 1, "carbs": 0.5, "fiber": 0.2, "calories": 2 },
+    "onion": { "unit": "each", "protein": 0.1, "fat": 0, "carbs": 1, "fiber": 0.3, "calories": 3, "derived": "the sliced-onion portion on a Whopper (9 g); a Whopper Jr. gets 2/3 of it" },
+    "pickles": { "unit": "slice", "protein": 0, "fat": 0, "carbs": 0.05, "fiber": 0.03, "calories": 0.3 },
+    "jalapenos": { "unit": "each", "protein": 0.1, "fat": 0, "carbs": 0.7, "fiber": 0.3, "calories": 4 },
+    "royal crispy chicken fillet with potato bun": { "unit": "each", "protein": 31, "fat": 15, "carbs": 53, "fiber": 4, "calories": 444, "derived": "the Royal Crispy Chicken's base figure = sandwich minus Royal sauce, lettuce and tomato (BK does not publish the potato bun or fillet separately)" },
+    "flame-grilled chicken breast with potato bun": { "unit": "each", "protein": 35, "fat": 7, "carbs": 42.5, "fiber": 2, "calories": 329, "derived": "the Flame-Grilled Chicken Sandwich's base figure = sandwich minus Royal sauce, lettuce and tomato" },
+    "original chicken patty with specialty bun": { "unit": "each", "protein": 23, "fat": 16, "carbs": 62, "fiber": 3, "calories": 468, "derived": "the Original Chicken Sandwich's base figure = sandwich minus mayo and lettuce" },
+    "big fish patty with potato bun": { "unit": "each", "protein": 19, "fat": 13, "carbs": 55, "fiber": 3, "calories": 398, "derived": "the Big Fish's base figure = sandwich minus tartar sauce, lettuce and pickles" },
+    "chicken jr. patty": { "unit": "each", "protein": 7, "fat": 7.4, "carbs": 11.6, "fiber": 0.2, "calories": 145, "derived": "Chicken Jr. base figure (sandwich minus mayo and lettuce) minus small sesame seed bun" }
+  },
+  "items": [
+    {
+      "name": "Whopper",
+      "aliases": ["whopper", "whopper sandwich", "the whopper", "original whopper", "woppper", "wopper", "whoper"],
+      "macros": { "protein": 34, "fat": 42, "carbs": 57, "fiber": 4, "calories": 710 },
+      "build": [
+        { "component": "sesame seed bun", "count": 1 },
+        { "component": "whopper patty", "count": 1 },
+        { "component": "mayonnaise", "count": 1.5 },
+        { "component": "ketchup", "count": 1 },
+        { "component": "lettuce", "count": 0.75 },
+        { "component": "tomato", "count": 2 },
+        { "component": "onion", "count": 1 },
+        { "component": "pickles", "count": 4 }
+      ]
+    },
+    {
+      "name": "Whopper with Cheese",
+      "aliases": ["whopper with cheese", "whopper cheese", "cheese whopper", "whopper w/ cheese", "whopper w cheese"],
+      "macros": { "protein": 37, "fat": 49, "carbs": 58, "fiber": 4, "calories": 790 },
+      "build": [
+        { "component": "sesame seed bun", "count": 1 },
+        { "component": "whopper patty", "count": 1 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "mayonnaise", "count": 1.5 },
+        { "component": "ketchup", "count": 1 },
+        { "component": "lettuce", "count": 0.75 },
+        { "component": "tomato", "count": 2 },
+        { "component": "onion", "count": 1 },
+        { "component": "pickles", "count": 4 }
+      ]
+    },
+    {
+      "name": "Whopper with Bacon",
+      "aliases": ["whopper with bacon", "bacon whopper", "whopper bacon", "whopper w/ bacon"],
+      "macros": { "protein": 38, "fat": 47, "carbs": 57, "fiber": 4, "calories": 770 },
+      "build": [
+        { "component": "sesame seed bun", "count": 1 },
+        { "component": "whopper patty", "count": 1 },
+        { "component": "bacon", "count": 1 },
+        { "component": "mayonnaise", "count": 1.5 },
+        { "component": "ketchup", "count": 1 },
+        { "component": "lettuce", "count": 0.75 },
+        { "component": "tomato", "count": 2 },
+        { "component": "onion", "count": 1 },
+        { "component": "pickles", "count": 4 }
+      ]
+    },
+    {
+      "name": "Whopper with Bacon & Cheese",
+      "aliases": ["whopper with bacon and cheese", "bacon and cheese whopper", "bacon cheese whopper", "whopper bacon cheese", "whopper with bacon & cheese"],
+      "macros": { "protein": 42, "fat": 54, "carbs": 58, "fiber": 4, "calories": 860 },
+      "build": [
+        { "component": "sesame seed bun", "count": 1 },
+        { "component": "whopper patty", "count": 1 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "bacon", "count": 1 },
+        { "component": "mayonnaise", "count": 1.5 },
+        { "component": "ketchup", "count": 1 },
+        { "component": "lettuce", "count": 0.75 },
+        { "component": "tomato", "count": 2 },
+        { "component": "onion", "count": 1 },
+        { "component": "pickles", "count": 4 }
+      ]
+    },
+    {
+      "name": "Double Whopper",
+      "aliases": ["double whopper", "dbl whopper", "whopper double", "2 patty whopper"],
+      "macros": { "protein": 56, "fat": 62, "carbs": 57, "fiber": 5, "calories": 980 },
+      "build": [
+        { "component": "sesame seed bun", "count": 1 },
+        { "component": "whopper patty", "count": 2 },
+        { "component": "mayonnaise", "count": 1.5 },
+        { "component": "ketchup", "count": 1 },
+        { "component": "lettuce", "count": 0.75 },
+        { "component": "tomato", "count": 2 },
+        { "component": "onion", "count": 1 },
+        { "component": "pickles", "count": 4 }
+      ]
+    },
+    {
+      "name": "Double Whopper with Cheese",
+      "aliases": ["double whopper with cheese", "double whopper cheese", "double cheese whopper", "dbl whopper with cheese", "double whopper w/ cheese"],
+      "macros": { "protein": 60, "fat": 69, "carbs": 59, "fiber": 5, "calories": 1060 },
+      "build": [
+        { "component": "sesame seed bun", "count": 1 },
+        { "component": "whopper patty", "count": 2 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "mayonnaise", "count": 1.5 },
+        { "component": "ketchup", "count": 1 },
+        { "component": "lettuce", "count": 0.75 },
+        { "component": "tomato", "count": 2 },
+        { "component": "onion", "count": 1 },
+        { "component": "pickles", "count": 4 }
+      ]
+    },
+    {
+      "name": "Double Whopper with Bacon & Cheese",
+      "aliases": ["double whopper with bacon and cheese", "double bacon cheese whopper", "double whopper bacon cheese", "dbl whopper bacon and cheese"],
+      "macros": { "protein": 64, "fat": 74, "carbs": 59, "fiber": 5, "calories": 1120 },
+      "build": [
+        { "component": "sesame seed bun", "count": 1 },
+        { "component": "whopper patty", "count": 2 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "bacon", "count": 1 },
+        { "component": "mayonnaise", "count": 1.5 },
+        { "component": "ketchup", "count": 1 },
+        { "component": "lettuce", "count": 0.75 },
+        { "component": "tomato", "count": 2 },
+        { "component": "onion", "count": 1 },
+        { "component": "pickles", "count": 4 }
+      ]
+    },
+    {
+      "name": "Triple Whopper",
+      "aliases": ["triple whopper", "trpl whopper", "whopper triple", "3 patty whopper"],
+      "macros": { "protein": 78, "fat": 82, "carbs": 57, "fiber": 5, "calories": 1250 },
+      "build": [
+        { "component": "sesame seed bun", "count": 1 },
+        { "component": "whopper patty", "count": 3 },
+        { "component": "mayonnaise", "count": 1.5 },
+        { "component": "ketchup", "count": 1 },
+        { "component": "lettuce", "count": 0.75 },
+        { "component": "tomato", "count": 2 },
+        { "component": "onion", "count": 1 },
+        { "component": "pickles", "count": 4 }
+      ]
+    },
+    {
+      "name": "Triple Whopper with Cheese",
+      "aliases": ["triple whopper with cheese", "triple cheese whopper", "triple whopper cheese", "trpl whopper with cheese"],
+      "macros": { "protein": 82, "fat": 89, "carbs": 59, "fiber": 5, "calories": 1330 },
+      "build": [
+        { "component": "sesame seed bun", "count": 1 },
+        { "component": "whopper patty", "count": 3 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "mayonnaise", "count": 1.5 },
+        { "component": "ketchup", "count": 1 },
+        { "component": "lettuce", "count": 0.75 },
+        { "component": "tomato", "count": 2 },
+        { "component": "onion", "count": 1 },
+        { "component": "pickles", "count": 4 }
+      ]
+    },
+    {
+      "name": "Impossible Whopper",
+      "aliases": ["impossible whopper", "impossible burger", "plant based whopper", "veggie whopper", "impossible"],
+      "macros": { "protein": 32, "fat": 35, "carbs": 64, "fiber": 8, "calories": 670 },
+      "build": [
+        { "component": "sesame seed bun", "count": 1 },
+        { "component": "impossible whopper patty", "count": 1 },
+        { "component": "mayonnaise", "count": 1.5 },
+        { "component": "ketchup", "count": 1 },
+        { "component": "lettuce", "count": 0.75 },
+        { "component": "tomato", "count": 2 },
+        { "component": "onion", "count": 1 },
+        { "component": "pickles", "count": 4 }
+      ]
+    },
+    {
+      "name": "Whopper Jr.",
+      "aliases": ["whopper jr", "whopper junior", "jr whopper", "junior whopper", "whopper jr.", "little whopper", "wopper jr"],
+      "macros": { "protein": 15, "fat": 19, "carbs": 30, "fiber": 2, "calories": 340 },
+      "build": [
+        { "component": "small sesame seed bun", "count": 1 },
+        { "component": "whopper jr. patty", "count": 1 },
+        { "component": "mayonnaise", "count": 0.75 },
+        { "component": "ketchup", "count": 0.67 },
+        { "component": "lettuce", "count": 0.375 },
+        { "component": "tomato", "count": 1 },
+        { "component": "onion", "count": 0.67 },
+        { "component": "pickles", "count": 2 }
+      ]
+    },
+    {
+      "name": "Whopper Jr. with Cheese",
+      "aliases": ["whopper jr with cheese", "whopper jr cheese", "jr whopper with cheese", "whopper junior with cheese", "cheese whopper jr"],
+      "macros": { "protein": 17, "fat": 23, "carbs": 31, "fiber": 2, "calories": 380 },
+      "build": [
+        { "component": "small sesame seed bun", "count": 1 },
+        { "component": "whopper jr. patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "mayonnaise", "count": 0.75 },
+        { "component": "ketchup", "count": 0.67 },
+        { "component": "lettuce", "count": 0.375 },
+        { "component": "tomato", "count": 1 },
+        { "component": "onion", "count": 0.67 },
+        { "component": "pickles", "count": 2 }
+      ]
+    },
+    {
+      "name": "Whopper Jr. with Bacon & Cheese",
+      "aliases": ["whopper jr with bacon and cheese", "bacon cheese whopper jr", "whopper jr bacon cheese", "jr whopper bacon and cheese"],
+      "macros": { "protein": 20, "fat": 26, "carbs": 31, "fiber": 2, "calories": 430 },
+      "build": [
+        { "component": "small sesame seed bun", "count": 1 },
+        { "component": "whopper jr. patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "bacon", "count": 0.67 },
+        { "component": "mayonnaise", "count": 0.75 },
+        { "component": "ketchup", "count": 0.67 },
+        { "component": "lettuce", "count": 0.375 },
+        { "component": "tomato", "count": 1 },
+        { "component": "onion", "count": 0.67 },
+        { "component": "pickles", "count": 2 }
+      ]
+    },
+    {
+      "name": "Bacon King",
+      "aliases": ["bacon king", "bacon king sandwich", "the bacon king", "baconking"],
+      "macros": { "protein": 69, "fat": 84, "carbs": 58, "fiber": 4, "calories": 1260 },
+      "build": [
+        { "component": "sesame seed bun", "count": 1 },
+        { "component": "whopper patty", "count": 2 },
+        { "component": "american cheese", "count": 4 },
+        { "component": "bacon", "count": 2 },
+        { "component": "mayonnaise", "count": 1.5 },
+        { "component": "ketchup", "count": 1 }
+      ]
+    },
+    {
+      "name": "Hamburger",
+      "aliases": ["hamburger", "bk hamburger", "plain hamburger", "burger", "regular hamburger"],
+      "macros": { "protein": 14, "fat": 10, "carbs": 29, "fiber": 2, "calories": 260 },
+      "build": [
+        { "component": "small sesame seed bun", "count": 1 },
+        { "component": "whopper jr. patty", "count": 1 },
+        { "component": "ketchup", "count": 0.67 },
+        { "component": "mustard", "count": 0.67 },
+        { "component": "pickles", "count": 2 }
+      ]
+    },
+    {
+      "name": "Cheeseburger",
+      "aliases": ["cheeseburger", "cheese burger", "bk cheeseburger", "single cheeseburger"],
+      "macros": { "protein": 16, "fat": 14, "carbs": 30, "fiber": 2, "calories": 300 },
+      "build": [
+        { "component": "small sesame seed bun", "count": 1 },
+        { "component": "whopper jr. patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "ketchup", "count": 0.67 },
+        { "component": "mustard", "count": 0.67 },
+        { "component": "pickles", "count": 2 }
+      ]
+    },
+    {
+      "name": "Double Cheeseburger",
+      "aliases": ["double cheeseburger", "dbl cheeseburger", "double cheese", "bk double cheeseburger"],
+      "macros": { "protein": 27, "fat": 25, "carbs": 31, "fiber": 2, "calories": 460 },
+      "build": [
+        { "component": "small sesame seed bun", "count": 1 },
+        { "component": "whopper jr. patty", "count": 2 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "ketchup", "count": 0.67 },
+        { "component": "mustard", "count": 0.67 },
+        { "component": "pickles", "count": 2 }
+      ]
+    },
+    {
+      "name": "Bacon Cheeseburger",
+      "aliases": ["bacon cheeseburger", "bacon cheese burger", "bk bacon cheeseburger"],
+      "macros": { "protein": 19, "fat": 17, "carbs": 30, "fiber": 2, "calories": 350 },
+      "build": [
+        { "component": "small sesame seed bun", "count": 1 },
+        { "component": "whopper jr. patty", "count": 1 },
+        { "component": "american cheese", "count": 1 },
+        { "component": "bacon", "count": 0.67 },
+        { "component": "ketchup", "count": 0.67 },
+        { "component": "mustard", "count": 0.67 },
+        { "component": "pickles", "count": 2 }
+      ]
+    },
+    {
+      "name": "Bacon Double Cheeseburger",
+      "aliases": ["bacon double cheeseburger", "double bacon cheeseburger", "bacon dbl cheeseburger", "double bacon cheese burger"],
+      "macros": { "protein": 30, "fat": 29, "carbs": 31, "fiber": 2, "calories": 500 },
+      "build": [
+        { "component": "small sesame seed bun", "count": 1 },
+        { "component": "whopper jr. patty", "count": 2 },
+        { "component": "american cheese", "count": 2 },
+        { "component": "bacon", "count": 0.67 },
+        { "component": "ketchup", "count": 0.67 },
+        { "component": "mustard", "count": 0.67 },
+        { "component": "pickles", "count": 2 }
+      ]
+    },
+    {
+      "name": "Original Chicken Sandwich",
+      "aliases": ["original chicken sandwich", "original chicken", "ocs", "bk chicken sandwich", "long chicken sandwich", "chicken sandwich"],
+      "macros": { "protein": 23, "fat": 39, "carbs": 63, "fiber": 3, "calories": 680 },
+      "build": [
+        { "component": "original chicken patty with specialty bun", "count": 1 },
+        { "component": "mayonnaise", "count": 2 },
+        { "component": "lettuce", "count": 0.5 }
+      ]
+    },
+    {
+      "name": "Royal Crispy Chicken",
+      "aliases": ["royal crispy chicken", "royal crispy chicken sandwich", "royal crispy", "classic royal crispy chicken", "crispy chicken sandwich"],
+      "macros": { "protein": 31, "fat": 31, "carbs": 54, "fiber": 4, "calories": 600 },
+      "build": [
+        { "component": "royal crispy chicken fillet with potato bun", "count": 1 },
+        { "component": "savory royal sauce", "count": 2 },
+        { "component": "lettuce", "count": 0.5 },
+        { "component": "tomato", "count": 2 }
+      ]
+    },
+    {
+      "name": "Spicy Royal Crispy Chicken",
+      "aliases": ["spicy royal crispy chicken", "spicy royal crispy", "spicy royal chicken sandwich", "spicy crispy chicken sandwich", "spicy chicken sandwich"],
+      "macros": { "protein": 31, "fat": 47, "carbs": 58, "fiber": 4, "calories": 760 },
+      "build": [
+        { "component": "royal crispy chicken fillet with potato bun", "count": 1 },
+        { "component": "savory royal sauce", "count": 2 },
+        { "component": "spicy glaze", "count": 1 },
+        { "component": "lettuce", "count": 0.5 },
+        { "component": "tomato", "count": 2 }
+      ]
+    },
+    {
+      "name": "Bacon & Swiss Royal Crispy Chicken",
+      "aliases": ["bacon and swiss royal crispy chicken", "bacon swiss royal crispy", "bacon and swiss chicken sandwich", "bacon & swiss royal crispy chicken", "bacon swiss chicken"],
+      "macros": { "protein": 39, "fat": 43, "carbs": 56, "fiber": 4, "calories": 740 },
+      "build": [
+        { "component": "royal crispy chicken fillet with potato bun", "count": 1 },
+        { "component": "savory royal sauce", "count": 2 },
+        { "component": "bacon", "count": 1 },
+        { "component": "swiss cheese", "count": 1 },
+        { "component": "lettuce", "count": 0.5 },
+        { "component": "tomato", "count": 2 }
+      ]
+    },
+    {
+      "name": "Flame-Grilled Chicken Sandwich",
+      "aliases": ["flame grilled chicken sandwich", "flame-grilled chicken sandwich", "grilled chicken sandwich", "grilled chicken", "bk grilled chicken"],
+      "macros": { "protein": 35, "fat": 15, "carbs": 43, "fiber": 2, "calories": 410 },
+      "build": [
+        { "component": "flame-grilled chicken breast with potato bun", "count": 1 },
+        { "component": "savory royal sauce", "count": 1 },
+        { "component": "lettuce", "count": 0.5 },
+        { "component": "tomato", "count": 2 }
+      ]
+    },
+    {
+      "name": "Chicken Jr.",
+      "aliases": ["chicken jr", "chicken junior", "jr chicken", "chicken jr.", "chicken jr sandwich"],
+      "macros": { "protein": 13, "fat": 27, "carbs": 39, "fiber": 2, "calories": 440 },
+      "build": [
+        { "component": "small sesame seed bun", "count": 1 },
+        { "component": "chicken jr. patty", "count": 1 },
+        { "component": "mayonnaise", "count": 1.5 },
+        { "component": "lettuce", "count": 0.375 }
+      ]
+    },
+    {
+      "name": "Big Fish",
+      "aliases": ["big fish", "big fish sandwich", "fish sandwich", "bk fish sandwich", "bk big fish"],
+      "macros": { "protein": 19, "fat": 30, "carbs": 58, "fiber": 3, "calories": 570 },
+      "build": [
+        { "component": "big fish patty with potato bun", "count": 1 },
+        { "component": "tartar sauce", "count": 2 },
+        { "component": "lettuce", "count": 0.5 },
+        { "component": "pickles", "count": 2 }
+      ]
+    },
+    {
+      "name": "Sausage, Egg & Cheese Croissan'wich",
+      "aliases": ["sausage egg and cheese croissanwich", "sausage egg cheese croissan'wich", "sausage croissanwich", "croissanwich", "sausage egg and cheese croissant", "sec croissanwich", "croissan'wich"],
+      "macros": { "protein": 19, "fat": 34, "carbs": 28, "fiber": 3, "calories": 500 },
+      "build": [
+        { "component": "croissant", "count": 1 },
+        { "component": "sausage patty", "count": 1 },
+        { "component": "egg", "count": 1 },
+        { "component": "american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Bacon, Egg & Cheese Croissan'wich",
+      "aliases": ["bacon egg and cheese croissanwich", "bacon egg cheese croissan'wich", "bacon croissanwich", "bec croissanwich", "bacon egg and cheese croissant"],
+      "macros": { "protein": 15, "fat": 21, "carbs": 28, "fiber": 3, "calories": 360 },
+      "build": [
+        { "component": "croissant", "count": 1 },
+        { "component": "bacon", "count": 0.83 },
+        { "component": "egg", "count": 1 },
+        { "component": "american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Ham, Egg & Cheese Croissan'wich",
+      "aliases": ["ham egg and cheese croissanwich", "ham egg cheese croissan'wich", "ham croissanwich", "ham egg and cheese croissant"],
+      "macros": { "protein": 18, "fat": 19, "carbs": 29, "fiber": 3, "calories": 350 },
+      "build": [
+        { "component": "croissant", "count": 1 },
+        { "component": "ham", "count": 1 },
+        { "component": "egg", "count": 1 },
+        { "component": "american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Egg & Cheese Croissan'wich",
+      "aliases": ["egg and cheese croissanwich", "egg cheese croissan'wich", "egg and cheese croissant", "egg croissanwich"],
+      "macros": { "protein": 12, "fat": 17, "carbs": 28, "fiber": 3, "calories": 310 },
+      "build": [
+        { "component": "croissant", "count": 1 },
+        { "component": "egg", "count": 1 },
+        { "component": "american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Sausage, Egg & Cheese Biscuit",
+      "aliases": ["sausage egg and cheese biscuit", "sausage egg cheese biscuit", "sec biscuit", "sausage egg biscuit"],
+      "macros": { "protein": 20, "fat": 39, "carbs": 32, "fiber": 2, "calories": 560 },
+      "build": [
+        { "component": "biscuit", "count": 1 },
+        { "component": "sausage patty", "count": 1 },
+        { "component": "egg", "count": 1 },
+        { "component": "american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Bacon, Egg & Cheese Biscuit",
+      "aliases": ["bacon egg and cheese biscuit", "bacon egg cheese biscuit", "bec biscuit", "bacon biscuit"],
+      "macros": { "protein": 16, "fat": 26, "carbs": 31, "fiber": 2, "calories": 420 },
+      "build": [
+        { "component": "biscuit", "count": 1 },
+        { "component": "bacon", "count": 0.83 },
+        { "component": "egg", "count": 1 },
+        { "component": "american cheese", "count": 1 }
+      ]
+    },
+    {
+      "name": "Sausage Biscuit",
+      "aliases": ["sausage biscuit", "biscuit with sausage", "bk sausage biscuit"],
+      "macros": { "protein": 12, "fat": 30, "carbs": 30, "fiber": 2, "calories": 440 },
+      "build": [
+        { "component": "biscuit", "count": 1 },
+        { "component": "sausage patty", "count": 1 }
+      ]
+    },
+    {
+      "name": "French Fries, Medium",
+      "aliases": ["fries", "french fries", "medium fries", "medium french fries", "bk fries"],
+      "macros": { "protein": 5, "fat": 17, "carbs": 50, "fiber": 4, "calories": 370 }
+    },
+    {
+      "name": "French Fries, Small",
+      "aliases": ["small fries", "small french fries", "sm fries"],
+      "macros": { "protein": 4, "fat": 13, "carbs": 40, "fiber": 3, "calories": 300 }
+    },
+    {
+      "name": "French Fries, Large",
+      "aliases": ["large fries", "large french fries", "lg fries"],
+      "macros": { "protein": 6, "fat": 20, "carbs": 60, "fiber": 5, "calories": 440 }
+    },
+    {
+      "name": "Onion Rings, Medium",
+      "aliases": ["onion rings", "medium onion rings", "rings", "o-rings", "bk onion rings"],
+      "macros": { "protein": 4, "fat": 13, "carbs": 39, "fiber": 4, "calories": 290 }
+    },
+    {
+      "name": "Chicken Nuggets, 10 Piece",
+      "aliases": ["chicken nuggets", "nuggets", "10 piece chicken nuggets", "10pc nuggets", "bk nuggets", "10 pc nuggets"],
+      "macros": { "protein": 26, "fat": 32, "carbs": 31, "fiber": 11, "calories": 520 }
+    },
+    {
+      "name": "Chicken Nuggets, 6 Piece",
+      "aliases": ["6 piece chicken nuggets", "6pc nuggets", "6 pc nuggets"],
+      "macros": { "protein": 16, "fat": 19, "carbs": 19, "fiber": 6, "calories": 310 }
+    },
+    {
+      "name": "Chicken Fries, 8 Piece",
+      "aliases": ["chicken fries", "8 piece chicken fries", "8pc chicken fries", "chicken fry"],
+      "macros": { "protein": 13, "fat": 12, "carbs": 16, "fiber": 1, "calories": 220 }
+    },
+    {
+      "name": "Hash Browns, Small",
+      "aliases": ["hash browns", "small hash browns", "hashbrowns", "bk hash browns"],
+      "macros": { "protein": 2, "fat": 16, "carbs": 29, "fiber": 3, "calories": 270 }
+    }
+  ]
+}

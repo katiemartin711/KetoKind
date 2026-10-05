@@ -1,0 +1,1791 @@
+{
+  "chain": "Starbucks",
+  "aliases": [
+    "starbucks",
+    "starbucks coffee",
+    "sbux",
+    "starbuck",
+    "star bucks",
+    "starbux",
+    "starbs"
+  ],
+  "source": "https://www.starbucks.com/menu",
+  "retrieved": "2026-10-05",
+  "notes": [
+    "All figures transcribed from the nutrition panels on starbucks.com product pages (www.starbucks.com/menu/product/<id>/<hot|iced|single>/nutrition), 2026-10-05. Drinks are Grande (16 fl oz) with the standard recipe and default milk (2% for lattes/mochas; coconutmilk for Pink Drink and Dragon Drink; oatmilk for the Brown Sugar Shaken Espresso); Espresso is listed Solo and Doppio; Cortado is Short only. Food is one serving as sold.",
+    "Starbucks does not publish per-pump syrup or per-splash milk nutrition on starbucks.com (the site recalculates customized drinks as a whole), so no per-unit syrup or alternative-milk components are included. The latte milk, sweet-cream, cold-foam and sauce components here are derived by subtracting one published grande drink from another (see each component's \"derived\"); builds are only given where that subtraction is clean (lattes, mochas, PSL, cold brews, Americano).",
+    "Omitted: Trenta/Venti sizes, seasonal and limited items beyond Pumpkin Spice Latte and Pumpkin Cream Cold Brew, protein beverages, energy refreshers, bottled drinks, packaged snacks, lunch boxes."
+  ],
+  "components": {
+    "espresso shot": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "brewed coffee (grande)": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 5
+    },
+    "cold brew (grande, black)": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 5
+    },
+    "nitro cold brew (grande, black)": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 5
+    },
+    "iced coffee (grande, unsweetened)": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 5
+    },
+    "steamed 2% milk (grande latte portion)": {
+      "unit": "each",
+      "protein": 12,
+      "fat": 7,
+      "carbs": 17,
+      "fiber": 0,
+      "calories": 180,
+      "derived": "Caffè Latte (Grande) minus Espresso Doppio"
+    },
+    "cold 2% milk (grande iced latte portion)": {
+      "unit": "each",
+      "protein": 7,
+      "fat": 4.5,
+      "carbs": 11,
+      "fiber": 0,
+      "calories": 120,
+      "derived": "Iced Caffè Latte (Grande) minus Espresso Doppio"
+    },
+    "vanilla sweet cream (grande cold brew portion)": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 5,
+      "carbs": 14,
+      "fiber": 0,
+      "calories": 105,
+      "derived": "Vanilla Sweet Cream Cold Brew (Grande) minus Cold Brew (Grande)"
+    },
+    "pumpkin cream cold foam with vanilla syrup (grande)": {
+      "unit": "each",
+      "protein": 3,
+      "fat": 12,
+      "carbs": 31,
+      "fiber": 0,
+      "calories": 245,
+      "derived": "Pumpkin Cream Cold Brew (Grande) minus Cold Brew (Grande)"
+    },
+    "salted caramel cream cold foam with syrups (grande)": {
+      "unit": "each",
+      "protein": 2,
+      "fat": 14,
+      "carbs": 26,
+      "fiber": 0,
+      "calories": 235,
+      "derived": "Salted Caramel Cream Cold Brew (Grande) minus Cold Brew (Grande)"
+    },
+    "mocha sauce and whipped cream (grande)": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 8,
+      "carbs": 24,
+      "fiber": 4,
+      "calories": 180,
+      "derived": "Caffè Mocha (Grande) minus Caffè Latte (Grande)"
+    },
+    "white chocolate mocha sauce and whipped cream (grande)": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 10,
+      "carbs": 28,
+      "fiber": 0,
+      "calories": 200,
+      "derived": "White Chocolate Mocha (Grande) minus Caffè Latte (Grande)"
+    },
+    "pumpkin spice sauce and whipped cream (grande)": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 7,
+      "carbs": 33,
+      "fiber": 0,
+      "calories": 200,
+      "derived": "Pumpkin Spice Latte (Grande) minus Caffè Latte (Grande)"
+    },
+    "cinnamon dolce syrup and whipped cream (grande)": {
+      "unit": "each",
+      "protein": 0,
+      "fat": 7,
+      "carbs": 24,
+      "fiber": 0,
+      "calories": 150,
+      "derived": "Cinnamon Dolce Latte (Grande) minus Caffè Latte (Grande)"
+    },
+    "plain bagel": {
+      "unit": "each",
+      "protein": 9,
+      "fat": 1,
+      "carbs": 51,
+      "fiber": 2,
+      "calories": 250
+    },
+    "everything bagel": {
+      "unit": "each",
+      "protein": 10,
+      "fat": 2.5,
+      "carbs": 52,
+      "fiber": 2,
+      "calories": 270
+    },
+    "avocado spread": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 8,
+      "carbs": 5,
+      "fiber": 4,
+      "calories": 90
+    }
+  },
+  "items": [
+    {
+      "name": "Pike Place Roast (Grande)",
+      "aliases": [
+        "pike place",
+        "pike place roast",
+        "medium roast coffee",
+        "brewed coffee",
+        "drip coffee",
+        "black coffee",
+        "coffee",
+        "grande coffee",
+        "regular coffee",
+        "hot coffee"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0,
+        "carbs": 0,
+        "fiber": 0,
+        "calories": 5
+      },
+      "build": [
+        {
+          "component": "brewed coffee (grande)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Blonde Roast (Grande)",
+      "aliases": [
+        "blonde roast",
+        "blonde roast coffee",
+        "sunsera",
+        "blonde coffee",
+        "light roast coffee"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0,
+        "carbs": 0,
+        "fiber": 0,
+        "calories": 5
+      },
+      "build": [
+        {
+          "component": "brewed coffee (grande)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Dark Roast (Grande)",
+      "aliases": [
+        "dark roast",
+        "dark roast coffee",
+        "1971 roast",
+        "featured dark roast",
+        "bold coffee"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0,
+        "carbs": 0,
+        "fiber": 0,
+        "calories": 5
+      },
+      "build": [
+        {
+          "component": "brewed coffee (grande)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Decaf Pike Place Roast (Grande)",
+      "aliases": [
+        "decaf",
+        "decaf coffee",
+        "decaf pike place",
+        "decaf pike"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0,
+        "carbs": 0,
+        "fiber": 0,
+        "calories": 5
+      },
+      "build": [
+        {
+          "component": "brewed coffee (grande)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Caffè Misto (Grande)",
+      "aliases": [
+        "caffe misto",
+        "misto",
+        "cafe misto",
+        "cafe au lait"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 4,
+        "carbs": 10,
+        "fiber": 0,
+        "calories": 110
+      }
+    },
+    {
+      "name": "Caffè Americano (Grande)",
+      "aliases": [
+        "americano",
+        "caffe americano",
+        "cafe americano",
+        "hot americano",
+        "grande americano"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 15
+      },
+      "build": [
+        {
+          "component": "espresso shot",
+          "count": 3
+        }
+      ],
+      "note": "Grande Americano is 3 shots with hot water."
+    },
+    {
+      "name": "Iced Caffè Americano (Grande)",
+      "aliases": [
+        "iced americano",
+        "iced caffe americano",
+        "ice americano",
+        "grande iced americano"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 15
+      },
+      "build": [
+        {
+          "component": "espresso shot",
+          "count": 3
+        }
+      ],
+      "note": "Grande Iced Americano is 3 shots with water and ice."
+    },
+    {
+      "name": "Espresso (Solo)",
+      "aliases": [
+        "espresso",
+        "espresso solo",
+        "solo espresso",
+        "single espresso",
+        "shot of espresso",
+        "single shot"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 1,
+        "fiber": 0,
+        "calories": 5
+      },
+      "build": [
+        {
+          "component": "espresso shot",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Espresso (Doppio)",
+      "aliases": [
+        "doppio",
+        "double espresso",
+        "espresso doppio",
+        "double shot",
+        "two shots"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 10
+      },
+      "build": [
+        {
+          "component": "espresso shot",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Espresso Macchiato (Doppio)",
+      "aliases": [
+        "espresso macchiato",
+        "doppio macchiato",
+        "macchiato"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 0,
+        "carbs": 2,
+        "fiber": 0,
+        "calories": 15
+      }
+    },
+    {
+      "name": "Caffè Latte (Grande)",
+      "aliases": [
+        "latte",
+        "caffe latte",
+        "cafe latte",
+        "grande latte",
+        "hot latte",
+        "plain latte"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 7,
+        "carbs": 19,
+        "fiber": 0,
+        "calories": 190
+      },
+      "build": [
+        {
+          "component": "espresso shot",
+          "count": 2
+        },
+        {
+          "component": "steamed 2% milk (grande latte portion)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Caffè Latte (Grande)",
+      "aliases": [
+        "iced latte",
+        "iced caffe latte",
+        "ice latte",
+        "grande iced latte"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 4.5,
+        "carbs": 13,
+        "fiber": 0,
+        "calories": 130
+      },
+      "build": [
+        {
+          "component": "espresso shot",
+          "count": 2
+        },
+        {
+          "component": "cold 2% milk (grande iced latte portion)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cappuccino (Grande)",
+      "aliases": [
+        "cappuccino",
+        "capuccino",
+        "grande cappuccino",
+        "cap"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 5,
+        "carbs": 14,
+        "fiber": 0,
+        "calories": 140
+      }
+    },
+    {
+      "name": "Flat White (Grande)",
+      "aliases": [
+        "flat white",
+        "grande flat white"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 11,
+        "carbs": 18,
+        "fiber": 0,
+        "calories": 220
+      }
+    },
+    {
+      "name": "Cortado (Short)",
+      "aliases": [
+        "cortado",
+        "starbucks cortado"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 4.5,
+        "carbs": 8,
+        "fiber": 0,
+        "calories": 90
+      },
+      "note": "Cortado is offered in Short (8 fl oz) only."
+    },
+    {
+      "name": "Caffè Mocha (Grande)",
+      "aliases": [
+        "mocha",
+        "caffe mocha",
+        "cafe mocha",
+        "hot mocha",
+        "grande mocha",
+        "chocolate mocha"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 15,
+        "carbs": 43,
+        "fiber": 4,
+        "calories": 370
+      },
+      "build": [
+        {
+          "component": "espresso shot",
+          "count": 2
+        },
+        {
+          "component": "steamed 2% milk (grande latte portion)",
+          "count": 1
+        },
+        {
+          "component": "mocha sauce and whipped cream (grande)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Caffè Mocha (Grande)",
+      "aliases": [
+        "iced mocha",
+        "iced caffe mocha",
+        "ice mocha"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 17,
+        "carbs": 38,
+        "fiber": 4,
+        "calories": 350
+      }
+    },
+    {
+      "name": "White Chocolate Mocha (Grande)",
+      "aliases": [
+        "white chocolate mocha",
+        "white mocha",
+        "hot white mocha",
+        "wcm"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 17,
+        "carbs": 47,
+        "fiber": 0,
+        "calories": 390
+      },
+      "build": [
+        {
+          "component": "espresso shot",
+          "count": 2
+        },
+        {
+          "component": "steamed 2% milk (grande latte portion)",
+          "count": 1
+        },
+        {
+          "component": "white chocolate mocha sauce and whipped cream (grande)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced White Chocolate Mocha (Grande)",
+      "aliases": [
+        "iced white chocolate mocha",
+        "iced white mocha"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 20,
+        "carbs": 44,
+        "fiber": 0,
+        "calories": 390
+      }
+    },
+    {
+      "name": "Caramel Macchiato (Grande)",
+      "aliases": [
+        "caramel macchiato",
+        "hot caramel macchiato",
+        "caramel mac"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 7,
+        "carbs": 35,
+        "fiber": 0,
+        "calories": 250
+      }
+    },
+    {
+      "name": "Iced Caramel Macchiato (Grande)",
+      "aliases": [
+        "iced caramel macchiato",
+        "iced caramel mac",
+        "ice caramel macchiato"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 7,
+        "carbs": 37,
+        "fiber": 0,
+        "calories": 250
+      }
+    },
+    {
+      "name": "Pumpkin Spice Latte (Grande)",
+      "aliases": [
+        "pumpkin spice latte",
+        "psl",
+        "pumpkin latte",
+        "hot psl",
+        "pumpkin spice"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 14,
+        "carbs": 52,
+        "fiber": 0,
+        "calories": 390
+      },
+      "build": [
+        {
+          "component": "espresso shot",
+          "count": 2
+        },
+        {
+          "component": "steamed 2% milk (grande latte portion)",
+          "count": 1
+        },
+        {
+          "component": "pumpkin spice sauce and whipped cream (grande)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Pumpkin Spice Latte (Grande)",
+      "aliases": [
+        "iced pumpkin spice latte",
+        "iced psl",
+        "iced pumpkin latte"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 16,
+        "carbs": 47,
+        "fiber": 0,
+        "calories": 370
+      }
+    },
+    {
+      "name": "Cinnamon Dolce Latte (Grande)",
+      "aliases": [
+        "cinnamon dolce latte",
+        "cinnamon dolce",
+        "cinnamon latte"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 14,
+        "carbs": 43,
+        "fiber": 0,
+        "calories": 340
+      },
+      "build": [
+        {
+          "component": "espresso shot",
+          "count": 2
+        },
+        {
+          "component": "steamed 2% milk (grande latte portion)",
+          "count": 1
+        },
+        {
+          "component": "cinnamon dolce syrup and whipped cream (grande)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Starbucks Blonde Vanilla Latte (Grande)",
+      "aliases": [
+        "blonde vanilla latte",
+        "vanilla latte",
+        "blonde vanilla",
+        "vanilla blonde latte"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 6,
+        "carbs": 37,
+        "fiber": 0,
+        "calories": 250
+      }
+    },
+    {
+      "name": "Cold Brew (Grande)",
+      "aliases": [
+        "cold brew",
+        "cold brew coffee",
+        "black cold brew",
+        "grande cold brew",
+        "plain cold brew",
+        "unsweetened cold brew"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 0,
+        "fiber": 0,
+        "calories": 5
+      },
+      "build": [
+        {
+          "component": "cold brew (grande, black)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Nitro Cold Brew (Grande)",
+      "aliases": [
+        "nitro cold brew",
+        "nitro",
+        "nitro coffee"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 0,
+        "fiber": 0,
+        "calories": 5
+      },
+      "build": [
+        {
+          "component": "nitro cold brew (grande, black)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Vanilla Sweet Cream Cold Brew (Grande)",
+      "aliases": [
+        "vanilla sweet cream cold brew",
+        "sweet cream cold brew",
+        "vscb",
+        "vanilla sweet cream",
+        "cold brew with sweet cream"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 5,
+        "carbs": 14,
+        "fiber": 0,
+        "calories": 110
+      },
+      "build": [
+        {
+          "component": "cold brew (grande, black)",
+          "count": 1
+        },
+        {
+          "component": "vanilla sweet cream (grande cold brew portion)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Pumpkin Cream Cold Brew (Grande)",
+      "aliases": [
+        "pumpkin cream cold brew",
+        "pumpkin cold brew",
+        "pccb",
+        "pumpkin cold foam cold brew"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 12,
+        "carbs": 31,
+        "fiber": 0,
+        "calories": 250
+      },
+      "build": [
+        {
+          "component": "cold brew (grande, black)",
+          "count": 1
+        },
+        {
+          "component": "pumpkin cream cold foam with vanilla syrup (grande)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Salted Caramel Cream Cold Brew (Grande)",
+      "aliases": [
+        "salted caramel cream cold brew",
+        "salted caramel cold brew",
+        "salted caramel cold foam cold brew"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 14,
+        "carbs": 26,
+        "fiber": 0,
+        "calories": 240
+      },
+      "build": [
+        {
+          "component": "cold brew (grande, black)",
+          "count": 1
+        },
+        {
+          "component": "salted caramel cream cold foam with syrups (grande)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Iced Coffee (Grande, unsweetened)",
+      "aliases": [
+        "iced coffee",
+        "unsweetened iced coffee",
+        "black iced coffee",
+        "ice coffee",
+        "grande iced coffee"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 0,
+        "fiber": 0,
+        "calories": 5
+      },
+      "build": [
+        {
+          "component": "iced coffee (grande, unsweetened)",
+          "count": 1
+        }
+      ],
+      "note": "Default Iced Coffee is now served unsweetened; add classic syrup separately."
+    },
+    {
+      "name": "Iced Shaken Espresso (Grande)",
+      "aliases": [
+        "iced shaken espresso",
+        "shaken espresso",
+        "doubleshot on ice",
+        "iced doubleshot"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 2,
+        "carbs": 17,
+        "fiber": 0,
+        "calories": 100
+      }
+    },
+    {
+      "name": "Iced Brown Sugar Oatmilk Shaken Espresso (Grande)",
+      "aliases": [
+        "iced brown sugar oatmilk shaken espresso",
+        "brown sugar shaken espresso",
+        "brown sugar oatmilk shaken espresso",
+        "brown sugar espresso",
+        "bsose"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 4.5,
+        "carbs": 27,
+        "fiber": 2,
+        "calories": 150
+      }
+    },
+    {
+      "name": "Chai Latte (Grande)",
+      "aliases": [
+        "chai latte",
+        "chai tea latte",
+        "chai",
+        "hot chai",
+        "hot chai latte"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 4.5,
+        "carbs": 33,
+        "fiber": 0,
+        "calories": 200
+      }
+    },
+    {
+      "name": "Iced Chai Latte (Grande)",
+      "aliases": [
+        "iced chai latte",
+        "iced chai",
+        "iced chai tea latte"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 3.5,
+        "carbs": 32,
+        "fiber": 0,
+        "calories": 190
+      }
+    },
+    {
+      "name": "Matcha Latte (Grande)",
+      "aliases": [
+        "matcha latte",
+        "matcha tea latte",
+        "hot matcha",
+        "matcha",
+        "green tea latte"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 6,
+        "carbs": 31,
+        "fiber": 1,
+        "calories": 220
+      }
+    },
+    {
+      "name": "Iced Matcha Latte (Grande)",
+      "aliases": [
+        "iced matcha latte",
+        "iced matcha",
+        "iced green tea latte",
+        "iced matcha tea latte"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 5,
+        "carbs": 27,
+        "fiber": 1,
+        "calories": 190
+      }
+    },
+    {
+      "name": "London Fog Latte (Grande)",
+      "aliases": [
+        "london fog",
+        "london fog latte",
+        "earl grey latte"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 4,
+        "carbs": 29,
+        "fiber": 0,
+        "calories": 180
+      }
+    },
+    {
+      "name": "Honey Citrus Mint Tea (Grande)",
+      "aliases": [
+        "honey citrus mint tea",
+        "medicine ball",
+        "honey citrus mint",
+        "cold buster"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 33,
+        "fiber": 0,
+        "calories": 130
+      }
+    },
+    {
+      "name": "Iced Black Tea (Grande, unsweetened)",
+      "aliases": [
+        "iced black tea",
+        "unsweetened iced black tea",
+        "black iced tea",
+        "iced tea",
+        "unsweetened iced tea"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 0,
+        "fiber": 0,
+        "calories": 0
+      }
+    },
+    {
+      "name": "Iced Green Tea (Grande, unsweetened)",
+      "aliases": [
+        "iced green tea",
+        "unsweetened iced green tea",
+        "green iced tea"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 0,
+        "fiber": 0,
+        "calories": 0
+      }
+    },
+    {
+      "name": "Iced Passion Tango Tea (Grande, unsweetened)",
+      "aliases": [
+        "iced passion tango tea",
+        "passion tango tea",
+        "passion tea",
+        "passion iced tea",
+        "unsweetened passion tea"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 1,
+        "fiber": 0,
+        "calories": 5
+      }
+    },
+    {
+      "name": "Pink Drink (Grande)",
+      "aliases": [
+        "pink drink",
+        "strawberry acai with coconut milk",
+        "pink drink refresher"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 2.5,
+        "carbs": 28,
+        "fiber": 1,
+        "calories": 140
+      }
+    },
+    {
+      "name": "Dragon Drink (Grande)",
+      "aliases": [
+        "dragon drink",
+        "mango dragonfruit with coconut milk",
+        "dragonfruit drink"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 3,
+        "carbs": 27,
+        "fiber": 1,
+        "calories": 140
+      }
+    },
+    {
+      "name": "Strawberry Açaí Refresher (Grande)",
+      "aliases": [
+        "strawberry acai refresher",
+        "strawberry acai",
+        "strawberry refresher",
+        "strawberry açaí refresher"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 23,
+        "fiber": 1,
+        "calories": 90
+      }
+    },
+    {
+      "name": "Mango Dragonfruit Refresher (Grande)",
+      "aliases": [
+        "mango dragonfruit refresher",
+        "mango dragonfruit",
+        "dragonfruit refresher",
+        "mango refresher"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 22,
+        "fiber": 0,
+        "calories": 90
+      }
+    },
+    {
+      "name": "Strawberry Açaí Lemonade Refresher (Grande)",
+      "aliases": [
+        "strawberry acai lemonade",
+        "strawberry acai lemonade refresher",
+        "strawberry lemonade refresher"
+      ],
+      "macros": {
+        "protein": 0,
+        "fat": 0,
+        "carbs": 35,
+        "fiber": 1,
+        "calories": 140
+      }
+    },
+    {
+      "name": "Caramel Frappuccino (Grande)",
+      "aliases": [
+        "caramel frappuccino",
+        "caramel frap",
+        "caramel frappe",
+        "caramel frapp"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 16,
+        "carbs": 55,
+        "fiber": 0,
+        "calories": 380
+      }
+    },
+    {
+      "name": "Mocha Frappuccino (Grande)",
+      "aliases": [
+        "mocha frappuccino",
+        "mocha frap",
+        "mocha frappe",
+        "mocha frapp"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 15,
+        "carbs": 54,
+        "fiber": 1,
+        "calories": 370
+      }
+    },
+    {
+      "name": "Coffee Frappuccino (Grande)",
+      "aliases": [
+        "coffee frappuccino",
+        "coffee frap",
+        "coffee frappe",
+        "frappuccino",
+        "frap",
+        "frappe"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 3,
+        "carbs": 46,
+        "fiber": 0,
+        "calories": 230
+      }
+    },
+    {
+      "name": "Vanilla Bean Crème Frappuccino (Grande)",
+      "aliases": [
+        "vanilla bean frappuccino",
+        "vanilla bean creme frappuccino",
+        "vanilla bean frap",
+        "vanilla frappuccino",
+        "vanilla bean crème frappuccino"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 16,
+        "carbs": 53,
+        "fiber": 0,
+        "calories": 380
+      }
+    },
+    {
+      "name": "Caramel Ribbon Crunch Frappuccino (Grande)",
+      "aliases": [
+        "caramel ribbon crunch frappuccino",
+        "caramel ribbon crunch",
+        "caramel crunch frap"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 22,
+        "carbs": 65,
+        "fiber": 0,
+        "calories": 470
+      }
+    },
+    {
+      "name": "Mocha Cookie Crumble Frappuccino (Grande)",
+      "aliases": [
+        "mocha cookie crumble frappuccino",
+        "mocha cookie crumble",
+        "cookie crumble frap"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 24,
+        "carbs": 62,
+        "fiber": 2,
+        "calories": 480
+      }
+    },
+    {
+      "name": "Hot Chocolate (Grande)",
+      "aliases": [
+        "hot chocolate",
+        "hot cocoa",
+        "grande hot chocolate",
+        "cocoa"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 16,
+        "carbs": 43,
+        "fiber": 4,
+        "calories": 370
+      }
+    },
+    {
+      "name": "Bacon & Gruyère Egg Bites",
+      "aliases": [
+        "bacon and gruyere egg bites",
+        "bacon gruyere egg bites",
+        "bacon egg bites",
+        "egg bites",
+        "sous vide egg bites",
+        "bacon and gruyère egg bites"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 20,
+        "carbs": 9,
+        "fiber": 0,
+        "calories": 300
+      },
+      "note": "Two egg bites per serving."
+    },
+    {
+      "name": "Egg White & Roasted Red Pepper Egg Bites",
+      "aliases": [
+        "egg white and roasted red pepper egg bites",
+        "egg white egg bites",
+        "red pepper egg bites",
+        "egg white bites",
+        "egg white and red pepper egg bites"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 8,
+        "carbs": 11,
+        "fiber": 0,
+        "calories": 170
+      },
+      "note": "Two egg bites per serving."
+    },
+    {
+      "name": "Potato, Cheddar & Chive Bakes",
+      "aliases": [
+        "potato cheddar and chive bakes",
+        "potato cheddar chive bakes",
+        "potato bakes",
+        "cheddar chive bakes"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 14,
+        "carbs": 14,
+        "fiber": 6,
+        "calories": 240
+      }
+    },
+    {
+      "name": "Double-Smoked Bacon, Cheddar & Egg Sandwich",
+      "aliases": [
+        "double smoked bacon cheddar and egg sandwich",
+        "double smoked bacon sandwich",
+        "double-smoked bacon sandwich",
+        "bacon cheddar egg sandwich",
+        "double smoked bacon"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 27,
+        "carbs": 43,
+        "fiber": 2,
+        "calories": 500
+      }
+    },
+    {
+      "name": "Bacon, Gouda & Egg Sandwich",
+      "aliases": [
+        "bacon gouda and egg sandwich",
+        "bacon gouda sandwich",
+        "bacon gouda",
+        "bacon gouda egg"
+      ],
+      "macros": {
+        "protein": 18,
+        "fat": 18,
+        "carbs": 35,
+        "fiber": 1,
+        "calories": 360
+      }
+    },
+    {
+      "name": "Sausage, Cheddar & Egg Sandwich",
+      "aliases": [
+        "sausage cheddar and egg sandwich",
+        "sausage cheddar egg sandwich",
+        "sausage egg sandwich",
+        "sausage sandwich",
+        "sausage cheddar"
+      ],
+      "macros": {
+        "protein": 18,
+        "fat": 29,
+        "carbs": 34,
+        "fiber": 1,
+        "calories": 480
+      }
+    },
+    {
+      "name": "Turkey Bacon, Cheddar & Egg White Sandwich",
+      "aliases": [
+        "turkey bacon cheddar and egg white sandwich",
+        "turkey bacon sandwich",
+        "turkey bacon egg white sandwich",
+        "egg white sandwich",
+        "turkey bacon"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 9,
+        "carbs": 30,
+        "fiber": 2,
+        "calories": 260
+      }
+    },
+    {
+      "name": "Egg, Pesto & Mozzarella Sandwich",
+      "aliases": [
+        "egg pesto and mozzarella sandwich",
+        "egg pesto mozzarella sandwich",
+        "pesto egg sandwich",
+        "pesto mozzarella sandwich"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 16,
+        "carbs": 36,
+        "fiber": 2,
+        "calories": 390
+      }
+    },
+    {
+      "name": "Impossible Breakfast Sandwich",
+      "aliases": [
+        "impossible breakfast sandwich",
+        "impossible sandwich",
+        "impossible sausage sandwich",
+        "plant based breakfast sandwich"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 22,
+        "carbs": 36,
+        "fiber": 3,
+        "calories": 420
+      }
+    },
+    {
+      "name": "Bacon, Sausage & Egg Wrap",
+      "aliases": [
+        "bacon sausage and egg wrap",
+        "bacon sausage egg wrap",
+        "breakfast wrap",
+        "bacon sausage wrap"
+      ],
+      "macros": {
+        "protein": 27,
+        "fat": 33,
+        "carbs": 57,
+        "fiber": 2,
+        "calories": 640
+      }
+    },
+    {
+      "name": "Spinach, Feta & Egg White Wrap",
+      "aliases": [
+        "spinach feta and egg white wrap",
+        "spinach feta wrap",
+        "spinach feta egg white wrap",
+        "egg white wrap",
+        "spinach wrap",
+        "feta wrap"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 8,
+        "carbs": 34,
+        "fiber": 3,
+        "calories": 290
+      }
+    },
+    {
+      "name": "Rolled & Steel-Cut Oatmeal",
+      "aliases": [
+        "oatmeal",
+        "rolled and steel cut oatmeal",
+        "steel cut oatmeal",
+        "classic oatmeal",
+        "plain oatmeal"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 2.5,
+        "carbs": 28,
+        "fiber": 4,
+        "calories": 160
+      },
+      "note": "Oatmeal only; toppings (nuts, brown sugar, dried fruit) are not included."
+    },
+    {
+      "name": "Avocado Spread",
+      "aliases": [
+        "avocado spread",
+        "avocado",
+        "side of avocado spread"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 8,
+        "carbs": 5,
+        "fiber": 4,
+        "calories": 90
+      },
+      "build": [
+        {
+          "component": "avocado spread",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Plain Bagel",
+      "aliases": [
+        "plain bagel",
+        "bagel"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 1,
+        "carbs": 51,
+        "fiber": 2,
+        "calories": 250
+      },
+      "build": [
+        {
+          "component": "plain bagel",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Everything Bagel",
+      "aliases": [
+        "everything bagel"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 2.5,
+        "carbs": 52,
+        "fiber": 2,
+        "calories": 270
+      },
+      "build": [
+        {
+          "component": "everything bagel",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Plain Bagel with Avocado Spread",
+      "aliases": [
+        "plain bagel with avocado spread",
+        "bagel with avocado",
+        "bagel and avocado spread",
+        "avocado bagel"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 9,
+        "carbs": 56,
+        "fiber": 6,
+        "calories": 340
+      },
+      "build": [
+        {
+          "component": "plain bagel",
+          "count": 1
+        },
+        {
+          "component": "avocado spread",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published Plain Bagel and Avocado Spread."
+    },
+    {
+      "name": "Everything Bagel with Avocado Spread",
+      "aliases": [
+        "everything bagel with avocado spread",
+        "everything bagel with avocado",
+        "everything bagel and avocado spread"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 10.5,
+        "carbs": 57,
+        "fiber": 6,
+        "calories": 360
+      },
+      "build": [
+        {
+          "component": "everything bagel",
+          "count": 1
+        },
+        {
+          "component": "avocado spread",
+          "count": 1
+        }
+      ],
+      "note": "Macros are the sum of the published Everything Bagel and Avocado Spread."
+    },
+    {
+      "name": "Butter Croissant",
+      "aliases": [
+        "butter croissant",
+        "croissant",
+        "plain croissant"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 14,
+        "carbs": 26,
+        "fiber": 1,
+        "calories": 250
+      }
+    },
+    {
+      "name": "Chocolate Croissant",
+      "aliases": [
+        "chocolate croissant",
+        "pain au chocolat",
+        "choc croissant"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 18,
+        "carbs": 34,
+        "fiber": 2,
+        "calories": 300
+      }
+    },
+    {
+      "name": "Ham & Swiss Croissant",
+      "aliases": [
+        "ham and swiss croissant",
+        "ham swiss croissant",
+        "ham and cheese croissant",
+        "ham croissant"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 16,
+        "carbs": 31,
+        "fiber": 2,
+        "calories": 330
+      }
+    },
+    {
+      "name": "Cheese Danish",
+      "aliases": [
+        "cheese danish",
+        "danish"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 14,
+        "carbs": 33,
+        "fiber": 1,
+        "calories": 290
+      }
+    },
+    {
+      "name": "Blueberry Streusel Muffin",
+      "aliases": [
+        "blueberry streusel muffin",
+        "blueberry muffin",
+        "muffin"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 18,
+        "carbs": 47,
+        "fiber": 1,
+        "calories": 370
+      }
+    },
+    {
+      "name": "Pumpkin Cream Cheese Muffin",
+      "aliases": [
+        "pumpkin cream cheese muffin",
+        "pumpkin muffin"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 14,
+        "carbs": 53,
+        "fiber": 1,
+        "calories": 350
+      }
+    },
+    {
+      "name": "Petite Vanilla Bean Scone",
+      "aliases": [
+        "petite vanilla bean scone",
+        "vanilla bean scone",
+        "vanilla scone",
+        "petite scone",
+        "mini scone"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 6,
+        "carbs": 20,
+        "fiber": 0,
+        "calories": 140
+      }
+    },
+    {
+      "name": "Banana, Walnut & Pecan Loaf",
+      "aliases": [
+        "banana walnut and pecan loaf",
+        "banana bread",
+        "banana loaf",
+        "banana nut bread",
+        "banana walnut loaf"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 20,
+        "carbs": 46,
+        "fiber": 2,
+        "calories": 380
+      }
+    },
+    {
+      "name": "Iced Lemon Loaf",
+      "aliases": [
+        "iced lemon loaf",
+        "lemon loaf",
+        "lemon pound cake",
+        "lemon cake",
+        "lemon bread"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 17,
+        "carbs": 59,
+        "fiber": 1,
+        "calories": 410
+      }
+    },
+    {
+      "name": "Pumpkin & Pepita Loaf",
+      "aliases": [
+        "pumpkin and pepita loaf",
+        "pumpkin loaf",
+        "pumpkin bread",
+        "pumpkin pepita loaf"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 14,
+        "carbs": 52,
+        "fiber": 2,
+        "calories": 360
+      }
+    },
+    {
+      "name": "Cinnamon Coffee Cake",
+      "aliases": [
+        "cinnamon coffee cake",
+        "coffee cake"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 15,
+        "carbs": 57,
+        "fiber": 1,
+        "calories": 380
+      }
+    },
+    {
+      "name": "Cinnamon Pull-Apart",
+      "aliases": [
+        "cinnamon pull apart",
+        "cinnamon pull-apart",
+        "pull apart"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 13,
+        "carbs": 38,
+        "fiber": 0,
+        "calories": 300
+      }
+    },
+    {
+      "name": "Chocolate Chip Cookie",
+      "aliases": [
+        "chocolate chip cookie",
+        "cookie",
+        "choc chip cookie"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 19,
+        "carbs": 47,
+        "fiber": 2,
+        "calories": 370
+      }
+    },
+    {
+      "name": "Double Chocolate Brownie",
+      "aliases": [
+        "double chocolate brownie",
+        "brownie",
+        "chocolate brownie"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 28,
+        "carbs": 55,
+        "fiber": 3,
+        "calories": 480
+      }
+    },
+    {
+      "name": "Birthday Cake Pop",
+      "aliases": [
+        "birthday cake pop",
+        "cake pop",
+        "pink cake pop",
+        "vanilla cake pop"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 8,
+        "carbs": 21,
+        "fiber": 0,
+        "calories": 160
+      }
+    },
+    {
+      "name": "Chocolate Cake Pop",
+      "aliases": [
+        "chocolate cake pop"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 8,
+        "carbs": 21,
+        "fiber": 1,
+        "calories": 150
+      }
+    },
+    {
+      "name": "Crispy Grilled Cheese on Sourdough",
+      "aliases": [
+        "crispy grilled cheese on sourdough",
+        "grilled cheese",
+        "sourdough grilled cheese"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 27,
+        "carbs": 47,
+        "fiber": 4,
+        "calories": 520
+      }
+    }
+  ]
+}

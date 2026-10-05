@@ -1,0 +1,3621 @@
+{
+  "chain": "Rubio's Coastal Grill",
+  "aliases": [
+    "rubio's",
+    "rubios",
+    "rubio's coastal grill",
+    "rubios coastal grill",
+    "rubio"
+  ],
+  "source": "https://rubios.com/wp-content/uploads/2026/05/2026-Nutrition-and-Allergen-Guide-1.pdf",
+  "retrieved": "2026-10-05",
+  "notes": [
+    "Figures transcribed from the 2026 Nutrition and Allergen Guide PDF (May 2026 upload, labelled \"April 2025\" inside) linked from https://rubios.com/nutrition-allergen/. The guide lists whole items plus \"Add\" proteins, sides, dressings and sauces; it does not publish tortillas, cheese, pico, cabbage, bacon or crema portions inside items, so those are not components.",
+    "Bowl and salad rows in the guide are 1 serving without protein (the menu calorie ranges equal base + Add protein). Items named \"... with <protein>\" sum the published base and the published Add protein.",
+    "Burrito bases are published burritos minus their published Add protein; see each component's \"derived\".",
+    "Sour Cream (90 kcal, 7 g fat, 1 g carb, 1 g protein) and the Gluten-free Honduran Chocolate Brownie (350 kcal, 18/61/4) are omitted because their published calories differ from their macros by more than 20%.",
+    "Langostino Lobster items carry their own \"source\": they appear only in the February 2026 guide."
+  ],
+  "components": {
+    "grilled chicken": {
+      "unit": "each",
+      "protein": 27,
+      "fat": 2,
+      "carbs": 3,
+      "fiber": 0,
+      "calories": 140,
+      "note": "Add Grilled All Natural Chicken, 3.9 oz"
+    },
+    "grilled steak": {
+      "unit": "each",
+      "protein": 31,
+      "fat": 9,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 200,
+      "note": "Add All Natural Steak, 3.9 oz. Guide lists total fat 3.5 g but 80 calories from fat and 200 kcal; fat taken as 80/9 = 9 g (consistent with steak-vs-chicken burrito differences). Listed fiber 1 g set to 0 because carbs are 0."
+    },
+    "pan-seared shrimp": {
+      "unit": "each",
+      "protein": 12,
+      "fat": 2.5,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 70,
+      "note": "Add Pan-Seared Shrimp, 10 shrimp"
+    },
+    "beer-battered fish": {
+      "unit": "each",
+      "protein": 13,
+      "fat": 24,
+      "carbs": 16,
+      "fiber": 1,
+      "calories": 330,
+      "note": "Add Battered Fish, 2 pieces / 3.6 oz (wild Alaska pollock)"
+    },
+    "grilled mahi mahi": {
+      "unit": "each",
+      "protein": 22,
+      "fat": 3,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 110,
+      "note": "Add Grilled Wild Mahi Mahi, 2 pieces / 3 oz"
+    },
+    "blackened mahi mahi": {
+      "unit": "each",
+      "protein": 22,
+      "fat": 3.5,
+      "carbs": 5,
+      "fiber": 2,
+      "calories": 140,
+      "note": "Add Blackened Wild Mahi Mahi, 2 pieces / 3 oz"
+    },
+    "grilled salmon": {
+      "unit": "each",
+      "protein": 24,
+      "fat": 7,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 150,
+      "note": "Add Grilled Salmon, 2 pieces / 3 oz"
+    },
+    "blackened salmon": {
+      "unit": "each",
+      "protein": 24,
+      "fat": 7,
+      "carbs": 4,
+      "fiber": 1,
+      "calories": 170,
+      "note": "Add Blackened Salmon, 2 pieces / 3 oz"
+    },
+    "roasted sweet potato": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 10,
+      "carbs": 19,
+      "fiber": 1,
+      "calories": 170,
+      "note": "Add Roasted Sweet Potato, 3 oz"
+    },
+    "black beans": {
+      "unit": "scoop",
+      "protein": 12,
+      "fat": 2,
+      "carbs": 30,
+      "fiber": 12,
+      "calories": 180,
+      "note": "Black Beans, regular (6.1 oz), topped with melted cheese"
+    },
+    "pinto beans": {
+      "unit": "scoop",
+      "protein": 11,
+      "fat": 2,
+      "carbs": 29,
+      "fiber": 11,
+      "calories": 170,
+      "note": "\"No-Fried\" Pinto Beans, regular (6.1 oz), topped with melted cheese"
+    },
+    "citrus rice": {
+      "unit": "scoop",
+      "protein": 3,
+      "fat": 2.5,
+      "carbs": 36,
+      "fiber": 1,
+      "calories": 180,
+      "note": "Citrus Rice, regular (4 oz)"
+    },
+    "mexican rice": {
+      "unit": "scoop",
+      "protein": 4,
+      "fat": 2.5,
+      "carbs": 35,
+      "fiber": 1,
+      "calories": 180,
+      "note": "Mexican Rice, regular (4 oz)"
+    },
+    "tortilla chips": {
+      "unit": "each",
+      "protein": 3,
+      "fat": 2.5,
+      "carbs": 43,
+      "fiber": 2,
+      "calories": 210,
+      "note": "Tortilla Chips, regular (1.8 oz)"
+    },
+    "guacamole": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 6,
+      "carbs": 4,
+      "fiber": 3,
+      "calories": 70,
+      "note": "Guacamole side, 1.5 oz"
+    },
+    "mexican street corn": {
+      "unit": "each",
+      "protein": 2,
+      "fat": 8,
+      "carbs": 30,
+      "fiber": 4,
+      "calories": 180,
+      "note": "Mexican Street Corn, regular (6 oz)"
+    },
+    "french fries": {
+      "unit": "each",
+      "protein": 8,
+      "fat": 36,
+      "carbs": 68,
+      "fiber": 8,
+      "calories": 620,
+      "note": "Side Fries, 6.6 oz"
+    },
+    "chipotle lime crema": {
+      "unit": "ounce",
+      "protein": 0,
+      "fat": 12,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 110
+    },
+    "lime crema": {
+      "unit": "ounce",
+      "protein": 0,
+      "fat": 13,
+      "carbs": 0,
+      "fiber": 0,
+      "calories": 120
+    },
+    "avocado crema": {
+      "unit": "ounce",
+      "protein": 0,
+      "fat": 9,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 90,
+      "note": "Guide lists total fat 0 g but 80 calories from fat and 90 kcal; fat taken as 80/9 = 9 g."
+    },
+    "salsa fresca": {
+      "unit": "ounce",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "mild salsa": {
+      "unit": "ounce",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 10
+    },
+    "picante salsa": {
+      "unit": "ounce",
+      "protein": 0,
+      "fat": 1,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 15
+    },
+    "roasted chipotle salsa": {
+      "unit": "ounce",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 1,
+      "fiber": 0,
+      "calories": 5
+    },
+    "jalapeno citrus hot sauce": {
+      "unit": "ounce",
+      "protein": 0,
+      "fat": 0,
+      "carbs": 2,
+      "fiber": 1,
+      "calories": 10
+    },
+    "diablo hot sauce": {
+      "unit": "ounce",
+      "protein": 1,
+      "fat": 1.5,
+      "carbs": 3,
+      "fiber": 0,
+      "calories": 30
+    },
+    "ranch dressing": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 24,
+      "carbs": 2,
+      "fiber": 0,
+      "calories": 240,
+      "note": "2 oz"
+    },
+    "chipotle ranch dressing": {
+      "unit": "each",
+      "protein": 1,
+      "fat": 22,
+      "carbs": 3,
+      "fiber": 0,
+      "calories": 220,
+      "note": "2 oz"
+    },
+    "avocado tomatillo vinaigrette": {
+      "unit": "each",
+      "protein": 2,
+      "fat": 16,
+      "carbs": 7,
+      "fiber": 2,
+      "calories": 170,
+      "note": "2 oz"
+    },
+    "classic burrito base": {
+      "protein": 26,
+      "fat": 33.5,
+      "carbs": 104,
+      "fiber": 11,
+      "calories": 840,
+      "derived": "Classic Grilled Shrimp Burrito minus Add Pan-Seared Shrimp",
+      "note": "Flour tortilla, Mexican rice, pinto beans, cheese, pico, chipotle crema",
+      "unit": "each"
+    },
+    "especial burrito base": {
+      "protein": 21,
+      "fat": 33,
+      "carbs": 108,
+      "fiber": 15,
+      "calories": 810,
+      "derived": "Burrito Especial with All Natural Chicken minus Add Grilled All Natural Chicken",
+      "note": "Flour tortilla, citrus rice, black beans, guac, pico, roasted chipotle salsa, chipotle crema",
+      "unit": "each"
+    },
+    "california burrito base": {
+      "protein": 21,
+      "fat": 55,
+      "carbs": 89,
+      "fiber": 10,
+      "calories": 940,
+      "derived": "California Burrito with All Natural Chicken minus Add Grilled All Natural Chicken",
+      "note": "Flour tortilla, fries, guac, melted cheese, pico, chipotle crema",
+      "unit": "each"
+    },
+    "coastal catch burrito base": {
+      "protein": 12,
+      "fat": 34,
+      "carbs": 96,
+      "fiber": 8,
+      "calories": 740,
+      "derived": "Grilled Wild Mahi Mahi Burrito minus Add Grilled Wild Mahi Mahi",
+      "note": "Flour tortilla, Mexican rice, guac, corn, cabbage, cilantro/onion, chipotle crema",
+      "unit": "each"
+    },
+    "quesa bacon burrito base": {
+      "protein": 31,
+      "fat": 50.5,
+      "carbs": 94,
+      "fiber": 8,
+      "calories": 970,
+      "derived": "Shrimp & Bacon Burrito minus Add Pan-Seared Shrimp",
+      "note": "Flour tortilla, citrus rice, toasted cheese, bacon, guac, pico, blackened jalapenos, chipotle salsa, chipotle crema",
+      "unit": "each"
+    },
+    "omega-3 bowl base": {
+      "protein": 12,
+      "fat": 34,
+      "carbs": 35,
+      "fiber": 15,
+      "calories": 460,
+      "derived": "Omega-3 Bowl with Grilled Salmon minus Add Grilled Salmon",
+      "unit": "each"
+    },
+    "california bowl base": {
+      "protein": 17,
+      "fat": 31,
+      "carbs": 104,
+      "fiber": 16,
+      "calories": 760,
+      "note": "California Bowl, 1 serving, no protein: citrus rice, black beans, guac, cabbage, pico, avocado tomatillo vinaigrette, chipotle crema",
+      "unit": "each"
+    },
+    "mexican street corn bowl base": {
+      "protein": 20,
+      "fat": 28,
+      "carbs": 123,
+      "fiber": 6,
+      "calories": 810,
+      "note": "Mexican Street Corn Bowl, 1 serving, no protein",
+      "unit": "each"
+    },
+    "rainbow bowl base": {
+      "protein": 18,
+      "fat": 36,
+      "carbs": 140,
+      "fiber": 17,
+      "calories": 940,
+      "note": "Rainbow Bowl, 1 serving, no protein",
+      "unit": "each"
+    },
+    "double protein bowl base": {
+      "protein": 17,
+      "fat": 30,
+      "carbs": 100,
+      "fiber": 10,
+      "calories": 730,
+      "note": "Double Protein Bowl (Base): Mexican rice, black beans, avocado, pickled onions, pico, spicy arbol sauce, lime crema",
+      "unit": "each"
+    },
+    "marcos bowl base": {
+      "protein": 16,
+      "fat": 28,
+      "carbs": 40,
+      "fiber": 17,
+      "calories": 430,
+      "note": "Marcos Bowl (Base), no protein",
+      "unit": "each"
+    },
+    "high fiber veggie bowl base": {
+      "protein": 19,
+      "fat": 31,
+      "carbs": 62,
+      "fiber": 16,
+      "calories": 560,
+      "note": "High Fiber Veggie Bowl (Base)",
+      "unit": "each"
+    },
+    "chopped salad base": {
+      "protein": 8,
+      "fat": 31,
+      "carbs": 29,
+      "fiber": 5,
+      "calories": 430,
+      "note": "Chopped Salad, 1 serving, no protein: romaine/cabbage blend, cheese, corn chips, pico, chipotle ranch",
+      "unit": "each"
+    },
+    "baja caesar salad base": {
+      "protein": 7,
+      "fat": 41,
+      "carbs": 28,
+      "fiber": 5,
+      "calories": 500,
+      "note": "Baja Caesar Salad, 1 serving, no protein",
+      "unit": "each"
+    },
+    "mercado salad base": {
+      "protein": 13,
+      "fat": 29,
+      "carbs": 62,
+      "fiber": 14,
+      "calories": 540,
+      "note": "Mercado Salad, 1 serving, no protein",
+      "unit": "each"
+    }
+  },
+  "items": [
+    {
+      "name": "The Original Fish Taco",
+      "aliases": [
+        "original fish taco",
+        "fish taco",
+        "rubios fish taco",
+        "rubio's fish taco",
+        "beer battered fish taco",
+        "beer-battered fish taco",
+        "battered fish taco",
+        "orig fish taco",
+        "fish tacos"
+      ],
+      "macros": {
+        "protein": 9,
+        "fat": 19,
+        "carbs": 27,
+        "fiber": 2,
+        "calories": 320
+      }
+    },
+    {
+      "name": "Fish Taco Especial",
+      "aliases": [
+        "fish taco especial",
+        "especial fish taco",
+        "original fish taco especial",
+        "fish taco special",
+        "especial"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 23,
+        "carbs": 29,
+        "fiber": 3,
+        "calories": 380
+      }
+    },
+    {
+      "name": "Grilled Wild Mahi Mahi Taco",
+      "aliases": [
+        "grilled fish taco",
+        "grilled mahi taco",
+        "mahi mahi taco",
+        "mahi taco",
+        "grilled mahi mahi taco",
+        "mahi fish taco"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 9,
+        "carbs": 24,
+        "fiber": 3,
+        "calories": 230
+      }
+    },
+    {
+      "name": "Blackened Wild Mahi Mahi Taco",
+      "aliases": [
+        "blackened mahi taco",
+        "blackened fish taco",
+        "blackened mahi mahi taco",
+        "blackend mahi taco"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 9,
+        "carbs": 26,
+        "fiber": 3,
+        "calories": 240
+      }
+    },
+    {
+      "name": "Grilled Wild Mahi Mango Taco",
+      "aliases": [
+        "mahi mango taco",
+        "grilled mahi mango taco",
+        "mango mahi taco",
+        "mango fish taco"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 14,
+        "carbs": 24,
+        "fiber": 3,
+        "calories": 280
+      },
+      "note": "Flour tortilla"
+    },
+    {
+      "name": "Blackened Wild Mahi Mango Taco",
+      "aliases": [
+        "blackened mahi mango taco",
+        "blackened mango taco"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 14,
+        "carbs": 26,
+        "fiber": 4,
+        "calories": 290
+      },
+      "note": "Flour tortilla"
+    },
+    {
+      "name": "Grilled Salmon Taco",
+      "aliases": [
+        "grilled salmon taco",
+        "salmon taco",
+        "grilled atlantic salmon taco"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 14,
+        "carbs": 24,
+        "fiber": 2,
+        "calories": 270
+      }
+    },
+    {
+      "name": "Blackened Salmon Taco",
+      "aliases": [
+        "blackened salmon taco",
+        "blackend salmon taco"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 13,
+        "carbs": 26,
+        "fiber": 2,
+        "calories": 280
+      }
+    },
+    {
+      "name": "Classic Taco with All Natural Chicken",
+      "aliases": [
+        "classic chicken taco",
+        "chicken taco",
+        "grilled chicken taco",
+        "classic taco chicken",
+        "chicken tacos"
+      ],
+      "macros": {
+        "protein": 14,
+        "fat": 11,
+        "carbs": 21,
+        "fiber": 2,
+        "calories": 250
+      }
+    },
+    {
+      "name": "Classic Taco with All Natural Steak",
+      "aliases": [
+        "classic steak taco",
+        "steak taco",
+        "grilled steak taco",
+        "classic taco steak",
+        "steak tacos",
+        "carne asada taco"
+      ],
+      "macros": {
+        "protein": 15,
+        "fat": 13,
+        "carbs": 21,
+        "fiber": 3,
+        "calories": 270
+      }
+    },
+    {
+      "name": "Grilled Gourmet Taco with All Natural Chicken",
+      "aliases": [
+        "grilled gourmet chicken taco",
+        "gourmet chicken taco",
+        "gourmet taco chicken",
+        "grilled gourmet taco"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 18,
+        "carbs": 23,
+        "fiber": 2,
+        "calories": 340
+      }
+    },
+    {
+      "name": "Grilled Gourmet Taco with USDA-Choice Steak",
+      "aliases": [
+        "grilled gourmet steak taco",
+        "gourmet steak taco",
+        "gourmet taco steak"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 20,
+        "carbs": 22,
+        "fiber": 2,
+        "calories": 360
+      }
+    },
+    {
+      "name": "Grilled Gourmet Taco with Shrimp",
+      "aliases": [
+        "grilled gourmet shrimp taco",
+        "gourmet shrimp taco",
+        "gourmet taco shrimp",
+        "grilled shrimp taco",
+        "shrimp taco",
+        "shrimp tacos"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 18,
+        "carbs": 22,
+        "fiber": 2,
+        "calories": 330
+      }
+    },
+    {
+      "name": "Salsa Verde Shrimp Taco",
+      "aliases": [
+        "salsa verde shrimp taco",
+        "salsa verde taco",
+        "verde shrimp taco"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 15,
+        "carbs": 24,
+        "fiber": 3,
+        "calories": 280
+      },
+      "note": "Flour tortilla"
+    },
+    {
+      "name": "Mexican Street Corn Taco with Shrimp",
+      "aliases": [
+        "mexican street corn shrimp taco",
+        "street corn shrimp taco",
+        "street corn taco",
+        "elote shrimp taco"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 17,
+        "carbs": 26,
+        "fiber": 2,
+        "calories": 330
+      }
+    },
+    {
+      "name": "Baja Beer Battered Shrimp Taco",
+      "aliases": [
+        "baja beer battered shrimp taco",
+        "beer battered shrimp taco",
+        "battered shrimp taco",
+        "crispy shrimp taco",
+        "fried shrimp taco"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 11,
+        "carbs": 29,
+        "fiber": 2,
+        "calories": 260
+      }
+    },
+    {
+      "name": "Roasted Sweet Potato Taco",
+      "aliases": [
+        "roasted sweet potato taco",
+        "sweet potato taco",
+        "veggie taco",
+        "vegetarian taco"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 20,
+        "carbs": 36,
+        "fiber": 3,
+        "calories": 340
+      },
+      "note": "Flour tortilla"
+    },
+    {
+      "name": "The Shrimp Trio",
+      "aliases": [
+        "shrimp trio",
+        "the shrimp trio",
+        "shrimp taco trio"
+      ],
+      "macros": {
+        "protein": 45,
+        "fat": 51,
+        "carbs": 72,
+        "fiber": 7,
+        "calories": 940
+      }
+    },
+    {
+      "name": "The Coastal Trio",
+      "aliases": [
+        "coastal trio",
+        "the coastal trio",
+        "taco trio"
+      ],
+      "macros": {
+        "protein": 34,
+        "fat": 43,
+        "carbs": 75,
+        "fiber": 8,
+        "calories": 830
+      }
+    },
+    {
+      "name": "Langostino Lobster Taco",
+      "aliases": [
+        "langostino lobster taco",
+        "lobster taco",
+        "langostino taco",
+        "norwegian lobster taco"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 21,
+        "carbs": 24,
+        "fiber": 2,
+        "calories": 340
+      },
+      "source": "https://rubios.com/wp-content/uploads/2026/02/2026-Nutrition-and-Allergen-Guide-.pdf",
+      "note": "Seasonal; from the February 2026 guide, not in the May 2026 guide"
+    },
+    {
+      "name": "Classic Grilled Shrimp Burrito",
+      "aliases": [
+        "classic shrimp burrito",
+        "shrimp burrito",
+        "grilled shrimp burrito",
+        "classic grilled shrimp burrito",
+        "classic burrito shrimp"
+      ],
+      "macros": {
+        "protein": 38,
+        "fat": 36,
+        "carbs": 104,
+        "fiber": 11,
+        "calories": 910
+      },
+      "build": [
+        {
+          "component": "classic burrito base",
+          "count": 1
+        },
+        {
+          "component": "pan-seared shrimp",
+          "count": 1
+        }
+      ],
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "Classic Burrito with All Natural Chicken",
+      "aliases": [
+        "classic chicken burrito",
+        "chicken burrito",
+        "grilled chicken burrito",
+        "classic burrito chicken"
+      ],
+      "macros": {
+        "protein": 53,
+        "fat": 35.5,
+        "carbs": 107,
+        "fiber": 11,
+        "calories": 980
+      },
+      "build": [
+        {
+          "component": "classic burrito base",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        }
+      ],
+      "derived": "classic burrito base + Add Grilled All Natural Chicken",
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "Classic Burrito with All Natural Steak",
+      "aliases": [
+        "classic steak burrito",
+        "steak burrito",
+        "grilled steak burrito",
+        "carne asada burrito",
+        "classic burrito steak"
+      ],
+      "macros": {
+        "protein": 57,
+        "fat": 42.5,
+        "carbs": 104,
+        "fiber": 11,
+        "calories": 1040
+      },
+      "build": [
+        {
+          "component": "classic burrito base",
+          "count": 1
+        },
+        {
+          "component": "grilled steak",
+          "count": 1
+        }
+      ],
+      "derived": "classic burrito base + Add All Natural Steak",
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "Classic Burrito with Battered Fish",
+      "aliases": [
+        "classic fish burrito",
+        "fish burrito",
+        "classic battered fish burrito",
+        "classic burrito fish"
+      ],
+      "macros": {
+        "protein": 39,
+        "fat": 57.5,
+        "carbs": 120,
+        "fiber": 12,
+        "calories": 1170
+      },
+      "build": [
+        {
+          "component": "classic burrito base",
+          "count": 1
+        },
+        {
+          "component": "beer-battered fish",
+          "count": 1
+        }
+      ],
+      "derived": "classic burrito base + Add Battered Fish",
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "Burrito Especial with All Natural Chicken",
+      "aliases": [
+        "burrito especial chicken",
+        "chicken burrito especial",
+        "especial chicken burrito",
+        "especial burrito",
+        "burrito especial",
+        "burrito special chicken"
+      ],
+      "macros": {
+        "protein": 48,
+        "fat": 35,
+        "carbs": 111,
+        "fiber": 15,
+        "calories": 950
+      },
+      "build": [
+        {
+          "component": "especial burrito base",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        }
+      ],
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "Burrito Especial with All Natural Steak",
+      "aliases": [
+        "burrito especial steak",
+        "steak burrito especial",
+        "especial steak burrito",
+        "burrito special steak"
+      ],
+      "macros": {
+        "protein": 51,
+        "fat": 42,
+        "carbs": 108,
+        "fiber": 15,
+        "calories": 1010
+      },
+      "build": [
+        {
+          "component": "especial burrito base",
+          "count": 1
+        },
+        {
+          "component": "grilled steak",
+          "count": 1
+        }
+      ],
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "Burrito Especial with Roasted Sweet Potato",
+      "aliases": [
+        "burrito especial sweet potato",
+        "sweet potato burrito",
+        "veggie burrito",
+        "vegetarian burrito",
+        "roasted sweet potato burrito"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 43,
+        "carbs": 126,
+        "fiber": 16,
+        "calories": 980
+      },
+      "build": [
+        {
+          "component": "especial burrito base",
+          "count": 1
+        },
+        {
+          "component": "roasted sweet potato",
+          "count": 1
+        }
+      ],
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "Ancho Citrus Shrimp Burrito",
+      "aliases": [
+        "ancho citrus shrimp burrito",
+        "ancho citrus burrito",
+        "burrito especial shrimp",
+        "shrimp burrito especial",
+        "especial shrimp burrito"
+      ],
+      "macros": {
+        "protein": 32,
+        "fat": 35,
+        "carbs": 108,
+        "fiber": 15,
+        "calories": 880
+      },
+      "build": [
+        {
+          "component": "especial burrito base",
+          "count": 1
+        },
+        {
+          "component": "pan-seared shrimp",
+          "count": 1
+        }
+      ],
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "California Burrito with All Natural Chicken",
+      "aliases": [
+        "california chicken burrito",
+        "california burrito chicken",
+        "chicken california burrito",
+        "california burrito",
+        "cali burrito"
+      ],
+      "macros": {
+        "protein": 48,
+        "fat": 57,
+        "carbs": 92,
+        "fiber": 10,
+        "calories": 1080
+      },
+      "build": [
+        {
+          "component": "california burrito base",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        }
+      ],
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "California Burrito with All Natural Steak",
+      "aliases": [
+        "california steak burrito",
+        "california burrito steak",
+        "steak california burrito",
+        "cali steak burrito"
+      ],
+      "macros": {
+        "protein": 51,
+        "fat": 63,
+        "carbs": 89,
+        "fiber": 10,
+        "calories": 1130
+      },
+      "build": [
+        {
+          "component": "california burrito base",
+          "count": 1
+        },
+        {
+          "component": "grilled steak",
+          "count": 1
+        }
+      ],
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "California Burrito with Shrimp",
+      "aliases": [
+        "california shrimp burrito",
+        "california burrito shrimp",
+        "shrimp california burrito"
+      ],
+      "macros": {
+        "protein": 33,
+        "fat": 57.5,
+        "carbs": 89,
+        "fiber": 10,
+        "calories": 1010
+      },
+      "build": [
+        {
+          "component": "california burrito base",
+          "count": 1
+        },
+        {
+          "component": "pan-seared shrimp",
+          "count": 1
+        }
+      ],
+      "derived": "california burrito base + Add Pan-Seared Shrimp",
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "Grilled Wild Mahi Mahi Burrito",
+      "aliases": [
+        "grilled mahi burrito",
+        "mahi mahi burrito",
+        "mahi burrito",
+        "grilled fish burrito",
+        "coastal catch burrito",
+        "coastal catch mahi burrito"
+      ],
+      "macros": {
+        "protein": 34,
+        "fat": 37,
+        "carbs": 96,
+        "fiber": 8,
+        "calories": 850
+      },
+      "build": [
+        {
+          "component": "coastal catch burrito base",
+          "count": 1
+        },
+        {
+          "component": "grilled mahi mahi",
+          "count": 1
+        }
+      ],
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "Blackened Wild Mahi Mahi Burrito",
+      "aliases": [
+        "blackened mahi burrito",
+        "blackened mahi mahi burrito",
+        "blackened fish burrito"
+      ],
+      "macros": {
+        "protein": 35,
+        "fat": 37,
+        "carbs": 100,
+        "fiber": 9,
+        "calories": 870
+      },
+      "build": [
+        {
+          "component": "coastal catch burrito base",
+          "count": 1
+        },
+        {
+          "component": "blackened mahi mahi",
+          "count": 1
+        }
+      ],
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "Grilled Salmon Burrito",
+      "aliases": [
+        "grilled salmon burrito",
+        "salmon burrito",
+        "coastal catch salmon burrito"
+      ],
+      "macros": {
+        "protein": 34,
+        "fat": 47,
+        "carbs": 96,
+        "fiber": 7,
+        "calories": 940
+      },
+      "build": [
+        {
+          "component": "coastal catch burrito base",
+          "count": 1
+        },
+        {
+          "component": "grilled salmon",
+          "count": 1
+        }
+      ],
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "Blackened Salmon Burrito",
+      "aliases": [
+        "blackened salmon burrito"
+      ],
+      "macros": {
+        "protein": 36,
+        "fat": 45,
+        "carbs": 99,
+        "fiber": 7,
+        "calories": 940
+      },
+      "build": [
+        {
+          "component": "coastal catch burrito base",
+          "count": 1
+        },
+        {
+          "component": "blackened salmon",
+          "count": 1
+        }
+      ],
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "Shrimp & Bacon Burrito",
+      "aliases": [
+        "shrimp and bacon burrito",
+        "shrimp bacon burrito",
+        "quesa bacon burrito",
+        "quesa bacon shrimp burrito",
+        "quesabacon burrito"
+      ],
+      "macros": {
+        "protein": 43,
+        "fat": 53,
+        "carbs": 94,
+        "fiber": 8,
+        "calories": 1040
+      },
+      "build": [
+        {
+          "component": "quesa bacon burrito base",
+          "count": 1
+        },
+        {
+          "component": "pan-seared shrimp",
+          "count": 1
+        }
+      ],
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "Quesa Bacon Burrito with All Natural Chicken",
+      "aliases": [
+        "quesa bacon chicken burrito",
+        "chicken bacon burrito",
+        "quesa bacon burrito chicken"
+      ],
+      "macros": {
+        "protein": 58,
+        "fat": 52.5,
+        "carbs": 97,
+        "fiber": 8,
+        "calories": 1110
+      },
+      "build": [
+        {
+          "component": "quesa bacon burrito base",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        }
+      ],
+      "derived": "quesa bacon burrito base + Add Grilled All Natural Chicken",
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "Quesa Bacon Burrito with All Natural Steak",
+      "aliases": [
+        "quesa bacon steak burrito",
+        "steak bacon burrito",
+        "quesa bacon burrito steak"
+      ],
+      "macros": {
+        "protein": 62,
+        "fat": 59.5,
+        "carbs": 94,
+        "fiber": 8,
+        "calories": 1170
+      },
+      "build": [
+        {
+          "component": "quesa bacon burrito base",
+          "count": 1
+        },
+        {
+          "component": "grilled steak",
+          "count": 1
+        }
+      ],
+      "derived": "quesa bacon burrito base + Add All Natural Steak",
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "Baja Grill Burrito with All Natural Chicken",
+      "aliases": [
+        "baja grill burrito",
+        "baja grill chicken burrito",
+        "baja burrito"
+      ],
+      "macros": {
+        "protein": 44,
+        "fat": 27,
+        "carbs": 57,
+        "fiber": 6,
+        "calories": 660
+      },
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "Signature Beer-Battered Fish Burrito",
+      "aliases": [
+        "signature beer battered fish burrito",
+        "beer battered fish burrito",
+        "battered fish burrito",
+        "signature fish burrito"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 56,
+        "carbs": 88,
+        "fiber": 14,
+        "calories": 970
+      },
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "Bean and Cheese Burrito",
+      "aliases": [
+        "bean and cheese burrito",
+        "bean & cheese burrito",
+        "bean cheese burrito",
+        "bean n cheese burrito"
+      ],
+      "macros": {
+        "protein": 36,
+        "fat": 31,
+        "carbs": 80,
+        "fiber": 13,
+        "calories": 760
+      },
+      "note": "Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "Langostino Lobster Puerto Nuevo Burrito",
+      "aliases": [
+        "langostino lobster burrito",
+        "lobster burrito",
+        "puerto nuevo burrito",
+        "langostino burrito"
+      ],
+      "macros": {
+        "protein": 38,
+        "fat": 48,
+        "carbs": 111,
+        "fiber": 13,
+        "calories": 1050
+      },
+      "source": "https://rubios.com/wp-content/uploads/2026/02/2026-Nutrition-and-Allergen-Guide-.pdf",
+      "note": "Seasonal; from the February 2026 guide, not in the May 2026 guide. Burrito only; the side of tortilla chips (+210 kcal) is not included"
+    },
+    {
+      "name": "California Bowl (no protein)",
+      "aliases": [
+        "california bowl no protein",
+        "cali bowl no protein",
+        "california burrito bowl no protein",
+        "california bowl base",
+        "cali bowl base",
+        "california burrito bowl base"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 31,
+        "carbs": 104,
+        "fiber": 16,
+        "calories": 760
+      },
+      "build": [
+        {
+          "component": "california bowl base",
+          "count": 1
+        }
+      ],
+      "note": "As listed in the guide: 1 serving with dressings/sauces, before adding a protein"
+    },
+    {
+      "name": "California Bowl with Grilled Chicken",
+      "aliases": [
+        "california bowl chicken",
+        "chicken california bowl",
+        "california bowl with chicken",
+        "cali bowl chicken",
+        "chicken cali bowl",
+        "cali bowl with chicken",
+        "california burrito bowl chicken",
+        "chicken california burrito bowl",
+        "california burrito bowl with chicken",
+        "burrito bowl chicken",
+        "chicken burrito bowl",
+        "chicken bowl",
+        "burrito bowl"
+      ],
+      "macros": {
+        "protein": 44,
+        "fat": 33,
+        "carbs": 107,
+        "fiber": 16,
+        "calories": 900
+      },
+      "build": [
+        {
+          "component": "california bowl base",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        }
+      ],
+      "derived": "California Bowl (1 serving, no protein) + Add Grilled All Natural Chicken"
+    },
+    {
+      "name": "California Bowl with Steak",
+      "aliases": [
+        "california bowl steak",
+        "steak california bowl",
+        "california bowl with steak",
+        "cali bowl steak",
+        "steak cali bowl",
+        "cali bowl with steak",
+        "california burrito bowl steak",
+        "steak california burrito bowl",
+        "california burrito bowl with steak",
+        "burrito bowl steak",
+        "steak burrito bowl",
+        "steak bowl"
+      ],
+      "macros": {
+        "protein": 48,
+        "fat": 40,
+        "carbs": 104,
+        "fiber": 16,
+        "calories": 960
+      },
+      "build": [
+        {
+          "component": "california bowl base",
+          "count": 1
+        },
+        {
+          "component": "grilled steak",
+          "count": 1
+        }
+      ],
+      "derived": "California Bowl (1 serving, no protein) + Add All Natural Steak"
+    },
+    {
+      "name": "California Bowl with Shrimp",
+      "aliases": [
+        "california bowl shrimp",
+        "shrimp california bowl",
+        "california bowl with shrimp",
+        "cali bowl shrimp",
+        "shrimp cali bowl",
+        "cali bowl with shrimp",
+        "california burrito bowl shrimp",
+        "shrimp california burrito bowl",
+        "california burrito bowl with shrimp",
+        "burrito bowl shrimp",
+        "shrimp burrito bowl",
+        "shrimp bowl"
+      ],
+      "macros": {
+        "protein": 29,
+        "fat": 33.5,
+        "carbs": 104,
+        "fiber": 16,
+        "calories": 830
+      },
+      "build": [
+        {
+          "component": "california bowl base",
+          "count": 1
+        },
+        {
+          "component": "pan-seared shrimp",
+          "count": 1
+        }
+      ],
+      "derived": "California Bowl (1 serving, no protein) + Add Pan-Seared Shrimp"
+    },
+    {
+      "name": "California Bowl with Battered Fish",
+      "aliases": [
+        "california bowl fish",
+        "fish california bowl",
+        "california bowl with fish",
+        "california bowl battered fish",
+        "battered fish california bowl",
+        "california bowl with battered fish",
+        "cali bowl fish",
+        "fish cali bowl",
+        "cali bowl with fish",
+        "cali bowl battered fish",
+        "battered fish cali bowl",
+        "cali bowl with battered fish",
+        "california burrito bowl fish",
+        "fish california burrito bowl",
+        "california burrito bowl with fish",
+        "california burrito bowl battered fish",
+        "battered fish california burrito bowl",
+        "california burrito bowl with battered fish"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 55,
+        "carbs": 120,
+        "fiber": 17,
+        "calories": 1090
+      },
+      "build": [
+        {
+          "component": "california bowl base",
+          "count": 1
+        },
+        {
+          "component": "beer-battered fish",
+          "count": 1
+        }
+      ],
+      "derived": "California Bowl (1 serving, no protein) + Add Battered Fish"
+    },
+    {
+      "name": "California Bowl with Grilled Mahi Mahi",
+      "aliases": [
+        "california bowl mahi",
+        "mahi california bowl",
+        "california bowl with mahi",
+        "california bowl mahi mahi",
+        "mahi mahi california bowl",
+        "california bowl with mahi mahi",
+        "california bowl grilled fish",
+        "grilled fish california bowl",
+        "california bowl with grilled fish",
+        "cali bowl mahi",
+        "mahi cali bowl",
+        "cali bowl with mahi",
+        "cali bowl mahi mahi",
+        "mahi mahi cali bowl",
+        "cali bowl with mahi mahi",
+        "cali bowl grilled fish",
+        "grilled fish cali bowl",
+        "cali bowl with grilled fish",
+        "california burrito bowl mahi",
+        "mahi california burrito bowl",
+        "california burrito bowl with mahi",
+        "california burrito bowl mahi mahi",
+        "mahi mahi california burrito bowl",
+        "california burrito bowl with mahi mahi",
+        "california burrito bowl grilled fish",
+        "grilled fish california burrito bowl",
+        "california burrito bowl with grilled fish"
+      ],
+      "macros": {
+        "protein": 39,
+        "fat": 34,
+        "carbs": 104,
+        "fiber": 16,
+        "calories": 870
+      },
+      "build": [
+        {
+          "component": "california bowl base",
+          "count": 1
+        },
+        {
+          "component": "grilled mahi mahi",
+          "count": 1
+        }
+      ],
+      "derived": "California Bowl (1 serving, no protein) + Add Grilled Wild Mahi Mahi"
+    },
+    {
+      "name": "Mexican Street Corn Bowl (no protein)",
+      "aliases": [
+        "mexican street corn bowl no protein",
+        "street corn bowl no protein",
+        "elote bowl no protein",
+        "mexican street corn bowl base",
+        "street corn bowl base",
+        "elote bowl base"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 28,
+        "carbs": 123,
+        "fiber": 6,
+        "calories": 810
+      },
+      "build": [
+        {
+          "component": "mexican street corn bowl base",
+          "count": 1
+        }
+      ],
+      "note": "As listed in the guide: 1 serving with dressings/sauces, before adding a protein"
+    },
+    {
+      "name": "Mexican Street Corn Bowl with Grilled Chicken",
+      "aliases": [
+        "mexican street corn bowl chicken",
+        "chicken mexican street corn bowl",
+        "mexican street corn bowl with chicken",
+        "street corn bowl chicken",
+        "chicken street corn bowl",
+        "street corn bowl with chicken",
+        "elote bowl chicken",
+        "chicken elote bowl",
+        "elote bowl with chicken"
+      ],
+      "macros": {
+        "protein": 47,
+        "fat": 30,
+        "carbs": 126,
+        "fiber": 6,
+        "calories": 950
+      },
+      "build": [
+        {
+          "component": "mexican street corn bowl base",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        }
+      ],
+      "derived": "Mexican Street Corn Bowl (1 serving, no protein) + Add Grilled All Natural Chicken"
+    },
+    {
+      "name": "Mexican Street Corn Bowl with Steak",
+      "aliases": [
+        "mexican street corn bowl steak",
+        "steak mexican street corn bowl",
+        "mexican street corn bowl with steak",
+        "street corn bowl steak",
+        "steak street corn bowl",
+        "street corn bowl with steak",
+        "elote bowl steak",
+        "steak elote bowl",
+        "elote bowl with steak"
+      ],
+      "macros": {
+        "protein": 51,
+        "fat": 37,
+        "carbs": 123,
+        "fiber": 6,
+        "calories": 1010
+      },
+      "build": [
+        {
+          "component": "mexican street corn bowl base",
+          "count": 1
+        },
+        {
+          "component": "grilled steak",
+          "count": 1
+        }
+      ],
+      "derived": "Mexican Street Corn Bowl (1 serving, no protein) + Add All Natural Steak"
+    },
+    {
+      "name": "Mexican Street Corn Bowl with Shrimp",
+      "aliases": [
+        "mexican street corn bowl shrimp",
+        "shrimp mexican street corn bowl",
+        "mexican street corn bowl with shrimp",
+        "street corn bowl shrimp",
+        "shrimp street corn bowl",
+        "street corn bowl with shrimp",
+        "elote bowl shrimp",
+        "shrimp elote bowl",
+        "elote bowl with shrimp",
+        "ancho citrus shrimp bowl"
+      ],
+      "macros": {
+        "protein": 32,
+        "fat": 30.5,
+        "carbs": 123,
+        "fiber": 6,
+        "calories": 880
+      },
+      "build": [
+        {
+          "component": "mexican street corn bowl base",
+          "count": 1
+        },
+        {
+          "component": "pan-seared shrimp",
+          "count": 1
+        }
+      ],
+      "derived": "Mexican Street Corn Bowl (1 serving, no protein) + Add Pan-Seared Shrimp"
+    },
+    {
+      "name": "Mexican Street Corn Bowl with Battered Fish",
+      "aliases": [
+        "mexican street corn bowl fish",
+        "fish mexican street corn bowl",
+        "mexican street corn bowl with fish",
+        "mexican street corn bowl battered fish",
+        "battered fish mexican street corn bowl",
+        "mexican street corn bowl with battered fish",
+        "street corn bowl fish",
+        "fish street corn bowl",
+        "street corn bowl with fish",
+        "street corn bowl battered fish",
+        "battered fish street corn bowl",
+        "street corn bowl with battered fish",
+        "elote bowl fish",
+        "fish elote bowl",
+        "elote bowl with fish",
+        "elote bowl battered fish",
+        "battered fish elote bowl",
+        "elote bowl with battered fish"
+      ],
+      "macros": {
+        "protein": 33,
+        "fat": 52,
+        "carbs": 139,
+        "fiber": 7,
+        "calories": 1140
+      },
+      "build": [
+        {
+          "component": "mexican street corn bowl base",
+          "count": 1
+        },
+        {
+          "component": "beer-battered fish",
+          "count": 1
+        }
+      ],
+      "derived": "Mexican Street Corn Bowl (1 serving, no protein) + Add Battered Fish"
+    },
+    {
+      "name": "Mexican Street Corn Bowl with Grilled Mahi Mahi",
+      "aliases": [
+        "mexican street corn bowl mahi",
+        "mahi mexican street corn bowl",
+        "mexican street corn bowl with mahi",
+        "mexican street corn bowl mahi mahi",
+        "mahi mahi mexican street corn bowl",
+        "mexican street corn bowl with mahi mahi",
+        "mexican street corn bowl grilled fish",
+        "grilled fish mexican street corn bowl",
+        "mexican street corn bowl with grilled fish",
+        "street corn bowl mahi",
+        "mahi street corn bowl",
+        "street corn bowl with mahi",
+        "street corn bowl mahi mahi",
+        "mahi mahi street corn bowl",
+        "street corn bowl with mahi mahi",
+        "street corn bowl grilled fish",
+        "grilled fish street corn bowl",
+        "street corn bowl with grilled fish",
+        "elote bowl mahi",
+        "mahi elote bowl",
+        "elote bowl with mahi",
+        "elote bowl mahi mahi",
+        "mahi mahi elote bowl",
+        "elote bowl with mahi mahi",
+        "elote bowl grilled fish",
+        "grilled fish elote bowl",
+        "elote bowl with grilled fish"
+      ],
+      "macros": {
+        "protein": 42,
+        "fat": 31,
+        "carbs": 123,
+        "fiber": 6,
+        "calories": 920
+      },
+      "build": [
+        {
+          "component": "mexican street corn bowl base",
+          "count": 1
+        },
+        {
+          "component": "grilled mahi mahi",
+          "count": 1
+        }
+      ],
+      "derived": "Mexican Street Corn Bowl (1 serving, no protein) + Add Grilled Wild Mahi Mahi"
+    },
+    {
+      "name": "Rainbow Bowl (no protein)",
+      "aliases": [
+        "rainbow bowl no protein",
+        "rainbow bowl base"
+      ],
+      "macros": {
+        "protein": 18,
+        "fat": 36,
+        "carbs": 140,
+        "fiber": 17,
+        "calories": 940
+      },
+      "build": [
+        {
+          "component": "rainbow bowl base",
+          "count": 1
+        }
+      ],
+      "note": "As listed in the guide: 1 serving with dressings/sauces, before adding a protein"
+    },
+    {
+      "name": "Rainbow Bowl with Grilled Chicken",
+      "aliases": [
+        "rainbow bowl chicken",
+        "chicken rainbow bowl",
+        "rainbow bowl with chicken"
+      ],
+      "macros": {
+        "protein": 45,
+        "fat": 38,
+        "carbs": 143,
+        "fiber": 17,
+        "calories": 1080
+      },
+      "build": [
+        {
+          "component": "rainbow bowl base",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        }
+      ],
+      "derived": "Rainbow Bowl (1 serving, no protein) + Add Grilled All Natural Chicken"
+    },
+    {
+      "name": "Rainbow Bowl with Steak",
+      "aliases": [
+        "rainbow bowl steak",
+        "steak rainbow bowl",
+        "rainbow bowl with steak"
+      ],
+      "macros": {
+        "protein": 49,
+        "fat": 45,
+        "carbs": 140,
+        "fiber": 17,
+        "calories": 1140
+      },
+      "build": [
+        {
+          "component": "rainbow bowl base",
+          "count": 1
+        },
+        {
+          "component": "grilled steak",
+          "count": 1
+        }
+      ],
+      "derived": "Rainbow Bowl (1 serving, no protein) + Add All Natural Steak"
+    },
+    {
+      "name": "Rainbow Bowl with Shrimp",
+      "aliases": [
+        "rainbow bowl shrimp",
+        "shrimp rainbow bowl",
+        "rainbow bowl with shrimp"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 38.5,
+        "carbs": 140,
+        "fiber": 17,
+        "calories": 1010
+      },
+      "build": [
+        {
+          "component": "rainbow bowl base",
+          "count": 1
+        },
+        {
+          "component": "pan-seared shrimp",
+          "count": 1
+        }
+      ],
+      "derived": "Rainbow Bowl (1 serving, no protein) + Add Pan-Seared Shrimp"
+    },
+    {
+      "name": "Rainbow Bowl with Battered Fish",
+      "aliases": [
+        "rainbow bowl fish",
+        "fish rainbow bowl",
+        "rainbow bowl with fish",
+        "rainbow bowl battered fish",
+        "battered fish rainbow bowl",
+        "rainbow bowl with battered fish"
+      ],
+      "macros": {
+        "protein": 31,
+        "fat": 60,
+        "carbs": 156,
+        "fiber": 18,
+        "calories": 1270
+      },
+      "build": [
+        {
+          "component": "rainbow bowl base",
+          "count": 1
+        },
+        {
+          "component": "beer-battered fish",
+          "count": 1
+        }
+      ],
+      "derived": "Rainbow Bowl (1 serving, no protein) + Add Battered Fish"
+    },
+    {
+      "name": "Rainbow Bowl with Grilled Mahi Mahi",
+      "aliases": [
+        "rainbow bowl mahi",
+        "mahi rainbow bowl",
+        "rainbow bowl with mahi",
+        "rainbow bowl mahi mahi",
+        "mahi mahi rainbow bowl",
+        "rainbow bowl with mahi mahi",
+        "rainbow bowl grilled fish",
+        "grilled fish rainbow bowl",
+        "rainbow bowl with grilled fish"
+      ],
+      "macros": {
+        "protein": 40,
+        "fat": 39,
+        "carbs": 140,
+        "fiber": 17,
+        "calories": 1050
+      },
+      "build": [
+        {
+          "component": "rainbow bowl base",
+          "count": 1
+        },
+        {
+          "component": "grilled mahi mahi",
+          "count": 1
+        }
+      ],
+      "derived": "Rainbow Bowl (1 serving, no protein) + Add Grilled Wild Mahi Mahi"
+    },
+    {
+      "name": "Chopped Salad (no protein)",
+      "aliases": [
+        "chopped salad no protein",
+        "chopped salad bowl no protein",
+        "chopped salad base",
+        "chopped salad bowl base"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 31,
+        "carbs": 29,
+        "fiber": 5,
+        "calories": 430
+      },
+      "build": [
+        {
+          "component": "chopped salad base",
+          "count": 1
+        }
+      ],
+      "note": "As listed in the guide: 1 serving with dressings/sauces, before adding a protein"
+    },
+    {
+      "name": "Chopped Salad with Grilled Chicken",
+      "aliases": [
+        "chopped salad chicken",
+        "chicken chopped salad",
+        "chopped salad with chicken",
+        "chopped salad bowl chicken",
+        "chicken chopped salad bowl",
+        "chopped salad bowl with chicken"
+      ],
+      "macros": {
+        "protein": 35,
+        "fat": 33,
+        "carbs": 32,
+        "fiber": 5,
+        "calories": 570
+      },
+      "build": [
+        {
+          "component": "chopped salad base",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        }
+      ],
+      "derived": "Chopped Salad (1 serving, no protein) + Add Grilled All Natural Chicken"
+    },
+    {
+      "name": "Chopped Salad with Steak",
+      "aliases": [
+        "chopped salad steak",
+        "steak chopped salad",
+        "chopped salad with steak",
+        "chopped salad bowl steak",
+        "steak chopped salad bowl",
+        "chopped salad bowl with steak"
+      ],
+      "macros": {
+        "protein": 39,
+        "fat": 40,
+        "carbs": 29,
+        "fiber": 5,
+        "calories": 630
+      },
+      "build": [
+        {
+          "component": "chopped salad base",
+          "count": 1
+        },
+        {
+          "component": "grilled steak",
+          "count": 1
+        }
+      ],
+      "derived": "Chopped Salad (1 serving, no protein) + Add All Natural Steak"
+    },
+    {
+      "name": "Chopped Salad with Shrimp",
+      "aliases": [
+        "chopped salad shrimp",
+        "shrimp chopped salad",
+        "chopped salad with shrimp",
+        "chopped salad bowl shrimp",
+        "shrimp chopped salad bowl",
+        "chopped salad bowl with shrimp"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 33.5,
+        "carbs": 29,
+        "fiber": 5,
+        "calories": 500
+      },
+      "build": [
+        {
+          "component": "chopped salad base",
+          "count": 1
+        },
+        {
+          "component": "pan-seared shrimp",
+          "count": 1
+        }
+      ],
+      "derived": "Chopped Salad (1 serving, no protein) + Add Pan-Seared Shrimp"
+    },
+    {
+      "name": "Chopped Salad with Battered Fish",
+      "aliases": [
+        "chopped salad fish",
+        "fish chopped salad",
+        "chopped salad with fish",
+        "chopped salad battered fish",
+        "battered fish chopped salad",
+        "chopped salad with battered fish",
+        "chopped salad bowl fish",
+        "fish chopped salad bowl",
+        "chopped salad bowl with fish",
+        "chopped salad bowl battered fish",
+        "battered fish chopped salad bowl",
+        "chopped salad bowl with battered fish"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 55,
+        "carbs": 45,
+        "fiber": 6,
+        "calories": 760
+      },
+      "build": [
+        {
+          "component": "chopped salad base",
+          "count": 1
+        },
+        {
+          "component": "beer-battered fish",
+          "count": 1
+        }
+      ],
+      "derived": "Chopped Salad (1 serving, no protein) + Add Battered Fish"
+    },
+    {
+      "name": "Chopped Salad with Grilled Mahi Mahi",
+      "aliases": [
+        "chopped salad mahi",
+        "mahi chopped salad",
+        "chopped salad with mahi",
+        "chopped salad mahi mahi",
+        "mahi mahi chopped salad",
+        "chopped salad with mahi mahi",
+        "chopped salad grilled fish",
+        "grilled fish chopped salad",
+        "chopped salad with grilled fish",
+        "chopped salad bowl mahi",
+        "mahi chopped salad bowl",
+        "chopped salad bowl with mahi",
+        "chopped salad bowl mahi mahi",
+        "mahi mahi chopped salad bowl",
+        "chopped salad bowl with mahi mahi",
+        "chopped salad bowl grilled fish",
+        "grilled fish chopped salad bowl",
+        "chopped salad bowl with grilled fish"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 34,
+        "carbs": 29,
+        "fiber": 5,
+        "calories": 540
+      },
+      "build": [
+        {
+          "component": "chopped salad base",
+          "count": 1
+        },
+        {
+          "component": "grilled mahi mahi",
+          "count": 1
+        }
+      ],
+      "derived": "Chopped Salad (1 serving, no protein) + Add Grilled Wild Mahi Mahi"
+    },
+    {
+      "name": "Baja Caesar Salad (no protein)",
+      "aliases": [
+        "baja caesar salad no protein",
+        "caesar salad no protein",
+        "baja caesar no protein",
+        "ceasar salad no protein",
+        "baja caesar salad base",
+        "caesar salad base",
+        "baja caesar base",
+        "ceasar salad base"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 41,
+        "carbs": 28,
+        "fiber": 5,
+        "calories": 500
+      },
+      "build": [
+        {
+          "component": "baja caesar salad base",
+          "count": 1
+        }
+      ],
+      "note": "As listed in the guide: 1 serving with dressings/sauces, before adding a protein"
+    },
+    {
+      "name": "Baja Caesar Salad with Grilled Chicken",
+      "aliases": [
+        "baja caesar salad chicken",
+        "chicken baja caesar salad",
+        "baja caesar salad with chicken",
+        "caesar salad chicken",
+        "chicken caesar salad",
+        "caesar salad with chicken",
+        "baja caesar chicken",
+        "chicken baja caesar",
+        "baja caesar with chicken",
+        "ceasar salad chicken",
+        "chicken ceasar salad",
+        "ceasar salad with chicken"
+      ],
+      "macros": {
+        "protein": 34,
+        "fat": 43,
+        "carbs": 31,
+        "fiber": 5,
+        "calories": 640
+      },
+      "build": [
+        {
+          "component": "baja caesar salad base",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        }
+      ],
+      "derived": "Baja Caesar Salad (1 serving, no protein) + Add Grilled All Natural Chicken"
+    },
+    {
+      "name": "Baja Caesar Salad with Steak",
+      "aliases": [
+        "baja caesar salad steak",
+        "steak baja caesar salad",
+        "baja caesar salad with steak",
+        "caesar salad steak",
+        "steak caesar salad",
+        "caesar salad with steak",
+        "baja caesar steak",
+        "steak baja caesar",
+        "baja caesar with steak",
+        "ceasar salad steak",
+        "steak ceasar salad",
+        "ceasar salad with steak"
+      ],
+      "macros": {
+        "protein": 38,
+        "fat": 50,
+        "carbs": 28,
+        "fiber": 5,
+        "calories": 700
+      },
+      "build": [
+        {
+          "component": "baja caesar salad base",
+          "count": 1
+        },
+        {
+          "component": "grilled steak",
+          "count": 1
+        }
+      ],
+      "derived": "Baja Caesar Salad (1 serving, no protein) + Add All Natural Steak"
+    },
+    {
+      "name": "Baja Caesar Salad with Shrimp",
+      "aliases": [
+        "baja caesar salad shrimp",
+        "shrimp baja caesar salad",
+        "baja caesar salad with shrimp",
+        "caesar salad shrimp",
+        "shrimp caesar salad",
+        "caesar salad with shrimp",
+        "baja caesar shrimp",
+        "shrimp baja caesar",
+        "baja caesar with shrimp",
+        "ceasar salad shrimp",
+        "shrimp ceasar salad",
+        "ceasar salad with shrimp"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 43.5,
+        "carbs": 28,
+        "fiber": 5,
+        "calories": 570
+      },
+      "build": [
+        {
+          "component": "baja caesar salad base",
+          "count": 1
+        },
+        {
+          "component": "pan-seared shrimp",
+          "count": 1
+        }
+      ],
+      "derived": "Baja Caesar Salad (1 serving, no protein) + Add Pan-Seared Shrimp"
+    },
+    {
+      "name": "Baja Caesar Salad with Battered Fish",
+      "aliases": [
+        "baja caesar salad fish",
+        "fish baja caesar salad",
+        "baja caesar salad with fish",
+        "baja caesar salad battered fish",
+        "battered fish baja caesar salad",
+        "baja caesar salad with battered fish",
+        "caesar salad fish",
+        "fish caesar salad",
+        "caesar salad with fish",
+        "caesar salad battered fish",
+        "battered fish caesar salad",
+        "caesar salad with battered fish",
+        "baja caesar fish",
+        "fish baja caesar",
+        "baja caesar with fish",
+        "baja caesar battered fish",
+        "battered fish baja caesar",
+        "baja caesar with battered fish",
+        "ceasar salad fish",
+        "fish ceasar salad",
+        "ceasar salad with fish",
+        "ceasar salad battered fish",
+        "battered fish ceasar salad",
+        "ceasar salad with battered fish"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 65,
+        "carbs": 44,
+        "fiber": 6,
+        "calories": 830
+      },
+      "build": [
+        {
+          "component": "baja caesar salad base",
+          "count": 1
+        },
+        {
+          "component": "beer-battered fish",
+          "count": 1
+        }
+      ],
+      "derived": "Baja Caesar Salad (1 serving, no protein) + Add Battered Fish"
+    },
+    {
+      "name": "Baja Caesar Salad with Grilled Mahi Mahi",
+      "aliases": [
+        "baja caesar salad mahi",
+        "mahi baja caesar salad",
+        "baja caesar salad with mahi",
+        "baja caesar salad mahi mahi",
+        "mahi mahi baja caesar salad",
+        "baja caesar salad with mahi mahi",
+        "baja caesar salad grilled fish",
+        "grilled fish baja caesar salad",
+        "baja caesar salad with grilled fish",
+        "caesar salad mahi",
+        "mahi caesar salad",
+        "caesar salad with mahi",
+        "caesar salad mahi mahi",
+        "mahi mahi caesar salad",
+        "caesar salad with mahi mahi",
+        "caesar salad grilled fish",
+        "grilled fish caesar salad",
+        "caesar salad with grilled fish",
+        "baja caesar mahi",
+        "mahi baja caesar",
+        "baja caesar with mahi",
+        "baja caesar mahi mahi",
+        "mahi mahi baja caesar",
+        "baja caesar with mahi mahi",
+        "baja caesar grilled fish",
+        "grilled fish baja caesar",
+        "baja caesar with grilled fish",
+        "ceasar salad mahi",
+        "mahi ceasar salad",
+        "ceasar salad with mahi",
+        "ceasar salad mahi mahi",
+        "mahi mahi ceasar salad",
+        "ceasar salad with mahi mahi",
+        "ceasar salad grilled fish",
+        "grilled fish ceasar salad",
+        "ceasar salad with grilled fish"
+      ],
+      "macros": {
+        "protein": 29,
+        "fat": 44,
+        "carbs": 28,
+        "fiber": 5,
+        "calories": 610
+      },
+      "build": [
+        {
+          "component": "baja caesar salad base",
+          "count": 1
+        },
+        {
+          "component": "grilled mahi mahi",
+          "count": 1
+        }
+      ],
+      "derived": "Baja Caesar Salad (1 serving, no protein) + Add Grilled Wild Mahi Mahi"
+    },
+    {
+      "name": "Mercado Salad (no protein)",
+      "aliases": [
+        "mercado salad no protein",
+        "mercado no protein",
+        "mercado salad base",
+        "mercado base"
+      ],
+      "macros": {
+        "protein": 13,
+        "fat": 29,
+        "carbs": 62,
+        "fiber": 14,
+        "calories": 540
+      },
+      "build": [
+        {
+          "component": "mercado salad base",
+          "count": 1
+        }
+      ],
+      "note": "As listed in the guide: 1 serving with dressings/sauces, before adding a protein"
+    },
+    {
+      "name": "Mercado Salad with Grilled Chicken",
+      "aliases": [
+        "mercado salad chicken",
+        "chicken mercado salad",
+        "mercado salad with chicken",
+        "mercado chicken",
+        "chicken mercado",
+        "mercado with chicken"
+      ],
+      "macros": {
+        "protein": 40,
+        "fat": 31,
+        "carbs": 65,
+        "fiber": 14,
+        "calories": 680
+      },
+      "build": [
+        {
+          "component": "mercado salad base",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        }
+      ],
+      "derived": "Mercado Salad (1 serving, no protein) + Add Grilled All Natural Chicken"
+    },
+    {
+      "name": "Mercado Salad with Steak",
+      "aliases": [
+        "mercado salad steak",
+        "steak mercado salad",
+        "mercado salad with steak",
+        "mercado steak",
+        "steak mercado",
+        "mercado with steak"
+      ],
+      "macros": {
+        "protein": 44,
+        "fat": 38,
+        "carbs": 62,
+        "fiber": 14,
+        "calories": 740
+      },
+      "build": [
+        {
+          "component": "mercado salad base",
+          "count": 1
+        },
+        {
+          "component": "grilled steak",
+          "count": 1
+        }
+      ],
+      "derived": "Mercado Salad (1 serving, no protein) + Add All Natural Steak"
+    },
+    {
+      "name": "Mercado Salad with Shrimp",
+      "aliases": [
+        "mercado salad shrimp",
+        "shrimp mercado salad",
+        "mercado salad with shrimp",
+        "mercado shrimp",
+        "shrimp mercado",
+        "mercado with shrimp"
+      ],
+      "macros": {
+        "protein": 25,
+        "fat": 31.5,
+        "carbs": 62,
+        "fiber": 14,
+        "calories": 610
+      },
+      "build": [
+        {
+          "component": "mercado salad base",
+          "count": 1
+        },
+        {
+          "component": "pan-seared shrimp",
+          "count": 1
+        }
+      ],
+      "derived": "Mercado Salad (1 serving, no protein) + Add Pan-Seared Shrimp"
+    },
+    {
+      "name": "Mercado Salad with Battered Fish",
+      "aliases": [
+        "mercado salad fish",
+        "fish mercado salad",
+        "mercado salad with fish",
+        "mercado salad battered fish",
+        "battered fish mercado salad",
+        "mercado salad with battered fish",
+        "mercado fish",
+        "fish mercado",
+        "mercado with fish",
+        "mercado battered fish",
+        "battered fish mercado",
+        "mercado with battered fish"
+      ],
+      "macros": {
+        "protein": 26,
+        "fat": 53,
+        "carbs": 78,
+        "fiber": 15,
+        "calories": 870
+      },
+      "build": [
+        {
+          "component": "mercado salad base",
+          "count": 1
+        },
+        {
+          "component": "beer-battered fish",
+          "count": 1
+        }
+      ],
+      "derived": "Mercado Salad (1 serving, no protein) + Add Battered Fish"
+    },
+    {
+      "name": "Mercado Salad with Grilled Mahi Mahi",
+      "aliases": [
+        "mercado salad mahi",
+        "mahi mercado salad",
+        "mercado salad with mahi",
+        "mercado salad mahi mahi",
+        "mahi mahi mercado salad",
+        "mercado salad with mahi mahi",
+        "mercado salad grilled fish",
+        "grilled fish mercado salad",
+        "mercado salad with grilled fish",
+        "mercado mahi",
+        "mahi mercado",
+        "mercado with mahi",
+        "mercado mahi mahi",
+        "mahi mahi mercado",
+        "mercado with mahi mahi",
+        "mercado grilled fish",
+        "grilled fish mercado",
+        "mercado with grilled fish"
+      ],
+      "macros": {
+        "protein": 35,
+        "fat": 32,
+        "carbs": 62,
+        "fiber": 14,
+        "calories": 650
+      },
+      "build": [
+        {
+          "component": "mercado salad base",
+          "count": 1
+        },
+        {
+          "component": "grilled mahi mahi",
+          "count": 1
+        }
+      ],
+      "derived": "Mercado Salad (1 serving, no protein) + Add Grilled Wild Mahi Mahi"
+    },
+    {
+      "name": "Marcos Bowl (no protein)",
+      "aliases": [
+        "marcos bowl no protein",
+        "marco's bowl no protein",
+        "marco bowl no protein",
+        "marcos bowl base",
+        "marco's bowl base",
+        "marco bowl base"
+      ],
+      "macros": {
+        "protein": 16,
+        "fat": 28,
+        "carbs": 40,
+        "fiber": 17,
+        "calories": 430
+      },
+      "build": [
+        {
+          "component": "marcos bowl base",
+          "count": 1
+        }
+      ],
+      "note": "As listed in the guide: 1 serving with dressings/sauces, before adding a protein"
+    },
+    {
+      "name": "Marcos Bowl with Grilled Chicken",
+      "aliases": [
+        "marcos bowl chicken",
+        "chicken marcos bowl",
+        "marcos bowl with chicken",
+        "marco's bowl chicken",
+        "chicken marco's bowl",
+        "marco's bowl with chicken",
+        "marco bowl chicken",
+        "chicken marco bowl",
+        "marco bowl with chicken"
+      ],
+      "macros": {
+        "protein": 43,
+        "fat": 30,
+        "carbs": 43,
+        "fiber": 17,
+        "calories": 570
+      },
+      "build": [
+        {
+          "component": "marcos bowl base",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        }
+      ],
+      "derived": "Marcos Bowl (1 serving, no protein) + Add Grilled All Natural Chicken"
+    },
+    {
+      "name": "Marcos Bowl with Steak",
+      "aliases": [
+        "marcos bowl steak",
+        "steak marcos bowl",
+        "marcos bowl with steak",
+        "marco's bowl steak",
+        "steak marco's bowl",
+        "marco's bowl with steak",
+        "marco bowl steak",
+        "steak marco bowl",
+        "marco bowl with steak"
+      ],
+      "macros": {
+        "protein": 47,
+        "fat": 37,
+        "carbs": 40,
+        "fiber": 17,
+        "calories": 630
+      },
+      "build": [
+        {
+          "component": "marcos bowl base",
+          "count": 1
+        },
+        {
+          "component": "grilled steak",
+          "count": 1
+        }
+      ],
+      "derived": "Marcos Bowl (1 serving, no protein) + Add All Natural Steak"
+    },
+    {
+      "name": "Marcos Bowl with Shrimp",
+      "aliases": [
+        "marcos bowl shrimp",
+        "shrimp marcos bowl",
+        "marcos bowl with shrimp",
+        "marco's bowl shrimp",
+        "shrimp marco's bowl",
+        "marco's bowl with shrimp",
+        "marco bowl shrimp",
+        "shrimp marco bowl",
+        "marco bowl with shrimp"
+      ],
+      "macros": {
+        "protein": 28,
+        "fat": 30.5,
+        "carbs": 40,
+        "fiber": 17,
+        "calories": 500
+      },
+      "build": [
+        {
+          "component": "marcos bowl base",
+          "count": 1
+        },
+        {
+          "component": "pan-seared shrimp",
+          "count": 1
+        }
+      ],
+      "derived": "Marcos Bowl (1 serving, no protein) + Add Pan-Seared Shrimp"
+    },
+    {
+      "name": "Marcos Bowl with Battered Fish",
+      "aliases": [
+        "marcos bowl fish",
+        "fish marcos bowl",
+        "marcos bowl with fish",
+        "marcos bowl battered fish",
+        "battered fish marcos bowl",
+        "marcos bowl with battered fish",
+        "marco's bowl fish",
+        "fish marco's bowl",
+        "marco's bowl with fish",
+        "marco's bowl battered fish",
+        "battered fish marco's bowl",
+        "marco's bowl with battered fish",
+        "marco bowl fish",
+        "fish marco bowl",
+        "marco bowl with fish",
+        "marco bowl battered fish",
+        "battered fish marco bowl",
+        "marco bowl with battered fish"
+      ],
+      "macros": {
+        "protein": 29,
+        "fat": 52,
+        "carbs": 56,
+        "fiber": 18,
+        "calories": 760
+      },
+      "build": [
+        {
+          "component": "marcos bowl base",
+          "count": 1
+        },
+        {
+          "component": "beer-battered fish",
+          "count": 1
+        }
+      ],
+      "derived": "Marcos Bowl (1 serving, no protein) + Add Battered Fish"
+    },
+    {
+      "name": "Marcos Bowl with Grilled Mahi Mahi",
+      "aliases": [
+        "marcos bowl mahi",
+        "mahi marcos bowl",
+        "marcos bowl with mahi",
+        "marcos bowl mahi mahi",
+        "mahi mahi marcos bowl",
+        "marcos bowl with mahi mahi",
+        "marcos bowl grilled fish",
+        "grilled fish marcos bowl",
+        "marcos bowl with grilled fish",
+        "marco's bowl mahi",
+        "mahi marco's bowl",
+        "marco's bowl with mahi",
+        "marco's bowl mahi mahi",
+        "mahi mahi marco's bowl",
+        "marco's bowl with mahi mahi",
+        "marco's bowl grilled fish",
+        "grilled fish marco's bowl",
+        "marco's bowl with grilled fish",
+        "marco bowl mahi",
+        "mahi marco bowl",
+        "marco bowl with mahi",
+        "marco bowl mahi mahi",
+        "mahi mahi marco bowl",
+        "marco bowl with mahi mahi",
+        "marco bowl grilled fish",
+        "grilled fish marco bowl",
+        "marco bowl with grilled fish"
+      ],
+      "macros": {
+        "protein": 38,
+        "fat": 31,
+        "carbs": 40,
+        "fiber": 17,
+        "calories": 540
+      },
+      "build": [
+        {
+          "component": "marcos bowl base",
+          "count": 1
+        },
+        {
+          "component": "grilled mahi mahi",
+          "count": 1
+        }
+      ],
+      "derived": "Marcos Bowl (1 serving, no protein) + Add Grilled Wild Mahi Mahi"
+    },
+    {
+      "name": "High Fiber Veggie Bowl (no protein)",
+      "aliases": [
+        "high fiber veggie bowl no protein",
+        "high fiber bowl no protein",
+        "veggie bowl no protein",
+        "fiber bowl no protein",
+        "high fiber veggie bowl base",
+        "high fiber bowl base",
+        "veggie bowl base",
+        "fiber bowl base"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 31,
+        "carbs": 62,
+        "fiber": 16,
+        "calories": 560
+      },
+      "build": [
+        {
+          "component": "high fiber veggie bowl base",
+          "count": 1
+        }
+      ],
+      "note": "As listed in the guide: 1 serving with dressings/sauces, before adding a protein"
+    },
+    {
+      "name": "High Fiber Veggie Bowl with Grilled Chicken",
+      "aliases": [
+        "high fiber veggie bowl chicken",
+        "chicken high fiber veggie bowl",
+        "high fiber veggie bowl with chicken",
+        "high fiber bowl chicken",
+        "chicken high fiber bowl",
+        "high fiber bowl with chicken",
+        "veggie bowl chicken",
+        "chicken veggie bowl",
+        "veggie bowl with chicken",
+        "fiber bowl chicken",
+        "chicken fiber bowl",
+        "fiber bowl with chicken"
+      ],
+      "macros": {
+        "protein": 46,
+        "fat": 33,
+        "carbs": 65,
+        "fiber": 16,
+        "calories": 700
+      },
+      "build": [
+        {
+          "component": "high fiber veggie bowl base",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        }
+      ],
+      "derived": "High Fiber Veggie Bowl (1 serving, no protein) + Add Grilled All Natural Chicken"
+    },
+    {
+      "name": "High Fiber Veggie Bowl with Steak",
+      "aliases": [
+        "high fiber veggie bowl steak",
+        "steak high fiber veggie bowl",
+        "high fiber veggie bowl with steak",
+        "high fiber bowl steak",
+        "steak high fiber bowl",
+        "high fiber bowl with steak",
+        "veggie bowl steak",
+        "steak veggie bowl",
+        "veggie bowl with steak",
+        "fiber bowl steak",
+        "steak fiber bowl",
+        "fiber bowl with steak"
+      ],
+      "macros": {
+        "protein": 50,
+        "fat": 40,
+        "carbs": 62,
+        "fiber": 16,
+        "calories": 760
+      },
+      "build": [
+        {
+          "component": "high fiber veggie bowl base",
+          "count": 1
+        },
+        {
+          "component": "grilled steak",
+          "count": 1
+        }
+      ],
+      "derived": "High Fiber Veggie Bowl (1 serving, no protein) + Add All Natural Steak"
+    },
+    {
+      "name": "High Fiber Veggie Bowl with Shrimp",
+      "aliases": [
+        "high fiber veggie bowl shrimp",
+        "shrimp high fiber veggie bowl",
+        "high fiber veggie bowl with shrimp",
+        "high fiber bowl shrimp",
+        "shrimp high fiber bowl",
+        "high fiber bowl with shrimp",
+        "veggie bowl shrimp",
+        "shrimp veggie bowl",
+        "veggie bowl with shrimp",
+        "fiber bowl shrimp",
+        "shrimp fiber bowl",
+        "fiber bowl with shrimp"
+      ],
+      "macros": {
+        "protein": 31,
+        "fat": 33.5,
+        "carbs": 62,
+        "fiber": 16,
+        "calories": 630
+      },
+      "build": [
+        {
+          "component": "high fiber veggie bowl base",
+          "count": 1
+        },
+        {
+          "component": "pan-seared shrimp",
+          "count": 1
+        }
+      ],
+      "derived": "High Fiber Veggie Bowl (1 serving, no protein) + Add Pan-Seared Shrimp"
+    },
+    {
+      "name": "High Fiber Veggie Bowl with Battered Fish",
+      "aliases": [
+        "high fiber veggie bowl fish",
+        "fish high fiber veggie bowl",
+        "high fiber veggie bowl with fish",
+        "high fiber veggie bowl battered fish",
+        "battered fish high fiber veggie bowl",
+        "high fiber veggie bowl with battered fish",
+        "high fiber bowl fish",
+        "fish high fiber bowl",
+        "high fiber bowl with fish",
+        "high fiber bowl battered fish",
+        "battered fish high fiber bowl",
+        "high fiber bowl with battered fish",
+        "veggie bowl fish",
+        "fish veggie bowl",
+        "veggie bowl with fish",
+        "veggie bowl battered fish",
+        "battered fish veggie bowl",
+        "veggie bowl with battered fish",
+        "fiber bowl fish",
+        "fish fiber bowl",
+        "fiber bowl with fish",
+        "fiber bowl battered fish",
+        "battered fish fiber bowl",
+        "fiber bowl with battered fish"
+      ],
+      "macros": {
+        "protein": 32,
+        "fat": 55,
+        "carbs": 78,
+        "fiber": 17,
+        "calories": 890
+      },
+      "build": [
+        {
+          "component": "high fiber veggie bowl base",
+          "count": 1
+        },
+        {
+          "component": "beer-battered fish",
+          "count": 1
+        }
+      ],
+      "derived": "High Fiber Veggie Bowl (1 serving, no protein) + Add Battered Fish"
+    },
+    {
+      "name": "High Fiber Veggie Bowl with Grilled Mahi Mahi",
+      "aliases": [
+        "high fiber veggie bowl mahi",
+        "mahi high fiber veggie bowl",
+        "high fiber veggie bowl with mahi",
+        "high fiber veggie bowl mahi mahi",
+        "mahi mahi high fiber veggie bowl",
+        "high fiber veggie bowl with mahi mahi",
+        "high fiber veggie bowl grilled fish",
+        "grilled fish high fiber veggie bowl",
+        "high fiber veggie bowl with grilled fish",
+        "high fiber bowl mahi",
+        "mahi high fiber bowl",
+        "high fiber bowl with mahi",
+        "high fiber bowl mahi mahi",
+        "mahi mahi high fiber bowl",
+        "high fiber bowl with mahi mahi",
+        "high fiber bowl grilled fish",
+        "grilled fish high fiber bowl",
+        "high fiber bowl with grilled fish",
+        "veggie bowl mahi",
+        "mahi veggie bowl",
+        "veggie bowl with mahi",
+        "veggie bowl mahi mahi",
+        "mahi mahi veggie bowl",
+        "veggie bowl with mahi mahi",
+        "veggie bowl grilled fish",
+        "grilled fish veggie bowl",
+        "veggie bowl with grilled fish",
+        "fiber bowl mahi",
+        "mahi fiber bowl",
+        "fiber bowl with mahi",
+        "fiber bowl mahi mahi",
+        "mahi mahi fiber bowl",
+        "fiber bowl with mahi mahi",
+        "fiber bowl grilled fish",
+        "grilled fish fiber bowl",
+        "fiber bowl with grilled fish"
+      ],
+      "macros": {
+        "protein": 41,
+        "fat": 34,
+        "carbs": 62,
+        "fiber": 16,
+        "calories": 670
+      },
+      "build": [
+        {
+          "component": "high fiber veggie bowl base",
+          "count": 1
+        },
+        {
+          "component": "grilled mahi mahi",
+          "count": 1
+        }
+      ],
+      "derived": "High Fiber Veggie Bowl (1 serving, no protein) + Add Grilled Wild Mahi Mahi"
+    },
+    {
+      "name": "Double Protein Bowl (no protein)",
+      "aliases": [
+        "double protein bowl base",
+        "double protein bowl no protein"
+      ],
+      "macros": {
+        "protein": 17,
+        "fat": 30,
+        "carbs": 100,
+        "fiber": 10,
+        "calories": 730
+      },
+      "build": [
+        {
+          "component": "double protein bowl base",
+          "count": 1
+        }
+      ],
+      "note": "Base only; add any two proteins"
+    },
+    {
+      "name": "Surf and Turf Bowl",
+      "aliases": [
+        "surf and turf bowl",
+        "surf n turf bowl",
+        "surf 'n turf bowl",
+        "surf & turf bowl",
+        "double protein bowl shrimp and steak",
+        "double protein bowl"
+      ],
+      "macros": {
+        "protein": 60,
+        "fat": 41,
+        "carbs": 101,
+        "fiber": 11,
+        "calories": 1000
+      },
+      "build": [
+        {
+          "component": "double protein bowl base",
+          "count": 1
+        },
+        {
+          "component": "pan-seared shrimp",
+          "count": 1
+        },
+        {
+          "component": "grilled steak",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Double Protein Bowl with Chicken and Steak",
+      "aliases": [
+        "double protein bowl chicken and steak",
+        "chicken and steak bowl",
+        "double protein chicken steak"
+      ],
+      "macros": {
+        "protein": 75,
+        "fat": 41,
+        "carbs": 103,
+        "fiber": 10,
+        "calories": 1070
+      },
+      "build": [
+        {
+          "component": "double protein bowl base",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "grilled steak",
+          "count": 1
+        }
+      ],
+      "derived": "Double Protein Bowl (Base) + Add Grilled All Natural Chicken + Add All Natural Steak"
+    },
+    {
+      "name": "Double Protein Bowl with Chicken and Shrimp",
+      "aliases": [
+        "double protein bowl chicken and shrimp",
+        "chicken and shrimp bowl",
+        "double protein chicken shrimp"
+      ],
+      "macros": {
+        "protein": 56,
+        "fat": 34.5,
+        "carbs": 103,
+        "fiber": 10,
+        "calories": 940
+      },
+      "build": [
+        {
+          "component": "double protein bowl base",
+          "count": 1
+        },
+        {
+          "component": "grilled chicken",
+          "count": 1
+        },
+        {
+          "component": "pan-seared shrimp",
+          "count": 1
+        }
+      ],
+      "derived": "Double Protein Bowl (Base) + Add Grilled All Natural Chicken + Add Pan-Seared Shrimp"
+    },
+    {
+      "name": "Omega-3 Bowl with Grilled Salmon",
+      "aliases": [
+        "omega-3 bowl",
+        "omega 3 bowl",
+        "omega3 bowl",
+        "salmon bowl",
+        "omega-3 salmon bowl",
+        "grilled salmon bowl"
+      ],
+      "macros": {
+        "protein": 36,
+        "fat": 41,
+        "carbs": 35,
+        "fiber": 15,
+        "calories": 610
+      },
+      "build": [
+        {
+          "component": "omega-3 bowl base",
+          "count": 1
+        },
+        {
+          "component": "grilled salmon",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Langostino Lobster Bowl",
+      "aliases": [
+        "langostino lobster bowl",
+        "lobster bowl",
+        "langostino bowl"
+      ],
+      "macros": {
+        "protein": 41,
+        "fat": 59,
+        "carbs": 141,
+        "fiber": 17,
+        "calories": 1260
+      },
+      "source": "https://rubios.com/wp-content/uploads/2026/02/2026-Nutrition-and-Allergen-Guide-.pdf",
+      "note": "Seasonal; from the February 2026 guide, not in the May 2026 guide"
+    },
+    {
+      "name": "Cheese Quesadilla",
+      "aliases": [
+        "cheese quesadilla",
+        "quesadilla",
+        "quesadilla with sides"
+      ],
+      "macros": {
+        "protein": 35,
+        "fat": 49,
+        "carbs": 102,
+        "fiber": 8,
+        "calories": 1020
+      },
+      "note": "Includes sides of chips, sour cream and salsa fresca"
+    },
+    {
+      "name": "Loaded Nachos",
+      "aliases": [
+        "loaded nachos",
+        "nachos"
+      ],
+      "macros": {
+        "protein": 40,
+        "fat": 41,
+        "carbs": 141,
+        "fiber": 16,
+        "calories": 1100
+      }
+    },
+    {
+      "name": "Street Fries",
+      "aliases": [
+        "street fries",
+        "loaded fries",
+        "rubios street fries"
+      ],
+      "macros": {
+        "protein": 21,
+        "fat": 88,
+        "carbs": 112,
+        "fiber": 15,
+        "calories": 1310
+      }
+    },
+    {
+      "name": "Fish & Chips (2 Piece)",
+      "aliases": [
+        "fish and chips",
+        "fish & chips",
+        "fish and chips 2 piece",
+        "2 piece fish and chips",
+        "fish n chips"
+      ],
+      "macros": {
+        "protein": 22,
+        "fat": 103,
+        "carbs": 92,
+        "fiber": 11,
+        "calories": 1380
+      }
+    },
+    {
+      "name": "Fish & Chips (3 Piece)",
+      "aliases": [
+        "fish and chips 3 piece",
+        "3 piece fish and chips",
+        "fish & chips 3 piece"
+      ],
+      "macros": {
+        "protein": 29,
+        "fat": 115,
+        "carbs": 100,
+        "fiber": 11,
+        "calories": 1550
+      }
+    },
+    {
+      "name": "Baja Fish Slider",
+      "aliases": [
+        "baja fish slider",
+        "fish slider",
+        "fish sandwich"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 37,
+        "carbs": 34,
+        "fiber": 2,
+        "calories": 510
+      }
+    },
+    {
+      "name": "Tortilla Chips (regular)",
+      "aliases": [
+        "tortilla chips",
+        "chips",
+        "side of chips",
+        "regular chips",
+        "chips regular"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 2.5,
+        "carbs": 43,
+        "fiber": 2,
+        "calories": 210
+      }
+    },
+    {
+      "name": "Tortilla Chips (large)",
+      "aliases": [
+        "large chips",
+        "tortilla chips large",
+        "chips large"
+      ],
+      "macros": {
+        "protein": 7,
+        "fat": 5,
+        "carbs": 96,
+        "fiber": 5,
+        "calories": 460
+      }
+    },
+    {
+      "name": "Guacamole & Chips (regular)",
+      "aliases": [
+        "guacamole and chips",
+        "guac and chips",
+        "chips and guac",
+        "chips and guacamole",
+        "guac & chips"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 14,
+        "carbs": 50,
+        "fiber": 8,
+        "calories": 340
+      }
+    },
+    {
+      "name": "Guacamole & Chips (large)",
+      "aliases": [
+        "guacamole and chips large",
+        "large guac and chips",
+        "large chips and guac"
+      ],
+      "macros": {
+        "protein": 10,
+        "fat": 29,
+        "carbs": 110,
+        "fiber": 16,
+        "calories": 720
+      }
+    },
+    {
+      "name": "Queso Blanco & Chips (regular)",
+      "aliases": [
+        "queso and chips",
+        "chips and queso",
+        "queso blanco and chips",
+        "queso & chips",
+        "chips and queso regular"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 16,
+        "carbs": 52,
+        "fiber": 2,
+        "calories": 390
+      }
+    },
+    {
+      "name": "Queso Blanco & Chips (large)",
+      "aliases": [
+        "queso and chips large",
+        "large chips and queso",
+        "large queso and chips"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 42,
+        "carbs": 132,
+        "fiber": 6,
+        "calories": 990
+      }
+    },
+    {
+      "name": "Black Beans (regular)",
+      "aliases": [
+        "black beans",
+        "side of black beans",
+        "black beans regular",
+        "regular black beans"
+      ],
+      "macros": {
+        "protein": 12,
+        "fat": 2,
+        "carbs": 30,
+        "fiber": 12,
+        "calories": 180
+      },
+      "note": "Topped with melted cheese"
+    },
+    {
+      "name": "Black Beans (large)",
+      "aliases": [
+        "large black beans",
+        "black beans large"
+      ],
+      "macros": {
+        "protein": 18,
+        "fat": 2.5,
+        "carbs": 46,
+        "fiber": 18,
+        "calories": 280
+      },
+      "note": "Topped with melted cheese"
+    },
+    {
+      "name": "No-Fried Pinto Beans (regular)",
+      "aliases": [
+        "pinto beans",
+        "no fried pinto beans",
+        "no-fried pinto beans",
+        "side of pinto beans",
+        "pinto beans regular",
+        "beans"
+      ],
+      "macros": {
+        "protein": 11,
+        "fat": 2,
+        "carbs": 29,
+        "fiber": 11,
+        "calories": 170
+      },
+      "note": "Topped with melted cheese"
+    },
+    {
+      "name": "No-Fried Pinto Beans (large)",
+      "aliases": [
+        "large pinto beans",
+        "pinto beans large"
+      ],
+      "macros": {
+        "protein": 20,
+        "fat": 2,
+        "carbs": 51,
+        "fiber": 19,
+        "calories": 300
+      },
+      "note": "Topped with melted cheese"
+    },
+    {
+      "name": "Citrus Rice (regular)",
+      "aliases": [
+        "citrus rice",
+        "side of citrus rice",
+        "citrus rice regular",
+        "rice"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 2.5,
+        "carbs": 36,
+        "fiber": 1,
+        "calories": 180
+      }
+    },
+    {
+      "name": "Citrus Rice (large)",
+      "aliases": [
+        "large citrus rice",
+        "citrus rice large"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 4,
+        "carbs": 55,
+        "fiber": 2,
+        "calories": 270
+      }
+    },
+    {
+      "name": "Mexican Rice (regular)",
+      "aliases": [
+        "mexican rice",
+        "side of mexican rice",
+        "spanish rice",
+        "mexican rice regular"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 2.5,
+        "carbs": 35,
+        "fiber": 1,
+        "calories": 180
+      }
+    },
+    {
+      "name": "Mexican Rice (large)",
+      "aliases": [
+        "large mexican rice",
+        "mexican rice large"
+      ],
+      "macros": {
+        "protein": 6,
+        "fat": 4,
+        "carbs": 53,
+        "fiber": 1,
+        "calories": 270
+      }
+    },
+    {
+      "name": "Guacamole (side)",
+      "aliases": [
+        "guacamole",
+        "guac",
+        "side of guac",
+        "side of guacamole",
+        "side guac"
+      ],
+      "macros": {
+        "protein": 1,
+        "fat": 6,
+        "carbs": 4,
+        "fiber": 3,
+        "calories": 70
+      },
+      "note": "1.5 oz"
+    },
+    {
+      "name": "Mexican Street Corn (regular)",
+      "aliases": [
+        "mexican street corn",
+        "street corn",
+        "elote",
+        "side of street corn"
+      ],
+      "macros": {
+        "protein": 2,
+        "fat": 8,
+        "carbs": 30,
+        "fiber": 4,
+        "calories": 180
+      }
+    },
+    {
+      "name": "Mexican Street Corn (large)",
+      "aliases": [
+        "large mexican street corn",
+        "street corn large",
+        "large street corn"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 12,
+        "carbs": 60,
+        "fiber": 0,
+        "calories": 360
+      }
+    },
+    {
+      "name": "Side Fries",
+      "aliases": [
+        "side fries",
+        "fries",
+        "french fries",
+        "side of fries"
+      ],
+      "macros": {
+        "protein": 8,
+        "fat": 36,
+        "carbs": 68,
+        "fiber": 8,
+        "calories": 620
+      }
+    },
+    {
+      "name": "Kids Bean & Cheese Burrito",
+      "aliases": [
+        "kids bean and cheese burrito",
+        "kids bean & cheese burrito",
+        "kid bean and cheese burrito",
+        "kids burrito"
+      ],
+      "macros": {
+        "protein": 25,
+        "fat": 23,
+        "carbs": 67,
+        "fiber": 9,
+        "calories": 590
+      }
+    },
+    {
+      "name": "Kids Cheese Quesadilla",
+      "aliases": [
+        "kids cheese quesadilla",
+        "kids quesadilla",
+        "kid quesadilla"
+      ],
+      "macros": {
+        "protein": 22,
+        "fat": 27,
+        "carbs": 49,
+        "fiber": 2,
+        "calories": 540
+      }
+    },
+    {
+      "name": "Kids Chicken Quesadilla",
+      "aliases": [
+        "kids chicken quesadilla",
+        "kid chicken quesadilla",
+        "chicken quesadilla"
+      ],
+      "macros": {
+        "protein": 30,
+        "fat": 27,
+        "carbs": 50,
+        "fiber": 2,
+        "calories": 580
+      }
+    },
+    {
+      "name": "Kids Crispy Chicken Tenders",
+      "aliases": [
+        "kids chicken tenders",
+        "chicken tenders",
+        "crispy chicken tenders",
+        "kids tenders"
+      ],
+      "macros": {
+        "protein": 19,
+        "fat": 16,
+        "carbs": 16,
+        "fiber": 1,
+        "calories": 280
+      }
+    },
+    {
+      "name": "Cinnamon Churro",
+      "aliases": [
+        "churro",
+        "cinnamon churro",
+        "churros"
+      ],
+      "macros": {
+        "protein": 3,
+        "fat": 18,
+        "carbs": 35,
+        "fiber": 1,
+        "calories": 310
+      }
+    },
+    {
+      "name": "Chocolate Chunk Cookie",
+      "aliases": [
+        "chocolate chunk cookie",
+        "chocolate chip cookie",
+        "cookie"
+      ],
+      "macros": {
+        "protein": 5,
+        "fat": 19,
+        "carbs": 50,
+        "fiber": 2,
+        "calories": 380
+      }
+    },
+    {
+      "name": "Salted Caramel Cookie",
+      "aliases": [
+        "salted caramel cookie",
+        "caramel cookie"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 17,
+        "carbs": 57,
+        "fiber": 1,
+        "calories": 390
+      }
+    },
+    {
+      "name": "Toffee Crunch Bar",
+      "aliases": [
+        "toffee crunch bar",
+        "toffee bar"
+      ],
+      "macros": {
+        "protein": 4,
+        "fat": 17,
+        "carbs": 46,
+        "fiber": 1,
+        "calories": 350
+      }
+    }
+  ]
+}

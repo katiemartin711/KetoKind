@@ -1,0 +1,643 @@
+{
+  "chain": "Texas Roadhouse",
+  "aliases": ["texas roadhouse", "texas road house", "roadhouse", "txrh", "texas roadhous", "texas roadhouse steakhouse", "the roadhouse", "texas rh"],
+  "source": "https://www.nutritionix.com/texas-roadhouse/menu/premium",
+  "retrieved": "2026-10-05",
+  "notes": "Numbers are from Texas Roadhouse's official Interactive Nutrition Menu, which the chain publishes through Nutritionix and links from https://www.texasroadhouse.com/nutrition (the PDF at texasroadhouse.com/pdfs/texas-roadhouse-nutritional-guide.pdf sits behind a human-verification check and could not be fetched). The menu states that all entrees, ribs, combos, burgers and sandwiches are shown WITHOUT sides; Filet Medallions and Steak Kabob include Seasoned Rice; Prime Rib includes Au Jus; Chicken Critters are shown without dipping sauce. Side dressings are 2 oz; entree-salad dressings are 3 oz. Where the menu leaves a cell blank it is stored as 0; the Porterhouse row lists fiber 2 g against 1 g carbs, stored here as fiber 1. 'Fresh-Baked Bread' is the menu row for the rolls (its Nutritionix label gives the serving as 1 piece, 54 g, so the row is one roll); 'Honey Cinnamon Buttery Spread' is the published cinnamon butter row (listed under sweet potato toppings). 'Fall-off-the-Bone Ribs - Sidekick' is the rib portion used in the Texas Size Combos (6 oz Sirloin & Ribs = 6 oz Sirloin + Ribs Sidekick exactly). 'filet medallions (no rice)' is derived by subtracting Seasoned Rice from the published Filet Medallions row.",
+  "components": {
+    "usda choice sirloin 6 oz": { "unit": "each", "protein": 46, "fat": 6, "carbs": 3, "fiber": 1, "calories": 250 },
+    "usda choice sirloin 8 oz": { "unit": "each", "protein": 61, "fat": 8, "carbs": 5, "fiber": 2, "calories": 340 },
+    "usda choice sirloin 11 oz": { "unit": "each", "protein": 84, "fat": 11, "carbs": 6, "fiber": 2, "calories": 460 },
+    "usda choice sirloin 16 oz": { "unit": "each", "protein": 122, "fat": 16, "carbs": 9, "fiber": 3, "calories": 670 },
+    "dallas filet 6 oz": { "unit": "each", "protein": 45, "fat": 10, "carbs": 6, "fiber": 2, "calories": 270 },
+    "dallas filet 8 oz": { "unit": "each", "protein": 60, "fat": 13, "carbs": 8, "fiber": 2, "calories": 360 },
+    "ft. worth ribeye 12 oz": { "unit": "each", "protein": 78, "fat": 72, "carbs": 12, "fiber": 4, "calories": 960 },
+    "ft. worth ribeye 14 oz": { "unit": "each", "protein": 90, "fat": 84, "carbs": 14, "fiber": 4, "calories": 1120 },
+    "ft. worth ribeye 16 oz": { "unit": "each", "protein": 103, "fat": 96, "carbs": 16, "fiber": 5, "calories": 1280 },
+    "bone-in ribeye": { "unit": "each", "protein": 143, "fat": 101, "carbs": 20, "fiber": 4, "calories": 1480 },
+    "new york strip 8 oz": { "unit": "each", "protein": 57, "fat": 22, "carbs": 2, "fiber": 0, "calories": 420 },
+    "new york strip 12 oz": { "unit": "each", "protein": 85, "fat": 33, "carbs": 1, "fiber": 1, "calories": 640 },
+    "new york strip 16 oz": { "unit": "each", "protein": 114, "fat": 44, "carbs": 2, "fiber": 2, "calories": 850 },
+    "porterhouse t-bone": { "unit": "each", "protein": 139, "fat": 54, "carbs": 1, "fiber": 1, "calories": 1040 },
+    "prime rib 12 oz": { "unit": "each", "protein": 74, "fat": 72, "carbs": 3, "fiber": 2, "calories": 950 },
+    "prime rib 14 oz": { "unit": "each", "protein": 87, "fat": 84, "carbs": 3, "fiber": 3, "calories": 1110 },
+    "prime rib 16 oz": { "unit": "each", "protein": 99, "fat": 95, "carbs": 4, "fiber": 3, "calories": 1260 },
+    "road kill chopped steak": { "unit": "each", "protein": 55, "fat": 56, "carbs": 10, "fiber": 3, "calories": 760 },
+    "filet medallions (no rice)": { "unit": "each", "protein": 68, "fat": 15, "carbs": 9, "fiber": 3, "calories": 400, "derived": "Filet Medallions (760 cal, 30 g fat, 56 g carbs, 5 g fiber, 74 g protein) minus Seasoned Rice" },
+    "fall-off-the-bone ribs half slab": { "unit": "each", "protein": 72, "fat": 63, "carbs": 9, "fiber": 3, "calories": 900 },
+    "fall-off-the-bone ribs full slab": { "unit": "each", "protein": 116, "fat": 102, "carbs": 15, "fiber": 4, "calories": 1450 },
+    "ribs sidekick": { "unit": "each", "protein": 44, "fat": 39, "carbs": 6, "fiber": 2, "calories": 550 },
+    "grilled shrimp sidekick": { "unit": "each", "protein": 24, "fat": 23, "carbs": 35, "fiber": 2, "calories": 440 },
+    "grilled bbq chicken": { "unit": "each", "protein": 46, "fat": 3.5, "carbs": 19, "fiber": 2, "calories": 300 },
+    "herb crusted chicken": { "unit": "each", "protein": 47, "fat": 4, "carbs": 12, "fiber": 4, "calories": 260 },
+    "chicken critters": { "unit": "each", "protein": 45, "fat": 21, "carbs": 26, "fiber": 3, "calories": 480 },
+    "grilled salmon 5 oz": { "unit": "each", "protein": 27, "fat": 33, "carbs": 2, "fiber": 0, "calories": 410 },
+    "grilled salmon 8 oz": { "unit": "each", "protein": 45, "fat": 42, "carbs": 2, "fiber": 0, "calories": 560 },
+    "fresh-baked bread": { "unit": "each", "protein": 5, "fat": 8, "carbs": 28, "fiber": 1, "calories": 200 },
+    "honey cinnamon buttery spread": { "unit": "each", "protein": 0, "fat": 9, "carbs": 2, "fiber": 0, "calories": 90 },
+    "whipped buttery spread": { "unit": "each", "protein": 0, "fat": 10, "carbs": 0, "fiber": 0, "calories": 90 },
+    "baked potato": { "unit": "each", "protein": 7, "fat": 13, "carbs": 60, "fiber": 6, "calories": 380 },
+    "sweet potato": { "unit": "each", "protein": 6, "fat": 9, "carbs": 62, "fiber": 10, "calories": 350 },
+    "mashed potatoes": { "unit": "each", "protein": 3, "fat": 17, "carbs": 24, "fiber": 2, "calories": 260 },
+    "brown gravy": { "unit": "each", "protein": 0, "fat": 6, "carbs": 3, "fiber": 0, "calories": 70 },
+    "cream gravy": { "unit": "each", "protein": 2, "fat": 7, "carbs": 5, "fiber": 0, "calories": 90 },
+    "seasoned rice": { "unit": "each", "protein": 6, "fat": 15, "carbs": 47, "fiber": 2, "calories": 360 },
+    "green beans": { "unit": "each", "protein": 6, "fat": 3.5, "carbs": 13, "fiber": 2, "calories": 100 },
+    "fresh vegetables": { "unit": "each", "protein": 3, "fat": 15, "carbs": 13, "fiber": 5, "calories": 190 },
+    "steamed broccoli": { "unit": "each", "protein": 5, "fat": 16, "carbs": 17, "fiber": 8, "calories": 210 },
+    "steak fries": { "unit": "each", "protein": 5, "fat": 14, "carbs": 53, "fiber": 6, "calories": 360 },
+    "mac and cheese": { "unit": "each", "protein": 17, "fat": 18, "carbs": 37, "fiber": 2, "calories": 380 },
+    "seasoned corn": { "unit": "each", "protein": 5, "fat": 9, "carbs": 29, "fiber": 3, "calories": 190 },
+    "applesauce": { "unit": "each", "protein": 0, "fat": 0, "carbs": 28, "fiber": 3, "calories": 110 },
+    "house side salad": { "unit": "each", "protein": 13, "fat": 16, "carbs": 9, "fiber": 2, "calories": 230 },
+    "caesar side salad": { "unit": "each", "protein": 6, "fat": 43, "carbs": 9, "fiber": 2, "calories": 440 },
+    "sauteed mushrooms": { "unit": "each", "protein": 3, "fat": 11, "carbs": 5, "fiber": 2, "calories": 120 },
+    "sauteed onions": { "unit": "each", "protein": 2, "fat": 10, "carbs": 13, "fiber": 2, "calories": 150 },
+    "bacon topping": { "unit": "each", "protein": 3, "fat": 2.5, "carbs": 0, "fiber": 0, "calories": 35 },
+    "cheddar cheese topping": { "unit": "each", "protein": 7, "fat": 9, "carbs": 0, "fiber": 0, "calories": 110 },
+    "sour cream topping": { "unit": "each", "protein": 0, "fat": 3.5, "carbs": 0, "fiber": 0, "calories": 40 },
+    "bacon slices (burger add-on)": { "unit": "each", "protein": 9, "fat": 7, "carbs": 0, "fiber": 0, "calories": 100 },
+    "monterey jack cheese smother": { "unit": "each", "protein": 7, "fat": 8, "carbs": 0, "fiber": 0, "calories": 100 },
+    "mushrooms smother": { "unit": "each", "protein": 1, "fat": 4.5, "carbs": 2, "fiber": 0, "calories": 50 },
+    "sauteed onions smother": { "unit": "each", "protein": 0, "fat": 4, "carbs": 5, "fiber": 0, "calories": 60 },
+    "grilled shrimp smother": { "unit": "each", "protein": 8, "fat": 1, "carbs": 0, "fiber": 0, "calories": 40 },
+    "signature jalapenos smother": { "unit": "each", "protein": 1, "fat": 7, "carbs": 7, "fiber": 3, "calories": 100 },
+    "bleu cheese crumbles": { "unit": "each", "protein": 6, "fat": 8, "carbs": 1, "fiber": 0, "calories": 100 },
+    "ranch dressing (2 oz)": { "unit": "each", "protein": 0, "fat": 31, "carbs": 4, "fiber": 0, "calories": 290 },
+    "bleu cheese dressing (2 oz)": { "unit": "each", "protein": 2, "fat": 30, "carbs": 4, "fiber": 0, "calories": 280 },
+    "caesar dressing (2 oz)": { "unit": "each", "protein": 3, "fat": 37, "carbs": 4, "fiber": 0, "calories": 360 },
+    "honey mustard dressing (2 oz)": { "unit": "each", "protein": 0, "fat": 32, "carbs": 11, "fiber": 0, "calories": 320 },
+    "italian dressing (2 oz)": { "unit": "each", "protein": 0, "fat": 24, "carbs": 12, "fiber": 0, "calories": 270 },
+    "thousand island dressing (2 oz)": { "unit": "each", "protein": 0, "fat": 26, "carbs": 9, "fiber": 0, "calories": 260 },
+    "oil & vinegar (2 oz)": { "unit": "each", "protein": 0, "fat": 28, "carbs": 0, "fiber": 0, "calories": 270 },
+    "texas roadhouse barbecue sauce (2 oz)": { "unit": "each", "protein": 0, "fat": 0, "carbs": 18, "fiber": 0, "calories": 80 }
+  },
+  "items": [
+    {
+      "name": "Fresh-Baked Bread (roll)",
+      "aliases": ["roadhouse rolls", "rolls", "roll", "texas roadhouse rolls", "fresh baked bread", "fresh-baked bread", "bread", "dinner roll", "yeast roll", "roadhouse roll"],
+      "macros": { "protein": 5, "fat": 8, "carbs": 28, "fiber": 1, "calories": 200 },
+      "build": [{ "component": "fresh-baked bread", "count": 1 }]
+    },
+    {
+      "name": "Honey Cinnamon Buttery Spread",
+      "aliases": ["cinnamon butter", "honey cinnamon butter", "cinnamon honey butter", "roll butter", "cinnamon buttery spread", "butter for rolls"],
+      "macros": { "protein": 0, "fat": 9, "carbs": 2, "fiber": 0, "calories": 90 }
+    },
+    {
+      "name": "USDA Choice Sirloin - 6 oz.",
+      "aliases": ["6 oz sirloin", "6oz sirloin", "6 ounce sirloin", "sirloin 6 oz", "small sirloin", "6 oz steak", "usda choice sirloin 6 oz", "6 oz choice sirloin"],
+      "macros": { "protein": 46, "fat": 6, "carbs": 3, "fiber": 1, "calories": 250 },
+      "build": [{ "component": "usda choice sirloin 6 oz", "count": 1 }]
+    },
+    {
+      "name": "USDA Choice Sirloin - 8 oz.",
+      "aliases": ["8 oz sirloin", "8oz sirloin", "8 ounce sirloin", "sirloin 8 oz", "8 oz steak", "usda choice sirloin 8 oz", "sirloin"],
+      "macros": { "protein": 61, "fat": 8, "carbs": 5, "fiber": 2, "calories": 340 },
+      "build": [{ "component": "usda choice sirloin 8 oz", "count": 1 }]
+    },
+    {
+      "name": "USDA Choice Sirloin - 11 oz.",
+      "aliases": ["11 oz sirloin", "11oz sirloin", "11 ounce sirloin", "sirloin 11 oz", "11 oz steak", "usda choice sirloin 11 oz"],
+      "macros": { "protein": 84, "fat": 11, "carbs": 6, "fiber": 2, "calories": 460 },
+      "build": [{ "component": "usda choice sirloin 11 oz", "count": 1 }]
+    },
+    {
+      "name": "USDA Choice Sirloin - 16 oz.",
+      "aliases": ["16 oz sirloin", "16oz sirloin", "16 ounce sirloin", "sirloin 16 oz", "big sirloin", "usda choice sirloin 16 oz"],
+      "macros": { "protein": 122, "fat": 16, "carbs": 9, "fiber": 3, "calories": 670 },
+      "build": [{ "component": "usda choice sirloin 16 oz", "count": 1 }]
+    },
+    {
+      "name": "Dallas Filet - 6 oz.",
+      "aliases": ["dallas filet", "6 oz filet", "6oz filet", "filet 6 oz", "filet mignon 6 oz", "6 oz dallas filet", "filet", "fillet"],
+      "macros": { "protein": 45, "fat": 10, "carbs": 6, "fiber": 2, "calories": 270 },
+      "build": [{ "component": "dallas filet 6 oz", "count": 1 }]
+    },
+    {
+      "name": "Dallas Filet - 8 oz.",
+      "aliases": ["8 oz filet", "8oz filet", "filet 8 oz", "filet mignon 8 oz", "8 oz dallas filet", "large filet"],
+      "macros": { "protein": 60, "fat": 13, "carbs": 8, "fiber": 2, "calories": 360 },
+      "build": [{ "component": "dallas filet 8 oz", "count": 1 }]
+    },
+    {
+      "name": "Filet Medallions",
+      "aliases": ["filet medallions", "steak medallions", "medallions", "filet medallions with rice", "fillet medallions"],
+      "macros": { "protein": 74, "fat": 30, "carbs": 56, "fiber": 5, "calories": 760 },
+      "build": [
+        { "component": "filet medallions (no rice)", "count": 1 },
+        { "component": "seasoned rice", "count": 1 }
+      ]
+    },
+    {
+      "name": "Ft. Worth Ribeye - 12 oz.",
+      "aliases": ["12 oz ribeye", "12oz ribeye", "ribeye 12 oz", "ft worth ribeye", "fort worth ribeye", "ribeye", "rib eye", "12 oz rib eye", "ribeye steak"],
+      "macros": { "protein": 78, "fat": 72, "carbs": 12, "fiber": 4, "calories": 960 },
+      "build": [{ "component": "ft. worth ribeye 12 oz", "count": 1 }]
+    },
+    {
+      "name": "Ft. Worth Ribeye - 14 oz.",
+      "aliases": ["14 oz ribeye", "14oz ribeye", "ribeye 14 oz", "14 oz rib eye", "14 oz ft worth ribeye"],
+      "macros": { "protein": 90, "fat": 84, "carbs": 14, "fiber": 4, "calories": 1120 },
+      "build": [{ "component": "ft. worth ribeye 14 oz", "count": 1 }]
+    },
+    {
+      "name": "Ft. Worth Ribeye - 16 oz.",
+      "aliases": ["16 oz ribeye", "16oz ribeye", "ribeye 16 oz", "16 oz rib eye", "16 oz ft worth ribeye", "big ribeye"],
+      "macros": { "protein": 103, "fat": 96, "carbs": 16, "fiber": 5, "calories": 1280 },
+      "build": [{ "component": "ft. worth ribeye 16 oz", "count": 1 }]
+    },
+    {
+      "name": "Bone-In Ribeye",
+      "aliases": ["bone in ribeye", "bone-in ribeye", "20 oz bone in ribeye", "cowboy ribeye", "bone in rib eye"],
+      "macros": { "protein": 143, "fat": 101, "carbs": 20, "fiber": 4, "calories": 1480 },
+      "build": [{ "component": "bone-in ribeye", "count": 1 }]
+    },
+    {
+      "name": "New York Strip - 8 oz. Thick Cut",
+      "aliases": ["8 oz new york strip", "8 oz ny strip", "8oz strip", "ny strip 8 oz", "new york strip 8 oz", "thick cut strip", "8 oz strip"],
+      "macros": { "protein": 57, "fat": 22, "carbs": 2, "fiber": 0, "calories": 420 },
+      "build": [{ "component": "new york strip 8 oz", "count": 1 }]
+    },
+    {
+      "name": "New York Strip - 12 oz. Traditional Cut",
+      "aliases": ["12 oz new york strip", "12 oz ny strip", "12oz strip", "ny strip", "new york strip", "strip steak", "12 oz strip"],
+      "macros": { "protein": 85, "fat": 33, "carbs": 1, "fiber": 1, "calories": 640 },
+      "build": [{ "component": "new york strip 12 oz", "count": 1 }]
+    },
+    {
+      "name": "New York Strip - 16 oz. Traditional Cut",
+      "aliases": ["16 oz new york strip", "16 oz ny strip", "16oz strip", "ny strip 16 oz", "16 oz strip"],
+      "macros": { "protein": 114, "fat": 44, "carbs": 2, "fiber": 2, "calories": 850 },
+      "build": [{ "component": "new york strip 16 oz", "count": 1 }]
+    },
+    {
+      "name": "Porterhouse T-Bone",
+      "aliases": ["porterhouse", "t-bone", "t bone", "tbone", "porterhouse t bone", "23 oz porterhouse"],
+      "macros": { "protein": 139, "fat": 54, "carbs": 1, "fiber": 1, "calories": 1040 },
+      "build": [{ "component": "porterhouse t-bone", "count": 1 }]
+    },
+    {
+      "name": "Prime Rib - 12 oz.",
+      "aliases": ["12 oz prime rib", "12oz prime rib", "prime rib 12 oz", "prime rib", "primerib", "slow roasted prime rib"],
+      "macros": { "protein": 74, "fat": 72, "carbs": 3, "fiber": 2, "calories": 950 },
+      "build": [{ "component": "prime rib 12 oz", "count": 1 }]
+    },
+    {
+      "name": "Prime Rib - 14 oz.",
+      "aliases": ["14 oz prime rib", "14oz prime rib", "prime rib 14 oz"],
+      "macros": { "protein": 87, "fat": 84, "carbs": 3, "fiber": 3, "calories": 1110 },
+      "build": [{ "component": "prime rib 14 oz", "count": 1 }]
+    },
+    {
+      "name": "Prime Rib - 16 oz.",
+      "aliases": ["16 oz prime rib", "16oz prime rib", "prime rib 16 oz", "big prime rib"],
+      "macros": { "protein": 99, "fat": 95, "carbs": 4, "fiber": 3, "calories": 1260 },
+      "build": [{ "component": "prime rib 16 oz", "count": 1 }]
+    },
+    {
+      "name": "Road Kill",
+      "aliases": ["road kill", "roadkill", "road kill chopped steak", "chopped steak", "smothered chopped steak"],
+      "macros": { "protein": 55, "fat": 56, "carbs": 10, "fiber": 3, "calories": 760 },
+      "build": [{ "component": "road kill chopped steak", "count": 1 }]
+    },
+    {
+      "name": "Steak Kabob",
+      "aliases": ["steak kabob", "steak kebab", "kabob", "beef kabob", "steak kabobs"],
+      "macros": { "protein": 58, "fat": 41, "carbs": 78, "fiber": 4, "calories": 920 }
+    },
+    {
+      "name": "Fall-off-the-Bone Ribs - Half Slab",
+      "aliases": ["half slab ribs", "half rack ribs", "half ribs", "ribs half slab", "half slab", "fall off the bone ribs half", "baby back ribs half", "1/2 slab ribs", "half rack"],
+      "macros": { "protein": 72, "fat": 63, "carbs": 9, "fiber": 3, "calories": 900 },
+      "build": [{ "component": "fall-off-the-bone ribs half slab", "count": 1 }]
+    },
+    {
+      "name": "Fall-off-the-Bone Ribs - Full Slab",
+      "aliases": ["full slab ribs", "full rack ribs", "full ribs", "ribs full slab", "full slab", "fall off the bone ribs", "ribs", "baby back ribs", "full rack", "rack of ribs"],
+      "macros": { "protein": 116, "fat": 102, "carbs": 15, "fiber": 4, "calories": 1450 },
+      "build": [{ "component": "fall-off-the-bone ribs full slab", "count": 1 }]
+    },
+    {
+      "name": "6 oz. Sirloin & Ribs",
+      "aliases": ["6 oz sirloin and ribs", "sirloin and ribs", "sirloin & ribs", "6oz sirloin ribs combo", "steak and ribs", "sirloin ribs combo"],
+      "macros": { "protein": 90, "fat": 45, "carbs": 9, "fiber": 3, "calories": 800 },
+      "build": [
+        { "component": "usda choice sirloin 6 oz", "count": 1 },
+        { "component": "ribs sidekick", "count": 1 }
+      ]
+    },
+    {
+      "name": "8 oz. Sirloin & Ribs",
+      "aliases": ["8 oz sirloin and ribs", "8oz sirloin ribs combo", "8 oz steak and ribs"],
+      "macros": { "protein": 105, "fat": 47, "carbs": 10, "fiber": 3, "calories": 890 },
+      "build": [
+        { "component": "usda choice sirloin 8 oz", "count": 1 },
+        { "component": "ribs sidekick", "count": 1 }
+      ]
+    },
+    {
+      "name": "6 oz. Sirloin & Grilled Shrimp",
+      "aliases": ["6 oz sirloin and shrimp", "sirloin and grilled shrimp", "sirloin & shrimp", "steak and shrimp", "6oz sirloin shrimp combo", "surf and turf"],
+      "macros": { "protein": 66, "fat": 30, "carbs": 34, "fiber": 3, "calories": 670 },
+      "build": [
+        { "component": "usda choice sirloin 6 oz", "count": 1 },
+        { "component": "grilled shrimp sidekick", "count": 1 }
+      ]
+    },
+    {
+      "name": "8 oz. Sirloin & Grilled Shrimp",
+      "aliases": ["8 oz sirloin and shrimp", "8oz sirloin shrimp combo", "8 oz steak and shrimp"],
+      "macros": { "protein": 81, "fat": 32, "carbs": 35, "fiber": 3, "calories": 750 },
+      "build": [
+        { "component": "usda choice sirloin 8 oz", "count": 1 },
+        { "component": "grilled shrimp sidekick", "count": 1 }
+      ]
+    },
+    {
+      "name": "Dallas Filet & Ribs",
+      "aliases": ["filet and ribs", "dallas filet and ribs", "filet ribs combo", "filet & ribs"],
+      "macros": { "protein": 90, "fat": 49, "carbs": 12, "fiber": 3, "calories": 820 },
+      "build": [
+        { "component": "dallas filet 6 oz", "count": 1 },
+        { "component": "ribs sidekick", "count": 1 }
+      ]
+    },
+    {
+      "name": "Dallas Filet & Grilled Shrimp",
+      "aliases": ["filet and shrimp", "dallas filet and shrimp", "filet shrimp combo", "filet & shrimp"],
+      "macros": { "protein": 66, "fat": 33, "carbs": 36, "fiber": 4, "calories": 680 },
+      "build": [
+        { "component": "dallas filet 6 oz", "count": 1 },
+        { "component": "grilled shrimp sidekick", "count": 1 }
+      ]
+    },
+    {
+      "name": "12 oz. Ft. Worth Ribeye & Ribs",
+      "aliases": ["ribeye and ribs", "12 oz ribeye and ribs", "ribeye ribs combo", "ribeye & ribs"],
+      "macros": { "protein": 122, "fat": 111, "carbs": 18, "fiber": 5, "calories": 1510 },
+      "build": [
+        { "component": "ft. worth ribeye 12 oz", "count": 1 },
+        { "component": "ribs sidekick", "count": 1 }
+      ]
+    },
+    {
+      "name": "12 oz. Ft. Worth Ribeye & Grilled Shrimp",
+      "aliases": ["ribeye and shrimp", "12 oz ribeye and shrimp", "ribeye shrimp combo", "ribeye & shrimp"],
+      "macros": { "protein": 98, "fat": 96, "carbs": 42, "fiber": 5, "calories": 1370 },
+      "build": [
+        { "component": "ft. worth ribeye 12 oz", "count": 1 },
+        { "component": "grilled shrimp sidekick", "count": 1 }
+      ]
+    },
+    {
+      "name": "Chicken Critters & Ribs",
+      "aliases": ["chicken critters and ribs", "critters and ribs", "chicken and ribs combo", "tenders and ribs"],
+      "macros": { "protein": 70, "fat": 51, "carbs": 21, "fiber": 3, "calories": 820 }
+    },
+    {
+      "name": "Grilled BBQ Chicken & Ribs",
+      "aliases": ["bbq chicken and ribs", "grilled bbq chicken and ribs", "chicken ribs combo"],
+      "macros": { "protein": 91, "fat": 43, "carbs": 34, "fiber": 4, "calories": 890 }
+    },
+    {
+      "name": "Grilled BBQ Chicken",
+      "aliases": ["grilled bbq chicken", "bbq chicken", "grilled chicken", "bbq grilled chicken", "grilled chicken breast", "barbecue chicken"],
+      "macros": { "protein": 46, "fat": 3.5, "carbs": 19, "fiber": 2, "calories": 300 },
+      "build": [{ "component": "grilled bbq chicken", "count": 1 }]
+    },
+    {
+      "name": "Herb Crusted Chicken",
+      "aliases": ["herb crusted chicken", "herb chicken", "herb-crusted chicken", "herbed chicken"],
+      "macros": { "protein": 47, "fat": 4, "carbs": 12, "fiber": 4, "calories": 260 },
+      "build": [{ "component": "herb crusted chicken", "count": 1 }]
+    },
+    {
+      "name": "Smothered Chicken with Jack Cheese",
+      "aliases": ["smothered chicken", "smothered chicken jack cheese", "smothered chicken with cheese", "smothered chicken mushrooms onions jack cheese"],
+      "macros": { "protein": 55, "fat": 20, "carbs": 8, "fiber": 3, "calories": 430 }
+    },
+    {
+      "name": "Smothered Chicken with Cream Gravy",
+      "aliases": ["smothered chicken cream gravy", "smothered chicken with gravy", "smothered chicken gravy"],
+      "macros": { "protein": 48, "fat": 12, "carbs": 8, "fiber": 3, "calories": 330 }
+    },
+    {
+      "name": "Chicken Critters",
+      "aliases": ["chicken critters", "critters", "chicken tenders", "chicken strips", "chicken critters basket", "chicken fingers", "critters dinner"],
+      "macros": { "protein": 45, "fat": 21, "carbs": 26, "fiber": 3, "calories": 480 },
+      "build": [{ "component": "chicken critters", "count": 1 }]
+    },
+    {
+      "name": "Country Fried Chicken",
+      "aliases": ["country fried chicken", "chicken fried chicken", "cfc", "country fried chicken with gravy"],
+      "macros": { "protein": 48, "fat": 44, "carbs": 45, "fiber": 1, "calories": 770 }
+    },
+    {
+      "name": "Country Fried Sirloin",
+      "aliases": ["country fried sirloin", "chicken fried steak", "country fried steak", "cfs"],
+      "macros": { "protein": 52, "fat": 75, "carbs": 72, "fiber": 2, "calories": 1170 }
+    },
+    {
+      "name": "Grilled Salmon - 5 oz.",
+      "aliases": ["5 oz salmon", "5oz salmon", "grilled salmon 5 oz", "salmon", "grilled salmon", "small salmon"],
+      "macros": { "protein": 27, "fat": 33, "carbs": 2, "fiber": 0, "calories": 410 },
+      "build": [{ "component": "grilled salmon 5 oz", "count": 1 }]
+    },
+    {
+      "name": "Grilled Salmon - 8 oz.",
+      "aliases": ["8 oz salmon", "8oz salmon", "grilled salmon 8 oz", "large salmon"],
+      "macros": { "protein": 45, "fat": 42, "carbs": 2, "fiber": 0, "calories": 560 },
+      "build": [{ "component": "grilled salmon 8 oz", "count": 1 }]
+    },
+    {
+      "name": "Grilled Shrimp Dinner (9 Shrimp)",
+      "aliases": ["grilled shrimp dinner", "shrimp dinner", "grilled shrimp", "9 shrimp dinner", "shrimp skewer dinner"],
+      "macros": { "protein": 29, "fat": 37, "carbs": 50, "fiber": 3, "calories": 660 }
+    },
+    {
+      "name": "Pulled Pork Dinner",
+      "aliases": ["pulled pork dinner", "pulled pork", "bbq pulled pork", "pulled pork plate"],
+      "macros": { "protein": 80, "fat": 41, "carbs": 54, "fiber": 4, "calories": 890 }
+    },
+    {
+      "name": "Grilled Pork Chops - Single Chop",
+      "aliases": ["single pork chop", "grilled pork chop", "pork chop", "1 pork chop", "grilled pork chops single"],
+      "macros": { "protein": 42, "fat": 26, "carbs": 10, "fiber": 2, "calories": 440 }
+    },
+    {
+      "name": "Grilled Pork Chops - Double Chop",
+      "aliases": ["double pork chop", "two pork chops", "pork chops", "2 pork chops", "grilled pork chops double"],
+      "macros": { "protein": 82, "fat": 38, "carbs": 13, "fiber": 3, "calories": 730 }
+    },
+    {
+      "name": "Beef Tips with Mashed Potatoes",
+      "aliases": ["beef tips", "sirloin beef tips", "beef tips mashed potatoes", "beef tips with gravy"],
+      "macros": { "protein": 61, "fat": 58, "carbs": 48, "fiber": 6, "calories": 960 }
+    },
+    {
+      "name": "All-American Cheeseburger",
+      "aliases": ["all american cheeseburger", "cheeseburger", "all-american cheeseburger", "burger", "american cheeseburger"],
+      "macros": { "protein": 50, "fat": 55, "carbs": 48, "fiber": 5, "calories": 880 }
+    },
+    {
+      "name": "Bacon Cheeseburger",
+      "aliases": ["bacon cheeseburger", "bacon cheese burger", "bacon burger"],
+      "macros": { "protein": 59, "fat": 62, "carbs": 48, "fiber": 5, "calories": 980 }
+    },
+    {
+      "name": "Smokehouse Burger",
+      "aliases": ["smokehouse burger", "smoke house burger", "bbq smokehouse burger"],
+      "macros": { "protein": 58, "fat": 67, "carbs": 60, "fiber": 6, "calories": 1080 }
+    },
+    {
+      "name": "Mushroom Jack Chicken Sandwich",
+      "aliases": ["mushroom jack chicken sandwich", "mushroom jack chicken", "mushroom jack sandwich", "chicken sandwich"],
+      "macros": { "protein": 63, "fat": 30, "carbs": 48, "fiber": 6, "calories": 710 }
+    },
+    {
+      "name": "BBQ Chicken Sandwich",
+      "aliases": ["bbq chicken sandwich", "barbecue chicken sandwich", "grilled bbq chicken sandwich"],
+      "macros": { "protein": 55, "fat": 18, "carbs": 63, "fiber": 6, "calories": 640 }
+    },
+    {
+      "name": "Pulled Pork Sandwich",
+      "aliases": ["pulled pork sandwich", "bbq pulled pork sandwich", "pork sandwich"],
+      "macros": { "protein": 68, "fat": 40, "carbs": 62, "fiber": 4, "calories": 870 }
+    },
+    {
+      "name": "Cactus Blossom",
+      "aliases": ["cactus blossom", "blooming onion", "cactus blossum", "onion blossom", "fried onion"],
+      "macros": { "protein": 25, "fat": 135, "carbs": 236, "fiber": 19, "calories": 2250 }
+    },
+    {
+      "name": "Rattlesnake Bites",
+      "aliases": ["rattlesnake bites", "rattle snake bites", "jalapeno cheese bites", "snake bites"],
+      "macros": { "protein": 25, "fat": 36, "carbs": 34, "fiber": 3, "calories": 560 }
+    },
+    {
+      "name": "Fried Pickles",
+      "aliases": ["fried pickles", "pickles", "fried pickle chips"],
+      "macros": { "protein": 6, "fat": 38, "carbs": 48, "fiber": 5, "calories": 550 }
+    },
+    {
+      "name": "Tater Skins",
+      "aliases": ["tater skins", "potato skins", "loaded potato skins", "tator skins"],
+      "macros": { "protein": 63, "fat": 88, "carbs": 63, "fiber": 7, "calories": 1320 }
+    },
+    {
+      "name": "Boneless Buffalo Wings - Mild",
+      "aliases": ["boneless wings", "boneless buffalo wings", "mild boneless wings", "boneless wings mild", "buffalo wings"],
+      "macros": { "protein": 58, "fat": 50, "carbs": 43, "fiber": 5, "calories": 860 }
+    },
+    {
+      "name": "Boneless Buffalo Wings - Hot",
+      "aliases": ["hot boneless wings", "boneless wings hot", "hot wings", "boneless buffalo wings hot"],
+      "macros": { "protein": 60, "fat": 42, "carbs": 37, "fiber": 12, "calories": 760 }
+    },
+    {
+      "name": "Cheese Fries - Regular",
+      "aliases": ["cheese fries", "loaded cheese fries", "bacon cheese fries", "regular cheese fries"],
+      "macros": { "protein": 38, "fat": 65, "carbs": 126, "fiber": 14, "calories": 1240 }
+    },
+    {
+      "name": "Killer Ribs",
+      "aliases": ["killer ribs", "rib appetizer", "ribs appetizer", "killer ribs appetizer"],
+      "macros": { "protein": 49, "fat": 53, "carbs": 59, "fiber": 8, "calories": 910 }
+    },
+    {
+      "name": "Grilled Shrimp (appetizer)",
+      "aliases": ["grilled shrimp appetizer", "shrimp appetizer", "grilled shrimp app"],
+      "macros": { "protein": 20, "fat": 19, "carbs": 29, "fiber": 1, "calories": 370 }
+    },
+    {
+      "name": "Twisted Mozzarella",
+      "aliases": ["twisted mozzarella", "mozzarella sticks", "twisted mozz", "fried mozzarella"],
+      "macros": { "protein": 27, "fat": 39, "carbs": 64, "fiber": 4, "calories": 710 }
+    },
+    {
+      "name": "Texas Red Chili (with beans) - Bowl",
+      "aliases": ["chili", "texas red chili", "bowl of chili", "chili bowl", "chili with beans", "texas red chili bowl"],
+      "macros": { "protein": 31, "fat": 23, "carbs": 25, "fiber": 6, "calories": 430 }
+    },
+    {
+      "name": "Texas Red Chili (with beans) - Cup",
+      "aliases": ["cup of chili", "chili cup", "small chili", "texas red chili cup"],
+      "macros": { "protein": 16, "fat": 10, "carbs": 14, "fiber": 4, "calories": 210 }
+    },
+    {
+      "name": "Texas Red Chili (no beans) - Bowl",
+      "aliases": ["chili no beans", "texas red chili no beans", "bowl of chili no beans", "no bean chili"],
+      "macros": { "protein": 33, "fat": 31, "carbs": 23, "fiber": 5, "calories": 500 }
+    },
+    {
+      "name": "Baked Potato Soup - Bowl",
+      "aliases": ["baked potato soup", "potato soup", "bowl of potato soup", "loaded potato soup"],
+      "macros": { "protein": 9, "fat": 25, "carbs": 27, "fiber": 2, "calories": 380 }
+    },
+    {
+      "name": "Chicken Caesar Salad",
+      "aliases": ["chicken caesar salad", "chicken caesar", "grilled chicken caesar salad", "chicken ceasar salad"],
+      "macros": { "protein": 60, "fat": 89, "carbs": 20, "fiber": 7, "calories": 1100 }
+    },
+    {
+      "name": "Grilled Salmon Salad",
+      "aliases": ["grilled salmon salad", "salmon salad"],
+      "macros": { "protein": 66, "fat": 55, "carbs": 19, "fiber": 6, "calories": 830 }
+    },
+    {
+      "name": "Steakhouse Filet Salad",
+      "aliases": ["steakhouse filet salad", "filet salad", "steak salad", "steakhouse salad"],
+      "macros": { "protein": 71, "fat": 103, "carbs": 42, "fiber": 8, "calories": 1340 }
+    },
+    {
+      "name": "Chicken Critter Salad",
+      "aliases": ["chicken critter salad", "critter salad", "crispy chicken salad", "chicken tender salad"],
+      "macros": { "protein": 56, "fat": 40, "carbs": 27, "fiber": 6, "calories": 690 }
+    },
+    {
+      "name": "House Side Salad",
+      "aliases": ["house salad", "side salad", "house side salad", "garden salad", "salad"],
+      "macros": { "protein": 13, "fat": 16, "carbs": 9, "fiber": 2, "calories": 230 },
+      "build": [{ "component": "house side salad", "count": 1 }]
+    },
+    {
+      "name": "Caesar Side Salad",
+      "aliases": ["caesar salad", "side caesar", "caesar side salad", "ceasar salad", "side caesar salad"],
+      "macros": { "protein": 6, "fat": 43, "carbs": 9, "fiber": 2, "calories": 440 },
+      "build": [{ "component": "caesar side salad", "count": 1 }]
+    },
+    {
+      "name": "Baked Potato",
+      "aliases": ["baked potato", "plain baked potato", "potato", "loaded baked potato", "baked potato with toppings"],
+      "macros": { "protein": 7, "fat": 13, "carbs": 60, "fiber": 6, "calories": 380 },
+      "build": [{ "component": "baked potato", "count": 1 }]
+    },
+    {
+      "name": "Sweet Potato",
+      "aliases": ["sweet potato", "baked sweet potato", "loaded sweet potato", "sweet potato with marshmallows"],
+      "macros": { "protein": 6, "fat": 9, "carbs": 62, "fiber": 10, "calories": 350 },
+      "build": [{ "component": "sweet potato", "count": 1 }]
+    },
+    {
+      "name": "Mashed Potatoes",
+      "aliases": ["mashed potatoes", "mashed potato", "mashed", "garlic mashed potatoes", "mashed potatoes with gravy", "smashed potatoes"],
+      "macros": { "protein": 3, "fat": 17, "carbs": 24, "fiber": 2, "calories": 260 },
+      "build": [{ "component": "mashed potatoes", "count": 1 }]
+    },
+    {
+      "name": "Seasoned Rice",
+      "aliases": ["seasoned rice", "rice", "side of rice", "roadhouse rice"],
+      "macros": { "protein": 6, "fat": 15, "carbs": 47, "fiber": 2, "calories": 360 },
+      "build": [{ "component": "seasoned rice", "count": 1 }]
+    },
+    {
+      "name": "Green Beans",
+      "aliases": ["green beans", "side green beans", "greenbeans", "green bean"],
+      "macros": { "protein": 6, "fat": 3.5, "carbs": 13, "fiber": 2, "calories": 100 },
+      "build": [{ "component": "green beans", "count": 1 }]
+    },
+    {
+      "name": "Fresh Vegetables",
+      "aliases": ["fresh vegetables", "veggies", "fresh veggies", "mixed vegetables", "sauteed vegetables", "vegetables"],
+      "macros": { "protein": 3, "fat": 15, "carbs": 13, "fiber": 5, "calories": 190 },
+      "build": [{ "component": "fresh vegetables", "count": 1 }]
+    },
+    {
+      "name": "Steamed Broccoli",
+      "aliases": ["steamed broccoli", "broccoli", "side broccoli", "brocolli", "broccoli with cheese"],
+      "macros": { "protein": 5, "fat": 16, "carbs": 17, "fiber": 8, "calories": 210 },
+      "build": [{ "component": "steamed broccoli", "count": 1 }]
+    },
+    {
+      "name": "Steak Fries",
+      "aliases": ["steak fries", "fries", "french fries", "side fries", "roadhouse fries"],
+      "macros": { "protein": 5, "fat": 14, "carbs": 53, "fiber": 6, "calories": 360 },
+      "build": [{ "component": "steak fries", "count": 1 }]
+    },
+    {
+      "name": "Mac and Cheese",
+      "aliases": ["mac and cheese", "mac n cheese", "macaroni and cheese", "mac & cheese", "side mac and cheese"],
+      "macros": { "protein": 17, "fat": 18, "carbs": 37, "fiber": 2, "calories": 380 },
+      "build": [{ "component": "mac and cheese", "count": 1 }]
+    },
+    {
+      "name": "Seasoned Corn",
+      "aliases": ["seasoned corn", "corn", "buttered corn", "side corn"],
+      "macros": { "protein": 5, "fat": 9, "carbs": 29, "fiber": 3, "calories": 190 },
+      "build": [{ "component": "seasoned corn", "count": 1 }]
+    },
+    {
+      "name": "Applesauce",
+      "aliases": ["applesauce", "apple sauce", "side applesauce"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 28, "fiber": 3, "calories": 110 }
+    },
+    {
+      "name": "Sauteed Mushrooms (side)",
+      "aliases": ["sauteed mushrooms", "side of mushrooms", "mushrooms", "sauteed mushroom side"],
+      "macros": { "protein": 3, "fat": 11, "carbs": 5, "fiber": 2, "calories": 120 },
+      "build": [{ "component": "sauteed mushrooms", "count": 1 }]
+    },
+    {
+      "name": "Sauteed Onions (side)",
+      "aliases": ["sauteed onions", "side of onions", "onions", "grilled onions"],
+      "macros": { "protein": 2, "fat": 10, "carbs": 13, "fiber": 2, "calories": 150 },
+      "build": [{ "component": "sauteed onions", "count": 1 }]
+    },
+    {
+      "name": "Ranch Dressing (2 oz)",
+      "aliases": ["ranch", "ranch dressing", "side of ranch", "ranch dip", "house ranch"],
+      "macros": { "protein": 0, "fat": 31, "carbs": 4, "fiber": 0, "calories": 290 }
+    },
+    {
+      "name": "Bleu Cheese Dressing (2 oz)",
+      "aliases": ["bleu cheese dressing", "blue cheese dressing", "bleu cheese", "blue cheese", "side of blue cheese"],
+      "macros": { "protein": 2, "fat": 30, "carbs": 4, "fiber": 0, "calories": 280 }
+    },
+    {
+      "name": "Caesar Dressing (2 oz)",
+      "aliases": ["caesar dressing", "ceasar dressing", "side caesar dressing"],
+      "macros": { "protein": 3, "fat": 37, "carbs": 4, "fiber": 0, "calories": 360 }
+    },
+    {
+      "name": "Honey Mustard Dressing (2 oz)",
+      "aliases": ["honey mustard", "honey mustard dressing", "honey mustard sauce", "side of honey mustard"],
+      "macros": { "protein": 0, "fat": 32, "carbs": 11, "fiber": 0, "calories": 320 }
+    },
+    {
+      "name": "Italian Dressing (2 oz)",
+      "aliases": ["italian dressing", "italian", "side italian dressing"],
+      "macros": { "protein": 0, "fat": 24, "carbs": 12, "fiber": 0, "calories": 270 }
+    },
+    {
+      "name": "Thousand Island Dressing (2 oz)",
+      "aliases": ["thousand island", "thousand island dressing", "1000 island"],
+      "macros": { "protein": 0, "fat": 26, "carbs": 9, "fiber": 0, "calories": 260 }
+    },
+    {
+      "name": "Oil & Vinegar (2 oz)",
+      "aliases": ["oil and vinegar", "oil & vinegar", "oil vinegar dressing", "vinaigrette"],
+      "macros": { "protein": 0, "fat": 28, "carbs": 0, "fiber": 0, "calories": 270 }
+    },
+    {
+      "name": "Texas Roadhouse Barbecue Sauce (2 oz)",
+      "aliases": ["bbq sauce", "barbecue sauce", "side of bbq sauce", "roadhouse bbq sauce"],
+      "macros": { "protein": 0, "fat": 0, "carbs": 18, "fiber": 0, "calories": 80 }
+    },
+    {
+      "name": "Big Ol' Brownie",
+      "aliases": ["big ol brownie", "brownie", "big ole brownie", "brownie sundae"],
+      "macros": { "protein": 12, "fat": 40, "carbs": 203, "fiber": 8, "calories": 1200 }
+    },
+    {
+      "name": "Granny's Apple Classic",
+      "aliases": ["grannys apple classic", "apple classic", "apple pie dessert", "granny's apple classic"],
+      "macros": { "protein": 9, "fat": 50, "carbs": 161, "fiber": 2, "calories": 1110 }
+    },
+    {
+      "name": "Strawberry Cheesecake",
+      "aliases": ["strawberry cheesecake", "cheesecake", "cheese cake"],
+      "macros": { "protein": 10, "fat": 47, "carbs": 76, "fiber": 3, "calories": 800 }
+    }
+  ]
+}

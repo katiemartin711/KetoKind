@@ -7,7 +7,7 @@ import { database } from './client';
  * schema changes — initDb() applies every migration newer than the stored
  * PRAGMA user_version, in order.
  */
-const SCHEMA_VERSION = 8;
+const SCHEMA_VERSION = 9;
 
 /** version -> migration function upgrading TO that version. Use
  *  addColumnIfMissing() for column adds so migrations stay idempotent
@@ -56,7 +56,6 @@ const MIGRATIONS: Record<number, () => void> = {
     addColumnIfMissing('food_logs', 'macro_source', "TEXT NOT NULL DEFAULT ''");
     addColumnIfMissing('profile', 'track_calories', 'INTEGER NOT NULL DEFAULT 0');
     addColumnIfMissing('profile', 'llm_offer', "TEXT NOT NULL DEFAULT ''");
-    addColumnIfMissing('profile', 'carbs_mode', "TEXT NOT NULL DEFAULT 'net'");
     ensureInsightTable();
   },
   7: () => {
@@ -66,6 +65,10 @@ const MIGRATIONS: Record<number, () => void> = {
   8: () => {
     // v8: optional short name for a favorite. Blank keeps the meal description.
     addColumnIfMissing('meal_favorites', 'label', "TEXT NOT NULL DEFAULT ''");
+  },
+  9: () => {
+    // v9: which carbs the user tracks on meal rows and in Trends ('net' or 'total').
+    addColumnIfMissing('profile', 'carbs_mode', "TEXT NOT NULL DEFAULT 'net'");
   },
 };
 

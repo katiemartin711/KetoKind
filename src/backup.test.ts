@@ -447,8 +447,8 @@ check('v2 migration adds name columns and backfills med-log names', () => {
     );
     eq(
       handle.getFirstSync<{ user_version: number }>('PRAGMA user_version')?.user_version,
-      8,
-      'version stamped at 8',
+      9,
+      'version stamped at 9',
     );
     const profileCols = handle.getAllSync<{ name: string }>('PRAGMA table_info(profile)');
     ok(
@@ -694,10 +694,10 @@ check('rejects hour 24 timestamps', () => {
 
 check('initDb does not downgrade a newer user_version', () => {
   const handle = setup();
-  handle.execSync('PRAGMA user_version = 9');
+  handle.execSync('PRAGMA user_version = 10');
   initDb();
   const stored = handle.getFirstSync<{ user_version: number }>('PRAGMA user_version');
-  eq(stored?.user_version, 9, 'newer version kept');
+  eq(stored?.user_version, 10, 'newer version kept');
 });
 
 console.log(`

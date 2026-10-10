@@ -97,6 +97,7 @@ check('main reminder scheduled today when time is still ahead and no logs', () =
   eq(occ.length, 7, '7 daily occurrences');
   eq(occ[0].kind, 'main', 'first is main');
   eq(dayOf(occ[0].date), '2026-9-21 20:00', 'today at 8pm');
+  eq(occ[0].wallClock, { year: 2026, month: 8, day: 21, hour: 20, minute: 0 }, 'wall clock at 8pm local');
   eq(dayOf(occ[6].date), '2026-9-27 20:00', 'last day');
 });
 
@@ -145,6 +146,15 @@ check('occurrences are sorted chronologically', () => {
 check('schedule key changes when the local date changes', () => {
   const s = settings();
   ok(scheduleKey(s, true, '2026-09-21') !== scheduleKey(s, true, '2026-09-22'), 'date is part of the key');
+});
+
+check('schedule key changes when the device timezone changes', () => {
+  const s = settings();
+  ok(
+    scheduleKey(s, false, '2026-09-21', 'America/Los_Angeles') !==
+      scheduleKey(s, false, '2026-09-21', 'America/Chicago'),
+    'timezone is part of the key',
+  );
 });
 
 check('disabling the daily nudge keeps custom alarms', () => {

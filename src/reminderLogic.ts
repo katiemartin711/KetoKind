@@ -91,11 +91,41 @@ export function formatTime(t: ReminderTime): string {
   return `${h12}:${String(t.minute).padStart(2, '0')} ${ampm}`;
 }
 
+/** Calendar fields for a one-shot local notification (Expo month is 0–11). */
+export interface WallClockSchedule {
+  year: number;
+  month: number;
+  day: number;
+  hour: number;
+  minute: number;
+}
+
 export interface ScheduledOccurrence {
   /** Local date/time the notification should fire. */
   date: Date;
+  /** Device-local wall clock passed to OS calendar triggers (not UTC). */
+  wallClock: WallClockSchedule;
   kind: 'main' | 'custom';
   customId?: string;
+}
+
+/** IANA timezone id for the device (used to reschedule after travel or DST). */
+export function deviceTimeZone(): string {
+  try {
+    return Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+  } catch {
+    return 'UTC';
+  }
+}
+
+function wallClockFrom(base: Date, time: ReminderTime): WallClockSchedule {
+  return {
+    year: base.getFullYear(),
+    month: base.getMonth(),
+    day: base.getDate(),
+    hour: time.hour,
+    minute: time.minute,
+  };
 }
 
 /**
@@ -122,22 +152,28 @@ export function computeOccurrences(
     const mainInPast = mainAt.getTime() <= now.getTime();
     const mainSkippedByLogs = isToday && settings.onlyIfNoLogs && hasLogsToday;
     if (!(isToday && (mainInPast || mainSkippedByLogs))) {
-      out.push({ date: mainAt, kind: 'main' });
+      out.push({ date: mainAt, wallClock: wallClockFrom(base, settings.time), kind: 'main' });
     }
     for (const c of settings.custom) {
       const at = new Date(base);
       at.setHours(c.hour, c.minute, 0, 0);
       if (isToday && at.getTime() <= now.getTime()) continue;
-      out.push({ date: at, kind: 'custom', customId: c.id });
+      out.push({ date: at, wallClock: wallClockFrom(base, c), kind: 'custom', customId: c.id });
     }
   }
   out.sort((a, b) => a.date.getTime() - b.date.getTime());
   return out;
 }
 
-export function scheduleKey(settings: ReminderSettings, hasLogsToday: boolean, localDate: string): string {
+export function scheduleKey(
+  settings: ReminderSettings,
+  hasLogsToday: boolean,
+  localDate: string,
+  timeZone: string = deviceTimeZone(),
+): string {
   return JSON.stringify({
     localDate,
+    timeZone,
     enabled: settings.enabled,
     time: settings.time,
     onlyIfNoLogs: settings.onlyIfNoLogs,

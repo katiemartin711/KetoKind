@@ -16,7 +16,13 @@ import { Platform } from 'react-native';
 import * as Notifications from 'expo-notifications';
 import { getLogsForDay } from './db/logs';
 import { getReminderSettings, hasReminderSettings, saveReminderSettings } from './db/profile';
-import { occurrencesToSchedule, scheduleKey, type ReminderSettings } from './reminderLogic';
+import {
+  deviceTimeZone,
+  occurrencesToSchedule,
+  scheduleKey,
+  type ReminderSettings,
+  type ScheduledOccurrence,
+} from './reminderLogic';
 import { localDayKey } from './trendsStats';
 
 export type { ReminderSettings };
@@ -55,6 +61,26 @@ export async function ensureNotificationPermission(): Promise<boolean> {
   }
 }
 
+/** One-shot calendar trigger in the phone's local timezone (8pm means 8pm wherever you are). */
+function calendarTriggerFor(occ: ScheduledOccurrence): Notifications.CalendarTriggerInput {
+  const { year, month, day, hour, minute } = occ.wallClock;
+  return {
+    type: Notifications.SchedulableTriggerInputTypes.CALENDAR,
+    year,
+    month,
+    day,
+    hour,
+    minute,
+    repeats: false,
+    ...(Platform.OS === 'android' ? { channelId: ANDROID_CHANNEL } : {}),
+  };
+}
+
+function occurrenceIdSuffix(occ: ScheduledOccurrence): string {
+  const { year, month, day, hour, minute } = occ.wallClock;
+  return `${year}${month}${day}-${hour}${minute}-${occ.kind === 'custom' ? occ.customId : 'main'}`;
+}
+
 async function cancelOurScheduled(): Promise<void> {
   try {
     const scheduled = await Notifications.getAllScheduledNotificationsAsync();
@@ -80,7 +106,8 @@ export async function reconcileReminders(force: boolean = false): Promise<void> 
     const settings = getReminderSettings();
     const now = new Date();
     const hasLogsToday = getLogsForDay(now).length > 0;
-    const key = scheduleKey(settings, hasLogsToday, localDayKey(now.toISOString()));
+    const tz = deviceTimeZone();
+    const key = scheduleKey(settings, hasLogsToday, localDayKey(now.toISOString()), tz);
     if (!force && key === lastScheduleKey) return;
 
     await cancelOurScheduled();
@@ -108,7 +135,7 @@ export async function reconcileReminders(force: boolean = false): Promise<void> 
     for (const occ of occurrences) {
       const isMain = occ.kind === 'main';
       await Notifications.scheduleNotificationAsync({
-        identifier: `${ID_PREFIX}${isMain ? 'main' : `custom-${occ.customId}`}-${occ.date.getTime()}`,
+        identifier: `${ID_PREFIX}${isMain ? 'main' : `custom-${occ.customId}`}-${occurrenceIdSuffix(occ)}`,
         content: {
           title: isMain ? 'Time to log your day' : 'KetoKind reminder',
           body: isMain
@@ -120,11 +147,7 @@ export async function reconcileReminders(force: boolean = false): Promise<void> 
           badge: settings.badge ? 1 : undefined,
           data: { kind: occ.kind },
         },
-        trigger: {
-          type: Notifications.SchedulableTriggerInputTypes.DATE,
-          date: occ.date,
-          ...(Platform.OS === 'android' ? { channelId: ANDROID_CHANNEL } : {}),
-        },
+        trigger: calendarTriggerFor(occ),
       });
     }
     lastScheduleKey = key;
